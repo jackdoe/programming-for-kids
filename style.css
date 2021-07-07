@@ -1,0 +1,18 @@
+pre {
+    border-style: dashed;
+    border-color: black;
+    border-radius: 0;
+}
+body {
+    font-size: 14px !important;
+}
+
+pre code {
+    color: black !important;
+    font-size: 14px !important;
+}
+
+code {
+    color: navy !important;
+    font-size: 14px !important;
+}
