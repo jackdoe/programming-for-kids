@@ -2,6 +2,7 @@ pre {
     border-style: dashed;
     border-color: black;
     border-radius: 0;
+    background-color: white;
 }
 body {
     font-size: 14px !important;
