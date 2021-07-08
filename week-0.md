@@ -250,6 +250,8 @@ Open IDLE again, go to File -> Open File, and find where you saved your program,
 
 Spend the rest of the time for the day touch typing. Don't rush it. Place your fingers properly on the keyboard and slowly type the letters.
 
+> Spend the whole day touch typing and making and opening new files in IDLE and notepad; I cant stress enough how important it is for the kid to be independent to be able on its own to make or open a file.
+
 
 ## [DAY-4] HTML
 

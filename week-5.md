@@ -5,7 +5,7 @@ day0: Basics of Basics
 day1: Basics of Basics
 day2: Basics of Basics
 day3: Basics of Basics
-day4: Basics of Basics
+day4: Touch Typing
 day5: Basics of Basics
 day6: Basics of Basics
 ```
@@ -226,7 +226,7 @@ while True:
     print("nop, I dont like " + guess)
 ```
 
-Guess the song
+Guess again
 
 ```
 
@@ -249,9 +249,117 @@ while True:
 
 ## [DAY-38] Basics of Basics
 
+What was your name again?
+
+```
+for i in range(10):
+  name = input("what is your name: ")
+  print(i)
+  print(name)
+```
+
+First and last letter:
+
+```
+
+name = input("what is your name: ")
+print("first letter: " + name[0])
+print("last letter: " + name[len(name)-1])
+```
+
+to get the last letter we have to count however letters are in the whole name, so `len(name)` will return 4 for 'jane' and it counts from 1
+
+```
+len("jane"):
+
+j a n e
+1 2 3 4
 
 
+len("ja")
 
-## [DAY-39] Basics of Basics
+j a
+1 2
+
+```
+
+but when we are using `[0]` to get to specific character from a string or element from a list, it counts from 0, so
+```
+j a n e
+0 1 2 3
+
+name = "jane"
+name[0] is j
+name[1] is a
+name[2] is n
+name[3] is e
+
+len(name) is 4 (because len counts from 1)
+so name[len(name) - 1], is name[4 - 1] or name[3] which is the last letter
+```
+
+
+Make a Line
+
+```
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+line(20, '#')
+line(30, '*')
+line(40, '_')
+```
+
+Make a triangle
+
+```
+
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+for i in range(100):
+  line(i,'*')
+  print('')
+
+```
+
+Make a beam
+
+```
+
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+for i in range(50):
+  line(i, ' ')
+  line(i, '*')
+  print('')
+
+```
+
+Make a box
+
+```
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+def box(width,height,symbol):
+    for y in range(height):
+        line(width,symbol)
+        print('')
+
+box(16,20)
+box(10,20,'#')
+box(15,13,'*')
+
+```
+## [DAY-39] Touch Typing
+
+Do some touch typing.
+
 ## [DAY-40] Basics of Basics
 ## [DAY-41] Basics of Basics
