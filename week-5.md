@@ -32,14 +32,12 @@ what = random.choice(possible)
 print("possible choices: ")
 print(possible)
 print("the magic 8 ball decided: " + what)
-
 ```
 
 
 Make a program to help you multiply two numbers:
 
 ```
-
 while True:
   a = int(input("first number: "))
   b = int(input("second number: "))
@@ -69,7 +67,6 @@ You can get individual characters from string by picking them up with `[]` so if
 
 Make a calculator
 ```
-
 while True:
   a = int(input("first number: "))
   b = int(input("second number: "))
@@ -159,7 +156,6 @@ for i in range(s):
   time.sleep(1)
 
 print(s, "SECONDS ARE OVER")
-
 ```
 
 ## [DAY-37] Basics of Basics
@@ -167,7 +163,6 @@ print(s, "SECONDS ARE OVER")
 Clock 
 
 ```
-
 import datetime
 import time
 import os
@@ -229,7 +224,6 @@ while True:
 Guess again
 
 ```
-
 def is_in_list(list,what):
   for element in list:
     if element == what:
@@ -244,7 +238,6 @@ while True:
     print("good guess! I like " + guess)
   else:
     print("nop, I dont like " + guess)
-
 ```
 
 ## [DAY-38] Basics of Basics
@@ -261,7 +254,6 @@ for i in range(10):
 First and last letter:
 
 ```
-
 name = input("what is your name: ")
 print("first letter: " + name[0])
 print("last letter: " + name[len(name)-1])
@@ -284,6 +276,7 @@ j a
 ```
 
 but when we are using `[0]` to get to specific character from a string or element from a list, it counts from 0, so
+
 ```
 j a n e
 0 1 2 3
@@ -314,7 +307,6 @@ line(40, '_')
 Make a triangle
 
 ```
-
 def line(width, symbol):
     for x in range(width):
         print(symbol,end='')
@@ -322,13 +314,11 @@ def line(width, symbol):
 for i in range(100):
   line(i,'*')
   print('')
-
 ```
 
 Make a beam
 
 ```
-
 def line(width, symbol):
     for x in range(width):
         print(symbol,end='')
@@ -337,7 +327,6 @@ for i in range(50):
   line(i, ' ')
   line(i, '*')
   print('')
-
 ```
 
 Make a box
@@ -355,8 +344,8 @@ def box(width,height,symbol):
 box(16,20)
 box(10,20,'#')
 box(15,13,'*')
-
 ```
+
 ## [DAY-39] Touch Typing
 
 Do some touch typing.
@@ -376,7 +365,6 @@ for i in range(count):
   line(count - i, ' ')
   line(i, '*')
   print('')
-
 ```
 
 Make a tree
@@ -517,7 +505,6 @@ while True:
 Staircase
 
 ```
-
 def line(width, symbol):
     for x in range(width):
         print(symbol,end='')
@@ -560,8 +547,6 @@ for i in range(0, 100, 5):
 ```
 
 and
-
-```
 
 ```
 for i in range(0, 100, 2):

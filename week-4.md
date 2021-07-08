@@ -322,7 +322,6 @@ if a == "he" and b == "ll" and c == "o":
 Our game is quite limited, and a quick step to improve it is to make you ask where you want to go until you pick one of the options.
 
 ```
-
 def ask(possible_answers):
   answer = ''
   print("---") # print empty line
@@ -368,7 +367,6 @@ def sum(a,b):
 
 r = sum(1737,1231231)
 print(r)
-
 ```
 
 Whatever is between `def` and `(` is the name of the function, in the above example its `sum`. Between `()` you put in the name of the variables you expect to use when someone calls your function. I want to sum two numbers, I dont know what the numbers are, so I just make two variables `a, b` and expect whoever calls my function to give me the numbers, like `r = sum(1737,1231231)`
@@ -411,7 +409,6 @@ fight(100, 50, "meerkat")
 lets use it now in our dungeon game
 
 ```
-
 import random
 import time
 
@@ -454,7 +451,6 @@ while True:
     print("ewwwww I hate " + food)
   else:
     print("yumm, I love " + food)
-
 ```
 
 
