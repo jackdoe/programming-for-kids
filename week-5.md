@@ -201,7 +201,7 @@ june = [
 show(june)
 ```
 
-Growing list of food
+Growing list of food.
 
 ```
 food = []
@@ -210,12 +210,48 @@ while True:
   what = input("what is your favorite food: ")
   food.append(what)
   print(what)
-
 ```
 
 
+Guessing game
+
+```
+colors = ["red","green","blue"]
+score = 0
+while True:
+  guess = input("guess a color: ")
+  if guess in colors:
+    print("good guess! I like " + guess)
+  else:
+    print("nop, I dont like " + guess)
+```
+
+Guess the song
+
+```
+
+def is_in_list(list,what):
+  for element in list:
+    if element == what:
+      return True
+  return False
+
+colors = ["red","green","blue"]
+score = 0
+while True:
+  guess = input("guess a color: ")
+  if is_in_list(colors, guess):
+    print("good guess! I like " + guess)
+  else:
+    print("nop, I dont like " + guess)
+
+```
 
 ## [DAY-38] Basics of Basics
+
+
+
+
 ## [DAY-39] Basics of Basics
 ## [DAY-40] Basics of Basics
 ## [DAY-41] Basics of Basics
