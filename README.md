@@ -1,3 +1,4 @@
+
 ```
 ┌─┐┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐┌┬┐┬┌┐┌┌─┐
 ├─┘├┬┘│ ││ ┬├┬┘├─┤│││││││││││ ┬
@@ -24,12 +25,9 @@ Spend 30 minutes per day. Every day.
 <br>
 <br>
 <br>
-<br>
-<br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br>
-This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
 <div style="page-break-before:always"></div>
+
 # Hello World
 
 ::: warning
@@ -164,6 +162,7 @@ I try to spend time in the morning, at least on the weekends, and first thing af
 Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card, but I think you will have to find out what works for your kids.
 
 <div style="page-break-before:always"></div>
+
 # Chapter 0 - Week 0
 
 ```
@@ -498,7 +497,8 @@ For example, try this on your page: `<b>this is bold</b>`
 
 ## [DAY-6] Touch Typing
 
-Spend half the time using your program and half the time on keybr.com.# Chapter 1 - Week 1
+Spend half the time using your program and half the time on keybr.com.
+# Chapter 1 - Week 1
 
 ```
 day0: make new touch typing program
@@ -679,7 +679,8 @@ This day is completely free style, try to put all kinds of HTML words inside eac
 </html>
 ```
 
-Try to add the self cloning 🐛 button to that page.# Chapter 2 - Week 2
+Try to add the self cloning 🐛 button to that page.
+# Chapter 2 - Week 2
 
 ```
 day0: HTML tables
@@ -988,7 +989,8 @@ Well trees in the world are actually the other way around haha. Leave it to prog
 
 But you can see how all things that have the same parent are related, like brothers and sisters.
 
-This is very important, we will spend the next week thinking about it as well.# Chapter 3 - Week 3
+This is very important, we will spend the next week thinking about it as well.
+# Chapter 3 - Week 3
 
 ```
 day0: View Source
@@ -1311,7 +1313,8 @@ setInterval(draw,10);
 </html>
 ```
 
-The last one is quite crazy! But I am sure you will like the result when done.# Chapter 4 - Week 4
+The last one is quite crazy! But I am sure you will like the result when done.
+# Chapter 4 - Week 4
 
 ```
 day0: Basics of Basics
@@ -1880,6 +1883,7 @@ Whoaa it has been a difficult week.
 
 Relax with some touch typing.
 
+
 # Chapter 5 - Week 5
 
 ```
@@ -2101,3 +2105,4 @@ while True:
 ## [DAY-4] Basics of Basics
 ## [DAY-5] Basics of Basics
 ## [DAY-6] Basics of Basics
+
