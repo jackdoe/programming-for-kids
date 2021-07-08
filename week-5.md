@@ -362,4 +362,217 @@ box(15,13,'*')
 Do some touch typing.
 
 ## [DAY-40] Basics of Basics
+
+
+Make inverse beam
+
+```
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+count = 50
+for i in range(count):
+  line(count - i, ' ')
+  line(i, '*')
+  print('')
+
+```
+
+Make a tree
+
+```
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+count = 50
+for i in range(count):
+  half = int((count-i)/2)
+  line(half , ' ')
+  line(i, '*')
+  print('')
+```
+
+Inverse
+
+```
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+count = 50
+for i in range(count):
+  line(count-i, '*')
+  print('')
+```
+
+Inverse tree
+
+```
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+count = 50
+for i in range(count):
+  half = int(i/2)
+  line(half , ' ')
+  line(count-i, '*')
+  print('')
+```
+
+
+Art
+
+```
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+while True:
+  count = 10
+  for i in range(count):
+    line(count-i, '*')
+    print('')
+
+  for i in range(count):
+    line(i, '#')
+    print('')
+```
+
+Looks so pretty!
+
+```
+#
+##
+###
+####
+#####
+######
+#######
+########
+#########
+**********
+*********
+********
+*******
+******
+*****
+****
+***
+**
+*
+
+#
+##
+###
+####
+#####
+######
+#######
+########
+#########
+**********
+*********
+********
+*******
+******
+*****
+****
+***
+**
+*
+
+```
+
 ## [DAY-41] Basics of Basics
+
+More Art
+
+```
+import random
+
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+
+symbols = ['*','#','%','^','&']
+while True:
+  count = random.randint(5,80)
+
+  symbol = random.choice(symbols)
+  for i in range(count):
+    line(count-i, symbol)
+    print('')
+
+  symbol = random.choice(symbols)
+  for i in range(count):
+    line(i, symbol)
+    print('')
+```
+
+
+Staircase
+
+```
+
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+
+count = 100
+for i in range(0, count, 5):
+  line(i, '*')
+  print('')
+
+```
+
+Range is so cool, and you didnt even notice!
+
+Try this:
+```
+for i in range(0, 100, 10):
+  print(i)
+```
+
+it will print 
+```
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+```
+
+so every 10th number, now try:
+
+```
+for i in range(0, 100, 5):
+  print(i)
+```
+
+and
+
+```
+
+```
+for i in range(0, 100, 2):
+  print(i)
+```
+
+Of course you dont have to start counting from 0:
+
+```
+for i in range(50, 100, 2):
+  print(i)
+```
+
+Do some touch typing if there is time left.
