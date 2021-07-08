@@ -10,7 +10,7 @@ day5: touch typing
 day6: HTML
 ```
 
-## [DAY-0] New Touch Typing Program
+## [DAY-7] New Touch Typing Program
 
 Make new file on your desktop, touchtyping.html and type in it:
 
@@ -52,15 +52,15 @@ document.body.addEventListener('keydown', (e) => {
 
 Don't worry about what it all means. Just type it character by character. Now double click on the file and try out your program, just start typing as the web page is open, and characters will become bold as you type them.
 
-## [DAY-1] Touch Typing
+## [DAY-8] Touch Typing
 
 Today just spend the day chilling on keybr.com
 
-## [DAY-2] Touch Typing using your program
+## [DAY-9] Touch Typing using your program
 
 Open touchtyping.html and spend the day using your awesome program. Once you open it, right click and then click on `View Source` to remember that you actually wrote this! Good job!
 
-## [DAY-3] HTML
+## [DAY-10] HTML
 
 From now on the HTML examples will be more code and less text, so you just have to go through them with your parent.
 
@@ -101,7 +101,7 @@ You see we add this `onclick=...` which is code that is going to run every time 
 Try to add more buttons by yourself with other emojis, 🏍️, 🏂, 🐓 or 🐧 for example.
 
 
-## [DAY-4] HTML
+## [DAY-11] HTML
 
 Making a presentation with HTML
 
@@ -150,14 +150,14 @@ Making a presentation with HTML
 </html>
 ```
 
-## [DAY-5] Touch Typing
+## [DAY-12] Touch Typing
 
 Use your program to touch type or go to keybr.com. 
 
 Don't rush.
 
 
-## [DAY-6] HTML
+## [DAY-13] HTML
 
 This day is completely free style, try to put all kinds of HTML words inside each other, for example:
 

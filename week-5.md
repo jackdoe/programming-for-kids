@@ -10,7 +10,7 @@ day5: Basics of Basics
 day6: Basics of Basics
 ```
 
-## [DAY-0] Basics of Basics
+## [DAY-35] Basics of Basics
 
 This week there will be less talking and more programming.
 
@@ -91,7 +91,7 @@ See how we use `continue` to not print a result if we don't understand the opera
 
 
 
-## [DAY-1] Basics of Basics
+## [DAY-36] Basics of Basics
 
 Print the numbers from 0 to 9 FOREVER
 
@@ -162,7 +162,7 @@ print(s, "SECONDS ARE OVER")
 
 ```
 
-## [DAY-2] Basics of Basics
+## [DAY-37] Basics of Basics
 
 Clock 
 
@@ -215,7 +215,7 @@ while True:
 
 
 
-## [DAY-3] Basics of Basics
-## [DAY-4] Basics of Basics
-## [DAY-5] Basics of Basics
-## [DAY-6] Basics of Basics
+## [DAY-38] Basics of Basics
+## [DAY-39] Basics of Basics
+## [DAY-40] Basics of Basics
+## [DAY-41] Basics of Basics

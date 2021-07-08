@@ -510,7 +510,7 @@ day5: touch typing
 day6: HTML
 ```
 
-## [DAY-0] New Touch Typing Program
+## [DAY-7] New Touch Typing Program
 
 Make new file on your desktop, touchtyping.html and type in it:
 
@@ -552,15 +552,15 @@ document.body.addEventListener('keydown', (e) => {
 
 Don't worry about what it all means. Just type it character by character. Now double click on the file and try out your program, just start typing as the web page is open, and characters will become bold as you type them.
 
-## [DAY-1] Touch Typing
+## [DAY-8] Touch Typing
 
 Today just spend the day chilling on keybr.com
 
-## [DAY-2] Touch Typing using your program
+## [DAY-9] Touch Typing using your program
 
 Open touchtyping.html and spend the day using your awesome program. Once you open it, right click and then click on `View Source` to remember that you actually wrote this! Good job!
 
-## [DAY-3] HTML
+## [DAY-10] HTML
 
 From now on the HTML examples will be more code and less text, so you just have to go through them with your parent.
 
@@ -601,7 +601,7 @@ You see we add this `onclick=...` which is code that is going to run every time 
 Try to add more buttons by yourself with other emojis, 🏍️, 🏂, 🐓 or 🐧 for example.
 
 
-## [DAY-4] HTML
+## [DAY-11] HTML
 
 Making a presentation with HTML
 
@@ -650,14 +650,14 @@ Making a presentation with HTML
 </html>
 ```
 
-## [DAY-5] Touch Typing
+## [DAY-12] Touch Typing
 
 Use your program to touch type or go to keybr.com. 
 
 Don't rush.
 
 
-## [DAY-6] HTML
+## [DAY-13] HTML
 
 This day is completely free style, try to put all kinds of HTML words inside each other, for example:
 
@@ -692,7 +692,7 @@ day5: HTML Links
 day6: HTML fun
 ```
 
-## [DAY-0] Tables
+## [DAY-14] Tables
 
 Tables are amazing, in fact, tables are one of the things that makes the modern world work. In your school for example, there is a table with the name of each student and their score. Or in your TV there is a table with each program number and the program there (e.g. 24 is 24 Kitchen). On your iPhone there are many programs that use many tables internally to make decisions. There is of course the ASCII table, which can tell you how to get from a character to its raw representation and the other way around. The periodic table is also a famous example. The table on the bus stop tells you which bus will come at what time.
 
@@ -765,7 +765,7 @@ Only 3 new tags we have to learn `table, tr, td, th` are the main things we will
 
 Make `<table border="100">` and see what happens.
 
-## [DAY-1] More tables
+## [DAY-15] More tables
 
 ```
 <html>
@@ -828,18 +828,18 @@ Super small difference between `ul` and `ol`, one means 'unordered list' and the
 
 
 
-## [DAY-2] Multiplication table
+## [DAY-16] Multiplication table
 
 Start writing the whole multiplication table
 (will take more than 1 day)
 
-## [DAY-3] Multiplication table
+## [DAY-17] Multiplication table
 Finish writing the whole multiplication table.
 
-## [DAY-4] Touch Typing
+## [DAY-18] Touch Typing
 Spend the day touch typing.
 
-## [DAY-5] Links
+## [DAY-19] Links
 
 The most powerful feature of HTML is to be able to link to another place in the internet, try this:
 
@@ -855,7 +855,7 @@ The `a` tag with its `href` attribute is one of the most important things of the
 
 Whatever is in the `href` attribute this is where the browser will go after you click on whatever is inside the `<a></a>`, in our case `click here`. So after you click on `click here` your browser will go to wikipedia.com, and from there when you click somewhere it will go to wherever that `a`'s `href` points to.
 
-## [DAY-6] HTML fun
+## [DAY-20] HTML fun
 
 Rainbow:
 
@@ -1002,7 +1002,7 @@ day5: HTML
 day6: HTML fun
 ```
 
-## [DAY-0] View Source
+## [DAY-21] View Source
 
 Browsers on laptops or pcs will allow you to rightclick on any page and then click on `View page source`, this will show you the HTML of the page your are looking at.
 
@@ -1019,7 +1019,7 @@ We will spend the rest of the day looking at some page sources
 * https://www.terrypratchettbooks.com/
 * https://www.goodreads.com/
 
-## [DAY-1] Inspect
+## [DAY-22] Inspect
 
 
 Make new html file and write the following example:
@@ -1051,7 +1051,7 @@ Lets try it. Make a new file with this content:
 Open the file and then right click on `0$` and click inspect. Then you will see `<b>0$</b>` if you double click on it, you will be able to change it, and you will see the new version. Now reload the page, and you will see the old value is back.
 
 
-## [DAY-2] HTML Images
+## [DAY-23] HTML Images
 
 To show an image you need the `img` tag, and give it `src` attribute with the address of the image, for example if I want to display https://picsum.photos/id/237/200/300 I have to do type it like this:
 
@@ -1158,7 +1158,7 @@ Image puppy.
 If you have an image that has no information, like it is just there to make the site pretty, use `alt=""` then the screen reader will skip it.
 
 
-## [DAY-3] Licenses
+## [DAY-24] Licenses
 
 If you take a picture of something you are the owner of that picture, and you can put it on your website and say you have the rights of that picture. It is up to you to decide if people should link to it by deciding what under license you will publish the image. There are many licenses you can choose from, there are some that say 'this picture is free for anyone to do whatever they want' or 'you can republish the picture but you cant make money selling it' or 'you can publish it but not print it in books' etc etc.
 
@@ -1179,11 +1179,11 @@ It is somewhat controversial what is the right way forward, which license to use
 
 Check out https://tldrlegal.com/ for super short description of licenses
 
-## [DAY-4] Touch Typing
+## [DAY-25] Touch Typing
 
 relax and spend the day touch typing
 
-## [DAY-5] HTML Title
+## [DAY-26] HTML Title
 
 ```
 <html>
@@ -1242,7 +1242,7 @@ The _language_ we use inside the `style` tag is called `CSS`, and it is quite si
 
 You see how in certain tags we can use different language, not html, like in `<style>` we use CSS, in `<script>` we use JavaScript, we are going to do more work with it soon, but you can check out at https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
-## [DAY-6] HTML fun
+## [DAY-27] HTML fun
 
 Many buttons
 
@@ -1326,7 +1326,7 @@ day5: Basics of Basics
 day6: Touch Typing
 ```
 
-## [DAY-0] Basics of Basics
+## [DAY-28] Basics of Basics
 
 Make a new file form IDLE, and write in it:
 ```
@@ -1543,7 +1543,7 @@ THATS THE WHOLE LANGUAGE, there are no more keywords.
 
 
 
-## [DAY-1] Dungeon Game
+## [DAY-29] Dungeon Game
 
 ```
 print("Welcome to the forest!")
@@ -1633,7 +1633,7 @@ if a == "he" and b == "ll" and c == "o":
   print("hello")
 ```
 
-## [DAY-2] Dungeon Game
+## [DAY-30] Dungeon Game
 
 Our game is quite limited, and a quick step to improve it is to make you ask where you want to go until you pick one of the options.
 
@@ -1690,7 +1690,7 @@ print(r)
 Whatever is between `def` and `(` is the name of the function, in the above example its `sum`. Between `()` you put in the name of the variables you expect to use when someone calls your function. I want to sum two numbers, I dont know what the numbers are, so I just make two variables `a, b` and expect whoever calls my function to give me the numbers, like `r = sum(1737,1231231)`
 
 
-## [DAY-2] Dungeon Game
+## [DAY-31] Dungeon Game
 
 FIGHT TO THE DEATH!
 
@@ -1757,7 +1757,7 @@ if what == "east":
 ```
 
 
-## [DAY-3] Favorite Food
+## [DAY-32] Favorite Food
 
 Today you have to make only two programs:
 
@@ -1793,7 +1793,7 @@ Great job!
 
 Spend the rest of the day touch typing.
 
-## [DAY-4] For
+## [DAY-33] For
 
 `for` does something number of times, if I want to print the numbers from 0 to 99, I could do:
 ```
@@ -1833,7 +1833,7 @@ k
 ```
 
 
-## [DAY-5] Love Tester
+## [DAY-34] Love Tester
 
 ```
 def love_test(a,b):
@@ -1877,7 +1877,7 @@ love test: 23
 BTW, now you know how those "professional" love testers are made, so if you use https://www.lovetester.nl/ or something similar.. don't read too much into the result. You can easily tweak it to do whatever you want.
 
 
-## [DAY-6] Touch Typing
+## [DAY-34] Touch Typing
 
 Whoaa it has been a difficult week.
 
@@ -1896,7 +1896,7 @@ day5: Basics of Basics
 day6: Basics of Basics
 ```
 
-## [DAY-0] Basics of Basics
+## [DAY-35] Basics of Basics
 
 This week there will be less talking and more programming.
 
@@ -1977,7 +1977,7 @@ See how we use `continue` to not print a result if we don't understand the opera
 
 
 
-## [DAY-1] Basics of Basics
+## [DAY-36] Basics of Basics
 
 Print the numbers from 0 to 9 FOREVER
 
@@ -2048,7 +2048,7 @@ print(s, "SECONDS ARE OVER")
 
 ```
 
-## [DAY-2] Basics of Basics
+## [DAY-37] Basics of Basics
 
 Clock 
 
@@ -2101,8 +2101,8 @@ while True:
 
 
 
-## [DAY-3] Basics of Basics
-## [DAY-4] Basics of Basics
-## [DAY-5] Basics of Basics
-## [DAY-6] Basics of Basics
+## [DAY-38] Basics of Basics
+## [DAY-39] Basics of Basics
+## [DAY-40] Basics of Basics
+## [DAY-41] Basics of Basics
 

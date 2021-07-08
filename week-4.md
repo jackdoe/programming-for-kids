@@ -10,7 +10,7 @@ day5: Basics of Basics
 day6: Touch Typing
 ```
 
-## [DAY-0] Basics of Basics
+## [DAY-28] Basics of Basics
 
 Make a new file form IDLE, and write in it:
 ```
@@ -227,7 +227,7 @@ THATS THE WHOLE LANGUAGE, there are no more keywords.
 
 
 
-## [DAY-1] Dungeon Game
+## [DAY-29] Dungeon Game
 
 ```
 print("Welcome to the forest!")
@@ -317,7 +317,7 @@ if a == "he" and b == "ll" and c == "o":
   print("hello")
 ```
 
-## [DAY-2] Dungeon Game
+## [DAY-30] Dungeon Game
 
 Our game is quite limited, and a quick step to improve it is to make you ask where you want to go until you pick one of the options.
 
@@ -374,7 +374,7 @@ print(r)
 Whatever is between `def` and `(` is the name of the function, in the above example its `sum`. Between `()` you put in the name of the variables you expect to use when someone calls your function. I want to sum two numbers, I dont know what the numbers are, so I just make two variables `a, b` and expect whoever calls my function to give me the numbers, like `r = sum(1737,1231231)`
 
 
-## [DAY-2] Dungeon Game
+## [DAY-31] Dungeon Game
 
 FIGHT TO THE DEATH!
 
@@ -441,7 +441,7 @@ if what == "east":
 ```
 
 
-## [DAY-3] Favorite Food
+## [DAY-32] Favorite Food
 
 Today you have to make only two programs:
 
@@ -477,7 +477,7 @@ Great job!
 
 Spend the rest of the day touch typing.
 
-## [DAY-4] For
+## [DAY-33] For
 
 `for` does something number of times, if I want to print the numbers from 0 to 99, I could do:
 ```
@@ -517,7 +517,7 @@ k
 ```
 
 
-## [DAY-5] Love Tester
+## [DAY-34] Love Tester
 
 ```
 def love_test(a,b):
@@ -561,7 +561,7 @@ love test: 23
 BTW, now you know how those "professional" love testers are made, so if you use https://www.lovetester.nl/ or something similar.. don't read too much into the result. You can easily tweak it to do whatever you want.
 
 
-## [DAY-6] Touch Typing
+## [DAY-34] Touch Typing
 
 Whoaa it has been a difficult week.
 
