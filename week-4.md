@@ -1,4 +1,4 @@
-# Chapter 3 - Week 3
+# Chapter 4 - Week 4
 
 ```
 day0: Basics of Basics
@@ -6,8 +6,8 @@ day1: Dungeon Game
 day2: Dungeon Game
 day3: Favorite Food
 day4: Dungeon Game
-day5: Dungeon Game
-day6: Dungeon Game
+day5: Basics of Basics
+day6: Touch Typing
 ```
 
 ## [DAY-0] Basics of Basics
