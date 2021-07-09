@@ -202,21 +202,139 @@ for i in range(1, n+1):
   if i % 5 == 0:
     numbers[i-1] += 'buzz'
 
-
 # then fill in the numbers
 for i in range(1, n+1):
   if numbers[i-1] == '':
     numbers[i-1] = i
 
-# then print it
-
+# then we print it
 for x in numbers:
   print(x)
 ```
 
-Haha this is a funny way to make fizzbuzz.
+Haha this is a funny way to make fizzbuzz. See first it puts fizz if you can divide it by 3, and then buzz if you can divide it by 5, but if there was already fizz there it will just add if with `+=`, so it automatically works to put fizzbuzz for 15.
 
 ## [DAY-44] Basics of Basics
+
+Reviews
+
+```
+reviews =[5,3,2,4,1,2,3,4,2,1,5,5,3,2]
+
+sum = 0
+for r in reviews:
+  sum += r
+
+rating = sum / len(reviews)
+print(str(rating) + "⭐ out ot 5")
+```
+
+Icecream Maker
+
+```
+import random
+flavors = ['vanilla','chocolate','blue','banana','bluberry']
+
+flavorA = random.choice(flavors)
+flavorB = random.choice(flavors)
+
+print(flavorA + " + " + flavorB)
+```
+
+Spend the rest of the day touch typing.
+
 ## [DAY-45] Basics of Basics
+
+Different touch typing
+
+```
+import random
+vowels  = ['a', 'e', 'i', 'o', 'u', 'y']
+consonants = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z']
+
+def make_word(n_chars):
+  word = ''
+
+  for i in range(n_chars):
+    if random.randint(1,100) < 40:
+      word += random.choice(vowels)
+    else:
+      word += random.choice(consonants)
+  return word
+
+def make_sentence(n_words):
+  sentence = ''
+  for i in range(n_words):
+    sentence += make_word(random.randint(3,6))
+    sentence += ' '
+
+  # this will remove the last element from the sentence string
+  # so we dont have empty space in the end
+  return sentence[:-1]
+
+while True:
+  sentence = make_sentence(random.randint(10,20))
+  print(sentence)
+  guess = input('write the sentence: ')
+  if guess != sentence:
+    print("SORRY")
+  else:
+    print("GOOD JOB")
+```
+
+spend the rest of the day trying it out
+
 ## [DAY-46] Basics of Basics
+
+Some turtle!
+
+```
+import turtle
+turtle.circle(30)
+```
+
+Many circles
+
+```
+import turtle
+for i in range(30):
+  turtle.circle(i)
+```
+
+Bigger circles
+
+```
+import turtle
+
+turtle.color("blue")
+for i in range(30):
+  turtle.circle(50 + i)
+```
+
+
+```
+import turtle
+
+turtle.color("blue")
+turtle.circle(100)
+turtle.penup()
+turtle.goto(60,120)
+turtle.pendown()
+turtle.circle(20)
+turtle.penup()
+turtle.goto(20,120)
+turtle.pendown()
+turtle.circle(20)
+turtle.penup()
+turtle.goto(-30,20)
+turtle.pendown()
+turtle.right(45)
+turtle.circle(20, 120)
+```
+
+
 ## [DAY-47] Basics of Basics
+
+Try to make a program that prints a symbol 100 times.
+
+By yourself.
