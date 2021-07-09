@@ -133,10 +133,20 @@ while True:
 ## [DAY-43] Basics of Basics
 
 
+Even and Odd
+
+```
+number = int(input("give me a number: "))
+if number % 2 == 0:
+  print("this number is even")
+else:
+  print("this number is odd")
+```
+
 
 Fizz Buzz
 
-Print integers 1 to N, but print "Fizz" if an integer is divisible by 3, "buzz" if an integer is divisible by 5, and "fizzbuzz" if an integer is divisible by both 3 and 5.
+Print integers 1 to N, but print "fizz" if an integer is divisible by 3, "buzz" if an integer is divisible by 5, and "fizzbuzz" if an integer is divisible by both 3 and 5.
 
 ```
 n = 100
