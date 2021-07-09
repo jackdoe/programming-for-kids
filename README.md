@@ -2460,7 +2460,7 @@ for i in range(50, 100, 2):
 ```
 
 Do some touch typing if there is time left.
-# Chapter 5 - Week 5
+# Chapter 6 - Week 6
 
 ```
 day0: Basics of Basics
@@ -2773,6 +2773,7 @@ for i in range(30):
   turtle.circle(50 + i)
 ```
 
+Smile
 
 ```
 import turtle
