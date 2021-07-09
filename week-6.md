@@ -109,26 +109,29 @@ def empty():
 world = empty()
 player_row = 0
 player_col = 0
-world[player_col][player_row] = 'x'
+world[player_row][player_col] = 'x'
 
 render(world)
 while True:
   direction = input("which direction: ")
+  
+  world[player_row][player_col] = '*'
   if direction == "up":
-    player_col = player_col - 1
-  elif direction == "down":
-    player_col = player_col + 1
-  elif direction == "left":
     player_row = player_row - 1
-  elif direction == "right":
+  elif direction == "down":
     player_row = player_row + 1
+  elif direction == "left":
+    player_col = player_col - 1
+  elif direction == "right":
+    player_col = player_col + 1
 
-  world[player_col][player_row] = 'x'
+  world[player_row][player_col] = 'x'
   render(world)
 
 ```
 
 ## [DAY-43] Basics of Basics
+
 ## [DAY-44] Basics of Basics
 ## [DAY-45] Basics of Basics
 ## [DAY-46] Basics of Basics
