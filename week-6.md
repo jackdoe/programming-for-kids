@@ -336,6 +336,6 @@ turtle.circle(20, 120)
 
 ## [DAY-47] Basics of Basics
 
-Try to make a program that prints a symbol 100 times.
+Try to make a program that prints a symbol N times, where N is coming from the user input.
 
-By yourself.
+Try by yourself.
