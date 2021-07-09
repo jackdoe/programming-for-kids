@@ -34,6 +34,21 @@ Spend 30 minutes per day. Every day.
 *This chapter is for parents, kids skip to the next one.*
 :::
 
+
+## Why
+
+I think modern education treats programming as 'career path', I think of that to be wrong. I treat it as literacy. Being literate lets to experience a different world than those who aren't. It is not about having a job, I cant even explain it, being literate just allows you to see the fabric of what everything is made of.
+
+Imagine schools were teaching violin en masse, how would that go? How many kids will be able to make a decent sound? How many will drop out because they are stuck and the rest have to move on because the tests say so?
+
+Sometimes my daughter doesn't like to code, or to read for that matter, of course the rest of the internet is so much more interesting. We are competing with hundreds of thousands of developers in Supercell and Facebook and TikTok that train billion parameters models so they can squeeze every last bit of attention from our kids. Of course it is going to be difficult. But, I thought to myself, does that mean I should not try? So a change of approach is needed, completely individualistic and personal approach.
+
+Maybe she will grow hating it, or even hating me. Parenting is difficult.
+
+We are 3 months in, and so far she doesn't hate me.
+
+## About the book
+
 This book is for parents who know how to code and for kids who don't, but especially for parents and kids who can spend 30 minutes per day, _every day_. I am writing this book as I am teaching my daughter (10), and you know how in some cooking shows, they skip the part where the food is cooking? I wont do that. The book will be longer than it should.
 
 Again, if your children are older, or younger, this book might not work, you could of course still find pieces that work for you.
