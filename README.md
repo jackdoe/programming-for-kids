@@ -3102,7 +3102,7 @@ var cookies = []
 for (cookie of document.cookie.split(";")) {
     cookies.push(cookie.replace(" ", ""))
 }
-console.log(cookies)
+console.log(JSON.stringify(cookies))
 ```
 This will print all the cookies amazon has set on your browser in a list.
 
