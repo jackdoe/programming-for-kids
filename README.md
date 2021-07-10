@@ -2808,8 +2808,8 @@ Try by yourself.
 day0: Basics of Basics
 day1: Basics of Basics
 day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
+day3: Basics of the Internet
+day4: Basics of the Internet
 day5: Basics of Basics
 day6: Basics of Basics
 ```
