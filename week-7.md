@@ -348,8 +348,8 @@ The other most important thing is domain names, like facebook.com and yahoo.com 
         / | \
        /  |  \
     .de .com .io
-          |
-         /|\
+     /    |
+ amazon  /|\
         / | \
        /  |  \
       /   |   \
