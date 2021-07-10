@@ -3132,6 +3132,13 @@ You see how it printed your cookies? The thing that runs the code is `eval` it i
 
 Of course the code that the scammers give you is more sophisticated, it sends the cookies to their database(think excel sheet) via the internet, including all local storage and local session data, and they can just use it after that.
 
+That is why if you open facebook.com and press F12 you will see giant message:
+
+```
+STOP STOP STOP
+
+This is a browser feature intended for developers. If someone has told you to copy and paste something here to enable a Facebook feature or "hack" someone else's account, it is a scam and they are trying to access your Facebook account.
+```
 
 ## [DAY-53] Basics of Basics
 ## [DAY-54] Basics of Basics
