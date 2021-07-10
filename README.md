@@ -2810,8 +2810,8 @@ day1: Basics of Basics
 day2: Basics of Basics
 day3: Basics of the Internet
 day4: Basics of the Internet
-day5: Basics of Basics
-day6: Basics of Basics
+day5: Basics of the Internet
+day6: Touch Typing
 ```
 
 
@@ -3140,8 +3140,39 @@ STOP STOP STOP
 This is a browser feature intended for developers. If someone has told you to copy and paste something here to enable a Facebook feature or "hack" someone else's account, it is a scam and they are trying to access your Facebook account.
 ```
 
-## [DAY-53] Basics of Basics
-## [DAY-54] Basics of Basics
+## [DAY-53] Basics of the Internet
+
+The internet is a mess, a mess of things that talk to each other. Each of the things has their own IP address (ip stands for internet protocol), for example open https://1.1.1.1 you see this is a simple ip address of a popular DNS server (dns is a system we use to resolve names into ip addresses, e.g. facebook.com is 31.13.64.35). You can check the ip address by searching 'whats my ip' on google, and because your browser has to connect to google's server and they connect through their IP addresses, so google knows your IP. Of course it is a bit more complicated than that, but for now this will do.
+
+The other most important thing is domain names, like facebook.com and yahoo.com or amazon.de. We need names otherwise everyone will have to remember 31.13.64.35 to open facebook.. which is not easy. To find out the ip of facebook.com you need to ask a .com server about which server is responsible for facebook.com, and then ask this server about what is the ip address of www.facebook.com. The whole system is like a tree.
+
+```
+        ROOT
+         "."
+        / | \
+       /  |  \
+    .de .com .io
+          |
+         /|\
+        / | \
+       /  |  \
+      /   |   \
+     /    |    \
+ amazon netflix yahoo
+
+```
+
+your internet provider gives you your ip address and also a convenient name server to use, you can also use other name servers like 1.1.1.1 or 8.8.8.8, keep in mind, whoever nameserver you use, knows which websites you visit, because you have to ask them about the ip address of each website you visit.
+
+A lot of scammers also ask you to change your dns server, they lie about getting faster internet and etc, but you see, if you ask a scammer's dns server 'what is the ip address of facebook.com', and they say 'well its 12.12.12.12' or whatever their server's address is, they can show you a webpage that looks like facebook, but its theirs, and when you login they can get your password. Remember when you login your browser sends the password to the other server that has to check it, so they can steal it that way.
+
+To prevent this kind of attacks modern browsers use something called HTTPS, or secure http, you see a small closed lock on the address bar, and when you click it it will say 'Connection is secure', that means that it verified that the website you opened is actually the website you think it is. There are ways to attack this as well, but it is not trivial, and someone has to have physical access to your computer to install a new Trusted Certificate Authority (which we will explain way later).
+
+But one more reason to be sus of people using your computer. Not only they can steal your cookies, but they can also install a new Trusted CA, change the DNS and then intercept all your requests.
+
+## [DAY-54] Touch Typing
+
+Touch typing day is finally here! Enjoy keybr.com!
 
 
 
