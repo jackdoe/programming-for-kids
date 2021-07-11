@@ -96,9 +96,9 @@ The schedule is roughly as follows:
   * python: make text tic tac toe game
   * python: make trivia game
 * Week 9
-  * python: super basic python
+  * python: pygame and pgzero
 * Week 10
-  * python: turtle
+  * python: pygame and pgzero
 * Week 11
   * python: make text tic tac toe game
 * Week 12
@@ -3482,7 +3482,7 @@ Back to the beginning.
 # Chapter 9 - Week 9
 
 ```
-day0: Basics of Basics
+day0: pygame and pgzero
 day1: Basics of Basics
 day2: Basics of Basics
 day3: Basics of Basics
@@ -3492,7 +3492,7 @@ day6: Basics of Basics
 ```
 
 
-## [DAY-61] pygame
+## [DAY-61] pygame and pgzero
 
 open `cmd` and run:
 
