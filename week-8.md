@@ -1,4 +1,4 @@
-# Chapter 7 - Week 7
+# Chapter 8 - Week 8
 
 ```
 day0: Basics of Basics

@@ -66,9 +66,9 @@ The schedule is roughly as follows:
   * python: make text tic tac toe game
   * python: make trivia game
 * Week 9
-  * python: super basic python
+  * python: pygame and pgzero
 * Week 10
-  * python: turtle
+  * python: pygame and pgzero
 * Week 11
   * python: make text tic tac toe game
 * Week 12
