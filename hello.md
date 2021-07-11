@@ -63,7 +63,8 @@ The schedule is roughly as follows:
   * python: turtle
 * Week 8
   * HTML: love match
-  * python: text trivia game
+  * python: make text tic tac toe game
+  * python: make trivia game
 * Week 9
   * python: super basic python
 * Week 10
