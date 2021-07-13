@@ -264,13 +264,70 @@ pgzrun.go()
 
 
 ## [DAY-64] Basics of Basics
-...
+
+Many Snakes
+
+![game-64.png](./screenshots/game-64.png "game 64 screenshot")
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+score = 1
+speed = 1
+elf = Actor("c1")
+snakes = []
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+def place_snakes():
+    global snakes
+    snakes = []
+    for i in range(score):
+        snake = Actor("snake")
+        snake.x = random.randint(10,WIDTH-10)
+        snake.y = random.randint(10,HEIGHT-10)
+        snakes.append(snake)
+
+place_snakes()
+
+def update():
+    global game_over, speed, score, snakes
+    if keyboard.left:
+        elf.x = elf.x-speed
+    if keyboard.right:
+        elf.x = elf.x+speed
+    if keyboard.up:
+        elf.y = elf.y-speed
+    if keyboard.down:
+        elf.y= elf.y+speed
+    if keyboard.R:
+        speed = 1
+        score = 0
+        snakes = []
+        place_snakes()
+    for s in snakes:
+        if elf.colliderect(s):
+            score += 1
+            speed += 1
+            place_snakes()
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    for s in snakes:
+        s.draw()
+
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
+pgzrun.go()
+```
 ## [DAY-65] Basics of Basics
 ...
 ## [DAY-66] Basics of Basics
 ...
 ## [DAY-67] Basics of Basics
-
 
 Cross the road. Work with your parent to find images for the game, you need few cars, fox and a door. If not just use the existing assets from your images/ folder
 
