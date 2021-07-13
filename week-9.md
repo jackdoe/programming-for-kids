@@ -324,9 +324,137 @@ def draw():
 pgzrun.go()
 ```
 ## [DAY-65] Basics of Basics
-...
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+score = 0
+speed = 1
+game_over = False
+elf = Actor("c1")
+snake = Actor("snake")
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+def place_snake():
+    snake.x = random.randint(10,WIDTH-10)
+    snake.y = random.randint(10,HEIGHT-10)
+
+place_snake()
+
+def update():
+    global game_over, speed, score
+    if keyboard.left:
+        elf.x = elf.x-speed
+    if keyboard.right:
+        elf.x = elf.x+speed
+    if keyboard.up:
+        elf.y = elf.y-speed
+    if keyboard.down:
+        elf.y= elf.y+speed
+    if keyboard.R:
+        speed = 1
+        score = 0
+
+    if elf.colliderect(snake):
+        score += 1
+        speed += 1
+        place_snake()
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    snake.draw()
+
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
+pgzrun.go()
+
+```
+
+
 ## [DAY-66] Basics of Basics
-...
+
+Catch as many snakes as you can in 5 seconds.
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+game_over = False
+score = 0
+speed = 1
+elf = Actor("c1")
+snake = Actor("snake")
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+def place_snake():
+    snake.x = random.randint(10,WIDTH-10)
+    snake.y = random.randint(10,HEIGHT-10)
+
+place_snake()
+
+def time_is_up():
+    global game_over
+    game_over = True
+
+def update():
+    global game_over, speed, score
+    if keyboard.left:
+        elf.x = elf.x-speed
+    if keyboard.right:
+        elf.x = elf.x+speed
+    if keyboard.up:
+        elf.y = elf.y-speed
+    if keyboard.down:
+        elf.y= elf.y+speed
+    if keyboard.R:
+        speed = 1
+        score = 0
+
+    if elf.colliderect(snake):
+        score += 1
+        speed += 1
+        place_snake()
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    snake.draw()
+
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))
+
+    if game_over:
+        screen.fill('blue')
+        screen.draw.text("GAME OVER, Score: "+ str(score), color="white", topleft=(10,10))
+
+clock.schedule(time_is_up, 5)
+pgzrun.go()
+```
+
+
+You see we just overwrite the screen with 'blue' and write another text, but you can still move in the back and the score will update if you catch a sneak.
+
+If you want to stop the hero to move outside of the window, simply restrict elf.x and elf.y to be smaller than 0 or bigger than WIDTH and HEIGHT
+
+Example:
+
+
+```
+def update():
+    ...
+    if keyboard.left:
+        elf.x = elf.x-speed
+        if elf.x > WIDTH:
+            elf.x = WIDTH
+
+```
+
 ## [DAY-67] Basics of Basics
 
 Cross the road. Work with your parent to find images for the game, you need few cars, fox and a door. If not just use the existing assets from your images/ folder
