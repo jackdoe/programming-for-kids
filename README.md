@@ -4186,7 +4186,7 @@ def on_key_down(key):
         me.x = me.x+speed
     if key == keys.UP:
         me.y = me.y-speed
-    if key == keys.RIGHT:
+    if key == keys.DOWN:
         me.y= me.y+speed
 
     if key == keys.Q:
