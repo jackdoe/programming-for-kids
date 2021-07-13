@@ -18,7 +18,6 @@ Shoot bullets and remove them from the list, play sound, and also level up after
 
 ![game-68.png](./screenshots/game-68.png "game 68 screenshot")
 
-
 ```
 import pgzrun
 import random
@@ -90,6 +89,22 @@ def draw():
 
 pgzrun.go()
 ```
+
+You see how we are adding, bullets to a list every time you press 'space'. Now the problem is we need to clean up that list at some point, otherwise it will grow a lot, and every time we do `for b in bullets` it will bet slower and slower. Computers can only do so many things per second.
+
+So when the animation finishes, it will call `bullets_out_of_screen`, and from there we just say `bullets.pop(0)` which will remove the first element in the list of bullets, which is the oldest bullet. So if you press space 5 times, the list will have 5 items, and each of them will finish and will remove the first element.
+
+Lets say you pressed space 3 times, and shot 3 bullets, so the list, and how the bullets are traveling kindof looks like this:
+
+```
+0 -> bbbbbbbbbbbbbb
+1 -> bbbbbbb
+2 -> bbbb
+```
+
+So you see when 0 finishes because it is the oldest, when it does bullets.pop(0), it will actually delete itself.
+
+pretty cool!
 
 ## [DAY-69] Basics of Basics
 ## [DAY-70] Basics of Basics
