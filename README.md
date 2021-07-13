@@ -3641,6 +3641,9 @@ Where do those `keyboard` and `screen` magic variables come from? In python ther
 
 COLLIDE!
 
+![game-62.png](./screenshots/game-62.png "game 62 screenshot")
+
+
 ```
 import pgzrun
 import random
@@ -3684,10 +3687,160 @@ pgzrun.go()
 
 ```
 
-
 ## [DAY-63] Basics of Basics
+
+Catch the snake
+
+![game-63.png](./screenshots/game-63.png "game 63 screenshot")
+
+Make images/ folder and download the images from https://github.com/jackdoe/programming-for-kids. When you say `Actor("c1")` it will look for `c1.png` in images/ folder in the current directory.
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+score = 0
+speed = 1
+elf = Actor("c1")
+snake = Actor("snake")
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+def place_snake():
+    snake.x = random.randint(10,WIDTH-10)
+    snake.y = random.randint(10,HEIGHT-10)
+
+place_snake()
+
+def update():
+    global game_over, speed, score
+    if keyboard.left:
+        elf.x = elf.x-speed
+    if keyboard.right:
+        elf.x = elf.x+speed
+    if keyboard.up:
+        elf.y = elf.y-speed
+    if keyboard.down:
+        elf.y= elf.y+speed
+    if keyboard.R:
+        speed = 1
+        score = 0
+
+    if elf.colliderect(snake):
+        score += 1
+        speed += 1
+        place_snake()
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    snake.draw()
+
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
+pgzrun.go()
+
+```
+
+
 ## [DAY-64] Basics of Basics
+...
 ## [DAY-65] Basics of Basics
+...
 ## [DAY-66] Basics of Basics
+...
 ## [DAY-67] Basics of Basics
 
+
+Cross the road. Work with your parent to find images for the game, you need few cars, fox and a door. If not just use the existing assets from your images/ folder
+
+```
+import pgzrun
+import random
+
+HEIGHT = 1000
+WIDTH = 1200
+
+score = 0
+step = 5
+coin_speed = 1
+fox = Actor("fox")
+gate = Actor("door")
+gate.y = HEIGHT - 50
+gate.x = WIDTH/2 - 20
+cars=[
+    [Actor("car-2"),Actor("car-5"),Actor("car-3")],
+    [Actor("car-1"),Actor("car-5")],
+    [Actor("car-3"),Actor("car-4"),Actor("car-2")],
+]
+
+for a in cars:
+    for (coin_index,f) in enumerate(a):
+        f.x += coin_index * int(WIDTH/len(a)) + 30
+def move_coins():
+    for (index,a) in enumerate(cars):
+        for (coin_index, f) in enumerate(a):
+           
+            f.y = (index * int(HEIGHT/len(cars))) + int(HEIGHT/len(cars))/2
+            f.x += coin_speed
+            if f.x > WIDTH:
+                f.x = 0
+
+game_over = False
+move_coins()
+
+def update():
+    global score
+    global step
+    global game_over
+    global coin_speed
+    if keyboard.left:
+        fox.x = fox.x-step
+        if fox.x <0:
+            fox.x=0
+    if keyboard.right:
+        fox.x = fox.x+step
+        if fox.x >WIDTH:
+            fox.x=WIDTH
+    if keyboard.up:
+        fox.y =fox.y-step
+        if fox.y <0:
+            fox.y=0
+    if keyboard.down:
+        fox.y= fox.y+step
+        if fox.y >HEIGHT:
+            fox.y=HEIGHT
+    if keyboard.R:
+        game_over = False
+        score = 0
+        fox.x = 0
+        fox.y = 0
+        coin_speed = 1
+    for i in cars:
+        for s in i:
+            if fox.colliderect(s):
+                game_over = 1 == 1
+
+    if fox.colliderect(gate):
+        fox.x = 0
+        fox.y = 0
+        score += 1
+        coin_speed += 2
+    move_coins()
+
+def draw():
+    screen.fill('black')
+    fox.draw()
+    gate.draw()
+
+    for i in cars:
+        for k in i:
+            k.draw()
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))
+    if game_over:
+        screen.fill("blue")
+        screen.draw.text("Final Score: "+ str(score), color="white", topleft=(10,10),fontsize=60)    
+                         
+pgzrun.go()
+```
