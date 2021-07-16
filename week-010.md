@@ -52,7 +52,7 @@ def on_key_down(key):
         b.y = elf.y
         animate(b, pos=(WIDTH + 100, elf.y), tween='accelerate', on_finished=bullet_out_of_screen)
         bullets.append(b)
-        
+
 def update():
     global game_over, speed, score, bullets
     if keyboard.left:
@@ -147,7 +147,7 @@ def update():
         other.x = float(x)
         other.y = float(y)
 
-    
+
 def on_key_down(key):
     if key == keys.LEFT:
         me.x = me.x-speed
@@ -181,7 +181,136 @@ The `multiplayer()` function runs in a separate thread, or you can think of a se
 
 
 ## [DAY-70] Basics of Basics
+
+print numbers in a list
+
+```
+data = [1,2,3,4,5]
+for item in data:
+    print(e)
+```
+
+
+```
+list_of_lists = [[1,2,3,4,5], [1,2,3], [4,5,6]]
+for l in list_of_lists:
+    for item in l:
+        print(item)
+```
+
+
+```
+list_of_list_of_lists = [[[1,2,3,4,5], [1,2,3], [4,5,6]], [[1,2,3,4,5], [1,2,3], [4,5,6]]]
+for list_of_lists in list_of_list_of_lists:
+    for l in list_of_lists:
+        for item in l:
+            print(item)
+```
+
+
+```
+list_of_list_of_list_of_lists = [
+    [
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ],
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ]
+    ],
+    [
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ],
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ]
+    ],
+]
+
+for list_of_list_of_lists in list_of_list_of_list_of_lists:
+    for list_of_lists in list_of_list_of_lists:
+        for l in list_of_lists:
+            for item in l:
+                print(item)
+```
+
+
+```
+def sum(x):
+    r = 0
+    for item in x:
+        r += item
+    return r
+
+data = [1,2,3,4,5]
+print(sum(data))
+```
+
+
+```
+def sum(x):
+    r = 0
+    for l in x:
+        for item in l:
+            r += item
+    return r
+
+data = [[1,2,3,4,5], [1,2,3,4,5]]
+print(sum(data))
+```
+
 ## [DAY-71] Basics of Basics
+make a calculator
+
+```
+while True:
+    n1 = int(input("number 1: "))
+    n2 = int(input("number 2: "))
+    op = input("operation +/-* : ")
+    r = 0
+
+    if op == "quit":
+        break
+    elif op == "+":
+        r = n1 + n2
+    elif op == "-":
+        r = n1 - n2
+    elif op == "*":
+        r = n1 * n2
+    else:
+        print("i dont know " + op)
+        continue
+
+    print(n1, op, n2, '=',r)
+
+```
+
+sum numbers from input
+
+```
+def sum(x):
+    r = 0
+    for item in x:
+        r += item
+    return r
+
+x = []
+while True:
+    k = input("enter number: ")
+    x.append(int(k))
+    print(x)
+    print(sum(x))
+
+```
 ## [DAY-72] Basics of Basics
 ## [DAY-73] Basics of Basics
 ## [DAY-74] Basics of Basics
