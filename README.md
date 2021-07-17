@@ -4343,6 +4343,20 @@ while True:
 
 ```
 ## [DAY-72] Basics of Basics
+
+Reading code is even more important than writing it, and it is more difficult than reading a book, because the story does not develop top to bottom. You have to see the important pieces, and how they are linked together. Where are things assigned and changed and how are those pieces related. For example in the touch typing program, you have a couple of functions, you can study them on their own, and know what they do, and then see how they are used and make sense of the whole program, without even running it.
+
+We will go over a couple of programs we wrote before, the rock paper scissors game, the bullet shooting game, and one of the touch typing programs.
+
+![day-72-0.jpg](./reading/day-72-0.jpg "day 72 example 0")
+
+![day-72-1.jpg](./reading/day-72-1.jpg "day 72 example 1")
+
+![day-72-2.jpg](./reading/day-72-2.jpg "day 72 example 2")
+
+
+Those are just examples, you have to print the programs and go over them with your parent.
+
 ## [DAY-73] Basics of Basics
 ## [DAY-74] Basics of Basics
 
