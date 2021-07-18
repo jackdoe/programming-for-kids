@@ -4368,7 +4368,7 @@ More reading today, those are a couple of examples from the earlier days, the lo
 
 ![day-73-2.jpg](./reading/day-73-2.jpg "day 73 example 2")
 
-![day-73-3.jpg](./reading/day-73-3.jpg "day 73 example 3")
+![day-73-3.jpg](./reading/day-73-3-0.jpg "day 73 example 3")
 
 Again you can use something else as well, those are just the ones I picked. Be messy with the pencil, connect things together!
 
