@@ -74,9 +74,6 @@ The schedule is roughly as follows:
 * Week 12
   * python: pygame
   * python: turtle
-
-> We are at week 12 at the moment, I will keep updating the book as we go further.
-
 * Week 13
   * python: pygame
   * python: turtle
@@ -98,7 +95,10 @@ The schedule is roughly as follows:
   * python: turtle keyboard input
 * Week 18
   * python: turtle tic tac toe
-
+* Week 19
+  * ...
+  * ...
+  * ...
 
 In most of the weeks you also go back, waaay back, every day you re-iterate variables and for loops, print the numbers from one to 10 forever, ask how many times to be printed, etc.
 

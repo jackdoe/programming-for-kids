@@ -104,9 +104,6 @@ The schedule is roughly as follows:
 * Week 12
   * python: pygame
   * python: turtle
-
-> We are at week 12 at the moment, I will keep updating the book as we go further.
-
 * Week 13
   * python: pygame
   * python: turtle
@@ -128,7 +125,10 @@ The schedule is roughly as follows:
   * python: turtle keyboard input
 * Week 18
   * python: turtle tic tac toe
-
+* Week 19
+  * ...
+  * ...
+  * ...
 
 In most of the weeks you also go back, waaay back, every day you re-iterate variables and for loops, print the numbers from one to 10 forever, ask how many times to be printed, etc.
 
@@ -4358,5 +4358,19 @@ We will go over a couple of programs we wrote before, the rock paper scissors ga
 Those are just examples, you have to print the programs and go over them with your parent.
 
 ## [DAY-73] Basics of Basics
+
+More reading today, those are a couple of examples from the earlier days, the love tester, the fight function from the text game, the hangman game and first touch typing program.
+
+
+![day-73-0.jpg](./reading/day-73-0.jpg "day 73 example 0")
+
+![day-73-1.jpg](./reading/day-73-1.jpg "day 73 example 1")
+
+![day-73-2.jpg](./reading/day-73-2.jpg "day 73 example 2")
+
+![day-73-3.jpg](./reading/day-73-3.jpg "day 73 example 3")
+
+Again you can use something else as well, those are just the ones I picked. Be messy with the pencil, connect things together!
+
 ## [DAY-74] Basics of Basics
 
