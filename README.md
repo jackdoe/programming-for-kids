@@ -4374,3 +4374,44 @@ Again you can use something else as well, those are just the ones I picked. Be m
 
 ## [DAY-74] Basics of Basics
 
+Today its up to you what to write, my kid came up with those programs:
+
+1. Ask forever what your favorite sport is, if yours is not here use https://emojipedia.org/ to find good emojis.
+
+```
+while True:
+    k = input('what is your favorite sport: ')
+
+    if k == 'soccer':
+        print('⚽')
+    elif k ==  'hockey':
+        print('🏑')
+    elif k == 'tennis':
+        print('🎾')
+    elif k == 'volleyball':
+        print('🏐')
+    elif k == 'table tennis':
+        print('🏓')
+    elif k == 'baseball':
+        print('⚾')
+    elif k == 'basketball':
+        print('🏀')
+    elif k == 'golf':
+        print('🏌️‍♂️')
+    else:
+        print('i dont now ' +k)
+```
+
+2. and one simple, append and pop from a list.
+
+```
+k = []
+while True:
+    s = input('What are you thinking of: ')
+    if s == 'pop':
+        k.pop(0)
+    else:
+        k.append(s)
+    print(k)
+```
+
