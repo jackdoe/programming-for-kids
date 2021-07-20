@@ -119,7 +119,7 @@ clock.schedule_interval(make_enemies, 2)
 
 pgzrun.go()
 ```
-![day-75-0.jpg](./reading/day-75-0.jpg "day 75 example 2")
+![day-75-1.jpg](./reading/day-75-1.jpg "day 75 example 1")
 
 
 
