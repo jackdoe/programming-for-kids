@@ -188,11 +188,13 @@ for i in range(1,31):
 football mania
 
 ```
+d = 30
 while True:
-    for i in range(1,31):
+    for i in range(1,d):
         print('⚽' * i)
-    for i in range(1,31):
-        print('⚽' * (30 - i))
+    for i in range(1,d):
+        h = (d - i)
+        print('⚽' * h)
 ```
 
 ## [DAY-76] Basics of Basics
