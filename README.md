@@ -4593,6 +4593,24 @@ while True:
 
 ```
 
+30 and back
+
+```
+for i in range(1,31):
+    print(i)
+for i in range(1,31):
+    print(30 - i)
+```
+
+football mania
+
+```
+while True:
+    for i in range(1,31):
+        print('⚽' * i)
+    for i in range(1,31):
+        print('⚽' * (30 - i))
+```
 
 ## [DAY-76] Basics of Basics
 ## [DAY-77] Basics of Basics
