@@ -4690,6 +4690,39 @@ clock.schedule_interval(random_speed, 2)
 pgzrun.go()
 ```
 
+
+Basic math quiz
+
+```
+import random
+while True:
+    k = random.randint(1,13)
+    s = random.randint(1,13)
+    r = k * s
+    g = int(input('How much is '+str(k) +'*' +str(s) + ': '))
+    if g == r:
+        print('Wow nice job its CORRECT')
+    else:
+        print('wrong the answer was: ' + str(r))
+```
+
+7 days average
+
+```
+x = [1231,5123,6737,6725,6261,2664,62561]
+n = len(x)
+
+print(x)
+print(n)
+
+sum = 0
+for i in x:
+    sum += i
+
+print('sum: ' + str(sum))
+print('average: ' + str(sum/n))
+```
+
 ## [DAY-77] Basics of Basics
 ## [DAY-78] Basics of Basics
 ## [DAY-79] Basics of Basics
