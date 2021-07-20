@@ -4536,6 +4536,63 @@ clock.schedule_interval(make_enemies, 2)
 
 pgzrun.go()
 ```
+![day-75-0.jpg](./reading/day-75-0.jpg "day 75 example 2")
+
+
+
+tic tac toe but with one character variable names
+
+```
+x = [
+        #  0    1    2     3
+        ['  ','🅰️','🅱️','🅾️'], # 0 
+        ['🥇','〰️','〰️','〰️'], # 1
+        ['🥈','〰️','〰️','〰️'], # 2
+        ['🥉','〰️','〰️','〰️'], # 3
+        
+    ]
+
+k = '🛹'
+
+while True:
+    for i in x:
+        for s in i:
+            print(s,end=' ')
+        print('')
+
+
+    l = input(k + ": ")
+
+    if l == 'a1':
+        x[1][1]=k
+    elif l == 'a2':
+        x[2][1]=k
+    elif l == 'a3':
+        x[3][1]=k
+
+    elif l == 'b1':
+        x[1][2]=k
+    elif l == 'b2':
+        x[2][2]=k
+    elif l == 'b3':
+        x[3][2]=k
+
+    elif l == 'o1':
+        x[1][3]=k
+    elif l == 'o2':
+        x[2][3]=k
+    elif l == 'o3':
+        x[3][3]=k
+    else:
+        continue
+    
+    if k == '🛹':
+        k = '⚽'
+    else:
+        k = '🛹'
+
+```
+
 
 ## [DAY-76] Basics of Basics
 ## [DAY-77] Basics of Basics
