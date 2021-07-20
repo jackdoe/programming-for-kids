@@ -211,7 +211,8 @@ import random
 HEIGHT = 200
 WIDTH = 200
 
-speed = 3
+speedA = 3
+speedB = 3
 
 playerA = Actor("c1")
 playerB = Actor("c2")
@@ -224,28 +225,33 @@ playerB.y = 40
 
 game_over = False
 
+def random_speed():
+    global speedA, speedB
+    speedA = random.randint(1,5)
+    speedB = random.randint(1,5)
+
 def on_key_down(key):
     global game_over
 
     # player A
     if key == keys.A:
-        playerA.x -= speed
+        playerA.x -= speedA
     if key == keys.D:
-        playerA.x += speed
+        playerA.x += speedA
     if key == keys.W:
-        playerA.y -= speed
+        playerA.y -= speedA
     if key == keys.S:
-        playerA.y += speed
+        playerA.y += speedA
 
     # player B
     if key == keys.LEFT:
-        playerB.x -= speed
+        playerB.x -= speedB
     if key == keys.RIGHT:
-        playerB.x += speed
+        playerB.x += speedB
     if key == keys.UP:
-        playerB.y -= speed
+        playerB.y -= speedB
     if key == keys.DOWN:
-        playerB.y += speed
+        playerB.y += speedB
 
 def update():
     global game_over
@@ -258,9 +264,11 @@ def draw():
         screen.draw.text("GAME OVER", color="white", topleft=(10,10))
     else:
         screen.fill('black')
-        screen.draw.text("RUN! ELF! RUN!", color="white", topleft=(10,10))
+        screen.draw.text("RUN! elf: " + str(speedA) + " king: " + str(speedB) , color="white", topleft=(10,10))
         playerA.draw()
         playerB.draw()
+
+clock.schedule_interval(random_speed, 2)
 
 pgzrun.go()
 ```
