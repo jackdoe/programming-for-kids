@@ -4605,14 +4605,83 @@ for i in range(1,31):
 football mania
 
 ```
+d = 30
 while True:
-    for i in range(1,31):
+    for i in range(1,d):
         print('⚽' * i)
-    for i in range(1,31):
-        print('⚽' * (30 - i))
+    for i in range(1,d):
+        h = (d - i)
+        print('⚽' * h)
 ```
 
 ## [DAY-76] Basics of Basics
+
+
+![game-76.png](./screenshots/game-76.png "game 76 screenshot")
+
+A game of tag! The elf is robin hood, running away from the king. The elf plays with WASD and the king plays with up/down/left/right.
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+speed = 3
+
+playerA = Actor("c1")
+playerB = Actor("c2")
+
+playerA.x = 10
+playerA.y = HEIGHT - 40
+
+playerB.x = 10
+playerB.y = 40
+
+game_over = False
+
+def on_key_down(key):
+    global game_over
+
+    # player A
+    if key == keys.A:
+        playerA.x -= speed
+    if key == keys.D:
+        playerA.x += speed
+    if key == keys.W:
+        playerA.y -= speed
+    if key == keys.S:
+        playerA.y += speed
+
+    # player B
+    if key == keys.LEFT:
+        playerB.x -= speed
+    if key == keys.RIGHT:
+        playerB.x += speed
+    if key == keys.UP:
+        playerB.y -= speed
+    if key == keys.DOWN:
+        playerB.y += speed
+
+def update():
+    global game_over
+    if playerA.colliderect(playerB):
+        game_over = True
+    
+def draw():
+    if game_over:
+        screen.fill('black')
+        screen.draw.text("GAME OVER", color="white", topleft=(10,10))
+    else:
+        screen.fill('black')
+        screen.draw.text("RUN! ELF! RUN!", color="white", topleft=(10,10))
+        playerA.draw()
+        playerB.draw()
+
+pgzrun.go()
+```
+
 ## [DAY-77] Basics of Basics
 ## [DAY-78] Basics of Basics
 ## [DAY-79] Basics of Basics
