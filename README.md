@@ -4724,6 +4724,31 @@ print('average: ' + str(sum/n))
 ```
 
 ## [DAY-77] Basics of Basics
+
+morse code translator
+
+```
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',']
+morse = ['.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..','/','.-.-.-','--..--']
+
+print(len(morse))
+print(len(alphabet))
+
+for i in range(len(alphabet)):
+    print(alphabet[i] + " -> " + morse[i])
+
+text = '.... . .-.. .-.. --- / .-- --- .-. .-.. -.. .-.-.- / - .... .. ... / .. ... / -- --- .-. ... . / -.-. --- -.. . .-.-.- / - .... . .-. . / .- .-. . / -- .- -. -.-- / -.-. --- -.. . ... --..-- / -... ..- - / - .... .. ... / --- -. . / .. ... / .--. .-. . - - -.-- / -.-. --- --- .-.. --..-- / --. --- --- -.. / .--- --- -... / - .-. .- -. ... .-.. .- - .. -. --. / .. - .-.-.-'.split(' ')
+for word in text:
+    found = False
+    for i in range(len(morse)):
+        x = morse[i]
+        if x == word:
+            print(alphabet[i], end = '')
+            found = True
+    if not found:
+        print(word , end='')
+```
+
 ## [DAY-78] Basics of Basics
 ## [DAY-79] Basics of Basics
 ## [DAY-80] Basics of Basics
