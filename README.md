@@ -4741,7 +4741,7 @@ text = '.... . .-.. .-.. --- / .-- --- .-. .-.. -.. .-.-.- / - .... .. ... / .. 
 for word in text:
     found = False
     for i in range(len(morse)):
-        x = morse[i]
+      x = morse[i]
         if x == word:
             print(alphabet[i], end = '')
             found = True
