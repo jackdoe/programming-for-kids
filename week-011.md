@@ -333,6 +333,125 @@ for word in text:
 ```
 
 ## [DAY-78] Basics of Basics
+
+![game-78.png](./screenshots/game-78.png "game 78 screenshot")
+
+Small modifications to the previous game, gold in the middle moves the king away, randomize the elf position every 2 seconds
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+speedE = 3
+speedK = 3
+
+elf = Actor("c1")
+king = Actor("c2")
+gold = Actor("c3")
+
+gold.x = WIDTH/2
+gold.y = HEIGHT/2
+elf.x = 10
+elf.y = HEIGHT - 40
+king.x = 10
+king.y = 40
+
+game_over = False
+
+def random_speed():
+    global speedE, speedK
+    speedE = random.randint(3,5)
+    speedK = random.randint(2,5)
+
+def random_place():
+    elf.x = random.randint(0,WIDTH)
+    elf.y = random.randint(0,HEIGHT)
+
+def update():
+    global game_over
+
+    # player Ad
+    if keyboard.A:
+        elf.x -= speedE
+        
+    if keyboard.D:
+        elf.x += speedE
+    if keyboard.W:
+        elf.y -= speedE
+    if keyboard.S:
+        elf.y += speedE
+
+    # player B
+    if keyboard.left:
+        king.x -= speedK
+    if keyboard.right:
+        king.x += speedK
+    if keyboard.up:
+        king.y -= speedK
+    if keyboard.down:
+        king.y += speedK
+
+    if keyboard.SPACE:
+        elf.image = 'snake'
+        random_speed()
+
+    if keyboard.R:
+         game_over = 1==2
+         elf.x = 10
+         elf.y = HEIGHT - 40
+         king.x = 10
+         king.y = 40
+         
+    if elf.x < 0:
+        elf.x = 0
+    if elf.x > WIDTH:
+        elf.x = WIDTH
+    if elf.y < 0:
+        elf.y = 0
+    if elf.y > HEIGHT:
+        elf.y = HEIGHT
+
+
+    if king.x < 0: 
+        king.x = 0
+    if king.x > WIDTH:
+        king.x = WIDTH
+    if king.y < 0:
+        king.y = 0
+    if king.y > HEIGHT:
+        king.y = HEIGHT
+
+    if elf.colliderect(gold):
+        king.x = WIDTH
+        king.y = HEIGHT
+
+    if king.colliderect(gold):
+        game_over = True
+    
+
+    if elf.colliderect(king):
+        game_over = True
+    
+def draw():
+    if game_over:
+        screen.fill('black')
+        screen.draw.text("GAME OVER", color="white", topleft=(10,10))
+    else:
+        screen.fill('black')
+        screen.draw.text("RUN! elf: " + str(speedE) + " king: " + str(speedK) , color="white", topleft=(10,10))
+        elf.draw()
+        king.draw()
+        gold.draw()
+
+clock.schedule_interval(random_speed, 2)
+clock.schedule_interval(random_place, 5)
+
+pgzrun.go()
+```
+
 ## [DAY-79] Basics of Basics
 ## [DAY-80] Basics of Basics
 ## [DAY-81] Basics of Basics
