@@ -429,7 +429,6 @@ def update():
 
     if king.colliderect(gold):
         game_over = True
-    
 
     if elf.colliderect(king):
         game_over = True
@@ -455,7 +454,19 @@ Explanation about setting x and y to be random:
 
 ![day-78-explain.png](./reading/day-78-explain.png "day 78 explain coordinates")
 
+Write a program to compute the average of a list of numbers:
+
+![day-78-a.jpg](./reading/day-78-a.png "day 78 average of list of numbers")
+
+Decode morse code:
+
+![day-78-b.jpg](./reading/day-78-b.png "day 78 decode morse code")
+
+
 
 ## [DAY-79] Basics of Basics
+
+
+
 ## [DAY-80] Basics of Basics
 ## [DAY-81] Basics of Basics
