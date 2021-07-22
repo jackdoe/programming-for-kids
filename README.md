@@ -4790,10 +4790,9 @@ def random_place():
 def update():
     global game_over
 
-    # player Ad
+    # elf
     if keyboard.A:
         elf.x -= speedE
-        
     if keyboard.D:
         elf.x += speedE
     if keyboard.W:
@@ -4801,7 +4800,7 @@ def update():
     if keyboard.S:
         elf.y += speedE
 
-    # player B
+    # king
     if keyboard.left:
         king.x -= speedK
     if keyboard.right:
