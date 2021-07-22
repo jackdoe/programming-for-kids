@@ -4877,7 +4877,7 @@ Write a program to compute the average of a list of numbers:
 
 Decode morse code:
 
-![day-78-b.jpg](./reading/day-78-b.jpg "day 78 decode morse code")
+![day-78-c.jpg](./reading/day-78-c.jpg "day 78 decode morse code")
 
 
 
