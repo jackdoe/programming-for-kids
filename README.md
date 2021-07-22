@@ -4873,11 +4873,11 @@ Explanation about setting x and y to be random:
 
 Write a program to compute the average of a list of numbers:
 
-![day-78-a.jpg](./reading/day-78-a.png "day 78 average of list of numbers")
+![day-78-a.jpg](./reading/day-78-a.jpg "day 78 average of list of numbers")
 
 Decode morse code:
 
-![day-78-b.jpg](./reading/day-78-b.png "day 78 decode morse code")
+![day-78-b.jpg](./reading/day-78-b.jpg "day 78 decode morse code")
 
 
 
