@@ -451,6 +451,11 @@ clock.schedule_interval(random_place, 5)
 pgzrun.go()
 ```
 
+Explanation about setting x and y to be random:
+
+![day-78-explain.png](./reading/day-78-explain.png "day 78 explain coordinates")
+
+
 ## [DAY-79] Basics of Basics
 ## [DAY-80] Basics of Basics
 ## [DAY-81] Basics of Basics
