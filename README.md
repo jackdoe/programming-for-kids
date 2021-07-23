@@ -4903,6 +4903,88 @@ for word in text:
 ```
 
 ## [DAY-80] Basics of Basics
-test
+
+![game-80.png](./screenshots/game-80.png "game 80 screenshot")
+
+
+PONG (almost)
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+left = Actor("c1")
+left.x = 10
+left.y = HEIGHT/2
+
+right = Actor("c2")
+right.x = WIDTH - 10
+right.y = HEIGHT/2
+
+ball = Actor("bullet")
+ball.x = WIDTH/2
+ball.y = HEIGHT/2
+
+game_area = Rect((0, 0), (WIDTH, HEIGHT))
+
+game_over = False
+
+def send_ball_to(direction):
+    duration = 3
+    if direction == 'left':
+        animate(ball, pos=(-100, random.randint(0,HEIGHT)), tween='linear', duration=duration)
+    else:
+        animate(ball, pos=(WIDTH + 100, random.randint(0,HEIGHT)), tween='linear', duration=duration)
+
+def update():
+    global game_over, animation
+    speed = 3
+
+    if keyboard.W:
+        left.y -= speed
+    if keyboard.S:
+        left.y += speed
+
+    if keyboard.R:
+        ball.x = WIDTH/2
+        ball.y = HEIGHT/2
+        send_ball_to('left')
+        game_over = False
+        
+    if keyboard.up:
+        right.y -= speed
+    if keyboard.down:
+        right.y += speed
+
+    if left.colliderect(ball):
+        send_ball_to('right')
+
+    if right.colliderect(ball):
+        send_ball_to('left')
+
+    if not ball.colliderect(game_area):
+        game_over = True
+
+def draw():
+    if game_over:
+        screen.fill('black')
+        screen.draw.text("GAME OVER", color="white", topleft=(10,10))
+    else:
+        screen.fill('black')
+        left.draw()
+        right.draw()
+        ball.draw()
+        screen.draw.rect(game_area, (200, 0, 0))
+
+send_ball_to('left')
+
+pgzrun.go()
+```
+
+
+
 ## [DAY-81] Basics of Basics
 
