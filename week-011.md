@@ -526,17 +526,17 @@ def update():
     global game_over, animation
     speed = 3
 
-    if keyboard.W:
-        left.y -= speed
-    if keyboard.S:
-        left.y += speed
-
     if keyboard.R:
         ball.x = WIDTH/2
         ball.y = HEIGHT/2
         send_ball_to('left')
         game_over = False
-        
+
+    if keyboard.W:
+        left.y -= speed
+    if keyboard.S:
+        left.y += speed
+
     if keyboard.up:
         right.y -= speed
     if keyboard.down:
