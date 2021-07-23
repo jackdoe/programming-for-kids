@@ -4883,7 +4883,24 @@ Decode morse code:
 
 ## [DAY-79] Basics of Basics
 
+morse code agian
 
+```
+alphabet = ['a','b','c','d','e']
+morse = ['.-','-...','-.-.','...','.']
+
+
+for i in range(len(alphabet)):
+    print(alphabet[i])
+    print(morse[i])
+
+text = ['.-..','.','.-..','.-']
+
+for word in text:
+    for c in range(len(morse)):
+        if word == morse[c]:
+            print(alphabet[c])
+```
 
 ## [DAY-80] Basics of Basics
 ## [DAY-81] Basics of Basics
