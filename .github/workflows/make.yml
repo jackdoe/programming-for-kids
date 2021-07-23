@@ -1,4 +1,4 @@
-name: make and build
+name: make
 
 on:
   pull_request:
@@ -15,11 +15,7 @@ jobs:
 
       - run: bash make.sh
 
-      - run: npm install
-
-      - run: node book-build.js
-
       - uses: stefanzweifel/git-auto-commit-action@v4.7.2
         with:
-          commit_message: "CI: make and build"
+          commit_message: "CI run: make.sh"
           branch: ${{ github.head_ref }}
