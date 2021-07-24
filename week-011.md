@@ -587,6 +587,37 @@ First image
 +-----+
 ```
 
+
+list of lists with pixels
+
+```
+image = [
+    [1,3,3,3,3,3,1],
+    [2,4,5,4,5,4,2],
+    [2,4,4,5,4,4,2],
+    [2,4,5,4,5,4,2],
+    [1,3,3,3,3,3,1],
+]
+
+for row in image:
+    for pixel in row:
+        if pixel == 1:
+            print('+', end='')
+        elif pixel == 2:
+            print('|', end='')
+        elif pixel == 3:
+            print('-', end='')
+        elif pixel == 4:
+            print(' ', end='')
+        elif pixel == 5:
+            print('*', end='')
+        else:
+            print("dont know what to do with: " + str(pixel))
+    print('')
+```
+
+just a list of pixels
+
 ```
 image = [
     1,3,3,3,3,3,1,
