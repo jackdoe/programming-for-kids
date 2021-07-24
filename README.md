@@ -4943,17 +4943,17 @@ def update():
     global game_over, animation
     speed = 3
 
-    if keyboard.W:
-        left.y -= speed
-    if keyboard.S:
-        left.y += speed
-
     if keyboard.R:
         ball.x = WIDTH/2
         ball.y = HEIGHT/2
         send_ball_to('left')
         game_over = False
-        
+
+    if keyboard.W:
+        left.y -= speed
+    if keyboard.S:
+        left.y += speed
+
     if keyboard.up:
         right.y -= speed
     if keyboard.down:
@@ -4984,6 +4984,12 @@ send_ball_to('left')
 pgzrun.go()
 ```
 
+
+![day-80-a.jpg](./reading/day-80-a.jpg "day 80 reading pong")
+
+average of two lists
+
+![day-80-b.jpg](./reading/day-80-b.jpg "day 80 reading average of two lists")
 
 
 ## [DAY-81] Basics of Basics
