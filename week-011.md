@@ -568,5 +568,11 @@ pgzrun.go()
 ```
 
 
+![day-80-a.jpg](./reading/day-80-a.jpg "day 80 reading pong")
+
+average of two lists
+
+![day-80-b.jpg](./reading/day-80-b.jpg "day 80 reading average of two lists")
+
 
 ## [DAY-81] Basics of Basics
