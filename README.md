@@ -4994,3 +4994,41 @@ average of two lists
 
 ## [DAY-81] Basics of Basics
 
+First image
+
+```
++-----+
+| * * |
+|  *  |
+| * * |
++-----+
+```
+
+```
+image = [
+    1,3,3,3,3,3,1,
+    2,4,5,4,5,4,2,
+    2,4,4,5,4,4,2,
+    2,4,5,4,5,4,2,
+    1,3,3,3,3,3,1,
+]
+
+width = 7
+
+for (index, pixel) in enumerate(image):
+    if index > 0 and index % width == 0:
+        print('')
+
+    if pixel == 1:
+        print('+', end='')
+    elif pixel == 2:
+        print('|', end='')
+    elif pixel == 3:
+        print('-', end='')
+    elif pixel == 4:
+        print(' ', end='')
+    elif pixel == 5:
+        print('*', end='')
+    else:
+        print("dont know what to do with: " + str(pixel))
+```
