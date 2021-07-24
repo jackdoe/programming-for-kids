@@ -4940,7 +4940,7 @@ def send_ball_to(direction):
         animate(ball, pos=(WIDTH + 100, random.randint(0,HEIGHT)), tween='linear', duration=duration)
 
 def update():
-    global game_over, animation
+    global game_over
     speed = 3
 
     if keyboard.R:
