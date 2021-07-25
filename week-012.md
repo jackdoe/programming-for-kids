@@ -14,7 +14,7 @@ day6: Basics of Basics
 
 ![game-82.png](./screenshots/game-82.png "game 82 screenshot")
 
-simple game with history, press S to save your position to a list of positions, and then B to go back to go back in time
+simple game with history, press S to save your position to a list of positions, and then B to go back in time
 
 ```
 import pgzrun
