@@ -646,3 +646,79 @@ for (index, pixel) in enumerate(image):
     else:
         print("dont know what to do with: " + str(pixel))
 ```
+
+some fun with lists
+```
+x = ['a','b','c','d']
+m = ['w','x','y','z']
+d = ['g','h','j','k']
+
+# a -> 0
+# b -> 1
+# c -> 2
+
+for i in range(len(x)):
+    print(i,end=' ')
+    print(x[i],end=' ')
+    print(m[i],end=' ')
+    print(d[i])
+```
+
+how similar are lists and strings
+
+```
+x = 'hello'
+
+for i in range(len(x)):
+    print(i,end=' ')
+    print(x[i])
+```
+
+similar, but not quite, you cant change the inside of a string, but you can change the inside of a list.
+
+```
+x = ['h','e','l','l','o']
+y = 'hello'
+
+x[2] = 'm'
+y = 'hemlo'
+
+for i in range(len(x)):
+    print(i,end=' ')
+    print(x[i], end=' ')
+    print(y[i])
+```
+
+sum many lists
+```
+a = [6,3,2]
+b = [78,21,1]
+c = [123,5,1]
+
+sum = 0
+for i in range(len(a)):
+    sum += a[i] + b[i] + c[i]
+
+print(sum)
+```
+
+another way to sum
+
+```
+a = [6,3,2]
+b = [78,21,1]
+c = [123,5,1]
+
+sum = 0
+
+for x in a:
+    sum += x
+
+for x in b:
+    sum += x
+
+for x in c:
+    sum += x
+
+print(sum)
+```
