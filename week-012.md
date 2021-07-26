@@ -158,6 +158,60 @@ while True:
 ```
 
 ## [DAY-83] Basics of Basics
+
+![game-83.png](./screenshots/game-83.png "game 83 screenshot")
+
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+player = Actor("c1")
+player.x = WIDTH/2
+player.y = HEIGHT/2
+
+things = []
+
+def on_key_down(key):
+    speed = 10
+
+    if key == keys.UP:
+        player.y -= speed
+    if key == keys.DOWN:
+        player.y += speed
+    if key == keys.LEFT:
+        player.x -= speed
+    if key == keys.RIGHT:
+        player.x += speed
+
+    if key == keys.F:
+        thing = Actor("flower")
+        thing.x = player.x
+        thing.y = player.y
+
+        things.append(thing)
+
+    if key == keys.R:
+        thing = Actor("rock")
+        thing.x = player.x
+        thing.y = player.y
+
+        things.append(thing)
+
+
+def draw():
+    screen.fill('black')
+    player.draw()
+    for t in things:
+        t.draw()
+
+pgzrun.go()
+```
+
+
 ## [DAY-84] Basics of Basics
 ## [DAY-85] Basics of Basics
 ## [DAY-86] Basics of Basics
