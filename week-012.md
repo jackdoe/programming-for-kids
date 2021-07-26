@@ -211,6 +211,57 @@ def draw():
 pgzrun.go()
 ```
 
+With a function, so we can add more keys faster and we dont duplicate that much code
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+player = Actor("c1")
+player.x = WIDTH/2
+player.y = HEIGHT/2
+
+things = []
+def place_thing(kind):
+    thing = Actor(kind)
+    thing.x = player.x
+    thing.y = player.y
+
+    things.append(thing)
+
+def on_key_down(key):
+    speed = 15
+    
+    if key == keys.UP:
+        player.y -= speed
+    if key == keys.DOWN:
+        player.y += speed
+    if key == keys.LEFT:
+        player.x -= speed
+    if key == keys.RIGHT:
+        player.x += speed
+
+    if key == keys.F:
+        place_thing("flower")
+
+    if key == keys.R:
+        place_thing("rock")
+
+    if key == keys.K:
+        place_thing("c2")
+
+def draw():
+    screen.fill('black')
+    player.draw()
+    for t in things:
+        t.draw()
+
+pgzrun.go()
+```
+
 
 ## [DAY-84] Basics of Basics
 ## [DAY-85] Basics of Basics
