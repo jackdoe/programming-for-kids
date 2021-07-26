@@ -280,6 +280,8 @@ def place_thing(kind):
 
 use the map:
 
+![game-83-a.png](./screenshots/game-83-a.png "game 83-a screenshot")
+
 ```
 import pgzrun
 import random
