@@ -5404,7 +5404,65 @@ def draw():
 pgzrun.go()
 ```
 
+Now we can make a map, just add the kind of thing, its x and y position in a list and print it, after we are done building the map we can use it later
 
+```
+...
+game_map = []
+def place_thing(kind):
+    thing = Actor(kind)
+    thing.x = player.x
+    thing.y = player.y
+
+    things.append(thing)
+    game_map.append([kind, thing.x, thing.y])
+    print(game_map)
+...    
+```
+
+use the map:
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+player = Actor("c1")
+player.x = WIDTH/2
+player.y = HEIGHT/2
+
+things = []
+def place_thing(kind,x,y):
+    thing = Actor(kind)
+    thing.x = x
+    thing.y = y
+    things.append(thing)
+
+def on_key_down(key):
+    speed = 15
+    
+    if key == keys.UP:
+        player.y -= speed
+    if key == keys.DOWN:
+        player.y += speed
+    if key == keys.LEFT:
+        player.x -= speed
+    if key == keys.RIGHT:
+        player.x += speed
+def draw():
+    screen.fill('black')
+    player.draw()
+    for t in things:
+        t.draw()
+
+game_map = [['rock', 100.0, 55.0], ['flower', 100.0, 85.0], ['c2', 100.0, 130.0], ['c2', 70.0, 130.0], ['c2', 55.0, 130.0], ['c2', 40.0, 130.0], ['c2', 25.0, 130.0], ['c2', 25.0, 100.0], ['c2', 25.0, 85.0], ['c2', 25.0, 70.0], ['c2', 25.0, 55.0], ['c2', 25.0, 40.0], ['c2', 25.0, 25.0], ['c2', 40.0, 25.0], ['c2', 55.0, 25.0], ['c2', 70.0, 25.0], ['c2', 85.0, 25.0], ['c2', 100.0, 25.0], ['c2', 115.0, 25.0], ['c2', 130.0, 25.0], ['c2', 145.0, 25.0], ['c2', 145.0, 40.0], ['c2', 145.0, 55.0], ['c2', 145.0, 70.0], ['c2', 145.0, 85.0], ['c2', 145.0, 100.0], ['c2', 145.0, 115.0], ['c2', 145.0, 130.0], ['c2', 130.0, 130.0], ['c2', 115.0, 130.0], ['c2', 100.0, 130.0], ['c2', 85.0, 130.0], ['c2', 25.0, 115.0]]
+for g in game_map:
+    place_thing(g[0],g[1],g[2])
+
+pgzrun.go()
+```
 ## [DAY-84] Basics of Basics
 ## [DAY-85] Basics of Basics
 ## [DAY-86] Basics of Basics
