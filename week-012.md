@@ -416,7 +416,6 @@ player = Actor("c1")
 things = []
 
 def on_key_down(key):
-    global things
     speed = 10
 
     if key == keys.UP:
