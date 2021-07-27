@@ -5544,7 +5544,8 @@ pgzrun.go()
 
 ![game-84.png](./screenshots/game-84.png "game 84 screenshot")
 
-lets visualize the list
+Lets visualize the list, try to delete from the middle, and see how the indexes change.
+
 
 ```
 import pgzrun
@@ -5605,6 +5606,17 @@ def draw():
             p = things[i-1]
             screen.draw.line((p.x,p.y), (t.x,t.y), (255,255,255))
 pgzrun.go()
+```
+
+spend more time thinking about connecting previous and current elements from a list, think about how to do it the other way around, from current element to next:
+
+```
+for i in range(len(things)):
+    t = things[i]
+    ...
+    if i > 0:
+        p = things[i-1]
+        ...
 ```
 
 ## [DAY-85] Basics of Basics
