@@ -469,6 +469,7 @@ pgzrun.go()
 spend more time thinking about connecting previous and current elements from a list, think about how to do it the other way around, from current element to next:
 
 ```
+# change this to go from t to the next element of things, instead from t to previous
 for i in range(len(things)):
     t = things[i]
     ...
