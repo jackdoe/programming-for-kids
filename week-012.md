@@ -323,6 +323,81 @@ for g in game_map:
 
 pgzrun.go()
 ```
+
+
+![game-83-b.png](./screenshots/game-83-b.png "game 83-a screenshot")
+![game-83-c.png](./screenshots/game-83-c.png "game 83-c screenshot")
+
+Another way to do it, press S to print the list of things, and then paste it in the game[] list to use it, D deletes things where you stand, and U removes the last thing
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+player = Actor("c1")
+
+things = []
+
+game = []
+for g in game:
+    t = Actor(g[0])
+    t.x = g[1]
+    t.y = g[2]
+    things.append(t)
+
+def on_key_down(key):
+    speed = 10
+
+    if key == keys.UP:
+        player.y -= speed
+    if key == keys.DOWN:
+        player.y += speed
+    if key == keys.LEFT:
+        player.x -= speed
+    if key == keys.RIGHT:
+        player.x += speed
+        
+    if key == keys.F:
+        f = Actor("flower")
+        f.x = player.x
+        f.y = player.y
+        things.append(f)
+    if key == keys.R:
+        f = Actor("rock")
+        f.x = player.x
+        f.y = player.y
+        things.append(f)
+
+    if key == keys.U:
+         things.pop()
+
+    if key == keys.D:
+        collide = []
+        for t in things:
+            if player.colliderect(t):
+                collide.append(t)
+
+        for t in collide:
+            things.remove(t)
+    
+    if key == keys.S:
+        positions = []
+        for t in things:
+            positions.append([t.image,t.x,t.y])
+        print(positions)
+
+def draw():
+    screen.fill('black')
+    player.draw()
+    for t in things:
+        t.draw()
+
+pgzrun.go()
+```
+
 ## [DAY-84] Basics of Basics
 ## [DAY-85] Basics of Basics
 ## [DAY-86] Basics of Basics
