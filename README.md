@@ -5640,26 +5640,26 @@ game_over = False
 elf = Actor("c1")
 elf.x = WIDTH/2
 elf.y = HEIGHT-20
-tiles = []
-bullets = []
+flowers = []
+rocks = []
 
 game_area = Rect((0, 0), (WIDTH, HEIGHT-40))
 
 def add_one_row():
     lastY = 0
-    if len(tiles) > 0:
-        t = tiles[len(tiles)-1]
-        lastY = t.y
+    if len(flowers) > 0:
+        f = flowers[len(flowers)-1]
+        lastY = f.y
     
     for i in range(20, WIDTH-10, 20):
-        t = Actor("flower")
-        t.x = i
-        t.y = lastY + 10
-        tiles.append(t)
+        f = Actor("flower")
+        f.x = i
+        f.y = lastY + 10
+        flowers.append(f)
 
-def bullet_out_of_screen():
-    if len(bullets) > 0:
-        bullets.pop(0)
+def rock_out_of_screen():
+    if len(rocks) > 0:
+        rocks.pop(0)
 
 def on_key_down(key):
     speed = 10
@@ -5669,25 +5669,25 @@ def on_key_down(key):
         elf.x += speed
         
     if key == keys.SPACE:
-        bullet = Actor("rock")
-        bullet.x = elf.x
-        bullet.y = elf.y - 20
-        animate(bullet,pos=(bullet.x, -100), on_finished=bullet_out_of_screen)
-        bullets.append(bullet)
+        rock = Actor("rock")
+        rock.x = elf.x
+        rock.y = elf.y - 20
+        animate(rock,pos=(rock.x, -100), on_finished=rock_out_of_screen)
+        rocks.append(rock)
 
 def update():
     global game_over
     hit = []
-    for b in bullets:
-        for t in tiles:
-            if b.colliderect(t) and random.randint(0,10) > 7:
-                hit.append(t)
+    for b in rocks:
+        for f in flowers:
+            if b.colliderect(f) and random.randint(0,10) > 7:
+                hit.append(f)
 
     for h in hit:
-        tiles.remove(h)
+        flowers.remove(h)
 
-    for t in tiles:
-        if not t.colliderect(game_area):
+    for f in flowers:
+        if not f.colliderect(game_area):
             game_over = True
 
 
@@ -5697,10 +5697,10 @@ def draw():
     else:
         screen.fill('black')
         elf.draw()
-        for t in tiles:
-            t.draw()
-        for b in bullets:
-            b.draw()
+        for f in flowers:
+            f.draw()
+        for r in rocks:
+            r.draw()
 
         screen.draw.rect(game_area, (200, 0, 0))
 
