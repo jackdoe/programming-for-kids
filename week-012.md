@@ -479,6 +479,96 @@ for i in range(len(things)):
 ```
 
 ## [DAY-85] Basics of Basics
+
+![game-85.png](./screenshots/game-85.png "game 85 screenshot")
+
+
+don't let the **zombie** flowers overrun you, smash them with rocks
+
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+game_over = False
+
+elf = Actor("c1")
+elf.x = WIDTH/2
+elf.y = HEIGHT-20
+tiles = []
+bullets = []
+
+game_area = Rect((0, 0), (WIDTH, HEIGHT-40))
+
+def add_one_row():
+    lastY = 0
+    if len(tiles) > 0:
+        t = tiles[len(tiles)-1]
+        lastY = t.y
+    
+    for i in range(20, WIDTH-10, 20):
+        t = Actor("flower")
+        t.x = i
+        t.y = lastY + 10
+        tiles.append(t)
+
+def bullet_out_of_screen():
+    if len(bullets) > 0:
+        bullets.pop(0)
+
+def on_key_down(key):
+    speed = 10
+    if key == keys.LEFT:
+        elf.x -= speed
+    if key == keys.RIGHT:
+        elf.x += speed
+        
+    if key == keys.SPACE:
+        bullet = Actor("rock")
+        bullet.x = elf.x
+        bullet.y = elf.y - 20
+        animate(bullet,pos=(bullet.x, -100), on_finished=bullet_out_of_screen)
+        bullets.append(bullet)
+
+def update():
+    global game_over
+    hit = []
+    for b in bullets:
+        for t in tiles:
+            if b.colliderect(t) and random.randint(0,10) > 7:
+                hit.append(t)
+
+    for h in hit:
+        tiles.remove(h)
+
+    for t in tiles:
+        if not t.colliderect(game_area):
+            game_over = True
+
+
+def draw():
+    if game_over:
+        screen.draw.text("GAME OVER", color="white", topleft=(10,10))
+    else:
+        screen.fill('black')
+        elf.draw()
+        for t in tiles:
+            t.draw()
+        for b in bullets:
+            b.draw()
+
+        screen.draw.rect(game_area, (200, 0, 0))
+
+add_one_row()
+clock.schedule_interval(add_one_row, 5)
+
+pgzrun.go()
+```
+
+
 ## [DAY-86] Basics of Basics
 ## [DAY-87] Basics of Basics
 ## [DAY-88] Basics of Basics
