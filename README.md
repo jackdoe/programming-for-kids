@@ -5622,6 +5622,8 @@ for i in range(len(things)):
 
 ## [DAY-85] Basics of Basics
 
+This day is more about reading than writing, those are three different examples you can use
+
 ![game-85.png](./screenshots/game-85.png "game 85 screenshot")
 
 
@@ -5710,6 +5712,91 @@ clock.schedule_interval(add_one_row, 5)
 pgzrun.go()
 ```
 
+![game-85-a.png](./screenshots/game-85-a.png "game 85-a screenshot")
+
+```
+import turtle as t
+size = 10
+t.pensize(size)
+t.left(45)
+t.forward(90)
+t.circle (45,extent=180)
+t.right(90)
+t.circle(45,extent=180)
+t.forward(90)
+t.penup()
+t.goto(-35,-35)
+t.pendown()
+t.write('i love python')
+t.penup()
+```
+
+![game-85-b.png](./screenshots/game-85-b.png "game 85-b screenshot")
+
+
+```
+import  turtle as t
+import datetime
+import time
+def deg(h,m,s):
+	hDeg=(h*3600+m*60+s)/(3600*12)*360
+	mDeg=(m*60+s)/3600*360
+	sDeg=360/60*s
+	
+	return (90+hDeg,90+mDeg,90+sDeg)
+	
+	
+def show(h, size):
+	(hDeg,m,s) = deg(h,0,0)
+	
+	t.penup()
+	t.goto(0, size)
+	t.pencolor('white')
+	t.setheading(hDeg)
+	t.forward(size)
+	t.write(str(h))
+	
+def klok(size, h, m, s):
+	t.reset()
+	(hDeg,mDeg,sDeg) = deg(h,m,s)
+	
+	t.pendown()
+	t.pensize(7)
+	t.bgcolor('black')
+	t.pencolor('lime')
+	
+	t.circle(size)
+	
+	t.penup()
+	t.goto(0, size)
+	t.setheading(hDeg)
+	t.pendown()
+	t.pencolor('springgreen')
+	t.forward(size/3)
+	
+	
+	t.penup()
+	t.goto(0, size)
+	t.setheading(mDeg)
+	t.pendown()
+	t.pencolor('lawngreen')
+	t.forward(size/2)
+	t.penup()
+	t.pencolor('cyan')
+	t.goto(0, size)
+	t.setheading(sDeg)
+	t.pendown()
+	t.forward(size-25)
+	t.penup()
+	
+size = 150
+while True:
+	now = datetime.datetime.now()
+	klok(size,now.hour, now.minute, now.second)
+	for h in range(1, 13):
+		show(h,size)
+	time.sleep(10)
+```
 
 ## [DAY-86] Basics of Basics
 ## [DAY-87] Basics of Basics
