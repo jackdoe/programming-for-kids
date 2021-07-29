@@ -574,7 +574,9 @@ pgzrun.go()
 
 ```
 import turtle as t
+
 size = 10
+
 t.pensize(size)
 t.left(45)
 t.forward(90)
@@ -651,6 +653,7 @@ size = 150
 while True:
 	now = datetime.datetime.now()
 	klok(size,now.hour, now.minute, now.second)
+
 	for h in range(1, 13):
 		show(h,size)
 	time.sleep(10)
