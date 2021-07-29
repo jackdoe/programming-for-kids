@@ -480,7 +480,7 @@ for i in range(len(things)):
 
 ## [DAY-85] Basics of Basics
 
-This day is more about reading than writing, those are three different examples you can use
+This day is more about reading than writing, those are few different examples you can use
 
 ![game-85.png](./screenshots/game-85.png "game 85 screenshot")
 
@@ -580,7 +580,7 @@ size = 10
 t.pensize(size)
 t.left(45)
 t.forward(90)
-t.circle (45,extent=180)
+t.circle(45,extent=180)
 t.right(90)
 t.circle(45,extent=180)
 t.forward(90)
@@ -659,6 +659,79 @@ while True:
 	time.sleep(10)
 ```
 
+Just one rock that hits the zombies above you
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+game_over = False
+
+elf = Actor("c1")
+elf.x = WIDTH/2
+elf.y = HEIGHT-20
+rock = Actor("rock")
+rock.x = elf.x + 10
+rock.y = elf.y - 20
+
+flowers = []
+
+def add_one_row():
+    lastY = 0
+    if len(flowers) > 0:
+        f = flowers[len(flowers)-1]
+        lastY = f.y
+    
+    for i in range(20, WIDTH-10, 20):
+        f = Actor("flower")
+        f.x = i
+        f.y = lastY + 10
+        flowers.append(f)
+
+def on_key_down(key):
+    speed = 10
+    if key == keys.LEFT:
+        elf.x -= speed
+    if key == keys.RIGHT:
+        elf.x += speed
+    if key == keys.UP:
+        elf.y -= speed
+    if key == keys.DOWN:
+        elf.y += speed
+        
+
+def update():
+    global game_over
+    hit = []
+    for f in flowers:
+        if rock.colliderect(f) and random.randint(0,10) > 7:
+            hit.append(f)
+
+    for h in hit:
+        flowers.remove(h)
+
+    rock.x -= 1
+    if rock.x < elf.x - 10:
+        rock.x = elf.x + 10
+
+    rock.y = elf.y - 20
+
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    rock.draw()
+    for f in flowers:
+        f.draw()
+
+add_one_row()
+clock.schedule_interval(add_one_row, 5)
+
+pgzrun.go()
+```
 ## [DAY-86] Basics of Basics
 ## [DAY-87] Basics of Basics
 ## [DAY-88] Basics of Basics
