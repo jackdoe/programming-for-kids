@@ -659,6 +659,8 @@ while True:
 	time.sleep(10)
 ```
 
+![game-85-c.png](./screenshots/game-85-c.png "game 85-c screenshot")
+
 Just one rock that hits the zombies above you
 
 ```
