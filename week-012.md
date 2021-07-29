@@ -735,5 +735,127 @@ clock.schedule_interval(add_one_row, 5)
 pgzrun.go()
 ```
 ## [DAY-86] Basics of Basics
+
+
+![game-86.png](./screenshots/game-86.png "game 86 screenshot")
+
+SNAKE
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+snake = Actor("c1")
+snake.x = WIDTH/2
+snake.y = HEIGHT-20
+
+apple = Actor("flower")
+apple.x = WIDTH/2
+apple.y = HEIGHT/2
+
+snake_size = 3
+snake_speed = 1
+steps = []
+direction = "up"
+step_size = 15
+game_over = False
+
+def on_key_down(key):
+    global direction
+
+    if key == keys.LEFT:
+        direction = "left"
+    if key == keys.RIGHT:
+        direction = "right"
+    if key == keys.UP:
+        direction = "up"
+    if key == keys.DOWN:
+        direction = "down"
+
+def move():
+    global steps
+
+    s = Actor("snake")
+    s.x = snake.x
+    s.y = snake.y
+    steps.append(s)
+    if len(steps) > snake_size:
+        steps = steps[-snake_size:]
+
+    if direction == "left":
+        snake.x -= step_size
+    if direction == "right":
+        snake.x += step_size
+    if direction == "up":
+        snake.y -= step_size
+    if direction == "down":
+        snake.y += step_size
+    
+def update():
+    global snake_size, game_over, snake_speed
+    if snake.colliderect(apple):
+        apple.x = random.randint(0,WIDTH)
+        apple.y = random.randint(0,HEIGHT)
+        snake_size += 1
+
+        clock.unschedule(move)
+        snake_speed *= 0.8
+        clock.schedule_interval(move, snake_speed)        
+
+    for i in range(len(steps) - 2):
+        s = steps[i]
+        if snake.collidepoint((s.x,s.y)):
+            game_over = True
+    
+
+def draw():
+    screen.fill('black')
+
+    if game_over:
+        screen.draw.text("GAME OVER", color="white", topleft=(10,10))
+    else:
+        for s in steps:
+            s.draw()
+        snake.draw()
+        apple.draw()
+
+clock.schedule_interval(move, snake_speed)
+pgzrun.go()
+```
+
+There are few key moments to emphasize here, `clock.unschedule` and then `clock.schedule_interval` and the most important one `steps = steps[-snake_size:]`.
+
+Try this in IDLE:
+
+```
+x = [1,2,3,4]
+print(x[-1])
+```
+
+It will print '4', so in python you can get elements from the back of the list, just as easily as the front, try `x[-2]`, now try to get multiple elements from a list, `y = x[0:2]`, it will make new list `[1,2]`, it is a bit like this code:
+
+```
+x = [1,2,3,4]
+y = []
+for i in range(0,2):
+    y.append(x[i])
+```
+
+Now you can also ask python to give you the first 2 elements by saying `x[0:2]` or you can ask it for the elements *after* the second one by doing `x[2:len(x)]`, you can omit 0 and `len(x)` so it is a bit shorter, `x[:2]` and `x[2:]`. Sometimes you want the last 2 elements, to do that just say `x[-2:len(x)]` or `x[-2:]` and that's how we are getting the last `snake_size` elements of the `steps` list.
+
+Again, `x[-2:len(x)]` just means from -2 elements from the end if the list, until the end of the list. It looks scary though.
+
+Similar to this code:
+
+```
+x = [1,2,3,4]
+y = []
+for i in range(len(x)-2,len(x)):
+    y.append(x[i])
+```
+
 ## [DAY-87] Basics of Basics
 ## [DAY-88] Basics of Basics
