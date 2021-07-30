@@ -734,6 +734,10 @@ clock.schedule_interval(add_one_row, 5)
 
 pgzrun.go()
 ```
+
+![day-85.jpg](./reading/day-85.jpg "day 85 reading")
+
+
 ## [DAY-86] Basics of Basics
 
 
@@ -922,7 +926,7 @@ def on_key_down(key):
         elf.y -= speed
     if key == keys.DOWN:
         elf.y += speed
-           
+
     if key == keys.S:
         x = open("day-87-x.txt", "w")
         x.write(str(elf.x))
