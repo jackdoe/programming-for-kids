@@ -849,4 +849,112 @@ for i in range(len(x)-2,len(x)):
 ```
 
 ## [DAY-87] Basics of Basics
+
+Its File time!
+
+First lets make a new file, called day-87.txt and we will open it in "w" mode, which means "write", so once we do `f.write` it will start from the beginning of the file, we can use "a" (for append) mode as well that would continue appending to the end of the file
+
+```
+f = open("day-87.txt", "w")
+
+while True:
+    a = input("what do you want to write: ")
+    if a == "quit":
+        break
+    f.write(a + "\n")
+
+f.close()
+```
+
+Now you can open day-87.txt with Notepad or some other text editor and see what you wrote.
+
+It is important to remember this pattern
+
+1. Open
+2. Read or Write
+3. Read or Write
+4. Read or Write
+5. Read or Write
+6. ...
+7. Close
+
+lets see how you read a file:
+
+```
+f = open("day-87.txt", "r")
+data = f.read()
+print(data)
+```
+
+Make a game that persists the player position.
+
+
+```
+import pgzrun
+import random
+
+HEIGHT = 200
+WIDTH = 200
+
+elf = Actor("c1")
+elf.x = WIDTH/2
+elf.y = HEIGHT-20
+
+try:
+    x = open("day-87-x.txt", "r")
+    elf.x = float(x.read())
+    x.close()
+    
+    y = open("day-87-y.txt", "r")
+    elf.y = float(y.read())
+    y.close()
+
+except IOError:
+    pass
+
+def on_key_down(key):
+    speed = 10
+    if key == keys.LEFT:
+        elf.x -= speed
+    if key == keys.RIGHT:
+        elf.x += speed
+    if key == keys.UP:
+        elf.y -= speed
+    if key == keys.DOWN:
+        elf.y += speed
+           
+    if key == keys.S:
+        x = open("day-87-x.txt", "w")
+        x.write(str(elf.x))
+        x.close()
+
+        y = open("day-87-y.txt", "w")
+        y.write(str(elf.y))
+        y.close()
+
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+
+pgzrun.go()
+```
+
+open `day-87-x.txt` and `day-87-y.txt` to see the positions of X and Y of the elf after you press `S`.
+
+One other patter you will see is:
+
+```
+try:
+    try to do something
+except some error:
+    handle error
+```
+
+There are many many things that could go wrong when you write to or read a file, for example when you read the file might not be created, or you might have no access to read it, or when you write the disk might be full, and there is no more space.
+
+In our example we don't check if our write fails, so if your disk is full the game will crash, but in the beginning we do check for IOError in case the reading fails, and it will if the files are not created yet the very first time you start the game and there is no save yet.
+
+
+
 ## [DAY-88] Basics of Basics
