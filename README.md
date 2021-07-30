@@ -5898,13 +5898,13 @@ apple = Actor("flower")
 apple.x = WIDTH/2
 apple.y = HEIGHT/2
 
-snake_size = 3
+snake_size = 20
 snake_speed = 1
 steps = []
 direction = "up"
-step_size = 15
+step_size = 1
 game_over = False
-
+game_area = Rect(0,0,WIDTH,HEIGHT)
 def on_key_down(key):
     global direction
 
@@ -5917,8 +5917,8 @@ def on_key_down(key):
     if key == keys.DOWN:
         direction = "down"
 
-def move():
-    global steps
+def update():
+    global snake_size, game_over, snake_speed, steps
 
     s = Actor("snake")
     s.x = snake.x
@@ -5936,22 +5936,13 @@ def move():
     if direction == "down":
         snake.y += step_size
     
-def update():
-    global snake_size, game_over, snake_speed
     if snake.colliderect(apple):
         apple.x = random.randint(0,WIDTH)
         apple.y = random.randint(0,HEIGHT)
-        snake_size += 1
+        snake_size += step_size * 10
 
-        clock.unschedule(move)
-        snake_speed *= 0.8
-        clock.schedule_interval(move, snake_speed)        
-
-    for i in range(len(steps) - 2):
-        s = steps[i]
-        if snake.collidepoint((s.x,s.y)):
-            game_over = True
-    
+    if not snake.colliderect(game_area):
+        game_over = True
 
 def draw():
     screen.fill('black')
@@ -5959,16 +5950,16 @@ def draw():
     if game_over:
         screen.draw.text("GAME OVER", color="white", topleft=(10,10))
     else:
+        screen.draw.rect(game_area, (255,0,0))
         for s in steps:
             s.draw()
         snake.draw()
         apple.draw()
 
-clock.schedule_interval(move, snake_speed)
 pgzrun.go()
 ```
 
-There are few key moments to emphasize here, `clock.unschedule` and then `clock.schedule_interval` and the most important one `steps = steps[-snake_size:]`.
+There are few key moments to emphasize, but the most important one is `steps = steps[-snake_size:]`.
 
 Try this in IDLE:
 
