@@ -1023,4 +1023,4 @@ if __name__ == "__main__":
     app.run(host="127.0.0.1",port=8000,debug=True)
 ```
 
-start the script, see what it does, try to debug how `tokens` changes.
+start the script, see what it does, try to debug how `tokens` changes. Inspect your cookies, try to hack it, login from private mode and steal the cookie from the console.
