@@ -6315,6 +6315,8 @@ write some python, and then run it with `python3 example.py`
 
 ## [DAY-90] Basics of Basics
 
+![game-90.png](./screenshots/game-90.png "game 90 screenshot")
+
 Write a super simple text editor. Start by thinking about the problem. How can you display a character on the screen? How can you get the input from the user? How are you going to deal with new lines?
 
 ```
