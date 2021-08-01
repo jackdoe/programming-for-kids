@@ -6361,6 +6361,9 @@ def draw():
 
 pgzrun.go()
 ```
+
+This is kind of what `screen.draw.text` does, you can of course just do `screen.draw.text(text, (0,0), fontsize=20,fontname="437-win")` and it will work fine, instead of displaying character by character and computing our own char spacing, but what is the fun in that? Also this way we are one step closer to be able to move the cursor left and right so we can edit in the middle of the text.
+
 ## [DAY-91] Basics of Basics
 ## [DAY-92] Basics of Basics
 ## [DAY-93] Basics of Basics
