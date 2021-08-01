@@ -14,7 +14,7 @@ day6: Basics of Basics
 
 ![game-89.png](./screenshots/game-89.png "game 89 screenshot")
 
-Reading exercise, make a text editor
+Reading exercise, make a text editor, save with `ctrl+s` and quit with `ctrl+q`
 
 ```
 import pgzrun
