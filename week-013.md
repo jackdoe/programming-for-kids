@@ -12,6 +12,8 @@ day6: Basics of Basics
 
 ## [DAY-89] Basics of Basics
 
+super simple text editor
+
 ![game-89.png](./screenshots/game-89.png "game 89 screenshot")
 
 Reading exercise, make a text editor, save with `ctrl+s` and quit with `ctrl+q`
@@ -142,7 +144,55 @@ pgzrun.go()
 
 write some python, and then run it with `python3 example.py`
 
+
 ## [DAY-90] Basics of Basics
+
+Write a super simple text editor. Start by thinking about the problem. How can you display a character on the screen? How can you get the input from the user? How are you going to deal with new lines?
+
+```
+import pgzrun
+
+HEIGHT = 480
+WIDTH = 640
+
+text = ''
+
+def on_key_down(key, mod, unicode):
+    global text
+
+    if key == keys.Q and mod == keymods.LCTRL:
+        os.exit(0)
+
+
+    elif key == keys.BACKSPACE:
+        if len(text) > 0:
+            text = text[:len(text)-1]
+
+    elif key == keys.RETURN:
+        text += '\n'
+
+    elif len(unicode) > 0 and ord(unicode) >= 20 and ord(unicode) <= 125:
+        text += unicode
+
+def draw():
+    screen.fill('black')
+    x = 0
+    y = 0
+    stepX = 10
+    stepY = 22
+
+    for c in text:
+        if c == '\n':
+            y += stepY
+            x = 0
+        else:
+            screen.draw.text(c, (x,y), fontsize=20,fontname="437-win")
+            x += stepX
+
+    screen.draw.rect(Rect((x,y,stepX,stepY)), (255,0,0))
+
+pgzrun.go()
+```
 ## [DAY-91] Basics of Basics
 ## [DAY-92] Basics of Basics
 ## [DAY-93] Basics of Basics
