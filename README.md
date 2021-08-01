@@ -6367,6 +6367,48 @@ pgzrun.go()
 This is kind of what `screen.draw.text` does, you can of course just do `screen.draw.text(text, (0,0), fontsize=20,fontname="437-win")` and it will work fine, instead of displaying character by character and computing our own char spacing, but what is the fun in that? Also this way we are one step closer to be able to move the cursor left and right so we can edit in the middle of the text.
 
 ## [DAY-91] Basics of Basics
+
+list your favorite games, and rank them
+
+```
+games = [
+    ["mario smash bros", 3],
+    ["mario party", 4],
+    ["super mario", 2]
+]
+
+while True:
+    for game in games:
+        print(game[0])
+    what = input("which game are you interested in: ")
+    for game in games:
+        if what in game[0]:
+            print("i like " + game[0] + ", score: " + str(game[1]))
+```
+
+print the lyrics of songs:
+
+```
+songs = [
+    ["wellerman", """There once was a ship that put to sea
+The name of the ship was the Billy of Tea
+The winds blew up, her bow dipped down
+Oh blow, my bully boys, blow (huh)
+
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguing is done
+We'll take our leave and go"""],
+]
+
+while True:
+    what = input("which song are you interested in: ")
+    for song in songs:
+        if what in song[0]:
+            print('-' * 40)
+            print(song[1])
+            print('-' * 40)
+```
 ## [DAY-92] Basics of Basics
 ## [DAY-93] Basics of Basics
 ## [DAY-94] Basics of Basics
