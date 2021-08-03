@@ -6224,7 +6224,7 @@ def on_key_down(key, mod, unicode):
     global cursor_row, cursor_col
 
     if key == keys.Q and mod == keymods.LCTRL:
-        os.exit(0)
+        exit()
     if key == keys.S and mod == keymods.LCTRL:
         x = open(filename, "w")
         s = lines_to_string()
@@ -6331,7 +6331,7 @@ def on_key_down(key, mod, unicode):
     global text
 
     if key == keys.Q and mod == keymods.LCTRL:
-        os.exit(0)
+        exit()
 
 
     elif key == keys.BACKSPACE:
@@ -6410,6 +6410,126 @@ while True:
             print('-' * 40)
 ```
 ## [DAY-92] Basics of Basics
+
+Today is command line day.
+
+> First quickly go back to the start and read about files and folders (directories).
+
+The same way functions can get parameters, your program can get parameters as well, try this:
+
+```
+import sys 
+print(sys.argv)
+```
+
+save it as `a.py` and then run `python3 a.py hello those are paremeters` frmo the Terminal app, you will see `['a.py', 'hello', 'those', 'are', 'paremeters']`, sys.argv[0] is the name of the program, and then the parameters you gave it.
+
+Now lets make few handy programs to help us with our command line:
+
+---
+
+xcat.py
+
+```
+import sys
+
+x = open(sys.argv[1], "r")
+data = x.read()
+print(data)
+```
+
+---
+
+xls.py
+```
+import os
+import sys
+
+files = os.listdir(sys.argv[1])
+files.sort()
+
+for f in files:
+    if os.path.isdir(f):
+        print(f + "/")
+    else:
+        print(f)
+```
+
+---
+
+xed.py
+
+```
+import sys
+import os
+
+text = ''
+
+filename = sys.argv[1]
+
+try:
+    f = open(filename, "r")
+    text = f.read()
+    f.close()
+except IOError:
+    pass
+    
+while True:
+    what = input("> ")
+    if what == '?':
+        print("""
+        * ? - help
+        * p - print
+        * s - save
+        * d [n] - delete last N lines
+        * a text - append text to the end
+        """)
+    elif what == 'q':
+        sys.exit(0)
+    elif what == 'p':
+        print(text, end = '')
+    elif what == 's':
+        f = open(filename, "w")
+        f.write(text)
+        f.close()
+    elif what[0] == 'a' and what[1] == ' ':
+        text += what[2:] + '\n'
+    elif what[0] == 'd':
+        lines = text.split('\n')
+
+        n = 1
+        if len(what) > 2:
+            n = int(what[2:])
+
+        for i in range(0, n):
+            lines.pop()
+
+        text = "\n".join(lines)
+        
+
+    else:
+        print("* use ? for help")
+```
+
+---
+
+OK now we have a text editor, a program to list files, and a program to print the file's content, now we can use our programs to write more programs :)
+
+try this:
+
+```
+$ python3 xed,py example.py
+> a for i in range(100)
+> a   print(i)
+> p
+> s
+
+$ python3 xls.py .
+$ python3 xcat.py example.py
+$ python3 example.py
+```
+
 ## [DAY-93] Basics of Basics
 ## [DAY-94] Basics of Basics
 ## [DAY-95] Basics of Basics
+
