@@ -559,6 +559,12 @@ for i in range(1000000):
 
 ```
 
+Our memory looks like this:
+
+```
+[0,0,0,..............0,0,0,0....0,0,0,0,0]
+```
+
 Now we can make variables in this list of numbers, by addressing each variable with its index in the list, for exampke `x` can be at index 1000 and `y` can be at position 1001.
 
 
@@ -571,7 +577,50 @@ y_address = 1001
 memory[x_address] = 5
 memory[y_address] = 10
 
-print(add(x_address,y_address))
+r = add(x_address,y_address)
+
+print(r)
+```
+
+This is cheating though, because python uses its own memory to store the result from x and y.
+
+```
+def add(a_address,b_address,r_address):
+    memory[r_address] = memory[a_address] + memory[b_address]
+
+x_address = 1000
+memory[x_address] = 5
+
+y_address = 1001
+memory[y_address] = 10
+
+r_address = 1002
+add(x_address,y_address,r_address)
+
+print(memory[r_address])
+```
+
+This is how our memory looks like
+```
+[....0,0,0,5,10,15,0,...]
+           ^ ^  ^
+           | |  |
+           x |  |
+             y  |
+                r
+
+x at index 1000
+y at index 1001
+r at index 1002
+```
+
+The code above translates roughly to
+
+```
+x = 5
+y = 10
+r = x + y
+print(r)
 ```
 
 How about strings? We can store strings by just defining how big the string is, and then follow with the characters of the string. You see how it is continous piece of memory.
@@ -666,7 +715,7 @@ memory[i_address] = 9999
      ^          ^                     ^
      i          this is a             this is b
   idx: 3996     idx: 4000             idx: 4006
-           
+
 ```
 
 The memory doesnt care, string integers, characters,, its all the same. It doesn't know where one array ends or begins. You just read and write to specific address and thats all it cares about. *WHERE* to read and write.
