@@ -250,7 +250,7 @@ Today is command line day.
 The same way functions can get parameters, your program can get parameters as well, try this:
 
 ```
-import sys 
+import sys
 print(sys.argv)
 ```
 
@@ -305,7 +305,7 @@ try:
     f.close()
 except IOError:
     pass
-    
+
 while True:
     what = input("> ")
     if what == '?':
@@ -337,7 +337,7 @@ while True:
             lines.pop()
 
         text = "\n".join(lines)
-        
+
 
     else:
         print("* use ? for help")
@@ -372,13 +372,13 @@ Help on built-in function open in module io:
 
 open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
     Open file and return a stream.  Raise OSError upon failure.
-    
+
     file is either a text or byte string giving the name (and the path
     if the file isn't in the current working directory) of the file to
     be opened or an integer file descriptor of the file to be
     wrapped. (If a file descriptor is given, it is closed when the
     returned I/O object is closed, unless closefd is set to False.)
-    
+
     mode is an optional string that specifies the mode in which the file
     is opened. It defaults to 'r' which means open for reading in text
     mode.  Other common values are 'w' for writing (truncating the file if
@@ -389,7 +389,7 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
     dependent: locale.getpreferredencoding(False) is called to get the
     current locale encoding. (For reading and writing raw bytes use binary
     mode and leave encoding unspecified.) The available modes are:
-    
+
     ========= ===============================================================
     Character Meaning
     --------- ---------------------------------------------------------------
@@ -402,12 +402,12 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
     '+'       open a disk file for updating (reading and writing)
     'U'       universal newline mode (deprecated)
     ========= ===============================================================
-    
+
     The default mode is 'rt' (open for reading text). For binary random
     access, the mode 'w+b' opens and truncates the file to 0 bytes, while
     'r+b' opens the file without truncation. The 'x' mode implies 'w' and
     raises an `FileExistsError` if the file already exists.
-    
+
     Python distinguishes between files opened in binary and text modes,
     even when the underlying operating system doesn't. Files opened in
     binary mode (appending 'b' to the mode argument) return contents as
@@ -415,31 +415,31 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
     't' is appended to the mode argument), the contents of the file are
     returned as strings, the bytes having been first decoded using a
     platform-dependent encoding or using the specified encoding if given.
-    
+
     'U' mode is deprecated and will raise an exception in future versions
     of Python.  It has no effect in Python 3.  Use newline to control
     universal newlines mode.
-    
+
     buffering is an optional integer used to set the buffering policy.
     Pass 0 to switch buffering off (only allowed in binary mode), 1 to select
     line buffering (only usable in text mode), and an integer > 1 to indicate
     the size of a fixed-size chunk buffer.  When no buffering argument is
     given, the default buffering policy works as follows:
-    
+
     * Binary files are buffered in fixed-size chunks; the size of the buffer
       is chosen using a heuristic trying to determine the underlying device's
       "block size" and falling back on `io.DEFAULT_BUFFER_SIZE`.
       On many systems, the buffer will typically be 4096 or 8192 bytes long.
-    
+
     * "Interactive" text files (files for which isatty() returns True)
       use line buffering.  Other text files use the policy described above
       for binary files.
-    
+
     encoding is the name of the encoding used to decode or encode the
     file. This should only be used in text mode. The default encoding is
     platform dependent, but any encoding supported by Python can be
     passed.  See the codecs module for the list of supported encodings.
-    
+
     errors is an optional string that specifies how encoding errors are to
     be handled---this argument should not be used in binary mode. Pass
     'strict' to raise a ValueError exception if there is an encoding error
@@ -447,11 +447,11 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
     errors. (Note that ignoring encoding errors can lead to data loss.)
     See the documentation for codecs.register or run 'help(codecs.Codec)'
     for a list of the permitted encoding error strings.
-    
+
     newline controls how universal newlines works (it only applies to text
     mode). It can be None, '', '\n', '\r', and '\r\n'.  It works as
     follows:
-    
+
     * On input, if newline is None, universal newlines mode is
       enabled. Lines in the input can end in '\n', '\r', or '\r\n', and
       these are translated into '\n' before being returned to the
@@ -459,23 +459,23 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
       endings are returned to the caller untranslated. If it has any of
       the other legal values, input lines are only terminated by the given
       string, and the line ending is returned to the caller untranslated.
-    
+
     * On output, if newline is None, any '\n' characters written are
       translated to the system default line separator, os.linesep. If
       newline is '' or '\n', no translation takes place. If newline is any
       of the other legal values, any '\n' characters written are translated
       to the given string.
-    
+
     If closefd is False, the underlying file descriptor will be kept open
     when the file is closed. This does not work when a file name is given
     and must be True in that case.
-    
+
     A custom opener can be used by passing a callable as *opener*. The
     underlying file descriptor for the file object is then obtained by
     calling *opener* with (*file*, *flags*). *opener* must return an open
     file descriptor (passing os.open as *opener* results in functionality
     similar to passing None).
-    
+
     open() returns a file object whose type depends on the mode, and
     through which the standard file operations such as reading and writing
     are performed. When open() is used to open a file in a text mode ('w',
@@ -484,7 +484,7 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
     mode, it returns a BufferedReader; in write binary and append binary
     modes, it returns a BufferedWriter, and in read/write mode, it returns
     a BufferedRandom.
-    
+
     It is also possible to use a string or bytearray as a file for both
     reading and writing. For strings StringIO can be used like a file
     opened in a text mode, and for bytes a BytesIO can be used like a file
@@ -498,7 +498,210 @@ The other way find things is to google `python3 open` and you will usually see s
 
 You can also do pydoc3 on modules, e.g. `pydoc3 sys` or `pydoc3 sys.argv`. Sometimes it might look a bit intimidating, but its usually much better than using google.
 
-Try also `pydoc3 pgzero`, `pydoc3 pygame` and `pydoc3 pygame.Rect`
+Try also `pydoc3 pgzero`, `pydoc3 pygame` and `pydoc3 pygame.Rect`. There is also a way to find documentation for the command line programs, try `man python3`, `man` from `manual`, if you want to search for something use `man -k something` for example `man -k python`.
 
 ## [DAY-94] Basics of Basics
+
+Command line editors:
+
+* nano, pico
+
+super easy to use, press ctrl+x to exit, ctrl+k to cut text, and ctrl+u to uncut (paste)
+
+* vi
+
+Type `vimtutor` to see how it works, to quit use `ESC` then type `:` and then `q!`
+
+* emacs
+
+emacs is my favorite editor, in in fact I am writing this book using it. type `ctrl+x ctrl+c` to quit, and `ctrl+x ctrl+s` to save.
+
+* ed
+
+ed is super old editor, it is somewhat similar to xed.py that you wrote, its called 'line editor'. To quit use `q` or `Q` if you want to quit without saving, to print the contents of the file use `1,$n` which prints the lines from 1 to $, or you can print specific line with `1n` or `2n` where 1 or 2 is the linue number.
+
+try this:
+
+```
+$ ed zzz
+a
+for i in range(10);
+  print(i)
+.
+w
+31
+1,$n
+1	for i in range(10);
+2	  print(i)
+q
+```
+
+`a` will append to the file, `w` will save the file, `1,$n` will print the contents, and `q` will quit. Commands like `a,i,d` (append,insert,delete) take line numbers as parameters as well. Use `man ed` to see the docs.
+
+I don't think anyone uses `ed` anymore, at least not as a text editor, but sometimes its handy to know how to use it.
+
+---
+
+There are many many text editors, and many
+
 ## [DAY-95] Basics of Basics
+
+
+Memory.
+
+
+Lets make a huuuuuge list.
+
+```
+memory = []
+for i in range(1000000):
+    memory.append(0)
+
+def add(a_address,b_address):
+    return memory[a_address] + memory[b_address]
+
+
+
+x_address = 1000
+y_address = 1001
+memory[x_address] = 5
+memory[y_address] = 10
+
+print(add(x_address,y_address))
+```
+
+Strings with length.
+
+We can store strings by just defining how big the string is, and then follow with the characters of the string. You see how it is continous piece of memory.
+```
+
+h_address = 2000
+memory[h_address] = 5
+memory[h_address+1] = ord('h')
+memory[h_address+2] = ord('e')
+memory[h_address+3] = ord('l')
+memory[h_address+4] = ord('l')
+memory[h_address+5] = ord('o')
+
+def xprint(address):
+    l = memory[address]
+    for i in range(l):
+        c = memory[address + 1 + i]
+        print(chr(c), end = '')
+    print('')
+```
+
+
+Strings with without length.
+
+We can also just say 'the string ends with 0' so start reading and stop when you see 0,.
+
+```
+
+n_address = 3000
+memory[n_address+0] = ord('h')
+memory[n_address+1] = ord('e')
+memory[n_address+2] = ord('l')
+memory[n_address+3] = ord('l')
+memory[n_address+4] = ord('o')
+
+def nprint(address):
+    for addr in range(address, len(memory)):
+        c = memory[addr]
+        if c == 0:
+            break
+        print(chr(c), end = '')
+    print('')
+
+nprint(n_address)
+
+```
+
+Now lets add a funciton to add two strings:
+
+```
+
+
+a_address = 4000
+memory[a_address] = 5
+memory[a_address+1] = ord('h')
+memory[a_address+2] = ord('e')
+memory[a_address+3] = ord('l')
+memory[a_address+4] = ord('l')
+memory[a_address+5] = ord('o')
+
+b_address = 4006
+memory[b_address] = 5
+memory[b_address+1] = ord('w')
+memory[b_address+2] = ord('o')
+memory[b_address+3] = ord('r')
+memory[b_address+4] = ord('l')
+memory[b_address+5] = ord('d')
+
+c_address = 7000
+
+def xadd(a,b,dst):
+    len_a = memory[a]
+    len_b = memory[b]
+    memory[dst] = len_a + len_b
+    for i in range(len_a):
+        c = memory[a + 1 + i]
+        memory[dst + 1 + i] = c
+
+    for i in range(len_b):
+        c = memory[b + 1 +i]
+        memory[dst + 1 + len_a + i] = c
+
+xadd(a_address, b_address, c_address)
+xprint(c_address)
+```
+
+You see, the list is just a list with 1 million numbers, but we decide what those numbers mean, if we are reading a string, we *know* that the first number represents the length of the string, so its just an integer, but we know that the other numbers are actually characters.
+
+```
+i_address = 3999
+memory[i_address] = 9999
+
+[....0,0,0,9999,5,104,101,108,108,111,5,119,111,114,108,100....]
+           ^    ^                     ^
+           i    this is a             this is b
+```
+
+The memory doesnt care, string integers, characters,, its all the same. It doesn't know where one array ends or begins. You just read and write to specific address and thats all it cares about. *WHERE* to read and write.
+
+
+Think about what it means to remove a character from our string, if its the last character we can sinply reduce the lengthm but lets say we want to remove 'o' from 'world', that would mean something like:
+
+```
+world
+
+* reduce the length to 4
+* move r to the left
+* move l to the left
+* move d to the left
+
+```
+
+You see we had to do 4 things to remove 1 character, and imagine if the string is 10000 chars long and we want to remove the first one, we wikl have to do 999 things, moving each character to the left.
+
+
+In the same time, it is super easy to go to specific character, if I want to print the 3rd char, I can just do memory[address + 1 + 3] and thats it, add 1 because of the length and then add however many characters i want to skip.
+
+There are different way to store collections of things, Linked Lists are one example
+
+```
+
+[0, value]            # w
+ |
+[next_address, value] # o
+ |
+[next_address, value] # r
+ |
+[next_address, value] # l
+ |
+[0, value ]           # d
+```
+
+Arrays and Lists are very differentm arrays are *always* continous, like strings, actually string is just an array of characters. Lists however can be on scattered amongst the memory, and each element can point to the next one.
+
+So with a linked list it is hard to get to position 3 for example, because we have to start from the top, and go down until we see 3 elements, so we have to do 3 things to get to position 3, or 1000 things to get to position 1000. In the same time if we want to remove something, we can simply make it disappear, by making the previous element point to the next one, e.g. make `o` point to `l`, and then `r` will disappear.
