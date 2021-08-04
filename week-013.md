@@ -756,3 +756,61 @@ There are different way to store collections of things, Linked Lists are one exa
 Arrays and Lists are very differentm arrays are *always* continous, like strings, actually string is just an array of characters. Lists however can be on scattered amongst the memory, and each element can point to the next one.
 
 So with a linked list it is hard to get to position 3 for example, because we have to start from the top, and go down until we see 3 elements, so we have to do 3 things to get to position 3, or 1000 things to get to position 1000. In the same time if we want to remove something, we can simply make it disappear, by making the previous element point to the next one, e.g. make `o` point to `l`, and then `r` will disappear.
+
+
+Lets make a computer, it needs Memory and CPU, the CPU will read instructions from memory and produce results back in memory.
+
+```
+memory = []
+for i in range(1000000):
+    memory.append(0)
+
+
+memory[1000] = 5  # a
+memory[1001] = 10 # b
+
+
+# add(a,b) store result on address 1003 (lets call it r)
+memory[0] = 1
+memory[1] = 1000
+memory[2] = 1001
+memory[3] = 1003
+
+# print 1003
+memory[4] = 2
+memory[5] = 1003
+
+# add(a,r) into r
+memory[6] = 1
+memory[7] = 1001
+memory[8] = 1003
+memory[9] = 1004
+
+# print r
+memory[10] = 2
+memory[11] = 1004
+memory[12] = 0
+
+
+position = 0
+while True:
+    current = memory[position]
+
+    # quit if instruction is 0
+    if current == 0:
+        break
+    # add position+1 and position+2 and write result in position+3
+    elif current == 1:
+        a_address = memory[position+1]
+        b_address = memory[position+2]
+
+        r_address = memory[position+3]
+
+        memory[r_address] = memory[a_address] + memory[b_address]
+        position += 4
+    # print position + 1
+    elif current == 2:
+        address = memory[position+1]
+        print(memory[address])
+        position+=2
+```
