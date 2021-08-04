@@ -6664,6 +6664,10 @@ It's a lot! But I guarantee you its the best way to learn about something, the p
 The other way find things is to google `python3 open` and you will usually see stackoverflow answers and maybe some examples, in many cases they will be incomplete or wrong, or pure scam 'pay 10$ to buy our video to learn how to use python3 open'
 
 
+You can also do pydoc3 on modules, e.g. `pydoc3 sys` or `pydoc3 sys.argv`. Sometimes it might look a bit intimidating, but its usually much better than using google.
+
+Try also `pydoc3 pgzero`, `pydoc3 pygame` and `pydoc3 pygame.Rect`
+
 ## [DAY-94] Basics of Basics
 ## [DAY-95] Basics of Basics
 
