@@ -557,10 +557,14 @@ memory = []
 for i in range(1000000):
     memory.append(0)
 
+```
+
+Now we can make variables in this list of numbers, by addressing each variable with its index in the list, for exampke `x` can be at index 1000 and `y` can be at position 1001.
+
+
+```
 def add(a_address,b_address):
     return memory[a_address] + memory[b_address]
-
-
 
 x_address = 1000
 y_address = 1001
@@ -570,9 +574,7 @@ memory[y_address] = 10
 print(add(x_address,y_address))
 ```
 
-Strings with length.
-
-We can store strings by just defining how big the string is, and then follow with the characters of the string. You see how it is continous piece of memory.
+How about strings? We can store strings by just defining how big the string is, and then follow with the characters of the string. You see how it is continous piece of memory.
 ```
 
 h_address = 2000
@@ -592,9 +594,7 @@ def xprint(address):
 ```
 
 
-Strings with without length.
-
-We can also just say 'the string ends with 0' so start reading and stop when you see 0,.
+Strings with without length. We can also just say 'the string ends with 0' so start reading and stop when you see 0.
 
 ```
 
@@ -659,16 +659,17 @@ xprint(c_address)
 You see, the list is just a list with 1 million numbers, but we decide what those numbers mean, if we are reading a string, we *know* that the first number represents the length of the string, so its just an integer, but we know that the other numbers are actually characters.
 
 ```
-i_address = 3999
+i_address = 3996
 memory[i_address] = 9999
 
-[....0,0,0,9999,5,104,101,108,108,111,5,119,111,114,108,100....]
-           ^    ^                     ^
-           i    this is a             this is b
+[....9999,0,0,0,5,104,101,108,108,111,5,119,111,114,108,100....]
+     ^          ^                     ^
+     i          this is a             this is b
+  idx: 3996     idx: 4000             idx: 4006
+           
 ```
 
 The memory doesnt care, string integers, characters,, its all the same. It doesn't know where one array ends or begins. You just read and write to specific address and thats all it cares about. *WHERE* to read and write.
-
 
 Think about what it means to remove a character from our string, if its the last character we can sinply reduce the lengthm but lets say we want to remove 'o' from 'world', that would mean something like:
 
