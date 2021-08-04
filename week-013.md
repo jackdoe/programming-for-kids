@@ -582,7 +582,7 @@ r = add(x_address,y_address)
 print(r)
 ```
 
-This is cheating though, because python uses its own memory to store the result from x and y.
+This is cheating though, because python uses its own memory to store the result from x and y, lets fix that:
 
 ```
 def add(a_address,b_address,r_address):
@@ -614,7 +614,7 @@ y at index 1001
 r at index 1002
 ```
 
-The code above translates roughly to
+The code above translates roughly to:
 
 ```
 x = 5
@@ -637,6 +637,7 @@ memory[h_address+5] = ord('o')
 def xprint(address):
     l = memory[address]
     for i in range(l):
+        # +1 is because of the length
         c = memory[address + 1 + i]
         print(chr(c), end = '')
     print('')
