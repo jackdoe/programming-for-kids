@@ -758,6 +758,85 @@ Arrays and Lists are very differentm arrays are *always* continous, like strings
 So with a linked list it is hard to get to position 3 for example, because we have to start from the top, and go down until we see 3 elements, so we have to do 3 things to get to position 3, or 1000 things to get to position 1000. In the same time if we want to remove something, we can simply make it disappear, by making the previous element point to the next one, e.g. make `o` point to `l`, and then `r` will disappear.
 
 
+Our format will be (next element from the list, value)
+
+```
+memory[20000] = 30000
+memory[20001] = 1
+
+memory[30000] = 30500
+memory[30001] = 2
+
+memory[30500] = 30605
+memory[30501] = 3
+
+memory[30605] = 0
+memory[30606] = 4
+```   
+
+the memory now looks like this:
+
+```
+[ ....30000, 1, .... 30500, 2, .... 30605, 3, .... 0, 4, ...]
+      ^              ^              ^              ^
+      first          second         third          forth element
+```
+
+
+This is an example function that will print all the values in a linked list, following the links.
+
+```
+def lprint(start_address):
+    done = False
+    while not done:
+        # check if this is the last element of the list
+        done = memory[start_address] == 0
+
+        # print the value at address + 1
+        print(memory[start_address+1])
+
+        # go to the next element from the list
+        start_address = memory[start_address]
+
+lprint(20000)
+```
+
+You see, having a flat area of memory is so powerfull! it doesnt know anything about what we store in it, so of course we can store pointers to other parts of the memory, we can have lists of lists of lists of lists that just point around, and of course we can have infinite loops, imagine a linked list where one of the elements points to a previous elemnent.
+
+Check this out:
+```
+memory[20000] = 30000
+memory[20001] = 1
+
+memory[30000] = 20000
+memory[30001] = 2
+
+lprint(20000)
+```
+
+Inifinite loop! How cool is that!
+
+```
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+```
+
+
+
 Lets make a computer, it needs Memory and CPU, the CPU will read instructions from memory and produce results back in memory.
 
 ```
@@ -770,7 +849,6 @@ memory[1000] = 5  # a
 memory[1001] = 10 # b
 memory[1002] = 0  # result
 
-
 # lets multiply a * b
 # the code looks like this
 # counter = b
@@ -778,7 +856,6 @@ memory[1002] = 0  # result
 #     r = r + a
 #     counter -= 1
 # print(r)
-
 
 # counter = b
 memory[1003] = memory[1001]
@@ -793,7 +870,6 @@ memory[3] = 1
 memory[4] = 1002
 memory[5] = 1000
 memory[6] = 1002
-
 
 
 # since our add operation adds two things in memory, we
@@ -816,7 +892,6 @@ memory[14] = 1002
 
 # stop the program
 memory[15] = 0
-
 
 position = 0
 while True:
