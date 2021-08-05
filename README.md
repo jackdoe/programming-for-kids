@@ -6989,7 +6989,7 @@ memory[15] = 0
 position = 0
 while True:
     instruction = memory[position]
-    print('instruction',instruction, 'position','position')
+    print('instruction',instruction, 'position',position)
     # quit if instruction is 0
     if instruction == 0:
         break
@@ -7021,5 +7021,55 @@ while True:
     # jump to value of position+1
     elif instruction == 5:
         position = memory[position+1]
+```
+
+
+start the computer and see the result!
+
+```
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 1, 'position', 3)
+('instruction', 1, 'position', 7)
+('instruction', 5, 'position', 11)
+('instruction', 4, 'position', 0)
+('instruction', 3, 'position', 13)
+50
+('instruction', 0, 'position', 15)
 ```
 
