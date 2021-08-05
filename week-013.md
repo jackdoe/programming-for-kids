@@ -542,7 +542,9 @@ I don't think anyone uses `ed` anymore, at least not as a text editor, but somet
 
 ---
 
-There are many many text editors, and many
+There are many many text editors, and some are better for you than others, but to me I dont really care, I want to type in my program and save it.. its not the end of the world if I use one or another editor.
+
+So use the one you like most, but sometimes you will go on another computer and they wont have your editor there, so be be sure to be 'ok' with vim, nano or emacs, because they are on virtually any system.
 
 ## [DAY-95] Basics of Basics
 
