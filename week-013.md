@@ -774,7 +774,7 @@ memory[30501] = 3
 
 memory[30605] = 0
 memory[30606] = 4
-```   
+```
 
 the memory now looks like this:
 
@@ -886,7 +886,7 @@ memory[10] = 1003
 
 # go back to the if counter == 0 instruction
 memory[11] = 5
-memory[12] = 0 
+memory[12] = 0
 
 # print(r)
 memory[13] = 3
@@ -980,4 +980,74 @@ start the computer and see the result!
 ('instruction', 3, 'position', 13)
 50
 ('instruction', 0, 'position', 15)
+```
+
+Now lets get into variables from first principles, they are nothing but handy pointers to memory, that you can name yourself, and then you can access this memory by the name you chose.
+
+This is the same program, but we are gonna use A, B, R, COUNTER and MINUS_1 as names for the specific addressess, and you can immidiately see how much cleaner the program looks. We will also name our instructions ADD, JUMP_IF_ZERO (or JZ), PRINT and HALT
+
+```
+...
+
+# instructions
+HALT = 0
+ADD = 1
+PRINT = 3
+JUMP_IF_ZERO = 4
+JUMP = 5
+
+
+# variabnles
+A = 1000
+B = 1001
+R = 1002
+MINUS_1 = 9999
+COUNTER = 1003
+
+
+# program
+memory[A] = 5  # A = 5
+memory[B] = 10 # B = 5
+memory[R] = 0  # R = 0
+memory[COUNTER] = memory[B]  # COUNTER = B
+
+# jump to position 10 if counter is 0
+memory[0] = JUMP_IF_ZERO
+memory[1] = COUNTER
+memory[2] = 13
+
+# r = r + a
+memory[3] = ADD
+memory[4] = R
+memory[5] = A
+memory[6] = R
+
+
+# counter -= 1
+memory[MINUS_1] = -1
+memory[7] = ADD
+memory[8] = COUNTER
+memory[9] = MINUS_1
+memory[10] = COUNTER
+
+# go back to the if counter == 0 instruction
+memory[11] = JUMP
+memory[12] = 0
+
+# print(r)
+memory[13] = PRINT
+memory[14] = R
+
+# stop the program
+memory[15] = HALT
+...
+
+```
+
+The whole program is actually quite small:
+
+```
+[4, 1003, 13, 1, 1000, 1002, 1002, 1, 1003, 9999, 1003, 5, 0, 3, 1002, 0]
+ ^                                                      ^
+ jump to 13 if memory[1003] is zero                     jump to 0
 ```
