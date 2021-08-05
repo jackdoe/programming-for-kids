@@ -796,12 +796,12 @@ memory[6] = 1002
 
 
 
-# since our substract operation subtracts two things in memory, we
-# need to store the value 1 somewhere to subtract it from the counter
+# since our add operation adds two things in memory, we
+# need to store the value -1 somewhere to subtract it from the counter
 #
 # counter -= 1
-memory[9999] = 1
-memory[7] = 2
+memory[9999] = -1
+memory[7] = 1
 memory[8] = 1003
 memory[9] = 9999
 memory[10] = 1003
@@ -834,16 +834,6 @@ while True:
         r_address = memory[position+3]
 
         memory[r_address] = memory[a_address] + memory[b_address]
-        position += 4
-
-    # subtract position+1 and position+2 and write result in position+3
-    elif instruction == 2:
-        a_address = memory[position+1]
-        b_address = memory[position+2]
-
-        r_address = memory[position+3]
-
-        memory[r_address] = memory[a_address] - memory[b_address]
         position += 4
 
     # print position + 1
