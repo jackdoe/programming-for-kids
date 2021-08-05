@@ -1025,7 +1025,7 @@ memory[6] = R
 
 # counter -= 1
 memory[MINUS_1] = -1
-# counter = counter - minus_1
+# counter = counter + minus_1
 memory[7] = ADD
 memory[8] = COUNTER
 memory[9] = MINUS_1
