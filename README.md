@@ -6710,7 +6710,9 @@ I don't think anyone uses `ed` anymore, at least not as a text editor, but somet
 
 ---
 
-There are many many text editors, and many
+There are many many text editors, and some are better for you than others, but to me I dont really care, I want to type in my program and save it.. its not the end of the world if I use one or another editor.
+
+So use the one you like most, but sometimes you will go on another computer and they wont have your editor there, so be be sure to be 'ok' with vim, nano or emacs, because they are on virtually any system.
 
 ## [DAY-95] Basics of Basics
 
@@ -7147,4 +7149,24 @@ start the computer and see the result!
 50
 ('instruction', 0, 'position', 15)
 ```
+
+# Chapter 14 - Week 14
+
+```
+day0: Basics of Basics
+day1: Basics of Basics
+day2: Basics of Basics
+day3: Basics of Basics
+day4: Basics of Basics
+day5: Basics of Basics
+day6: Basics of Basics
+```
+
+## [DAY-95] Basics of Basics
+## [DAY-96] Basics of Basics
+## [DAY-97] Basics of Basics
+## [DAY-98] Basics of Basics
+## [DAY-99] Basics of Basics
+## [DAY-100] Basics of Basics
+## [DAY-101] Basics of Basics
 
