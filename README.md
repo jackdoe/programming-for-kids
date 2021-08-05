@@ -6936,39 +6936,66 @@ for i in range(1000000):
 
 memory[1000] = 5  # a
 memory[1001] = 10 # b
+memory[1002] = 0  # result
 
 
-# add(a,b) store result on address 1003 (lets call it r)
-memory[0] = 1
-memory[1] = 1000
-memory[2] = 1001
-memory[3] = 1003
+# lets multiply a * b
+# the code looks like this
+# counter = b
+# while counter > 0:
+#     r = r + a
+#     counter -= 1
+# print(r)
 
-# print 1003
-memory[4] = 2
-memory[5] = 1003
 
-# add(a,r) into r
-memory[6] = 1
-memory[7] = 1001
+# counter = b
+memory[1003] = memory[1001]
+
+# jump to position 10 if counter is 0
+memory[0] = 4
+memory[1] = 1003
+memory[2] = 13
+
+# r = r + a
+memory[3] = 1
+memory[4] = 1002
+memory[5] = 1000
+memory[6] = 1002
+
+
+
+# since our substract operation subtracts two things in memory, we
+# need to store the value 1 somewhere to subtract it from the counter
+#
+# counter -= 1
+memory[9999] = 1
+memory[7] = 2
 memory[8] = 1003
-memory[9] = 1004
+memory[9] = 9999
+memory[10] = 1003
 
-# print r
-memory[10] = 2
-memory[11] = 1004
-memory[12] = 0
+# go back to the if counter == 0 instruction
+memory[11] = 5
+memory[12] = 0 
+
+# print(r)
+memory[13] = 3
+memory[14] = 1002
+
+# stop the program
+memory[15] = 0
 
 
 position = 0
 while True:
-    current = memory[position]
-
+    instruction = memory[position]
+    print('instruction',instruction, 'position','position')
     # quit if instruction is 0
-    if current == 0:
+    if instruction == 0:
         break
+
     # add position+1 and position+2 and write result in position+3
-    elif current == 1:
+    elif instruction == 1:
         a_address = memory[position+1]
         b_address = memory[position+2]
 
@@ -6976,10 +7003,33 @@ while True:
 
         memory[r_address] = memory[a_address] + memory[b_address]
         position += 4
+
+    # subtract position+1 and position+2 and write result in position+3
+    elif instruction == 2:
+        a_address = memory[position+1]
+        b_address = memory[position+2]
+
+        r_address = memory[position+3]
+
+        memory[r_address] = memory[a_address] - memory[b_address]
+        position += 4
+
     # print position + 1
-    elif current == 2:
+    elif instruction == 3:
         address = memory[position+1]
         print(memory[address])
         position+=2
+
+    # if memory[position+1] is 0 jump to positon+2, else continue to position+3
+    elif instruction == 4:
+        address = memory[position+1]
+        if memory[address] == 0:
+            position = memory[position+2]
+        else:
+            position += 3
+
+    # jump to value of position+1
+    elif instruction == 5:
+        position = memory[position+1]
 ```
 
