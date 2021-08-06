@@ -7234,6 +7234,279 @@ day6: Basics of Basics
 ```
 
 ## [DAY-95] Basics of Basics
+
+It will be super nice if our multiply program can be used from multiple places from a bigger program:
+
+```
+...
+r = multiply(5, 10)
+print(r)
+...
+```
+
+We can kind of do that, by just using jump, and carefully writing the multiply function in such a way, that when it is done, to jump back to where we called it. We also have to give it some values to work with, in our case 5 and 10.
+
+We will use a simple list to append the values and the return address, and then pop them out in the right order to use them. Our multiply function has to know how many values to read and it must know which one of them is the return address. `[5, 10, ZZZ]` imagine ZZZ is the address where we should return after we have computed the result. And then the function will just do POP, POP, POP and know, first POP will be ZZZ, second pop will be one parameter, third pop will be another parameter. Do what it does with the parameters, and then append its result into the stack, then the caller must know to POP it.
+
+It is called a stack because it is like a stack of things on top of each other (cards for example), you can append(push) one to the top, or remove one from the top (pop). When we pop() we will remove the last thing we push()ed.
+
+If I push 1,2,3 then if i pop 3 times I will print 3 2 1
+
+```
+stack = [1,2,3]
+
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+```
+
+Here is our updated program, and computer:
+
+```
+memory = []
+for i in range(1000000):
+    memory.append(0)
+
+HALT         = 0
+ADD          = 1
+PRINT        = 3
+JUMP_IF_ZERO = 4
+JUMP         = 5
+PUSH         = 8
+POP          = 9
+SET          = 10
+
+JUMPV        = 11 # same as jump, but jumps to the
+                  # value of the address instead of the address itself
+                  # so jumpv 9, will jump to the value of memory[9]
+
+PUSHV        = 12 # same as jumpv but for push
+
+
+# just used for debug
+instruction_lookup = dict([
+    (HALT         , 'HALT'),
+    (ADD          , 'ADD'),
+    (PRINT        , 'PRINT'),
+    (JUMP_IF_ZERO , 'JUMP_IF_ZERO'),
+    (JUMP         , 'JUMP'),
+    (PUSH         , 'PUSH'),
+    (POP          , 'POP'),
+    (SET          , 'SET'),
+    (PUSHV        , 'PUSHV'),
+    (JUMPV        , 'JUMPV')
+])
+
+                  # pushv 9, will push memory[9] instead of 9
+# constants addressess
+# there is no such thing as constants though, we just think of them as such
+MINUS_1 = 9999
+
+# set "global" variable MINUS_1 to -1
+memory[MINUS_1] = -1 # minus_1 = -1
+
+# MAIN FUNCTION
+
+# main function has only one variable, the MULTIPLY_RESULT
+MULTIPLY_RESULT = 1000
+
+# MULTIPLY_RESULT = multiply (5, 10)
+memory[0] = PUSH            # |  |
+memory[1] = 5               # ^  |
+memory[2] = PUSH            #    |
+memory[3] = 10              # >--+
+memory[4] = PUSH            # >-------------+
+memory[5] = 8               #               | after the function is called
+memory[6] = JUMP            #               | jump to get the value
+memory[7] = 198             #               | from the stack
+memory[8] = POP             # <-------------+
+memory[9] = MULTIPLY_RESULT #
+memory[10] = PRINT
+memory[11] = MULTIPLY_RESULT
+
+
+####### MULTIPLY FUNCTION ######
+# get the value of A
+A = 9000
+B = 9001
+COUNTER = 9003
+R = 9004
+BACK_TO_ADDRESS = 9005
+
+# get the value for where to return to
+memory[198] = POP
+memory[199] = BACK_TO_ADDRESS
+
+# get the value for A
+memory[200] = POP
+memory[201] = A
+
+# get the value for B
+memory[202] = POP
+memory[203] = B
+
+# COUNTER = B (which is counter = 0 ; counter = counter + b)
+# COUNTER = 0
+memory[204] = SET
+memory[205] = COUNTER
+memory[206] = 0
+
+# COUNTER = COUNTER + B
+memory[207] = ADD
+memory[208] = COUNTER
+memory[209] = B
+memory[210] = COUNTER
+
+# the actual loop
+memory[211] = JUMP_IF_ZERO
+memory[212] = COUNTER
+memory[213] = 224
+
+# r = r + a
+memory[214] = ADD
+memory[215] = A
+memory[216] = R
+memory[217] = R
+
+# since our add operation adds two things in memory, we
+# need to store the value -1 somewhere to subtract it from the counter
+#
+# counter -= 1
+memory[218] = ADD
+memory[219] = COUNTER
+memory[220] = MINUS_1
+memory[221] = COUNTER
+
+# go back to the if counter == 0 instruction
+memory[222] = JUMP
+memory[223] = 211
+
+# return(r)
+memory[224] = PUSHV
+memory[225] = R
+
+memory[226] = JUMPV
+memory[227] = BACK_TO_ADDRESS
+
+# start the computer from position 80, we will use positions up-to 80 for our function call stack
+position = 0
+stack = []
+while True:
+    instruction = memory[position]
+
+    print(instruction_lookup[instruction], 'position',position, 'stack', stack)
+
+    # quit if instruction is 0
+    if instruction == HALT:
+        break
+
+    # add position+1 and position+2 and write result in position+3
+    elif instruction == ADD:
+        a_address = memory[position+1]
+        b_address = memory[position+2]
+
+        r_address = memory[position+3]
+
+        memory[r_address] = memory[a_address] + memory[b_address]
+        position += 4
+
+    # print position + 1
+    elif instruction == PRINT:
+        address = memory[position+1]
+        print(memory[address])
+        position+=2
+
+    # if memory[position+1] is 0 jump to positon+2, else continue to position+3
+    elif instruction == JUMP_IF_ZERO:
+        address = memory[position+1]
+        if memory[address] == 0:
+            position = memory[position+2]
+        else:
+            position += 3
+
+    # jump to value of position+1
+    elif instruction == JUMP:
+        position = memory[position+1]
+    
+    elif instruction == JUMPV:
+        position = memory[memory[position+1]]
+
+    elif instruction == PUSH:
+        stack.append(memory[position+1])
+        position += 2
+
+    elif instruction == PUSHV:
+        stack.append(memory[memory[position+1]])
+        position += 2
+
+    elif instruction == POP:
+        memory[memory[position+1]] = stack.pop()
+        position += 2
+
+    elif instruction == SET:
+        memory[position+1] = memory[position+2]
+        position += 3
+```
+
+We cheated a bit by using python's lists instead of our own list to do the stack. We could reserve some memory (e.g. 100000 to 200000) and just push and pop the values there, memory[100000] will just say how many elements we have in the stack, and PUSH will do `memory[[memory[100000]] = value, memory[100000] += 1`, and pop will do `memory[100000] -= 1` and use `memory[memory[100000]]` as value.
+
+You see how powerfull are continous pieces of memory? Arrays and Lists are how computers are built!
+
+Look. In reallity more things happen, and actually normal machine code is easier than this, you can store values in temporary places called registers, and access them really fast and nobody actually writes code like that, we use languages such as Assembler to help us, and using assemblers we built other languages, such as C, and with C we built others, such as python, and then with python we build whole systems, like instagram or dropbox. You can of course build instagram with machine code if you want, it will just take incredible amount of time, and will be gazillion times more buggy. C is good at some things that python is not, and the other way around.
+
+The one thing you have to remember, is whatever language you are using, whatever program you are looking at, it must have some memory, and some way of modifying that memory, and execute instructions over it.
+
+There is no magic, it is all built on this. Built with few numbers in a block of memory.
+
+
+Lets examine the output of the program, you see how the stack is empty, then we add 5, 10, and then 8 which will be used from the function to go back to us.
+
+```
+PUSH position 0 stack-before [] stack-after [5]
+PUSH position 2 stack-before [5] stack-after [5, 10]
+PUSH position 4 stack-before [5, 10] stack-after [5, 10, 8]
+JUMP position 6 stack-before [5, 10, 8] stack-after [5, 10, 8]
+POP position 198 stack-before [5, 10, 8] stack-after [5, 10]
+POP position 200 stack-before [5, 10] stack-after [5]
+POP position 202 stack-before [5] stack-after []
+SET position 204 stack-before [] stack-after []
+ADD position 207 stack-before [] stack-after []
+JUMP_IF_ZERO position 211 stack-before [] stack-after []
+ADD position 214 stack-before [] stack-after []
+ADD position 218 stack-before [] stack-after []
+JUMP position 222 stack-before [] stack-after []
+JUMP_IF_ZERO position 211 stack-before [] stack-after []
+ADD position 214 stack-before [] stack-after []
+ADD position 218 stack-before [] stack-after []
+JUMP position 222 stack-before [] stack-after []
+JUMP_IF_ZERO position 211 stack-before [] stack-after []
+ADD position 214 stack-before [] stack-after []
+ADD position 218 stack-before [] stack-after []
+JUMP position 222 stack-before [] stack-after []
+JUMP_IF_ZERO position 211 stack-before [] stack-after []
+ADD position 214 stack-before [] stack-after []
+ADD position 218 stack-before [] stack-after []
+JUMP position 222 stack-before [] stack-after []
+JUMP_IF_ZERO position 211 stack-before [] stack-after []
+ADD position 214 stack-before [] stack-after []
+ADD position 218 stack-before [] stack-after []
+JUMP position 222 stack-before [] stack-after []
+JUMP_IF_ZERO position 211 stack-before [] stack-after []
+PUSHV position 224 stack-before [] stack-after [50]
+JUMPV position 226 stack-before [50] stack-after [50]
+POP position 8 stack-before [50] stack-after []
+PRINT position 10 stack-before [] stack-after []
+50
+HALT position 12 stack-before []
+```
+
+
+We could do it the other way, first push the address to go back to, and then the values, which will be the same, we just have to decide, this is called a 'calling convention', convention is just the usuall way to do things. So each program on your computer obeys the calling convention, otherwise a chaos will arrive, imagine multiplying the return address by first paremeter and then returning to some random position in memory.
+
+By now you can see how fragile this is, if one mistake is made, you can corrupt rest of the program, we can easilly write something into where the next instruciton is read, and make the computer halt, or go into infinite loop.
+
+Sometimes we can find bugs in a program that we can exploit, if we can simply control the corruption, we can make it jump to somewhere where we have our own code, and then we can control what the program does.
+
 ## [DAY-96] Basics of Basics
 ## [DAY-97] Basics of Basics
 ## [DAY-98] Basics of Basics
