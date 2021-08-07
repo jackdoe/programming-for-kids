@@ -285,6 +285,109 @@ By now you can see how fragile this is, if one mistake is made, you can corrupt 
 Sometimes we can find bugs in a program that we can exploit, if we can simply control the corruption, we can make it jump to somewhere where we have our own code, and then we can control what the program does.
 
 ## [DAY-96] Basics of Basics
+
+Lets spend a day on bits and bytes.
+
+One bit is the minimum amount of information you can hold, it is either 1 or 0, on or off. If we have a variable that has to store the heads or tails value of a coin, we can store it in 1 bit, lets say 1 is heads, 0 is tails. To store the values of two coins we can use 2 bits.
+
+```
+0 # tails
+1 # heads
+```
+2 possible
+
+```
+0 0 # both coins are tails
+0 1 # second coin is heads
+1 0 # first coin is heads
+1 1 # both coins are heads
+```
+
+2 * 2 possible
+
+We have 4 distinct values, in 2 bits, lets try 3 coins
+
+```
+000
+001
+010
+011
+100
+101
+110
+111
+```
+2 * 2 * 2 possible
+
+we have 8 distinct values in 3 bits, and in 4 bits we have 16 distinct values
+
+```
+0000
+0001
+0010
+0011
+0100
+0101
+0110
+0111
+1000
+1001
+1010
+1011
+1100
+1101
+1110
+1111
+```
+
+2 * 2 * 2 * 2 possible
+
+in 32 bits we can store 4294967295 distinct values! and in 64 bits we can store 18446744073709551615.
+
+But what about if we want to store the value of a dice? Possible values are 1 2 3 4 5 6. We can do that in just 3 bits.
+
+8 bits make a byte. Usually we need 1 bit of information for the sign of the number, is it - or +, so sometimes you will hear "signed integer" or "unsigned integer", and the difference is the unsigned integers get one more bit to work with, which is a big deal, if the integer is 4 bytes, that is 32 bits, the maximum possible numbmer for signed integer is 2147483647, and the minimum is -2147483647, but unsigned one is from 0 to 4294967295.
+
+The reason is 2 * 2 * 2 * 2 * 2 * 2... 31 times is twice smaller than 2 * 2 * 2 * 2 ... 32 times.
+
+We can also count in this system (called binary system) to make it represent numbers.
+
+try this:
+
+```
+for i in range(255):
+    print(i, ' -> ', format(i, '08b'))
+```
+
+in python format can take a number and print it as binary number:
+
+```
+0   ->  00000000
+1   ->  00000001
+2   ->  00000010
+3   ->  00000011
+4   ->  00000100
+5   ->  00000101
+6   ->  00000110
+7   ->  00000111
+8   ->  00001000
+9   ->  00001001
+10  ->  00001010
+11  ->  00001011
+12  ->  00001100
+13  ->  00001101
+14  ->  00001110
+15  ->  00001111
+16  ->  00010000
+...
+```
+
+the rules to count in the binary system are the same in the decimal system, when you go from 9 to 10 you increase the number of digits, but here.. you havbe to do it many more because you habe only 0 and 1.
+
+so you start with 0, then 1, then you are out of numbers, so you add one more and then ext one is 1 0, then 1 1 and then you are out of space again, and go 1 0 0, 1 0 1, 1 1 0, 1 1 1 and so on.
+
+So if you need to store the number `x = 47917437`, which in binary is 10110110110010100101111101, you will need 27 bits of space. However there are more limitations, you can usually store only 4 or 8 bytes (so 32 or 64 bits) because of the way the computer is made, so we will just pad it with zeros, and what will get stored on the memory chip is 0000010110110110010100101111101, and python will know the address of that, so when you say 'a = x + 1' it will go to the specific address, read the value, add one to it, and store it back.
+
 ## [DAY-97] Basics of Basics
 ## [DAY-98] Basics of Basics
 ## [DAY-99] Basics of Basics
