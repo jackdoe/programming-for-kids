@@ -7651,6 +7651,82 @@ example if we want to store `5, h e l l o`, the computer memory might look like 
 If we use 1 byte per character, ASCII actuaklly fitst in 7 bits (its called 7 bit ascii) as the maximum value is 127, but we store things aligned to 1 byte, the way processors are made, they have certain restrictions,m they cant just go and read/write at a specific bit position in the memory, so many times when we want to store 7 bits of data we need to use 8 bits, Unless we come with something to store in the extra bit, it will be just waste.
 
 ## [DAY-97] Basics of Basics
+
+![game-97.png](./screenshots/game-97.png "game 97 screenshot")
+
+Catch all the falling snakes
+
+```
+import pgzrun
+import random
+
+HEIGHT = 400
+WIDTH = 300
+
+falling = []
+game_area = Rect(0,0,WIDTH,HEIGHT)
+elf = Actor("c1")
+
+elf.y = HEIGHT - 10
+elf.x = WIDTH/2
+game_over = False
+
+def drop():
+    f = Actor("snake")
+    f.x = random.randint(0,WIDTH)
+    f.y = random.randint(0, 150)
+    falling.append(f)
+
+def update():
+    global game_over
+
+    # move the elf
+    if keyboard.left:
+        elf.x = elf.x-5
+    if keyboard.right:
+        elf.x = elf.x+5
+
+
+    # detect the collisions
+    remove = []
+    for f in falling:
+        if f.colliderect(elf):
+            remove.append(f)
+
+    for r in remove:
+        falling.remove(r)
+
+    # advance the snakes
+    for f in falling:
+        f.y += 1
+
+    # check if the snakes are outside of the game area
+    for f in falling:
+        if not f.colliderect(game_area):
+            game_over = True
+
+    # add new snakes if needed
+    if len(falling) < 5:
+        drop()
+
+def draw():
+    if game_over:
+        screen.fill('pink')
+    else:
+        screen.fill('black')
+        for f in falling:
+            f.draw()
+
+        screen.draw.rect(game_area, (255,0,0))
+        elf.draw()
+
+pgzrun.go()
+```
+
+
+
+
+
 ## [DAY-98] Basics of Basics
 ## [DAY-99] Basics of Basics
 ## [DAY-100] Basics of Basics
