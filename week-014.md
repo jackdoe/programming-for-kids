@@ -671,7 +671,7 @@ def update():
     if keyboard.Q:
         sys.exit(0)
 
-    if keyboard.P and color != "none":
+    if keyboard.P and color != None:
         pixels.append([
             color,
             Rect(elf.x,elf.y,40,40)
