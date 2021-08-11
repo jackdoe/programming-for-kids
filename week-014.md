@@ -636,7 +636,81 @@ pgzrun.go()
 
 ## [DAY-98] Basics of Basics
 
+
+![game-98-a.png](./screenshots/game-98-a.png "game 98-a screenshot")
+
+```
+import pgzrun
+import sys # for sys.exit()
+
+
+HEIGHT = 300
+WIDTH = 300
+
+elf = Actor("c1")
+colors = [
+    [(255,0,0), Rect(0,0,40,40)],
+    [(0,255,0), Rect(60,0,40,40)],
+    [(0,0,255), Rect(120,0,40,40)],
+]
+color = None
+pixels = []
+
+def update():
+    global color, pixels
+
+    if keyboard.LEFT:
+        elf.x -= 2
+    if keyboard.RIGHT:
+        elf.x += 2
+    if keyboard.UP:
+        elf.y -= 2
+    if keyboard.DOWN:
+        elf.y += 2
+
+    if keyboard.Q:
+        sys.exit(0)
+
+    if keyboard.P and color != "none":
+        pixels.append([
+            color,
+            Rect(elf.x,elf.y,40,40)
+        ])
+
+    if keyboard.C:
+        pixels = []
+        color = None
+
+    if keyboard.SPACE:
+        for c in colors:
+            if elf.colliderect(c[1]):
+                color = c[0]
+
+    if keyboard.D:
+        for p in list(pixels):
+            if elf.colliderect(p[1]):
+                pixels.remove(p)
+
+def draw():
+    screen.fill('black')
+
+    for c in colors:
+        screen.draw.filled_rect(c[1], c[0])
+
+    for p in pixels:
+        screen.draw.filled_rect(p[1], p[0])
+
+    if color != None:
+        screen.draw.rect(Rect(elf.x,elf.y,40,40), color)
+    
+    elf.draw()
+
+pgzrun.go()
+```
+
 Simple catch the flower game
+
+![game-98-b.png](./screenshots/game-98-b.png "game 98-b screenshot")
 
 ```
 import pgzrun
@@ -669,6 +743,53 @@ def draw():
 
     # show the score
     # ...
+pgzrun.go()
+```
+
+Example implementation:
+
+```
+import pgzrun
+import random
+import sys # for sys.exit()
+
+
+HEIGHT = 300
+WIDTH = 300
+
+elf = Actor("c1")
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+
+flower = Actor("flower")
+flower.x = 10
+flower.y = 10
+score = 0
+def update():
+    global score
+    if keyboard.LEFT:
+        elf.x -= 5
+    if keyboard.RIGHT:
+        elf.x += 5
+    if keyboard.UP:
+        elf.y -= 5
+    if keyboard.DOWN:
+        elf.y += 5
+
+    if keyboard.Q:
+        sys.exit(0)
+
+    if elf.colliderect(flower):
+        flower.x = random.randint(10,WIDTH-10)
+        flower.y = random.randint(10,HEIGHT-10)
+        score += 1
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    flower.draw()
+    screen.draw.text(str(score), topleft=(10,10))
+
 pgzrun.go()
 ```
 
