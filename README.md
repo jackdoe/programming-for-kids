@@ -7894,7 +7894,7 @@ def update():
     if keyboard.Q:
         sys.exit(0)
 
-    if keyboard.P and color != None:
+    if keyboard.SPACE and color != None:
         pixels.append([
             color,
             Rect(elf.x,elf.y,40,40)
@@ -7904,15 +7904,14 @@ def update():
         pixels = []
         color = None
 
-    if keyboard.SPACE:
-        for c in colors:
-            if elf.colliderect(c[1]):
-                color = c[0]
-
     if keyboard.D:
         for p in list(pixels):
             if elf.colliderect(p[1]):
                 pixels.remove(p)
+
+    for c in colors:
+        if elf.colliderect(c[1]):
+            color = c[0]
 
 def draw():
     screen.fill('black')
