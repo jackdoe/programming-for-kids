@@ -7905,8 +7905,9 @@ def update():
         color = None
 
     if keyboard.D:
+        drop = Rect(elf.x,elf.y,40,40)
         for p in list(pixels):
-            if elf.colliderect(p[1]):
+            if drop.colliderect(p[1]):
                 pixels.remove(p)
 
     for c in colors:
@@ -7926,6 +7927,7 @@ def draw():
         screen.draw.rect(Rect(elf.x,elf.y,40,40), color)
     
     elf.draw()
+    screen.draw.text(str(len(pixels)), topleft=(10,10))
 
 pgzrun.go()
 ```
