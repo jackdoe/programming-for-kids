@@ -568,7 +568,6 @@ pgzrun.go()
 Another possible implementation, this one uses `list()` to make a copy of the falling list and also has score and lives.
 
 ```
-
 import pgzrun
 import random
 
@@ -636,6 +635,43 @@ pgzrun.go()
 
 
 ## [DAY-98] Basics of Basics
+
+Simple catch the flower game
+
+```
+import pgzrun
+import sys # for sys.exit()
+
+
+HEIGHT = 300
+WIDTH = 300
+
+elf = Actor("c1")
+flower = Actor("flower")
+
+def update():
+    if keyboard.LEFT:
+        elf.x -= 5
+    # add RIGHT/UP/DONW
+
+    if keyboard.Q:
+        sys.exit(0)
+
+    # check if the elf collides the flower
+    # and if it does, increment the score
+    # and place the flower on some random place
+    # ...
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    flower.draw()
+
+    # show the score
+    # ...
+pgzrun.go()
+```
+
 ## [DAY-99] Basics of Basics
 ## [DAY-100] Basics of Basics
 ## [DAY-101] Basics of Basics
