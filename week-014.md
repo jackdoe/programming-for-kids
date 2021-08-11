@@ -794,7 +794,6 @@ def draw():
 pgzrun.go()
 ```
 
-
 Same program but with Load and Save
 
 ```
@@ -862,8 +861,10 @@ def update():
         f.close()
 
     if keyboard.L:
-        f = open("save.txt", "r")
         pixels = []
+
+        f = open("save.txt", "r")
+
         lines = f.readlines()
         for l in lines:
             (red,green,blue,x,y,w,h) = l.split(",")
@@ -871,6 +872,7 @@ def update():
                 (float(red),float(green),float(blue)),
                 Rect(float(x),float(y), float(w), float(h))
             ])
+
         f.close()
 
     if keyboard.D:
