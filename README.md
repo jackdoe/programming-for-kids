@@ -7829,12 +7829,12 @@ def update():
         if not i.colliderect(game_area):
             falling.remove(i)
             lives -= 1
-    
+
     game_over = lives <= 0
 
     if len(falling) < 5:
         drop()
- 
+
     for i in list(falling):
         if i.colliderect(elf):
             falling.remove(i)
@@ -7925,7 +7925,7 @@ def draw():
 
     if color != None:
         screen.draw.rect(Rect(elf.x,elf.y,40,40), color)
-    
+
     elf.draw()
     screen.draw.text(str(len(pixels)), topleft=(10,10))
 
@@ -8017,6 +8017,112 @@ def draw():
 pgzrun.go()
 ```
 
+
+Same program but with Load and Save
+
+```
+import pgzrun
+import sys # for sys.exit()
+
+
+HEIGHT = 300
+WIDTH = 300
+
+elf = Actor("c1")
+colors = [
+    [(255,0,0), Rect(0,0,40,40)],
+    [(0,255,0), Rect(60,0,40,40)],
+    [(0,0,255), Rect(120,0,40,40)],
+]
+color = None
+pixels = []
+
+def make_rect_around_actor(a):
+    return Rect(a.x,a.y,40,40)
+def update():
+    global color, pixels
+
+    if keyboard.LEFT:
+        elf.x -= 2
+    if keyboard.RIGHT:
+        elf.x += 2
+    if keyboard.UP:
+        elf.y -= 2
+    if keyboard.DOWN:
+        elf.y += 2
+
+    if keyboard.Q:
+        sys.exit(0)
+
+    if keyboard.SPACE and color != None:
+        pixels.append([
+            color,
+            make_rect_around_actor(elf),
+        ])
+
+    if keyboard.C:
+        pixels = []
+        color = None
+
+    if keyboard.S:
+        f = open("save.txt", "w")
+        for p in pixels:
+            (red,green,blue) = p[0]
+            f.write(str(red))
+            f.write(",")
+            f.write(str(green))
+            f.write(",")
+            f.write(str(blue))
+            f.write(",")
+            f.write(str(p[1].x))
+            f.write(",")
+            f.write(str(p[1].y))
+            f.write(",")
+            f.write(str(p[1].width))
+            f.write(",")
+            f.write(str(p[1].height))
+            f.write("\n")
+        f.close()
+
+    if keyboard.L:
+        f = open("save.txt", "r")
+        pixels = []
+        lines = f.readlines()
+        for l in lines:
+            (red,green,blue,x,y,w,h) = l.split(",")
+            pixels.append([
+                (float(red),float(green),float(blue)),
+                Rect(float(x),float(y), float(w), float(h))
+            ])
+        f.close()
+
+    if keyboard.D:
+        drop = make_rect_around_actor(elf)
+        for p in list(pixels):
+            if drop.colliderect(p[1]):
+                pixels.remove(p)
+
+    for c in colors:
+        if elf.colliderect(c[1]):
+            color = c[0]
+
+def draw():
+    screen.fill('black')
+
+    for c in colors:
+        screen.draw.filled_rect(c[1], c[0])
+
+    for p in pixels:
+        screen.draw.filled_rect(p[1], p[0])
+
+    if color != None:
+        screen.draw.rect(make_rect_around_actor(elf), color)
+
+    elf.draw()
+    screen.draw.text(str(len(pixels)), topleft=(10,10))
+
+pgzrun.go()
+```
 ## [DAY-99] Basics of Basics
 ## [DAY-100] Basics of Basics
 ## [DAY-101] Basics of Basics
