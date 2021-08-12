@@ -8126,6 +8126,74 @@ def draw():
 pgzrun.go()
 ```
 ## [DAY-99] Basics of Basics
+
+Today we talk about classess and instances.
+
+Classess are a bit like the houses you buy in roblox, its just a recepie for a house, and when you buy it you can customize it.
+
+If two people have houses made from the same blueprint, we call them instances, they are seperate entities, you can lock one and that does not mean the other is locked. One can have a couch the other one doesnt.
+
+
+```
+
+class Point:
+    x = 0
+    y = 0
+    def __init__(self, name):
+        self.name = name
+
+    def print(self):
+        print('point',self.x,self.y,self.name)
+
+class Rect:
+    x = 0
+    y = 0
+    w = 0
+    h = 0
+    def print(self):
+        print('rect',self.x,self.y,self.w,self.h)
+
+
+#
+# |-----------------------+
+# |                       |
+# 6  +-------+            |
+# |  |       |            |
+# 4--|---x   |            |
+# |  |   |   |            |
+# 2--+-------+            |
+# |  |   |   |            |
+# +--2---6---9------------+
+# 0,0
+def collidepoint(rect, point):
+    if point.x > rect.x and point.x < rect.x + rect.w and point.y > rect.y and point.y < rect.y + rect.h:
+        return True
+    else:
+        return False
+
+p = Point("blue") # instance
+p.x = 6
+p.y = 4
+
+r = Rect() # instance
+r.x = 2
+r.y = 2
+r.w = 7
+r.h = 4
+
+if collidepoint(r,p):
+    print("COLLIDES")
+    r.print()
+    p.print()
+
+p2 = Point("red")
+p2.x = 10
+p2.y = 10
+if not collidepoint(r,p2):
+    print("NO COLLISION")
+    r.print()
+    p.print()
+```
 ## [DAY-100] Basics of Basics
 ## [DAY-101] Basics of Basics
 
