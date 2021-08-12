@@ -910,9 +910,14 @@ Classess are a bit like the houses you buy in roblox, its just a recepie for a h
 
 If two people have houses made from the same blueprint, we call them instances, they are seperate entities, you can lock one and that does not mean the other is locked. One can have a couch the other one doesnt.
 
+The blueprint or recipe we call 'class' and the real thing that comes out of it we call 'instance'.
+
+The class can define functions, and those functions will take a magic `self` parameter, where `self` will be the instance. For example in roblox, the house probably has a function 'lock()' that does something like `self.is_locked = True`.
+
+Those functions are called 'methods' and the instance is also called an object. A method is supposed to be a bit like a message to the object, `p.colliderect(r)` for example you can look at sending the message `colliderect` to the object `p` with parameter `r`. Or you can look at it just as a function with hidden `self` parameter. In the following example you can see a method `def colliderect(self,r)` in the Point class, and also a standalone function `def collidepoint(rect, point)` that just expects a rect and a point objects.
+
 
 ```
-
 class Point:
     x = 0
     y = 0
@@ -921,6 +926,9 @@ class Point:
 
     def print(self):
         print('point',self.x,self.y,self.name)
+
+    def colliderect(self,r):
+        return self.x > r.x and self.x < r.x + r.w and self.y > r.y and self.y < r.y + r.h
 
 class Rect:
     x = 0
@@ -970,6 +978,10 @@ if not collidepoint(r,p2):
     print("NO COLLISION")
     r.print()
     p.print()
+
+
+if p.colliderect(r):
+    print("p collides")
 ```
 ## [DAY-100] Basics of Basics
 ## [DAY-101] Basics of Basics
