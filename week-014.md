@@ -1196,3 +1196,75 @@ print('your score is ' + str(score))
 
 
 ## [DAY-101] Basics of Basics
+
+invert a list
+
+```
+def invert(l):
+    #...
+
+print(invert([1,2,3]))
+```
+
+invert a string
+
+```
+def invert(s):
+    #...
+
+print(invert("hello"))
+```
+
+invert a number
+
+```
+def invert(n):
+    #...
+
+print(invert(123456))
+```
+
+Check if a string is a palindrome, a palindrome is a string that you can read backwards and it sounds the same.
+
+```
+Anna
+civic
+kayak
+level
+madam
+mom
+noon
+racecar
+radar
+redder
+refer
+repaper
+rotator
+rotor
+sagas
+solos
+stats
+tenet
+wow
+Never odd or even.
+We panic in a pew.
+Won’t lovers revolt now?
+Don’t nod.
+Sir, I demand, I am a maid named Iris.
+Don't nod.
+I did, did I?
+Step on no pets.
+Eva, can I see bees in a cave?
+Was it a cat I saw?
+```
+
+example:
+
+```
+while True:
+    n = input("which string you want to check: )
+    if is_palindrome(n):
+        print(n + " is a palindrome")
+    else:
+        print(n + " is not a palindrome")
+```
