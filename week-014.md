@@ -1114,7 +1114,6 @@ We will make another touch typing game
 
 ```
 import pgzrun
-import sys # for sys.exit()
 import random
 
 HEIGHT = 400
@@ -1156,8 +1155,6 @@ def on_key_down(key, mod, unicode):
                 text = ''
                 beep.play()
 
-    if keyboard.Q:
-        sys.exit(0)
 
 def draw():
     if game_over:
@@ -1176,6 +1173,25 @@ for i in range(5):
 clock.schedule_interval(add_word, 2)
 clock.schedule_interval(move, 1)
 pgzrun.go()
+```
+
+
+ghost!
+
+```
+import random
+score = 0
+while True:
+    ghost = random.randint(1,3)
+    choice = input('Pick a door from 1,2, or 3: ')
+    if choice == str(ghost):
+        print ('there is a ghost :O GAME OVER !!!')
+        break
+    else:
+        score += 1
+        print('lucky no gosht')
+print('your score is ' + str(score))
+
 ```
 
 
