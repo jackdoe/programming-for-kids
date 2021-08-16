@@ -8554,7 +8554,8 @@ def add_word():
               'width','weight','height','length','string','python','unicode','backspace','random','choice','string','integer',
               'function','print','print','print','for','range','range',
     ]
-    words.append([random.randint(10,WIDTH-70), random.randint(10,int(HEIGHT/3)), random.choice(common)])
+    w = random.choice(common)
+    words.append([random.randint(10,WIDTH-(len(w) * 15)), random.randint(10,int(HEIGHT/3)), w])
 
 def on_key_down(key, mod, unicode):
     global text, pause, score_words, score
@@ -8596,12 +8597,36 @@ def draw():
 for i in range(5):
     add_word()
 
-clock.schedule_interval(add_word, 2)
-clock.schedule_interval(move, 1)
+clock.schedule_interval(add_word, 5)
+clock.schedule_interval(move, 5)
 pgzrun.go()
 ```
 
 
+get more words with the characters you need to train from your dictionary file
+
+use a simple program like this:
+
+```
+import sys
+need = ['k','l','i','o']
+for line in sys.stdin:
+    missing = False
+    s = line.rstrip()
+
+    for n in need:
+        if n not in s:
+            missing = True
+    
+    if not missing and len(s) <= 7:
+print(s)
+```
+
+and then get the list:
+
+```
+cat /usr/share/dict/words | python3 words.py | tr "[A-Z]" "[a-z]" | sort | uniq | sed -e "s/^/'/g" -e "s/$/',/g" | pbcopy
+```
 ## [DAY-103] Basics of Basics
 ## [DAY-104] Basics of Basics
 ## [DAY-105] Basics of Basics
