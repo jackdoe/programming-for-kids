@@ -34,7 +34,7 @@ def words_per_minute():
     if len(times) < 2:
         return 0
     
-    return int((times[-1] - times[0]) / len(times) * 60)
+    return int(len(times) / ((times[-1] - times[0]) / 60.0))
     
 def move():
     global game_over
