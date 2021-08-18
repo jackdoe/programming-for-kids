@@ -8659,8 +8659,6 @@ def show(id, title, authors, subjects, issued, language):
     print("    Language: " + language)
     print("-" * 40)
 
-books = []
-
 file = open('pg_catalog.csv')
 reader = csv.reader(file)
 for row in reader:
@@ -8675,18 +8673,21 @@ for row in reader:
     language = row[4]
     authors = row[5].split("; ")
     subjects = row[6].split("; ")
+
     match = 0
     need = 0
     if args.title != None:
         need += 1
         if args.title in title:
             match += 1
+
     if args.subject != None:
         need += 1
         for s in subjects:
             if args.subject in s:
                 match += 1
                 break
+
     if args.author != None:
         need += 1
         for a in authors:
