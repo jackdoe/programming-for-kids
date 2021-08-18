@@ -134,6 +134,85 @@ and then get the list:
 cat /usr/share/dict/words | python3 words.py | tr "[A-Z]" "[a-z]" | sort | uniq | sed -e "s/^/'/g" -e "s/$/',/g" | pbcopy
 ```
 ## [DAY-103] Basics of Basics
+
+Search all the books!
+
+First download https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv.zip, this is a list of all the books available from the gutenberg project.
+
+Oh! the gutenberg project is absolutely amazing, they have more than 60000 books that have expired copyright.
+
+```
+import csv
+import sys
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--author', help='match author name')
+parser.add_argument('--title', help='match title')
+parser.add_argument('--subject', help='match subject')
+args = parser.parse_args()
+
+def show(id, title, authors, subjects, issued, language):
+    print(">>> " + title + " <<<")
+    print("    " + issued)
+    print("    https://www.gutenberg.org/ebooks/" + id)
+
+    print('')
+    for a in authors:
+        print("    Author: " + a)
+    print('')
+    for s in subjects:
+        print("    Subject: " + s)
+    print("    Language: " + language)
+    print("-" * 40)
+
+books = []
+
+file = open('pg_catalog.csv')
+reader = csv.reader(file)
+for row in reader:
+    # ['Text#', 'Type', 'Issued', 'Title', 'Language', 'Authors', 'Subjects', 'LoCC', 'Bookshelves']
+    id = row[0]
+    if id == "Text#":
+        # skip the first row (header)
+        continue
+
+    issued = row[2]
+    title = row[3].replace("\n","; ")
+    language = row[4]
+    authors = row[5].split("; ")
+    subjects = row[6].split("; ")
+    match = 0
+    need = 0
+    if args.title != None:
+        need += 1
+        if args.title in title:
+            match += 1
+    if args.subject != None:
+        need += 1
+        for s in subjects:
+            if args.subject in s:
+                match += 1
+                break
+    if args.author != None:
+        need += 1
+        for a in authors:
+            if args.author in a:
+                match += 1
+                break
+
+    if match == need:
+        show(id,title,authors,subjects,issued,language)
+        
+file.close()
+```
+
+now try this:
+
+```
+python3 search.py --title Alice  --author Carroll | less
+```
+
+
 ## [DAY-104] Basics of Basics
 ## [DAY-105] Basics of Basics
 ## [DAY-106] Basics of Basics
