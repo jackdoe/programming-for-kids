@@ -8527,9 +8527,9 @@ times = []
 def words_per_minute():
     if len(times) < 2:
         return 0
-    
+
     return int(len(times) / ((times[-1] - times[0]) / 60.0))
-    
+
 def move():
     global game_over
     if pause:
@@ -8617,7 +8617,7 @@ for line in sys.stdin:
     for n in need:
         if n not in s:
             missing = True
-    
+
     if not missing and len(s) <= 7:
 print(s)
 ```
@@ -8697,7 +8697,7 @@ for row in reader:
 
     if match == need:
         show(id,title,authors,subjects,issued,language)
-        
+
 file.close()
 ```
 
@@ -8707,8 +8707,231 @@ now try this:
 python3 search.py --title Alice  --author Carroll | less
 ```
 
+CSV stands for comma separated value, its a neat way to encode a table, each column is separated by a `,`. Python has csv module in its standard library, and its very easy to load and parse csv files.
+
 
 ## [DAY-104] Basics of Basics
+
+The previous approach can match only with substrings, for example we can not match "Lewis Carroll", because the author name is stored "Carroll, Lewis", in fact we can not even match on "Carroll Lewis" because we will be missing a comma.
+
+Another way to search is if we actually split the strings, and then create an index of which word is contained in which books, very similar to whe you open the back of a book, you see a word(or a topic) and then pages at which it appears.
+
+First just copy paste the program, and try to read it, we will go over it step by step later.
+
+```
+import sys
+import re
+import json
+
+def show(book):
+    id = book["id"]
+    title = book["title"]
+    authors = book["authors"]
+    subjects = book["subjects"]
+    issued = book["issued"]
+    language = book["language"]
+
+    print(">>> " + title + " <<<")
+    print("    " + issued)
+    print("    https://www.gutenberg.org/ebooks/" + str(id))
+
+    print('')
+    for a in authors:
+        print("    Author: " + a)
+    print('')
+    for s in subjects:
+        print("    Subject: " + s)
+    print("    Language: " + language)
+    print("-" * 40)
+
+def parse(filename):
+    file = open(filename)
+    reader = csv.reader(file)
+    books = []
+    for row in reader:
+        # ['Text#', 'Type', 'Issued', 'Title', 'Language', 'Authors', 'Subjects', 'LoCC', 'Bookshelves']
+        if row[0] == "Text#":
+        # skip the first row (header)
+            continue
+
+        id = int(row[0])
+        issued = row[2]
+        title = row[3].replace("\n","; ")
+        language = row[4]
+        authors = row[5].split("; ")
+        subjects = row[6].split("; ")
+
+        book = {
+            "title": title,
+            "language": language,
+            "authors": authors,
+            "subjects": subjects,
+            "issued": issued,
+            "id": id
+        }
+        books.append(book)
+
+    file.close()
+    return books
+
+
+def normalize(s):
+    # 'Alice's Adventures in Wonderland' -> 'alice's adventures in wonderland'
+    return s.lower()
+
+def tokenize(s):
+    # 'alice's adventures in wonderland' -> ['alice','s','adventures','in','wonderland']
+    return re.split("[^\w+]",s)
+
+def build_search_index(books):
+    index = {}
+
+    for i,book in enumerate(books):
+        tokens = set()
+        for token in tokenize(normalize(book["title"])):
+            k = "title:" + token
+            tokens.add(k)
+
+        for token in tokenize(normalize(book["language"])):
+            k = "language:" + token
+            tokens.add(k)
+
+        for author in book["authors"]:
+            for token in tokenize(normalize(author)):
+                k = "author:" + token
+                tokens.add(k)
+
+
+        for subject in book["subjects"]:
+            for token in tokenize(normalize(subject)):
+                k = "subject:" + token
+                tokens.add(k)
+
+        for t in tokens:
+            if not t in index:
+                index[t] = []
+            index[t].append(i)
+
+    return index
+
+def search(books, index, query):
+    matching = None
+    for q in query:
+        if q in index:
+            if matching == None:
+                matching = set(index[q])
+            else:
+                matching.intersection_update(index[q])
+        else:
+            matching = set() # if one of the terms is not matching, return empty
+
+    result = []
+    if matching == None:
+        return result
+
+    for book_index in matching:
+        book = books[book_index]
+        result.append(book)
+    return result
+
+if len(sys.argv) == 1:
+    print("usage:\n\t" + sys.argv[0] + " title:alice author:lewis")
+    sys.exit(1)
+
+data = None
+
+try:
+    f = open("search.json", mode="r")
+    data = json.load(f)
+    f.close()
+except IOError:
+    books = parse("pg_catalog.csv")
+    search_index = build_search_index(books)
+
+    data = {}
+    data["search"] = search_index
+    data["books"] = books
+
+    f = open("search.json", mode="w")
+    json.dump(data,f)
+    f.close()
+
+query = []
+for arg in sys.argv[1:]:
+    query.append(normalize(arg))
+
+for book in search(data["books"], data["search"], query):
+    show(book)
+```
+
+
+lets try it:
+
+```
+% python3 search.py title:Alice author:carroll author:lewis subject:children
+>>> Alice's Adventures in Wonderland <<<
+    2008-06-27
+    https://www.gutenberg.org/ebooks/11
+
+    Author: Carroll, Lewis, 1832-1898
+
+    Subject: Fantasy fiction
+    Subject: Children's stories
+    Subject: Imaginary places -- Juvenile fiction
+    Subject: Alice (Fictitious character from Carroll) -- Juvenile fiction
+    Language: en
+
+...
+```
+
+The first time you search it will be slower, but then we will persist the search index on disk, in the search.json file, and then the second time it will be significantly faster because we will not have to do the work of parsing and building the index again, but directly load the precomputed index.
+
+So many new concepts here, but the biggest one are maps and sets.
+
+A map is a data structure (list is a data structure as well), that allows you to find something by a key you store it with.
+
+```
+episodes = {}
+
+episodes["naruto"] = 220
+episodes["naruto shippuuden"] = 500
+episodes["boruto"] = 215
+
+print(episodes)
+print(episodes["naruto"])
+
+if "naruto" in episodes:
+    print("naruto is in the map")
+
+for k in episodes:
+    print(k)
+
+for k in episodes:
+    print(k, episodes[k])
+```
+
+A set is a just a bag of things, for example when you put your toys in a bag, the bag is a set containing your toys. Lets make a set of flowers.
+
+```
+flowers = set()
+flowers.add("rose")
+flowers.add("camomile")
+flowers.add("tulip")
+
+if "tulip" in flowers:
+    print("tulip is in the set")
+
+for f in flowers:
+    print(f)
+```
+
+You can `union` two sets of yoys by placing them into a new bag and this will contain both sets of toys, or you can `intersect` them by only taking toys that exist in both bags.
+
+Both maps and sets are somewhat related, imagine a map that only contains keys.
+
+This is very very shallow explanation, but will do for now, we will spend the next 3-4 months with sets and maps things will get clearer.
+
+
 ## [DAY-105] Basics of Basics
 ## [DAY-106] Basics of Basics
 ## [DAY-107] Basics of Basics
