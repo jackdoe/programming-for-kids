@@ -8931,8 +8931,59 @@ Both maps and sets are somewhat related, imagine a map that only contains keys.
 
 This is very very shallow explanation, but will do for now, we will spend the next 3-4 months with sets and maps things will get clearer.
 
-
 ## [DAY-105] Basics of Basics
+
+make the simple flower/rock drawing game by yourself
+
+```
+import pgzrun
+import sys # for sys.exit()
+
+
+HEIGHT = 300 
+WIDTH = 300
+
+elf = Actor("c1")
+flowers = []
+def update():
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.D:
+        elf.x += 5
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.F:
+        flower = Actor("flower")
+        flower.x = elf.x
+        flower.y = elf.y
+        flowers.append(flower)
+    if keyboard.R:
+        flower = Actor("rock")
+        flower.x = elf.x
+        flower.y = elf.y
+        flowers.append(flower)
+    if keyboard.Q:
+        sys.exit(0)
+
+    if elf.x < 0:
+        elf.x = 10
+    if elf.y < 0:
+        elf.y = 10
+    if elf.x > WIDTH:
+        elf.x = WIDTH - 10
+    if elf.y > HEIGHT:
+        elf.y = HEIGHT - 10
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    for flower in flowers:
+        flower.draw()
+pgzrun.go()
+```
+
 ## [DAY-106] Basics of Basics
 ## [DAY-107] Basics of Basics
 ## [DAY-108] Basics of Basics
