@@ -666,7 +666,8 @@ for line in f.readlines():
 
 f.close()
 
-print(count)
+for k in count:
+    print(count[k], k)
 ```
 
 get the unique words in a file
@@ -706,9 +707,36 @@ while True:
         word += byte
 f.close()
 
-print(count)
+for k in count:
+    print(count[k], k)
 ```
 
-use sys.argv[1] to parameterize the program
+use sys.stdin to read the standard input
+
+```
+import sys
+count = {}
+
+for line in sys.stdin.readlines():
+    for word in line.rstrip().split(" "):
+        if word in count:
+            count[word] += 1
+        else:
+            count[word] = 1
+
+for k in count:
+    print(count[k], k)
+```
+then try use the output of `cat` to print the contents of week-015.md and then `|` pipe it to your word counting program
+
+```
+$ cat week-015.md | python3 count.py
+```
+
+if you want to sort by most common words:
+
+```
+cat week-015.md | python3 count.py | sort -n
+```
 
 ## [DAY-108] Basics of Basics
