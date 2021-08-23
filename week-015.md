@@ -628,4 +628,48 @@ def draw():
 pgzrun.go()
 ```
 ## [DAY-107] Basics of Basics
+
+count the words in a file
+
+```
+f = open("week-015.md","r")
+count = []
+
+for line in f.readlines():
+    for word in line.split(" "):
+        found = False
+        for counted in count:
+            if counted[0] == word:
+                counted[1]+= 1
+                found = True
+                break
+        if not found:
+            count.append([word, 1])
+
+f.close()
+
+print(count)
+
+```
+
+use a dictionary
+
+```
+f = open("week-015.md","r")
+count = {}
+
+for line in f.readlines():
+    for word in line.split(" "):
+        if word in count:
+            count[word] += 1
+        else:
+            count[word] = 1
+
+f.close()
+
+print(count)
+```
+
+use sys.argv[1] to parameterize the program
+
 ## [DAY-108] Basics of Basics
