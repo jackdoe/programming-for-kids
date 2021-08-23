@@ -9130,7 +9130,7 @@ f = open("week-015.md","r")
 count = []
 
 for line in f.readlines():
-    for word in line.split(" "):
+    for word in line.rstrip().split(" "):
         found = False
         for counted in count:
             if counted[0] == word:
@@ -9143,7 +9143,6 @@ for line in f.readlines():
 f.close()
 
 print(count)
-
 ```
 
 use a dictionary
@@ -9153,12 +9152,52 @@ f = open("week-015.md","r")
 count = {}
 
 for line in f.readlines():
-    for word in line.split(" "):
+    for word in line.rstrip().split(" "):
         if word in count:
             count[word] += 1
         else:
             count[word] = 1
 
+f.close()
+
+print(count)
+```
+
+get the unique words in a file
+
+```
+
+f = open("week-015.md","r")
+unique = set()
+
+for line in f.readlines():
+    for word in line.rstrip().split(" "):
+        unique.add(word)
+
+f.close()
+
+print(unique)
+
+```
+
+lets read the file 1 byte at a time:
+
+```
+f = open("week-015.md","r")
+word = ''
+count = {}
+while True:
+    byte = f.read(1)
+    if not byte:
+        break
+    if byte == ' ' or byte == '\n':
+        if word in count:
+            count[word] += 1
+        else:
+            count[word] = 1
+        word = ''
+    else:
+        word += byte
 f.close()
 
 print(count)
