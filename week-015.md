@@ -740,3 +740,115 @@ cat week-015.md | python3 count.py | sort -n
 ```
 
 ## [DAY-108] Basics of Basics
+
+count how many times each character appears in a string
+
+```
+line = "A quick brown fox jumps over the lazy dog"
+count = {}
+for s in line:
+    if s not in count:
+        count[s] = 1
+    else:
+        count[s] += 1
+
+for s in count:
+    print(count[s], s)
+```
+
+check if all characters from an alphabet are in a string
+
+```
+alphabet = {
+    'a': True,
+    'b': True,
+    'c': True,
+    'd': True,
+    'e': True,
+    'f': True,
+    'g': True,
+    'h': True,
+    'i': True,
+    'j': True,
+    'k': True,
+    'l': True,
+    'm': True,
+    'n': True,
+    'o': True,
+    'p': True,
+    'q': True,
+    'r': True,
+    's': True,
+    't': True,
+    'u': True,
+    'v': True,
+    'w': True,
+    'x': True,
+    'y': True,
+    'z': True,
+    ' ': True,
+}
+line = "A quick brown fox jumps over the lazy dog"
+
+for s in line:
+    lower_case = s.lower()
+    if lower_case not in alphabet:
+        print(lower_case + " is not in the alphabet")
+        break
+```
+
+are two strings equal
+
+```
+def equal(a,b):
+    if len(a) != len(b):
+        return False
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            return False
+    return True
+
+print(equal("hello","world"))
+print(equal("hello","hello"))
+print(equal("hello","roblox"))
+```
+
+are two lists of integers equal:
+
+```
+def equal(a,b):
+    if len(a) != len(b):
+        return False
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            return False
+    return True
+
+print(equal([1,2,3],[1,2,3,4]))
+print(equal([1,2,3],[1,2,3]))
+```
+
+are two dictionaries equal
+
+```
+def equal(a,b):
+
+    for k in a:
+        if k not in b:
+            return False
+        if a[k] != b[k]:
+            return False
+
+    for k in b:
+        if k not in a:
+            return False
+        if b[k] != a[k]:
+            return False
+
+    return True
+
+print(equal({'a':'hello','b':'world'},{'a':'hello','b':'world'}))
+print(equal({'a':'hello','b':'world'},{'a':'hello','b':'earth'}))
+print(equal({'a':'hello','roblox': True},{'a':'hello', 'roblox': False}))
+print(equal({'a':'hello','b':'world','roblox': True},{'a':'hello','b':'world'}))
+```
