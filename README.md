@@ -9448,6 +9448,83 @@ pgzrun.go()
 ```
 
 ## [DAY-112] Basics of Basics
+
+Count the words in a song
+
+```
+song = """There once was a ship that put to sea
+The name of the ship was the Billy of Tea
+The winds blew up, her bow dipped down
+O blow, my bully boys, blow (huh)
+She had not been two weeks from shore
+When down on her a right whale bore
+The captain called all hands and swore
+He'd take that whale in tow (huh)
+Soon may the Wellerman come
+To bring us sugar and tea and rum (hey)
+One day, when the tonguin' is done
+We'll take our leave and go
+Take our leave and go
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+Before the boat had hit the water
+The whale's tail came up and caught her
+All hands to the side harpooned and fought her
+When she dived down below (huh)
+She had not been two weeks from shore
+When down on her a right whale bore
+The captain called all hands and swore
+He'd take that whale in tow (huh)
+Soon may the Wellerman come
+To bring us sugar and tea and rum (hey)
+One day, when the tonguin' is done
+We'll take our leave and go
+Take our leave and go
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+Soon may the Wellerman come
+To bring us sugar and tea and rum (hey)
+One day, when the tonguin' is done
+We'll take our leave and go
+Take our leave and go
+Take our leave and go
+"""
+
+words = {}
+word = ''
+for c in song:
+    if c == ' ' or c == '\n':
+        if word not in words:
+            words[word] = 1
+        else:
+            words[word] += 1
+        word = ''
+    else:
+        word += c
+
+for word in words:
+    print(words[word],word)
+```
+
+This program has a bug, if the file does not end with empty line, it wont count the last word.
+
+Print the length:
+
+```
+...
+l = 0
+for c in song:
+    l += 1
+print(l)
+print(len(song))
+```
+
+
+
 ## [DAY-113] Basics of Basics
 ## [DAY-114] Basics of Basics
 ## [DAY-115] Basics of Basics
