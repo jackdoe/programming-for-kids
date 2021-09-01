@@ -1,8 +1,23 @@
 import sys
 import time
 import base64
+def checksum():
+    f = open(sys.argv[0],"r")
+    sum = 0
+    for line in f.readlines():
+        if "expected_checksum = " in line:
+            continue
+        for char in line:
+            sum += ord(char) * 31
+    f.close()
+    return sum
 
-
+expected_checksum = 9060339
+if checksum() != expected_checksum:
+    print("FILE IS MODIFIED! CHECKSUM: " + str(checksum()))
+    print("ILLEGAL OPERATION")
+    time.sleep(1)
+    sys.exit(2)
 
 # Author: Joao S. O. Bueno
 # gwidion@gmail.com
@@ -129,32 +144,15 @@ def doit():
             message = base64.b64decode('WU9VIENBTiBOT1QgU1RPUCBNRQ==')
             show = True
 
-def checksum():
-    f = open(sys.argv[0],"r")
-    sum = 0
-    for line in f.readlines():
-        if "expected_checksum = " in line:
-            continue
-        for char in line:
-            sum += ord(char) * 31
-    f.close()
-    return sum
 
 expected_password = 'hello world'
-expected_checksum = 9103708
 eval(compile(base64.b64decode('ZXhwZWN0ZWRfcGFzc3dvcmQgPSAndGhlcmUgaXMgbm8gc3Bvb24n'),"s","exec"))
-if checksum() != expected_checksum:
-    print("FILE IS MODIFIED! CHECKSUM: " + str(checksum()))
-    print("ILLEGAL OPERATION")
-    time.sleep(1)
-    sys.exit(2)
+password = input("PASSWORD: ")
+if password != expected_password:
+    message = base64.b85decode('Sx;3ULqSd;PES-INI^qOAWcO')
+    show = True
+    doit()
 else:
-    password = input("PASSWORD: ")
-    if password != expected_password:
-        message = base64.b85decode('Sx;3ULqSd;PES-INI^qOAWcO')
-        show = True
-        doit()
-    else:
-        doit()
+    doit()
 
 
