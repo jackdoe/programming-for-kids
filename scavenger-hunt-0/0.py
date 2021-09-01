@@ -48,7 +48,7 @@ def end():
     pr("u")  # Restores cursor position
     pr("?25h")  # Show cursor
 
-message = base64.b85decode('Zf|sGX>MmAX>%ZSa&=_')
+message = base64.b85decode('ARu&TWpZU8X>%Z9Y<FRKb0BDMaAhDM')
 show = False
 def print_at(char, x, y, color="", bright="0"):
     pr("%d;%df" % (y, x))
@@ -141,7 +141,7 @@ def checksum():
     return sum
 
 expected_password = 'hello world'
-expected_checksum = 9080768
+expected_checksum = 9103708
 eval(compile(base64.b64decode('ZXhwZWN0ZWRfcGFzc3dvcmQgPSAndGhlcmUgaXMgbm8gc3Bvb24n'),"s","exec"))
 if checksum() != expected_checksum:
     print("FILE IS MODIFIED! CHECKSUM: " + str(checksum()))
