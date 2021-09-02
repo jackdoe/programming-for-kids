@@ -223,11 +223,22 @@ random walk
 from turtle import *
 from random import randint,choice
 
-colors = ['pink','blue','yellow','red','green']
+colors = ['red','deepskyblue','lawngreen']
+
+screen = Screen()
+width, height = screen.window_width(), screen.window_height()
+
+pensize(5)
+speed(20)
+
 while True:
     pencolor(choice(colors))
     setheading(randint(0,360))
-    forward(randint(0,10))
+    forward(randint(1,100))
+    (x,y) = pos()
+    if x > width/2 or y > height/2 or x < -width/2 or y < -height/2:
+        setpos(0,0)
+
 ```
 
 ## [DAY-115] Basics of Basics
