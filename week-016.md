@@ -175,8 +175,43 @@ print(l)
 print(len(song))
 ```
 
-
-
 ## [DAY-113] Basics of Basics
+
+use https://pythontutor.com/visualize.html with the folloowing code:
+
+```
+song = """Soon may the Wellerman come
+To bring us sugar and tea and rum (hey)
+One day, when the tonguin' is done
+We'll take our leave and go
+Take our leave and go
+Soon may the Wellerman come
+To bring us sugar and tea and rum (hey)
+One day, when the tonguin' is done
+"""
+
+words = {}
+word = ''
+for c in song:
+    if c == ' ' or c == '\n':
+        if word not in words:
+            words[word] = 1
+        else:
+            words[word] += 1
+        word = ''
+    else:
+        word += c
+
+for word in words:
+    print(words[word],word)
+
+```
+
+
+![game-113-a.png](./screenshots/game-113-a.png "game 113-a screenshot")
+![game-113-b.png](./screenshots/game-113-b.png "game 113-b screenshot")
+
+try it with other programs as well.
+
 ## [DAY-114] Basics of Basics
 ## [DAY-115] Basics of Basics
