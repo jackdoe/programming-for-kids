@@ -214,4 +214,20 @@ for word in words:
 try it with other programs as well.
 
 ## [DAY-114] Basics of Basics
+
+![game-114.png](./screenshots/game-114.png "game 114 screenshot")
+
+random walk
+
+```
+from turtle import *
+from random import randint,choice
+
+colors = ['pink','blue','yellow','red','green']
+while True:
+    pencolor(choice(colors))
+    setheading(randint(0,360))
+    forward(randint(0,10))
+```
+
 ## [DAY-115] Basics of Basics
