@@ -18,7 +18,7 @@ for fn in listdir('.'):
         id = 0
         current = None
         for line in lines:
-            if line == '```\n':
+            if line == '```\n' or line == '```': # in case it ends without new line
                 if current == None:
                     id += 1
                     current_name = join(path, "{:03d}.txt".format(id))
