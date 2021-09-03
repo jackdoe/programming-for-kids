@@ -85,4 +85,3 @@ def draw():
         screen.draw.text("Final Score: "+ str(score), color="white", topleft=(10,10),fontsize=60)    
                          
 pgzrun.go()
-```

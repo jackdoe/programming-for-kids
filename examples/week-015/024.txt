@@ -18,4 +18,3 @@ print(equal({'a':'hello','b':'world'},{'a':'hello','b':'world'}))
 print(equal({'a':'hello','b':'world'},{'a':'hello','b':'earth'}))
 print(equal({'a':'hello','roblox': True},{'a':'hello', 'roblox': False}))
 print(equal({'a':'hello','b':'world','roblox': True},{'a':'hello','b':'world'}))
-```
