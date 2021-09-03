@@ -1,8 +1,0 @@
-
-/
-├─ home/
-│  ├─ jack/
-│  |  ├─ type.py
-│  |  ├─ example.txt
-│  |  ├─ image.jpg
-
