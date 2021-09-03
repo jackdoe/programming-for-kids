@@ -258,7 +258,7 @@ The word File is used because people that made those things up were thinking of 
  ||_______|| /
  |_________|/ Felix Lee
  
- ```
+```
 
 > See how those pictures have sometimes names attached to them. Those are their creators, some pictures are from the 80s, so it is amazing we can still find out who made them. You should always attribute the work of an artist.
 
