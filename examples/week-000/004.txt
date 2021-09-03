@@ -1,0 +1,22 @@
+  /
+  /
+ /____________________
+ |________  __________
+ /_____  /||   |
+|".___."| ||   |
+|_______|/ |   |
+ || .___."||  /
+ ||_______|| /
+ |_________|/ Felix Lee
+ 
+ ```
+
+> See how those pictures have sometimes names attached to them. Those are their creators, some pictures are from the 80s, so it is amazing we can still find out who made them. You should always attribute the work of an artist.
+
+So the name 'File' and 'Folder' is used. If people were thinking of libraries I guess we would've been using Book for a file and Shelve for Folder? Anyway, my point is: all things have names, some of the names are strange and old, so don't worry if they make no sense.
+
+
+## [DAY-0] ASCII
+
+Computers do not understand text, so when you see text it is usually some number that is displayed as a character, for example 65 is A, 66 is B, and so on. About 60 years ago some people agreed on a common way to map number to character, called THE ASCII STANDARD, super fancy name, for such a simple thing.
+

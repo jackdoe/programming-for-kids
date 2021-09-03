@@ -1,0 +1,11 @@
+j a n e
+0 1 2 3
+
+name = "jane"
+name[0] is j
+name[1] is a
+name[2] is n
+name[3] is e
+
+len(name) is 4 (because len counts from 1)
+so name[len(name) - 1], is name[4 - 1] or name[3] which is the last letter

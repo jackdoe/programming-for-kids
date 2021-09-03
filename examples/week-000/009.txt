@@ -1,0 +1,8 @@
+
+Open Windows Explorer and find the file on your desktop and double click on it. 
+
+Congrats! You have made your first web page!
+
+
+Now try this:
+

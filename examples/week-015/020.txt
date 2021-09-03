@@ -1,0 +1,10 @@
+line = "A quick brown fox jumps over the lazy dog"
+count = {}
+for s in line:
+    if s not in count:
+        count[s] = 1
+    else:
+        count[s] += 1
+
+for s in count:
+    print(count[s], s)

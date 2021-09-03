@@ -1,0 +1,5 @@
+position = (1,2)
+
+(x,y) = position
+print(x)
+print(y)

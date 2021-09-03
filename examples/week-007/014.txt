@@ -1,0 +1,5 @@
+var cookies = []
+for (cookie of document.cookie.split(";")) {
+    cookies.push(cookie.replace(" ", ""))
+}
+console.log(JSON.stringify(cookies))

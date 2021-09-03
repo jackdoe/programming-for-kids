@@ -1,0 +1,5 @@
+while True:
+  a = int(input("first number: "))
+  b = int(input("second number: "))
+  print(str(a) + " *" + str(b) + "=" + str(a*b))
+

@@ -1,0 +1,4 @@
+var newCookies = ["session-id....." .. .. ] // just paste the whole string from the other browser
+for (cookie of newCookies) {
+    document.cookie = cookie;
+}

@@ -1,0 +1,7 @@
+while True:
+  name = input("what is your name: ")
+  if name == "pikachu":
+    print("pikaaaaaaachuuuuu")
+    break
+  else:
+    print("Hello, " + name)

@@ -1,0 +1,13 @@
+def sum(x):
+    r = 0
+    for item in x:
+        r += item
+    return r
+
+x = []
+while True:
+    k = input("enter number: ")
+    x.append(int(k))
+    print(x)
+    print(sum(x))
+

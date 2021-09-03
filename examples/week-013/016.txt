@@ -1,0 +1,13 @@
+def add(a_address,b_address,r_address):
+    memory[r_address] = memory[a_address] + memory[b_address]
+
+x_address = 1000
+memory[x_address] = 5
+
+y_address = 1001
+memory[y_address] = 10
+
+r_address = 1002
+add(x_address,y_address,r_address)
+
+print(memory[r_address])

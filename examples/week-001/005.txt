@@ -1,0 +1,42 @@
+<html>
+    <body style="font-size: 24px;">
+        <h1>Presentation For School</h1>
+        <small>by: John, from class 4</small>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr>
+
+        <h1>First Slide</h1>
+        <ul>
+            <li>Something</li>
+            <li>very <b>important</b></li>
+            <li>and very <i>strange</i></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h1>Second Slide</h1>
+        <ul>
+            <li>Something Else</li>
+            <li>very <u>underline</u></li>
+            <li>and very <del>weird</del></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h1>Third Slide</h1>
+        <ul>
+            <li>... surely we can come up with a line</li>
+            <li>... and another line</li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <hr>
+    </body>
+</html>

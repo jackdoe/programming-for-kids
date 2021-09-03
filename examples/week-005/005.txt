@@ -1,0 +1,2 @@
+name = input("what is your name: ")
+print("Your spy name is: " + name[0] + name[1])

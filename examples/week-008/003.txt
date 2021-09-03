@@ -1,0 +1,15 @@
+def check(question, answer):
+    x = input(question + ": ")
+    if x == answer:
+        return True
+    else:
+        return False
+
+
+score = 0
+if check("which animal lives on the north pole?", "polar bear"):
+    score += 1
+if check("which animal lives in the jungle?", "tiger"):
+    score += 1
+
+print("your score is: " + str(score))

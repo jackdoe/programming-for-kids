@@ -1,0 +1,18 @@
+<table border=100>
+  <tr>
+    <td>
+      <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+      </ul>
+    </td>
+    <td>
+      <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+      </ol>
+    </td>
+  </tr>
+</table>

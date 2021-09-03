@@ -1,0 +1,7 @@
+day0: make new touch typing program
+day1: touch typing on keybr.com
+day2: touch typing using your program
+day3: HTML
+day4: HTML
+day5: touch typing
+day6: HTML

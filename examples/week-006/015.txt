@@ -1,0 +1,17 @@
+import turtle
+
+turtle.color("blue")
+turtle.circle(100)
+turtle.penup()
+turtle.goto(60,120)
+turtle.pendown()
+turtle.circle(20)
+turtle.penup()
+turtle.goto(20,120)
+turtle.pendown()
+turtle.circle(20)
+turtle.penup()
+turtle.goto(-30,20)
+turtle.pendown()
+turtle.right(45)
+turtle.circle(20, 120)

@@ -1,0 +1,14 @@
+% python3 search.py title:Alice author:carroll author:lewis subject:children
+>>> Alice's Adventures in Wonderland <<<
+    2008-06-27
+    https://www.gutenberg.org/ebooks/11
+
+    Author: Carroll, Lewis, 1832-1898
+
+    Subject: Fantasy fiction
+    Subject: Children's stories
+    Subject: Imaginary places -- Juvenile fiction
+    Subject: Alice (Fictitious character from Carroll) -- Juvenile fiction
+    Language: en
+
+...

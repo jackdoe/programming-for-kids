@@ -1,0 +1,13 @@
+x = ['a','b','c','d']
+m = ['w','x','y','z']
+d = ['g','h','j','k']
+
+# a -> 0
+# b -> 1
+# c -> 2
+
+for i in range(len(x)):
+    print(i,end=' ')
+    print(x[i],end=' ')
+    print(m[i],end=' ')
+    print(d[i])

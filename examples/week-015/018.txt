@@ -1,0 +1,1 @@
+$ cat week-015.md | python3 count.py

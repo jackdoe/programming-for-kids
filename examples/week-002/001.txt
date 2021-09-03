@@ -1,0 +1,7 @@
+day0: HTML tables
+day1: HTML tables and lists
+day2: HTML multiplication table
+day3: HTML multiplication table
+day4: touch typing
+day5: HTML Links
+day6: HTML fun

@@ -1,0 +1,4 @@
+x = [1,2,3,4]
+y = []
+for i in range(len(x)-2,len(x)):
+    y.append(x[i])

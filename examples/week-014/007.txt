@@ -1,0 +1,4 @@
+0 0 # both coins are tails
+0 1 # second coin is heads
+1 0 # first coin is heads
+1 1 # both coins are heads

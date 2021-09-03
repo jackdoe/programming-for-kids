@@ -1,0 +1,7 @@
+import random
+flavors = ['vanilla','chocolate','blue','banana','bluberry']
+
+flavorA = random.choice(flavors)
+flavorB = random.choice(flavors)
+
+print(flavorA + " + " + flavorB)

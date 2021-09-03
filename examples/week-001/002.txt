@@ -1,0 +1,33 @@
+<center>
+  <pre style="font-size: 30px; letter-spacing: 4px;" id="question"></pre>
+</center>
+
+<script>
+var makeNewQuestion = function() {
+  var letters = 'fjfjfjfjfjfjjfghghghgaa;a;a;abcdefghijklmnopqrstuvwxyz'
+  var difficulty = 10
+  var q = []
+  for (var i = 0; i < difficulty; i++) {
+    q.push(letters.charAt(Math.floor(Math.random() * letters.length)));
+  }
+  return q
+}
+
+var currentQuestion = makeNewQuestion()
+var questionElement = document.getElementById("question")
+questionElement.innerHTML = currentQuestion.join("")
+
+var position = 0
+document.body.addEventListener('keydown', (e) => {
+  if (e.key == currentQuestion[position]) {
+    position++
+    if (position == currentQuestion.length) {
+      currentQuestion = makeNewQuestion()
+      position = 0
+    } else {
+      currentQuestion[position-1] = '<b>' + currentQuestion[position-1] + '</b>'
+    }
+    questionElement.innerHTML = currentQuestion.join("")
+  }
+})
+</script>

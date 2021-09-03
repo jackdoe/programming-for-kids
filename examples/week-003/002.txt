@@ -1,0 +1,5 @@
+Right click on this page, click Inspect and then go to Console.
+<script>
+    console.log('🐺🐺🐺🐺 You can see that in the console. 🐺🐺🐺🐺')
+    console.log('🐺🐺🐺🐺 type 12312*18237978123 in the console and see what happens. 🐺🐺🐺🐺')
+</script>

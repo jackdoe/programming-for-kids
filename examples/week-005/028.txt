@@ -1,0 +1,8 @@
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+count = 50
+for i in range(count):
+  line(count-i, '*')
+  print('')

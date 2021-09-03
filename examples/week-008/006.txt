@@ -1,0 +1,86 @@
+import random
+APPLE_SYMBOL = '@'
+
+def render(world):
+  for row in world:
+    for col in row:
+      print(col,end=' ')
+    print('')
+
+def empty():
+  return  [
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+]
+
+def snake_eats_itself(positions, current_col, current_row):
+    for (col,row) in positions:
+        if col == current_col and row == current_row:
+            return True
+
+def place_apple(world):
+    # just place it on a random square from all possible squares
+    possible = []
+    for index_row in range(len(world)):
+        for index_col in range(len(world[index_row])):
+            if world[index_row][index_col] == '-':
+                possible.append((index_col,index_row))
+
+    if len(possible) == 0:
+        # we cant place an apple
+        return False
+    else:
+        (col,row) = random.choice(possible)
+        world[row][col] = APPLE_SYMBOL
+        return True
+    
+world = empty()
+player_row = 0
+player_col = 0
+player_history = []
+
+world[player_row][player_col] = '%'
+player_history.append((player_col,player_row))
+
+
+place_apple(world)
+render(world)
+
+
+while True:
+  direction = input("which direction: ")
+  
+  world[player_row][player_col] = '='
+  if direction == "u":
+    player_row = player_row - 1
+  elif direction == "d":
+    player_row = player_row + 1
+  elif direction == "l":
+    player_col = player_col - 1
+  elif direction == "r":
+    player_col = player_col + 1
+  else:
+      print("try again, u for up/d for down/l for left/r for right")
+      continue
+  if snake_eats_itself(player_history, player_col, player_row):
+      print("GAME OVER")
+      break
+
+  if world[player_row][player_col] == APPLE_SYMBOL:
+
+      world[player_row][player_col] = '$'
+      if not place_apple(world):
+          print("YOU WON!")
+          break
+  else:
+      world[player_row][player_col] = '%'
+
+  player_history.append((player_col,player_row))
+
+  render(world)
+

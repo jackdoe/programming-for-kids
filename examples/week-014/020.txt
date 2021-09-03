@@ -1,0 +1,64 @@
+class Point:
+    x = 0
+    y = 0
+    def __init__(self, name):
+        self.name = name
+
+    def print(self):
+        print('point',self.x,self.y,self.name)
+
+    def colliderect(self,r):
+        return self.x > r.x and self.x < r.x + r.w and self.y > r.y and self.y < r.y + r.h
+
+class Rect:
+    x = 0
+    y = 0
+    w = 0
+    h = 0
+    def print(self):
+        print('rect',self.x,self.y,self.w,self.h)
+
+
+#
+# |-----------------------+
+# |                       |
+# 6  +-------+            |
+# |  |       |            |
+# 4--|---x   |            |
+# |  |   |   |            |
+# 2--+-------+            |
+# |  |   |   |            |
+# +--2---6---9------------+
+# 0,0
+def collidepoint(rect, point):
+    if point.x > rect.x and point.x < rect.x + rect.w and point.y > rect.y and point.y < rect.y + rect.h:
+        return True
+    else:
+        return False
+
+p = Point("blue") # instance
+p.x = 6
+p.y = 4
+
+r = Rect() # instance
+r.x = 2
+r.y = 2
+r.w = 7
+r.h = 4
+
+if collidepoint(r,p):
+    print("COLLIDES")
+    r.print()
+    p.print()
+
+p2 = Point("red")
+p2.x = 10
+p2.y = 10
+if not collidepoint(r,p2):
+    print("NO COLLISION")
+    r.print()
+    p.print()
+
+
+if p.colliderect(r):
+    print("p collides")

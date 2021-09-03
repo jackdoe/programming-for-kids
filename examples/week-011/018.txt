@@ -1,0 +1,10 @@
+x = ['h','e','l','l','o']
+y = 'hello'
+
+x[2] = 'm'
+y = 'hemlo'
+
+for i in range(len(x)):
+    print(i,end=' ')
+    print(x[i], end=' ')
+    print(y[i])

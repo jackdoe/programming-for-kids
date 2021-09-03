@@ -1,0 +1,11 @@
+len("jane"):
+
+j a n e
+1 2 3 4
+
+
+len("ja")
+
+j a
+1 2
+

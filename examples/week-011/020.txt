@@ -1,0 +1,16 @@
+a = [6,3,2]
+b = [78,21,1]
+c = [123,5,1]
+
+sum = 0
+
+for x in a:
+    sum += x
+
+for x in b:
+    sum += x
+
+for x in c:
+    sum += x
+
+print(sum)

@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <style>
+      body {
+        background: blue;
+      }
+      p {
+        color: pink;
+      }
+      h1 {
+        color: cyan;
+      }
+    </style>
+    <title>some title</title>
+  </head>
+  <body>
+    <center>
+      <p>
+        Hello Universe
+      </p>
+      <h1>hello world</h1>
+    </center>
+  </body>
+</html>

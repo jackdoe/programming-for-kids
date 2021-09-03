@@ -1,0 +1,3 @@
+name = input("what is your name: ")
+for c in name:
+  print(c)

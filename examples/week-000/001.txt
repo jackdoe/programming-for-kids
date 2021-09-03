@@ -1,0 +1,7 @@
+day0: learn about the computer
+day1: touch typing on keybr.com
+day2: install python and make a program
+day3: touch typing using your program
+day4: HTML
+day5: touch typing
+day6: HTML

@@ -1,0 +1,13 @@
+import pgzrun
+WIDTH = 400
+HEIGHT = 400
+ 
+def draw():
+    screen.clear()
+    x = WIDTH/2
+    y = WIDTH/2
+    pos = (x,y)
+    radius = 30
+    screen.draw.circle(pos, radius, 'white')
+ 
+pgzrun.go()

@@ -1,0 +1,13 @@
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+while True:
+  count = 10
+  for i in range(count):
+    line(count-i, '*')
+    print('')
+
+  for i in range(count):
+    line(i, '#')
+    print('')

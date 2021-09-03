@@ -1,0 +1,12 @@
+
+f = open("week-015.md","r")
+unique = set()
+
+for line in f.readlines():
+    for word in line.rstrip().split(" "):
+        unique.add(word)
+
+f.close()
+
+print(unique)
+

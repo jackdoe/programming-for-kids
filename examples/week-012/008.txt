@@ -1,0 +1,11 @@
+...
+game_map = []
+def place_thing(kind):
+    thing = Actor(kind)
+    thing.x = player.x
+    thing.y = player.y
+
+    things.append(thing)
+    game_map.append([kind, thing.x, thing.y])
+    print(game_map)
+...    

@@ -1,0 +1,20 @@
+import random
+game = [
+    ['What is the capital of France?','Paris','London','Paris','Berlin','Tokyo'],
+    ['What is the capital of Japan?','Tokyo','London','Paris','Berlin','Tokyo'],
+    ["What is Jane's favorite food?",'Popcorn','Pizza','Popcorn','Cucumber','Sushi']
+]
+
+
+while True:
+    quiz = random.choice(game)
+    print(quiz[0])
+    for index, possible in enumerate(quiz):
+        if index >= 2:
+            print(possible)
+    answer = input('What is your answer: ')
+
+    if answer == quiz[1]:
+        print("✨✨✨ CORRECT ✨✨✨")
+    else:
+        print("INCORRECT")

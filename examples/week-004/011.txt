@@ -1,0 +1,4 @@
+if (name == "pikachu") {
+  console.log("pikaaaachuuuuu")
+  console.log("evolutiooonn!")
+}

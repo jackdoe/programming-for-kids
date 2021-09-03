@@ -1,0 +1,21 @@
+while True:
+    k = input('what is your favorite sport: ')
+
+    if k == 'soccer':
+        print('⚽')
+    elif k ==  'hockey':
+        print('🏑')
+    elif k == 'tennis':
+        print('🎾')
+    elif k == 'volleyball':
+        print('🏐')
+    elif k == 'table tennis':
+        print('🏓')
+    elif k == 'baseball':
+        print('⚾')
+    elif k == 'basketball':
+        print('🏀')
+    elif k == 'golf':
+        print('🏌️‍♂️')
+    else:
+        print('i dont now ' +k)

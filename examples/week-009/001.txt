@@ -1,0 +1,7 @@
+day0: pygame and pgzero
+day1: Basics of Basics
+day2: Basics of Basics
+day3: Basics of Basics
+day4: Basics of Basics
+day5: Basics of Basics
+day6: Basics of Basics

@@ -1,0 +1,26 @@
+import random
+game = [
+    {
+        "question": "What is the capital of France?",
+        "answer": "Paris",
+        "possible": ['London','Paris','Berlin','Tokyo'],
+    },
+    {
+        "question": "What is the capital of Japan?",
+        "answer": "Tokyo",
+        "possible": ['London','Paris','Berlin','Tokyo'],
+    },  
+]
+
+
+while True:
+    quiz = random.choice(game)
+    print(quiz["question"])
+    for p in quiz["possible"]:
+        print(' --> ' + p)
+    answer = input('What is your answer: ')
+
+    if answer == quiz["answer"]:
+        print("✨✨✨ CORRECT ✨✨✨")
+    else:
+        print("INCORRECT")

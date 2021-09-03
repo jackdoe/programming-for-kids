@@ -1,0 +1,49 @@
+import sys
+import os
+
+text = ''
+
+filename = sys.argv[1]
+
+try:
+    f = open(filename, "r")
+    text = f.read()
+    f.close()
+except IOError:
+    pass
+
+while True:
+    what = input("> ")
+    if what == '?':
+        print("""
+        * ? - help
+        * p - print
+        * s - save
+        * d [n] - delete last N lines
+        * a text - append text to the end
+        """)
+    elif what == 'q':
+        sys.exit(0)
+    elif what == 'p':
+        print(text, end = '')
+    elif what == 's':
+        f = open(filename, "w")
+        f.write(text)
+        f.close()
+    elif what[0] == 'a' and what[1] == ' ':
+        text += what[2:] + '\n'
+    elif what[0] == 'd':
+        lines = text.split('\n')
+
+        n = 1
+        if len(what) > 2:
+            n = int(what[2:])
+
+        for i in range(0, n):
+            lines.pop()
+
+        text = "\n".join(lines)
+
+
+    else:
+        print("* use ? for help")

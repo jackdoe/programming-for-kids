@@ -1,0 +1,22 @@
+                 <html>
+                   |
+                 <body>
+                   |
+                 <table>
+                /   |   \
+               /    |    \
+              /     |     \
+             /      |      \
+            /       |       \
+           /        |        \
+        <tr>      <tr>       <tr>         <--- siblings, same parent
+         /\        / \        / \
+        /  \      /   \      /   \
+      <th> <th> <td>  <td>  <td> <td>     <--- the two td with same parent
+      |      |    |     |    |     |           are siblings
+     Name  Year <mark> <h1> <b>  <marquee>
+                  |      |   |      |
+                hello world move   <i>
+                                    |
+                                  italic
+       

@@ -1,0 +1,4 @@
+def invert(s):
+    #...
+
+print(invert("hello"))

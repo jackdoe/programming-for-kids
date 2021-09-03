@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <a href="https://wikipedia.com">
+            <img src="https://picsum.photos/id/237/200/300">
+            <br>
+            This dog leads to wikipedia
+          </a>
+        </td>
+        <td>
+          <a href="https://gutenberg.org">
+            <img src="https://picsum.photos/id/40/200/300">
+            <br>
+            This cat (I think) leads to guttenberg.org
+          </a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+def invert(n):
+    #...
+
+print(invert(123456))

@@ -1,0 +1,10 @@
+import random
+while True:
+    k = random.randint(1,13)
+    s = random.randint(1,13)
+    r = k * s
+    g = int(input('How much is '+str(k) +'*' +str(s) + ': '))
+    if g == r:
+        print('Wow nice job its CORRECT')
+    else:
+        print('wrong the answer was: ' + str(r))

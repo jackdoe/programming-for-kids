@@ -1,0 +1,34 @@
+print("Welcome to the forest!")
+print("This is a world of magic and wonders. You are on a cross road, you can go north east south or west.")
+print("South leads to the swamps, where the aligators live")
+print("West leads to the mountains, where the yeti lives")
+print("North leads to the jungle, where the tigres live")
+print("East leads to the desert, where the meerkats live")
+print("")
+
+what = input("what would you do next: ")
+
+if what == "east":
+  print("Welcome to the desert")
+  print("It is very hot, and you need remember to put sun screen.")
+  print("Oh, you remember to put your hat as well.")
+  print("In the distance you see a meerkat approaching.")
+  print("What would you do? Run or Fight the meerkat?")
+  print("")
+
+  what = input("what would you do next: ")
+  if what == "run":
+    print("You start running, and the meerkat is super fast, it catches you in no time.")
+  elif what == "fight":
+    print("You try to fight it, but turns out it was friendly and wants to become your friend.")
+    print("What would you do?")
+    print("")
+    what = input("Do you want to be its friend: ")
+
+    if what == "yes":
+      print("Great! Now the meerkat wants to introduce you to his family.")
+    elif what == "no":
+      print("The meerkat starts crying!")
+
+  else:
+    print("I dont understand: " + what)
