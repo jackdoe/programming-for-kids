@@ -9634,6 +9634,8 @@ day6: Basics of Basics
 
 many turtles
 
+The ideas are borrowed from [Redisovering Logo with Bob the Turtle](https://notes.ayushsharma.in/2019/06/rediscovering-logo-with-bob-the-turtle), Ayush Sharma's blog post!
+
 ![game-116-a.png](./screenshots/game-116-a.png "game 116-a screenshot")
 
 ```
