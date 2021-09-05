@@ -89,12 +89,45 @@ And lets discuss another text editor.
 
 (if you are on windows make sure you `pip3 install windows-curses`)
 
+Start super simple, what do we need to make a text editor? first we need to show the text being edited, and second we need to capture user input and modify this text.
+
+First show some text:
+
+```
+import curses
+import time
+
+screen = curses.initscr()
+screen.addstr(0, 0, "hello world",curses.A_NORMAL)
+screen.refresh()
+
+time.sleep(2)
+```
+
+Capture input and modify the text:
+
+```
+import curses
+
+screen = curses.initscr()
+text = ''
+while True:
+    screen.addstr(0, 0, text,curses.A_NORMAL)
+    screen.refresh()
+
+    c = screen.getch()
+    text += chr(c)
+```
+
+In order to Read and Write the file we are editing, we need to have some control keys, like Ctrl+S to save, and Ctrl+C to quit without saving. Also we need to add support for backspace to be able to delete from the text string.
+
+Hint: use `text += str(c)` to actually see the codes you need.
+
 ```
 import curses
 import sys
 
 screen = curses.initscr()
-screen.clear()
 curses.curs_set(2)
 
 if len(sys.argv) != 2:
@@ -116,6 +149,7 @@ while True:
     screen.clear()
     screen.addstr(0, 0, status + ' (len: ' + str(len(text)) + ')',curses.A_NORMAL)
     screen.addstr(2, 0, text,curses.A_NORMAL)
+    screen.refresh()
 
     c = screen.getch()
     if c == 3:
