@@ -270,3 +270,4 @@ while True:
 This is a simple program that presses w a s d, each for 1.6 seconds and then waits 0.5 seconds for the next one.
 
 After you start the program, you have 2 seconds to click on Roblox otherwise the sequence will be wrong
+
