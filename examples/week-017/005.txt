@@ -1,10 +1,8 @@
 import curses
+import time
 
 screen = curses.initscr()
-text = ''
-while True:
-    screen.addstr(0, 0, text,curses.A_NORMAL)
-    screen.refresh()
+screen.addstr(0, 0, "hello world",curses.A_NORMAL)
+screen.refresh()
 
-    c = screen.getch()
-    text += chr(c)
+time.sleep(2)

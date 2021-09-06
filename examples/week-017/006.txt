@@ -1,49 +1,10 @@
 import curses
-import sys
 
 screen = curses.initscr()
-curses.curs_set(2)
-
-if len(sys.argv) != 2:
-    print("usage:")
-    print(sys.argv[0] + " filename")
-    sys.exit(1)
-
-
 text = ''
-try:
-    file = open(sys.argv[1],"r")
-    text = file.read()
-    file.close()
-except:
-    pass
-
-status = 'file: ' + sys.argv[1]
 while True:
-    screen.clear()
-    screen.addstr(0, 0, status + ' (len: ' + str(len(text)) + ')',curses.A_NORMAL)
-    screen.addstr(2, 0, text,curses.A_NORMAL)
+    screen.addstr(0, 0, text,curses.A_NORMAL)
     screen.refresh()
 
     c = screen.getch()
-    if c == 3:
-        # quit Ctrl+C
-        break
-
-    if c == 19:
-        # save Ctrl+S
-        file = open(sys.argv[1],"w")
-        file.write(text)
-        file.close()
-        status = 'file: ' + sys.argv[1]
-        screen.addstr(0, 0, text,curses.A_NORMAL)
-        continue
-    if c == 8:
-        # backspace
-        if len(text) > 0:
-            text = text[:len(text)-1]
-        continue
-    if (c < 127 and c > 30) or c == 10:
-        text += chr(c)
-        status = 'file: ' + sys.argv[1] + " (modified)"
-
+    text += chr(c)

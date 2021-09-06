@@ -9701,6 +9701,24 @@ for i in range(500):
 turtle.exitonclick()
 ```
 
+```
+import turtle
+turtle.setup(width=800, height=800)
+
+bob = turtle.Turtle(shape='turtle')
+bob.color('orange')
+
+alice = turtle.Turtle(shape='turtle')
+alice.color('lawngreen')
+angle = 10
+while True:
+    alice.backward(20)
+    bob.forward(20)
+    alice.right(angle)
+    bob.left(angle)
+    angle += 1
+```
+
 Again this is the same as in roblox's houses, you have the blueprint of the house, and you can create an instance of it, and then you can modify it. so `turtle.Turtle()` creates an instance, and then you see, bob, alice and charlie have their own changes. In the same time they have the same functionality, like `forward` `up` and etc coming from the blueprint and each of those methods work on the instance itself.
 
 ## [DAY-117] Basics of Basics

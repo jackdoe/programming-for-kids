@@ -1,8 +1,15 @@
-import curses
-import time
+import turtle
+turtle.setup(width=800, height=800)
 
-screen = curses.initscr()
-screen.addstr(0, 0, "hello world",curses.A_NORMAL)
-screen.refresh()
+bob = turtle.Turtle(shape='turtle')
+bob.color('orange')
 
-time.sleep(2)
+alice = turtle.Turtle(shape='turtle')
+alice.color('lawngreen')
+angle = 10
+while True:
+    alice.backward(20)
+    bob.forward(20)
+    alice.right(angle)
+    bob.left(angle)
+    angle += 1
