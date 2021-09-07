@@ -1,0 +1,15 @@
+parsed words from https://github.com/cltl/OpenDutchWordnet
+usage:
+
+gzcat odwn_orbn_gwg-LMF_1.3.xml.gz | go run to-json.go > dictionary.json
+
+the OpenDutchWordnet has attribution CC, this is their citation requirement:
+
+@InProceedings{Postma:Miltenburg:Segers:Schoen:Vossen:2016,
+  author =	 "Marten Postma and Emiel van Miltenburg and Roxane Segers and Anneleen Schoen and Piek Vossen",
+  title =	 "Open {Dutch} {WordNet}",
+  booktitle =	 "Proceedings of the Eight Global Wordnet Conference",
+  year =	 2016,
+  address =	 "Bucharest, Romania",
+}
+
