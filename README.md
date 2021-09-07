@@ -9816,6 +9816,26 @@ while True:
 ```
 
 ## [DAY-118] Basics of Basics
+
+Search for your favorite lyrics, dont forget to `pip3 install lyricsgenius`
+
+```
+import lyricsgenius
+genius = lyricsgenius.Genius('get api key from genius.com')
+genius.verbose = False
+while True:
+    artist = input("🔥 Artist: ")
+    song_name = input("🔥 Song: ")
+    song = genius.search_song(song_name, artist)
+    if song == None:
+        print(song_name + " / " + artist + " not found")
+    else:
+        print('-'  * 40)
+        print(song.lyrics)
+        print('-'  * 40)
+```
+
+
 ## [DAY-119] Basics of Basics
 ## [DAY-120] Basics of Basics
 ## [DAY-121] Basics of Basics
