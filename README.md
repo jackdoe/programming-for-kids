@@ -9837,7 +9837,25 @@ while True:
 
 
 ## [DAY-119] Basics of Basics
+
+![game-119.png](./screenshots/game-119.png "game 119 screenshot")
+
+Use https://github.com/ageitgey/face_recognition to see how easy it is to track people through a video stream only using 1 picture from them.
+
+Recognize that if it is cheap and easy, it is done to you.
+
+It will be done in the mall, to show you personalized ads, it will be done on the street to track where you go so they can sell you better things on tiktok.
+
+They only need 1 picture.
+
+If you are not paying, you are the product.
+
 ## [DAY-120] Basics of Basics
+
+Today you are on your own. We start with: https://www.amazon.de/-/en/DK/dp/1465461884 chapter 2, read it for 1 hour and make the programs and exercieses.
+
+Write down your experience and what you struggle with.
+
 ## [DAY-121] Basics of Basics
 ## [DAY-122] Basics of Basics
 
