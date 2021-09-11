@@ -228,6 +228,14 @@ They only need 1 picture.
 
 If you are not paying, you are the product.
 
+It is also not very easy to be tricked with mascara.
+
+
+![game-119-a.png](./screenshots/game-119-a.png "game 119a screenshot")
+
+even thought it was easy in 2014, https://www.theatlantic.com/technology/archive/2014/07/makeup/374929/
+
+
 ## [DAY-120] Basics of Basics
 
 Today you are on your own. We start with: https://www.amazon.de/-/en/DK/dp/1465461884 chapter 2, read it for 1 hour and make the programs and exercieses.
