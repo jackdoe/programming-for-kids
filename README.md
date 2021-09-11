@@ -9856,6 +9856,69 @@ Today you are on your own. We start with: https://www.amazon.de/-/en/DK/dp/14654
 
 Write down your experience and what you struggle with.
 
+Simple ping pong game
+
+```
+import pgzrun
+import random
+
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor('c1')
+king = Actor('c2')
+ball = Actor('bullet')
+
+king.y = HEIGHT/2
+elf.y = HEIGHT/2
+elf.x = WIDTH-10
+ball.x = WIDTH/2
+ball.y = HEIGHT/2
+d = 1
+game_over = False
+speed = 1
+def update():
+    global d,game_over,speed
+    if keyboard.up:
+            elf.y -= 5
+    if keyboard.down:
+            elf.y += 5
+    if keyboard.S:
+            king.y += 5
+    if keyboard.W:
+            king.y -= 5
+
+    if ball.x < 0 or ball.x > WIDTH:
+        game_over = True
+
+    if d == 1:
+        ball.x += speed
+    else:
+        ball.x -= speed
+
+    if elf.colliderect(ball):
+        d = 0
+        ball.y = random.randint(10,HEIGHT-10)
+        speed += 1
+    if king.colliderect(ball):
+        d = 1
+        ball.y = random.randint(10,HEIGHT-10)
+        speed += 1
+
+def draw():
+    screen.clear()
+    screen.fill("deepskyblue")
+
+    elf.draw()
+    king.draw()
+    ball.draw()
+
+    if game_over:
+        screen.fill('red')
+
+pgzrun.go()
+```
+
 ## [DAY-121] Basics of Basics
 ## [DAY-122] Basics of Basics
 
