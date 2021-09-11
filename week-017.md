@@ -233,6 +233,8 @@ It is also not very easy to be tricked with mascara.
 
 ![game-119-a.png](./screenshots/game-119-a.png "game 119a screenshot")
 ![game-119-b.png](./screenshots/game-119-b.png "game 119b screenshot")
+![game-119-c.png](./screenshots/game-119-c.png "game 119c screenshot")
+
 
 
 even thought it was easy in 2014, https://www.theatlantic.com/technology/archive/2014/07/makeup/374929/
