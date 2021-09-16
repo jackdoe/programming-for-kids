@@ -9932,6 +9932,23 @@ pgzrun.go()
 ```
 
 ## [DAY-121] Basics of Basics
+
+Scams.. Scams everywhere.
+
+Our phone numbers, names, address are everywhere we have registered to buy something, be it bol.com, amazon, some random website we bought fidgets from, etc. So people can find out your number and name also by stealing your friends's contact list, Overall you must assume the bad guys have your information, so when you receive a call or email or even people talk to you on the street, always think sus.
+
+Follow this list:
+
+* Always Think Sus
+* Call your parents
+* If you cant reach your parents, call adult you know
+* If you cant reach adult you know, go and find a mother with a child, they are the safest to talk to.
+* If you can not find any adult to help hang up.
+* If you think it is serious and you must act, hang up, and *you* call wherever they claim to be calling from. For example if they say they are from your bank, or from roblox, or fortnite, you google and find a contact for your bank/fortnite and *you* call them and ask what is going on.
+
+The scammers are very smart, and have a lot of experience to trick you into doing what they want, sometimes they will call claiming your parents are in trouble and you have to give them a credit card number, sometimes they will call to tell you you win the new iPhone if you just give them a credit card number. They are very inventive as well, so the best thing is just think sus.
+
+
 ## [DAY-122] Basics of Basics
 
 
