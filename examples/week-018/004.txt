@@ -1,0 +1,13 @@
+file = open("images/joshi-100.bmp","rb")
+data = file.read()
+file.close()
+
+width = 100
+height = 106
+offset = 54
+
+for y in range(width):
+    for x in range(height):
+        off = offset + ((y * width + x) * 4)
+        print("%3d" % data[off+2],end='')
+    print()

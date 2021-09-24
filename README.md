@@ -10146,6 +10146,108 @@ pgzrun.go()
 
 ```
 ## [DAY-124] Basics of Basics
+
+Images
+
+The way we store image is very similar to the way we store text. It is just a bunch of bytes, but when we read them we decide to interpret them differently.
+
+Open images/joshi-100.bmp and you will see: 
+
+![joshi-100.bmp](./images/joshi-100.bmp "joshi") 
+
+Now lets just read the bytes, and just show the numbers, starting at position 54, when we print new line every 106, and also we are gonna print every 4th byte.
+
+first just print the byutes:
+
+
+```
+file = open("images/joshi-100.bmp","rb")
+data = file.read()
+file.close()
+
+for b in data:
+    print("%3d" % b,end='')
+```
+
+now lets print them in specific order:
+
+```
+file = open("images/joshi-100.bmp","rb")
+data = file.read()
+file.close()
+
+width = 100
+height = 106
+offset = 54
+
+for y in range(width):
+    for x in range(height):
+        off = offset + ((y * width + x) * 4)
+        print("%3d" % data[off+2],end='')
+    print()
+```
+
+![game-124.png](./screenshots/game-124.png "game 124 screenshot")
+
+
+looks familiar!
+
+The image itself actually contains information about how big it is, and where the data starts, it is specified in the bitmap format itself.
+
+
+Here is the bitmap header information, copied from: http://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/2003_w/misc/bmp_file_format/bmp_file_format.htm
+
+| Name | Size | Offset | Description |
+| - | - | - | - |
+| **Header** | 14 bytes | | Windows Structure: BITMAPFILEHEADER |
+| Signature | 2 bytes | 0000h | 'BM' |
+| FileSize | 4 bytes | 0002h | File size in bytes |
+| reserved | 4 bytes | 0006h | unused (=0) |
+| DataOffset | 4 bytes | 000Ah | Offset from beginning of file to the beginning of the bitmap data |
+| **InfoHeader** | 40 bytes | | Windows Structure: BITMAPINFOHEADER |
+| Size | 4 bytes | 000Eh | Size of InfoHeader =40 |
+| Width | 4 bytes | 0012h | Horizontal width of bitmap in pixels |
+| Height | 4 bytes | 0016h | Vertical height of bitmap in pixels |
+| Planes | 2 bytes | 001Ah | Number of Planes (=1) |
+| Bits Per Pixel | 2 bytes | 001Ch | Bits per Pixel used to store palette entry information. This also identifies in an indirect way the number of possible colors. Possible values are:<br>1 = monochrome palette. NumColors = 1 <br>4 = 4bit palletized. NumColors = 16 <br>8 = 8bit palletized. NumColors = 256 <br>16 = 16bit RGB. NumColors = 65536<br>24 = 24bit RGB. NumColors = 16M |
+| Compression | 4 bytes | 001Eh | Type of Compression <br>0 = BI\_RGB no compression <br>1 = BI\_RLE8 8bit RLE encoding <br>2 = BI\_RLE4 4bit RLE encoding |
+| ImageSize | 4 bytes | 0022h | (compressed) Size of Image <br>It is valid to set this =0 if Compression = 0 |
+| XpixelsPerM | 4 bytes | 0026h | horizontal resolution: Pixels/meter |
+| YpixelsPerM | 4 bytes | 002Ah | vertical resolution: Pixels/meter |
+| Colors Used | 4 bytes | 002Eh | Number of actually used colors. For a 8-bit / pixel bitmap this will be 100h or 256. |
+| Important Colors | 4 bytes | 0032h | Number of important colors <br>0 = all |
+| **ColorTable** | 4 \* NumColors bytes | 0036h | present only if Info.BitsPerPixel less than 8 <br>colors should be ordered by importance |
+| Red | 1 byte | | Red intensity |
+| Green | 1 byte | | Green intensity |
+| Blue | 1 byte | | Blue intensity |
+| reserved | 1 byte | | unused (=0) |
+| repeated NumColors times |
+| **Pixel Data** | InfoHeader.ImageSize bytes | | The image data
+
+Now using the header information, we can get the width, height and data offset directly from there:
+
+```
+file = open("images/joshi-100.bmp","rb")
+data = file.read()
+file.close()
+
+offset = int.from_bytes(data[10:14], byteorder='little')
+width = int.from_bytes(data[18:22], byteorder='little')
+height = int.from_bytes(data[22:26], byteorder='little')
+
+for y in range(width):
+    for x in range(height):
+        off = offset + ((y * width + x) * 4)
+        print("%3d" % data[off+2],end='')
+    print()
+```
+
+You see when we read `data[10:14]` we want to skip `signature` (2 bytes), `file size` (4 bytes) and `reserved` (4 bytes) and read exactly 4 bytes after that.
+And we can make 4 bytes into a integer with `int.from_bytes`. We will get into that later. For now the important thing to focus on is the format itself.
+
+It has a header, followed up by data. This is very common method and you will see it in all kinds of places. Even in our virtual computer when we were storing the strings we used a similar method, the first byte was always the length of the string.
+
+
 ## [DAY-125] Basics of Basics
 ## [DAY-126] Basics of Basics
 ## [DAY-127] Basics of Basics
