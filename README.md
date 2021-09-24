@@ -10050,3 +10050,106 @@ pgzrun.go()
 ```
 
 
+# Chapter 14 - Week 14
+
+```
+day0: Basics of Basics
+day1: Basics of Basics
+day2: Basics of Basics
+day3: Basics of Basics
+day4: Basics of Basics
+day5: Basics of Basics
+day6: Basics of Basics
+```
+
+## [DAY-123] Basics of Basics
+
+![game-123.png](./screenshots/game-123.png "game 123 screenshot")
+
+a bit more complicated game
+
+```
+import pgzrun
+import random
+from itertools import cycle
+WIDTH = 300
+HEIGHT = 300
+game_over = False
+player = Actor("c1", pos=((WIDTH/2), (HEIGHT-16)), anchor=("center","bottom"))
+obsticles = []
+
+def jump_up(jumper):
+    sounds.jump.play()
+    animate(jumper, tween='decelerate', duration=0.3, pos=(jumper.x, jumper.y - 16),on_finished=lambda: jump_down(jumper))
+
+def jump_down(jumper):
+    animate(jumper, tween='accelerate', duration=0.3, pos=(jumper.x, HEIGHT-16))
+
+def on_key_down(key):
+    if key == keys.SPACE:
+        jump_up(player)
+
+def make_obsticles():
+     for i in range(0, 5 - len(obsticles)):
+        # check if colliding, add random + 20 to it
+        actor = Actor(random.choice(["o1","o2","o3","o4","o5","o6","o7","o8","o9","o10","o11"]), anchor=("center","bottom"))
+        actor.x = WIDTH + 40 + random.randint(10, WIDTH*2)
+        actor.y = HEIGHT - 16
+        while True:
+            actor.x += random.randint(30, 50)
+            conflict = False
+            for o in obsticles:
+                if o.colliderect(actor):
+                    conflict = True
+            if not conflict:
+                break
+
+        obsticles.append(actor)
+
+def update():
+    global game_over
+
+    if len(obsticles) < 5:
+        make_obsticles()
+
+    for o in list(obsticles):
+        # shrink the collision rects so the game is more fun to play
+        if o.inflate(-4,-4).colliderect(player.inflate(-16,-16)):
+            game_over = True
+
+        # remove the obsticles out of screen
+        o.x -= 2
+        if o.x < -10:
+            obsticles.remove(o)
+
+
+# player animation
+# we just change the image of the actor every 0.4 seconds
+poses = cycle(["player/tiles-46","player/tiles-47","player/tiles-48","player/tiles-49","player/tiles-50","player/tiles-51"])
+def make_actor_move():
+    player.image = next(poses)
+clock.schedule_interval(make_actor_move, 0.4)
+
+def draw():
+    screen.fill("black")
+    player.draw()
+    for o in obsticles:
+        o.draw()
+
+    for i in range(100):
+        screen.blit('floor',(i * 16, HEIGHT - 16))
+
+    if game_over:
+        screen.fill("red")
+
+pgzrun.go()
+
+```
+## [DAY-124] Basics of Basics
+## [DAY-125] Basics of Basics
+## [DAY-126] Basics of Basics
+## [DAY-127] Basics of Basics
+## [DAY-128] Basics of Basics
+## [DAY-129] Basics of Basics
+
+
