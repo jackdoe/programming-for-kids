@@ -200,14 +200,13 @@ It has a header, followed up by data. This is very common method and you will se
 
 ![game-125-a.png](./screenshots/game-125-a.png "game 125 a screenshot")
 ![game-125-b.png](./screenshots/game-125-b.png "game 125 b screenshot")
-
+![game-125-c.png](./screenshots/game-125-c.png "game 125 c screenshot")
 
 Write code to destroy your enemies!
 
 You have access to your `heroes` and `enemies` positions. When you collide you destroy each other.
 
-```
-import pgzrun
+```import pgzrun
 import random
 from itertools import cycle
 
@@ -257,7 +256,6 @@ def reset():
 
 
 def on_key_down(key, mod, unicode):
-    print(mod)
     global text, pause, score_words, score
     if key == keys.BACKSPACE:
         if mod == 1024 or mod == 256:
@@ -266,6 +264,8 @@ def on_key_down(key, mod, unicode):
             text = text[:-1]
     elif key == keys.SPACE:
         text += ' '
+    elif key == keys.TAB:
+        text += '  '        
     elif key == keys.RETURN:
         text += '\n'        
     elif len(unicode) > 0 and ord(unicode) >= 34 and ord(unicode) <= 126:
@@ -289,8 +289,9 @@ def run_code():
                     enemies.remove(e)
             if collided:
                 heroes.remove(h)                    
+        if len(enemies) < 50:
+            enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
 
-        enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
         heroes.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
         if len(enemies) < 5:
             reset()
@@ -305,10 +306,9 @@ clock.schedule_interval(run_code, 1)
 def draw():
     screen.fill("black")
 
-    top = Rect(0, 0, WIDTH, HEIGHT/3)
-
+    screen.draw.text("heroes: " + str(len(heroes)) + " enemies: " + str(len(enemies)), (0, 0), align='left',fontname="437-win", fontsize=20)
     for (i,l) in enumerate(enemy_code.split('\n')):
-        screen.draw.text(l, (0, (0 + (i * 16))), align='left',fontname="437-win", fontsize=14)
+        screen.draw.text(l, (0, (20 + (i * 16))), align='left',fontname="437-win", fontsize=14)
 
 
     for (i,l) in enumerate(text.split('\n')):
