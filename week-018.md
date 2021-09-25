@@ -209,6 +209,8 @@ You have access to your `heroes` and `enemies` positions. When you collide you d
 ```
 import pgzrun
 import random
+from itertools import cycle
+
 WIDTH=600
 HEIGHT=600
 
@@ -220,16 +222,45 @@ for h in heroes:
     h.x += random.randint(-10,10)
     h.y += random.randint(-10,10)
 """
-enemy_code = """
+
+enemy_programs = cycle([
+"""
+i = 0
+for e in enemies:
+    e.x = i * 10
+    e.y = i * 10
+    i += 1
+""",
+"""
 for e in enemies:
     e.x += random.randint(-10,10)
     e.y += random.randint(-10,10)
+""",
 """
+for e in enemies:
+    (x,y) = random.choice(heroes)
+    e.x = x
+    e.y = y
+"""
+])
+
+enemy_code = None
+
+def reset():
+    global heroes, enemies, enemy_code
+    enemy_code = next(enemy_programs)
+    enemies = []
+    heroes = []
+    for i in range(20):
+        enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+        heroes.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+
 
 def on_key_down(key, mod, unicode):
+    print(mod)
     global text, pause, score_words, score
     if key == keys.BACKSPACE:
-        if mod == 1024:
+        if mod == 1024 or mod == 256:
             text = ''
         if len(text) > 0:
             text = text[:-1]
@@ -248,20 +279,27 @@ def run_code():
         hero_positions = []
         for h in heroes:
             hero_positions.append((e.x, e.y))            
-        exec(enemy_code, {"enemies": enemies, "random":random, "heroes": hero_positions})
         exec(text, {"heroes": heroes,"random":random, "enemies": enemy_positions})
+        exec(enemy_code, {"enemies": enemies, "random":random, "heroes": hero_positions})
 
         for h in list(heroes):
+            collided = False
             for e in list(enemies):
                 if e.colliderect(h):
                     enemies.remove(e)
-                    heroes.remove(h)
+            if collided:
+                heroes.remove(h)                    
+
         enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
         heroes.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+        if len(enemies) < 5:
+            reset()
 
     except Exception as err:
         print(err)
         pass
+
+reset()
 
 clock.schedule_interval(run_code, 1)
 def draw():
