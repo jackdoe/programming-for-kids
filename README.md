@@ -9992,59 +9992,115 @@ Practice walking over a list with `for i in range(len(x))` and `for item in x`.
 ```
 import pgzrun
 import random
-HEIGHT = 600
-WIDTH = 600
+from itertools import cycle
 
-elf = Actor('c1')
-king = Actor('c2')
-elf.x = 20
-elf.y = random.randint(0,HEIGHT)
-king.y = random.randint(0,HEIGHT)
-king.x = WIDTH-20
+WIDTH=600
+HEIGHT=600
 
-things = []
+enemies = []
+heroes = []
 
-def add_new_obsticle(l):
-    image = random.choice(["snake","bullet","flower","rock"])
-    x = Actor(image)
-    x.x = random.randint(0,WIDTH)
-    x.y = random.randint(0,HEIGHT)
-    l.append(x)
+text = """
+for h in heroes:
+    h.x += random.randint(-10,10)
+    h.y += random.randint(-10,10)
+"""
 
-for i in range(10):
-    add_new_obsticle(things)
+enemy_programs = cycle([
+"""
+i = 0
+for e in enemies:
+    e.x = i * 10
+    e.y = i * 10
+    i += 1
+""",
+"""
+for e in enemies:
+    e.x += random.randint(-10,10)
+    e.y += random.randint(-10,10)
+""",
+"""
+for e in enemies:
+    (x,y) = random.choice(heroes)
+    e.x = x
+    e.y = y
+"""
+])
 
-def update():
-    if keyboard.UP:
-        elf.y -= 5
-    if keyboard.DOWN:
-        elf.y += 5
-    if keyboard.RIGHT:
-        elf.x += 5
-    if keyboard.LEFT:
-        elf.x -= 5
+enemy_code = None
 
-    if keyboard.W:
-        king.y -= 5
-    if keyboard.S:
-        king.y += 5
-    if keyboard.D:
-        king.x += 5
-    if keyboard.A:
-        king.x -= 5
+def reset():
+    global heroes, enemies, enemy_code
+    enemy_code = next(enemy_programs)
+    enemies = []
+    heroes = []
+    for i in range(20):
+        enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+        heroes.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
 
-    for s in range(len(things)):
-        if things[s].colliderect(elf):
-            elf.image = things[s].image
 
-    if king.colliderect(elf):
-        king.image = "c3"
+def on_key_down(key, mod, unicode):
+    print(mod)
+    global text, pause, score_words, score
+    if key == keys.BACKSPACE:
+        if mod == 1024 or mod == 256:
+            text = ''
+        if len(text) > 0:
+            text = text[:-1]
+    elif key == keys.SPACE:
+        text += ' '
+    elif key == keys.RETURN:
+        text += '\n'        
+    elif len(unicode) > 0 and ord(unicode) >= 34 and ord(unicode) <= 126:
+        text += unicode
+
+def run_code():
+    try:
+        enemy_positions = []
+        for e in enemies:
+            enemy_positions.append((e.x, e.y))
+        hero_positions = []
+        for h in heroes:
+            hero_positions.append((e.x, e.y))            
+        exec(text, {"heroes": heroes,"random":random, "enemies": enemy_positions})
+        exec(enemy_code, {"enemies": enemies, "random":random, "heroes": hero_positions})
+
+        for h in list(heroes):
+            collided = False
+            for e in list(enemies):
+                if e.colliderect(h):
+                    enemies.remove(e)
+            if collided:
+                heroes.remove(h)                    
+
+        enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+        heroes.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+        if len(enemies) < 5:
+            reset()
+
+    except Exception as err:
+        print(err)
+        pass
+
+reset()
+
+clock.schedule_interval(run_code, 1)
 def draw():
-    screen.fill('azure')
-    king.draw()
-    elf.draw()
-    for thing in things:
-        thing.draw()
+    screen.fill("black")
+
+    top = Rect(0, 0, WIDTH, HEIGHT/3)
+
+    for (i,l) in enumerate(enemy_code.split('\n')):
+        screen.draw.text(l, (0, (0 + (i * 16))), align='left',fontname="437-win", fontsize=14)
+
+
+    for (i,l) in enumerate(text.split('\n')):
+        screen.draw.text(l, (0, (HEIGHT - 200 + (i * 16))), align='left',fontname="437-win", fontsize=14)
+
+    for e in enemies:
+        screen.draw.rect(e, (255,0,0))
+    for h in heroes:
+        screen.draw.rect(h, (0,255,255))
 
 pgzrun.go()
 ```
