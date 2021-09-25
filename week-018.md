@@ -197,6 +197,93 @@ It has a header, followed up by data. This is very common method and you will se
 
 
 ## [DAY-125] Basics of Basics
+
+![game-125-a.png](./screenshots/game-125-a.png "game 125 a screenshot")
+![game-125-b.png](./screenshots/game-125-b.png "game 125 b screenshot")
+
+
+Write code to destroy your enemies!
+
+You have access to your `heroes` and `enemies` positions. When you collide you destroy each other.
+
+```
+import pgzrun
+import random
+WIDTH=600
+HEIGHT=600
+
+enemies = []
+heroes = []
+
+text = """
+for h in heroes:
+    h.x += random.randint(-10,10)
+    h.y += random.randint(-10,10)
+"""
+enemy_code = """
+for e in enemies:
+    e.x += random.randint(-10,10)
+    e.y += random.randint(-10,10)
+"""
+
+def on_key_down(key, mod, unicode):
+    global text, pause, score_words, score
+    if key == keys.BACKSPACE:
+        if mod == 1024:
+            text = ''
+        if len(text) > 0:
+            text = text[:-1]
+    elif key == keys.SPACE:
+        text += ' '
+    elif key == keys.RETURN:
+        text += '\n'        
+    elif len(unicode) > 0 and ord(unicode) >= 34 and ord(unicode) <= 126:
+        text += unicode
+
+def run_code():
+    try:
+        enemy_positions = []
+        for e in enemies:
+            enemy_positions.append((e.x, e.y))
+        hero_positions = []
+        for h in heroes:
+            hero_positions.append((e.x, e.y))            
+        exec(enemy_code, {"enemies": enemies, "random":random, "heroes": hero_positions})
+        exec(text, {"heroes": heroes,"random":random, "enemies": enemy_positions})
+
+        for h in list(heroes):
+            for e in list(enemies):
+                if e.colliderect(h):
+                    enemies.remove(e)
+                    heroes.remove(h)
+        enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+        heroes.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
+
+    except Exception as err:
+        print(err)
+        pass
+
+clock.schedule_interval(run_code, 1)
+def draw():
+    screen.fill("black")
+
+    top = Rect(0, 0, WIDTH, HEIGHT/3)
+
+    for (i,l) in enumerate(enemy_code.split('\n')):
+        screen.draw.text(l, (0, (0 + (i * 16))), align='left',fontname="437-win", fontsize=14)
+
+
+    for (i,l) in enumerate(text.split('\n')):
+        screen.draw.text(l, (0, (HEIGHT - 200 + (i * 16))), align='left',fontname="437-win", fontsize=14)
+
+    for e in enemies:
+        screen.draw.rect(e, (255,0,0))
+    for h in heroes:
+        screen.draw.rect(h, (0,255,255))
+
+pgzrun.go()
+```
+
 ## [DAY-126] Basics of Basics
 ## [DAY-127] Basics of Basics
 ## [DAY-128] Basics of Basics
