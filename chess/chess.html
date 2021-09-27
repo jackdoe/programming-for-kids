@@ -53,8 +53,8 @@
 <div style="margin: 5px">
     <pre id='help'>
 <span style='font-size: 20px'>戦</span>
-<small>* Each piece can move: freely horizontally, and +- 2 vertically
-* If you collide with the enemy or yourself, you annihilate each other.
+<small>* Each piece can move: freely horizontally, and +- 5 vertically
+* If you collide with the enemy you capture them
 * Goal is to reach the end of the board with at least one piece or annihilate all enemies.
 * You are playing <b>x</b>, oponent is playing <b>0</b>
 * Contribute: https://github.com/jackdoe/programming-for-kids
@@ -90,6 +90,7 @@
 
     const width = 20
     const height = 20
+    const step = 4
     let entriesA = []
     let entriesB = []
 
@@ -192,7 +193,19 @@
 
 
     const run = async (code, heroes, enemies) => {
-        let message = '(' + code + ')(' + JSON.stringify({ heroes, enemies, width, height }) + ')'
+        let grid = []
+
+        for (let y = 0; y < height; y++) {
+            grid[y] = []
+            for (let x = 0; x < width; x++) {
+                grid[y][x] = 0
+            }
+        }
+
+        for (e of enemies) grid[e.y][e.x] = -1;
+        for (h of heroes) grid[h.y][h.x] = -1;
+
+        let message = '(' + code + ')(' + JSON.stringify({ heroes, enemies, width, height, grid }) + ')'
         let result = await evaluate(message)
         if (result.error) {
             throw (result.error)
@@ -215,26 +228,14 @@
             byID[h.id] = h
         }
 
-        byPosition = {}
-        for (let r of result) {
-            let k = key(r.x, r.y)
-            if (byPosition[k]) {
-                byPosition[k].delete = true
-                r.delete = true
-                console.log('friendy fire', { r, other: byPosition[k] })
-            } else {
-                byPosition[k] = r
-            }
-        }
-
-        result = result.filter(r => byID[r.id] && !r.delete)
+        result = result.filter(r => byID[r.id])
 
         // check if positions differ too mucb
         for (let r of result) {
             let original = byID[r.id]
 
             // allow only step moves at a time
-            if (Math.abs(r.y - original.y) > 2) {
+            if (Math.abs(r.y - original.y) > step) {
                 console.log('illegal move', { abs: Math.abs(r.y - original.y), y: r.y, original_y: original.y })
                 r.y = original.y;
             }
@@ -247,12 +248,14 @@
         id = uuid() + '-a'
         window.location.hash = id
     }
+    const is_home = id.endsWith('-a')
+    const is_away = id.endsWith('-b')
     const peer = new Peer(id, {
-        debug: 1,
+        debug: 4,
         config: {
             'iceServers': [
                 { url: 'stun:stun.l.google.com:19302' },
-                { url: 'stun:stun1.l.google.com:19302' },
+                { url: 'turn:txt.black:3478', credential: 'noooooooo111222', username:'chess' }
             ]
         }
     })
@@ -272,6 +275,7 @@
     }
     peer.on('open', function (id) {
         let work = function (conn) {
+            
             loading.style.display = 'none'
             document.getElementById("editor").style.display = 'block'
             var editor = ace.edit("editor");
@@ -281,10 +285,14 @@
             editor.getSession().on('change', function () {
                 conn.send(JSON.stringify({ code: editor.getValue() }))
             });
-            var initial = `function evolve({ heroes, enemies, width, height }) {
+            var plus_or_minus = is_home ? '+' : '-'
+            var initial = `function evolve({ heroes, enemies, grid, width, height }) {
     for (let h of heroes) {
-        h.x += Math.random() > 0.5 ? -1 : 1
-        h.y += Math.random() > 0.5 ? -1 : 1
+        let x = Math.floor(Math.random() * width)
+        let y = h.y ${plus_or_minus} ${step}
+
+        h.x = x
+        h.y = y
     }
     return heroes
 }
@@ -292,8 +300,6 @@
             editor.setValue(initial)
             editor.clearSelection()
             enemy_code.value = initial
-            is_home = id.endsWith('-a')
-            is_away = id.endsWith('-b')
             if (is_home) {
                 a_go.removeAttribute('disabled')
                 editor.setReadOnly(false)
@@ -312,22 +318,9 @@
                 entriesA = parsed.entriesB
 
                 enemy_code.value = parsed.code
-
-                try {
-                    //we can actually run the code if we want, but no need to allow other people to run js code on our computer
-                    //entriesB = await run(parsed.code, entriesB, entriesA)
-                    let positionsB = to_positions(entriesB, e => true)
-                    let positionsA = to_positions(entriesA, e => true)
-
-                    entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
-                    entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
-                } catch (e) {
-                    console.error('b', e)
-                } finally {
-                    a_go.removeAttribute('disabled')
-                    editor.setReadOnly(false)
-                    draw({ home: is_home, away: is_away })
-                }
+                a_go.removeAttribute('disabled')
+                editor.setReadOnly(false)
+                draw({ home: is_home, away: is_away })
             });
 
             a_go.addEventListener('click', async () => {
@@ -335,10 +328,11 @@
                 try {
                     entriesA = await run(editor.getValue(), entriesA, entriesB)
                     let positionsA = to_positions(entriesA, e => true)
-                    let positionsB = to_positions(entriesB, e => true)
-
                     entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
+
+                    let positionsB = to_positions(entriesB, e => true)
                     entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
+
                     conn.send(JSON.stringify({ code: editor.getValue(), entriesA, entriesB }))
 
                     a_go.setAttribute('disabled', 'disabled')
