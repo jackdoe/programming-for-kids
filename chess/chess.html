@@ -53,7 +53,7 @@
 <div style="margin: 5px">
     <pre id='help'>
 <span style='font-size: 20px'>戦</span>
-<small>* Each piece can move: freely horizontally, and +- 1 vertically
+<small>* Each piece can move: freely horizontally, and +- 2 vertically
 * If you collide with the enemy or yourself, you annihilate each other.
 * Goal is to reach the end of the board with at least one piece or annihilate all enemies.
 * You are playing <b>x</b>, oponent is playing <b>0</b>
@@ -234,7 +234,7 @@
             let original = byID[r.id]
 
             // allow only step moves at a time
-            if (Math.abs(r.y - original.y) > 1) {
+            if (Math.abs(r.y - original.y) > 2) {
                 console.log('illegal move', { abs: Math.abs(r.y - original.y), y: r.y, original_y: original.y })
                 r.y = original.y;
             }
