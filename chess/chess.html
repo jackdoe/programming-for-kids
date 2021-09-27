@@ -1,0 +1,306 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"></script>
+
+
+
+
+<style>
+    body,
+    pre,
+    textarea {
+        font-family: monospace;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    tiny {
+        font-family: monospace;
+    }
+
+    iframe {
+        display: none
+    }
+
+    #loading {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+    }
+
+    #editor {
+        display: none;
+    }
+
+    #error {
+        color: white;
+        background-color: tomato;
+    }
+</style>
+<div id='loading'>
+    <h1>
+        戦
+    </h1>
+    <hr>
+    <mark>
+        The game allows the other player to run javascript code on your comupter.<br>
+        Use at your own risk.
+    </mark>
+    <hr>
+    <p>
+        You need another player.
+        Send them this link to play:
+    </p>
+</div>
+<div style="margin: 5px">
+    <pre id='help'>
+<span style='font-size: 20px'>戦</span> <small>Each piece can move at most h.power moves in x or y direction</small>
+</pre>
+    <div id='error'></div>
+    <button disabled id='a_go'>play</button><br>
+    <div id="editor" style="height: 200px; width: 100%">
+function evolve({heroes,enemies,width,height}) {
+    for (let h of heroes) {
+        h.x = Math.floor(Math.random() * width)
+        h.y = Math.floor(Math.random() * height)
+    }
+    return heroes
+}</div>
+
+    <pre id='game'></pre>
+    <textarea id='b' disabled rows=10 cols=80>
+function evolve({heroes,enemies,width,height}) {
+    for (let h of heroes) {
+        h.x = Math.floor(Math.random() * width)
+        h.y = Math.floor(Math.random() * height)
+    }
+    return heroes
+}
+</textarea>
+</div>
+<iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
+<script>
+    const sleep = function (ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // XXX: this is horrible, idk how safe it is even through the iframe sandbox
+    const evaluate = async function (code) {
+        const frame = document.getElementById('frame')
+        frame.contentWindow.postMessage(code, '*');
+
+        let data = undefined
+        const cb = function (e) { data = e.data }
+        window.addEventListener('message', cb);
+        while (!data) {
+            await sleep(100)
+        }
+        window.removeEventListener('message', cb)
+        return data
+    }
+
+    const width = 30
+    const height = 30
+    let entriesA = []
+    let entriesB = []
+
+    const key = function (x, y) {
+        return x + '_' + y
+    }
+
+    const uuid = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    const to_positions = function (entries, cb) {
+        let positions = {}
+        for (let a of entries) {
+            positions[key(a.x, a.y)] = cb(a)
+        }
+        return positions
+    }
+
+    const draw = function () {
+        const colors = ['#ffffff', '#d0e1f9', '#4d648d', '#283655', '#1e1f26']
+        const positionsB = to_positions(entriesB, e => ' <tiny style="color: ' + colors[e.power] + '" title="power: ' + e.power + '">0</tiny>|')
+        const positionsA = to_positions(entriesA, e => ' <tiny style="color: ' + colors[e.power] + '" title="power: ' + e.power + '">x</tiny>|')
+        const view = document.getElementById('game')
+
+        let text = '\nalive: x(' + entriesA.length + '), 0(' + entriesB.length + ')\n\n'
+        const line_of_dashes = () => {
+            for (let x = 0; x < width; x++) {
+                text += '---'
+            }
+            text += '\n'
+        }
+        const x_labels = () => {
+            text += '  '
+            for (let x = 0; x < width; x++) {
+                text += (x + '').padStart(2, ' ') + '|'
+            }
+            text += '\n'
+        }
+        x_labels()
+        line_of_dashes()
+
+        for (let y = 0; y < height; y++) {
+            text += (y + '').padStart(2, ' ')
+            for (let x = 0; x < width; x++) {
+                let k = key(x, y)
+                text += positionsA[k] || positionsB[k] || '  |'
+            }
+            text += '\n'
+        }
+        line_of_dashes()
+        x_labels()
+        text += '\n'
+        view.innerHTML = text
+    }
+
+    const randint = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    const reset_pieces = function () {
+        entriesA = []
+        entriesB = []
+        let power = 0
+        for (let i = 0; i < width; i++) {
+            let p = 1 + (power % 4)
+            entriesA.push({ power: p, x: i, y: 0, id: 'id-a-' + key(i, 0) + '-' + Math.random() })
+            entriesA.push({ power: p, x: i, y: 1, id: 'id-a-' + key(i, 1) + '-' + Math.random() })
+
+            entriesB.push({ power: p, x: i, y: height - 2, id: 'id-b-' + key(i, height - 2) + '-' + Math.random() })
+            entriesB.push({ power: p, x: i, y: height - 1, id: 'id-b-' + key(i, height - 1) + '-' + Math.random() })
+            power++
+        }
+    }
+
+
+    const run = async (code, heroes, enemies) => {
+        let result = await evaluate('(' + code + ')(' + JSON.stringify({ heroes, enemies, width, height }) + ')')
+        if (result.error) {
+            throw (result.error)
+        }
+
+        if (!Array.isArray(result)) return heroes
+
+        // remove out of bounds
+        for (let r of result) {
+            if (r.x < 0) r.delete = true
+            if (r.y < 0) r.delete = true
+            if (r.x >= width) r.delete = true
+            if (r.y >= height) r.delete = true
+        }
+
+        // remove invalid ids
+        byID = {}
+        for (let h of heroes) {
+            byID[h.id] = h
+        }
+
+        result = result.filter(r => !r.delete && byID[r.id])
+
+        // check if positions differ too mucb
+        for (let r of result) {
+            let original = byID[r.id]
+
+            // dont allow to override power
+            r.power = original.power
+
+            // allow only power moves at a time
+            if (Math.abs(r.x - original.x) > r.power) {
+                r.x = original.x;
+            }
+            if (Math.abs(r.y - original.y) > r.power) {
+                r.y = original.y;
+            }
+        }
+        return result
+    }
+
+    let id = window.location.hash.substring(1)
+    if (id.length < 3) {
+        id = uuid() + '-a'
+        window.location.hash = id
+    }
+    const peer = new Peer(id);
+    const errorE = document.getElementById('error')
+    const a_go = document.getElementById('a_go')
+    const loading = document.getElementById('loading')
+    const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
+    loading.innerHTML += '<textarea style="color: white; background-color: black; border: 0px;resize: none" rows=1 disabled cols=100>' + window.location.href.split('#')[0] + '#' + other + '</textarea>'
+
+    if (!confirm("This game allows another player to execute javascript code in sandboxed iframe on your computer, do you want to continue? [ USE AT YOUR OWN RISK ]")) {
+        loading.innerHTML = 'understood!'
+    } else {
+
+        peer.on('open', function (id) {
+            let work = function (conn) {
+                loading.style.display = 'none'
+                document.getElementById("editor").style.display = 'block'
+                var editor = ace.edit("editor");
+                editor.getSession().setUseWorker(false);
+
+                editor.setReadOnly(true)
+                editor.getSession().setMode("ace/mode/javascript");
+                if (id.endsWith('-a')) {
+                    a_go.removeAttribute('disabled')
+                    editor.setReadOnly(false)
+                }
+                reset_pieces()
+                draw()
+                conn.on('data', async function (data) {
+                    let parsed = JSON.parse(data)
+                    entriesB = parsed.entriesA
+                    entriesA = parsed.entriesB
+                    b.value = parsed.code
+
+                    try {
+                        entriesB = await run(data, entriesB, entriesA)
+                        let positionsB = to_positions(entriesB, e => true)
+                        entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
+                    } catch (e) {
+                        console.error('b', e)
+                    } finally {
+                        a_go.removeAttribute('disabled')
+                        editor.setReadOnly(false)
+                        draw()
+                    }
+                });
+
+                a_go.addEventListener('click', async () => {
+                    errorE.innerHTML = ''
+                    try {
+                        entriesA = await run(editor.getValue(), entriesA, entriesB)
+                        let positionsA = to_positions(entriesA, e => true)
+                        entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
+
+                        conn.send(JSON.stringify({ code: editor.getValue(), entriesA, entriesB }))
+
+                        a_go.setAttribute('disabled', 'disabled')
+                        editor.setReadOnly(true)
+                        draw()
+                    } catch (e) {
+                        console.error('a', e)
+                        errorE.innerHTML = 'error: ' + e
+                    }
+                })
+            }
+            if (id.endsWith('-a')) {
+                let conn = peer.connect(other)
+                conn.on('open', () => work(conn))
+            } else {
+                peer.on('connection', (conn) => {
+                    conn.on('open', () => work(conn))
+                })
+            }
+        });
+    }
+</script>
