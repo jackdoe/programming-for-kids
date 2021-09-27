@@ -4,8 +4,9 @@ window.addEventListener('message', function (e) {
     var result = undefined;
     try {
         result = eval(e.data);
-    } catch (e) {
-        result = {error: e.message,};
+    } catch (err) {
+        result = {error: err.message,};
+        console.log('zzz',err, 'e.data',e )
     }
     mainWindow.postMessage(result, e.origin);
 });

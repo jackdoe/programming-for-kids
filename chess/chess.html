@@ -44,14 +44,9 @@
     <h1>
         戦
     </h1>
-    <hr>
-    <mark>
-        The game allows the other player to run javascript code on your comupter.<br>
-        Use at your own risk.
-    </mark>
-    <hr>
     <p>
-        You need another player.
+        Code is at: https://github.com/jackdoe/programming-for-kids<br><br>
+        You need another player.<br>
         Send them this link to play:
     </p>
 </div>
@@ -60,8 +55,9 @@
 <span style='font-size: 20px'>戦</span>
 <small>* Each piece can move: freely horizontally, and +- 1 vertically
 * If you collide with the enemy or yourself, you annihilate each other.
-* Goal is to reach the end of the board with at least one piece.
+* Goal is to reach the end of the board with at least one piece or annihilate all enemies.
 * You are playing <b>x</b>, oponent is playing <b>0</b>
+* Contribute: https://github.com/jackdoe/programming-for-kids
 </small>
 </pre>
     <div id='error'></div>
@@ -116,9 +112,9 @@
         return positions
     }
 
-    const draw = function ({home,away}) {
-        const positionsB = to_positions(entriesB, e => ' <span title="idx:'+e.index+'">0</span>|')
-        const positionsA = to_positions(entriesA, e => ' <span title="idx:'+e.index+'">x</span>|')
+    const draw = function ({ home, away }) {
+        const positionsB = to_positions(entriesB, e => ' <span title="idx:' + e.index + '">0</span>|')
+        const positionsA = to_positions(entriesA, e => ' <span title="idx:' + e.index + '">x</span>|')
         const view = document.getElementById('game')
 
         let text = '\nalive: x(' + entriesA.length + '), 0(' + entriesB.length + ')\n\n'
@@ -190,13 +186,14 @@
             entriesB = away
         } else {
             entriesB = home
-            entriesA = away        
+            entriesA = away
         }
     }
 
 
     const run = async (code, heroes, enemies) => {
-        let result = await evaluate('(' + code + ')(' + JSON.stringify({ heroes, enemies, width, height }) + ')')
+        let message = '(' + code + ')(' + JSON.stringify({ heroes, enemies, width, height }) + ')'
+        let result = await evaluate(message)
         if (result.error) {
             throw (result.error)
         }
@@ -207,24 +204,24 @@
         for (let r of result) {
             if (r.x < 0) r.x = 0
             if (r.y < 0) r.y = 0
-            if (r.x > width-1) r.y = width-1
-            if (r.y > height-1) r.y = height-1
+            if (r.x > width - 1) r.x = width - 1
+            if (r.y > height - 1) r.y = height - 1
         }
 
 
         // remove invalid ids
         byID = {}
-
         for (let h of heroes) {
             byID[h.id] = h
         }
 
         byPosition = {}
         for (let r of result) {
-            let k = key(r.x,r.y)
+            let k = key(r.x, r.y)
             if (byPosition[k]) {
                 byPosition[k].delete = true
                 r.delete = true
+                console.log('friendy fire', { r, other: byPosition[k] })
             } else {
                 byPosition[k] = r
             }
@@ -238,6 +235,7 @@
 
             // allow only step moves at a time
             if (Math.abs(r.y - original.y) > 1) {
+                console.log('illegal move', { abs: Math.abs(r.y - original.y), y: r.y, original_y: original.y })
                 r.y = original.y;
             }
         }
@@ -257,109 +255,100 @@
     const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
     loading.innerHTML += '<textarea style="color: white; background-color: black; border: 0px;resize: none" rows=1 disabled cols=100>' + window.location.href.split('#')[0] + '#' + other + '</textarea>'
 
-    if (!confirm("This game allows another player to execute javascript code in sandboxed iframe on your computer, do you want to continue? [ USE AT YOUR OWN RISK ]")) {
-        loading.innerHTML = 'understood!'
-    } else {
-        const reconnect_screen = () => {
-            loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh'
-            loading.style.display = 'block'
-            document.getElementById('editor').style.display = 'none'
-        }
-        peer.on('open', function (id) {
-            let work = function (conn) {
-                loading.style.display = 'none'
-                document.getElementById("editor").style.display = 'block'
-                var editor = ace.edit("editor");
-                editor.getSession().setUseWorker(false);
-                editor.setReadOnly(true)
-                editor.getSession().setMode("ace/mode/javascript");
 
-                var initial = `function evolve({ heroes, enemies, width, height }) {
+    const reconnect_screen = () => {
+        loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh'
+        loading.style.display = 'block'
+        document.getElementById('editor').style.display = 'none'
+    }
+    peer.on('open', function (id) {
+        let work = function (conn) {
+            loading.style.display = 'none'
+            document.getElementById("editor").style.display = 'block'
+            var editor = ace.edit("editor");
+            editor.getSession().setUseWorker(false);
+            editor.setReadOnly(true)
+            editor.getSession().setMode("ace/mode/javascript");
+
+            var initial = `function evolve({ heroes, enemies, width, height }) {
     for (let h of heroes) {
         h.x += Math.random() > 0.5 ? -1 : 1
         h.y += Math.random() > 0.5 ? -1 : 1
     }
     return heroes
 }`
-                editor.setValue(initial)
-                editor.clearSelection()
-                enemy_code.value = initial
-                is_home = id.endsWith('-a')
-                is_away = id.endsWith('-b')
-                if (is_home) {
+            editor.setValue(initial)
+            editor.clearSelection()
+            enemy_code.value = initial
+            is_home = id.endsWith('-a')
+            is_away = id.endsWith('-b')
+            if (is_home) {
+                a_go.removeAttribute('disabled')
+                editor.setReadOnly(false)
+                reset_pieces('home')
+            } else {
+                reset_pieces('away')
+            }
+            draw({ home: is_home, away: is_away })
+            conn.on('data', async function (data) {
+                let parsed = JSON.parse(data)
+                entriesB = parsed.entriesA
+                entriesA = parsed.entriesB
+
+                enemy_code.value = parsed.code
+
+                try {
+                    //we can actually run the code if we want, but no need to allow other people to run js code on our computer
+                    //entriesB = await run(parsed.code, entriesB, entriesA)
+                    let positionsB = to_positions(entriesB, e => true)
+                    let positionsA = to_positions(entriesA, e => true)
+
+                    entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
+                    entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
+                } catch (e) {
+                    console.error('b', e)
+                } finally {
                     a_go.removeAttribute('disabled')
                     editor.setReadOnly(false)
-                    reset_pieces('home')
-                } else {
-                    reset_pieces('away')
+                    draw({ home: is_home, away: is_away })
                 }
-                draw({home: is_home, away: is_away})
-                conn.on('data', async function (data) {
-                    let parsed = JSON.parse(data)
-                    entriesB = parsed.entriesA
-                    entriesA = parsed.entriesB
+            });
 
-                    enemy_code.value = parsed.code
+            a_go.addEventListener('click', async () => {
+                errorE.innerHTML = ''
+                try {
+                    entriesA = await run(editor.getValue(), entriesA, entriesB)
+                    let positionsA = to_positions(entriesA, e => true)
+                    let positionsB = to_positions(entriesB, e => true)
 
-                    try {
-                        entriesB = await run(data, entriesB, entriesA)
-                        let positionsB = to_positions(entriesB, e => true)
-                        let positionsA = to_positions(entriesA, e => true)
+                    entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
+                    entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
+                    conn.send(JSON.stringify({ code: editor.getValue(), entriesA, entriesB }))
 
-                        entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
-                        entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
-                    } catch (e) {
-                        console.error('b', e)
-                    } finally {
-                        a_go.removeAttribute('disabled')
-                        editor.setReadOnly(false)
-                        draw({home: is_home, away: is_away})
-                    }
-                });
+                    a_go.setAttribute('disabled', 'disabled')
+                    editor.setReadOnly(true)
+                    draw({ home: is_home, away: is_away })
+                } catch (e) {
+                    console.error('a', e)
+                    errorE.innerHTML = 'error: ' + e
+                }
+            })
+        }
 
-                a_go.addEventListener('click', async () => {
-                    errorE.innerHTML = ''
-                    try {
-                        entriesA = await run(editor.getValue(), entriesA, entriesB)
-                        let positionsA = to_positions(entriesA, e => true)
-                        let positionsB = to_positions(entriesB, e => true)
-
-                        entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
-                        entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
-                        conn.send(JSON.stringify({ code: editor.getValue(), entriesA, entriesB }))
-
-                        a_go.setAttribute('disabled', 'disabled')
-                        editor.setReadOnly(true)
-                        draw({home: is_home, away: is_away})
-                    } catch (e) {
-                        console.error('a', e)
-                        errorE.innerHTML = 'error: ' + e
-                    }
-                })
-            }
-
-            if (id.endsWith('-a')) {
-                let connected = false
-                let prev = undefined
-                setInterval(() => {
-                    if (!connected) {
-                        if (prev) prev.close()
-
-                        let conn = peer.connect(other)
-                        conn.on('open', () => {
-                            connected = true
-                            work(conn)
-                        })
-                        prev = conn
-                    }
-                }, 1000)
-            } else {
-                peer.on('connection', (conn) => {
-                    conn.on('open', () => work(conn))
-                    conn.on('close', reconnect_screen)
-                })
-            }
-        });
-        peer.on('close', reconnect_screen)
-    }
+        if (id.endsWith('-b')) {
+            let conn = peer.connect(other)
+            conn.on('open', () => {
+                work(conn)
+            })
+            conn.on('close', reconnect_screen)
+            conn.on('error', reconnect_screen)
+        } else {
+            peer.on('connection', (conn) => {
+                conn.on('open', () => work(conn))
+                conn.on('close', reconnect_screen)
+                conn.on('error', reconnect_screen)
+            })
+        }
+    });
+    peer.on('close', reconnect_screen)
 </script>
