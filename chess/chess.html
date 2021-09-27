@@ -285,6 +285,18 @@
             editor.getSession().on('change', function () {
                 conn.send(JSON.stringify({ code: editor.getValue() }))
             });
+
+// x   x
+//   x     -> @ black hole
+// x   x       
+//
+// x   x
+//  x x    -> & assassin
+//   x
+//
+// xxx
+// x x     -> ^ samurai
+// xxx
             var plus_or_minus = is_home ? '+' : '-'
             var initial = `function evolve({ heroes, enemies, grid, width, height }) {
     for (let h of heroes) {
