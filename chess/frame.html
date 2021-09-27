@@ -6,7 +6,6 @@ window.addEventListener('message', function (e) {
         result = eval(e.data);
     } catch (err) {
         result = {error: err.message,};
-        console.log('zzz',err, 'e.data',e )
     }
     mainWindow.postMessage(result, e.origin);
 });

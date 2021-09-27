@@ -247,7 +247,16 @@
         id = uuid() + '-a'
         window.location.hash = id
     }
-    const peer = new Peer(id);
+    const peer = new Peer(id, {
+        debug: 1,
+        config: {
+            'iceServers': [
+                { url: 'stun:stun.l.google.com:19302' },
+                { url: 'stun:stun1.l.google.com:19302' },
+            ]
+        }
+    })
+
     const errorE = document.getElementById('error')
     const a_go = document.getElementById('a_go')
     const enemy_code = document.getElementById('enemy_code')
