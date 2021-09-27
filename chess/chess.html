@@ -88,8 +88,8 @@
         return data
     }
 
-    const width = 20
-    const height = 20
+    const width = 16
+    const height = 32
     const step = 4
     let entriesA = []
     let entriesB = []
@@ -108,27 +108,60 @@
     const to_positions = function (entries, cb) {
         let positions = {}
         for (let a of entries) {
-            positions[key(a.x, a.y)] = cb(a)
+            positions[key(a.x, a.y)] = cb(a, positions)
         }
         return positions
     }
 
     const draw = function ({ home, away }) {
-        const positionsB = to_positions(entriesB, e => ' <span title="idx:' + e.index + '">0</span>|')
-        const positionsA = to_positions(entriesA, e => ' <span title="idx:' + e.index + '">x</span>|')
+        const render = (e, ab, counted) => {
+            let symbol = '0'
+            if (e.type == 'flag') symbol = '<b>@</b>'
+            if (ab == 'b') {
+                symbol = 'x'
+                if (e.type == 'flag') symbol = '<b>%</b>'
+            }
+            let n = counted[key(e.x, e.y)]
+            let colors = [
+                'black',
+                '#ff3366',
+                '#ff6633',
+                '#FFCC33',
+                '#33FF66',
+                '#33FFCC',
+                '#33CCFF',
+                '#3366FF',
+                '#6633FF',
+                '#CC33FF',
+                '#efefef',
+            ]
+            return ` <span style="color: ${colors[n%colors.length-1]}" title="idx: ${e.index} x: ${e.x} y: ${e.y}, overlap: ${n}">${symbol}</span> |`
+        }
+        let countedA = {}
+        for (let a of entriesA) {
+            let k = key(a.x, a.y)
+            countedA[k] = (countedA[k] || 0) + 1
+        }
+        let countedB = {}
+        for (let a of entriesB) {
+            let k = key(a.x, a.y)
+            countedB[k] = (countedB[k] || 0) + 1
+        }
+        const positionsA = to_positions(entriesA, e => render(e, 'a', countedA))
+        const positionsB = to_positions(entriesB, e => render(e, 'b', countedB))
         const view = document.getElementById('game')
 
         let text = '\nalive: x(' + entriesA.length + '), 0(' + entriesB.length + ')\n\n'
         const line_of_dashes = () => {
             for (let x = 0; x < width; x++) {
-                text += '---'
+                text += '----'
             }
-            text += '--\n'
+            text += '---\n'
         }
         const x_labels = () => {
             text += '  '
             for (let x = 0; x < width; x++) {
-                text += (x + '').padStart(2, ' ') + '|'
+                text += (x + '').padStart(2, ' ') + ' |'
             }
             text += '\n'
         }
@@ -139,7 +172,7 @@
             text += (y + '').padStart(2, ' ')
             for (let x = 0; x < width; x++) {
                 let k = key(x, y)
-                text += positionsA[k] || positionsB[k] || '  |'
+                text += positionsA[k] || positionsB[k] || '   |'
             }
             text += '\n'
         }
@@ -147,23 +180,13 @@
         x_labels()
         text += '\n'
         let win = ''
-        for (e of entriesA) {
-            if ((home && e.y == height - 1) || ((away && e.y == 0))) {
-                win = '\n\nYOU WIN!\n\n'
-            }
+        if (entriesA.filter(e => e.type == 'flag').length == 0) {
+            win = away ? '\n\nYOU WIN!\n\n' : '\n\nYOU LOSE!\n\n'
+        }
+        if (entriesB.filter(e => e.type == 'flag').length == 0) {
+            win = away ? '\n\nYOU WIN!\n\n' : '\n\nYOU LOSE!\n\n'
         }
 
-        for (e of entriesB) {
-            if ((away && e.y == height - 1) || ((home && e.y == 0))) {
-                win = '\n\nYOU LOSE!\n\n'
-            }
-        }
-        if (entriesB.length == 0) {
-            win = '\n\nYOU WIN!\n\n'
-        }
-        if (entriesA.length == 0) {
-            win = '\n\nYOU LOSE!\n\n'
-        }
         if (win) {
             a_go.parentElement.removeChild(a_go)
         }
@@ -177,11 +200,16 @@
     const reset_pieces = function (where) {
         let home = []
         let away = []
-        for (let i = 0; i < width; i++) {
-            home.push({ index: home.length, x: i, y: 0, id: 'id-a-' + key(i, 0) + '-' + Math.random() })
 
-            away.push({ index: away.length, x: i, y: height - 1, id: 'id-b-' + key(i, height - 1) + '-' + Math.random() })
+        home.push({ type: 'flag', index: home.length, x: parseInt(width / 2), y: parseInt(height / 4), id: uuid() })
+        away.push({ type: 'flag', index: away.length, x: parseInt(width / 2), y: height - parseInt(height / 4) - 1, id: uuid() })
+
+        for (let i = 0; i < width; i++) {
+            home.push({ index: home.length, x: i, y: 0, id: uuid() })
+
+            away.push({ index: away.length, x: i, y: height - 1, id: uuid() })
         }
+
         if (where == 'home') {
             entriesA = home
             entriesB = away
@@ -190,10 +218,8 @@
             entriesA = away
         }
     }
-
-
-    const run = async (code, heroes, enemies) => {
-        let grid = []
+    const to_grid_int = (heroes, enemies, cbH, cbE) => {
+        const grid = []
 
         for (let y = 0; y < height; y++) {
             grid[y] = []
@@ -202,10 +228,22 @@
             }
         }
 
-        for (e of enemies) grid[e.y][e.x] = -1;
-        for (h of heroes) grid[h.y][h.x] = -1;
+        for (e of enemies) grid[e.y][e.x] = cbE(e);
+        for (h of heroes) grid[h.y][h.x] = cbH(h);
+        return grid
+    }
+    const formation = (heroes, mask) => {
 
-        let message = '(' + code + ')(' + JSON.stringify({ heroes, enemies, width, height, grid }) + ')'
+    }
+    const run = async (code, heroes, enemies) => {
+
+        let message = '(' + code + ')(' + JSON.stringify({
+            heroes,
+            enemies,
+            width,
+            height,
+            grid: to_grid_int(heroes, enemies, (h) => 1, (e) => -1)
+        }) + ')'
         let result = await evaluate(message)
         if (result.error) {
             throw (result.error)
@@ -220,19 +258,20 @@
             if (r.x > width - 1) r.x = width - 1
             if (r.y > height - 1) r.y = height - 1
         }
-
-
-        // remove invalid ids
         byID = {}
         for (let h of heroes) {
             byID[h.id] = h
         }
-
         result = result.filter(r => byID[r.id])
 
         // check if positions differ too mucb
         for (let r of result) {
             let original = byID[r.id]
+            if (original.type == 'flag') {
+                r.x = original.x
+                r.y = original.y
+            }
+            r.type = original.type
 
             // allow only step moves at a time
             if (Math.abs(r.y - original.y) > step) {
@@ -240,7 +279,14 @@
                 r.y = original.y;
             }
         }
-        return result
+
+        let positionsH = to_positions(result, e => true)
+        enemies = enemies.filter(e => !positionsH[key(e.x, e.y)])
+
+        let positionsE = to_positions(enemies, e => true)
+        result = result.filter(e => !positionsE[key(e.x, e.y)])
+
+        return { A: result, B: enemies }
     }
 
     let id = window.location.hash.substring(1)
@@ -255,7 +301,7 @@
         config: {
             'iceServers': [
                 { url: 'stun:stun.l.google.com:19302' },
-                { url: 'turn:txt.black:3478', credential: 'noooooooo111222', username:'chess' }
+                { url: 'turn:txt.black:3478', credential: 'noooooooo111222', username: 'chess' }
             ]
         }
     })
@@ -275,7 +321,7 @@
     }
     peer.on('open', function (id) {
         let work = function (conn) {
-            
+
             loading.style.display = 'none'
             document.getElementById("editor").style.display = 'block'
             var editor = ace.edit("editor");
@@ -286,29 +332,16 @@
                 conn.send(JSON.stringify({ code: editor.getValue() }))
             });
 
-// x   x
-//   x     -> @ black hole
-// x   x       
-//
-// x   x
-//  x x    -> & assassin
-//   x
-//
-// xxx
-// x x     -> ^ samurai
-// xxx
-            var plus_or_minus = is_home ? '+' : '-'
             var initial = `function evolve({ heroes, enemies, grid, width, height }) {
+    var flag = enemies[0]
     for (let h of heroes) {
-        let x = Math.floor(Math.random() * width)
-        let y = h.y ${plus_or_minus} ${step}
-
-        h.x = x
-        h.y = y
+        if (h.x < flag.x) h.x +=1
+        if (h.x > flag.x) h.x -=1
+        if (h.y < flag.y) h.y +=1
+        if (h.y > flag.y) h.y -=1
     }
     return heroes
-}
-`
+}`
             editor.setValue(initial)
             editor.clearSelection()
             enemy_code.value = initial
@@ -326,9 +359,10 @@
                     enemy_code.value = parsed.code
                     return
                 }
+
+                // XXX: validate the positions
                 entriesB = parsed.entriesA
                 entriesA = parsed.entriesB
-
                 enemy_code.value = parsed.code
                 a_go.removeAttribute('disabled')
                 editor.setReadOnly(false)
@@ -338,12 +372,9 @@
             a_go.addEventListener('click', async () => {
                 errorE.innerHTML = ''
                 try {
-                    entriesA = await run(editor.getValue(), entriesA, entriesB)
-                    let positionsA = to_positions(entriesA, e => true)
-                    entriesB = entriesB.filter(e => !positionsA[key(e.x, e.y)])
-
-                    let positionsB = to_positions(entriesB, e => true)
-                    entriesA = entriesA.filter(e => !positionsB[key(e.x, e.y)])
+                    entries = await run(editor.getValue(), entriesA, entriesB)
+                    entriesA = entries.A
+                    entriesB = entries.B
 
                     conn.send(JSON.stringify({ code: editor.getValue(), entriesA, entriesB }))
 
