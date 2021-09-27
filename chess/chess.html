@@ -278,14 +278,17 @@
             editor.getSession().setUseWorker(false);
             editor.setReadOnly(true)
             editor.getSession().setMode("ace/mode/javascript");
-
+            editor.getSession().on('change', function () {
+                conn.send(JSON.stringify({ code: editor.getValue() }))
+            });
             var initial = `function evolve({ heroes, enemies, width, height }) {
     for (let h of heroes) {
         h.x += Math.random() > 0.5 ? -1 : 1
         h.y += Math.random() > 0.5 ? -1 : 1
     }
     return heroes
-}`
+}
+`
             editor.setValue(initial)
             editor.clearSelection()
             enemy_code.value = initial
@@ -301,6 +304,10 @@
             draw({ home: is_home, away: is_away })
             conn.on('data', async function (data) {
                 let parsed = JSON.parse(data)
+                if (!parsed.entriesA) {
+                    enemy_code.value = parsed.code
+                    return
+                }
                 entriesB = parsed.entriesA
                 entriesA = parsed.entriesB
 
