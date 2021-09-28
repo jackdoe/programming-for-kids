@@ -98,17 +98,39 @@ Code is at: https://github.com/jackdoe/programming-for-kids
 Rules:
   * join your forces to increase the number on one position
   * bigger number wins, but takes up to smaller number damage
-  * pattern:
-        (red)
-        *       *
-            *
-
-        (blue)
-            *   
-        *       *
-     spawns a  number in the empty space
+  * create new numbers:
+    the patterns
+        <red>n</red>   <red>n</red>
+          <red>n</red>
+    and
+          <blue>n</blue>
+        <blue>n</blue>   <blue>n</blue>
+     spawns a number in the empty space, randint(1,3), but there
+     is 1 in 10 chance it is a zombie and it will be from 
+     the oposite team, beware!
   * things are sorted left to right, and top to bottom      
   * you can move +-2 in x and y direction
+
+examples (red):
+
+function evolve({ red, blue, grid }) {
+    for (let r of red) {
+        r.x--
+        r.y+=2
+    }
+    return red
+}
+function evolve({ red, blue, grid }) {
+    if (grid[1][6] &lt; 0) {
+        red.filter(r => r.x == 6 && r.y == 0)[0].y+=2
+    } else {
+        red[6].y++
+    }
+    return red
+}
+
+etc
+
     </pre>
 </div>
 <iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
@@ -314,7 +336,7 @@ Rules:
         }
 
         // spawn number pattern
-        for (let y = 0; y < evolved_grid.length; y++) {
+        for (let y = 0; y < evolved_grid.length-1; y++) {
             for (let x = 0; x < evolved_grid[0].length - 2; x++) {
                 // 1 in 10 chance to turn 
                 let zombie = ((Math.random() < 0.1) ? -1 : 1)
