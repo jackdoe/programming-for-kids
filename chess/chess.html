@@ -1,3 +1,4 @@
+<!-- FIXME: dont load those in local mode, no need to leak data to them -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
@@ -117,7 +118,7 @@ Rules:
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
-    // XXX: this is horrible, idk how safe it is even through the iframe sandbox
+    // FIXME: this is horrible, I dont know how safe it is even through the iframe sandbox
     const evaluate = async function (code) {
         const frame = document.getElementById('frame')
         frame.contentWindow.postMessage(code, '*');
@@ -287,7 +288,9 @@ Rules:
         }
         return evolved_grid
     }
+
     let grid = initial_game(width, height)
+
     const setupConsoleLog = (red_editor, blue_editor) => {
         document.getElementById('red-try').addEventListener('click', async () => {
             try {
@@ -307,7 +310,6 @@ Rules:
     }
     let id = window.location.hash.substring(1)
     if (id == 'local') {
-
         document.getElementById('loading').style.display = 'none'
         const header = (turn) => {
             return `${turn == 'red' ? '<red>red</red>' : '<blue>blue</blue>'}'s turn`
@@ -357,7 +359,7 @@ Rules:
 
                 draw(grid, header('blue'))
             } catch (e) {
-                console.error('a', e)
+                console.error(e)
                 red_error.innerHTML = 'error: ' + e
             }
         })
@@ -374,7 +376,7 @@ Rules:
 
                 draw(grid, header('red'))
             } catch (e) {
-                console.error('a', e)
+                console.error(e)
                 blue_error.innerHTML = 'error: ' + e
             }
         })
@@ -419,9 +421,9 @@ Rules:
         peer.on('open', function (id) {
             let work = function (conn) {
                 loading.style.display = 'none'
-                let my_editor_id = am_i_red ? "red-editor" : "blue-editor"
+                const my_editor_id = am_i_red ? "red-editor" : "blue-editor"
                 document.getElementById(my_editor_id).style.display = 'block'
-                var my_editor = ace.edit(am_i_red ? "red-editor" : "blue-editor");
+                const my_editor = ace.edit(am_i_red ? "red-editor" : "blue-editor");
                 my_editor.getSession().setUseWorker(false);
                 my_editor.setReadOnly(true)
                 my_editor.getSession().setMode("ace/mode/javascript");
@@ -429,14 +431,14 @@ Rules:
                     conn.send(JSON.stringify({ code: my_editor.getValue() }))
                 });
 
-                let enemy_editor_id = am_i_red ? "blue-editor" : "red-editor"
+                const enemy_editor_id = am_i_red ? "blue-editor" : "red-editor"
                 document.getElementById(enemy_editor_id).style.display = 'block'
-                var enemy_editor = ace.edit(enemy_editor_id);
+                const enemy_editor = ace.edit(enemy_editor_id);
                 enemy_editor.getSession().setUseWorker(false);
                 enemy_editor.setReadOnly(true)
                 enemy_editor.getSession().setMode("ace/mode/javascript");
 
-                var initial = `function evolve({ red, blue, grid }) {
+                const initial = `function evolve({ red, blue, grid }) {
     return ${am_i_red ? 'red' : 'blue'}
 }`
                 enemy_editor.setValue(initial)
@@ -455,7 +457,7 @@ Rules:
                         return
                     }
 
-                    // XXX: validate the positions
+                    // FIXME: validate the positions
                     // super easy to hack this, but its just for fun anyway
                     grid = parsed.grid
                     enemy_editor.setValue(parsed.code)
@@ -503,5 +505,6 @@ Rules:
             }
         });
         peer.on('close', reconnect_screen)
+        peer.on('error', reconnect_screen)
     }
 </script>
