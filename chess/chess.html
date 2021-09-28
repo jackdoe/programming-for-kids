@@ -4,8 +4,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"></script>
 
 
-
-
 <style>
     body,
     pre,
@@ -15,8 +13,40 @@
         margin: 0;
     }
 
-    tiny {
-        font-family: monospace;
+    #red-go {
+        background-color: red;
+        color: white;
+    }
+
+    #blue-go {
+        background-color: blue;
+        color: white;
+    }
+
+    #blue-go:disabled {
+        background-color: gray;
+        color: white;
+    }
+
+    #red-go:disabled {
+        background-color: gray;
+        color: white;
+    }
+
+    red {
+        color: red;
+    }
+
+    blue {
+        color: blue;
+    }
+
+    #red-editor {
+        background: rgba(255, 0, 0, 0.07) !important
+    }
+
+    #blue-editor {
+        background: rgba(0, 0, 255, 0.07) !important
     }
 
     iframe {
@@ -35,7 +65,8 @@
         display: none;
     }
 
-    #error {
+
+    .error {
         color: white;
         background-color: tomato;
     }
@@ -46,31 +77,38 @@
     </h1>
     <p>
         Code is at: https://github.com/jackdoe/programming-for-kids<br><br>
+        If you want to play locally, click <a href='#local' target="_blank">here</a><br>
         You need another player.<br>
         Send them this link to play:
     </p>
 </div>
 <div style="margin: 5px">
-    <pre id='help'>
-<span style='font-size: 20px'>戦</span>
-<small>* Each piece can move: freely horizontally, and +- 5 vertically
-* If you collide with the enemy you capture them
-* Goal is to reach the end of the board with at least one piece or annihilate all enemies.
-* You are playing <b>x</b>, oponent is playing <b>0</b>
-* Contribute: https://github.com/jackdoe/programming-for-kids
-</small>
-</pre>
-    <div id='error'></div>
-    <button disabled id='a_go'>play</button><br>
-    <div id="editor" style="height: 150px; width: 100%"></div>
-
+    <div class='error' id='red-error'></div>
+    <button disabled id='red-go'>play</button><br>
+    <div id="red-editor" style="height: 150px; width: 100%"></div>
     <pre id='game'></pre>
-    <textarea id='enemy_code' disabled rows=10 cols=80></textarea>
+    <div class='error' id='blue-error'></div>
+    <button disabled id='blue-go'>play</button><br>
+    <div id="blue-editor" style="height: 150px; width: 100%"></div>
+    <hr>
+    Code is at: https://github.com/jackdoe/programming-for-kids<br>
+
 </div>
 <iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
 <script>
     const sleep = function (ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const uuid = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    const randint = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
     // XXX: this is horrible, idk how safe it is even through the iframe sandbox
@@ -87,321 +125,354 @@
         window.removeEventListener('message', cb)
         return data
     }
-
-    const width = 16
-    const height = 32
-    const step = 4
-    let entriesA = []
-    let entriesB = []
-
-    const key = function (x, y) {
-        return x + '_' + y
-    }
-
-    const uuid = function () {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    }
-
-    const to_positions = function (entries, cb) {
-        let positions = {}
-        for (let a of entries) {
-            positions[key(a.x, a.y)] = cb(a, positions)
-        }
-        return positions
-    }
-
-    const draw = function ({ home, away }) {
-        const render = (e, ab, counted) => {
-            let symbol = '0'
-            if (e.type == 'flag') symbol = '<b>@</b>'
-            if (ab == 'b') {
-                symbol = 'x'
-                if (e.type == 'flag') symbol = '<b>%</b>'
+    const new_empty_grid = (w, h) => {
+        let grid = []
+        for (let y = 0; y < h; y++) {
+            grid[y] = []
+            for (let x = 0; x < w; x++) {
+                grid[y][x] = 0
             }
-            let n = counted[key(e.x, e.y)]
-            let colors = [
-                'black',
-                '#ff3366',
-                '#ff6633',
-                '#FFCC33',
-                '#33FF66',
-                '#33FFCC',
-                '#33CCFF',
-                '#3366FF',
-                '#6633FF',
-                '#CC33FF',
-                '#efefef',
-            ]
-            return ` <span style="color: ${colors[n%colors.length-1]}" title="idx: ${e.index} x: ${e.x} y: ${e.y}, overlap: ${n}">${symbol}</span> |`
         }
-        let countedA = {}
-        for (let a of entriesA) {
-            let k = key(a.x, a.y)
-            countedA[k] = (countedA[k] || 0) + 1
+        return grid
+    }
+    const initial_game = (w, h) => {
+        let grid = []
+        for (let y = 0; y < h; y++) {
+            grid[y] = []
+            for (let x = 0; x < w; x++) {
+                if (y == 0) {
+                    grid[y][x] = -1
+                } else if (y == h - 1) {
+                    grid[y][x] = 1
+                } else {
+                    grid[y][x] = 0
+                }
+            }
         }
-        let countedB = {}
-        for (let a of entriesB) {
-            let k = key(a.x, a.y)
-            countedB[k] = (countedB[k] || 0) + 1
+        return grid
+    }
+    const foreach = (grid, cb) => {
+        for (let y = 0; y < grid.length; y++) {
+            for (let x = 0; x < grid[0].length; x++) {
+                cb(grid[y][x], x, y)
+            }
         }
-        const positionsA = to_positions(entriesA, e => render(e, 'a', countedA))
-        const positionsB = to_positions(entriesB, e => render(e, 'b', countedB))
+    }
+    const width = 16
+    const height = 16
+    const step = 4
+
+    const draw = function (grid, header) {
         const view = document.getElementById('game')
 
-        let text = '\nalive: x(' + entriesA.length + '), 0(' + entriesB.length + ')\n\n'
+        let text = '\n' + header + '\n\n'
         const line_of_dashes = () => {
-            for (let x = 0; x < width; x++) {
+            for (let x = 0; x < grid[0].length; x++) {
                 text += '----'
             }
             text += '---\n'
         }
         const x_labels = () => {
-            text += '  '
-            for (let x = 0; x < width; x++) {
+            text += '   '
+            for (let x = 0; x < grid[0].length; x++) {
                 text += (x + '').padStart(2, ' ') + ' |'
             }
             text += '\n'
         }
         x_labels()
         line_of_dashes()
-
-        for (let y = 0; y < height; y++) {
-            text += (y + '').padStart(2, ' ')
-            for (let x = 0; x < width; x++) {
-                let k = key(x, y)
-                text += positionsA[k] || positionsB[k] || '   |'
+        for (let y = 0; y < grid.length; y++) {
+            text += (y + '').padStart(2, ' ') + '|'
+            for (let x = 0; x < grid[0].length; x++) {
+                let v = grid[y][x]
+                let symbol = ' '
+                if (v < 0) {
+                    symbol = `<red>${(Math.abs(v) + '').padStart(1, ' ')}</red>`
+                } else if (v > 0) {
+                    symbol = `<blue>${(v + '').padStart(1, ' ')}</blue>`
+                }
+                text += ` ${symbol} |`
             }
             text += '\n'
         }
         line_of_dashes()
         x_labels()
         text += '\n'
-        let win = ''
-        if (entriesA.filter(e => e.type == 'flag').length == 0) {
-            win = away ? '\n\nYOU WIN!\n\n' : '\n\nYOU LOSE!\n\n'
-        }
-        if (entriesB.filter(e => e.type == 'flag').length == 0) {
-            win = away ? '\n\nYOU WIN!\n\n' : '\n\nYOU LOSE!\n\n'
-        }
 
-        if (win) {
-            a_go.parentElement.removeChild(a_go)
-        }
-        view.innerHTML = win + text
+        view.innerHTML = text
     }
 
-    const randint = function (min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min)
-    }
-
-    const reset_pieces = function (where) {
-        let home = []
-        let away = []
-
-        home.push({ type: 'flag', index: home.length, x: parseInt(width / 2), y: parseInt(height / 4), id: uuid() })
-        away.push({ type: 'flag', index: away.length, x: parseInt(width / 2), y: height - parseInt(height / 4) - 1, id: uuid() })
-
-        for (let i = 0; i < width; i++) {
-            home.push({ index: home.length, x: i, y: 0, id: uuid() })
-
-            away.push({ index: away.length, x: i, y: height - 1, id: uuid() })
+    const run = async (code, grid, am_i_red) => {
+        let red = []
+        let blue = []
+        foreach(grid, (v, x, y) => {
+            if (v == 0) return;
+            let entry = { value: v, x: x, y: y, id: uuid() }
+            if (v < 0) red.push(entry)
+            else blue.push(entry)
+        })
+        let sorter = (a, b) => {
+            let diffX = a.x - b.x
+            if (diffX == 0) return diffX
+            return diffX > 0 ? 1 : -1
         }
-
-        if (where == 'home') {
-            entriesA = home
-            entriesB = away
-        } else {
-            entriesB = home
-            entriesA = away
-        }
-    }
-    const to_grid_int = (heroes, enemies, cbH, cbE) => {
-        const grid = []
-
-        for (let y = 0; y < height; y++) {
-            grid[y] = []
-            for (let x = 0; x < width; x++) {
-                grid[y][x] = 0
-            }
-        }
-
-        for (e of enemies) grid[e.y][e.x] = cbE(e);
-        for (h of heroes) grid[h.y][h.x] = cbH(h);
-        return grid
-    }
-    const formation = (heroes, mask) => {
-
-    }
-    const run = async (code, heroes, enemies) => {
+        red.sort(sorter)
+        blue.sort(sorter)
 
         let message = '(' + code + ')(' + JSON.stringify({
-            heroes,
-            enemies,
-            width,
-            height,
-            grid: to_grid_int(heroes, enemies, (h) => 1, (e) => -1)
+            red, blue, grid
         }) + ')'
         let result = await evaluate(message)
         if (result.error) {
             throw (result.error)
         }
+        if (!Array.isArray(result)) throw new Error('not array')
 
-        if (!Array.isArray(result)) return heroes
-
-        // remove out of bounds
-        for (let r of result) {
-            if (r.x < 0) r.x = 0
-            if (r.y < 0) r.y = 0
-            if (r.x > width - 1) r.x = width - 1
-            if (r.y > height - 1) r.y = height - 1
-        }
-        byID = {}
-        for (let h of heroes) {
-            byID[h.id] = h
-        }
-        result = result.filter(r => byID[r.id])
-
-        // check if positions differ too mucb
-        for (let r of result) {
-            let original = byID[r.id]
-            if (original.type == 'flag') {
-                r.x = original.x
-                r.y = original.y
+        let by_uuid = {}
+        if (am_i_red) {
+            for (let r of red) {
+                by_uuid[r.id] = r
             }
-            r.type = original.type
-
-            // allow only step moves at a time
-            if (Math.abs(r.y - original.y) > step) {
-                console.log('illegal move', { abs: Math.abs(r.y - original.y), y: r.y, original_y: original.y })
-                r.y = original.y;
+        } else {
+            for (let r of blue) {
+                by_uuid[r.id] = r
             }
         }
+        result = result.filter(r => by_uuid[r.id])
 
-        let positionsH = to_positions(result, e => true)
-        enemies = enemies.filter(e => !positionsH[key(e.x, e.y)])
-
-        let positionsE = to_positions(enemies, e => true)
-        result = result.filter(e => !positionsE[key(e.x, e.y)])
-
-        return { A: result, B: enemies }
+        for (let r of result) {
+            let orig = by_uuid[r.id]
+            if (Math.abs(r.x - orig.x) > 2 || r.x < 0 || r.x > width - 1) {
+                console.log('illegal move', { orig, r })
+                r.x = orig.x
+            }
+            if (Math.abs(r.y - orig.y) > 2 || r.y < 0 || r.y > height - 1) {
+                console.log('illegal move', { orig, r })
+                r.y = orig.y
+            }
+        }
+        let evolved_grid = new_empty_grid(width, height)
+        if (am_i_red) {
+            for (let b of blue) {
+                evolved_grid[b.y][b.x] += b.value
+            }
+        } else {
+            for (let r of red) {
+                evolved_grid[r.y][r.x] += r.value
+            }
+        }
+        for (let r of result) {
+            let current = evolved_grid[r.y][r.x]
+            if (Math.abs(current + r.value) == 0) {
+                // we annihilate
+                evolved_grid[r.y][r.x] = 0
+            } else if ((am_i_red && current <= 0) || (!am_i_red && current >= 0)) {
+                // join with our number, or occupy empty space
+                evolved_grid[r.y][r.x] += r.value
+            } else {
+                if (current > Math.abs(r.value)) {
+                    // it consumes us
+                    evolved_grid[r.y][r.x] = current
+                } else {
+                    // we consume it
+                    evolved_grid[r.y][r.x] = r.value
+                }
+            }
+        }
+        return evolved_grid
     }
+    let grid = initial_game(width, height)
 
     let id = window.location.hash.substring(1)
-    if (id.length < 3) {
-        id = uuid() + '-a'
-        window.location.hash = id
-    }
-    const is_home = id.endsWith('-a')
-    const is_away = id.endsWith('-b')
-    const peer = new Peer(id, {
-        debug: 4,
-        config: {
-            'iceServers': [
-                { url: 'stun:stun.l.google.com:19302' },
-                { url: 'turn:txt.black:3478', credential: 'noooooooo111222', username: 'chess' }
-            ]
+    if (id == 'local') {
+
+        document.getElementById('loading').style.display = 'none'
+        const header = (turn) => {
+            return `${turn == 'red' ? '<red>red</red>' : '<blue>blue</blue>'}'s turn`
         }
-    })
+        draw(grid, header('red'))
+        document.getElementById("red-editor").style.display = 'block'
+        document.getElementById("blue-editor").style.display = 'block'
 
-    const errorE = document.getElementById('error')
-    const a_go = document.getElementById('a_go')
-    const enemy_code = document.getElementById('enemy_code')
-    const loading = document.getElementById('loading')
-    const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
-    loading.innerHTML += '<textarea style="color: white; background-color: black; border: 0px;resize: none" rows=1 disabled cols=100>' + window.location.href.split('#')[0] + '#' + other + '</textarea>'
+        let red_editor = ace.edit("red-editor");
+        red_editor.getSession().setUseWorker(false);
+        red_editor.setReadOnly(true)
+        red_editor.getSession().setMode("ace/mode/javascript");
+        red_editor.setValue(`function evolve({ red, blue }) {
+    return red
+}`)
+        red_editor.clearSelection()
+
+        let blue_editor = ace.edit("blue-editor");
+        blue_editor.getSession().setUseWorker(false);
+        blue_editor.setReadOnly(true)
+        blue_editor.getSession().setMode("ace/mode/javascript");
+        blue_editor.setValue(`function evolve({ red, blue }) {
+    return blue
+}`)
+        blue_editor.clearSelection()
+
+        const red_error = document.getElementById('red-error')
+        const blue_error = document.getElementById('blue-error')
+
+        const red_play_button = document.getElementById('red-go')
+        const blue_play_button = document.getElementById('blue-go')
+
+        red_play_button.removeAttribute('disabled')
+        red_editor.setReadOnly(false)
 
 
-    const reconnect_screen = () => {
-        loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh'
-        loading.style.display = 'block'
-        document.getElementById('editor').style.display = 'none'
-    }
-    peer.on('open', function (id) {
-        let work = function (conn) {
+        red_play_button.addEventListener('click', async () => {
+            red_error.innerHTML = ''
+            try {
+                grid = await run(red_editor.getValue(), grid, true)
 
-            loading.style.display = 'none'
-            document.getElementById("editor").style.display = 'block'
-            var editor = ace.edit("editor");
-            editor.getSession().setUseWorker(false);
-            editor.setReadOnly(true)
-            editor.getSession().setMode("ace/mode/javascript");
-            editor.getSession().on('change', function () {
-                conn.send(JSON.stringify({ code: editor.getValue() }))
-            });
+                red_play_button.setAttribute('disabled', 'disabled')
+                red_editor.setReadOnly(true)
 
-            var initial = `function evolve({ heroes, enemies, grid, width, height }) {
-    var flag = enemies[0]
-    for (let h of heroes) {
-        if (h.x < flag.x) h.x +=1
-        if (h.x > flag.x) h.x -=1
-        if (h.y < flag.y) h.y +=1
-        if (h.y > flag.y) h.y -=1
-    }
-    return heroes
-}`
-            editor.setValue(initial)
-            editor.clearSelection()
-            enemy_code.value = initial
-            if (is_home) {
-                a_go.removeAttribute('disabled')
-                editor.setReadOnly(false)
-                reset_pieces('home')
-            } else {
-                reset_pieces('away')
+                blue_play_button.removeAttribute('disabled')
+                blue_editor.setReadOnly(false)
+
+                draw(grid, header('blue'))
+            } catch (e) {
+                console.error('a', e)
+                red_error.innerHTML = 'error: ' + e
             }
-            draw({ home: is_home, away: is_away })
-            conn.on('data', async function (data) {
-                let parsed = JSON.parse(data)
-                if (!parsed.entriesA) {
-                    enemy_code.value = parsed.code
-                    return
-                }
+        })
+        blue_play_button.addEventListener('click', async () => {
+            blue_error.innerHTML = ''
+            try {
+                grid = await run(blue_editor.getValue(), grid, false)
 
-                // XXX: validate the positions
-                entriesB = parsed.entriesA
-                entriesA = parsed.entriesB
-                enemy_code.value = parsed.code
-                a_go.removeAttribute('disabled')
-                editor.setReadOnly(false)
-                draw({ home: is_home, away: is_away })
-            });
+                blue_play_button.setAttribute('disabled', 'disabled')
+                blue_editor.setReadOnly(true)
 
-            a_go.addEventListener('click', async () => {
-                errorE.innerHTML = ''
-                try {
-                    entries = await run(editor.getValue(), entriesA, entriesB)
-                    entriesA = entries.A
-                    entriesB = entries.B
+                red_play_button.removeAttribute('disabled')
+                red_editor.setReadOnly(false)
 
-                    conn.send(JSON.stringify({ code: editor.getValue(), entriesA, entriesB }))
-
-                    a_go.setAttribute('disabled', 'disabled')
-                    editor.setReadOnly(true)
-                    draw({ home: is_home, away: is_away })
-                } catch (e) {
-                    console.error('a', e)
-                    errorE.innerHTML = 'error: ' + e
-                }
-            })
+                draw(grid, header('red'))
+            } catch (e) {
+                console.error('a', e)
+                blue_error.innerHTML = 'error: ' + e
+            }
+        })
+    } else {
+        if (id.length < 3) {
+            id = uuid() + '-a'
+            window.location.hash = id
         }
 
-        if (id.endsWith('-b')) {
-            let conn = peer.connect(other)
-            conn.on('open', () => {
-                work(conn)
-            })
-            conn.on('close', reconnect_screen)
-            conn.on('error', reconnect_screen)
-        } else {
-            peer.on('connection', (conn) => {
-                conn.on('open', () => work(conn))
+        const am_i_red = id.endsWith('-a')
+        const header = (am_i_red, turn) => {
+            return `you play ${am_i_red ? '<red>red</red>' : '<blue>blue</blue>'}, ${turn == 'red' ? '<red>red</red>' : '<blue>blue</blue>'}'s turn`
+        }
+        draw(grid, header(am_i_red, 'red'))
+
+        const peer = new Peer(id, {
+            debug: 4,
+            config: {
+                'iceServers': [
+                    { url: 'stun:stun.l.google.com:19302' },
+                    { url: 'turn:txt.black:3478', credential: 'noooooooo111222', username: 'chess' }
+                ]
+            }
+        })
+
+        const errorE = document.getElementById(am_i_red ? 'red-error' : 'blue-error')
+        const play_button = document.getElementById(am_i_red ? 'red-go' : 'blue-go')
+        const loading = document.getElementById('loading')
+        const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
+        loading.innerHTML += '<textarea style="color: white; background-color: black; border: 0px;resize: none" rows=1 disabled cols=100>' + window.location.href.split('#')[0] + '#' + other + '</textarea>'
+
+        const reconnect_screen = () => {
+            loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh'
+            loading.style.display = 'block'
+            document.getElementById('red-editor').style.display = 'none'
+            document.getElementById('blue-editor').style.display = 'none'
+        }
+
+        peer.on('open', function (id) {
+            let work = function (conn) {
+                loading.style.display = 'none'
+                let my_editor_id = am_i_red ? "red-editor" : "blue-editor"
+                document.getElementById(my_editor_id).style.display = 'block'
+                var my_editor = ace.edit(am_i_red ? "red-editor" : "blue-editor");
+                my_editor.getSession().setUseWorker(false);
+                my_editor.setReadOnly(true)
+                my_editor.getSession().setMode("ace/mode/javascript");
+                my_editor.getSession().on('change', function () {
+                    conn.send(JSON.stringify({ code: my_editor.getValue() }))
+                });
+
+                let enemy_editor_id = am_i_red ? "blue-editor" : "red-editor"
+                document.getElementById(enemy_editor_id).style.display = 'block'
+                var enemy_editor = ace.edit(enemy_editor_id);
+                enemy_editor.getSession().setUseWorker(false);
+                enemy_editor.setReadOnly(true)
+                enemy_editor.getSession().setMode("ace/mode/javascript");
+
+                var initial = `function evolve({ red, blue }) {
+    return ${am_i_red ? 'red' : 'blue'}
+}`
+                enemy_editor.setValue(initial)
+                enemy_editor.clearSelection()
+                my_editor.setValue(initial)
+                my_editor.clearSelection()
+                if (am_i_red) {
+                    play_button.removeAttribute('disabled')
+                    my_editor.setReadOnly(false)
+                }
+                conn.on('data', async function (data) {
+                    let parsed = JSON.parse(data)
+                    if (!parsed.grid) {
+                        enemy_editor.setValue(parsed.code)
+                        enemy_editor.clearSelection()
+                        return
+                    }
+
+                    // XXX: validate the positions
+                    // super easy to hack this, but its just for fun anyway
+                    grid = parsed.grid
+                    enemy_editor.setValue(parsed.code)
+                    enemy_editor.clearSelection()
+
+                    play_button.removeAttribute('disabled')
+                    my_editor.setReadOnly(false)
+                    draw(grid, header(am_i_red, am_i_red ? 'red' : 'blue'))
+                });
+
+                play_button.addEventListener('click', async () => {
+                    errorE.innerHTML = ''
+                    try {
+                        grid = await run(my_editor.getValue(), grid, am_i_red)
+                        play_button.setAttribute('disabled', 'disabled')
+                        my_editor.setReadOnly(true)
+
+                        conn.send(JSON.stringify({ code: my_editor.getValue(), grid }))
+
+                        draw(grid, header(am_i_red, am_i_red ? 'blue' : 'red'))
+                    } catch (e) {
+                        console.error('a', e)
+                        errorE.innerHTML = 'error: ' + e
+                    }
+                })
+            }
+
+            if (id.endsWith('-b')) {
+                let conn = peer.connect(other)
+                conn.on('open', () => {
+                    work(conn)
+                })
                 conn.on('close', reconnect_screen)
                 conn.on('error', reconnect_screen)
-            })
-        }
-    });
-    peer.on('close', reconnect_screen)
+            } else {
+                peer.on('connection', (conn) => {
+                    conn.on('open', () => work(conn))
+                    conn.on('close', reconnect_screen)
+                    conn.on('error', reconnect_screen)
+                })
+            }
+        });
+        peer.on('close', reconnect_screen)
+    }
 </script>
