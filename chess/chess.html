@@ -84,15 +84,21 @@
 </div>
 <div style="margin: 5px">
     <div class='error' id='red-error'></div>
-    <button disabled id='red-go'>play</button><br>
+    <button disabled id='red-go'>play</button> <button id='red-try'>console.log</button><br>
     <div id="red-editor" style="height: 150px; width: 100%"></div>
     <pre id='game'></pre>
     <div class='error' id='blue-error'></div>
-    <button disabled id='blue-go'>play</button><br>
+    <button disabled id='blue-go'>play</button> <button id='blue-try'>console.log</button><br>
     <div id="blue-editor" style="height: 150px; width: 100%"></div>
     <hr>
-    Code is at: https://github.com/jackdoe/programming-for-kids<br>
+    <pre>
+Code is at: https://github.com/jackdoe/programming-for-kids
 
+Rules:
+  * bigger number wins
+  * join your forces to increase the number on one position
+  * you can move +-2 in x and y direction
+    </pre>
 </div>
 <iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
 <script>
@@ -158,7 +164,7 @@
             }
         }
     }
-    const width = 16
+    const width = 8
     const height = 16
     const step = 4
 
@@ -282,7 +288,23 @@
         return evolved_grid
     }
     let grid = initial_game(width, height)
+    const setupConsoleLog = (red_editor, blue_editor) => {
+        document.getElementById('red-try').addEventListener('click', async () => {
+            try {
+                console.log('red evolution', await run(red_editor.getValue(), grid, true))
+            } catch (e) {
+                console.error('red', e)
+            }
+        })
 
+        document.getElementById('blue-try').addEventListener('click', async () => {
+            try {
+                console.log('blue evolution', await run(blue_editor.getValue(), grid, false))
+            } catch (e) {
+                console.error('blue', e)
+            }
+        })
+    }
     let id = window.location.hash.substring(1)
     if (id == 'local') {
 
@@ -298,7 +320,7 @@
         red_editor.getSession().setUseWorker(false);
         red_editor.setReadOnly(true)
         red_editor.getSession().setMode("ace/mode/javascript");
-        red_editor.setValue(`function evolve({ red, blue }) {
+        red_editor.setValue(`function evolve({ red, blue, grid }) {
     return red
 }`)
         red_editor.clearSelection()
@@ -307,7 +329,7 @@
         blue_editor.getSession().setUseWorker(false);
         blue_editor.setReadOnly(true)
         blue_editor.getSession().setMode("ace/mode/javascript");
-        blue_editor.setValue(`function evolve({ red, blue }) {
+        blue_editor.setValue(`function evolve({ red, blue, grid }) {
     return blue
 }`)
         blue_editor.clearSelection()
@@ -356,6 +378,8 @@
                 blue_error.innerHTML = 'error: ' + e
             }
         })
+
+        setupConsoleLog(red_editor,blue_editor)
     } else {
         if (id.length < 3) {
             id = uuid() + '-a'
@@ -369,7 +393,7 @@
         draw(grid, header(am_i_red, 'red'))
 
         const peer = new Peer(id, {
-            debug: 4,
+            debug: 1,
             config: {
                 'iceServers': [
                     { url: 'stun:stun.l.google.com:19302' },
@@ -380,6 +404,7 @@
 
         const errorE = document.getElementById(am_i_red ? 'red-error' : 'blue-error')
         const play_button = document.getElementById(am_i_red ? 'red-go' : 'blue-go')
+
         const loading = document.getElementById('loading')
         const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
         loading.innerHTML += '<textarea style="color: white; background-color: black; border: 0px;resize: none" rows=1 disabled cols=100>' + window.location.href.split('#')[0] + '#' + other + '</textarea>'
@@ -411,7 +436,7 @@
                 enemy_editor.setReadOnly(true)
                 enemy_editor.getSession().setMode("ace/mode/javascript");
 
-                var initial = `function evolve({ red, blue }) {
+                var initial = `function evolve({ red, blue, grid }) {
     return ${am_i_red ? 'red' : 'blue'}
 }`
                 enemy_editor.setValue(initial)
@@ -452,10 +477,14 @@
 
                         draw(grid, header(am_i_red, am_i_red ? 'blue' : 'red'))
                     } catch (e) {
-                        console.error('a', e)
+                        console.error(e)
                         errorE.innerHTML = 'error: ' + e
                     }
                 })
+
+                let red_editor = am_i_red ? my_editor : enemy_editor
+                let blue_editor = am_i_red ? enemy_editor : my_editor
+                setupConsoleLog(red_editor,blue_editor)
             }
 
             if (id.endsWith('-b')) {
