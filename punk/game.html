@@ -182,7 +182,7 @@ def evolve(red, blue, grid):
     })
     const evaluate = async function (code, red, blue, width, height) {
         if (!pyodide) {
-            throw new Error("not loaded yet")
+            throw new Error("python is not loaded yet, try to click the button again in few seconds")
         }
         let p = `
 import json
