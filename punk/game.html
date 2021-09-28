@@ -3,6 +3,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"></script>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
 
 <style>
@@ -81,11 +82,17 @@
 </div>
 <div style="margin: 5px">
     <div class='error' id='red-error'></div>
-    <button disabled id='red-go'>play</button> <button id='red-try'>console.log</button><br>
+    <button disabled id='red-go'>play</button> <button id='red-try'>console.log</button> <select id='red-mode'>
+        <option selected>python</option>
+        <option>javascript</option>
+    </select><br>
     <div id="red-editor" style="height: 150px; width: 100%"></div>
     <pre id='game'></pre>
     <div class='error' id='blue-error'></div>
-    <button disabled id='blue-go'>play</button> <button id='blue-try'>console.log</button><br>
+    <button disabled id='blue-go'>play</button> <button id='blue-try'>console.log</button> <select id='blue-mode'>
+        <option selected>python</option>
+        <option>javascript</option>
+    </select><br>
     <div id="blue-editor" style="height: 150px; width: 100%"></div>
     <hr>
     <pre>
@@ -151,6 +158,16 @@ def evolve(red, blue, grid):
     print(blue)
     return blue
 
+or a javascript example:
+
+function evolve({red,blue,grid}) {
+    for (let r of red) {
+        r.x ++
+        r.y += 2
+    }
+    return red
+}
+
 * license:
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br>
 
@@ -180,11 +197,13 @@ def evolve(red, blue, grid):
     }).catch(e => {
         console.error(e)
     })
-    const evaluate = async function (code, red, blue, width, height) {
-        if (!pyodide) {
-            throw new Error("python is not loaded yet, try to click the button again in few seconds")
-        }
-        let p = `
+    const evaluate = async function (mode, code, red, blue, width, height) {
+        // FIXME: this is totally unsafe, but since its your code..
+        if (mode == 'python') {
+            if (!pyodide) {
+                throw new Error("python is not loaded yet, try to click the button again in few seconds")
+            }
+            let p = `
 import json
 red=json.loads('${JSON.stringify(red)}')
 blue=json.loads('${JSON.stringify(blue)}')
@@ -202,10 +221,33 @@ ${code}
 
 json.dumps(evolve(red,blue,grid))
 `
-        let data = pyodide.runPython(p)
+            let data = pyodide.runPython(p)
 
-        return JSON.parse(data)
+            return JSON.parse(data)
+        } else if (mode == 'javascript') {
+            /*
+function evolve({red,blue,grid}) {
+    for (let r in red) {
+        r.x ++
+        r.y += 2
     }
+    return red
+}*/
+            let redX = JSON.parse(JSON.stringify(red))
+            let blueX = JSON.parse(JSON.stringify(blue))
+            let gridX = []
+            for (let y = 0; y < height; y++) {
+                gridX[y] = []
+                for (let x = 0; x < width; x++) {
+                    gridX[y].push(null)
+                }
+            }
+            for (let r of redX) gridX[r.y][r.x] = r
+            for (let r of blueX) gridX[r.y][r.x] = r
+            return eval(`(${code})`)({ red: redX, blue: blueX, grid: gridX })
+        }
+    }
+
     const new_empty_grid = (w, h) => {
         let grid = []
         for (let y = 0; y < h; y++) {
@@ -283,7 +325,7 @@ json.dumps(evolve(red,blue,grid))
         view.innerHTML = text
     }
 
-    const run = async (code, grid, am_i_red) => {
+    const run = async (mode, code, grid, am_i_red) => {
         let red = []
         let blue = []
         foreach(grid, (v, x, y) => {
@@ -303,7 +345,7 @@ json.dumps(evolve(red,blue,grid))
         red.sort(sorter)
         blue.sort(sorter)
 
-        let result = await evaluate(code, red, blue, width, height)
+        let result = await evaluate(mode, code, red, blue, width, height)
 
         if (!Array.isArray(result)) throw new Error('not array')
 
@@ -395,11 +437,22 @@ json.dumps(evolve(red,blue,grid))
     }
 
     let grid = initial_game(width, height)
-
+    const redModeE = document.getElementById('red-mode')
+    const blueModeE = document.getElementById('blue-mode')
     const setupConsoleLog = (red_editor, blue_editor) => {
+        redModeE.addEventListener('change', () => {
+            red_editor.getSession().setMode("ace/mode/" + redModeE.value);
+        })
+        blueModeE.addEventListener('change', () => {
+            blue_editor.getSession().setMode("ace/mode/" + blueModeE.value);
+        })
         document.getElementById('red-try').addEventListener('click', async () => {
             try {
-                console.log('red evolution', await run(red_editor.getValue(), grid, true))
+                console.log('red evolution', await run(
+                    redModeE.value,
+                    red_editor.getValue(),
+                    grid,
+                    true))
             } catch (e) {
                 console.error('red', e)
             }
@@ -407,7 +460,11 @@ json.dumps(evolve(red,blue,grid))
 
         document.getElementById('blue-try').addEventListener('click', async () => {
             try {
-                console.log('blue evolution', await run(blue_editor.getValue(), grid, false))
+                console.log('blue evolution', await run(
+                    blueModeE.value,
+                    blue_editor.getValue(),
+                    grid,
+                    false))
             } catch (e) {
                 console.error('blue', e)
             }
@@ -454,7 +511,7 @@ json.dumps(evolve(red,blue,grid))
         red_play_button.addEventListener('click', async () => {
             red_error.innerHTML = ''
             try {
-                grid = await run(red_editor.getValue(), grid, true)
+                grid = await run(redModeE.value, red_editor.getValue(), grid, true)
 
                 red_play_button.setAttribute('disabled', 'disabled')
                 red_editor.setReadOnly(true)
@@ -471,7 +528,7 @@ json.dumps(evolve(red,blue,grid))
         blue_play_button.addEventListener('click', async () => {
             blue_error.innerHTML = ''
             try {
-                grid = await run(blue_editor.getValue(), grid, false)
+                grid = await run(blueModeE.value, blue_editor.getValue(), grid, false)
 
                 blue_play_button.setAttribute('disabled', 'disabled')
                 blue_editor.setReadOnly(true)
@@ -576,7 +633,7 @@ json.dumps(evolve(red,blue,grid))
                 play_button.addEventListener('click', async () => {
                     errorE.innerHTML = ''
                     try {
-                        grid = await run(my_editor.getValue(), grid, am_i_red)
+                        grid = await run(am_i_red ? redModeE.value : blueModeE.value, my_editor.getValue(), grid, am_i_red)
                         play_button.setAttribute('disabled', 'disabled')
                         my_editor.setReadOnly(true)
 
