@@ -96,8 +96,18 @@
 Code is at: https://github.com/jackdoe/programming-for-kids
 
 Rules:
-  * bigger number wins
   * join your forces to increase the number on one position
+  * bigger number wins, but takes up to smaller number damage
+  * pattern:
+        (red)
+        *       *
+            *
+
+        (blue)
+            *   
+        *       *
+     spawns a  number in the empty space
+  * things are sorted left to right, and top to bottom      
   * you can move +-2 in x and y direction
     </pre>
 </div>
@@ -220,9 +230,12 @@ Rules:
         })
         let sorter = (a, b) => {
             let diffX = a.x - b.x
-            if (diffX == 0) return diffX
+            let diffY = a.y - b.y
+
+            if (diffX == 0) return diffY == 0 ? 0 : diffY > 0 ? 1 : -1
             return diffX > 0 ? 1 : -1
         }
+
         red.sort(sorter)
         blue.sort(sorter)
 
@@ -268,6 +281,7 @@ Rules:
                 evolved_grid[r.y][r.x] += r.value
             }
         }
+
         for (let r of result) {
             let current = evolved_grid[r.y][r.x]
             if (Math.abs(current + r.value) == 0) {
@@ -278,14 +292,46 @@ Rules:
                 evolved_grid[r.y][r.x] += r.value
             } else {
                 if (current > Math.abs(r.value)) {
-                    // it consumes us
-                    evolved_grid[r.y][r.x] = current
+                    // it consumes us and we damage it
+                    let damage = -Math.floor((Math.random() * r.value) + 0.5)
+                    evolved_grid[r.y][r.x] = current + damage
                 } else {
-                    // we consume it
-                    evolved_grid[r.y][r.x] = r.value
+                    // we consume it and take damage
+                    let damage = -Math.floor((Math.random() * current) + 0.5)
+                    evolved_grid[r.y][r.x] = r.value + damage
                 }
             }
         }
+
+        const is_mine = (x, y) => {
+            let v = evolved_grid[y][x]
+            return am_i_red ? v < 0 : v > 0
+        }
+
+        const is_empty = (x, y) => {
+            let v = evolved_grid[y][x]
+            return v == 0
+        }
+
+        // spawn number pattern
+        for (let y = 0; y < evolved_grid.length; y++) {
+            for (let x = 0; x < evolved_grid[0].length - 2; x++) {
+                // 1 in 10 chance to turn 
+                let zombie = ((Math.random() < 0.1) ? -1 : 1)
+                if (am_i_red) {
+                    if (is_mine(x, y) && is_empty(x + 1, y) && is_mine(x + 2, y) &&
+                        is_empty(x, y + 1) && is_mine(x + 1, y + 1) && is_empty(x + 2, y + 1)) {
+                        evolved_grid[y][x + 1] = zombie * -randint(1, 3)
+                    }
+                } else {
+                    if (is_empty(x, y) && is_mine(x + 1, y) && is_empty(x + 2, y) &&
+                        is_mine(x, y + 1) && is_empty(x + 1, y + 1) && is_mine(x + 2, y + 1)) {
+                        evolved_grid[y + 1][x + 1] = zombie * randint(1, 3)
+                    }
+                }
+            }
+        }
+
         return evolved_grid
     }
 
@@ -381,7 +427,7 @@ Rules:
             }
         })
 
-        setupConsoleLog(red_editor,blue_editor)
+        setupConsoleLog(red_editor, blue_editor)
     } else {
         if (id.length < 3) {
             id = uuid() + '-a'
@@ -486,7 +532,7 @@ Rules:
 
                 let red_editor = am_i_red ? my_editor : enemy_editor
                 let blue_editor = am_i_red ? enemy_editor : my_editor
-                setupConsoleLog(red_editor,blue_editor)
+                setupConsoleLog(red_editor, blue_editor)
             }
 
             if (id.endsWith('-b')) {
