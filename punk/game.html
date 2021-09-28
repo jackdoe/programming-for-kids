@@ -3,7 +3,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
 
 <style>
     body,
@@ -48,10 +49,6 @@
 
     #blue-editor {
         background: rgba(0, 0, 255, 0.07) !important
-    }
-
-    iframe {
-        display: none
     }
 
     #loading {
@@ -113,42 +110,48 @@ Rules:
 
 examples (red):
 
-function evolve({ red, blue, grid }) {
-    for (let r of red) {
-        r.x--
-        r.y+=2
-    }
+def evolve(red, blue, grid): 
+    print(red)
+    for r in red:
+        r["x"] += 1
+        r["y"] += 2
     return red
-}
 
-function evolve({ red, blue, grid }) {
-    let i = 0
-    for (let r of red) {
-        if (i % 2 != 0) {
-            r.y+=2
-        } else {
-            r.y ++
-        }
-        i++
-    }
+def evolve(red, blue, grid): 
+    if grid[0][5] != None:
+        grid[0][5]["y"] += 1
     return red
-}
 
-function evolve({ red, blue, grid }) {
-    if (grid[1][6] &lt; 0) {
-        red.filter(r => r.x == 6 && r.y == 0)[0].y+=2
-    } else {
-        red[6].y++
-    }
+def evolve(red, blue, grid):
+    for row in grid:
+        for v in row:
+            if v != None and "red" in v:
+                v["x"] += 1
+                v["y"] += 2
     return red
-}
+
+def evolve(red, blue, grid):
+    for (i,r) in enumerate(red):
+        if i % 2 != 0:
+            r["y"] += 1
+        else:
+            r["y"] += 2
+    return red
+
+def evolve(red, blue, grid):
+    for r in red:
+        if r["x"] % 2 != 0:
+            r["y"] += 1
+        else:
+            r["y"] += 2
+    return red
+
 
 * license:
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br>
 
     </pre>
 </div>
-<iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
 <script>
     const sleep = function (ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -165,19 +168,39 @@ function evolve({ red, blue, grid }) {
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
-    // FIXME: this is horrible, I dont know how safe it is even through the iframe sandbox
-    const evaluate = async function (code) {
-        const frame = document.getElementById('frame')
-        frame.contentWindow.postMessage(code, '*');
-
-        let data = undefined
-        const cb = function (e) { data = e.data }
-        window.addEventListener('message', cb);
-        while (!data) {
-            await sleep(100)
+    let pyodide = undefined
+    loadPyodide({
+        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+    }).then(f => {
+        pyodide = f
+    }).catch(e => {
+        console.error(e)
+    })
+    const evaluate = async function (code, red, blue, width, height) {
+        if (!pyodide) {
+            throw new Error("not loaded yet")
         }
-        window.removeEventListener('message', cb)
-        return data
+        let p = `
+import json
+red=json.loads('${JSON.stringify(red)}')
+blue=json.loads('${JSON.stringify(blue)}')
+grid = []
+for y in range(0,${height}):
+    grid.append([])
+    for x in range(0, ${width}):
+        grid[y].append(None)
+for r in red:
+    grid[r["y"]][r["x"]] = r
+for r in blue:
+    grid[r["y"]][r["x"]] = r    
+
+${code}
+
+json.dumps(evolve(red,blue,grid))
+`
+        let data = pyodide.runPython(p)
+
+        return JSON.parse(data)
     }
     const new_empty_grid = (w, h) => {
         let grid = []
@@ -261,7 +284,7 @@ function evolve({ red, blue, grid }) {
         let blue = []
         foreach(grid, (v, x, y) => {
             if (v == 0) return;
-            let entry = { value: v, x: x, y: y, id: uuid() }
+            let entry = { value: v, x: x, y: y, id: uuid(), red: v < 0, blue: v > 0 }
             if (v < 0) red.push(entry)
             else blue.push(entry)
         })
@@ -276,13 +299,8 @@ function evolve({ red, blue, grid }) {
         red.sort(sorter)
         blue.sort(sorter)
 
-        let message = '(' + code + ')(' + JSON.stringify({
-            red, blue, grid
-        }) + ')'
-        let result = await evaluate(message)
-        if (result.error) {
-            throw (result.error)
-        }
+        let result = await evaluate(code, red, blue, width, height)
+
         if (!Array.isArray(result)) throw new Error('not array')
 
         let by_uuid = {}
@@ -351,7 +369,7 @@ function evolve({ red, blue, grid }) {
         }
 
         // spawn number pattern
-        for (let y = 0; y < evolved_grid.length-1; y++) {
+        for (let y = 0; y < evolved_grid.length - 1; y++) {
             for (let x = 0; x < evolved_grid[0].length - 2; x++) {
                 // 1 in 10 chance to turn 
                 let zombie = ((Math.random() < 0.1) ? -1 : 1)
@@ -404,19 +422,19 @@ function evolve({ red, blue, grid }) {
         let red_editor = ace.edit("red-editor");
         red_editor.getSession().setUseWorker(false);
         red_editor.setReadOnly(true)
-        red_editor.getSession().setMode("ace/mode/javascript");
-        red_editor.setValue(`function evolve({ red, blue, grid }) {
+        red_editor.getSession().setMode("ace/mode/python");
+        red_editor.setValue(`def evolve(red, blue, grid):
     return red
-}`)
+`)
         red_editor.clearSelection()
 
         let blue_editor = ace.edit("blue-editor");
         blue_editor.getSession().setUseWorker(false);
         blue_editor.setReadOnly(true)
-        blue_editor.getSession().setMode("ace/mode/javascript");
-        blue_editor.setValue(`function evolve({ red, blue, grid }) {
+        blue_editor.getSession().setMode("ace/mode/python");
+        blue_editor.setValue(`def evolve(red, blue, grid):
     return blue
-}`)
+`)
         blue_editor.clearSelection()
 
         const red_error = document.getElementById('red-error')
@@ -521,9 +539,9 @@ function evolve({ red, blue, grid }) {
                 enemy_editor.setReadOnly(true)
                 enemy_editor.getSession().setMode("ace/mode/javascript");
 
-                const initial = `function evolve({ red, blue, grid }) {
+                const initial = `def evolve(red, blue, grid):
     return ${am_i_red ? 'red' : 'blue'}
-}`
+`
                 enemy_editor.setValue(initial)
                 enemy_editor.clearSelection()
                 my_editor.setValue(initial)
