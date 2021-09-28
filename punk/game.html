@@ -120,6 +120,20 @@ function evolve({ red, blue, grid }) {
     }
     return red
 }
+
+function evolve({ red, blue, grid }) {
+    let i = 0
+    for (let r of red) {
+        if (i % 2 != 0) {
+            r.y+=2
+        } else {
+            r.y ++
+        }
+        i++
+    }
+    return red
+}
+
 function evolve({ red, blue, grid }) {
     if (grid[1][6] &lt; 0) {
         red.filter(r => r.x == 6 && r.y == 0)[0].y+=2
@@ -128,8 +142,6 @@ function evolve({ red, blue, grid }) {
     }
     return red
 }
-
-etc
 
 * license:
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br>
