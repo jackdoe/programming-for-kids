@@ -2,7 +2,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.min.js"></script>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
 
@@ -146,6 +145,11 @@ def evolve(red, blue, grid):
             r["y"] += 2
     return red
 
+
+def evolve(red, blue, grid):
+    # you can print and use console.log to debug
+    print(blue)
+    return blue
 
 * license:
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br>
@@ -527,7 +531,7 @@ json.dumps(evolve(red,blue,grid))
                 const my_editor = ace.edit(am_i_red ? "red-editor" : "blue-editor");
                 my_editor.getSession().setUseWorker(false);
                 my_editor.setReadOnly(true)
-                my_editor.getSession().setMode("ace/mode/javascript");
+                my_editor.getSession().setMode("ace/mode/python");
                 my_editor.getSession().on('change', function () {
                     conn.send(JSON.stringify({ code: my_editor.getValue() }))
                 });
@@ -537,7 +541,7 @@ json.dumps(evolve(red,blue,grid))
                 const enemy_editor = ace.edit(enemy_editor_id);
                 enemy_editor.getSession().setUseWorker(false);
                 enemy_editor.setReadOnly(true)
-                enemy_editor.getSession().setMode("ace/mode/javascript");
+                enemy_editor.getSession().setMode("ace/mode/python");
 
                 const initial = `def evolve(red, blue, grid):
     return ${am_i_red ? 'red' : 'blue'}
