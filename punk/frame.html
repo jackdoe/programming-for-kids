@@ -1,0 +1,12 @@
+<script>
+    window.addEventListener('message', function (e) {
+        var mainWindow = e.source;
+        var result = undefined;
+        try {
+            result = eval(e.data);
+        } catch (err) {
+            result = { error: err.message, };
+        }
+        mainWindow.postMessage(result, e.origin);
+    });
+</script>
