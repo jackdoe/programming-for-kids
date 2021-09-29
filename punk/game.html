@@ -322,17 +322,25 @@ json.dumps(evolve(red,blue,grid))
         }
         x_labels()
         line_of_dashes()
+        const fix = (s) => {
+            if (s.length == 0) return `   `
+            if (s.length == 1) return ` ${s} `
+            if (s.length == 2) return ` ${s}`
+            if (s.length == 3) return `${s}`
+            return s
+
+        }
         for (let y = 0; y < grid.length; y++) {
             text += (y + '').padStart(2, ' ') + '|'
             for (let x = 0; x < grid[0].length; x++) {
                 let v = grid[y][x]
-                let symbol = ' '
+                let symbol = '   '
                 if (v < 0) {
-                    symbol = `<red>${(Math.abs(v) + '').padStart(1, ' ')}</red>`
+                    symbol = `<red>${fix(Math.abs(v) + '')}</red>`
                 } else if (v > 0) {
-                    symbol = `<blue>${(v + '').padStart(1, ' ')}</blue>`
+                    symbol = `<blue>${fix(v + '')}</blue>`
                 }
-                text += ` ${symbol} |`
+                text += `${symbol}|`
             }
             text += '\n'
         }
@@ -546,7 +554,6 @@ json.dumps(evolve(red,blue,grid))
 
         let red_editor = ace.edit("red-editor");
         red_editor.getSession().setUseWorker(false);
-        red_editor.setReadOnly(true)
         red_editor.getSession().setMode("ace/mode/python");
         red_editor.setValue(`def evolve(red, blue, grid):
     return red
@@ -555,7 +562,6 @@ json.dumps(evolve(red,blue,grid))
 
         let blue_editor = ace.edit("blue-editor");
         blue_editor.getSession().setUseWorker(false);
-        blue_editor.setReadOnly(true)
         blue_editor.getSession().setMode("ace/mode/python");
         blue_editor.setValue(`def evolve(red, blue, grid):
     return blue
@@ -569,7 +575,6 @@ json.dumps(evolve(red,blue,grid))
         const blue_play_button = document.getElementById('blue-go')
 
         red_play_button.removeAttribute('disabled')
-        red_editor.setReadOnly(false)
 
 
         red_play_button.addEventListener('click', async () => {
@@ -578,10 +583,8 @@ json.dumps(evolve(red,blue,grid))
                 grid = await run(redModeE.value, red_editor.getValue(), grid, true)
                 store_grid_in_hash(grid)
                 red_play_button.setAttribute('disabled', 'disabled')
-                red_editor.setReadOnly(true)
 
                 blue_play_button.removeAttribute('disabled')
-                blue_editor.setReadOnly(false)
 
                 draw(grid, header('blue'))
             } catch (e) {
@@ -596,10 +599,7 @@ json.dumps(evolve(red,blue,grid))
                 store_grid_in_hash(grid)
 
                 blue_play_button.setAttribute('disabled', 'disabled')
-                blue_editor.setReadOnly(true)
-
                 red_play_button.removeAttribute('disabled')
-                red_editor.setReadOnly(false)
 
                 draw(grid, header('red'))
             } catch (e) {
@@ -654,7 +654,6 @@ json.dumps(evolve(red,blue,grid))
                 document.getElementById(my_editor_id).style.display = 'block'
                 const my_editor = ace.edit(am_i_red ? "red-editor" : "blue-editor");
                 my_editor.getSession().setUseWorker(false);
-                my_editor.setReadOnly(true)
                 my_editor.getSession().setMode("ace/mode/python");
                 my_editor.getSession().on('change', function () {
                     conn.send(JSON.stringify({ code: my_editor.getValue() }))
@@ -664,8 +663,8 @@ json.dumps(evolve(red,blue,grid))
                 document.getElementById(enemy_editor_id).style.display = 'block'
                 const enemy_editor = ace.edit(enemy_editor_id);
                 enemy_editor.getSession().setUseWorker(false);
-                enemy_editor.setReadOnly(true)
                 enemy_editor.getSession().setMode("ace/mode/python");
+                enemy_editor.setReadOnly(true)
 
                 const initial = `def evolve(red, blue, grid):
     return ${am_i_red ? 'red' : 'blue'}
@@ -676,7 +675,6 @@ json.dumps(evolve(red,blue,grid))
                 my_editor.clearSelection()
                 if (am_i_red) {
                     play_button.removeAttribute('disabled')
-                    my_editor.setReadOnly(false)
                 }
                 conn.on('data', async function (data) {
                     let parsed = JSON.parse(data)
@@ -694,7 +692,6 @@ json.dumps(evolve(red,blue,grid))
                     enemy_editor.clearSelection()
 
                     play_button.removeAttribute('disabled')
-                    my_editor.setReadOnly(false)
                     draw(grid, header(am_i_red, am_i_red ? 'red' : 'blue'))
                 });
 
@@ -705,7 +702,6 @@ json.dumps(evolve(red,blue,grid))
                         store_grid_in_hash(grid)
 
                         play_button.setAttribute('disabled', 'disabled')
-                        my_editor.setReadOnly(true)
 
                         conn.send(JSON.stringify({ code: my_editor.getValue(), grid }))
 
