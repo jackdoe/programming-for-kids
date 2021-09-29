@@ -1,6 +1,11 @@
 
 ## [DAY-126] Basics of Basics
-## [DAY-127] Basics of Basics
-## [DAY-128] Basics of Basics
-## [DAY-129] Basics of Basics
+
+![game-126.png](./screenshots/game-126.png "game 126 screenshot")
+
+
+Save and load the position of the elf
+
+Play hide and seek after that!
+
 

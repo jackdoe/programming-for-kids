@@ -10376,6 +10376,51 @@ pgzrun.go()
 ```
 
 ## [DAY-126] Basics of Basics
+
+![game-126.png](./screenshots/game-126.png "game 126 screenshot")
+
+
+Save and load the position of the elf
+
+Play hide and seek after that!
+
+
+```
+import pgzrun
+
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor('c1')
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+
+def update():
+    if keyboard.UP:
+        elf.y -= 5
+    if keyboard.LEFT:
+        elf.x -= 5
+    if keyboard.RIGHT:
+        elf.x += 5
+    if keyboard.DOWN:
+        elf.y += 5
+    if keyboard.S:
+        f = open('save','w')
+        f.write('MAGIC HEADER\n' + str(elf.x) + '\n' + str(elf.y) + '\n')
+        f.close()
+    if keyboard.B:
+        f = open("save","r")
+        lines = f.readlines()
+        if (lines[0].startswith('MAGIC HEADER')):
+            elf.x = float(lines[1])
+            elf.y = float(lines[2])
+        f.close()
+
+       
+def draw():
+    elf.draw()
+pgzrun.go()
+```
 ## [DAY-127] Basics of Basics
 ## [DAY-128] Basics of Basics
 ## [DAY-129] Basics of Basics
