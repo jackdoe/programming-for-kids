@@ -490,14 +490,14 @@ json.dumps(evolve(red,blue,grid))
         return g
     }
     const store_grid_in_hash = function (grid) {
-        let [left, right] = window.location.hash.substring(1).split('|')
+        let [left, right] = window.location.hash.substring(1).split('@')
 
-        window.location.hash = left + '|' + (encode_grid(grid))
+        window.location.hash = left + '@' + (encode_grid(grid))
     }
 
     const load_grid_from_hash = function () {
         // super easy to hack
-        let [left, right] = window.location.hash.substring(1).split('|')
+        let [left, right] = window.location.hash.substring(1).split('@')
         if (right) {
             try {
                 let g = decode_grid(right)
@@ -542,7 +542,7 @@ json.dumps(evolve(red,blue,grid))
             }
         })
     }
-    let id = window.location.hash.substring(1).split('|')[0]
+    let id = window.location.hash.substring(1).split('@')[0]
     if (id == 'local') {
         document.getElementById('loading').style.display = 'none'
         const header = (turn) => {
@@ -636,7 +636,7 @@ json.dumps(evolve(red,blue,grid))
 
         const loading = document.getElementById('loading')
         const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
-        loading.innerHTML += `<textarea style="color: white; background-color: black; border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${other}|${encode_grid(grid)}</textarea>`
+        loading.innerHTML += `<textarea style="color: white; background-color: black; border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${other}@${encode_grid(grid)}</textarea>`
 
         const reconnect_screen = () => {
             loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh<br>'
