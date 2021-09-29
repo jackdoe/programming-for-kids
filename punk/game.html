@@ -15,6 +15,11 @@
         margin: 0;
     }
 
+    iframe {
+        display: none
+    }
+
+
     #red-go {
         background-color: red;
         color: white;
@@ -94,6 +99,7 @@
         <option>javascript</option>
     </select><br>
     <div id="blue-editor" style="height: 150px; width: 100%"></div>
+    <iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
     <hr>
     <pre>
 Code is at: https://github.com/jackdoe/programming-for-kids
@@ -168,9 +174,12 @@ function evolve({red,blue,grid}) {
     return red
 }
 
-* license:
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br>
+* cheating
+  there is some cheating allowed by modifying the grid state in 
+  the location.hash, this is great opportunity to teach about 
+  validating user input in practice.
 
+* license: <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
     </pre>
 </div>
 <script>
@@ -197,6 +206,19 @@ function evolve({red,blue,grid}) {
     }).catch(e => {
         console.error(e)
     })
+    const sandbox_eval = async function (code) {
+        const frame = document.getElementById('frame')
+        frame.contentWindow.postMessage(code, '*');
+
+        let data = undefined
+        const cb = function (e) { data = e.data }
+        window.addEventListener('message', cb);
+        while (!data) {
+            await sleep(100)
+        }
+        return data
+        window.removeEventListener('message', cb)
+    }
     const evaluate = async function (mode, code, red, blue, width, height) {
         // FIXME: this is totally unsafe, but since its your code..
         if (mode == 'python') {
@@ -225,14 +247,6 @@ json.dumps(evolve(red,blue,grid))
 
             return JSON.parse(data)
         } else if (mode == 'javascript') {
-            /*
-function evolve({red,blue,grid}) {
-    for (let r in red) {
-        r.x ++
-        r.y += 2
-    }
-    return red
-}*/
             let redX = JSON.parse(JSON.stringify(red))
             let blueX = JSON.parse(JSON.stringify(blue))
             let gridX = []
@@ -244,7 +258,8 @@ function evolve({red,blue,grid}) {
             }
             for (let r of redX) gridX[r.y][r.x] = r
             for (let r of blueX) gridX[r.y][r.x] = r
-            return eval(`(${code})`)({ red: redX, blue: blueX, grid: gridX })
+            let message = '(' + code + ')(' + JSON.stringify({ red: redX, blue: blueX, grid: gridX }) + ')'
+            return await sandbox_eval(message)
         }
     }
 
@@ -435,8 +450,54 @@ function evolve({red,blue,grid}) {
 
         return evolved_grid
     }
+    const encode_grid = function (grid) {
+        let xyv = []
+        for (let y = 0; y < grid.length; y++) {
+            for (let x = 0; x < grid[y].length; x++) {
+                let v = grid[y][x]
+                if (v != 0) {
+                    xyv.push(x, y, v)
+                }
+            }
+        }
+        return (JSON.stringify(xyv))
+    }
+    const decode_grid = function (s) {
+        let xyv = JSON.parse(s)
+        if (!Array.isArray(xyv))
+            throw new Error("not an array")
+        let g = new_empty_grid(width, height)
 
-    let grid = initial_game(width, height)
+        for (let i = 0; i < xyv.length; i += 3) {
+            let x = parseInt(xyv[i])
+            let y = parseInt(xyv[i + 1])
+            let v = parseInt(xyv[i + 2])
+            if (x >= 0 && x <= width && y >= 0 && y <= height && v < 100000) {
+                g[y][x] = v
+            }
+        }
+        return g
+    }
+    const store_grid_in_hash = function (grid) {
+        let [left, right] = window.location.hash.substring(1).split('|')
+
+        window.location.hash = left + '|' + (encode_grid(grid))
+    }
+
+    const load_grid_from_hash = function () {
+        // super easy to hack
+        let [left, right] = window.location.hash.substring(1).split('|')
+        if (right) {
+            try {
+                let g = decode_grid(right)
+                return g
+            } catch (e) {
+                console.error(e)
+            }
+        }
+        return initial_game(width, height)
+    }
+    let grid = load_grid_from_hash()
     const redModeE = document.getElementById('red-mode')
     const blueModeE = document.getElementById('blue-mode')
     const setupConsoleLog = (red_editor, blue_editor) => {
@@ -470,7 +531,7 @@ function evolve({red,blue,grid}) {
             }
         })
     }
-    let id = window.location.hash.substring(1)
+    let id = window.location.hash.substring(1).split('|')[0]
     if (id == 'local') {
         document.getElementById('loading').style.display = 'none'
         const header = (turn) => {
@@ -512,7 +573,7 @@ function evolve({red,blue,grid}) {
             red_error.innerHTML = ''
             try {
                 grid = await run(redModeE.value, red_editor.getValue(), grid, true)
-
+                store_grid_in_hash(grid)
                 red_play_button.setAttribute('disabled', 'disabled')
                 red_editor.setReadOnly(true)
 
@@ -529,6 +590,7 @@ function evolve({red,blue,grid}) {
             blue_error.innerHTML = ''
             try {
                 grid = await run(blueModeE.value, blue_editor.getValue(), grid, false)
+                store_grid_in_hash(grid)
 
                 blue_play_button.setAttribute('disabled', 'disabled')
                 blue_editor.setReadOnly(true)
@@ -571,10 +633,12 @@ function evolve({red,blue,grid}) {
 
         const loading = document.getElementById('loading')
         const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
-        loading.innerHTML += '<textarea style="color: white; background-color: black; border: 0px;resize: none" rows=1 disabled cols=100>' + window.location.href.split('#')[0] + '#' + other + '</textarea>'
+        loading.innerHTML += `<textarea style="color: white; background-color: black; border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${other}|${encode_grid(grid)}</textarea>`
 
         const reconnect_screen = () => {
-            loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh'
+            loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh<br>'
+            loading.innerHTML += `grid state: ${encode_grid(grid)}`
+
             loading.style.display = 'block'
             document.getElementById('red-editor').style.display = 'none'
             document.getElementById('blue-editor').style.display = 'none'
@@ -622,6 +686,7 @@ function evolve({red,blue,grid}) {
                     // FIXME: validate the positions
                     // super easy to hack this, but its just for fun anyway
                     grid = parsed.grid
+                    store_grid_in_hash(grid)
                     enemy_editor.setValue(parsed.code)
                     enemy_editor.clearSelection()
 
@@ -634,6 +699,8 @@ function evolve({red,blue,grid}) {
                     errorE.innerHTML = ''
                     try {
                         grid = await run(am_i_red ? redModeE.value : blueModeE.value, my_editor.getValue(), grid, am_i_red)
+                        store_grid_in_hash(grid)
+
                         play_button.setAttribute('disabled', 'disabled')
                         my_editor.setReadOnly(true)
 
