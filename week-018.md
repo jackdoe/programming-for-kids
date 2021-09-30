@@ -370,6 +370,31 @@ def draw():
 pgzrun.go()
 ```
 ## [DAY-127] Basics of Basics
+
+super short, make the actor walk
+
+```
+from itertools import cycle
+import pgzrun
+WIDTH=200
+HEIGHT=200
+
+elf = Actor("c1")
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+poses = cycle(["player/tiles-46","player/tiles-47","player/tiles-48","player/tiles-49","player/tiles-50","player/tiles-51"])
+def make_actor_move():
+    elf.image = next(poses)
+clock.schedule_interval(make_actor_move, 0.4)
+
+def draw()
+    screen.fill("black")
+    elf.draw()
+
+pgzrun.go()
+
+```
+
 ## [DAY-128] Basics of Basics
 ## [DAY-129] Basics of Basics
 
