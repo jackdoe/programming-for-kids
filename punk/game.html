@@ -1,107 +1,114 @@
-<!-- FIXME: dont load those in local mode, no need to leak data to them -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+<html>
 
-<style>
-    body,
-    pre,
-    textarea {
-        font-family: monospace;
-        font-size: 14px;
-        margin: 0;
-    }
+<head>
+    <title>戦 PUNK</title>
+    <!-- FIXME: dont load those in local mode, no need to leak data to them -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
 
-    iframe {
-        display: none
-    }
+    <style>
+        body,
+        pre,
+        textarea {
+            font-family: monospace;
+            font-size: 14px;
+            margin: 0;
+        }
 
-
-    #red-go {
-        background-color: red;
-        color: white;
-    }
-
-    #blue-go {
-        background-color: blue;
-        color: white;
-    }
-
-    #blue-go:disabled {
-        background-color: gray;
-        color: white;
-    }
-
-    #red-go:disabled {
-        background-color: gray;
-        color: white;
-    }
-
-    red {
-        color: red;
-    }
-
-    blue {
-        color: blue;
-    }
-
-    #red-editor {
-        background: rgba(255, 0, 0, 0.07) !important
-    }
-
-    #blue-editor {
-        background: rgba(0, 0, 255, 0.07) !important
-    }
-
-    #loading {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        color: white;
-    }
-
-    #editor {
-        display: none;
-    }
+        iframe {
+            display: none
+        }
 
 
-    .error {
-        color: white;
-        background-color: tomato;
-    }
-</style>
-<div id='loading'>
-    <h1>
-        戦
-    </h1>
-    <p>
-        Code is at: https://github.com/jackdoe/programming-for-kids<br><br>
-        If you want to play locally, click <a href='#local' target="_blank">here</a><br>
-        You need another player.<br>
-        Send them this link to play:
-    </p>
-</div>
-<div style="margin: 5px">
-    <div class='error' id='red-error'></div>
-    <button disabled id='red-go'>play</button> <button id='red-try'>console.log</button> <select id='red-mode'>
-        <option selected>python</option>
-        <option>javascript</option>
-    </select><br>
-    <div id="red-editor" style="height: 150px; width: 100%"></div>
-    <pre id='game'></pre>
-    <div class='error' id='blue-error'></div>
-    <button disabled id='blue-go'>play</button> <button id='blue-try'>console.log</button> <select id='blue-mode'>
-        <option selected>python</option>
-        <option>javascript</option>
-    </select><br>
-    <div id="blue-editor" style="height: 150px; width: 100%"></div>
-    <iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
-    <hr>
-    <pre>
+        #red-go {
+            background-color: red;
+            color: white;
+        }
+
+        #blue-go {
+            background-color: blue;
+            color: white;
+        }
+
+        #blue-go:disabled {
+            background-color: gray;
+            color: white;
+        }
+
+        #red-go:disabled {
+            background-color: gray;
+            color: white;
+        }
+
+        red {
+            color: red;
+        }
+
+        blue {
+            color: blue;
+        }
+
+        #red-editor {
+            background: rgba(255, 0, 0, 0.07) !important
+        }
+
+        #blue-editor {
+            background: rgba(0, 0, 255, 0.07) !important
+        }
+
+        #loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+        }
+
+        #editor {
+            display: none;
+        }
+
+
+        .error {
+            color: white;
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='loading'>
+        <h1>
+            戦
+        </h1>
+        <p>
+            Code is at: https://github.com/jackdoe/programming-for-kids<br><br>
+            If you want to play locally, click <a href='#local' target="_blank">here</a><br>
+            <br>
+            Or send your friend this link to play:
+        </p>
+    </div>
+    <div style="margin: 5px">
+        <div class='error' id='red-error'></div>
+        <button disabled id='red-go'>play</button> <button id='red-try'>console.log</button> <select id='red-mode'>
+            <option selected>python</option>
+            <option>javascript</option>
+        </select><br>
+        <div id="red-editor" style="height: 150px; width: 100%"></div>
+        <pre id='game'></pre>
+        <div class='error' id='blue-error'></div>
+        <button disabled id='blue-go'>play</button> <button id='blue-try'>console.log</button> <select id='blue-mode'>
+            <option selected>python</option>
+            <option>javascript</option>
+        </select><br>
+        <div id="blue-editor" style="height: 150px; width: 100%"></div>
+        <iframe sandbox='allow-scripts' src="frame.html" id='frame'></iframe>
+        <hr>
+        <pre>
 Code is at: https://github.com/jackdoe/programming-for-kids
 
 Rules:
@@ -179,56 +186,57 @@ function evolve({red,blue,grid}) {
   the location.hash, this is great opportunity to teach about 
   validating user input in practice.
 
-  the format is [x,y,value,x,y,value...] so [2,1,-5] will spawn <red>5</red> on x=2 and y=1
+  the format is [x,y,value,x,y,value...] so [2,1,-5] will 
+  spawn <red>5</red> on x=2 and y=1
 
 * license:
   <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
-    </pre>
-</div>
-<script>
-    const sleep = function (ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    const uuid = function () {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    }
-
-    const randint = function (min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min)
-    }
-
-    let pyodide = undefined
-    loadPyodide({
-        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
-    }).then(f => {
-        pyodide = f
-    }).catch(e => {
-        console.error(e)
-    })
-    const sandbox_eval = async function (code) {
-        const frame = document.getElementById('frame')
-        frame.contentWindow.postMessage(code, '*');
-
-        let data = undefined
-        const cb = function (e) { data = e.data }
-        window.addEventListener('message', cb);
-        while (!data) {
-            await sleep(100)
+</pre>
+    </div>
+    <script>
+        const sleep = function (ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
-        return data
-        window.removeEventListener('message', cb)
-    }
-    const evaluate = async function (mode, code, red, blue, width, height) {
-        // FIXME: this is totally unsafe, but since its your code..
-        if (mode == 'python') {
-            if (!pyodide) {
-                throw new Error("python is not loaded yet, try to click the button again in few seconds")
+
+        const uuid = function () {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        const randint = function (min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        let pyodide = undefined
+        loadPyodide({
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+        }).then(f => {
+            pyodide = f
+        }).catch(e => {
+            console.error(e)
+        })
+        const sandbox_eval = async function (code) {
+            const frame = document.getElementById('frame')
+            frame.contentWindow.postMessage(code, '*');
+
+            let data = undefined
+            const cb = function (e) { data = e.data }
+            window.addEventListener('message', cb);
+            while (!data) {
+                await sleep(100)
             }
-            let p = `
+            return data
+            window.removeEventListener('message', cb)
+        }
+        const evaluate = async function (mode, code, red, blue, width, height) {
+            // FIXME: this is totally unsafe, but since its your code..
+            if (mode == 'python') {
+                if (!pyodide) {
+                    throw new Error("python is not loaded yet, try to click the button again in few seconds")
+                }
+                let p = `
 import json
 red=json.loads('${JSON.stringify(red)}')
 blue=json.loads('${JSON.stringify(blue)}')
@@ -246,493 +254,496 @@ ${code}
 
 json.dumps(evolve(red,blue,grid))
 `
-            let data = pyodide.runPython(p)
+                let data = pyodide.runPython(p)
 
-            return JSON.parse(data)
-        } else if (mode == 'javascript') {
-            let redX = JSON.parse(JSON.stringify(red))
-            let blueX = JSON.parse(JSON.stringify(blue))
-            let gridX = []
-            for (let y = 0; y < height; y++) {
-                gridX[y] = []
-                for (let x = 0; x < width; x++) {
-                    gridX[y].push(null)
+                return JSON.parse(data)
+            } else if (mode == 'javascript') {
+                let redX = JSON.parse(JSON.stringify(red))
+                let blueX = JSON.parse(JSON.stringify(blue))
+                let gridX = []
+                for (let y = 0; y < height; y++) {
+                    gridX[y] = []
+                    for (let x = 0; x < width; x++) {
+                        gridX[y].push(null)
+                    }
                 }
+                for (let r of redX) gridX[r.y][r.x] = r
+                for (let r of blueX) gridX[r.y][r.x] = r
+                let message = '(' + code + ')(' + JSON.stringify({ red: redX, blue: blueX, grid: gridX }) + ')'
+                return await sandbox_eval(message)
             }
-            for (let r of redX) gridX[r.y][r.x] = r
-            for (let r of blueX) gridX[r.y][r.x] = r
-            let message = '(' + code + ')(' + JSON.stringify({ red: redX, blue: blueX, grid: gridX }) + ')'
-            return await sandbox_eval(message)
         }
-    }
 
-    const new_empty_grid = (w, h) => {
-        let grid = []
-        for (let y = 0; y < h; y++) {
-            grid[y] = []
-            for (let x = 0; x < w; x++) {
-                grid[y][x] = 0
-            }
-        }
-        return grid
-    }
-    const initial_game = (w, h) => {
-        let grid = []
-        for (let y = 0; y < h; y++) {
-            grid[y] = []
-            for (let x = 0; x < w; x++) {
-                if (y == 0) {
-                    grid[y][x] = -1
-                } else if (y == h - 1) {
-                    grid[y][x] = 1
-                } else {
+        const new_empty_grid = (w, h) => {
+            let grid = []
+            for (let y = 0; y < h; y++) {
+                grid[y] = []
+                for (let x = 0; x < w; x++) {
                     grid[y][x] = 0
                 }
             }
+            return grid
         }
-        return grid
-    }
-    const foreach = (grid, cb) => {
-        for (let y = 0; y < grid.length; y++) {
-            for (let x = 0; x < grid[0].length; x++) {
-                cb(grid[y][x], x, y)
-            }
-        }
-    }
-    const width = 8
-    const height = 16
-    const step = 4
-
-    const draw = function (grid, header) {
-        const view = document.getElementById('game')
-
-        let text = '\n' + header + '\n\n'
-        const line_of_dashes = () => {
-            for (let x = 0; x < grid[0].length; x++) {
-                text += '----'
-            }
-            text += '---\n'
-        }
-        const x_labels = () => {
-            text += '   '
-            for (let x = 0; x < grid[0].length; x++) {
-                text += (x + '').padStart(2, ' ') + ' |'
-            }
-            text += '\n'
-        }
-        x_labels()
-        line_of_dashes()
-        const fix = (s) => {
-            if (s.length == 0) return `   `
-            if (s.length == 1) return ` ${s} `
-            if (s.length == 2) return ` ${s}`
-            if (s.length == 3) return `${s}`
-            return s
-
-        }
-        for (let y = 0; y < grid.length; y++) {
-            text += (y + '').padStart(2, ' ') + '|'
-            for (let x = 0; x < grid[0].length; x++) {
-                let v = grid[y][x]
-                let symbol = '   '
-                if (v < 0) {
-                    symbol = `<red>${fix(Math.abs(v) + '')}</red>`
-                } else if (v > 0) {
-                    symbol = `<blue>${fix(v + '')}</blue>`
+        const initial_game = (w, h) => {
+            let grid = []
+            for (let y = 0; y < h; y++) {
+                grid[y] = []
+                for (let x = 0; x < w; x++) {
+                    if (y == 0) {
+                        grid[y][x] = -1
+                    } else if (y == h - 1) {
+                        grid[y][x] = 1
+                    } else {
+                        grid[y][x] = 0
+                    }
                 }
-                text += `${symbol}|`
             }
+            return grid
+        }
+        const foreach = (grid, cb) => {
+            for (let y = 0; y < grid.length; y++) {
+                for (let x = 0; x < grid[0].length; x++) {
+                    cb(grid[y][x], x, y)
+                }
+            }
+        }
+        const width = 8
+        const height = 16
+        const step = 4
+
+        const draw = function (grid, header) {
+            const view = document.getElementById('game')
+
+            let text = '\n' + header + '\n\n'
+            const line_of_dashes = () => {
+                for (let x = 0; x < grid[0].length; x++) {
+                    text += '----'
+                }
+                text += '---\n'
+            }
+            const x_labels = () => {
+                text += '   '
+                for (let x = 0; x < grid[0].length; x++) {
+                    text += (x + '').padStart(2, ' ') + ' |'
+                }
+                text += '\n'
+            }
+            x_labels()
+            line_of_dashes()
+            const fix = (s) => {
+                if (s.length == 0) return `   `
+                if (s.length == 1) return ` ${s} `
+                if (s.length == 2) return ` ${s}`
+                if (s.length == 3) return `${s}`
+                return s
+
+            }
+            for (let y = 0; y < grid.length; y++) {
+                text += (y + '').padStart(2, ' ') + '|'
+                for (let x = 0; x < grid[0].length; x++) {
+                    let v = grid[y][x]
+                    let symbol = '   '
+                    if (v < 0) {
+                        symbol = `<red>${fix(Math.abs(v) + '')}</red>`
+                    } else if (v > 0) {
+                        symbol = `<blue>${fix(v + '')}</blue>`
+                    }
+                    text += `${symbol}|`
+                }
+                text += '\n'
+            }
+            line_of_dashes()
+            x_labels()
             text += '\n'
-        }
-        line_of_dashes()
-        x_labels()
-        text += '\n'
 
-        view.innerHTML = text
-    }
-
-    const run = async (mode, code, grid, am_i_red) => {
-        let red = []
-        let blue = []
-        foreach(grid, (v, x, y) => {
-            if (v == 0) return;
-            let entry = { value: v, x: x, y: y, id: uuid(), red: v < 0, blue: v > 0 }
-            if (v < 0) red.push(entry)
-            else blue.push(entry)
-        })
-        let sorter = (a, b) => {
-            let diffX = a.x - b.x
-            let diffY = a.y - b.y
-
-            if (diffX == 0) return diffY == 0 ? 0 : diffY > 0 ? 1 : -1
-            return diffX > 0 ? 1 : -1
+            view.innerHTML = text
         }
 
-        red.sort(sorter)
-        blue.sort(sorter)
+        const run = async (mode, code, grid, am_i_red) => {
+            let red = []
+            let blue = []
+            foreach(grid, (v, x, y) => {
+                if (v == 0) return;
+                let entry = { value: v, x: x, y: y, id: uuid(), red: v < 0, blue: v > 0 }
+                if (v < 0) red.push(entry)
+                else blue.push(entry)
+            })
+            let sorter = (a, b) => {
+                let diffX = a.x - b.x
+                let diffY = a.y - b.y
 
-        let result = await evaluate(mode, code, red, blue, width, height)
+                if (diffX == 0) return diffY == 0 ? 0 : diffY > 0 ? 1 : -1
+                return diffX > 0 ? 1 : -1
+            }
 
-        if (!Array.isArray(result)) throw new Error('not array')
+            red.sort(sorter)
+            blue.sort(sorter)
 
-        let by_uuid = {}
-        if (am_i_red) {
-            for (let r of red) {
-                by_uuid[r.id] = r
-            }
-        } else {
-            for (let r of blue) {
-                by_uuid[r.id] = r
-            }
-        }
-        result = result.filter(r => by_uuid[r.id])
+            let result = await evaluate(mode, code, red, blue, width, height)
 
-        for (let r of result) {
-            let orig = by_uuid[r.id]
-            if (Math.abs(r.x - orig.x) > 2 || r.x < 0 || r.x > width - 1) {
-                console.log('illegal move', { orig, r })
-                r.x = orig.x
-            }
-            if (Math.abs(r.y - orig.y) > 2 || r.y < 0 || r.y > height - 1) {
-                console.log('illegal move', { orig, r })
-                r.y = orig.y
-            }
-        }
-        let evolved_grid = new_empty_grid(width, height)
-        if (am_i_red) {
-            for (let b of blue) {
-                evolved_grid[b.y][b.x] += b.value
-            }
-        } else {
-            for (let r of red) {
-                evolved_grid[r.y][r.x] += r.value
-            }
-        }
+            if (!Array.isArray(result)) throw new Error('not array')
 
-        for (let r of result) {
-            let current = evolved_grid[r.y][r.x]
-            if (Math.abs(current + r.value) == 0) {
-                // we annihilate
-                evolved_grid[r.y][r.x] = 0
-            } else if ((am_i_red && current <= 0) || (!am_i_red && current >= 0)) {
-                // join with our number, or occupy empty space
-                evolved_grid[r.y][r.x] += r.value
+            let by_uuid = {}
+            if (am_i_red) {
+                for (let r of red) {
+                    by_uuid[r.id] = r
+                }
             } else {
-                if (current > Math.abs(r.value)) {
-                    // it consumes us and we damage it
-                    let damage = -Math.floor((Math.random() * r.value) + 0.5)
-                    evolved_grid[r.y][r.x] = current + damage
+                for (let r of blue) {
+                    by_uuid[r.id] = r
+                }
+            }
+            result = result.filter(r => by_uuid[r.id])
+
+            for (let r of result) {
+                let orig = by_uuid[r.id]
+                if (Math.abs(r.x - orig.x) > 2 || r.x < 0 || r.x > width - 1) {
+                    console.log('illegal move', { orig, r })
+                    r.x = orig.x
+                }
+                if (Math.abs(r.y - orig.y) > 2 || r.y < 0 || r.y > height - 1) {
+                    console.log('illegal move', { orig, r })
+                    r.y = orig.y
+                }
+            }
+            let evolved_grid = new_empty_grid(width, height)
+            if (am_i_red) {
+                for (let b of blue) {
+                    evolved_grid[b.y][b.x] += b.value
+                }
+            } else {
+                for (let r of red) {
+                    evolved_grid[r.y][r.x] += r.value
+                }
+            }
+
+            for (let r of result) {
+                let current = evolved_grid[r.y][r.x]
+                if (Math.abs(current + r.value) == 0) {
+                    // we annihilate
+                    evolved_grid[r.y][r.x] = 0
+                } else if ((am_i_red && current <= 0) || (!am_i_red && current >= 0)) {
+                    // join with our number, or occupy empty space
+                    evolved_grid[r.y][r.x] += r.value
                 } else {
-                    // we consume it and take damage
-                    let damage = -Math.floor((Math.random() * current) + 0.5)
-                    evolved_grid[r.y][r.x] = r.value + damage
-                }
-            }
-        }
-
-        const is_mine = (x, y) => {
-            let v = evolved_grid[y][x]
-            return am_i_red ? v < 0 : v > 0
-        }
-
-        const is_empty = (x, y) => {
-            let v = evolved_grid[y][x]
-            return v == 0
-        }
-
-        // spawn number pattern
-        for (let y = 0; y < evolved_grid.length - 1; y++) {
-            for (let x = 0; x < evolved_grid[0].length - 2; x++) {
-                // 1 in 10 chance to turn 
-                let zombie = ((Math.random() < 0.1) ? -1 : 1)
-                if (am_i_red) {
-                    if (is_mine(x, y) && is_empty(x + 1, y) && is_mine(x + 2, y) &&
-                        is_empty(x, y + 1) && is_mine(x + 1, y + 1) && is_empty(x + 2, y + 1)) {
-                        evolved_grid[y][x + 1] = zombie * -randint(1, 3)
-                    }
-                } else {
-                    if (is_empty(x, y) && is_mine(x + 1, y) && is_empty(x + 2, y) &&
-                        is_mine(x, y + 1) && is_empty(x + 1, y + 1) && is_mine(x + 2, y + 1)) {
-                        evolved_grid[y + 1][x + 1] = zombie * randint(1, 3)
+                    if (current > Math.abs(r.value)) {
+                        // it consumes us and we damage it
+                        let damage = -Math.floor((Math.random() * r.value) + 0.5)
+                        evolved_grid[r.y][r.x] = current + damage
+                    } else {
+                        // we consume it and take damage
+                        let damage = -Math.floor((Math.random() * current) + 0.5)
+                        evolved_grid[r.y][r.x] = r.value + damage
                     }
                 }
             }
-        }
 
-        return evolved_grid
-    }
-    const encode_grid = function (grid) {
-        let xyv = []
-        for (let y = 0; y < grid.length; y++) {
-            for (let x = 0; x < grid[y].length; x++) {
-                let v = grid[y][x]
-                if (v != 0) {
-                    xyv.push(x, y, v)
+            const is_mine = (x, y) => {
+                let v = evolved_grid[y][x]
+                return am_i_red ? v < 0 : v > 0
+            }
+
+            const is_empty = (x, y) => {
+                let v = evolved_grid[y][x]
+                return v == 0
+            }
+
+            // spawn number pattern
+            for (let y = 0; y < evolved_grid.length - 1; y++) {
+                for (let x = 0; x < evolved_grid[0].length - 2; x++) {
+                    // 1 in 10 chance to turn 
+                    let zombie = ((Math.random() < 0.1) ? -1 : 1)
+                    if (am_i_red) {
+                        if (is_mine(x, y) && is_empty(x + 1, y) && is_mine(x + 2, y) &&
+                            is_empty(x, y + 1) && is_mine(x + 1, y + 1) && is_empty(x + 2, y + 1)) {
+                            evolved_grid[y][x + 1] = zombie * -randint(1, 3)
+                        }
+                    } else {
+                        if (is_empty(x, y) && is_mine(x + 1, y) && is_empty(x + 2, y) &&
+                            is_mine(x, y + 1) && is_empty(x + 1, y + 1) && is_mine(x + 2, y + 1)) {
+                            evolved_grid[y + 1][x + 1] = zombie * randint(1, 3)
+                        }
+                    }
                 }
             }
+
+            return evolved_grid
         }
-        return (JSON.stringify(xyv))
-    }
-    const decode_grid = function (s) {
-        let xyv = JSON.parse(s)
-        if (!Array.isArray(xyv))
-            throw new Error("not an array")
-        let g = new_empty_grid(width, height)
-
-        for (let i = 0; i < xyv.length; i += 3) {
-            let x = parseInt(xyv[i])
-            let y = parseInt(xyv[i + 1])
-            let v = parseInt(xyv[i + 2])
-            if (x >= 0 && x <= width && y >= 0 && y <= height && v < 100000) {
-                g[y][x] = v
+        const encode_grid = function (grid) {
+            let xyv = []
+            for (let y = 0; y < grid.length; y++) {
+                for (let x = 0; x < grid[y].length; x++) {
+                    let v = grid[y][x]
+                    if (v != 0) {
+                        xyv.push(x, y, v)
+                    }
+                }
             }
+            return (JSON.stringify(xyv))
         }
-        return g
-    }
-    const store_grid_in_hash = function (grid) {
-        let [left, right] = window.location.hash.substring(1).split('@')
+        const decode_grid = function (s) {
+            let xyv = JSON.parse(s)
+            if (!Array.isArray(xyv))
+                throw new Error("not an array")
+            let g = new_empty_grid(width, height)
 
-        window.location.hash = left + '@' + (encode_grid(grid))
-    }
-
-    const load_grid_from_hash = function () {
-        // super easy to hack
-        let [left, right] = window.location.hash.substring(1).split('@')
-        if (right) {
-            try {
-                let g = decode_grid(right)
-                return g
-            } catch (e) {
-                console.error(e)
+            for (let i = 0; i < xyv.length; i += 3) {
+                let x = parseInt(xyv[i])
+                let y = parseInt(xyv[i + 1])
+                let v = parseInt(xyv[i + 2])
+                if (x >= 0 && x <= width && y >= 0 && y <= height && v < 100000) {
+                    g[y][x] = v
+                }
             }
+            return g
         }
-        return initial_game(width, height)
-    }
-    let grid = load_grid_from_hash()
-    const redModeE = document.getElementById('red-mode')
-    const blueModeE = document.getElementById('blue-mode')
-    const setupConsoleLog = (red_editor, blue_editor) => {
-        redModeE.addEventListener('change', () => {
-            red_editor.getSession().setMode("ace/mode/" + redModeE.value);
-        })
-        blueModeE.addEventListener('change', () => {
-            blue_editor.getSession().setMode("ace/mode/" + blueModeE.value);
-        })
-        document.getElementById('red-try').addEventListener('click', async () => {
-            try {
-                console.log('red evolution', await run(
-                    redModeE.value,
-                    red_editor.getValue(),
-                    grid,
-                    true))
-            } catch (e) {
-                console.error('red', e)
-            }
-        })
+        const store_grid_in_hash = function (grid) {
+            let [left, right] = window.location.hash.substring(1).split('@')
 
-        document.getElementById('blue-try').addEventListener('click', async () => {
-            try {
-                console.log('blue evolution', await run(
-                    blueModeE.value,
-                    blue_editor.getValue(),
-                    grid,
-                    false))
-            } catch (e) {
-                console.error('blue', e)
-            }
-        })
-    }
-    let id = window.location.hash.substring(1).split('@')[0]
-    if (id == 'local') {
-        document.getElementById('loading').style.display = 'none'
-        const header = (turn) => {
-            return `${turn == 'red' ? '<red>red</red>' : '<blue>blue</blue>'}'s turn`
+            window.location.hash = left + '@' + (encode_grid(grid))
         }
-        draw(grid, header('red'))
-        document.getElementById("red-editor").style.display = 'block'
-        document.getElementById("blue-editor").style.display = 'block'
 
-        let red_editor = ace.edit("red-editor");
-        red_editor.getSession().setUseWorker(false);
-        red_editor.getSession().setMode("ace/mode/python");
-        red_editor.setValue(`def evolve(red, blue, grid):
+        const load_grid_from_hash = function () {
+            // super easy to hack
+            let [left, right] = window.location.hash.substring(1).split('@')
+            if (right) {
+                try {
+                    let g = decode_grid(right)
+                    return g
+                } catch (e) {
+                    console.error(e)
+                }
+            }
+            return initial_game(width, height)
+        }
+        let grid = load_grid_from_hash()
+        const redModeE = document.getElementById('red-mode')
+        const blueModeE = document.getElementById('blue-mode')
+        const setupConsoleLog = (red_editor, blue_editor) => {
+            redModeE.addEventListener('change', () => {
+                red_editor.getSession().setMode("ace/mode/" + redModeE.value);
+            })
+            blueModeE.addEventListener('change', () => {
+                blue_editor.getSession().setMode("ace/mode/" + blueModeE.value);
+            })
+            document.getElementById('red-try').addEventListener('click', async () => {
+                try {
+                    console.log('red evolution', await run(
+                        redModeE.value,
+                        red_editor.getValue(),
+                        grid,
+                        true))
+                } catch (e) {
+                    console.error('red', e)
+                }
+            })
+
+            document.getElementById('blue-try').addEventListener('click', async () => {
+                try {
+                    console.log('blue evolution', await run(
+                        blueModeE.value,
+                        blue_editor.getValue(),
+                        grid,
+                        false))
+                } catch (e) {
+                    console.error('blue', e)
+                }
+            })
+        }
+        let id = window.location.hash.substring(1).split('@')[0]
+        if (id == 'local') {
+            document.getElementById('loading').style.display = 'none'
+            const header = (turn) => {
+                return `${turn == 'red' ? '<red>red</red>' : '<blue>blue</blue>'}'s turn`
+            }
+            draw(grid, header('red'))
+            document.getElementById("red-editor").style.display = 'block'
+            document.getElementById("blue-editor").style.display = 'block'
+
+            let red_editor = ace.edit("red-editor");
+            red_editor.getSession().setUseWorker(false);
+            red_editor.getSession().setMode("ace/mode/python");
+            red_editor.setValue(`def evolve(red, blue, grid):
     return red
 `)
-        red_editor.clearSelection()
+            red_editor.clearSelection()
 
-        let blue_editor = ace.edit("blue-editor");
-        blue_editor.getSession().setUseWorker(false);
-        blue_editor.getSession().setMode("ace/mode/python");
-        blue_editor.setValue(`def evolve(red, blue, grid):
+            let blue_editor = ace.edit("blue-editor");
+            blue_editor.getSession().setUseWorker(false);
+            blue_editor.getSession().setMode("ace/mode/python");
+            blue_editor.setValue(`def evolve(red, blue, grid):
     return blue
 `)
-        blue_editor.clearSelection()
+            blue_editor.clearSelection()
 
-        const red_error = document.getElementById('red-error')
-        const blue_error = document.getElementById('blue-error')
+            const red_error = document.getElementById('red-error')
+            const blue_error = document.getElementById('blue-error')
 
-        const red_play_button = document.getElementById('red-go')
-        const blue_play_button = document.getElementById('blue-go')
+            const red_play_button = document.getElementById('red-go')
+            const blue_play_button = document.getElementById('blue-go')
 
-        red_play_button.removeAttribute('disabled')
+            red_play_button.removeAttribute('disabled')
 
 
-        red_play_button.addEventListener('click', async () => {
-            red_error.innerHTML = ''
-            try {
-                grid = await run(redModeE.value, red_editor.getValue(), grid, true)
-                store_grid_in_hash(grid)
-                red_play_button.setAttribute('disabled', 'disabled')
+            red_play_button.addEventListener('click', async () => {
+                red_error.innerHTML = ''
+                try {
+                    grid = await run(redModeE.value, red_editor.getValue(), grid, true)
+                    store_grid_in_hash(grid)
+                    red_play_button.setAttribute('disabled', 'disabled')
 
-                blue_play_button.removeAttribute('disabled')
+                    blue_play_button.removeAttribute('disabled')
 
-                draw(grid, header('blue'))
-            } catch (e) {
-                console.error(e)
-                red_error.innerHTML = 'error: ' + e
+                    draw(grid, header('blue'))
+                } catch (e) {
+                    console.error(e)
+                    red_error.innerHTML = 'error: ' + e
+                }
+            })
+            blue_play_button.addEventListener('click', async () => {
+                blue_error.innerHTML = ''
+                try {
+                    grid = await run(blueModeE.value, blue_editor.getValue(), grid, false)
+                    store_grid_in_hash(grid)
+
+                    blue_play_button.setAttribute('disabled', 'disabled')
+                    red_play_button.removeAttribute('disabled')
+
+                    draw(grid, header('red'))
+                } catch (e) {
+                    console.error(e)
+                    blue_error.innerHTML = 'error: ' + e
+                }
+            })
+
+            setupConsoleLog(red_editor, blue_editor)
+        } else {
+            if (id.length < 3) {
+                id = uuid() + '-a'
+                window.location.hash = id
             }
-        })
-        blue_play_button.addEventListener('click', async () => {
-            blue_error.innerHTML = ''
-            try {
-                grid = await run(blueModeE.value, blue_editor.getValue(), grid, false)
-                store_grid_in_hash(grid)
 
-                blue_play_button.setAttribute('disabled', 'disabled')
-                red_play_button.removeAttribute('disabled')
-
-                draw(grid, header('red'))
-            } catch (e) {
-                console.error(e)
-                blue_error.innerHTML = 'error: ' + e
+            const am_i_red = id.endsWith('-a')
+            const header = (am_i_red, turn) => {
+                return `you play ${am_i_red ? '<red>red</red>' : '<blue>blue</blue>'}, ${turn == 'red' ? '<red>red</red>' : '<blue>blue</blue>'}'s turn`
             }
-        })
+            draw(grid, header(am_i_red, 'red'))
 
-        setupConsoleLog(red_editor, blue_editor)
-    } else {
-        if (id.length < 3) {
-            id = uuid() + '-a'
-            window.location.hash = id
-        }
+            const peer = new Peer(id, {
+                debug: 1,
+                config: {
+                    'iceServers': [
+                        { url: 'stun:stun.l.google.com:19302' },
+                        { url: 'turn:txt.black:3478', credential: 'noooooooo111222', username: 'chess' }
+                    ]
+                }
+            })
 
-        const am_i_red = id.endsWith('-a')
-        const header = (am_i_red, turn) => {
-            return `you play ${am_i_red ? '<red>red</red>' : '<blue>blue</blue>'}, ${turn == 'red' ? '<red>red</red>' : '<blue>blue</blue>'}'s turn`
-        }
-        draw(grid, header(am_i_red, 'red'))
+            const errorE = document.getElementById(am_i_red ? 'red-error' : 'blue-error')
+            const play_button = document.getElementById(am_i_red ? 'red-go' : 'blue-go')
 
-        const peer = new Peer(id, {
-            debug: 1,
-            config: {
-                'iceServers': [
-                    { url: 'stun:stun.l.google.com:19302' },
-                    { url: 'turn:txt.black:3478', credential: 'noooooooo111222', username: 'chess' }
-                ]
+            const loading = document.getElementById('loading')
+            const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
+            loading.innerHTML += `<textarea style="color: white; background-color: black; border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${other}@${encode_grid(grid)}</textarea>`
+
+            const reconnect_screen = () => {
+                loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh<br>'
+                loading.innerHTML += `grid state: ${encode_grid(grid)}`
+
+                loading.style.display = 'block'
+                document.getElementById('red-editor').style.display = 'none'
+                document.getElementById('blue-editor').style.display = 'none'
             }
-        })
 
-        const errorE = document.getElementById(am_i_red ? 'red-error' : 'blue-error')
-        const play_button = document.getElementById(am_i_red ? 'red-go' : 'blue-go')
+            peer.on('open', function (id) {
+                let work = function (conn) {
+                    loading.style.display = 'none'
+                    const my_editor_id = am_i_red ? "red-editor" : "blue-editor"
+                    document.getElementById(my_editor_id).style.display = 'block'
+                    const my_editor = ace.edit(am_i_red ? "red-editor" : "blue-editor");
+                    my_editor.getSession().setUseWorker(false);
+                    my_editor.getSession().setMode("ace/mode/python");
+                    my_editor.getSession().on('change', function () {
+                        conn.send(JSON.stringify({ code: my_editor.getValue() }))
+                    });
 
-        const loading = document.getElementById('loading')
-        const other = id.substring(0, id.length - 2) + (id.endsWith('-a') ? '-b' : '-a')
-        loading.innerHTML += `<textarea style="color: white; background-color: black; border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${other}@${encode_grid(grid)}</textarea>`
+                    const enemy_editor_id = am_i_red ? "blue-editor" : "red-editor"
+                    document.getElementById(enemy_editor_id).style.display = 'block'
+                    const enemy_editor = ace.edit(enemy_editor_id);
+                    enemy_editor.getSession().setUseWorker(false);
+                    enemy_editor.getSession().setMode("ace/mode/python");
+                    enemy_editor.setReadOnly(true)
 
-        const reconnect_screen = () => {
-            loading.innerHTML = 'connection closed, please refresh, and ask the other peer to refresh<br>'
-            loading.innerHTML += `grid state: ${encode_grid(grid)}`
-
-            loading.style.display = 'block'
-            document.getElementById('red-editor').style.display = 'none'
-            document.getElementById('blue-editor').style.display = 'none'
-        }
-
-        peer.on('open', function (id) {
-            let work = function (conn) {
-                loading.style.display = 'none'
-                const my_editor_id = am_i_red ? "red-editor" : "blue-editor"
-                document.getElementById(my_editor_id).style.display = 'block'
-                const my_editor = ace.edit(am_i_red ? "red-editor" : "blue-editor");
-                my_editor.getSession().setUseWorker(false);
-                my_editor.getSession().setMode("ace/mode/python");
-                my_editor.getSession().on('change', function () {
-                    conn.send(JSON.stringify({ code: my_editor.getValue() }))
-                });
-
-                const enemy_editor_id = am_i_red ? "blue-editor" : "red-editor"
-                document.getElementById(enemy_editor_id).style.display = 'block'
-                const enemy_editor = ace.edit(enemy_editor_id);
-                enemy_editor.getSession().setUseWorker(false);
-                enemy_editor.getSession().setMode("ace/mode/python");
-                enemy_editor.setReadOnly(true)
-
-                const initial = `def evolve(red, blue, grid):
+                    const initial = `def evolve(red, blue, grid):
     return ${am_i_red ? 'red' : 'blue'}
 `
-                enemy_editor.setValue(initial)
-                enemy_editor.clearSelection()
-                my_editor.setValue(initial)
-                my_editor.clearSelection()
-                if (am_i_red) {
-                    play_button.removeAttribute('disabled')
-                }
-                conn.on('data', async function (data) {
-                    let parsed = JSON.parse(data)
-                    if (!parsed.grid) {
+                    enemy_editor.setValue(initial)
+                    enemy_editor.clearSelection()
+                    my_editor.setValue(initial)
+                    my_editor.clearSelection()
+                    if (am_i_red) {
+                        play_button.removeAttribute('disabled')
+                    }
+                    conn.on('data', async function (data) {
+                        let parsed = JSON.parse(data)
+                        if (!parsed.grid) {
+                            enemy_editor.setValue(parsed.code)
+                            enemy_editor.clearSelection()
+                            return
+                        }
+
+                        // FIXME: validate the positions
+                        // super easy to hack this, but its just for fun anyway
+                        grid = parsed.grid
+                        store_grid_in_hash(grid)
                         enemy_editor.setValue(parsed.code)
                         enemy_editor.clearSelection()
-                        return
-                    }
 
-                    // FIXME: validate the positions
-                    // super easy to hack this, but its just for fun anyway
-                    grid = parsed.grid
-                    store_grid_in_hash(grid)
-                    enemy_editor.setValue(parsed.code)
-                    enemy_editor.clearSelection()
+                        play_button.removeAttribute('disabled')
+                        draw(grid, header(am_i_red, am_i_red ? 'red' : 'blue'))
+                    });
 
-                    play_button.removeAttribute('disabled')
-                    draw(grid, header(am_i_red, am_i_red ? 'red' : 'blue'))
-                });
+                    play_button.addEventListener('click', async () => {
+                        errorE.innerHTML = ''
+                        try {
+                            grid = await run(am_i_red ? redModeE.value : blueModeE.value, my_editor.getValue(), grid, am_i_red)
+                            store_grid_in_hash(grid)
 
-                play_button.addEventListener('click', async () => {
-                    errorE.innerHTML = ''
-                    try {
-                        grid = await run(am_i_red ? redModeE.value : blueModeE.value, my_editor.getValue(), grid, am_i_red)
-                        store_grid_in_hash(grid)
+                            play_button.setAttribute('disabled', 'disabled')
 
-                        play_button.setAttribute('disabled', 'disabled')
+                            conn.send(JSON.stringify({ code: my_editor.getValue(), grid }))
 
-                        conn.send(JSON.stringify({ code: my_editor.getValue(), grid }))
+                            draw(grid, header(am_i_red, am_i_red ? 'blue' : 'red'))
+                        } catch (e) {
+                            console.error(e)
+                            errorE.innerHTML = 'error: ' + e
+                        }
+                    })
 
-                        draw(grid, header(am_i_red, am_i_red ? 'blue' : 'red'))
-                    } catch (e) {
-                        console.error(e)
-                        errorE.innerHTML = 'error: ' + e
-                    }
-                })
+                    let red_editor = am_i_red ? my_editor : enemy_editor
+                    let blue_editor = am_i_red ? enemy_editor : my_editor
+                    setupConsoleLog(red_editor, blue_editor)
+                }
 
-                let red_editor = am_i_red ? my_editor : enemy_editor
-                let blue_editor = am_i_red ? enemy_editor : my_editor
-                setupConsoleLog(red_editor, blue_editor)
-            }
-
-            if (id.endsWith('-b')) {
-                let conn = peer.connect(other)
-                conn.on('open', () => {
-                    work(conn)
-                })
-                conn.on('close', reconnect_screen)
-                conn.on('error', reconnect_screen)
-            } else {
-                peer.on('connection', (conn) => {
-                    conn.on('open', () => work(conn))
+                if (id.endsWith('-b')) {
+                    let conn = peer.connect(other)
+                    conn.on('open', () => {
+                        work(conn)
+                    })
                     conn.on('close', reconnect_screen)
                     conn.on('error', reconnect_screen)
-                })
-            }
-        });
-        peer.on('close', reconnect_screen)
-        peer.on('error', reconnect_screen)
-    }
-</script>
+                } else {
+                    peer.on('connection', (conn) => {
+                        conn.on('open', () => work(conn))
+                        conn.on('close', reconnect_screen)
+                        conn.on('error', reconnect_screen)
+                    })
+                }
+            });
+            peer.on('close', reconnect_screen)
+            peer.on('error', reconnect_screen)
+        }
+    </script>
+</body>
+
+</html>
