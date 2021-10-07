@@ -575,8 +575,8 @@ json.dumps(evolve(grid))
                     enemy_editor.getSession().setMode("ace/mode/python");
                     enemy_editor.setReadOnly(true)
 
-                    const initial = `def evolve(red, blue, grid):
-    return ${am_i_red ? 'red' : 'blue'}
+                    const initial = `def evolve(grid):
+    return grid
 `
                     enemy_editor.setValue(initial)
                     enemy_editor.clearSelection()
