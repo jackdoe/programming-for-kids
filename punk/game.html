@@ -125,7 +125,7 @@ Rules:
   * come up with your own rules
 
 examples (red):
-def evolve(grid):
+def evolve(red, blue, grid):
     grid[0][0] = 0
     grid[0][1] = 0
     grid[1][2] = -2
@@ -135,7 +135,7 @@ def evolve(grid):
 
 or a javascript example:
 
-function evolve({grid}) {
+function evolve({red, blue, grid}) {
     console.log(grid)
     return grid
 }
@@ -203,7 +203,7 @@ grid = []
 for y in range(0,${height}):
     grid.append([])
     for x in range(0, ${width}):
-        grid[y].append(None)
+        grid[y].append(0)
 for r in red:
     grid[r["y"]][r["x"]] = r["value"]
 for r in blue:
@@ -211,7 +211,7 @@ for r in blue:
 
 ${code}
 
-json.dumps(evolve(grid))
+json.dumps(evolve(red, blue, grid))
 `
                 let data = pyodide.runPython(p)
 
@@ -223,12 +223,12 @@ json.dumps(evolve(grid))
                 for (let y = 0; y < height; y++) {
                     gridX[y] = []
                     for (let x = 0; x < width; x++) {
-                        gridX[y].push(null)
+                        gridX[y].push(0)
                     }
                 }
                 for (let r of redX) gridX[r.y][r.x] = r.value
                 for (let r of blueX) gridX[r.y][r.x] = r.value
-                let message = '(' + code + ')(' + JSON.stringify({ grid: gridX }) + ')'
+                let message = '(' + code + ')(' + JSON.stringify({ red: redX, blue: blueX, grid: gridX }) + ')'
                 return await sandbox_eval(message)
             }
         }
@@ -344,7 +344,7 @@ json.dumps(evolve(grid))
                 for (row of g)
                     for (col of row)
                         if (pred(col))
-                            sum += Math.abs(col)
+                            sum += col
                 return sum
             }
 
@@ -353,7 +353,18 @@ json.dumps(evolve(grid))
 
             foreach(result, (v, x, y) => {
                 if (x >= 0 && x < width && y >= 0 && y < height) {
-                    evolved_grid[y][x] = v || 0
+                    if ((am_i_red && v < 0) || (!am_i_red && v > 0)) {
+                        evolved_grid[y][x] = v
+                    }
+                }
+            })
+
+            // overwrite blue
+            foreach(grid, (v, x, y) => {
+                if (x >= 0 && x < width && y >= 0 && y < height) {
+                    if ((am_i_red && v > 0) || (!am_i_red && v < 0)) {
+                        evolved_grid[y][x] += grid[y][x]
+                    }
                 }
             })
 
@@ -464,7 +475,7 @@ json.dumps(evolve(grid))
             let red_editor = ace.edit("red-editor");
             red_editor.getSession().setUseWorker(false);
             red_editor.getSession().setMode("ace/mode/python");
-            red_editor.setValue(`def evolve(grid):
+            red_editor.setValue(`def evolve(red, blue, grid):
     return grid
 `)
             red_editor.clearSelection()
@@ -472,7 +483,7 @@ json.dumps(evolve(grid))
             let blue_editor = ace.edit("blue-editor");
             blue_editor.getSession().setUseWorker(false);
             blue_editor.getSession().setMode("ace/mode/python");
-            blue_editor.setValue(`def evolve(grid):
+            blue_editor.setValue(`def evolve(red, blue, grid):
     return grid
 `)
             blue_editor.clearSelection()
@@ -575,7 +586,7 @@ json.dumps(evolve(grid))
                     enemy_editor.getSession().setMode("ace/mode/python");
                     enemy_editor.setReadOnly(true)
 
-                    const initial = `def evolve(grid):
+                    const initial = `def evolve(red, blue, grid):
     return grid
 `
                     enemy_editor.setValue(initial)
