@@ -99,7 +99,14 @@
             <option>javascript</option>
         </select><br>
         <div id="red-editor" style="height: 150px; width: 100%"></div>
-        <pre id='game'></pre>
+        <div style="flex: 1; flex-direction: row; display: flex;">
+            <div style="display: flex; flex:1">
+                <pre id='game'></pre>
+            </div>
+            <div style="display: flex; flex:1">
+                <pre id='preview'></pre>
+            </div>
+        </div>
         <div class='error' id='blue-error'></div>
         <button disabled id='blue-go'>play</button> <button id='blue-try'>console.log</button> <select id='blue-mode'>
             <option selected>python</option>
@@ -311,8 +318,8 @@ json.dumps(evolve(red,blue,grid))
         const height = 16
         const step = 4
 
-        const draw = function (grid, header) {
-            const view = document.getElementById('game')
+        const draw = function (grid, header, view) {
+            view = view || document.getElementById('game')
 
             let text = '\n' + header + '\n\n'
             const line_of_dashes = () => {
@@ -500,7 +507,7 @@ json.dumps(evolve(red,blue,grid))
         const store_grid_in_hash = function (grid) {
             let [left, right] = window.location.hash.substring(1).split('@')
 
-            window.location.replace('#'+ left + '@' + (encode_grid(grid)))
+            window.location.replace('#' + left + '@' + (encode_grid(grid)))
         }
 
         const load_grid_from_hash = function () {
@@ -528,11 +535,13 @@ json.dumps(evolve(red,blue,grid))
             })
             document.getElementById('red-try').addEventListener('click', async () => {
                 try {
-                    console.log('red evolution', await run(
+                    let g = await run(
                         redModeE.value,
                         red_editor.getValue(),
                         grid,
-                        true))
+                        true)
+                    draw(g, 'red evolution preview', document.getElementById('preview'))
+                    console.log('red evolution', g)
                 } catch (e) {
                     console.error('red', e)
                 }
@@ -540,11 +549,13 @@ json.dumps(evolve(red,blue,grid))
 
             document.getElementById('blue-try').addEventListener('click', async () => {
                 try {
-                    console.log('blue evolution', await run(
+                    let g = await run(
                         blueModeE.value,
                         blue_editor.getValue(),
                         grid,
-                        false))
+                        false)
+                    draw(g, 'blue evolution preview', document.getElementById('preview'))
+                    console.log('blue evolution',)
                 } catch (e) {
                     console.error('blue', e)
                 }
