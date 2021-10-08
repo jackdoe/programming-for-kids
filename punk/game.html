@@ -17,7 +17,6 @@
             font-family: monospace;
             font-size: 14px;
             margin: 0;
-            min-width: 0;
         }
 
         iframe {
@@ -100,15 +99,7 @@
             <option>javascript</option>
         </select><br>
         <div id="red-editor" style="height: 150px; width: 100%"></div>
-        <div style="flex: 1; flex-direction: row; display: flex;">
-            <div style="display: flex; flex:1">
-                <pre id='game'></pre>
-            </div>
-            <div style="display: flex; flex:1">
-                <pre id='preview'></pre>
-            </div>
-
-        </div>
+        <pre id='game'></pre>
         <div class='error' id='blue-error'></div>
         <button disabled id='blue-go'>play</button> <button id='blue-try'>console.log</button> <select id='blue-mode'>
             <option selected>python</option>
@@ -121,23 +112,73 @@
 Code is at: https://github.com/jackdoe/programming-for-kids
 
 Rules:
-  * you can move anywhere.
-  * come up with your own rules
+  * join your forces to increase the number on one position
+  * bigger number wins, but takes up to smaller number damage
+  * create new numbers:
+    the patterns
+        <red>n</red>   <red>n</red>
+          <red>n</red>
+    and
+          <blue>n</blue>
+        <blue>n</blue>   <blue>n</blue>
+     spawns a number in the empty space, randint(1,3), but there
+     is 1 in 10 chance it is a zombie and it will be from 
+     the oposite team, beware!
+  * things are sorted left to right, and top to bottom      
+  * you can move +-2 in x and y direction
 
 examples (red):
-def evolve(red, blue, grid):
-    grid[0][0] = 0
-    grid[0][1] = 0
-    grid[1][2] = -2
-    return grid
 
+def evolve(red, blue, grid): 
+    print(red)
+    for r in red:
+        r["x"] += 1
+        r["y"] += 2
+    return red
+
+def evolve(red, blue, grid): 
+    if grid[0][5] != None:
+        grid[0][5]["y"] += 1
+    return red
+
+def evolve(red, blue, grid):
+    for row in grid:
+        for v in row:
+            if v != None and "red" in v:
+                v["x"] += 1
+                v["y"] += 2
+    return red
+
+def evolve(red, blue, grid):
+    for (i,r) in enumerate(red):
+        if i % 2 != 0:
+            r["y"] += 1
+        else:
+            r["y"] += 2
+    return red
+
+def evolve(red, blue, grid):
+    for r in red:
+        if r["x"] % 2 != 0:
+            r["y"] += 1
+        else:
+            r["y"] += 2
+    return red
+
+
+def evolve(red, blue, grid):
+    # you can print and use console.log to debug
+    print(blue)
     return blue
 
 or a javascript example:
 
-function evolve({red, blue, grid}) {
-    console.log(grid)
-    return grid
+function evolve({red,blue,grid}) {
+    for (let r of red) {
+        r.x ++
+        r.y += 2
+    }
+    return red
 }
 
 * cheating
@@ -203,15 +244,15 @@ grid = []
 for y in range(0,${height}):
     grid.append([])
     for x in range(0, ${width}):
-        grid[y].append(0)
+        grid[y].append(None)
 for r in red:
-    grid[r["y"]][r["x"]] = r["value"]
+    grid[r["y"]][r["x"]] = r
 for r in blue:
-    grid[r["y"]][r["x"]] = r["value"]
+    grid[r["y"]][r["x"]] = r    
 
 ${code}
 
-json.dumps(evolve(red, blue, grid))
+json.dumps(evolve(red,blue,grid))
 `
                 let data = pyodide.runPython(p)
 
@@ -223,11 +264,11 @@ json.dumps(evolve(red, blue, grid))
                 for (let y = 0; y < height; y++) {
                     gridX[y] = []
                     for (let x = 0; x < width; x++) {
-                        gridX[y].push(0)
+                        gridX[y].push(null)
                     }
                 }
-                for (let r of redX) gridX[r.y][r.x] = r.value
-                for (let r of blueX) gridX[r.y][r.x] = r.value
+                for (let r of redX) gridX[r.y][r.x] = r
+                for (let r of blueX) gridX[r.y][r.x] = r
                 let message = '(' + code + ')(' + JSON.stringify({ red: redX, blue: blueX, grid: gridX }) + ')'
                 return await sandbox_eval(message)
             }
@@ -270,8 +311,8 @@ json.dumps(evolve(red, blue, grid))
         const height = 16
         const step = 4
 
-        const draw = function (grid, header, view) {
-            view = view || document.getElementById('game')
+        const draw = function (grid, header) {
+            const view = document.getElementById('game')
 
             let text = '\n' + header + '\n\n'
             const line_of_dashes = () => {
@@ -321,17 +362,16 @@ json.dumps(evolve(red, blue, grid))
         const run = async (mode, code, grid, am_i_red) => {
             let red = []
             let blue = []
-
             foreach(grid, (v, x, y) => {
                 if (v == 0) return;
-                let entry = { value: v, x: x, y: y, red: v < 0, blue: v > 0 }
+                let entry = { value: v, x: x, y: y, id: uuid(), red: v < 0, blue: v > 0 }
                 if (v < 0) red.push(entry)
                 else blue.push(entry)
             })
-
             let sorter = (a, b) => {
                 let diffX = a.x - b.x
                 let diffY = a.y - b.y
+
                 if (diffX == 0) return diffY == 0 ? 0 : diffY > 0 ? 1 : -1
                 return diffX > 0 ? 1 : -1
             }
@@ -339,54 +379,108 @@ json.dumps(evolve(red, blue, grid))
             red.sort(sorter)
             blue.sort(sorter)
 
-            let sum_grid = (g, pred) => {
-                let sum = 0
-                for (row of g)
-                    for (col of row)
-                        if (pred(col))
-                            sum += col
-                return sum
-            }
-
             let result = await evaluate(mode, code, red, blue, width, height)
-            let evolved_grid = new_empty_grid(width, height)
 
-            foreach(result, (v, x, y) => {
-                if (x >= 0 && x < width && y >= 0 && y < height) {
-                    if ((am_i_red && v < 0) || (!am_i_red && v > 0)) {
-                        evolved_grid[y][x] = v
-                    }
+            if (!Array.isArray(result)) throw new Error('not array')
+
+            let by_uuid = {}
+            if (am_i_red) {
+                for (let r of red) {
+                    by_uuid[r.id] = r
                 }
-            })
-
-            // overwrite blue
-            foreach(grid, (v, x, y) => {
-                if (x >= 0 && x < width && y >= 0 && y < height) {
-                    if ((am_i_red && v > 0) || (!am_i_red && v < 0)) {
-                        evolved_grid[y][x] += grid[y][x]
-                    }
+            } else {
+                for (let r of blue) {
+                    by_uuid[r.id] = r
                 }
-            })
-
-            let new_sum = sum_grid(evolved_grid, (c) => am_i_red ? c < 0 : c > 0)
-            let old_sum = sum_grid(grid, (c) => am_i_red ? c < 0 : c > 0)
-
-            if (new_sum != old_sum) {
-                throw new Error(`the sum of the numbers is greater than before,\n${old_sum}, new sum: ${new_sum}`)
             }
+            result = result.filter(r => by_uuid[r.id])
+
+            for (let r of result) {
+                let orig = by_uuid[r.id]
+                if (Math.abs(r.x - orig.x) > 2 || r.x < 0 || r.x > width - 1) {
+                    console.log('illegal move', { orig, r })
+                    r.x = orig.x
+                }
+                if (Math.abs(r.y - orig.y) > 2 || r.y < 0 || r.y > height - 1) {
+                    console.log('illegal move', { orig, r })
+                    r.y = orig.y
+                }
+            }
+            let evolved_grid = new_empty_grid(width, height)
+            if (am_i_red) {
+                for (let b of blue) {
+                    evolved_grid[b.y][b.x] += b.value
+                }
+            } else {
+                for (let r of red) {
+                    evolved_grid[r.y][r.x] += r.value
+                }
+            }
+
+            for (let r of result) {
+                let current = evolved_grid[r.y][r.x]
+                if (Math.abs(current + r.value) == 0) {
+                    // we annihilate
+                    evolved_grid[r.y][r.x] = 0
+                } else if ((am_i_red && current <= 0) || (!am_i_red && current >= 0)) {
+                    // join with our number, or occupy empty space
+                    evolved_grid[r.y][r.x] += r.value
+                } else {
+                    if (current > Math.abs(r.value)) {
+                        // it consumes us and we damage it
+                        let damage = -Math.floor((Math.random() * r.value) + 0.5)
+                        evolved_grid[r.y][r.x] = current + damage
+                    } else {
+                        // we consume it and take damage
+                        let damage = -Math.floor((Math.random() * current) + 0.5)
+                        evolved_grid[r.y][r.x] = r.value + damage
+                    }
+                }
+            }
+
+            const is_mine = (x, y) => {
+                let v = evolved_grid[y][x]
+                return am_i_red ? v < 0 : v > 0
+            }
+
+            const is_empty = (x, y) => {
+                let v = evolved_grid[y][x]
+                return v == 0
+            }
+
+            // spawn number pattern
+            for (let y = 0; y < evolved_grid.length - 1; y++) {
+                for (let x = 0; x < evolved_grid[0].length - 2; x++) {
+                    // 1 in 10 chance to turn 
+                    let zombie = ((Math.random() < 0.1) ? -1 : 1)
+                    if (am_i_red) {
+                        if (is_mine(x, y) && is_empty(x + 1, y) && is_mine(x + 2, y) &&
+                            is_empty(x, y + 1) && is_mine(x + 1, y + 1) && is_empty(x + 2, y + 1)) {
+                            evolved_grid[y][x + 1] = zombie * -randint(1, 3)
+                        }
+                    } else {
+                        if (is_empty(x, y) && is_mine(x + 1, y) && is_empty(x + 2, y) &&
+                            is_mine(x, y + 1) && is_empty(x + 1, y + 1) && is_mine(x + 2, y + 1)) {
+                            evolved_grid[y + 1][x + 1] = zombie * randint(1, 3)
+                        }
+                    }
+                }
+            }
+
             return evolved_grid
         }
-
         const encode_grid = function (grid) {
             let xyv = []
-            foreach(grid, (v, x, y) => {
-                if (v != 0) {
-                    xyv.push(x, y, v)
+            for (let y = 0; y < grid.length; y++) {
+                for (let x = 0; x < grid[y].length; x++) {
+                    let v = grid[y][x]
+                    if (v != 0) {
+                        xyv.push(x, y, v)
+                    }
                 }
-            })
+            }
             return (JSON.stringify(xyv))
         }
-
         const decode_grid = function (s) {
             let xyv = JSON.parse(s)
             if (!Array.isArray(xyv))
@@ -406,7 +500,7 @@ json.dumps(evolve(red, blue, grid))
         const store_grid_in_hash = function (grid) {
             let [left, right] = window.location.hash.substring(1).split('@')
 
-            window.location.replace('#' + left + '@' + (encode_grid(grid)))
+            window.location.replace('#'+ left + '@' + (encode_grid(grid)))
         }
 
         const load_grid_from_hash = function () {
@@ -434,30 +528,24 @@ json.dumps(evolve(red, blue, grid))
             })
             document.getElementById('red-try').addEventListener('click', async () => {
                 try {
-                    let g = await run(
+                    console.log('red evolution', await run(
                         redModeE.value,
                         red_editor.getValue(),
                         grid,
-                        true)
-                    draw(g, 'red evolution preview', document.getElementById('preview'))
-                    console.log('red evolution', g)
+                        true))
                 } catch (e) {
-                    draw(new_empty_grid(width, height), e.message, document.getElementById('preview'))
                     console.error('red', e)
                 }
             })
 
             document.getElementById('blue-try').addEventListener('click', async () => {
                 try {
-                    let g = await run(
-                        redModeE.value,
-                        red_editor.getValue(),
+                    console.log('blue evolution', await run(
+                        blueModeE.value,
+                        blue_editor.getValue(),
                         grid,
-                        false)
-                    draw(g, 'blue evolution preview', document.getElementById('preview'))
-                    console.log('blue evolution', g)
+                        false))
                 } catch (e) {
-                    draw(new_empty_grid(width, height), e.message, document.getElementById('preview'))
                     console.error('blue', e)
                 }
             })
@@ -476,7 +564,7 @@ json.dumps(evolve(red, blue, grid))
             red_editor.getSession().setUseWorker(false);
             red_editor.getSession().setMode("ace/mode/python");
             red_editor.setValue(`def evolve(red, blue, grid):
-    return grid
+    return red
 `)
             red_editor.clearSelection()
 
@@ -484,7 +572,7 @@ json.dumps(evolve(red, blue, grid))
             blue_editor.getSession().setUseWorker(false);
             blue_editor.getSession().setMode("ace/mode/python");
             blue_editor.setValue(`def evolve(red, blue, grid):
-    return grid
+    return blue
 `)
             blue_editor.clearSelection()
 
@@ -587,7 +675,7 @@ json.dumps(evolve(red, blue, grid))
                     enemy_editor.setReadOnly(true)
 
                     const initial = `def evolve(red, blue, grid):
-    return grid
+    return ${am_i_red ? 'red' : 'blue'}
 `
                     enemy_editor.setValue(initial)
                     enemy_editor.clearSelection()
