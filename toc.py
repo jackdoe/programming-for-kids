@@ -21,7 +21,8 @@ for fn in dir:
                 if day % 7 == 0:
                     toc.write("## week - " + str(int((day+1) / 7)) + "\n")
                     toc.write('\n\n')
-                toc.write('\n[day '+str(day)+'](#'+line.lower().replace('## ','').replace('[','').replace(']','').replace(' ','-')+')\n')
+                clear = line.lower().replace('## ','').replace('[','').replace(']','')
+                toc.write('\n['+clear+'](#'+clear.replace(' ','-')+')\n')
             if line.startswith('!['):
-                toc.write(line + '\n')
+                toc.write(line.replace(')','=250x)') + '\n')
 toc.close()
