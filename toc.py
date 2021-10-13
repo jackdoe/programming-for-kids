@@ -24,6 +24,6 @@ for fn in dir:
                     toc.write("## week - " + str(int((day+1) / 7)) + "\n")
                     toc.write('\n\n')
                 clear = line.lower().replace('## ','').replace('[','').replace(']','')
-                toc.write('\n['+clear+'](#'+clear.replace(' ','-')+')\n')
+                toc.write('\n['+clear+'](#'+clear.replace(' ','-').replace(',','-').replace('/','').replace(';','-')+')\n')
 
 toc.close()
