@@ -207,7 +207,8 @@ Write code to destroy your enemies!
 
 You have access to your `heroes` and `enemies` positions. When you collide you destroy each other.
 
-```import pgzrun
+```
+import pgzrun
 import random
 from itertools import cycle
 
@@ -389,7 +390,7 @@ def make_actor_move():
     elf.image = next(poses)
 clock.schedule_interval(make_actor_move, 0.4)
 
-def draw()
+def draw():
     screen.fill("black")
     elf.draw()
 
