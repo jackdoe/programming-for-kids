@@ -228,7 +228,7 @@ while True:
 
 ```
 
-## [DAY-115] Practical Coding - Control Roblox with python
+## [DAY-115] Practical Coding, Control Roblox with python
 
 ![game-115.png](./screenshots/game-115.jpg "game 115 screenshot")
 
