@@ -36,73 +36,9 @@ What you need:
 
 If you don't have a you can buy raspberry pi 400 for 70$ or so, or something similar that you attach to your TV. If you don't have patience, buy some chamomile tea. You don't need internet subscription, but you would need a bit of internet to download python and do few google searches.
 
-The schedule is roughly as follows:
-
-* Week 0
-  * Explain the computer
-  * Touch Typing
-  * HTML
-* Week 1
-  * HTML: h1, marquee, pink text
-  * Touch Typing
-* Week 2
-  * HTML: tables
-  * HTML: lists
-  * Touch Typing
-* Week 3
-  * HTML: tables lists
-  * HTML: images, licenses
-  * JavaScript: few small programs
-* Week 4
-  * python: super basic python (print and input and while True)
-* Week 5
-  * python: more basic python
-* Week 6
-  * python: make hangman game
-* Week 7
-  * python: turtle
-* Week 8
-  * HTML: love match
-  * python: make text tic tac toe game
-  * python: make trivia game
-* Week 9
-  * python: pygame and pgzero
-* Week 10
-  * python: pygame and pgzero
-* Week 11
-  * python: make text tic tac toe game
-* Week 12
-  * python: pygame
-  * python: turtle
-* Week 13
-  * python: pygame
-  * python: turtle
-* Week 14
-  * python: basics
-  * python: turtle
-* Week 15
-  * HTML: make a table
-  * python: make tic tac toe again
-  * python: basics
-  * python: pygame
-* Week 16
-  * python: love match
-  * python: trivia game
-  * python: turtle
-* Week 17
-  * python: dungeon game
-  * python: turtle grid
-  * python: turtle keyboard input
-* Week 18
-  * python: turtle tic tac toe
-* Week 19
-  * ...
-  * ...
-  * ...
-
 In most of the weeks you also go back, waaay back, every day you re-iterate variables and for loops, print the numbers from one to 10 forever, ask how many times to be printed, etc.
 
-The reason for so much emphasis on HTML is because it helps with understanding hierarchy, `tr` is child of `table`, `table` is child of `body` body is child of `html`, `td` is a sister to `td` and both are children of `tr` etc, it helped a lot with my daughter understanding how the `else` is sibling to the `if` and how both are children to `while`.
+The emphasis on HTML helps with understanding hierarchy, `tr` is child of `table`, `table` is child of `body` body is child of `html`, `td` is a sister to `td` and both are children of `tr` etc, it helped a lot with my daughter understanding how the `else` is sibling to the `if` and how both are children to `while`.
 
 Also it is very easy to debug, and inspect, and get immediate feedback. There are many 'hackers' now on tiktok or youtube that shows you how to get a lot robux(money) in roblox by inspecting the page and modifying the HTML, so I think HTML is very important to be understood, not only because it teaches hierarchy, but also it is the canvas of the web.
 
