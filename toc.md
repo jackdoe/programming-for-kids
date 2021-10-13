@@ -1,3 +1,4 @@
+## week - 0
 
 [day-0 the computer](#day-0-the-computer)
 

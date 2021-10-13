@@ -115,6 +115,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 <div style="page-break-before:always"></div>
 
+## week - 0
 
 [day-0 the computer](#day-0-the-computer)
 
