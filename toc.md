@@ -21,9 +21,9 @@
 
 [day-3 touch typing using your program](#day-3-touch-typing-using-your-program)
 
-[day-4 html - basics](#day-4-html--basics)
+[day-4 html - basics](#day-4-html---basics)
 
-[day-5 html - basics](#day-5-html--basics)
+[day-5 html - basics](#day-5-html---basics)
 
 [day-6 touch typing](#day-6-touch-typing)
 
@@ -36,47 +36,47 @@
 
 [day-9 touch typing using your program](#day-9-touch-typing-using-your-program)
 
-[day-10 html - basics](#day-10-html--basics)
+[day-10 html - basics](#day-10-html---basics)
 
-[day-11 html - basics](#day-11-html--basics)
+[day-11 html - basics](#day-11-html---basics)
 
 [day-12 touch typing](#day-12-touch-typing)
 
 [day-13 html](#day-13-html)
 
-[day-14 html - tables](#day-14-html--tables)
+[day-14 html - tables](#day-14-html---tables)
 ## week - 3
 
 
 
-[day-15 html - more tables](#day-15-html--more-tables)
+[day-15 html - more tables](#day-15-html---more-tables)
 
-[day-16 html - multiplication table](#day-16-html--multiplication-table)
+[day-16 html - multiplication table](#day-16-html---multiplication-table)
 
-[day-17 html - multiplication table](#day-17-html--multiplication-table)
+[day-17 html - multiplication table](#day-17-html---multiplication-table)
 
 [day-18 touch typing](#day-18-touch-typing)
 
-[day-19 html - links](#day-19-html--links)
+[day-19 html - links](#day-19-html---links)
 
-[day-20 html - tree](#day-20-html--tree)
+[day-20 html - tree](#day-20-html---tree)
 
-[day-21 html - view source](#day-21-html--view-source)
+[day-21 html - view source](#day-21-html---view-source)
 ## week - 4
 
 
 
-[day-22 html - inspect](#day-22-html--inspect)
+[day-22 html - inspect](#day-22-html---inspect)
 
-[day-23 html - images](#day-23-html--images)
+[day-23 html - images](#day-23-html---images)
 
 [day-24 licenses](#day-24-licenses)
 
 [day-25 touch typing](#day-25-touch-typing)
 
-[day-26 html - title](#day-26-html--title)
+[day-26 html - title](#day-26-html---title)
 
-[day-27 html - fun (js)](#day-27-html--fun-(js))
+[day-27 html - fun (js)](#day-27-html---fun-(js))
 
 [day-28 print; functions; while; variables; conditions](#day-28-print-functions-while-variables-conditions)
 ## week - 5
@@ -140,11 +140,11 @@
 
 [day-50 lists; if](#day-50-lists-if)
 
-[day-51 internet awareness - scams/viruses](#day-51-internet-awareness--scamsviruses)
+[day-51 internet awareness - scams/viruses](#day-51-internet-awareness---scamsviruses)
 
-[day-52 internet awareness - how login works](#day-52-internet-awareness--how-login-works)
+[day-52 internet awareness - how login works](#day-52-internet-awareness---how-login-works)
 
-[day-53 basics of the internet - ip/dns](#day-53-basics-of-the-internet--ipdns)
+[day-53 basics of the internet - ip/dns](#day-53-basics-of-the-internet---ipdns)
 
 [day-54 touch typing](#day-54-touch-typing)
 ## week - 9
@@ -244,7 +244,7 @@
 
 [day-93 pydoc](#day-93-pydoc)
 
-[day-94 editors - ed/nano/vi/emacs..](#day-94-editors--ednanoviemacs..)
+[day-94 editors - ed/nano/vi/emacs..](#day-94-editors---ednanoviemacs..)
 
 [day-95 memory; virtual computer; instructions; strings; lists](#day-95-memory-virtual-computer-instructions-strings-lists)
 
@@ -297,7 +297,7 @@
 
 [day-114 simple turtle](#day-114-simple-turtle)
 
-[day-115 practical coding - control roblox with python](#day-115-practical-coding--control-roblox-with-python)
+[day-115 practical coding, control roblox with python](#day-115-practical-coding-control-roblox-with-python)
 
 [day-116 many turtles](#day-116-many-turtles)
 ## week - 18
