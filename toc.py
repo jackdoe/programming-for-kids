@@ -8,6 +8,9 @@ dir.sort()
 
 toc.write("## week - 0\n")
 
+def sanitize(s):
+    return s.replace(' ','-').replace(',','-').replace('/','').replace(';','-').replace('--','-')
+
 for fn in dir:
     if isfile(fn) and fn.endswith('.md') and fn.startswith('week-0'):
         print("extracting",fn)
@@ -24,6 +27,6 @@ for fn in dir:
                     toc.write("## week - " + str(int((day+1) / 7)) + "\n")
                     toc.write('\n\n')
                 clear = line.lower().replace('## ','').replace('[','').replace(']','')
-                toc.write('\n['+clear+'](#'+clear.replace(' ','-').replace(',','-').replace('/','').replace(';','-')+')\n')
+                toc.write('\n['+clear+'](#'+sanitize(clear)+')\n')
 
 toc.close()
