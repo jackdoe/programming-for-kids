@@ -9,7 +9,7 @@ dir.sort()
 toc.write("## week - 0\n")
 
 def sanitize(s):
-    return s.replace(' ','-').replace(',','-').replace('/','').replace(';','-').replace('--','-')
+    return s.replace(',','').replace('/','').replace('; ','-').replace(' ','-')
 
 for fn in dir:
     if isfile(fn) and fn.endswith('.md') and fn.startswith('week-0'):
