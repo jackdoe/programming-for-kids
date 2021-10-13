@@ -78,7 +78,7 @@
 
 [day-27 html - fun (js)](#day-27-html--fun-(js))
 
-[day-28 print; while](#day-28-print-while)
+[day-28 print; functions; while; variables; conditions](#day-28-print-functions-while-variables-conditions)
 ## week - 5
 
 
@@ -202,9 +202,9 @@
 
 
 
-[day-76 basics of basics](#day-76-basics-of-basics)
+[day-76 functions; callbacks; lists](#day-76-functions-callbacks-lists)
 
-[day-77 basics of basics](#day-77-basics-of-basics)
+[day-77 lists; encode/decode](#day-77-lists-encodedecode)
 
 [day-78 coordinates; functions; callbacks](#day-78-coordinates-functions-callbacks)
 
@@ -308,7 +308,7 @@
 
 [day-118 search lyrics](#day-118-search-lyrics)
 
-[day-119 face recognition. move-78](#day-119-face-recognition.-move-78)
+[day-119 facial recognition; move 78](#day-119-facial-recognition-move-78)
 
 [day-120 program on your own form a book](#day-120-program-on-your-own-form-a-book)
 

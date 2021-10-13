@@ -195,7 +195,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-27 html - fun (js)](#day-27-html--fun-(js))
 
-[day-28 print; while](#day-28-print-while)
+[day-28 print; functions; while; variables; conditions](#day-28-print-functions-while-variables-conditions)
 ## week - 5
 
 
@@ -319,9 +319,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 
 
-[day-76 basics of basics](#day-76-basics-of-basics)
+[day-76 functions; callbacks; lists](#day-76-functions-callbacks-lists)
 
-[day-77 basics of basics](#day-77-basics-of-basics)
+[day-77 lists; encode/decode](#day-77-lists-encodedecode)
 
 [day-78 coordinates; functions; callbacks](#day-78-coordinates-functions-callbacks)
 
@@ -425,7 +425,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-118 search lyrics](#day-118-search-lyrics)
 
-[day-119 face recognition. move-78](#day-119-face-recognition.-move-78)
+[day-119 facial recognition; move 78](#day-119-facial-recognition-move-78)
 
 [day-120 program on your own form a book](#day-120-program-on-your-own-form-a-book)
 
@@ -1553,7 +1553,7 @@ setInterval(draw,10);
 ```
 
 The last one is quite crazy! But I am sure you will like the result when done.
-## [DAY-28] Print; While
+## [DAY-28] Print; Functions; While; Variables; Conditions
 
 Make a new file form IDLE, and write in it:
 ```
@@ -4735,7 +4735,7 @@ while True:
         print('⚽' * h)
 ```
 
-## [DAY-76] Basics of Basics
+## [DAY-76] Functions; Callbacks; Lists
 
 
 ![game-76.png](./screenshots/game-76.png "game 76 screenshot")
@@ -4844,7 +4844,7 @@ print('sum: ' + str(sum))
 print('average: ' + str(sum/n))
 ```
 
-## [DAY-77] Basics of Basics
+## [DAY-77] Lists; Encode/Decode
 
 morse code translator
 
@@ -9896,7 +9896,7 @@ while True:
 ```
 
 
-## [DAY-119] Face Recognition. Move-78
+## [DAY-119] Facial Recognition; Move 78
 
 ![game-119.png](./screenshots/game-119.png "game 119 screenshot")
 
