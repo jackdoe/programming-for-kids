@@ -202,7 +202,7 @@ while True:
 ```
 
 
-## [DAY-119] Face Recognition. Move-78
+## [DAY-119] Facial Recognition; Move 78
 
 ![game-119.png](./screenshots/game-119.png "game 119 screenshot")
 
