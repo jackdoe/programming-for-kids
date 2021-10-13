@@ -1,5 +1,0 @@
-x = 'hello'
-
-for i in range(len(x)):
-    print(i,end=' ')
-    print(x[i])

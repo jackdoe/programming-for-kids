@@ -1,9 +1,0 @@
-f = open("day-87.txt", "w")
-
-while True:
-    a = input("what do you want to write: ")
-    if a == "quit":
-        break
-    f.write(a + "\n")
-
-f.close()

@@ -1,3 +1,0 @@
-while True:
-  zzz = input("what is your name: ")
-  print(zzz)

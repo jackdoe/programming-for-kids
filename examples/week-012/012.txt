@@ -1,7 +1,0 @@
-# change this to go from t to the next element of things, instead from t to previous
-for i in range(len(things)):
-    t = things[i]
-    ...
-    if i > 0:
-        p = things[i-1]
-        ...

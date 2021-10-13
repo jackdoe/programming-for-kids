@@ -1,7 +1,0 @@
-day0: View Source
-day1: Inspect
-day2: Images
-day3: Licenses
-day4: Touch Typing
-day5: HTML
-day6: HTML fun

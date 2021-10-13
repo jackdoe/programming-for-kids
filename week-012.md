@@ -1,16 +1,4 @@
-# Chapter 12 - Week 12
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-82] Basics of Basics
+## [DAY-82] Lists; Strings
 
 ![game-82.png](./screenshots/game-82.png "game 82 screenshot")
 
@@ -157,7 +145,7 @@ while True:
     print(list, sum)
 ```
 
-## [DAY-83] Basics of Basics
+## [DAY-83] Lists; Functions
 
 ![game-83.png](./screenshots/game-83.png "game 83 screenshot")
 
@@ -398,7 +386,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-84] Basics of Basics
+## [DAY-84] Lists
 
 ![game-84.png](./screenshots/game-84.png "game 84 screenshot")
 
@@ -478,7 +466,7 @@ for i in range(len(things)):
         ...
 ```
 
-## [DAY-85] Basics of Basics
+## [DAY-85] List; Functions
 
 This day is more about reading than writing, those are few different examples you can use
 
@@ -738,7 +726,7 @@ pgzrun.go()
 ![day-85.jpg](./reading/day-85.jpg "day 85 reading")
 
 
-## [DAY-86] Basics of Basics
+## [DAY-86] Lists
 
 
 ![game-86.png](./screenshots/game-86.png "game 86 screenshot")
@@ -852,7 +840,7 @@ for i in range(len(x)-2,len(x)):
     y.append(x[i])
 ```
 
-## [DAY-87] Basics of Basics
+## [DAY-87] Read/Write Files
 
 Its File time!
 
@@ -960,7 +948,7 @@ In our example we don't check if our write fails, so if your disk is full the ga
 
 
 
-## [DAY-88] Basics of Basics
+## [DAY-88] Flask
 
 Reading exercise, a lot of unfamiliar code
 

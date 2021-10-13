@@ -10,10 +10,10 @@ day5: Basics of Basics
 day6: Basics of Basics
 ```
 
-## [DAY-102] Basics of Basics
+## [DAY-102] Touch Typing day
 Whole day touch typing!
 
-Modify the program to print some score and words per minute, and try to imptove your score.
+Modify the program to print some score and words per minute, and try to improve your score.
 
 ```
 import pgzrun
@@ -133,7 +133,7 @@ and then get the list:
 ```
 cat /usr/share/dict/words | python3 words.py | tr "[A-Z]" "[a-z]" | sort | uniq | sed -e "s/^/'/g" -e "s/$/',/g" | pbcopy
 ```
-## [DAY-103] Basics of Basics
+## [DAY-103] Read File; Command Line Arguments
 
 Search all the books!
 
@@ -216,7 +216,7 @@ python3 search.py --title Alice  --author Carroll | less
 CSV stands for comma separated value, its a neat way to encode a table, each column is separated by a `,`. Python has csv module in its standard library, and its very easy to load and parse csv files.
 
 
-## [DAY-104] Basics of Basics
+## [DAY-104] Read File; Command Line Arguments; Dictionary
 
 The previous approach can match only with substrings, for example we can not match "Lewis Carroll", because the author name is stored "Carroll, Lewis", in fact we can not even match on "Carroll Lewis" because we will be missing a comma.
 
@@ -490,7 +490,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-106] Basics of Basics
+## [DAY-106] Read/Write File; Lists
 
 Have some fun drawing, add more colors, change the size, enjoy!
 
@@ -627,7 +627,7 @@ def draw():
 
 pgzrun.go()
 ```
-## [DAY-107] Basics of Basics
+## [DAY-107] Lists; Dictionaries
 
 count the words in a file
 
@@ -739,7 +739,7 @@ if you want to sort by most common words:
 cat week-015.md | python3 count.py | sort -n
 ```
 
-## [DAY-108] Basics of Basics
+## [DAY-108] Dictionaries
 
 count how many times each character appears in a string
 

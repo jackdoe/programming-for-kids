@@ -1,6 +1,0 @@
-food = []
-
-while True:
-  what = input("what is your favorite food: ")
-  food.append(what)
-  print(what)

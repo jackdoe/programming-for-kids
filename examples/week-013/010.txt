@@ -1,9 +1,0 @@
-$ python3 xed,py example.py
-> a for i in range(100)
-> a   print(i)
-> p
-> s
-
-$ python3 xls.py .
-$ python3 xcat.py example.py
-$ python3 example.py

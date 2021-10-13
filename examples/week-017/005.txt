@@ -1,8 +1,0 @@
-import curses
-import time
-
-screen = curses.initscr()
-screen.addstr(0, 0, "hello world",curses.A_NORMAL)
-screen.refresh()
-
-time.sleep(2)

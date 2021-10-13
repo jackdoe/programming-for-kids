@@ -1,16 +1,4 @@
-# Chapter 6 - Week 6
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-41] Basics of Basics
+## [DAY-41] Lists; If; While
 
 ```
 import random
@@ -52,7 +40,7 @@ while True:
 ```
 
 
-## [DAY-42] Basics of Basics
+## [DAY-42] Lists; Functions: Grid; While
 
 World without a player
 
@@ -130,7 +118,7 @@ while True:
 
 ```
 
-## [DAY-43] Basics of Basics
+## [DAY-43] If; Range
 
 
 Even and Odd
@@ -214,7 +202,7 @@ for x in numbers:
 
 Haha this is a funny way to make fizzbuzz. See first it puts fizz if you can divide it by 3, and then buzz if you can divide it by 5, but if there was already fizz there it will just add if with `+=`, so it automatically works to put fizzbuzz for 15.
 
-## [DAY-44] Basics of Basics
+## [DAY-44] Lists
 
 Reviews
 
@@ -243,7 +231,7 @@ print(flavorA + " + " + flavorB)
 
 Spend the rest of the day touch typing.
 
-## [DAY-45] Basics of Basics
+## [DAY-45] Lists; Functions
 
 Different touch typing
 
@@ -284,7 +272,7 @@ while True:
 
 spend the rest of the day trying it out
 
-## [DAY-46] Basics of Basics
+## [DAY-46] Basic Turtle
 
 Some turtle!
 
@@ -334,7 +322,7 @@ turtle.circle(20, 120)
 ```
 
 
-## [DAY-47] Basics of Basics
+## [DAY-47] Range; While
 
 Try to make a program that prints a symbol N times, where N is coming from the user input.
 

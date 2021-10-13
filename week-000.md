@@ -1,15 +1,3 @@
-# Chapter 0 - Week 0
-
-```
-day0: learn about the computer
-day1: touch typing on keybr.com
-day2: install python and make a program
-day3: touch typing using your program
-day4: HTML
-day5: touch typing
-day6: HTML
-```
-
 This week is one of the more difficult ones. Lots of new things, and some of them might not work on your computer because it is too new or too old, for which I apologize. You might need a bit of help. If you get stuck just call a friend or parent to help you out.
 
 ## [DAY-0] The Computer
@@ -253,7 +241,7 @@ Spend the rest of the time for the day touch typing. Don't rush it. Place your f
 > Spend the whole day touch typing and making and opening new files in IDLE and notepad; I cant stress enough how important it is for the kid to be independent to be able on its own to make or open a file.
 
 
-## [DAY-4] HTML
+## [DAY-4] HTML - Basics
 
 We will start with HTML.
 
@@ -321,7 +309,7 @@ Horizontal Line:
 'br' means line break, when the browser sees it know it has to show whatever comes next on another line, 'hr' means horizontal rule,just like when you take your ruler and draw a line from left to right in the text book. You see, even though you write things in separate lines (like the word first and line are clearly on separate lines), the browser will not know what to do until you tell it to 'br'. Maybe in school you had a project you have to use PowerPoint to make a presentation? With the special words ul, li, br, hr, h2 and b you can make your own presentation in HTML!
 
 
-## [DAY-5] HTML
+## [DAY-5] HTML - Basics
 
 The app you are using right now to see this website is called a web browser, I don't know if kids still call it like that, but adults do.
 

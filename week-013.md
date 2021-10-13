@@ -1,16 +1,4 @@
-# Chapter 13 - Week 13
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-89] Basics of Basics
+## [DAY-89] Files; Strings; Lists
 
 super simple text editor
 
@@ -145,7 +133,7 @@ pgzrun.go()
 write some python, and then run it with `python3 example.py`
 
 
-## [DAY-90] Basics of Basics
+## [DAY-90] Strings
 
 ![game-90.png](./screenshots/game-90.png "game 90 screenshot")
 
@@ -198,7 +186,7 @@ pgzrun.go()
 
 This is kind of what `screen.draw.text` does, you can of course just do `screen.draw.text(text, (0,0), fontsize=20,fontname="437-win")` and it will work fine, instead of displaying character by character and computing our own char spacing, but what is the fun in that? Also this way we are one step closer to be able to move the cursor left and right so we can edit in the middle of the text.
 
-## [DAY-91] Basics of Basics
+## [DAY-91] Lists
 
 list your favorite games, and rank them
 
@@ -241,7 +229,7 @@ while True:
             print(song[1])
             print('-' * 40)
 ```
-## [DAY-92] Basics of Basics
+## [DAY-92] Command Line; Command Line Arguments; Files
 
 Today is command line day.
 
@@ -254,7 +242,7 @@ import sys
 print(sys.argv)
 ```
 
-save it as `a.py` and then run `python3 a.py hello those are paremeters` frmo the Terminal app, you will see `['a.py', 'hello', 'those', 'are', 'paremeters']`, sys.argv[0] is the name of the program, and then the parameters you gave it.
+save it as `a.py` and then run `python3 a.py hello those are paremeters` from the Terminal app, you will see `['a.py', 'hello', 'those', 'are', 'paremeters']`, sys.argv[0] is the name of the program, and then the parameters you gave it.
 
 Now lets make few handy programs to help us with our command line:
 
@@ -361,7 +349,7 @@ $ python3 xcat.py example.py
 $ python3 example.py
 ```
 
-## [DAY-93] Basics of Basics
+## [DAY-93] PyDoc
 
 Reading docs. type this in the terminal: `pydoc3 open` `pydoc3 input` `pydoc3 print` and `pydoc3 pgzero.actor`.
 
@@ -500,7 +488,7 @@ You can also do pydoc3 on modules, e.g. `pydoc3 sys` or `pydoc3 sys.argv`. Somet
 
 Try also `pydoc3 pgzero`, `pydoc3 pygame` and `pydoc3 pygame.Rect`. There is also a way to find documentation for the command line programs, try `man python3`, `man` from `manual`, if you want to search for something use `man -k something` for example `man -k python`.
 
-## [DAY-94] Basics of Basics
+## [DAY-94] Editors - Ed/Nano/Vi/Emacs..
 
 Command line editors:
 
@@ -546,7 +534,7 @@ There are many many text editors, and some are better for you than others, but t
 
 So use the one you like most, but sometimes you will go on another computer and they wont have your editor there, so be be sure to be 'ok' with vim, nano or emacs, because they are on virtually any system.
 
-## [DAY-95] Basics of Basics
+## [DAY-95] Memory; Virtual Computer; Instructions; Strings; Lists
 
 
 Memory.

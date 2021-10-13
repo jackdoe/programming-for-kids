@@ -1,16 +1,4 @@
-# Chapter 4 - Week 4
-
-```
-day0: Basics of Basics
-day1: Dungeon Game
-day2: Dungeon Game
-day3: Favorite Food
-day4: Dungeon Game
-day5: Basics of Basics
-day6: Touch Typing
-```
-
-## [DAY-28] Basics of Basics
+## [DAY-28] Print; While
 
 Make a new file form IDLE, and write in it:
 ```
@@ -227,7 +215,7 @@ THATS THE WHOLE LANGUAGE, there are no more keywords.
 
 
 
-## [DAY-29] Dungeon Game
+## [DAY-29] Print; If
 
 ```
 print("Welcome to the forest!")
@@ -317,7 +305,7 @@ if a == "he" and b == "ll" and c == "o":
   print("hello")
 ```
 
-## [DAY-30] Dungeon Game
+## [DAY-30] Functions; Lists
 
 Our game is quite limited, and a quick step to improve it is to make you ask where you want to go until you pick one of the options.
 
@@ -372,7 +360,7 @@ print(r)
 Whatever is between `def` and `(` is the name of the function, in the above example its `sum`. Between `()` you put in the name of the variables you expect to use when someone calls your function. I want to sum two numbers, I dont know what the numbers are, so I just make two variables `a, b` and expect whoever calls my function to give me the numbers, like `r = sum(1737,1231231)`
 
 
-## [DAY-31] Dungeon Game
+## [DAY-31] Functions; If; Random; Lists
 
 FIGHT TO THE DEATH!
 
@@ -438,7 +426,7 @@ if what == "east":
 ```
 
 
-## [DAY-32] Favorite Food
+## [DAY-32] Lists; While
 
 Today you have to make only two programs:
 

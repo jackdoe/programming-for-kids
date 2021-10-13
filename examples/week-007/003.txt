@@ -1,5 +1,0 @@
-def forever(n):
-  print(n)
-  forever(n+1)
-
-forever(1)

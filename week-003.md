@@ -1,16 +1,4 @@
-# Chapter 3 - Week 3
-
-```
-day0: View Source
-day1: Inspect
-day2: Images
-day3: Licenses
-day4: Touch Typing
-day5: HTML
-day6: HTML fun
-```
-
-## [DAY-21] View Source
+## [DAY-21] HTML - View Source
 
 Browsers on laptops or pcs will allow you to rightclick on any page and then click on `View page source`, this will show you the HTML of the page your are looking at.
 
@@ -27,7 +15,7 @@ We will spend the rest of the day looking at some page sources
 * https://www.terrypratchettbooks.com/
 * https://www.goodreads.com/
 
-## [DAY-22] Inspect
+## [DAY-22] HTML - Inspect
 
 
 Make new html file and write the following example:
@@ -59,7 +47,7 @@ Lets try it. Make a new file with this content:
 Open the file and then right click on `0$` and click inspect. Then you will see `<b>0$</b>` if you double click on it, you will be able to change it, and you will see the new version. Now reload the page, and you will see the old value is back.
 
 
-## [DAY-23] HTML Images
+## [DAY-23] HTML - Images
 
 To show an image you need the `img` tag, and give it `src` attribute with the address of the image, for example if I want to display https://picsum.photos/id/237/200/300 I have to do type it like this:
 
@@ -191,7 +179,7 @@ Check out https://tldrlegal.com/ for super short description of licenses
 
 relax and spend the day touch typing
 
-## [DAY-26] HTML Title
+## [DAY-26] HTML - Title
 
 ```
 <html>
@@ -250,7 +238,7 @@ The _language_ we use inside the `style` tag is called `CSS`, and it is quite si
 
 You see how in certain tags we can use different language, not html, like in `<style>` we use CSS, in `<script>` we use JavaScript, we are going to do more work with it soon, but you can check out at https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
-## [DAY-27] HTML fun
+## [DAY-27] HTML - Fun (JS)
 
 Many buttons
 

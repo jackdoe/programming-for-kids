@@ -1,16 +1,4 @@
-# Chapter 2 - Week 2
-
-```
-day0: HTML tables
-day1: HTML tables and lists
-day2: HTML multiplication table
-day3: HTML multiplication table
-day4: touch typing
-day5: HTML Links
-day6: HTML fun
-```
-
-## [DAY-14] Tables
+## [DAY-14] HTML - Tables
 
 Tables are amazing, in fact, tables are one of the things that makes the modern world work. In your school for example, there is a table with the name of each student and their score. Or in your TV there is a table with each program number and the program there (e.g. 24 is 24 Kitchen). On your iPhone there are many programs that use many tables internally to make decisions. There is of course the ASCII table, which can tell you how to get from a character to its raw representation and the other way around. The periodic table is also a famous example. The table on the bus stop tells you which bus will come at what time.
 
@@ -83,7 +71,7 @@ Only 3 new tags we have to learn `table, tr, td, th` are the main things we will
 
 Make `<table border="100">` and see what happens.
 
-## [DAY-15] More tables
+## [DAY-15] HTML - More tables
 
 ```
 <html>
@@ -146,18 +134,18 @@ Super small difference between `ul` and `ol`, one means 'unordered list' and the
 
 
 
-## [DAY-16] Multiplication table
+## [DAY-16] HTML - Multiplication table
 
 Start writing the whole multiplication table
 (will take more than 1 day)
 
-## [DAY-17] Multiplication table
+## [DAY-17] HTML - Multiplication table
 Finish writing the whole multiplication table.
 
 ## [DAY-18] Touch Typing
 Spend the day touch typing.
 
-## [DAY-19] Links
+## [DAY-19] HTML - Links
 
 The most powerful feature of HTML is to be able to link to another place in the internet, try this:
 
@@ -173,7 +161,7 @@ The `a` tag with its `href` attribute is one of the most important things of the
 
 Whatever is in the `href` attribute this is where the browser will go after you click on whatever is inside the `<a></a>`, in our case `click here`. So after you click on `click here` your browser will go to wikipedia.com, and from there when you click somewhere it will go to wherever that `a`'s `href` points to.
 
-## [DAY-20] HTML fun
+## [DAY-20] HTML - Tree
 
 Rainbow:
 

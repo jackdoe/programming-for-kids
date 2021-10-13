@@ -1,4 +1,0 @@
-x = [1,2,3,4]
-y = []
-for i in range(0,2):
-    y.append(x[i])

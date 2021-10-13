@@ -1,3 +1,0 @@
-import turtle
-for i in range(30):
-  turtle.circle(i)

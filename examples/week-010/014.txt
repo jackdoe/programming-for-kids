@@ -1,8 +1,0 @@
-k = []
-while True:
-    s = input('What are you thinking of: ')
-    if s == 'pop':
-        k.pop(0)
-    else:
-        k.append(s)
-    print(k)

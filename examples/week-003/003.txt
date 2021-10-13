@@ -1,5 +1,0 @@
-<html>
-  <body>
-    Your Robux Balance is: <b>0$</b>
-  </body>
-</html>

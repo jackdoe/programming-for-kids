@@ -1,16 +1,4 @@
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-95] Basics of Basics
+## [DAY-95] Memory; Machine Code; Virtual Computer
 
 It will be super nice if our multiply program can be used from multiple places from a bigger program:
 
@@ -284,7 +272,7 @@ By now you can see how fragile this is, if one mistake is made, you can corrupt 
 
 Sometimes we can find bugs in a program that we can exploit, if we can simply control the corruption, we can make it jump to somewhere where we have our own code, and then we can control what the program does.
 
-## [DAY-96] Basics of Basics
+## [DAY-96] Binary; ASCII; Memory
 
 Lets spend a day on bits and bytes.
 
@@ -427,7 +415,7 @@ example if we want to store `5, h e l l o`, the computer memory might look like 
 
 If we use 1 byte per character, ASCII actuaklly fitst in 7 bits (its called 7 bit ascii) as the maximum value is 127, but we store things aligned to 1 byte, the way processors are made, they have certain restrictions,m they cant just go and read/write at a specific bit position in the memory, so many times when we want to store 7 bits of data we need to use 8 bits, Unless we come with something to store in the extra bit, it will be just waste.
 
-## [DAY-97] Basics of Basics
+## [DAY-97] Lists; 
 
 ![game-97.png](./screenshots/game-97.png "game 97 screenshot")
 
@@ -634,7 +622,7 @@ pgzrun.go()
 ```
 
 
-## [DAY-98] Basics of Basics
+## [DAY-98] Lists; Read/Write File
 
 
 ![game-98-a.png](./screenshots/game-98-a.png "game 98-a screenshot")
@@ -902,13 +890,13 @@ def draw():
 
 pgzrun.go()
 ```
-## [DAY-99] Basics of Basics
+## [DAY-99] Classes; Lists; Functions; Cartesian Coordinates
 
-Today we talk about classess and instances.
+Today we talk about classes and instances.
 
-Classess are a bit like the houses you buy in roblox, its just a recepie for a house, and when you buy it you can customize it.
+Classes are a bit like the houses you buy in roblox, its just a recepie for a house, and when you buy it you can customize it.
 
-If two people have houses made from the same blueprint, we call them instances, they are seperate entities, you can lock one and that does not mean the other is locked. One can have a couch the other one doesnt.
+If two people have houses made from the same blueprint, we call them instances, they are seperate entities, you can lock one and that does not mean the other is locked. One can have a couch the other one doesn't.
 
 The blueprint or recipe we call 'class' and the real thing that comes out of it we call 'instance'.
 
@@ -1104,7 +1092,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-100] Basics of Basics
+## [DAY-100] Touch Typing; Lists
 
 Day 100 party!
 
@@ -1195,7 +1183,7 @@ print('your score is ' + str(score))
 ```
 
 
-## [DAY-101] Basics of Basics
+## [DAY-101] Functions; Strings
 
 invert a list
 

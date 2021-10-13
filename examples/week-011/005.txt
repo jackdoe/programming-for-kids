@@ -1,7 +1,0 @@
-d = 30
-while True:
-    for i in range(1,d):
-        print('⚽' * i)
-    for i in range(1,d):
-        h = (d - i)
-        print('⚽' * h)

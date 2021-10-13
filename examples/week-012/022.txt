@@ -1,3 +1,0 @@
-f = open("day-87.txt", "r")
-data = f.read()
-print(data)

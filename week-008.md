@@ -1,17 +1,4 @@
-# Chapter 8 - Week 8
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-
-## [DAY-55] Basics of Basics
+## [DAY-55] Lists; Functions
 
 Tic Tac Toe
 
@@ -94,7 +81,7 @@ while True:
 
 Spend the rest of the day playing.
 
-## [DAY-56] Basics of Basics
+## [DAY-56] Functions; If; Random
 
 Trivia game
 
@@ -144,7 +131,7 @@ while True:
 ```
 
 
-## [DAY-57] Basics of Basics
+## [DAY-57] Lists; Functions; Grid
 
 Snake
 
@@ -237,11 +224,11 @@ while True:
 
 ```
 
-## [DAY-58] Basics of Basics
+## [DAY-58] Continue Previous Day
 
 Keep working on the snake game if you are not done. if you are do touch typing
 
-## [DAY-59] Basics of Basics
+## [DAY-59] Tuples; Lists
 
 Tuples are kind of like lists that you cant grow or shrink, but also you usually assign meaning to each of the positions, for example
 
@@ -288,7 +275,7 @@ for m in favorite_miraculous:
 
 Or more than 2 pieces, you can hold however many you want, but it usually is you that assign meaning to each position, like in the above case, the first element we decide is season, and the second one we decide is episode
 
-## [DAY-60] Basics of Basics
+## [DAY-60] Go Back In Time
 
 Back to the beginning.
 

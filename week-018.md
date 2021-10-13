@@ -1,16 +1,4 @@
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-123] Basics of Basics
+## [DAY-123] Lists; Callbacks
 
 ![game-123.png](./screenshots/game-123.png "game 123 screenshot")
 
@@ -93,7 +81,7 @@ def draw():
 pgzrun.go()
 
 ```
-## [DAY-124] Basics of Basics
+## [DAY-124] BMP format, Images; Encoding/Decoding
 
 Images
 
@@ -105,7 +93,7 @@ Open images/joshi-100.bmp and you will see:
 
 Now lets just read the bytes, and just show the numbers, starting at position 54, when we print new line every 106, and also we are gonna print every 4th byte.
 
-first just print the byutes:
+first just print the bytes:
 
 
 ```
@@ -196,7 +184,7 @@ And we can make 4 bytes into a integer with `int.from_bytes`. We will get into t
 It has a header, followed up by data. This is very common method and you will see it in all kinds of places. Even in our virtual computer when we were storing the strings we used a similar method, the first byte was always the length of the string.
 
 
-## [DAY-125] Basics of Basics
+## [DAY-125] Lists; Dictionaries
 
 ![game-125-a.png](./screenshots/game-125-a.png "game 125 a screenshot")
 ![game-125-b.png](./screenshots/game-125-b.png "game 125 b screenshot")
@@ -324,7 +312,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-126] Basics of Basics
+## [DAY-126] Read/Write File
 
 ![game-126.png](./screenshots/game-126.png "game 126 screenshot")
 
@@ -370,7 +358,7 @@ def draw():
     elf.draw()
 pgzrun.go()
 ```
-## [DAY-127] Basics of Basics
+## [DAY-127] Callbacks; Schedule Interval
 
 super short, make the actor walk
 
@@ -386,6 +374,7 @@ elf.x = WIDTH/2
 elf.y = HEIGHT/2
 
 poses = cycle(["player/tiles-46","player/tiles-47","player/tiles-48","player/tiles-49","player/tiles-50","player/tiles-51"])
+
 def make_actor_move():
     elf.image = next(poses)
 clock.schedule_interval(make_actor_move, 0.4)
@@ -398,7 +387,7 @@ pgzrun.go()
 
 ```
 
-## [DAY-128] Basics of Basics
+## [DAY-128] Lists; CPU usage; Resources
 
 ![game-128.png](./screenshots/game-128.png "game 128 screenshot")
 

@@ -1,20 +1,8 @@
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-109] Basics of Basics
+## [DAY-109] Touch Typing Day
 
 Touchtyping day!
 
-## [DAY-110] Basics of Basics
+## [DAY-110] Find Code on TikTok
 
 
 ![game-109.png](./screenshots/game-109.png "game 109 screenshot")
@@ -46,7 +34,7 @@ while True:
     i+=1
 ```
 
-## [DAY-111] Basics of Basics
+## [DAY-111] Lists; Random
 ![game-110.png](./screenshots/game-110.png "game 110 screenshot")
 
 ```
@@ -56,8 +44,8 @@ import random
 WIDTH = 400
 HEIGHT = 400
 fox = Actor("c1")
-fox.x= WIDTH/2
-fox.y=HEIGHT/2
+fox.x = WIDTH/2
+fox.y =HEIGHT/2
 
 other = [
     Actor("c2", pos=(100,100)),
@@ -99,7 +87,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-112] Basics of Basics
+## [DAY-112] Use Simple Dictionary
 
 Count the words in a song
 
@@ -175,7 +163,7 @@ print(l)
 print(len(song))
 ```
 
-## [DAY-113] Basics of Basics
+## [DAY-113] Discover Pythontutor
 
 use https://pythontutor.com/visualize.html with the folloowing code:
 
@@ -213,8 +201,7 @@ for word in words:
 
 try it with other programs as well.
 
-## [DAY-114] Basics of Basics
-
+## [DAY-114] Simple Turtle
 ![game-114.png](./screenshots/game-114.png "game 114 screenshot")
 
 random walk
@@ -241,7 +228,7 @@ while True:
 
 ```
 
-## [DAY-115] Basics of Basics
+## [DAY-115] Practical Coding - Control Roblox with python
 
 ![game-115.png](./screenshots/game-115.jpg "game 115 screenshot")
 

@@ -1,0 +1,27 @@
+from os import listdir, makedirs
+from os.path import isfile, join
+
+toc = open("toc.md", "w")
+day = 0
+dir =  listdir('.')
+dir.sort()
+
+for fn in dir:
+    if isfile(fn) and fn.endswith('.md') and fn.startswith('week-0'):
+        print("extracting",fn)
+
+        f = open(fn, encoding="utf8", mode="r")
+        lines = f.readlines()
+        f.close()
+
+        for line in lines:
+            line = line[:-1]
+            if line.startswith('## [DAY-'):
+                day += 1
+                if day % 7 == 0:
+                    toc.write("## week - " + str(int((day+1) / 7)) + "\n")
+                    toc.write('\n\n')
+                toc.write('\n[day '+str(day)+'](#'+line.lower().replace('## ','').replace('[','').replace(']','').replace(' ','-')+')\n')
+            if line.startswith('!['):
+                toc.write(line + '\n')
+toc.close()

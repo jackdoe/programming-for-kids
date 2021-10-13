@@ -1,16 +1,4 @@
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-116] Basics of Basics
+## [DAY-116] Many Turtles
 
 Many Turtles.
 
@@ -99,7 +87,7 @@ while True:
 
 Again this is the same as in roblox's houses, you have the blueprint of the house, and you can create an instance of it, and then you can modify it. so `turtle.Turtle()` creates an instance, and then you see, bob, alice and charlie have their own changes. In the same time they have the same functionality, like `forward` `up` and etc coming from the blueprint and each of those methods work on the instance itself.
 
-## [DAY-117] Basics of Basics
+## [DAY-117] Another Text Editor
 
 ![game-117.png](./screenshots/game-117.png "game 117 screenshot")
 
@@ -193,7 +181,7 @@ while True:
 
 ```
 
-## [DAY-118] Basics of Basics
+## [DAY-118] Search Lyrics
 
 Search for your favorite lyrics, dont forget to `pip3 install lyricsgenius`
 
@@ -214,7 +202,7 @@ while True:
 ```
 
 
-## [DAY-119] Basics of Basics
+## [DAY-119] Face Recognition. Move-78
 
 ![game-119.png](./screenshots/game-119.png "game 119 screenshot")
 
@@ -240,7 +228,7 @@ It is also not very easy to be tricked with mascara.
 even thought it was easy in 2014, https://www.theatlantic.com/technology/archive/2014/07/makeup/374929/
 
 
-## [DAY-120] Basics of Basics
+## [DAY-120] Program on your own form a book
 
 Today you are on your own. We start with: https://www.amazon.de/-/en/DK/dp/1465461884 chapter 2, read it for 1 hour and make the programs and exercieses.
 
@@ -309,7 +297,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-121] Basics of Basics
+## [DAY-121] Scam Check List
 
 Scams.. Scams everywhere.
 
@@ -327,7 +315,7 @@ Follow this list:
 The scammers are very smart, and have a lot of experience to trick you into doing what they want, sometimes they will call claiming your parents are in trouble and you have to give them a credit card number, sometimes they will call to tell you you win the new iPhone if you just give them a credit card number. They are very inventive as well, so the best thing is just think sus.
 
 
-## [DAY-122] Basics of Basics
+## [DAY-122] Lists; Random; Mutate
 
 Hide and Seek
 

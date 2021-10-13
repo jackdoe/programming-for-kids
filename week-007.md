@@ -1,17 +1,4 @@
-# Chapter 7 - Week 7
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of the Internet
-day4: Basics of the Internet
-day5: Basics of the Internet
-day6: Touch Typing
-```
-
-
-## [DAY-48] Basics of Basics
+## [DAY-48] Strings; Functions
 
 How big can a string be?
 
@@ -68,7 +55,7 @@ def two(n):
 one(1)
 
 ```
-## [DAY-49] Basics of Basics
+## [DAY-49] List; Dictionaries
 
 ```
 import random
@@ -164,7 +151,7 @@ while True:
 
 This is just another way to do it, see in the list we can store those strange things. We will talk about them in a couple of weeks, I just wanted to show you how clean it is when 
 
-## [DAY-50] Basics of Basics
+## [DAY-50] Lists; If
 
 Print the odd numbers from 0 to 999
 
@@ -228,7 +215,7 @@ else:
     # this will show only if we have even number of rounds
     print("THERE IS NO WINNER")
 ```
-## [DAY-51] Basics of the Internet
+## [DAY-51] Internet Awareness - Scams/Viruses
 
 Today is an important day, its Internet awareness day.
 
@@ -246,7 +233,7 @@ See the internet is a place, where you can find great things, like electroboom a
 
 Now with your parent, search on youtube for 'how to hack in roblox' and look at the scame, how people want to install something so they can steal your password.
 
-## [DAY-52] Basics of the Internet
+## [DAY-52] Internet Awareness - How Login Works
 
 Ok now for something more serious!
 
@@ -339,7 +326,7 @@ This is a browser feature intended for developers. If someone has told you to co
 When you Logout from somewhere, they delete the token on their side, so the next time a request is made, they know you are not logged in anymore. That is why its important to logout if you use someone else's computer to login.
 
 
-## [DAY-53] Basics of the Internet
+## [DAY-53] Basics of the Internet - IP/DNS
 
 The internet is a mess, a mess of things that talk to each other. Each of the things has their own IP address (ip stands for internet protocol), for example open https://1.1.1.1 you see this is a simple ip address of a popular DNS server (dns is a system we use to resolve names into ip addresses, e.g. facebook.com is 31.13.64.35). You can check the ip address by searching 'whats my ip' on google, and because your browser has to connect to google's server and they connect through their IP addresses, so google knows your IP. Of course it is a bit more complicated than that, but for now this will do.
 

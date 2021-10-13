@@ -1,16 +1,4 @@
-# Chapter 11 - Week 11
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-75] Basics of Basics
+## [DAY-75] Functions; Callbacks; Lists; Encoding
 
 ![game-75.png](./screenshots/game-75.png "game 75 screenshot")
 
@@ -332,7 +320,7 @@ for word in text:
         print(word , end='')
 ```
 
-## [DAY-78] Basics of Basics
+## [DAY-78] Coordinates; Functions; Callbacks
 
 ![game-78.png](./screenshots/game-78.png "game 78 screenshot")
 
@@ -464,7 +452,7 @@ Decode morse code:
 
 
 
-## [DAY-79] Basics of Basics
+## [DAY-79] Lists; Encoding
 
 morse code agian
 
@@ -485,7 +473,7 @@ for word in text:
             print(alphabet[c])
 ```
 
-## [DAY-80] Basics of Basics
+## [DAY-80] Lists; Functions
 
 ![game-80.png](./screenshots/game-80.png "game 80 screenshot")
 
@@ -575,7 +563,7 @@ average of two lists
 ![day-80-b.jpg](./reading/day-80-b.jpg "day 80 reading average of two lists")
 
 
-## [DAY-81] Basics of Basics
+## [DAY-81] Lists; Encoding
 
 First image
 

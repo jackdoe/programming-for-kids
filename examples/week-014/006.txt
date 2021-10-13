@@ -1,2 +1,0 @@
-0 # tails
-1 # heads

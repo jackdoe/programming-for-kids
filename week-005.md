@@ -1,16 +1,4 @@
-# Chapter 5 - Week 5
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Touch Typing
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-35] Basics of Basics
+## [DAY-35] Lists; While; Continue
 
 This week there will be less talking and more programming.
 
@@ -88,7 +76,7 @@ See how we use `continue` to not print a result if we don't understand the opera
 
 
 
-## [DAY-36] Basics of Basics
+## [DAY-36] While; Range; Functions
 
 Print the numbers from 0 to 9 FOREVER
 
@@ -158,7 +146,7 @@ for i in range(s):
 print(s, "SECONDS ARE OVER")
 ```
 
-## [DAY-37] Basics of Basics
+## [DAY-37] While; Functions
 
 Clock 
 
@@ -240,7 +228,7 @@ while True:
     print("nop, I dont like " + guess)
 ```
 
-## [DAY-38] Basics of Basics
+## [DAY-38] Strings
 
 What was your name again?
 
@@ -350,7 +338,7 @@ box(15,13,'*')
 
 Do some touch typing.
 
-## [DAY-40] Basics of Basics
+## [DAY-40] Functions; Strings; Range
 
 
 Make inverse beam

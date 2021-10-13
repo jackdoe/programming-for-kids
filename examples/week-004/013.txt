@@ -1,7 +1,0 @@
-while True:
-  name = input("what is your name: ")
-  print(name)
-  if name == "pikachu":
-    break
-
-print("DONE")

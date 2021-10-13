@@ -1,17 +1,4 @@
-# Chapter 10 - Week 10
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-
-## [DAY-68] Basics of Basics
+## [DAY-68] Lists; Functions
 
 Shoot bullets and remove them from the list, play sound, and also level up after killing 3 snakes!
 
@@ -106,7 +93,7 @@ So you see when 0 finishes because it is the oldest, when it does bullets.pop(0)
 
 pretty cool!
 
-## [DAY-69] Basics of Basics
+## [DAY-69] Sockets; Functions; Callbacks
 
 ![game-69.png](./screenshots/game-69.png "game 69 screenshot")
 
@@ -180,7 +167,7 @@ There are two important parts here, first is the `socket` and then the `Thread`.
 The `multiplayer()` function runs in a separate thread, or you can think of a separate process, so we are doing two things in the same time, the game loop (which is one `while True`) and the multiplayer loop which is also `while True`.
 
 
-## [DAY-70] Basics of Basics
+## [DAY-70] Lists; Functions
 
 print numbers in a list
 
@@ -268,7 +255,7 @@ data = [[1,2,3,4,5], [1,2,3,4,5]]
 print(sum(data))
 ```
 
-## [DAY-71] Basics of Basics
+## [DAY-71] Strings; Integers; While; Functions
 make a calculator
 
 ```
@@ -311,7 +298,7 @@ while True:
     print(sum(x))
 
 ```
-## [DAY-72] Basics of Basics
+## [DAY-72] Reading Code
 
 Reading code is even more important than writing it, and it is more difficult than reading a book, because the story does not develop top to bottom. You have to see the important pieces, and how they are linked together. Where are things assigned and changed and how are those pieces related. For example in the touch typing program, you have a couple of functions, you can study them on their own, and know what they do, and then see how they are used and make sense of the whole program, without even running it.
 
@@ -326,7 +313,7 @@ We will go over a couple of programs we wrote before, the rock paper scissors ga
 
 Those are just examples, you have to print the programs and go over them with your parent.
 
-## [DAY-73] Basics of Basics
+## [DAY-73] Reading Code
 
 More reading today, those are a couple of examples from the earlier days, the love tester, the fight function from the text game, the hangman game and first touch typing program.
 
@@ -341,7 +328,7 @@ More reading today, those are a couple of examples from the earlier days, the lo
 
 Again you can use something else as well, those are just the ones I picked. Be messy with the pencil, connect things together!
 
-## [DAY-74] Basics of Basics
+## [DAY-74] Strings; While; Lists
 
 Today its up to you what to write, my kid came up with those programs:
 

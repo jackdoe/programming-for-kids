@@ -1,17 +1,4 @@
-# Chapter 9 - Week 9
-
-```
-day0: pygame and pgzero
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-
-## [DAY-61] pygame and pgzero
+## [DAY-61] PyGame; PyGameZero; Coordinates
 
 open `cmd` and run:
 
@@ -118,7 +105,7 @@ Lets say we have 400 width and 300 height window
 
 top left corner is y = 0 and x = 0, bottom right is `x = 400` and `y = 300`. So when we move 'UP' with the keyboard we actually have to decrease `y` instead of increasing it like in `turtle`, where 0,0 is in the center of the screen, so top left is `(-half_x, -half_y)` and bottom right is `(half_x, half_y)`
 
-## [DAY-62] Basics of Basics
+## [DAY-62] Collisions; Callbacks
 
 
 Smooth movement.
@@ -206,7 +193,7 @@ pgzrun.go()
 
 ```
 
-## [DAY-63] Basics of Basics
+## [DAY-63] Functions
 
 Catch the snake
 
@@ -263,7 +250,7 @@ pgzrun.go()
 ```
 
 
-## [DAY-64] Basics of Basics
+## [DAY-64] Lists; Functions
 
 Many Snakes
 
@@ -323,7 +310,7 @@ def draw():
     screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
 pgzrun.go()
 ```
-## [DAY-65] Basics of Basics
+## [DAY-65] Functions; Collisions
 
 ```
 import pgzrun
@@ -375,7 +362,7 @@ pgzrun.go()
 ```
 
 
-## [DAY-66] Basics of Basics
+## [DAY-66] Schedule; Callbacks; Functions
 
 Catch as many snakes as you can in 5 seconds.
 
@@ -455,7 +442,7 @@ def update():
 
 ```
 
-## [DAY-67] Basics of Basics
+## [DAY-67] Lists; Functions
 
 Cross the road. Work with your parent to find images for the game, you need few cars, fox and a door. If not just use the existing assets from your images/ folder
 

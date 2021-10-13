@@ -1,4 +1,0 @@
-memory = []
-for i in range(1000000):
-    memory.append(0)
-

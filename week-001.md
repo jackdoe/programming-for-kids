@@ -1,15 +1,3 @@
-# Chapter 1 - Week 1
-
-```
-day0: make new touch typing program
-day1: touch typing on keybr.com
-day2: touch typing using your program
-day3: HTML
-day4: HTML
-day5: touch typing
-day6: HTML
-```
-
 ## [DAY-7] New Touch Typing Program
 
 Make new file on your desktop, touchtyping.html and type in it:
@@ -60,7 +48,7 @@ Today just spend the day chilling on keybr.com
 
 Open touchtyping.html and spend the day using your awesome program. Once you open it, right click and then click on `View Source` to remember that you actually wrote this! Good job!
 
-## [DAY-10] HTML
+## [DAY-10] HTML - Basics
 
 From now on the HTML examples will be more code and less text, so you just have to go through them with your parent.
 
@@ -101,7 +89,7 @@ You see we add this `onclick=...` which is code that is going to run every time 
 Try to add more buttons by yourself with other emojis, 🏍️, 🏂, 🐓 or 🐧 for example.
 
 
-## [DAY-11] HTML
+## [DAY-11] HTML - Basics
 
 Making a presentation with HTML
 
