@@ -24,5 +24,5 @@ for fn in dir:
                 clear = line.lower().replace('## ','').replace('[','').replace(']','')
                 toc.write('\n['+clear+'](#'+clear.replace(' ','-')+')\n')
             if line.startswith('!['):
-                toc.write(line.replace(')','=250x)') + '\n')
+                toc.write(line.replace(')',' =250x)') + '\n')
 toc.close()
