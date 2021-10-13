@@ -1,4 +1,4 @@
-## [DAY-28] Print; While
+## [DAY-28] Print; Functions; While; Variables; Conditions
 
 Make a new file form IDLE, and write in it:
 ```

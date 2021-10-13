@@ -185,7 +185,7 @@ while True:
         print('⚽' * h)
 ```
 
-## [DAY-76] Basics of Basics
+## [DAY-76] Functions; Callbacks; Lists
 
 
 ![game-76.png](./screenshots/game-76.png "game 76 screenshot")
@@ -294,7 +294,7 @@ print('sum: ' + str(sum))
 print('average: ' + str(sum/n))
 ```
 
-## [DAY-77] Basics of Basics
+## [DAY-77] Lists; Encode/Decode
 
 morse code translator
 
