@@ -6,6 +6,8 @@ day = 0
 dir =  listdir('.')
 dir.sort()
 
+toc.write("## week - 0\n")
+
 for fn in dir:
     if isfile(fn) and fn.endswith('.md') and fn.startswith('week-0'):
         print("extracting",fn)
