@@ -179,17 +179,405 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 <div style="page-break-before:always"></div>
 
-# Chapter 0 - Week 0
 
-```
-day0: learn about the computer
-day1: touch typing on keybr.com
-day2: install python and make a program
-day3: touch typing using your program
-day4: HTML
-day5: touch typing
-day6: HTML
-```
+[day 1](#day-0-the-computer)
+
+[day 2](#day-0-files)
+
+[day 3](#day-0-ascii)
+
+[day 4](#day-0-magic)
+
+[day 5](#day-0-how-to-google)
+
+[day 6](#day-1-touch-typing)
+## week - 1
+
+
+
+[day 7](#day-2-install-python)
+
+[day 8](#day-2-make-a-useful-program)
+
+[day 9](#day-3-touch-typing-using-your-program)
+
+[day 10](#day-4-html---basics)
+
+[day 11](#day-5-html---basics)
+
+[day 12](#day-6-touch-typing)
+
+[day 13](#day-7-new-touch-typing-program)
+## week - 2
+
+
+
+[day 14](#day-8-touch-typing)
+
+[day 15](#day-9-touch-typing-using-your-program)
+
+[day 16](#day-10-html---basics)
+
+[day 17](#day-11-html---basics)
+
+[day 18](#day-12-touch-typing)
+
+[day 19](#day-13-html)
+
+[day 20](#day-14-html---tables)
+## week - 3
+
+
+
+[day 21](#day-15-html---more-tables)
+
+[day 22](#day-16-html---multiplication-table)
+
+[day 23](#day-17-html---multiplication-table)
+
+[day 24](#day-18-touch-typing)
+
+[day 25](#day-19-html---links)
+
+[day 26](#day-20-html---tree)
+
+[day 27](#day-21-html---view-source)
+## week - 4
+
+
+
+[day 28](#day-22-html---inspect)
+
+[day 29](#day-23-html---images)
+
+[day 30](#day-24-licenses)
+
+[day 31](#day-25-touch-typing)
+
+[day 32](#day-26-html---title)
+
+[day 33](#day-27-html---fun-(js))
+
+[day 34](#day-28-print;-while)
+## week - 5
+
+
+
+[day 35](#day-29-print;-if)
+
+[day 36](#day-30-functions;-lists)
+
+[day 37](#day-31-functions;-if;-random;-lists)
+
+[day 38](#day-32-lists;-while)
+
+[day 39](#day-33-for)
+
+[day 40](#day-34-love-tester)
+
+[day 41](#day-34-touch-typing)
+## week - 6
+
+
+
+[day 42](#day-35-lists;-while;-continue)
+
+[day 43](#day-36-while;-range;-functions)
+
+[day 44](#day-37-while;-functions)
+
+[day 45](#day-38-strings)
+
+[day 46](#day-39-touch-typing)
+
+[day 47](#day-40-functions;-strings;-range)
+
+[day 48](#day-41-basics-of-basics)
+## week - 7
+
+
+
+[day 49](#day-41-lists;-if;-while)
+
+[day 50](#day-42-lists;-functions:-grid;-while)
+
+[day 51](#day-43-if;-range)
+
+[day 52](#day-44-lists)
+
+[day 53](#day-45-lists;-functions)
+
+[day 54](#day-46-basic-turtle)
+
+[day 55](#day-47-range;-while)
+## week - 8
+
+
+
+[day 56](#day-48-strings;-functions)
+
+[day 57](#day-49-list;-dictionaries)
+
+[day 58](#day-50-lists;-if)
+
+[day 59](#day-51-internet-awareness---scams/viruses)
+
+[day 60](#day-52-internet-awareness---how-login-works)
+
+[day 61](#day-53-basics-of-the-internet---ip/dns)
+
+[day 62](#day-54-touch-typing)
+## week - 9
+
+
+
+[day 63](#day-55-lists;-functions)
+
+[day 64](#day-56-functions;-if;-random)
+
+[day 65](#day-57-lists;-functions;-grid)
+
+[day 66](#day-58-continue-previous-day)
+
+[day 67](#day-59-tuples;-lists)
+
+[day 68](#day-60-go-back-in-time)
+
+[day 69](#day-61-pygame;-pygamezero;-coordinates)
+## week - 10
+
+
+
+[day 70](#day-62-collisions;-callbacks)
+![game-62.png](./screenshots/game-62.png "game 62 screenshot")
+
+[day 71](#day-63-functions)
+![game-63.png](./screenshots/game-63.png "game 63 screenshot")
+
+[day 72](#day-64-lists;-functions)
+![game-64.png](./screenshots/game-64.png "game 64 screenshot")
+
+[day 73](#day-65-functions;-collisions)
+
+[day 74](#day-66-schedule;-callbacks;-functions)
+
+[day 75](#day-67-lists;-functions)
+
+[day 76](#day-68-lists;-functions)
+![game-68.png](./screenshots/game-68.png "game 68 screenshot")
+## week - 11
+
+
+
+[day 77](#day-69-sockets;-functions;-callbacks)
+![game-69.png](./screenshots/game-69.png "game 69 screenshot")
+
+[day 78](#day-70-lists;-functions)
+
+[day 79](#day-71-strings;-integers;-while;-functions)
+
+[day 80](#day-72-reading-code)
+![day-72-0.jpg](./reading/day-72-0.jpg "day 72 example 0")
+![day-72-1.jpg](./reading/day-72-1.jpg "day 72 example 1")
+![day-72-2.jpg](./reading/day-72-2.jpg "day 72 example 2")
+
+[day 81](#day-73-reading-code)
+![day-73-0.jpg](./reading/day-73-0.jpg "day 73 example 0")
+![day-73-1.jpg](./reading/day-73-1.jpg "day 73 example 1")
+![day-73-2.jpg](./reading/day-73-2.jpg "day 73 example 2")
+![day-73-3.jpg](./reading/day-73-3-0.jpg "day 73 example 3")
+
+[day 82](#day-74-strings;-while;-lists)
+
+[day 83](#day-75-functions;-callbacks;-lists;-encoding)
+![game-75.png](./screenshots/game-75.png "game 75 screenshot")
+![day-75-1.jpg](./reading/day-75-1.jpg "day 75 example 1")
+## week - 12
+
+
+
+[day 84](#day-76-basics-of-basics)
+![game-76.png](./screenshots/game-76.png "game 76 screenshot")
+
+[day 85](#day-77-basics-of-basics)
+
+[day 86](#day-78-coordinates;-functions;-callbacks)
+![game-78.png](./screenshots/game-78.png "game 78 screenshot")
+![day-78-explain.png](./reading/day-78-explain.png "day 78 explain coordinates")
+![day-78-a.jpg](./reading/day-78-a.jpg "day 78 average of list of numbers")
+![day-78-c.jpg](./reading/day-78-c.jpg "day 78 decode morse code")
+
+[day 87](#day-79-lists;-encoding)
+
+[day 88](#day-80-lists;-functions)
+![game-80.png](./screenshots/game-80.png "game 80 screenshot")
+![day-80-a.jpg](./reading/day-80-a.jpg "day 80 reading pong")
+![day-80-b.jpg](./reading/day-80-b.jpg "day 80 reading average of two lists")
+
+[day 89](#day-81-lists;-encoding)
+
+[day 90](#day-82-lists;-strings)
+![game-82.png](./screenshots/game-82.png "game 82 screenshot")
+## week - 13
+
+
+
+[day 91](#day-83-lists;-functions)
+![game-83.png](./screenshots/game-83.png "game 83 screenshot")
+![game-83-a.png](./screenshots/game-83-a.png "game 83-a screenshot")
+![game-83-b.png](./screenshots/game-83-b.png "game 83-a screenshot")
+![game-83-c.png](./screenshots/game-83-c.png "game 83-c screenshot")
+
+[day 92](#day-84-lists)
+![game-84.png](./screenshots/game-84.png "game 84 screenshot")
+
+[day 93](#day-85-list;-functions)
+![game-85.png](./screenshots/game-85.png "game 85 screenshot")
+![game-85-a.png](./screenshots/game-85-a.png "game 85-a screenshot")
+![game-85-b.png](./screenshots/game-85-b.png "game 85-b screenshot")
+![game-85-c.png](./screenshots/game-85-c.png "game 85-c screenshot")
+![day-85.jpg](./reading/day-85.jpg "day 85 reading")
+
+[day 94](#day-86-lists)
+![game-86.png](./screenshots/game-86.png "game 86 screenshot")
+
+[day 95](#day-87-read/write-files)
+
+[day 96](#day-88-flask)
+
+[day 97](#day-89-files;-strings;-lists)
+![game-89.png](./screenshots/game-89.png "game 89 screenshot")
+## week - 14
+
+
+
+[day 98](#day-90-strings)
+![game-90.png](./screenshots/game-90.png "game 90 screenshot")
+
+[day 99](#day-91-lists)
+
+[day 100](#day-92-command-line;-command-line-arguments;-files)
+
+[day 101](#day-93-pydoc)
+
+[day 102](#day-94-editors---ed/nano/vi/emacs..)
+
+[day 103](#day-95-memory;-virtual-computer;-instructions;-strings;-lists)
+
+[day 104](#day-95-memory;-machine-code;-virtual-computer)
+## week - 15
+
+
+
+[day 105](#day-96-binary;-ascii;-memory)
+
+[day 106](#day-97-lists;-)
+![game-97.png](./screenshots/game-97.png "game 97 screenshot")
+
+[day 107](#day-98-lists;-read/write-file)
+![game-98-a.png](./screenshots/game-98-a.png "game 98-a screenshot")
+![game-98-b.png](./screenshots/game-98-b.png "game 98-b screenshot")
+
+[day 108](#day-99-classes;-lists;-functions;-cartesian-coordinates)
+![game-99.png](./screenshots/game-99.png "game 99 screenshot")
+
+[day 109](#day-100-touch-typing;-lists)
+![game-100.png](./screenshots/game-100.png "game 100 screenshot")
+
+[day 110](#day-101-functions;-strings)
+
+[day 111](#day-102-touch-typing-day)
+## week - 16
+
+
+
+[day 112](#day-103-read-file;-command-line-arguments)
+
+[day 113](#day-104-read-file;-command-line-arguments;-dictionary)
+
+[day 114](#day-105-basics-of-basics)
+
+[day 115](#day-106-read/write-file;-lists)
+![game-106.png](./screenshots/game-106.png "game 106 screenshot")
+
+[day 116](#day-107-lists;-dictionaries)
+
+[day 117](#day-108-dictionaries)
+
+[day 118](#day-109-touch-typing-day)
+## week - 17
+
+
+
+[day 119](#day-110-find-code-on-tiktok)
+![game-109.png](./screenshots/game-109.png "game 109 screenshot")
+
+[day 120](#day-111-lists;-random)
+![game-110.png](./screenshots/game-110.png "game 110 screenshot")
+
+[day 121](#day-112-use-simple-dictionary)
+
+[day 122](#day-113-discover-pythontutor)
+![game-113-a.png](./screenshots/game-113-a.png "game 113-a screenshot")
+![game-113-b.png](./screenshots/game-113-b.png "game 113-b screenshot")
+
+[day 123](#day-114-simple-turtle)
+![game-114.png](./screenshots/game-114.png "game 114 screenshot")
+
+[day 124](#day-115-practical-coding---control-roblox-with-python)
+![game-115.png](./screenshots/game-115.jpg "game 115 screenshot")
+
+[day 125](#day-116-many-turtles)
+![game-116-a.png](./screenshots/game-116-a.png "game 116-a screenshot")
+![game-116-b.png](./screenshots/game-116-b.png "game 116-b screenshot")
+## week - 18
+
+
+
+[day 126](#day-117-another-text-editor)
+![game-117.png](./screenshots/game-117.png "game 117 screenshot")
+
+[day 127](#day-118-search-lyrics)
+
+[day 128](#day-119-face-recognition.-move-78)
+![game-119.png](./screenshots/game-119.png "game 119 screenshot")
+![game-119-a.png](./screenshots/game-119-a.png "game 119a screenshot")
+![game-119-b.png](./screenshots/game-119-b.png "game 119b screenshot")
+![game-119-c.png](./screenshots/game-119-c.png "game 119c screenshot")
+
+[day 129](#day-120-program-on-your-own-form-a-book)
+
+[day 130](#day-121-scam-check-list)
+
+[day 131](#day-122-lists;-random;-mutate)
+![game-122-a.png](./screenshots/game-122-a.png "game 122a screenshot")
+![game-122-b.png](./screenshots/game-122-b.png "game 122b screenshot")
+
+[day 132](#day-123-lists;-callbacks)
+![game-123.png](./screenshots/game-123.png "game 123 screenshot")
+## week - 19
+
+
+
+[day 133](#day-124-bmp-format,-images;-encoding/decoding)
+![joshi-100.bmp](./images/joshi-100.bmp "joshi") 
+![game-124.png](./screenshots/game-124.png "game 124 screenshot")
+
+[day 134](#day-125-lists;-dictionaries)
+![game-125-a.png](./screenshots/game-125-a.png "game 125 a screenshot")
+![game-125-b.png](./screenshots/game-125-b.png "game 125 b screenshot")
+![game-125-c.png](./screenshots/game-125-c.png "game 125 c screenshot")
+![game-125-d.png](./screenshots/game-125-d.png "game 125 d screenshot")
+
+[day 135](#day-126-read/write-file)
+![game-126.png](./screenshots/game-126.png "game 126 screenshot")
+
+[day 136](#day-127-callbacks;-schedule-interval)
+
+[day 137](#day-128-lists;-cpu-usage;-resources)
+![game-128.png](./screenshots/game-128.png "game 128 screenshot")
+
+[day 138](#day-129-basics-of-basics)
 
 This week is one of the more difficult ones. Lots of new things, and some of them might not work on your computer because it is too new or too old, for which I apologize. You might need a bit of help. If you get stuck just call a friend or parent to help you out.
 
@@ -434,7 +822,7 @@ Spend the rest of the time for the day touch typing. Don't rush it. Place your f
 > Spend the whole day touch typing and making and opening new files in IDLE and notepad; I cant stress enough how important it is for the kid to be independent to be able on its own to make or open a file.
 
 
-## [DAY-4] HTML
+## [DAY-4] HTML - Basics
 
 We will start with HTML.
 
@@ -502,7 +890,7 @@ Horizontal Line:
 'br' means line break, when the browser sees it know it has to show whatever comes next on another line, 'hr' means horizontal rule,just like when you take your ruler and draw a line from left to right in the text book. You see, even though you write things in separate lines (like the word first and line are clearly on separate lines), the browser will not know what to do until you tell it to 'br'. Maybe in school you had a project you have to use PowerPoint to make a presentation? With the special words ul, li, br, hr, h2 and b you can make your own presentation in HTML!
 
 
-## [DAY-5] HTML
+## [DAY-5] HTML - Basics
 
 The app you are using right now to see this website is called a web browser, I don't know if kids still call it like that, but adults do.
 
@@ -516,18 +904,6 @@ For example, try this on your page: `<b>this is bold</b>`
 ## [DAY-6] Touch Typing
 
 Spend half the time using your program and half the time on keybr.com.
-# Chapter 1 - Week 1
-
-```
-day0: make new touch typing program
-day1: touch typing on keybr.com
-day2: touch typing using your program
-day3: HTML
-day4: HTML
-day5: touch typing
-day6: HTML
-```
-
 ## [DAY-7] New Touch Typing Program
 
 Make new file on your desktop, touchtyping.html and type in it:
@@ -578,7 +954,7 @@ Today just spend the day chilling on keybr.com
 
 Open touchtyping.html and spend the day using your awesome program. Once you open it, right click and then click on `View Source` to remember that you actually wrote this! Good job!
 
-## [DAY-10] HTML
+## [DAY-10] HTML - Basics
 
 From now on the HTML examples will be more code and less text, so you just have to go through them with your parent.
 
@@ -619,7 +995,7 @@ You see we add this `onclick=...` which is code that is going to run every time 
 Try to add more buttons by yourself with other emojis, 🏍️, 🏂, 🐓 or 🐧 for example.
 
 
-## [DAY-11] HTML
+## [DAY-11] HTML - Basics
 
 Making a presentation with HTML
 
@@ -698,19 +1074,7 @@ This day is completely free style, try to put all kinds of HTML words inside eac
 ```
 
 Try to add the self cloning 🐛 button to that page.
-# Chapter 2 - Week 2
-
-```
-day0: HTML tables
-day1: HTML tables and lists
-day2: HTML multiplication table
-day3: HTML multiplication table
-day4: touch typing
-day5: HTML Links
-day6: HTML fun
-```
-
-## [DAY-14] Tables
+## [DAY-14] HTML - Tables
 
 Tables are amazing, in fact, tables are one of the things that makes the modern world work. In your school for example, there is a table with the name of each student and their score. Or in your TV there is a table with each program number and the program there (e.g. 24 is 24 Kitchen). On your iPhone there are many programs that use many tables internally to make decisions. There is of course the ASCII table, which can tell you how to get from a character to its raw representation and the other way around. The periodic table is also a famous example. The table on the bus stop tells you which bus will come at what time.
 
@@ -783,7 +1147,7 @@ Only 3 new tags we have to learn `table, tr, td, th` are the main things we will
 
 Make `<table border="100">` and see what happens.
 
-## [DAY-15] More tables
+## [DAY-15] HTML - More tables
 
 ```
 <html>
@@ -846,18 +1210,18 @@ Super small difference between `ul` and `ol`, one means 'unordered list' and the
 
 
 
-## [DAY-16] Multiplication table
+## [DAY-16] HTML - Multiplication table
 
 Start writing the whole multiplication table
 (will take more than 1 day)
 
-## [DAY-17] Multiplication table
+## [DAY-17] HTML - Multiplication table
 Finish writing the whole multiplication table.
 
 ## [DAY-18] Touch Typing
 Spend the day touch typing.
 
-## [DAY-19] Links
+## [DAY-19] HTML - Links
 
 The most powerful feature of HTML is to be able to link to another place in the internet, try this:
 
@@ -873,7 +1237,7 @@ The `a` tag with its `href` attribute is one of the most important things of the
 
 Whatever is in the `href` attribute this is where the browser will go after you click on whatever is inside the `<a></a>`, in our case `click here`. So after you click on `click here` your browser will go to wikipedia.com, and from there when you click somewhere it will go to wherever that `a`'s `href` points to.
 
-## [DAY-20] HTML fun
+## [DAY-20] HTML - Tree
 
 Rainbow:
 
@@ -1008,19 +1372,7 @@ Well trees in the world are actually the other way around haha. Leave it to prog
 But you can see how all things that have the same parent are related, like brothers and sisters.
 
 This is very important, we will spend the next week thinking about it as well.
-# Chapter 3 - Week 3
-
-```
-day0: View Source
-day1: Inspect
-day2: Images
-day3: Licenses
-day4: Touch Typing
-day5: HTML
-day6: HTML fun
-```
-
-## [DAY-21] View Source
+## [DAY-21] HTML - View Source
 
 Browsers on laptops or pcs will allow you to rightclick on any page and then click on `View page source`, this will show you the HTML of the page your are looking at.
 
@@ -1037,7 +1389,7 @@ We will spend the rest of the day looking at some page sources
 * https://www.terrypratchettbooks.com/
 * https://www.goodreads.com/
 
-## [DAY-22] Inspect
+## [DAY-22] HTML - Inspect
 
 
 Make new html file and write the following example:
@@ -1069,7 +1421,7 @@ Lets try it. Make a new file with this content:
 Open the file and then right click on `0$` and click inspect. Then you will see `<b>0$</b>` if you double click on it, you will be able to change it, and you will see the new version. Now reload the page, and you will see the old value is back.
 
 
-## [DAY-23] HTML Images
+## [DAY-23] HTML - Images
 
 To show an image you need the `img` tag, and give it `src` attribute with the address of the image, for example if I want to display https://picsum.photos/id/237/200/300 I have to do type it like this:
 
@@ -1201,7 +1553,7 @@ Check out https://tldrlegal.com/ for super short description of licenses
 
 relax and spend the day touch typing
 
-## [DAY-26] HTML Title
+## [DAY-26] HTML - Title
 
 ```
 <html>
@@ -1260,7 +1612,7 @@ The _language_ we use inside the `style` tag is called `CSS`, and it is quite si
 
 You see how in certain tags we can use different language, not html, like in `<style>` we use CSS, in `<script>` we use JavaScript, we are going to do more work with it soon, but you can check out at https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
-## [DAY-27] HTML fun
+## [DAY-27] HTML - Fun (JS)
 
 Many buttons
 
@@ -1332,19 +1684,7 @@ setInterval(draw,10);
 ```
 
 The last one is quite crazy! But I am sure you will like the result when done.
-# Chapter 4 - Week 4
-
-```
-day0: Basics of Basics
-day1: Dungeon Game
-day2: Dungeon Game
-day3: Favorite Food
-day4: Dungeon Game
-day5: Basics of Basics
-day6: Touch Typing
-```
-
-## [DAY-28] Basics of Basics
+## [DAY-28] Print; While
 
 Make a new file form IDLE, and write in it:
 ```
@@ -1561,7 +1901,7 @@ THATS THE WHOLE LANGUAGE, there are no more keywords.
 
 
 
-## [DAY-29] Dungeon Game
+## [DAY-29] Print; If
 
 ```
 print("Welcome to the forest!")
@@ -1651,7 +1991,7 @@ if a == "he" and b == "ll" and c == "o":
   print("hello")
 ```
 
-## [DAY-30] Dungeon Game
+## [DAY-30] Functions; Lists
 
 Our game is quite limited, and a quick step to improve it is to make you ask where you want to go until you pick one of the options.
 
@@ -1706,7 +2046,7 @@ print(r)
 Whatever is between `def` and `(` is the name of the function, in the above example its `sum`. Between `()` you put in the name of the variables you expect to use when someone calls your function. I want to sum two numbers, I dont know what the numbers are, so I just make two variables `a, b` and expect whoever calls my function to give me the numbers, like `r = sum(1737,1231231)`
 
 
-## [DAY-31] Dungeon Game
+## [DAY-31] Functions; If; Random; Lists
 
 FIGHT TO THE DEATH!
 
@@ -1772,7 +2112,7 @@ if what == "east":
 ```
 
 
-## [DAY-32] Favorite Food
+## [DAY-32] Lists; While
 
 Today you have to make only two programs:
 
@@ -1898,19 +2238,7 @@ Whoaa it has been a difficult week.
 Relax with some touch typing.
 
 
-# Chapter 5 - Week 5
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Touch Typing
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-35] Basics of Basics
+## [DAY-35] Lists; While; Continue
 
 This week there will be less talking and more programming.
 
@@ -1988,7 +2316,7 @@ See how we use `continue` to not print a result if we don't understand the opera
 
 
 
-## [DAY-36] Basics of Basics
+## [DAY-36] While; Range; Functions
 
 Print the numbers from 0 to 9 FOREVER
 
@@ -2058,7 +2386,7 @@ for i in range(s):
 print(s, "SECONDS ARE OVER")
 ```
 
-## [DAY-37] Basics of Basics
+## [DAY-37] While; Functions
 
 Clock 
 
@@ -2140,7 +2468,7 @@ while True:
     print("nop, I dont like " + guess)
 ```
 
-## [DAY-38] Basics of Basics
+## [DAY-38] Strings
 
 What was your name again?
 
@@ -2250,7 +2578,7 @@ box(15,13,'*')
 
 Do some touch typing.
 
-## [DAY-40] Basics of Basics
+## [DAY-40] Functions; Strings; Range
 
 
 Make inverse beam
@@ -2461,19 +2789,7 @@ for i in range(50, 100, 2):
 ```
 
 Do some touch typing if there is time left.
-# Chapter 6 - Week 6
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-41] Basics of Basics
+## [DAY-41] Lists; If; While
 
 ```
 import random
@@ -2515,7 +2831,7 @@ while True:
 ```
 
 
-## [DAY-42] Basics of Basics
+## [DAY-42] Lists; Functions: Grid; While
 
 World without a player
 
@@ -2593,7 +2909,7 @@ while True:
 
 ```
 
-## [DAY-43] Basics of Basics
+## [DAY-43] If; Range
 
 
 Even and Odd
@@ -2677,7 +2993,7 @@ for x in numbers:
 
 Haha this is a funny way to make fizzbuzz. See first it puts fizz if you can divide it by 3, and then buzz if you can divide it by 5, but if there was already fizz there it will just add if with `+=`, so it automatically works to put fizzbuzz for 15.
 
-## [DAY-44] Basics of Basics
+## [DAY-44] Lists
 
 Reviews
 
@@ -2706,7 +3022,7 @@ print(flavorA + " + " + flavorB)
 
 Spend the rest of the day touch typing.
 
-## [DAY-45] Basics of Basics
+## [DAY-45] Lists; Functions
 
 Different touch typing
 
@@ -2747,7 +3063,7 @@ while True:
 
 spend the rest of the day trying it out
 
-## [DAY-46] Basics of Basics
+## [DAY-46] Basic Turtle
 
 Some turtle!
 
@@ -2797,26 +3113,13 @@ turtle.circle(20, 120)
 ```
 
 
-## [DAY-47] Basics of Basics
+## [DAY-47] Range; While
 
 Try to make a program that prints a symbol N times, where N is coming from the user input.
 
 Try by yourself.
 
-# Chapter 7 - Week 7
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of the Internet
-day4: Basics of the Internet
-day5: Basics of the Internet
-day6: Touch Typing
-```
-
-
-## [DAY-48] Basics of Basics
+## [DAY-48] Strings; Functions
 
 How big can a string be?
 
@@ -2873,7 +3176,7 @@ def two(n):
 one(1)
 
 ```
-## [DAY-49] Basics of Basics
+## [DAY-49] List; Dictionaries
 
 ```
 import random
@@ -2969,7 +3272,7 @@ while True:
 
 This is just another way to do it, see in the list we can store those strange things. We will talk about them in a couple of weeks, I just wanted to show you how clean it is when 
 
-## [DAY-50] Basics of Basics
+## [DAY-50] Lists; If
 
 Print the odd numbers from 0 to 999
 
@@ -3033,7 +3336,7 @@ else:
     # this will show only if we have even number of rounds
     print("THERE IS NO WINNER")
 ```
-## [DAY-51] Basics of the Internet
+## [DAY-51] Internet Awareness - Scams/Viruses
 
 Today is an important day, its Internet awareness day.
 
@@ -3051,7 +3354,7 @@ See the internet is a place, where you can find great things, like electroboom a
 
 Now with your parent, search on youtube for 'how to hack in roblox' and look at the scame, how people want to install something so they can steal your password.
 
-## [DAY-52] Basics of the Internet
+## [DAY-52] Internet Awareness - How Login Works
 
 Ok now for something more serious!
 
@@ -3144,7 +3447,7 @@ This is a browser feature intended for developers. If someone has told you to co
 When you Logout from somewhere, they delete the token on their side, so the next time a request is made, they know you are not logged in anymore. That is why its important to logout if you use someone else's computer to login.
 
 
-## [DAY-53] Basics of the Internet
+## [DAY-53] Basics of the Internet - IP/DNS
 
 The internet is a mess, a mess of things that talk to each other. Each of the things has their own IP address (ip stands for internet protocol), for example open https://1.1.1.1 you see this is a simple ip address of a popular DNS server (dns is a system we use to resolve names into ip addresses, e.g. facebook.com is 31.13.64.35). You can check the ip address by searching 'whats my ip' on google, and because your browser has to connect to google's server and they connect through their IP addresses, so google knows your IP. Of course it is a bit more complicated than that, but for now this will do.
 
@@ -3180,20 +3483,7 @@ Touch typing day is finally here! Enjoy keybr.com!
 
 
 
-# Chapter 8 - Week 8
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-
-## [DAY-55] Basics of Basics
+## [DAY-55] Lists; Functions
 
 Tic Tac Toe
 
@@ -3276,7 +3566,7 @@ while True:
 
 Spend the rest of the day playing.
 
-## [DAY-56] Basics of Basics
+## [DAY-56] Functions; If; Random
 
 Trivia game
 
@@ -3326,7 +3616,7 @@ while True:
 ```
 
 
-## [DAY-57] Basics of Basics
+## [DAY-57] Lists; Functions; Grid
 
 Snake
 
@@ -3419,11 +3709,11 @@ while True:
 
 ```
 
-## [DAY-58] Basics of Basics
+## [DAY-58] Continue Previous Day
 
 Keep working on the snake game if you are not done. if you are do touch typing
 
-## [DAY-59] Basics of Basics
+## [DAY-59] Tuples; Lists
 
 Tuples are kind of like lists that you cant grow or shrink, but also you usually assign meaning to each of the positions, for example
 
@@ -3470,7 +3760,7 @@ for m in favorite_miraculous:
 
 Or more than 2 pieces, you can hold however many you want, but it usually is you that assign meaning to each position, like in the above case, the first element we decide is season, and the second one we decide is episode
 
-## [DAY-60] Basics of Basics
+## [DAY-60] Go Back In Time
 
 Back to the beginning.
 
@@ -3479,20 +3769,7 @@ Back to the beginning.
 * Write a program to ask what is your name forever
 
 
-# Chapter 9 - Week 9
-
-```
-day0: pygame and pgzero
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-
-## [DAY-61] pygame and pgzero
+## [DAY-61] PyGame; PyGameZero; Coordinates
 
 open `cmd` and run:
 
@@ -3599,7 +3876,7 @@ Lets say we have 400 width and 300 height window
 
 top left corner is y = 0 and x = 0, bottom right is `x = 400` and `y = 300`. So when we move 'UP' with the keyboard we actually have to decrease `y` instead of increasing it like in `turtle`, where 0,0 is in the center of the screen, so top left is `(-half_x, -half_y)` and bottom right is `(half_x, half_y)`
 
-## [DAY-62] Basics of Basics
+## [DAY-62] Collisions; Callbacks
 
 
 Smooth movement.
@@ -3687,7 +3964,7 @@ pgzrun.go()
 
 ```
 
-## [DAY-63] Basics of Basics
+## [DAY-63] Functions
 
 Catch the snake
 
@@ -3744,7 +4021,7 @@ pgzrun.go()
 ```
 
 
-## [DAY-64] Basics of Basics
+## [DAY-64] Lists; Functions
 
 Many Snakes
 
@@ -3804,7 +4081,7 @@ def draw():
     screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
 pgzrun.go()
 ```
-## [DAY-65] Basics of Basics
+## [DAY-65] Functions; Collisions
 
 ```
 import pgzrun
@@ -3856,7 +4133,7 @@ pgzrun.go()
 ```
 
 
-## [DAY-66] Basics of Basics
+## [DAY-66] Schedule; Callbacks; Functions
 
 Catch as many snakes as you can in 5 seconds.
 
@@ -3936,7 +4213,7 @@ def update():
 
 ```
 
-## [DAY-67] Basics of Basics
+## [DAY-67] Lists; Functions
 
 Cross the road. Work with your parent to find images for the game, you need few cars, fox and a door. If not just use the existing assets from your images/ folder
 
@@ -4029,20 +4306,7 @@ def draw():
                          
 pgzrun.go()
 ```
-# Chapter 10 - Week 10
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-
-## [DAY-68] Basics of Basics
+## [DAY-68] Lists; Functions
 
 Shoot bullets and remove them from the list, play sound, and also level up after killing 3 snakes!
 
@@ -4137,7 +4401,7 @@ So you see when 0 finishes because it is the oldest, when it does bullets.pop(0)
 
 pretty cool!
 
-## [DAY-69] Basics of Basics
+## [DAY-69] Sockets; Functions; Callbacks
 
 ![game-69.png](./screenshots/game-69.png "game 69 screenshot")
 
@@ -4211,7 +4475,7 @@ There are two important parts here, first is the `socket` and then the `Thread`.
 The `multiplayer()` function runs in a separate thread, or you can think of a separate process, so we are doing two things in the same time, the game loop (which is one `while True`) and the multiplayer loop which is also `while True`.
 
 
-## [DAY-70] Basics of Basics
+## [DAY-70] Lists; Functions
 
 print numbers in a list
 
@@ -4299,7 +4563,7 @@ data = [[1,2,3,4,5], [1,2,3,4,5]]
 print(sum(data))
 ```
 
-## [DAY-71] Basics of Basics
+## [DAY-71] Strings; Integers; While; Functions
 make a calculator
 
 ```
@@ -4342,7 +4606,7 @@ while True:
     print(sum(x))
 
 ```
-## [DAY-72] Basics of Basics
+## [DAY-72] Reading Code
 
 Reading code is even more important than writing it, and it is more difficult than reading a book, because the story does not develop top to bottom. You have to see the important pieces, and how they are linked together. Where are things assigned and changed and how are those pieces related. For example in the touch typing program, you have a couple of functions, you can study them on their own, and know what they do, and then see how they are used and make sense of the whole program, without even running it.
 
@@ -4357,7 +4621,7 @@ We will go over a couple of programs we wrote before, the rock paper scissors ga
 
 Those are just examples, you have to print the programs and go over them with your parent.
 
-## [DAY-73] Basics of Basics
+## [DAY-73] Reading Code
 
 More reading today, those are a couple of examples from the earlier days, the love tester, the fight function from the text game, the hangman game and first touch typing program.
 
@@ -4372,7 +4636,7 @@ More reading today, those are a couple of examples from the earlier days, the lo
 
 Again you can use something else as well, those are just the ones I picked. Be messy with the pencil, connect things together!
 
-## [DAY-74] Basics of Basics
+## [DAY-74] Strings; While; Lists
 
 Today its up to you what to write, my kid came up with those programs:
 
@@ -4415,19 +4679,7 @@ while True:
     print(k)
 ```
 
-# Chapter 11 - Week 11
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-75] Basics of Basics
+## [DAY-75] Functions; Callbacks; Lists; Encoding
 
 ![game-75.png](./screenshots/game-75.png "game 75 screenshot")
 
@@ -4749,7 +5001,7 @@ for word in text:
         print(word , end='')
 ```
 
-## [DAY-78] Basics of Basics
+## [DAY-78] Coordinates; Functions; Callbacks
 
 ![game-78.png](./screenshots/game-78.png "game 78 screenshot")
 
@@ -4881,7 +5133,7 @@ Decode morse code:
 
 
 
-## [DAY-79] Basics of Basics
+## [DAY-79] Lists; Encoding
 
 morse code agian
 
@@ -4902,7 +5154,7 @@ for word in text:
             print(alphabet[c])
 ```
 
-## [DAY-80] Basics of Basics
+## [DAY-80] Lists; Functions
 
 ![game-80.png](./screenshots/game-80.png "game 80 screenshot")
 
@@ -4992,7 +5244,7 @@ average of two lists
 ![day-80-b.jpg](./reading/day-80-b.jpg "day 80 reading average of two lists")
 
 
-## [DAY-81] Basics of Basics
+## [DAY-81] Lists; Encoding
 
 First image
 
@@ -5140,19 +5392,7 @@ for x in c:
 print(sum)
 ```
 
-# Chapter 12 - Week 12
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-82] Basics of Basics
+## [DAY-82] Lists; Strings
 
 ![game-82.png](./screenshots/game-82.png "game 82 screenshot")
 
@@ -5299,7 +5539,7 @@ while True:
     print(list, sum)
 ```
 
-## [DAY-83] Basics of Basics
+## [DAY-83] Lists; Functions
 
 ![game-83.png](./screenshots/game-83.png "game 83 screenshot")
 
@@ -5540,7 +5780,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-84] Basics of Basics
+## [DAY-84] Lists
 
 ![game-84.png](./screenshots/game-84.png "game 84 screenshot")
 
@@ -5620,7 +5860,7 @@ for i in range(len(things)):
         ...
 ```
 
-## [DAY-85] Basics of Basics
+## [DAY-85] List; Functions
 
 This day is more about reading than writing, those are few different examples you can use
 
@@ -5880,7 +6120,7 @@ pgzrun.go()
 ![day-85.jpg](./reading/day-85.jpg "day 85 reading")
 
 
-## [DAY-86] Basics of Basics
+## [DAY-86] Lists
 
 
 ![game-86.png](./screenshots/game-86.png "game 86 screenshot")
@@ -5994,7 +6234,7 @@ for i in range(len(x)-2,len(x)):
     y.append(x[i])
 ```
 
-## [DAY-87] Basics of Basics
+## [DAY-87] Read/Write Files
 
 Its File time!
 
@@ -6102,7 +6342,7 @@ In our example we don't check if our write fails, so if your disk is full the ga
 
 
 
-## [DAY-88] Basics of Basics
+## [DAY-88] Flask
 
 Reading exercise, a lot of unfamiliar code
 
@@ -6166,19 +6406,7 @@ if __name__ == "__main__":
 ```
 
 start the script, see what it does, try to debug how `tokens` changes. Inspect your cookies, try to hack it, login from private mode and steal the cookie from the console.
-# Chapter 13 - Week 13
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-89] Basics of Basics
+## [DAY-89] Files; Strings; Lists
 
 super simple text editor
 
@@ -6313,7 +6541,7 @@ pgzrun.go()
 write some python, and then run it with `python3 example.py`
 
 
-## [DAY-90] Basics of Basics
+## [DAY-90] Strings
 
 ![game-90.png](./screenshots/game-90.png "game 90 screenshot")
 
@@ -6366,7 +6594,7 @@ pgzrun.go()
 
 This is kind of what `screen.draw.text` does, you can of course just do `screen.draw.text(text, (0,0), fontsize=20,fontname="437-win")` and it will work fine, instead of displaying character by character and computing our own char spacing, but what is the fun in that? Also this way we are one step closer to be able to move the cursor left and right so we can edit in the middle of the text.
 
-## [DAY-91] Basics of Basics
+## [DAY-91] Lists
 
 list your favorite games, and rank them
 
@@ -6409,7 +6637,7 @@ while True:
             print(song[1])
             print('-' * 40)
 ```
-## [DAY-92] Basics of Basics
+## [DAY-92] Command Line; Command Line Arguments; Files
 
 Today is command line day.
 
@@ -6422,7 +6650,7 @@ import sys
 print(sys.argv)
 ```
 
-save it as `a.py` and then run `python3 a.py hello those are paremeters` frmo the Terminal app, you will see `['a.py', 'hello', 'those', 'are', 'paremeters']`, sys.argv[0] is the name of the program, and then the parameters you gave it.
+save it as `a.py` and then run `python3 a.py hello those are paremeters` from the Terminal app, you will see `['a.py', 'hello', 'those', 'are', 'paremeters']`, sys.argv[0] is the name of the program, and then the parameters you gave it.
 
 Now lets make few handy programs to help us with our command line:
 
@@ -6529,7 +6757,7 @@ $ python3 xcat.py example.py
 $ python3 example.py
 ```
 
-## [DAY-93] Basics of Basics
+## [DAY-93] PyDoc
 
 Reading docs. type this in the terminal: `pydoc3 open` `pydoc3 input` `pydoc3 print` and `pydoc3 pgzero.actor`.
 
@@ -6668,7 +6896,7 @@ You can also do pydoc3 on modules, e.g. `pydoc3 sys` or `pydoc3 sys.argv`. Somet
 
 Try also `pydoc3 pgzero`, `pydoc3 pygame` and `pydoc3 pygame.Rect`. There is also a way to find documentation for the command line programs, try `man python3`, `man` from `manual`, if you want to search for something use `man -k something` for example `man -k python`.
 
-## [DAY-94] Basics of Basics
+## [DAY-94] Editors - Ed/Nano/Vi/Emacs..
 
 Command line editors:
 
@@ -6714,7 +6942,7 @@ There are many many text editors, and some are better for you than others, but t
 
 So use the one you like most, but sometimes you will go on another computer and they wont have your editor there, so be be sure to be 'ok' with vim, nano or emacs, because they are on virtually any system.
 
-## [DAY-95] Basics of Basics
+## [DAY-95] Memory; Virtual Computer; Instructions; Strings; Lists
 
 
 Memory.
@@ -7221,19 +7449,7 @@ The whole program is actually quite small:
  jump to 13 if memory[1003] is zero                     jump to 0
 ```
 
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-95] Basics of Basics
+## [DAY-95] Memory; Machine Code; Virtual Computer
 
 It will be super nice if our multiply program can be used from multiple places from a bigger program:
 
@@ -7507,7 +7723,7 @@ By now you can see how fragile this is, if one mistake is made, you can corrupt 
 
 Sometimes we can find bugs in a program that we can exploit, if we can simply control the corruption, we can make it jump to somewhere where we have our own code, and then we can control what the program does.
 
-## [DAY-96] Basics of Basics
+## [DAY-96] Binary; ASCII; Memory
 
 Lets spend a day on bits and bytes.
 
@@ -7650,7 +7866,7 @@ example if we want to store `5, h e l l o`, the computer memory might look like 
 
 If we use 1 byte per character, ASCII actuaklly fitst in 7 bits (its called 7 bit ascii) as the maximum value is 127, but we store things aligned to 1 byte, the way processors are made, they have certain restrictions,m they cant just go and read/write at a specific bit position in the memory, so many times when we want to store 7 bits of data we need to use 8 bits, Unless we come with something to store in the extra bit, it will be just waste.
 
-## [DAY-97] Basics of Basics
+## [DAY-97] Lists; 
 
 ![game-97.png](./screenshots/game-97.png "game 97 screenshot")
 
@@ -7857,7 +8073,7 @@ pgzrun.go()
 ```
 
 
-## [DAY-98] Basics of Basics
+## [DAY-98] Lists; Read/Write File
 
 
 ![game-98-a.png](./screenshots/game-98-a.png "game 98-a screenshot")
@@ -8125,13 +8341,13 @@ def draw():
 
 pgzrun.go()
 ```
-## [DAY-99] Basics of Basics
+## [DAY-99] Classes; Lists; Functions; Cartesian Coordinates
 
-Today we talk about classess and instances.
+Today we talk about classes and instances.
 
-Classess are a bit like the houses you buy in roblox, its just a recepie for a house, and when you buy it you can customize it.
+Classes are a bit like the houses you buy in roblox, its just a recepie for a house, and when you buy it you can customize it.
 
-If two people have houses made from the same blueprint, we call them instances, they are seperate entities, you can lock one and that does not mean the other is locked. One can have a couch the other one doesnt.
+If two people have houses made from the same blueprint, we call them instances, they are seperate entities, you can lock one and that does not mean the other is locked. One can have a couch the other one doesn't.
 
 The blueprint or recipe we call 'class' and the real thing that comes out of it we call 'instance'.
 
@@ -8327,7 +8543,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-100] Basics of Basics
+## [DAY-100] Touch Typing; Lists
 
 Day 100 party!
 
@@ -8418,7 +8634,7 @@ print('your score is ' + str(score))
 ```
 
 
-## [DAY-101] Basics of Basics
+## [DAY-101] Functions; Strings
 
 invert a list
 
@@ -8504,10 +8720,10 @@ day5: Basics of Basics
 day6: Basics of Basics
 ```
 
-## [DAY-102] Basics of Basics
+## [DAY-102] Touch Typing day
 Whole day touch typing!
 
-Modify the program to print some score and words per minute, and try to imptove your score.
+Modify the program to print some score and words per minute, and try to improve your score.
 
 ```
 import pgzrun
@@ -8627,7 +8843,7 @@ and then get the list:
 ```
 cat /usr/share/dict/words | python3 words.py | tr "[A-Z]" "[a-z]" | sort | uniq | sed -e "s/^/'/g" -e "s/$/',/g" | pbcopy
 ```
-## [DAY-103] Basics of Basics
+## [DAY-103] Read File; Command Line Arguments
 
 Search all the books!
 
@@ -8710,7 +8926,7 @@ python3 search.py --title Alice  --author Carroll | less
 CSV stands for comma separated value, its a neat way to encode a table, each column is separated by a `,`. Python has csv module in its standard library, and its very easy to load and parse csv files.
 
 
-## [DAY-104] Basics of Basics
+## [DAY-104] Read File; Command Line Arguments; Dictionary
 
 The previous approach can match only with substrings, for example we can not match "Lewis Carroll", because the author name is stored "Carroll, Lewis", in fact we can not even match on "Carroll Lewis" because we will be missing a comma.
 
@@ -8984,7 +9200,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-106] Basics of Basics
+## [DAY-106] Read/Write File; Lists
 
 Have some fun drawing, add more colors, change the size, enjoy!
 
@@ -9121,7 +9337,7 @@ def draw():
 
 pgzrun.go()
 ```
-## [DAY-107] Basics of Basics
+## [DAY-107] Lists; Dictionaries
 
 count the words in a file
 
@@ -9233,7 +9449,7 @@ if you want to sort by most common words:
 cat week-015.md | python3 count.py | sort -n
 ```
 
-## [DAY-108] Basics of Basics
+## [DAY-108] Dictionaries
 
 count how many times each character appears in a string
 
@@ -9346,23 +9562,11 @@ print(equal({'a':'hello','b':'world'},{'a':'hello','b':'earth'}))
 print(equal({'a':'hello','roblox': True},{'a':'hello', 'roblox': False}))
 print(equal({'a':'hello','b':'world','roblox': True},{'a':'hello','b':'world'}))
 ```
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-109] Basics of Basics
+## [DAY-109] Touch Typing Day
 
 Touchtyping day!
 
-## [DAY-110] Basics of Basics
+## [DAY-110] Find Code on TikTok
 
 
 ![game-109.png](./screenshots/game-109.png "game 109 screenshot")
@@ -9394,7 +9598,7 @@ while True:
     i+=1
 ```
 
-## [DAY-111] Basics of Basics
+## [DAY-111] Lists; Random
 ![game-110.png](./screenshots/game-110.png "game 110 screenshot")
 
 ```
@@ -9404,8 +9608,8 @@ import random
 WIDTH = 400
 HEIGHT = 400
 fox = Actor("c1")
-fox.x= WIDTH/2
-fox.y=HEIGHT/2
+fox.x = WIDTH/2
+fox.y =HEIGHT/2
 
 other = [
     Actor("c2", pos=(100,100)),
@@ -9447,7 +9651,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-112] Basics of Basics
+## [DAY-112] Use Simple Dictionary
 
 Count the words in a song
 
@@ -9523,7 +9727,7 @@ print(l)
 print(len(song))
 ```
 
-## [DAY-113] Basics of Basics
+## [DAY-113] Discover Pythontutor
 
 use https://pythontutor.com/visualize.html with the folloowing code:
 
@@ -9561,8 +9765,7 @@ for word in words:
 
 try it with other programs as well.
 
-## [DAY-114] Basics of Basics
-
+## [DAY-114] Simple Turtle
 ![game-114.png](./screenshots/game-114.png "game 114 screenshot")
 
 random walk
@@ -9589,7 +9792,7 @@ while True:
 
 ```
 
-## [DAY-115] Basics of Basics
+## [DAY-115] Practical Coding - Control Roblox with python
 
 ![game-115.png](./screenshots/game-115.jpg "game 115 screenshot")
 
@@ -9620,19 +9823,7 @@ This is a simple program that presses w a s d, each for 1.6 seconds and then wai
 After you start the program, you have 2 seconds to click on Roblox otherwise the sequence will be wrong
 
 
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-116] Basics of Basics
+## [DAY-116] Many Turtles
 
 Many Turtles.
 
@@ -9721,7 +9912,7 @@ while True:
 
 Again this is the same as in roblox's houses, you have the blueprint of the house, and you can create an instance of it, and then you can modify it. so `turtle.Turtle()` creates an instance, and then you see, bob, alice and charlie have their own changes. In the same time they have the same functionality, like `forward` `up` and etc coming from the blueprint and each of those methods work on the instance itself.
 
-## [DAY-117] Basics of Basics
+## [DAY-117] Another Text Editor
 
 ![game-117.png](./screenshots/game-117.png "game 117 screenshot")
 
@@ -9815,7 +10006,7 @@ while True:
 
 ```
 
-## [DAY-118] Basics of Basics
+## [DAY-118] Search Lyrics
 
 Search for your favorite lyrics, dont forget to `pip3 install lyricsgenius`
 
@@ -9836,7 +10027,7 @@ while True:
 ```
 
 
-## [DAY-119] Basics of Basics
+## [DAY-119] Face Recognition. Move-78
 
 ![game-119.png](./screenshots/game-119.png "game 119 screenshot")
 
@@ -9862,7 +10053,7 @@ It is also not very easy to be tricked with mascara.
 even thought it was easy in 2014, https://www.theatlantic.com/technology/archive/2014/07/makeup/374929/
 
 
-## [DAY-120] Basics of Basics
+## [DAY-120] Program on your own form a book
 
 Today you are on your own. We start with: https://www.amazon.de/-/en/DK/dp/1465461884 chapter 2, read it for 1 hour and make the programs and exercieses.
 
@@ -9931,7 +10122,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-121] Basics of Basics
+## [DAY-121] Scam Check List
 
 Scams.. Scams everywhere.
 
@@ -9949,7 +10140,7 @@ Follow this list:
 The scammers are very smart, and have a lot of experience to trick you into doing what they want, sometimes they will call claiming your parents are in trouble and you have to give them a credit card number, sometimes they will call to tell you you win the new iPhone if you just give them a credit card number. They are very inventive as well, so the best thing is just think sus.
 
 
-## [DAY-122] Basics of Basics
+## [DAY-122] Lists; Random; Mutate
 
 Hide and Seek
 
@@ -10050,19 +10241,7 @@ pgzrun.go()
 ```
 
 
-# Chapter 14 - Week 14
-
-```
-day0: Basics of Basics
-day1: Basics of Basics
-day2: Basics of Basics
-day3: Basics of Basics
-day4: Basics of Basics
-day5: Basics of Basics
-day6: Basics of Basics
-```
-
-## [DAY-123] Basics of Basics
+## [DAY-123] Lists; Callbacks
 
 ![game-123.png](./screenshots/game-123.png "game 123 screenshot")
 
@@ -10145,7 +10324,7 @@ def draw():
 pgzrun.go()
 
 ```
-## [DAY-124] Basics of Basics
+## [DAY-124] BMP format, Images; Encoding/Decoding
 
 Images
 
@@ -10157,7 +10336,7 @@ Open images/joshi-100.bmp and you will see:
 
 Now lets just read the bytes, and just show the numbers, starting at position 54, when we print new line every 106, and also we are gonna print every 4th byte.
 
-first just print the byutes:
+first just print the bytes:
 
 
 ```
@@ -10248,7 +10427,7 @@ And we can make 4 bytes into a integer with `int.from_bytes`. We will get into t
 It has a header, followed up by data. This is very common method and you will see it in all kinds of places. Even in our virtual computer when we were storing the strings we used a similar method, the first byte was always the length of the string.
 
 
-## [DAY-125] Basics of Basics
+## [DAY-125] Lists; Dictionaries
 
 ![game-125-a.png](./screenshots/game-125-a.png "game 125 a screenshot")
 ![game-125-b.png](./screenshots/game-125-b.png "game 125 b screenshot")
@@ -10376,7 +10555,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-126] Basics of Basics
+## [DAY-126] Read/Write File
 
 ![game-126.png](./screenshots/game-126.png "game 126 screenshot")
 
@@ -10422,7 +10601,7 @@ def draw():
     elf.draw()
 pgzrun.go()
 ```
-## [DAY-127] Basics of Basics
+## [DAY-127] Callbacks; Schedule Interval
 
 super short, make the actor walk
 
@@ -10438,6 +10617,7 @@ elf.x = WIDTH/2
 elf.y = HEIGHT/2
 
 poses = cycle(["player/tiles-46","player/tiles-47","player/tiles-48","player/tiles-49","player/tiles-50","player/tiles-51"])
+
 def make_actor_move():
     elf.image = next(poses)
 clock.schedule_interval(make_actor_move, 0.4)
@@ -10450,7 +10630,7 @@ pgzrun.go()
 
 ```
 
-## [DAY-128] Basics of Basics
+## [DAY-128] Lists; CPU usage; Resources
 
 ![game-128.png](./screenshots/game-128.png "game 128 screenshot")
 

@@ -1,0 +1,10 @@
+bad = ["broccoli","chocolate","pineapple"]
+good = ["pizza","popcorn"]
+while True:
+  food = input("what is your favorite food: ")
+  if food in bad:
+    print("ewwwww I hate " + food)
+  elif food in good:
+    print("yumm, I love " + food)
+  else:
+    print("I have never tried " + food)

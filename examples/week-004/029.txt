@@ -1,0 +1,3 @@
+name = "jack"
+for c in name:
+  print(c)

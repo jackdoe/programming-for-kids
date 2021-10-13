@@ -1,0 +1,12 @@
+x = [1231,5123,6737,6725,6261,2664,62561]
+n = len(x)
+
+print(x)
+print(n)
+
+sum = 0
+for i in x:
+    sum += i
+
+print('sum: ' + str(sum))
+print('average: ' + str(sum/n))

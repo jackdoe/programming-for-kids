@@ -1,0 +1,6 @@
+name = ''
+while name != "pikachu":
+  name = input("what is your name: ")
+  print(name)
+
+print("DONE")

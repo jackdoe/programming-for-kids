@@ -1,0 +1,60 @@
+import pgzrun
+import socket
+import threading
+import sys
+
+HEIGHT = 200
+WIDTH = 200
+MULTIPLAYER_PORT = 5025
+OTHER_COMPUTER_IP = "192.168.0.10"
+
+speed = 4
+me = Actor("c1")
+other = Actor("c2")
+
+me.x = WIDTH/2
+me.y = HEIGHT/2
+
+socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+socket.bind(("0.0.0.0", MULTIPLAYER_PORT))
+
+data = None
+def multiplayer():
+    global data
+    while True:
+        data, addr = socket.recvfrom(1024)
+
+def update():
+    if data != None:
+        message = data.decode("utf8")
+        (x,y) = message.split(":")
+
+        other.x = float(x)
+        other.y = float(y)
+
+
+def on_key_down(key):
+    if key == keys.LEFT:
+        me.x = me.x-speed
+    if key == keys.RIGHT:
+        me.x = me.x+speed
+    if key == keys.UP:
+        me.y = me.y-speed
+    if key == keys.DOWN:
+        me.y= me.y+speed
+
+    if key == keys.Q:
+        sys.exit(0)
+
+    message = bytearray(str(me.x) + ':' + str(me.y),"utf8")
+    socket.sendto(message, (OTHER_COMPUTER_IP, MULTIPLAYER_PORT))
+
+def draw():
+    screen.fill('black')
+    me.draw()
+    other.draw()
+
+
+threading.Thread(target=multiplayer).start()
+
+pgzrun.go()

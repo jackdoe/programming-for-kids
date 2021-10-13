@@ -1,0 +1,6 @@
+...
+l = 0
+for c in song:
+    l += 1
+print(l)
+print(len(song))

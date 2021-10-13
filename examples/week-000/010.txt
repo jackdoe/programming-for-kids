@@ -1,0 +1,9 @@
+<html>
+  <body>
+    <ul>
+      <li>first <b>item</b></li>
+      <li>second <i>item</i></li>
+      <li>third</li>
+    </ul>
+  </body>
+</html>

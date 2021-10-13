@@ -1,0 +1,50 @@
+import random
+game = ["rock","paper","scissors"]
+
+rounds = 3
+
+nameA = input("name player A: ")
+nameB = input("name player B: ")
+winsA = 0
+winsB = 0
+for i in range(rounds):
+    playerA = random.choice(game)
+    playerB = random.choice(game)
+    print("ROUND: " + str(i + 1))
+    print("playerA : " + playerA)
+    print("playerB : " + playerB)
+    
+    if playerA == playerB:
+        print("  > DRAW")
+    elif playerA == "rock" and playerB == "paper":
+        print("  > " + nameB + " WINS")
+        winsB += 1
+    elif playerA == "rock" and playerB == "scissors":
+        print("  > " + nameA + " WINS")
+        winsA += 1
+    elif playerA == "paper" and playerB == "rock":
+        print("  > " + nameA + " WINS")
+        winsA += 1
+    elif playerA == "paper" and playerB == "scissors":
+        print("  > " + nameB + " WINS")
+        winsB += 1
+    elif playerA == "scissors" and playerB == "rock":
+        print("  > " + nameB + " WINS")
+        winsB += 1
+    elif playerA == "scissors" and playerB == "paper":
+        print("  > " + nameA + " WINS")
+        winsA += 1
+    else:
+        print("WTF " + playerA + " " + playerB)
+
+    print("---")
+
+print(nameA + " has " + str(winsA) + " points")
+print(nameB + " has " + str(winsB) + " points")
+if winsA > winsB:
+    print(nameA + " IS THE WINNER")
+elif winsA < winsB:
+    print(nameB + " IS THE WINNER")
+else:
+    # this will show only if we have even number of rounds
+    print("THERE IS NO WINNER")

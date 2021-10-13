@@ -1,0 +1,6 @@
+posittion = (1,2,3)
+(width,depth,height) = position
+
+print(width)
+print(depth)
+print(height)

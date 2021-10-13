@@ -1,0 +1,29 @@
+import pgzrun
+import random
+
+WIDTH = 400
+HEIGHT = 400
+STEP = 10
+x = WIDTH/2
+y = WIDTH/2
+
+
+def on_key_down(key):
+    global x,y
+    if key == keys.LEFT:
+        x -= STEP
+    elif key == keys.RIGHT:
+        x += STEP
+    elif key == keys.UP:
+        # coordinates start 0,0 on the upper left corner
+        y -= STEP
+    elif key == keys.DOWN:
+        y += STEP
+
+def draw():
+    screen.clear()
+    pos = (x,y)
+    radius = 30
+    screen.draw.circle(pos, radius, 'white')
+ 
+pgzrun.go()

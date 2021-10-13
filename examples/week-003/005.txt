@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <a href="https://wikipedia.com">
+            <img src="https://picsum.photos/id/237/200/300">
+          </a>
+        </td>
+        <td>
+          <a href="https://gutenberg.org">
+            <img src="https://picsum.photos/id/40/200/300">
+          </a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

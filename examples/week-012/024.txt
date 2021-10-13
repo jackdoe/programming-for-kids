@@ -1,0 +1,56 @@
+from flask import Flask, redirect, request,make_response
+import random
+app = Flask(__name__)
+
+tokens = {}
+
+@app.route('/')
+def index():
+    token = request.cookies.get('token')
+    if token in tokens:
+        response = make_response("""
+        welcome to the secure section of the website,
+        <a href="/logout">click here to logout
+        """)
+        return response
+
+    
+    response = make_response("""
+        <html>
+        <form action="/login" method="post">
+        user: <input name="user">
+        pass: <input type="password" name="pass">
+        <input type="submit">
+        </form>
+        </html>
+        """)
+    return response
+
+@app.route('/logout')
+def logout():
+    token = request.cookies.get('token')
+    try:
+        del tokens[token]
+    except KeyError:
+        pass
+
+    response = make_response(redirect('/'))
+    response.set_cookie('token', '')
+    return response
+
+@app.route('/login', methods = ['POST'])
+def login():
+    user = request.form['user']
+    password = request.form['pass']
+    if user == "admin" and password == "123":
+        token = str(random.randint(0,10000000))
+        tokens[token] = "admin"
+
+        response = make_response(redirect('/'))
+        response.set_cookie('token', token)
+        return response
+    else:
+        return "access denied"
+    
+if __name__ == "__main__":
+    app.run(host="127.0.0.1",port=8000,debug=True)

@@ -1,0 +1,5 @@
+a = "he"
+b = "ll"
+c = "o"
+if a == "he" and b == "ll" and c == "o":
+  print("hello")

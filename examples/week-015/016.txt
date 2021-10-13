@@ -1,0 +1,19 @@
+f = open("week-015.md","r")
+word = ''
+count = {}
+while True:
+    byte = f.read(1)
+    if not byte:
+        break
+    if byte == ' ' or byte == '\n':
+        if word in count:
+            count[word] += 1
+        else:
+            count[word] = 1
+        word = ''
+    else:
+        word += byte
+f.close()
+
+for k in count:
+    print(count[k], k)

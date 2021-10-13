@@ -1,0 +1,7 @@
+world
+
+* reduce the length to 4
+* move r to the left
+* move l to the left
+* move d to the left
+

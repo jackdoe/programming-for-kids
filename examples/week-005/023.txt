@@ -1,0 +1,8 @@
+def line(width, symbol):
+    for x in range(width):
+        print(symbol,end='')
+
+for i in range(50):
+  line(i, ' ')
+  line(i, '*')
+  print('')

@@ -1,0 +1,8 @@
+while True:
+  | \
+  |  \
+  |   \
+  |    \
+ if:   name = input
+  |
+print(name)

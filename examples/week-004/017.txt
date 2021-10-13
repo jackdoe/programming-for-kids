@@ -1,0 +1,20 @@
+                    |
+                    |
+              if what == "east"
+                   |
+                 / |  \
+                /  |   \
+               /   |    \
+              /    |     \
+             /     |      \
+          if      else    elif
+    what == "run"  |     what == "fight
+          |        |        |
+        print   print      / \
+                          /   \
+                         /     \
+                        /       \
+                      if        elif
+                what == "yes" what == "no"
+                     |            |
+                  [ ... ]      [ ... ]

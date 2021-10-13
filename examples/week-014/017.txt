@@ -1,0 +1,42 @@
+import pgzrun
+import random
+import sys # for sys.exit()
+
+
+HEIGHT = 300
+WIDTH = 300
+
+elf = Actor("c1")
+elf.x = WIDTH/2
+elf.y = HEIGHT/2
+
+flower = Actor("flower")
+flower.x = 10
+flower.y = 10
+score = 0
+def update():
+    global score
+    if keyboard.LEFT:
+        elf.x -= 5
+    if keyboard.RIGHT:
+        elf.x += 5
+    if keyboard.UP:
+        elf.y -= 5
+    if keyboard.DOWN:
+        elf.y += 5
+
+    if keyboard.Q:
+        sys.exit(0)
+
+    if elf.colliderect(flower):
+        flower.x = random.randint(10,WIDTH-10)
+        flower.y = random.randint(10,HEIGHT-10)
+        score += 1
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    flower.draw()
+    screen.draw.text(str(score), topleft=(10,10))
+
+pgzrun.go()

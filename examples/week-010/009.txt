@@ -1,0 +1,9 @@
+def sum(x):
+    r = 0
+    for l in x:
+        for item in l:
+            r += item
+    return r
+
+data = [[1,2,3,4,5], [1,2,3,4,5]]
+print(sum(data))

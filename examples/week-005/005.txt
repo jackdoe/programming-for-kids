@@ -1,0 +1,15 @@
+while True:
+  a = int(input("first number: "))
+  b = int(input("second number: "))
+  op = input("operation * / + :")
+  result = 0
+  if op == "*":
+    result = a * b
+  elif op == "/":
+    result = a/b
+  elif op == "+":    
+    result = a+b
+  else:
+    print("I dont understand " + op)
+    continue
+  print(a,op,b,'=',result)

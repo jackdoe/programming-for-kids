@@ -1,0 +1,12 @@
+<button onclick="makeManyButtons()">🤖</button>
+<script>
+    function makeManyButtons() {
+        // try to make million buttons!
+
+        for(var i = 0; i < 100; i++) {
+            var button = document.createElement('button')
+            button.innerText = '🐹'
+            document.body.appendChild(button)
+        }
+    }
+</script>

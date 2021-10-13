@@ -1,0 +1,28 @@
+import pgzrun
+import random
+
+WIDTH = 400
+HEIGHT = 400
+STEP = 10
+x = WIDTH/2
+y = WIDTH/2
+
+
+def update():
+    global x,y
+    if keyboard.LEFT:
+        x -= STEP
+    elif keyboard.RIGHT:
+        x += STEP
+    elif keyboard.UP:
+        y -= STEP
+    elif keyboard.DOWN:
+        y += STEP
+
+def draw():
+    screen.clear()
+    pos = (x,y)
+    radius = 30
+    screen.draw.circle(pos, radius, 'white')
+ 
+pgzrun.go()

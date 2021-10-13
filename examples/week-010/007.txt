@@ -1,0 +1,32 @@
+list_of_list_of_list_of_lists = [
+    [
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ],
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ]
+    ],
+    [
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ],
+        [
+            [1,2,3,4,5],
+            [1,2,3],
+            [4,5,6]
+        ]
+    ],
+]
+
+for list_of_list_of_lists in list_of_list_of_list_of_lists:
+    for list_of_lists in list_of_list_of_lists:
+        for l in list_of_lists:
+            for item in l:
+                print(item)

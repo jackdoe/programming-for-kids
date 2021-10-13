@@ -1,0 +1,7 @@
+def update():
+    ...
+    if keyboard.left:
+        elf.x = elf.x-speed
+        if elf.x > WIDTH:
+            elf.x = WIDTH
+

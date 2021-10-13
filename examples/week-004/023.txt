@@ -1,0 +1,26 @@
+import random
+import time
+
+def ask(possible_answers):
+  ...
+
+def fight(playerHP, enemyHP, enemy_name):
+  ...
+
+...
+
+health = 100
+
+what = ask(["east","west","north","south"])
+if what == "east":
+  ...
+  what = ask(["run","fight"])
+  if what == "run":
+    ...
+  elif what == "fight":
+    meerkatHP = 50
+    health = fight(health, meerkatHP, "meerkat")
+    if health <= 0:
+      print("GAME OVER! THE MEERKAT BEAT YOU")
+    else:
+      print("You won against the meerkat, you have " + str(health) + " HP left))

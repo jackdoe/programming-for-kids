@@ -1,0 +1,15 @@
+import turtle
+turtle.setup(width=800, height=800)
+
+bob = turtle.Turtle(shape='turtle')
+bob.color('orange')
+
+alice = turtle.Turtle(shape='turtle')
+alice.color('lawngreen')
+angle = 10
+while True:
+    alice.backward(20)
+    bob.forward(20)
+    alice.right(angle)
+    bob.left(angle)
+    angle += 1

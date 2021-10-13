@@ -1,0 +1,8 @@
+reviews =[5,3,2,4,1,2,3,4,2,1,5,5,3,2]
+
+sum = 0
+for r in reviews:
+  sum += r
+
+rating = sum / len(reviews)
+print(str(rating) + "⭐ out ot 5")

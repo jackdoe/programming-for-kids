@@ -1,0 +1,25 @@
+n = 100
+numbers = []
+
+# first make empty list with 100 elements
+for i in range(1, n+1):
+  numbers.append('')
+
+# then fill in the fizzes
+for i in range(1, n+1):
+  if i % 3 == 0:
+    numbers[i-1] += 'fizz'
+
+# then fill in the buzzess
+for i in range(1, n+1):
+  if i % 5 == 0:
+    numbers[i-1] += 'buzz'
+
+# then fill in the numbers
+for i in range(1, n+1):
+  if numbers[i-1] == '':
+    numbers[i-1] = i
+
+# then we print it
+for x in numbers:
+  print(x)

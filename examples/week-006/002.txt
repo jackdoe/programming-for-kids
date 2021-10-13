@@ -1,0 +1,27 @@
+def render(world):
+  for row in world:
+    for col in row:
+      print(col,end=' ')
+    print('')
+
+def empty():
+  return  [
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+  ['-','-','-','-'],
+]
+
+world = empty()
+
+render(world)
+while True:
+  row = int(input("which row (count from 0): "))
+  col = int(input("which column (count from 0): "))
+
+  world[row][col] = 'x'
+  render(world)
+

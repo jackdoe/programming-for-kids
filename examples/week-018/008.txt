@@ -1,0 +1,40 @@
+import random
+import pgzrun
+
+WIDTH = 800
+HEIGHT = 800
+
+actors = []
+for i in range(0, 100000):
+    elf = Actor("c1")
+    elf.x = WIDTH/2
+    elf.y = HEIGHT/2
+    actors.append(elf)
+
+
+def update():
+    if keyboard.UP:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.y -= i
+    if keyboard.DOWN:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.y += i
+    if keyboard.LEFT:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.x -= i
+    if keyboard.RIGHT:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.x += i
+
+
+def draw():
+    screen.fill("black")
+    for a in actors:
+        a.draw()
+
+
+pgzrun.go()

@@ -1,0 +1,16 @@
+
+h_address = 2000
+memory[h_address] = 5
+memory[h_address+1] = ord('h')
+memory[h_address+2] = ord('e')
+memory[h_address+3] = ord('l')
+memory[h_address+4] = ord('l')
+memory[h_address+5] = ord('o')
+
+def xprint(address):
+    l = memory[address]
+    for i in range(l):
+        # +1 is because of the length
+        c = memory[address + 1 + i]
+        print(chr(c), end = '')
+    print('')

@@ -1,0 +1,47 @@
+import pgzrun
+import random
+
+WIDTH = 400
+HEIGHT = 400
+fox = Actor("c1")
+fox.x = WIDTH/2
+fox.y =HEIGHT/2
+
+other = [
+    Actor("c2", pos=(100,100)),
+    Actor("c2", pos=(100,300)),
+    Actor("c2",pos=(300,300)),
+    Actor("c2",pos=(300,100))
+]
+
+
+def update():
+    if keyboard.left:
+        for o in other:
+            o.x += 5
+    if keyboard.right:
+        for o in other:
+            o.x -= 5
+    if keyboard.up:
+        for o in other:
+            o.y += 5
+    if keyboard.down:
+        for o in other:
+            o.y -= 5
+
+    for o in list(other):
+        if o.colliderect(fox):
+            other.remove(o)
+    if len(other) < 4:
+        other.append(Actor("c2",pos=(random.randint(10,WIDTH-10), random.randint(10,HEIGHT-10))))
+
+    for o in other:
+        o.y -=1
+
+def draw():
+    screen.clear()
+    screen.fill("deepskyblue")
+    fox.draw()
+    for o in other:
+        o.draw()
+pgzrun.go()

@@ -1,0 +1,22 @@
+a = ['h','w','e']
+b = ['e','o','a']
+c = ['l','r','r']
+d = ['l','l','t']
+e = ['o','d','h']
+
+sum1 = ''
+sum2 = ''
+
+sum1 = a[0] + b[0] + c[0] + d[0] + e[0]
+sum2 = a[1] + b[1] + c[1] + d[1] + e[1]
+
+print(sum1)
+print(sum2)
+
+sum = []
+for i in range(len(a)):
+    sum.append('')
+    sum[i] = a[i] + b[i] + c[i] + d[i] + e[i]
+
+
+print(sum)

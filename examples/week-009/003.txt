@@ -1,0 +1,24 @@
+import pgzrun
+import random
+
+WIDTH = 400
+HEIGHT = 400
+
+x = WIDTH/2
+y = WIDTH/2
+
+def on_mouse_down(pos):
+    global x,y
+    (mouse_x, mouse_y) = pos
+
+    x = mouse_x
+    y = mouse_y
+
+
+def draw():
+    screen.clear()
+    pos = (x,y)
+    radius = 30
+    screen.draw.circle(pos, radius, 'white')
+ 
+pgzrun.go()

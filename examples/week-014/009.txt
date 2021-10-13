@@ -1,0 +1,2 @@
+for i in range(255):
+    print(i, ' -> ', format(i, '08b'))

@@ -1,0 +1,5 @@
+import sys
+
+x = open(sys.argv[1], "r")
+data = x.read()
+print(data)

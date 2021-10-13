@@ -1,0 +1,55 @@
+import pgzrun
+import sys # for sys.exit()
+import random
+
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor("c1")
+speed = 3
+back = []
+def update():
+    global score
+    if keyboard.A:
+        elf.x -= speed
+    if keyboard.D:
+        elf.x += speed
+    if keyboard.W:
+        elf.y -= speed
+    if keyboard.S:
+        elf.y += speed
+    if keyboard.J:
+        f = Actor('flower')
+        f.x = elf.x
+        f.y = elf.y
+        back.append(f)
+
+    if keyboard.M:
+        f = open("save.txt", "w")
+        for x in back:
+            f.write(str(x.x))
+            f.write(",")
+            f.write(str(x.y))
+            f.write("\n")
+        f.close()
+    if keyboard.L:
+        f = open("save.txt", "r")
+        for line in f.readlines():
+            (x,y) = line.split(",") # 30,20
+            a = Actor('flower')
+            a.x = float(x)
+            a.y = float(y)
+            back.append(a)
+        f.close()
+    if keyboard.Q:
+        sys.exit(0)
+
+def draw():
+    screen.fill('black')
+
+    for i in back:
+        i.draw()
+
+    elf.draw()
+
+pgzrun.go()

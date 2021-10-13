@@ -1,0 +1,4 @@
+def invert(l):
+    #...
+
+print(invert([1,2,3]))

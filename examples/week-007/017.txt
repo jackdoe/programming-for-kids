@@ -1,0 +1,13 @@
+        ROOT
+         "."
+        / | \
+       /  |  \
+    .de .com .io
+     /    |
+ amazon  /|\
+        / | \
+       /  |  \
+      /   |   \
+     /    |    \
+ amazon netflix yahoo
+

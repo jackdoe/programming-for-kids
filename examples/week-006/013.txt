@@ -1,0 +1,5 @@
+import turtle
+
+turtle.color("blue")
+for i in range(30):
+  turtle.circle(50 + i)

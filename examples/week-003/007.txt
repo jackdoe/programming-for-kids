@@ -1,0 +1,5 @@
+<p>
+  Hello, and welcome to my page.
+  I hope you will like this image.
+</p>
+<img src="https://picsum.photos/id/237/200/300" alt="puppy">

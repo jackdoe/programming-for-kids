@@ -1,0 +1,14 @@
+alphabet = ['a','b','c','d','e']
+morse = ['.-','-...','-.-.','...','.']
+
+
+for i in range(len(alphabet)):
+    print(alphabet[i])
+    print(morse[i])
+
+text = ['.-..','.','.-..','.-']
+
+for word in text:
+    for c in range(len(morse)):
+        if word == morse[c]:
+            print(alphabet[c])
