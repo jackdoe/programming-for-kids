@@ -10450,6 +10450,59 @@ pgzrun.go()
 ```
 
 ## [DAY-128] Basics of Basics
+
+![game-128.png](./screenshots/game-128.png "game 128 screenshot")
+
+
+See how slow you can make your computer, by making it draw 100 000 actors 60 times per second.
+
+See how slow it moves, open the activity monitor or the task manager to see how it eats all your resources.
+
+After that chabnge it to 100 actors and see the difference.
+
+
+```
+import random
+import pgzrun
+
+WIDTH = 800
+HEIGHT = 800
+
+actors = []
+for i in range(0, 100000):
+    elf = Actor("c1")
+    elf.x = WIDTH/2
+    elf.y = HEIGHT/2
+    actors.append(elf)
+
+
+def update():
+    if keyboard.UP:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.y -= i
+    if keyboard.DOWN:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.y += i
+    if keyboard.LEFT:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.x -= i
+    if keyboard.RIGHT:
+        for i in range(0, len(actors)):
+            a = actors[i]
+            a.x += i
+
+
+def draw():
+    screen.fill("black")
+    for a in actors:
+        a.draw()
+
+
+pgzrun.go()
+```
 ## [DAY-129] Basics of Basics
 
 

@@ -1,4 +1,13 @@
 
 ## [DAY-128] Basics of Basics
-## [DAY-129] Basics of Basics
+
+![game-128.png](./screenshots/game-128.png "game 128 screenshot")
+
+
+See how slow you can make your computer, by making it draw 100 000 actors 60 times per second.
+
+See how slow it moves, open the activity monitor or the task manager to see how it eats all your resources.
+
+After that chabnge it to 100 actors and see the difference.
+
 
