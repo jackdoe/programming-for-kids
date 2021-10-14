@@ -441,5 +441,4 @@ def draw():
 
 pgzrun.go()
 ```
-## [DAY-129] Basics of Basics
-
+## [DAY-129] Virtual Computer
