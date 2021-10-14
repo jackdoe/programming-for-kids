@@ -448,7 +448,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-128 lists; cpu usage; resources](#day-128-lists-cpu-usage-resources)
 
-[day-129 basics of basics](#day-129-basics-of-basics)
+[day-129 virtual computer](#day-129-virtual-computer)
 
 ## [DAY-0] The Computer
 
@@ -10553,6 +10553,5 @@ def draw():
 
 pgzrun.go()
 ```
-## [DAY-129] Basics of Basics
-
+## [DAY-129] Virtual Computer
 

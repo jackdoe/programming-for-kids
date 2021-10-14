@@ -331,4 +331,4 @@
 
 [day-128 lists; cpu usage; resources](#day-128-lists-cpu-usage-resources)
 
-[day-129 basics of basics](#day-129-basics-of-basics)
+[day-129 virtual computer](#day-129-virtual-computer)
