@@ -448,7 +448,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-128 lists; cpu usage; resources](#day-128-lists-cpu-usage-resources)
 
-[day-129 virtual computer](#day-129-virtual-computer)
+[day-129 eat your computer; memory; cpu](#day-129-eat-your-computer-memory-cpu)
 
 ## [DAY-0] The Computer
 
@@ -10553,5 +10553,29 @@ def draw():
 
 pgzrun.go()
 ```
-## [DAY-129] Virtual Computer
+## [DAY-129] Eat your computer; Memory; CPU
+
+consume one CPU on your computer
+
+```
+while True:
+    x = 1
+```
+
+Open activity monitor/task manager and see how it will consume 100% of one CPU, your computer has more than one CPU, this code will totally consume one, and in a bit you will see the computer will get hot, and the fans will start spinning. This is because each cycle of the CPU requires energy. So when you consume 100% of the CPU it will consume the maximum possible energy, and every time you use energy something is lost, and the loss is radiated as heat, even when you run, and you sweat you can see heat coming out of you.
+
+It might seem like `x = 1` is doing nothing, but it actually has to go to the memory address of the variable x and set it to value 1
+
+
+Now, lets consume all the memory.
+
+```
+a = []
+for i in range(10000000000):
+    a.append(i)
+```
+
+This will create a list with 10000000000 items in it, in python the size of an integer is a bit bigger than you think, usually numbers are stored in 4 byte or 8 byte memory slots; so 10000000000 * 4 is approximately 40 gigabytes of memory, your computer has 16 or 32 gigabytes. If you let the program run long enough you will see how it grows, and it consumes more and more memory.
+
+Now you might be surprised when it reaches your computer's max memory and it keeps going, and this is because your operating system will start taking memory out and writing it to your hard disk, this is called swapping. You will see your swap grow. If you wait long enough your computer will become slower and slower, and at some point it will be unusable.
 
