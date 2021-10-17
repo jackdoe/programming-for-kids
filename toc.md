@@ -332,3 +332,5 @@
 [day-128 lists; cpu usage; resources](#day-128-lists-cpu-usage-resources)
 
 [day-129 eat your computer; memory; cpu](#day-129-eat-your-computer-memory-cpu)
+
+[day-130 turtle; lists; classes](#day-130-turtle-lists-classes)

@@ -1,0 +1,13 @@
+class Point:
+    x = 0
+    y = 0
+
+points = []
+for i in range(10):
+    p = Point()
+    p.x = i * 20
+    p.y = i * 20
+    points.append(p)
+
+for p in points:
+    print(p, p.x, p.y)

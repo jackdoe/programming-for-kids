@@ -1,0 +1,12 @@
+class Dog:
+    name = ''
+    def bark(self):
+        print(self.name+' woof woof woof')
+
+max = Dog('Maxie')
+max.bark()
+
+rocky = Dog()
+rocky.name = "Rocky"
+rocky.bark()
+

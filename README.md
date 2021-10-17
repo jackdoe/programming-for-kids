@@ -450,6 +450,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-129 eat your computer; memory; cpu](#day-129-eat-your-computer-memory-cpu)
 
+[day-130 turtle; lists; classes](#day-130-turtle-lists-classes)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -10578,4 +10580,89 @@ for i in range(10000000000):
 This will create a list with 10000000000 items in it, in python the size of an integer is a bit bigger than you think, usually numbers are stored in 4 byte or 8 byte memory slots; so 10000000000 * 4 is approximately 40 gigabytes of memory, your computer has 16 or 32 gigabytes. If you let the program run long enough you will see how it grows, and it consumes more and more memory.
 
 Now you might be surprised when it reaches your computer's max memory and it keeps going, and this is because your operating system will start taking memory out and writing it to your hard disk, this is called swapping. You will see your swap grow. If you wait long enough your computer will become slower and slower, and at some point it will be unusable.
+
+## [DAY-130] turtle; lists; classes
+
+![game-130.png](./screenshots/game-130.png "game 130 screenshot")
+
+many turtles
+
+```
+import turtle
+import random
+colors = ['violet', 'turquoise', 'black', 
+          'deepskyblue','lawngreen', 'seagreen ', 
+          'royalblue', 'purple', 'red','orange']
+
+turtles = []
+for i in range(10):
+    t = turtle.Turtle()
+    t.color(random.choice(colors))
+    t.speed(9000)
+    turtles.append(t)
+
+
+while True:
+    for i in range(len(turtles)):
+        t = turtles[i]
+        t.setheading(random.randint(0,360))
+        t.forward(10)
+```
+
+Lets practice making a new class, you see when we say Turtle() or Actor() we make a new instance of the class Turtle and the class Actor
+
+The Class itself is like a blueprint of how to make a new instance of itself, for example Lets make a class Point that has two properties, `x` and `y`
+```
+class Point:
+    x = 0
+    y = 0
+
+points = []
+for i in range(10):
+    p = Point()
+    p.x = i * 20
+    p.y = i * 20
+    points.append(p)
+
+for p in points:
+    print(p, p.x, p.y)
+```
+
+When you define a function in a class, you have access to special parameter, `self` which is the instance on which this function is called/
+
+```
+class Dog:
+    name = ''
+    def bark(self):
+        print(self.name+' woof woof woof')
+
+max = Dog('Maxie')
+max.bark()
+
+rocky = Dog()
+rocky.name = "Rocky"
+rocky.bark()
+
+```
+
+There is also a special `__init__` function, called constructor that lets you pass parameters directly when you create the instance.
+
+```
+class Point:
+    x = 0
+    y = 0
+
+    def __init__(self, x,y):
+        self.x = x
+        self.y = y
+
+points = []
+for i in range(10):
+    p = Point(i * 10, i * 20)
+    points.append(p)
+
+for p in points:
+    print(p, p.x, p.y)
+
+```
 
