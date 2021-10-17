@@ -10611,7 +10611,8 @@ while True:
 
 Lets practice making a new class, you see when we say Turtle() or Actor() we make a new instance of the class Turtle and the class Actor
 
-The Class itself is like a blueprint of how to make a new instance of itself, for example Lets make a class Point that has two properties, `x` and `y`
+The Class itself is like a blueprint of how to make a new instance of itself, for example lets make a class Point that has two properties, `x` and `y`
+
 ```
 class Point:
     x = 0
@@ -10628,7 +10629,7 @@ for p in points:
     print(p, p.x, p.y)
 ```
 
-When you define a function in a class, you have access to special parameter, `self` which is the instance on which this function is called/
+When you define a function in a class, you have access to special parameter, `self` which is the instance on which this function is called:
 
 ```
 class Dog:
@@ -10636,7 +10637,8 @@ class Dog:
     def bark(self):
         print(self.name+' woof woof woof')
 
-max = Dog('Maxie')
+max = Dog()
+max.name = 'Maxie'
 max.bark()
 
 rocky = Dog()

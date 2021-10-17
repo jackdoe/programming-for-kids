@@ -3,7 +3,8 @@ class Dog:
     def bark(self):
         print(self.name+' woof woof woof')
 
-max = Dog('Maxie')
+max = Dog()
+max.name = 'Maxie'
 max.bark()
 
 rocky = Dog()
