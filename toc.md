@@ -1,4 +1,7 @@
 ## week - 0
+## week - 000
+
+
 
 [day-0 the computer](#day-0-the-computer)
 
@@ -11,9 +14,6 @@
 [day-0 how to google](#day-0-how-to-google)
 
 [day-1 touch typing](#day-1-touch-typing)
-## week - 1
-
-
 
 [day-2 install python](#day-2-install-python)
 
@@ -26,11 +26,11 @@
 [day-5 html - basics](#day-5-html---basics)
 
 [day-6 touch typing](#day-6-touch-typing)
+## week - 001
+
+
 
 [day-7 new touch typing program](#day-7-new-touch-typing-program)
-## week - 2
-
-
 
 [day-8 touch typing](#day-8-touch-typing)
 
@@ -43,11 +43,11 @@
 [day-12 touch typing](#day-12-touch-typing)
 
 [day-13 html](#day-13-html)
+## week - 002
+
+
 
 [day-14 html - tables](#day-14-html---tables)
-## week - 3
-
-
 
 [day-15 html - more tables](#day-15-html---more-tables)
 
@@ -60,11 +60,11 @@
 [day-19 html - links](#day-19-html---links)
 
 [day-20 html - tree](#day-20-html---tree)
+## week - 003
+
+
 
 [day-21 html - view source](#day-21-html---view-source)
-## week - 4
-
-
 
 [day-22 html - inspect](#day-22-html---inspect)
 
@@ -77,11 +77,11 @@
 [day-26 html - title](#day-26-html---title)
 
 [day-27 html - fun (js)](#day-27-html---fun-(js))
+## week - 004
+
+
 
 [day-28 print; functions; while; variables; conditions](#day-28-print-functions-while-variables-conditions)
-## week - 5
-
-
 
 [day-29 print; if](#day-29-print-if)
 
@@ -96,7 +96,7 @@
 [day-34 love tester](#day-34-love-tester)
 
 [day-34 touch typing](#day-34-touch-typing)
-## week - 6
+## week - 005
 
 
 
@@ -113,7 +113,7 @@
 [day-40 functions; strings; range](#day-40-functions-strings-range)
 
 [day-41 basics of basics](#day-41-basics-of-basics)
-## week - 7
+## week - 006
 
 
 
@@ -130,7 +130,7 @@
 [day-46 basic turtle](#day-46-basic-turtle)
 
 [day-47 range; while](#day-47-range-while)
-## week - 8
+## week - 007
 
 
 
@@ -147,7 +147,7 @@
 [day-53 basics of the internet - ip/dns](#day-53-basics-of-the-internet---ipdns)
 
 [day-54 touch typing](#day-54-touch-typing)
-## week - 9
+## week - 008
 
 
 
@@ -162,11 +162,11 @@
 [day-59 tuples; lists](#day-59-tuples-lists)
 
 [day-60 go back in time](#day-60-go-back-in-time)
+## week - 009
+
+
 
 [day-61 pygame; pygamezero; coordinates](#day-61-pygame-pygamezero-coordinates)
-## week - 10
-
-
 
 [day-62 collisions; callbacks](#day-62-collisions-callbacks)
 
@@ -179,11 +179,11 @@
 [day-66 schedule; callbacks; functions](#day-66-schedule-callbacks-functions)
 
 [day-67 lists; functions](#day-67-lists-functions)
+## week - 010
+
+
 
 [day-68 lists; functions](#day-68-lists-functions)
-## week - 11
-
-
 
 [day-69 sockets; functions; callbacks](#day-69-sockets-functions-callbacks)
 
@@ -196,11 +196,11 @@
 [day-73 reading code](#day-73-reading-code)
 
 [day-74 strings; while; lists](#day-74-strings-while-lists)
+## week - 011
+
+
 
 [day-75 functions; callbacks; lists; encoding](#day-75-functions-callbacks-lists-encoding)
-## week - 12
-
-
 
 [day-76 functions; callbacks; lists](#day-76-functions-callbacks-lists)
 
@@ -213,11 +213,11 @@
 [day-80 lists; functions](#day-80-lists-functions)
 
 [day-81 lists; encoding](#day-81-lists-encoding)
+## week - 012
+
+
 
 [day-82 lists; strings](#day-82-lists-strings)
-## week - 13
-
-
 
 [day-83 lists; functions](#day-83-lists-functions)
 
@@ -230,11 +230,11 @@
 [day-87 read/write files](#day-87-readwrite-files)
 
 [day-88 flask](#day-88-flask)
+## week - 013
+
+
 
 [day-89 files; strings; lists](#day-89-files-strings-lists)
-## week - 14
-
-
 
 [day-90 strings](#day-90-strings)
 
@@ -247,11 +247,11 @@
 [day-94 editors - ed/nano/vi/emacs..](#day-94-editors---ednanoviemacs..)
 
 [day-95 memory; virtual computer; instructions; strings; lists](#day-95-memory-virtual-computer-instructions-strings-lists)
+## week - 014
+
+
 
 [day-95 memory; machine code; virtual computer](#day-95-memory-machine-code-virtual-computer)
-## week - 15
-
-
 
 [day-96 binary; ascii; memory](#day-96-binary-ascii-memory)
 
@@ -264,11 +264,11 @@
 [day-100 touch typing; lists](#day-100-touch-typing-lists)
 
 [day-101 functions; strings](#day-101-functions-strings)
+## week - 015
+
+
 
 [day-102 touch typing day](#day-102-touch-typing-day)
-## week - 16
-
-
 
 [day-103 read file; command line arguments](#day-103-read-file-command-line-arguments)
 
@@ -281,11 +281,11 @@
 [day-107 lists; dictionaries](#day-107-lists-dictionaries)
 
 [day-108 dictionaries](#day-108-dictionaries)
+## week - 016
+
+
 
 [day-109 touch typing day](#day-109-touch-typing-day)
-## week - 17
-
-
 
 [day-110 find code on tiktok](#day-110-find-code-on-tiktok)
 
@@ -298,11 +298,11 @@
 [day-114 simple turtle](#day-114-simple-turtle)
 
 [day-115 practical coding, control roblox with python](#day-115-practical-coding-control-roblox-with-python)
+## week - 017
+
+
 
 [day-116 many turtles](#day-116-many-turtles)
-## week - 18
-
-
 
 [day-117 another text editor](#day-117-another-text-editor)
 
@@ -315,11 +315,11 @@
 [day-121 scam check list](#day-121-scam-check-list)
 
 [day-122 lists; random; mutate](#day-122-lists-random-mutate)
+## week - 018
+
+
 
 [day-123 lists; callbacks](#day-123-lists-callbacks)
-## week - 19
-
-
 
 [day-124 bmp format, images; encoding/decoding](#day-124-bmp-format-images-encodingdecoding)
 
@@ -332,10 +332,10 @@
 [day-128 lists; cpu usage; resources](#day-128-lists-cpu-usage-resources)
 
 [day-129 eat your computer; memory; cpu](#day-129-eat-your-computer-memory-cpu)
+## week - 019
+
+
 
 [day-130 turtle; lists; classes](#day-130-turtle-lists-classes)
-## week - 20
-
-
 
 [day-131 lists; files; dictionares](#day-131-lists-files-dictionares)
