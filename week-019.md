@@ -84,3 +84,61 @@ for p in points:
     print(p, p.x, p.y)
 
 ```
+
+
+
+## [DAY-131] Lists; Files; Dictionares
+
+Example dictionary, List and String
+
+```
+words = {}
+
+words["some long key"] = True
+words["x"] = 10
+
+for k in words:
+    print(k)
+    print(words[k])
+
+
+list_of_characters = ['a','b','c']
+
+for i in range(len(list_of_characters)):
+    print(i)
+    print(list_of_characters[i])
+
+
+
+s = "hello"
+for i in range(len(s)):
+    print(i)
+    print(s[i])
+
+```
+
+You see how in the list and string we can address individual element or character by its index? In the dictionary we address things by their key, for example if i want to see the value of `some long key` I do `print(words["some long key"])`.
+
+Now unrelated, but lets practice printing the first 100 numbers from a list.
+
+```
+a = []
+
+for i in range(100):
+    a.append(i)
+
+for i in range(100):
+    print(a[i])
+```
+
+Append to file, whatever command line agurments 1 and 2 are
+
+```
+import sys
+f = open("account.txt", "a")
+
+f.write(sys.argv[1] + " " + sys.argv[2] + "\n")
+
+f.close()
+```
+
