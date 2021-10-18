@@ -334,3 +334,8 @@
 [day-129 eat your computer; memory; cpu](#day-129-eat-your-computer-memory-cpu)
 
 [day-130 turtle; lists; classes](#day-130-turtle-lists-classes)
+## week - 20
+
+
+
+[day-131 lists; files; dictionares](#day-131-lists-files-dictionares)

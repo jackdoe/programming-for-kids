@@ -1,0 +1,6 @@
+import sys
+f = open("account.txt", "a")
+
+f.write(sys.argv[1] + " " + sys.argv[2] + "\n")
+
+f.close()
