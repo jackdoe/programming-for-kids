@@ -146,7 +146,10 @@ f.close()
 
 ## [DAY-131] Lists; Classes
 
+![game-132.png](./screenshots/game-132.png "game 132 screenshot")
+
 a tower defense game
+
 
 ```
 import pgzrun
