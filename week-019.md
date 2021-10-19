@@ -144,7 +144,7 @@ f.close()
 
 
 
-## [DAY-131] Lists; Classes
+## [DAY-132] Lists; Classes
 
 ![game-132.png](./screenshots/game-132.png "game 132 screenshot")
 
