@@ -1,0 +1,121 @@
+import pgzrun
+import random
+
+WIDTH=1024
+HEIGHT=576
+
+towers = []
+enemies = []
+bullets = []
+game_over = False
+background = Actor("grass_template2", pos=(0,0), anchor=(0,0))
+
+player = Actor("c1", pos=(WIDTH/2, HEIGHT/2), anchor=('center','bottom'))
+lives = 100
+cash = 100
+current_wave = 1
+
+class Tower:
+    def __init__(self, image, x,y, size):
+        self.actor = Actor(image, pos=(x,y), )
+        self.rect = Rect((x-size/2,y-size/2), (size,size))
+        self.color =  (random.randint(100,250),random.randint(100,250),random.randint(100,250))
+    def shoot(self):
+        for e in enemies:
+            if e.colliderect(self.rect):
+                b = Actor("bullet3")
+                b.x = self.actor.x
+                b.y = self.actor.y
+                b.hit = False
+                animate(b, pos=(e.x,e.y), tween='accelerate', on_finished=lambda: bullets.remove(b))
+                bullets.append(b)
+                break
+
+    def colliderect(self,other):
+        return self.actor.colliderect(other)
+    def draw(self):
+        self.actor.draw()
+        #screen.draw.rect(self.rect,self.color)
+
+def shoot():
+    global cash
+    for t in towers:
+        t.shoot()
+    for e in list(enemies):
+        if e.image == 'exploded':
+            enemies.remove(e)
+            cash+=1
+
+def new_wave():
+    global current_wave
+    for i in range(current_wave * 10):
+        e = Actor("c3")
+        e.y = HEIGHT
+        e.x = random.randint(int(WIDTH/3), int(WIDTH-WIDTH/3))
+        enemies.append(e)
+    current_wave += 1
+
+def on_key_down(key):
+    global cash
+    if key == keys.K_1:
+        if cash >= 10:
+            conflict = False
+            for t in towers:
+                if t.colliderect(player):
+                    conflict = True
+
+            if not conflict:
+                t = Tower("tower_grass",player.x, player.y, 150)
+                towers.append(t)
+                cash -= 10
+
+def update():
+    global game_over
+    if keyboard.UP:
+        player.y -= 5
+    if keyboard.DOWN:
+        player.y += 5
+    if keyboard.LEFT:
+        player.x -= 5
+    if keyboard.RIGHT:
+        player.x += 5
+
+    for e in enemies:
+        if e.image != 'exploded':
+            e.y -= random.randint(-1,2)
+        for b in bullets:
+            if b.colliderect(e):
+                e.image = 'exploded'
+                b.hit = True
+                break
+        if not background.colliderect(e):
+            game_over = True
+    pass
+
+
+clock.schedule_interval(shoot, 1)
+clock.schedule_interval(new_wave, 10)
+
+new_wave()
+
+def draw():
+    screen.clear()
+    if game_over:
+        screen.fill('blue')
+    else:
+        background.draw()
+        screen.draw.text("current_wave: " + str(current_wave) + ", cash: " + str(cash) + ", lives: " + str(lives), (5,0),fontname="437-win")   
+
+        for b in bullets:
+            if not b.hit:
+                b.draw()
+
+        for e in enemies:
+            e.draw()
+
+        for t in towers:
+            t.draw()
+
+        player.draw()
+
+pgzrun.go()
