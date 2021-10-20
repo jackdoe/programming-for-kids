@@ -341,3 +341,5 @@
 [day-131 lists; files; dictionares](#day-131-lists-files-dictionares)
 
 [day-132 lists; classes](#day-132-lists-classes)
+
+[day-133 touch typing; lists](#day-133-touch-typing-lists)

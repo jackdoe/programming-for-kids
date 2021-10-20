@@ -1,0 +1,198 @@
+import pgzrun
+import random
+
+WIDTH = 1024
+HEIGHT = 576
+
+towers = []
+enemies = []
+bullets = []
+game_over = False
+background = Actor("grass_template2", pos=(0, 0), anchor=(0, 0))
+
+
+path_size = 50
+path = [
+    Rect(0, HEIGHT/2, 50, 50),
+    Rect(50, HEIGHT/2, 50, 50),
+    Rect(50, HEIGHT/2 + 50, 50, 50),
+    Rect(100, HEIGHT/2 + 50, 50, 50),
+    Rect(150, HEIGHT/2 + 50, 50, 50),
+    Rect(200, HEIGHT/2 + 50, 50, 50),
+    Rect(250, HEIGHT/2 + 50, 50, 50),
+    Rect(250, HEIGHT/2 + 100, 50, 50),
+    Rect(300, HEIGHT/2 + 100, 50, 50),
+    Rect(350, HEIGHT/2 + 100, 50, 50),
+    Rect(400, HEIGHT/2 + 100, 50, 50),
+    Rect(450, HEIGHT/2 + 100, 50, 50),
+    Rect(500, HEIGHT/2 + 100, 50, 50),
+    Rect(500, HEIGHT/2 + 150, 50, 50),
+    Rect(550, HEIGHT/2 + 150, 50, 50),
+    Rect(600, HEIGHT/2 + 150, 50, 50),
+    Rect(650, HEIGHT/2 + 150, 50, 50),
+    Rect(650, HEIGHT/2 + 200, 50, 50),
+    Rect(700, HEIGHT/2 + 200, 50, 50),
+    Rect(750, HEIGHT/2 + 200, 50, 50),
+    Rect(800, HEIGHT/2 + 200, 50, 50),
+    Rect(850, HEIGHT/2 + 200, 50, 50),
+    Rect(850, HEIGHT/2 + 150, 50, 50),
+    Rect(850, HEIGHT/2 + 100, 50, 50),
+    Rect(850, HEIGHT/2 + 50, 50, 50),
+    Rect(850, HEIGHT/2 + 0, 50, 50),
+    Rect(850, HEIGHT/2 - 50, 50, 50),
+    Rect(850, HEIGHT/2 - 100, 50, 50),
+    Rect(900, HEIGHT/2 - 100, 50, 50),
+    Rect(950, HEIGHT/2 - 100, 50, 50),
+    Rect(1000, HEIGHT/2 - 100, 50, 50),
+    Rect(1050, HEIGHT/2 - 100, 50, 50),
+    Rect(1100, HEIGHT/2 - 100, 50, 50),
+]
+
+
+player = Actor("c1", pos=(WIDTH/2, HEIGHT/2), anchor=('center', 'bottom'))
+lives = 100
+cash = 100
+current_wave = 1
+
+
+class Tower:
+    def __init__(self, image, x, y, size):
+        self.actor = Actor(image, pos=(x, y), )
+        self.rect = Rect((x-size/2, y-size/2), (size, size))
+        self.color = (random.randint(100, 250), random.randint(
+            100, 250), random.randint(100, 250))
+
+    def shoot(self):
+        for e in enemies:
+            if e.colliderect(self.rect):
+                b = Actor("bullet3")
+                b.x = self.actor.x
+                b.y = self.actor.y
+                b.hit = False
+                animate(b, pos=(e.x, e.y), tween='accelerate',
+                        on_finished=lambda: bullets.remove(b))
+                bullets.append(b)
+                break
+
+    def colliderect(self, other):
+        return self.actor.colliderect(other)
+
+    def draw(self):
+        self.actor.draw()
+        screen.draw.rect(self.rect,self.color)
+
+
+def shoot():
+    global cash
+    for t in towers:
+        t.shoot()
+    for e in list(enemies):
+        if e.image == 'exploded':
+            enemies.remove(e)
+            cash += 1
+
+
+def new_wave():
+    global current_wave
+    for i in range(10 + (current_wave * 2)):
+        e = Actor("c3")
+        e.y = HEIGHT/2+10
+        e.x = 0
+        enemies.append(e)
+    current_wave += 1
+
+
+def on_key_down(key):
+    global cash
+    if key == keys.K_1:
+        if cash >= 10:
+            conflict = False
+            for t in towers:
+                if t.colliderect(player):
+                    conflict = True
+
+            for p in path:
+                if player.colliderect(p):
+                    conflict = True
+
+            if not conflict:
+                t = Tower("tower_grass", player.x, player.y, 150)
+                towers.append(t)
+                cash -= 10
+
+
+def update():
+    global game_over
+    if keyboard.UP:
+        player.y -= 5
+    if keyboard.DOWN:
+        player.y += 5
+    if keyboard.LEFT:
+        player.x -= 5
+    if keyboard.RIGHT:
+        player.x += 5
+
+    for e in enemies:
+        if e.image != 'exploded':
+            destination = None
+            for (i, p) in enumerate(path):
+                if e.colliderect(p) and i < len(path) - 1:
+                    destination = path[i+1]
+                    break
+
+            if destination != None:
+                center_x = destination.x + 25
+                center_y = destination.y + 25
+                if e.x < center_x:
+                    e.x += random.randint(0, 2)
+                if e.x > center_x:
+                    e.x -= random.randint(0, 2)
+                if e.y > center_y:
+                    e.y -= random.randint(0, 2)
+                if e.y < center_y:
+                    e.y += random.randint(0, 2)
+
+        for b in bullets:
+            if b.colliderect(e):
+                e.image = 'exploded'
+                b.hit = True
+                break
+        if not background.colliderect(e):
+            game_over = True
+    pass
+
+
+clock.schedule_interval(shoot, 1)
+clock.schedule_interval(new_wave, 10)
+
+new_wave()
+
+
+def draw():
+    screen.clear()
+    if game_over:
+        screen.fill('blue')
+    else:
+        background.draw()
+
+        screen.draw.text("current_wave: " + str(current_wave) + ", cash: " +
+                         str(cash) + ", lives: " + str(lives), (5, 0), fontname="437-win")
+
+        for i in range(len(path)):
+            p = path[i]
+            screen.draw.filled_rect(p,(255,0,0))
+            screen.draw.text(str(p.x), (p.x,p.y))
+        for b in bullets:
+            if not b.hit:
+                b.draw()
+
+        for e in enemies:
+            e.draw()
+
+        for t in towers:
+            t.draw()
+
+        player.draw()
+
+
+pgzrun.go()
