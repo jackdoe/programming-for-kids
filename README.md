@@ -10880,6 +10880,45 @@ Add a path for the enemies to walk on.
 
 The most important part is to think about, how would you follow a path, in this example we will follow a path by picking a next element to walk towards.
 
+This is the most important part of the change, it is an what is called an algorithm, it is a sequence of steps to solve a problem. We can describe it in words: **find the current square you are colliding it, find which square is next in the list, start walking towards it**. Now lets write it down:
+
+```
+
+[...]
+
+path = [
+    Rect(0, HEIGHT/2, 50, 50),
+    Rect(50, HEIGHT/2, 50, 50),
+
+[...]
+
+def update():
+
+[...]
+
+    for e in enemies:
+        if e.image != 'exploded':
+            destination = None
+            for (i, p) in enumerate(path):
+                if e.colliderect(p) and i < len(path) - 1:
+                    destination = path[i+1]
+                    break
+
+            if destination != None:
+                center_x = destination.x + 25
+                center_y = destination.y + 25
+                if e.x < center_x:
+                    e.x += random.randint(0, 2)
+                if e.x > center_x:
+                    e.x -= random.randint(0, 2)
+                if e.y > center_y:
+                    e.y -= random.randint(0, 2)
+                if e.y < center_y:
+                    e.y += random.randint(0, 2)
+
+[...]
+
+```
 
 ```
 import pgzrun
