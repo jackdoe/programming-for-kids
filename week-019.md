@@ -487,3 +487,53 @@ def draw():
 
 pgzrun.go()
 ```
+
+
+
+## [DAY-134] Lists; Methods
+
+Upgrade our tower game, make it possible to:
+
+* delete towers and get some money back
+* be able to upgrade the tower's range
+
+
+First we will store original `x`,`y` and `size` in the tower's instance, and then use it to increase its range.
+
+Again pay attention when deleting from a list we are walking on (iterating on), we actually make a clone of the list and iterate over the clone, but remove items from the original list by value.
+
+```
+[...]
+
+class Tower:
+[...]
+    def __init__(self, image, x, y, size):
+        self.size = size
+        self.x = x
+        self.y = y
+        self.actor = Actor(image, pos=(x, y))
+        self.rect = Rect((x-size/2, y-size/2), (size, size))
+        self.color = (random.randint(100, 250), random.randint(100, 250), random.randint(100, 250))
+
+    def resize(self, bump):
+        new_size = self.size + bump
+        self.size = new_size
+        self.rect = Rect((self.x-new_size/2, self.y-new_size/2), (new_size, new_size))
+[...]
+
+def on_key_down(key):
+    global cash
+    if key == keys.K_2:
+        for t in towers:
+            if t.colliderect(player):
+                t.resize(5)
+                cash -= 10
+        
+    if key == keys.D:
+        for t in list(towers):
+            if t.colliderect(player):
+                cash += 15
+                towers.remove(t)
+[...]
+
+```
