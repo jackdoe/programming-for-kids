@@ -343,3 +343,5 @@
 [day-132 lists; classes](#day-132-lists-classes)
 
 [day-133 touch typing; lists](#day-133-touch-typing-lists)
+
+[day-134 lists; methods](#day-134-lists-methods)

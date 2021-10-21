@@ -461,6 +461,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-133 touch typing; lists](#day-133-touch-typing-lists)
 
+[day-134 lists; methods](#day-134-lists-methods)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -11078,4 +11080,54 @@ def draw():
 
 
 pgzrun.go()
+```
+
+
+
+## [DAY-134] Lists; Methods
+
+Upgrade our tower game, make it possible to:
+
+* delete towers and get some money back
+* be able to upgrade the tower's range
+
+
+First we will store original `x`,`y` and `size` in the tower's instance, and then use it to increase its range.
+
+Again pay attention when deleting from a list we are walking on (iterating on), we actually make a clone of the list and iterate over the clone, but remove items from the original list by value.
+
+```
+[...]
+
+class Tower:
+[...]
+    def __init__(self, image, x, y, size):
+        self.size = size
+        self.x = x
+        self.y = y
+        self.actor = Actor(image, pos=(x, y))
+        self.rect = Rect((x-size/2, y-size/2), (size, size))
+        self.color = (random.randint(100, 250), random.randint(100, 250), random.randint(100, 250))
+
+    def resize(self, bump):
+        new_size = self.size + bump
+        self.size = new_size
+        self.rect = Rect((self.x-new_size/2, self.y-new_size/2), (new_size, new_size))
+[...]
+
+def on_key_down(key):
+    global cash
+    if key == keys.K_2:
+        for t in towers:
+            if t.colliderect(player):
+                t.resize(5)
+                cash -= 10
+        
+    if key == keys.D:
+        for t in list(towers):
+            if t.colliderect(player):
+                cash += 15
+                towers.remove(t)
+[...]
+
 ```
