@@ -455,7 +455,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-130 turtle; lists; classes](#day-130-turtle-lists-classes)
 
-[day-131 lists; files; dictionares](#day-131-lists-files-dictionares)
+[day-131 lists; files; dictionaries](#day-131-lists-files-dictionaries)
 
 [day-132 lists; classes](#day-132-lists-classes)
 
@@ -10681,7 +10681,7 @@ for p in points:
 
 
 
-## [DAY-131] Lists; Files; Dictionares
+## [DAY-131] Lists; Files; Dictionaries
 
 Example dictionary, List and String
 

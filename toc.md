@@ -338,7 +338,7 @@
 
 [day-130 turtle; lists; classes](#day-130-turtle-lists-classes)
 
-[day-131 lists; files; dictionares](#day-131-lists-files-dictionares)
+[day-131 lists; files; dictionaries](#day-131-lists-files-dictionaries)
 
 [day-132 lists; classes](#day-132-lists-classes)
 
