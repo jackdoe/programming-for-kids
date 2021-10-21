@@ -87,7 +87,7 @@ for p in points:
 
 
 
-## [DAY-131] Lists; Files; Dictionares
+## [DAY-131] Lists; Files; Dictionaries
 
 Example dictionary, List and String
 
