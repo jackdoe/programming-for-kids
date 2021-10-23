@@ -1,0 +1,32 @@
+import pgzrun
+
+HEIGHT = 800
+WIDTH = 800
+
+elf = Actor('c1')
+king = Actor('c2')
+
+def update():
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.D:
+        elf.x += 5
+    if keyboard.UP:
+        king.y -= 5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.LEFT:
+        king.x -= 5
+    if keyboard.RIGHT:
+        king.x += 5
+
+
+def draw():
+    elf.draw()
+    king.draw()
+
+pgzrun.go()

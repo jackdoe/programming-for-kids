@@ -463,6 +463,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-134 lists; methods](#day-134-lists-methods)
 
+[day-134 if](#day-134-if)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -11130,7 +11132,6 @@ Upgrade our tower game, make it possible to:
 * delete towers and get some money back
 * be able to upgrade the tower's range
 
-
 First we will store original `x`,`y` and `size` in the tower's instance, and then use it to increase its range.
 
 Again pay attention when deleting from a list we are walking on (iterating on), we actually make a clone of the list and iterate over the clone, but remove items from the original list by value.
@@ -11169,4 +11170,48 @@ def on_key_down(key):
                 towers.remove(t)
 [...]
 
+```
+
+
+## [DAY-134] If
+
+![game-134.png](./screenshots/game-134.png "game 134 screenshot")
+
+Relax day.
+
+Make super simple game to draw with two players, because we dont clear the screen.
+
+```
+import pgzrun
+
+HEIGHT = 800
+WIDTH = 800
+
+elf = Actor('c1')
+king = Actor('c2')
+
+def update():
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.D:
+        elf.x += 5
+    if keyboard.UP:
+        king.y -= 5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.LEFT:
+        king.x -= 5
+    if keyboard.RIGHT:
+        king.x += 5
+
+
+def draw():
+    elf.draw()
+    king.draw()
+
+pgzrun.go()
 ```
