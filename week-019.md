@@ -622,7 +622,7 @@ pgzrun.go()
 
 ## [DAY-135] Dictionary; For
 
-![game-135](screenshots/game-135.mp3)
+[game-135](screenshots/game-135.mp3)
 
 
 Make a morse code machine!
