@@ -465,6 +465,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-134 if](#day-134-if)
 
+[day-135 dictionary; for](#day-135-dictionary-for)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -11212,6 +11214,121 @@ def update():
 def draw():
     elf.draw()
     king.draw()
+
+pgzrun.go()
+```
+
+## [DAY-135] Dictionary; For
+
+
+Make a morse code machine!
+
+```
+import pgzrun
+import time
+
+short = tone.create('A3', 0.3)
+long = tone.create('D3', 0.7)
+
+morse = {
+    'a': [short, long],
+    'b': [long, short, short, short],
+    'c': [long, short, long, short],
+    'd': [long, short, short],
+    'e': [short],
+    'f': [short, short, long, short],
+    'g': [long, long, short],
+    'h': [short, short, short, short],
+    'i': [short, short],
+    'j': [short, long, long, long],
+    'k': [long, short, long],
+    'l': [short, long, short, short],
+    'm': [long, long],
+    'n': [long, short],
+    'o': [long, long, long],
+    'p': [short, long, long, short],
+    'q': [long, long, short, long],
+    'r': [short, long, short],
+    's': [short, short, short],
+    't': [long],
+    'u': [short, short, long],
+    'v': [short, short, short, long],
+    'w': [short, long, long],
+    'x': [long, short, short, long],
+    'y': [long, short, long, long],
+    'z': [long, long, short, short]
+}
+
+
+def play(key):
+    for t in morse[key]:
+        t.play()
+        time.sleep(1)
+    time.sleep(1)
+
+
+def on_key_down(key):
+    if key == keys.A:
+        play('a')
+    if key == keys.B:
+        play('b')
+    if key == keys.C:
+        play('c')
+    if key == keys.D:
+        play('d')
+    if key == keys.E:
+        play('e')
+    if key == keys.F:
+        play('f')
+    if key == keys.G:
+        play('g')
+    if key == keys.H:
+        play('h')
+    if key == keys.I:
+        play('i')
+    if key == keys.J:
+        play('j')
+    if key == keys.K:
+        play('k')
+    if key == keys.L:
+        play('l')
+    if key == keys.M:
+        play('m')
+    if key == keys.N:
+        play('n')
+    if key == keys.O:
+        play('o')
+    if key == keys.P:
+        play('p')
+    if key == keys.Q:
+        play('q')
+    if key == keys.R:
+        play('r')
+    if key == keys.S:
+        play('s')
+    if key == keys.T:
+        play('t')
+    if key == keys.U:
+        play('u')
+    if key == keys.V:
+        play('v')
+    if key == keys.W:
+        play('w')
+    if key == keys.X:
+        play('x')
+    if key == keys.Y:
+        play('y')
+    if key == keys.Z:
+        play('z')
+
+
+def update():
+    pass
+
+
+def draw():
+    pass
+
 
 pgzrun.go()
 ```
