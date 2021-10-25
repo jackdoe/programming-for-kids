@@ -349,3 +349,5 @@
 [day-134 if](#day-134-if)
 
 [day-135 dictionary; for](#day-135-dictionary-for)
+
+[day-136 for; arrays; memory](#day-136-for-arrays-memory)

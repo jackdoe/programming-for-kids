@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main() {
+    char input[20] = {0};
+    int b = 5;
+    while(1) {
+        printf("What is your name: ");
+        scanf("%s",input);
+        printf("\nHello %s\n",input);
+
+        for (int i = 0; i < 40; i++) {
+            printf("  %d -> %d -> %c\n", i, input[i],input[i]);
+        }
+    }
+}
+
+You will see some garbage from element 20 to 39, because it will actually go and read beyond the input bounderioes.
+
