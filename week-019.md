@@ -736,3 +736,106 @@ def draw():
 
 pgzrun.go()
 ```
+
+## [DAY-136] For; Arrays; Memory
+
+Lets make a super simple C program
+
+Just to get familiar witht he syntax, it does not use indentation to group code, but {}, and also each variable has to have known type (size), e.g we have to tell the C compiler (compiler is a program that takes the text code and transforms it into machine code) that  `i` is of type `int` which on our computer is exactly 4 bytes long.
+
+```
+#include <stdio.h>
+int main() {
+    int sum = 0;
+    for (int i = 0; i < 100; i++) {
+        sum += 10;
+    }
+
+    printf("%d\n", sum);
+}
+```
+
+When you execute `gcc -o foo foo.c` (if you save the program in foo.c), it will make the binary `foo`, do `cat foo` to see the actual binary made from the compiler. If you run `objdump -D foo` you will see the assembly code and the machine code corresponding to it.
+
+```
+[...]
+100003f30: 55                           pushq   %rbp
+100003f31: 48 89 e5                     movq    %rsp, %rbp
+100003f34: 48 83 ec 10                  subq    $16, %rsp
+100003f38: c7 45 fc 00 00 00 00         movl    $0, -4(%rbp)
+100003f3f: c7 45 f8 00 00 00 00         movl    $0, -8(%rbp)
+100003f46: c7 45 f4 00 00 00 00         movl    $0, -12(%rbp)
+100003f4d: 83 7d f4 64                  cmpl    $100, -12(%rbp)
+100003f51: 0f 8d 17 00 00 00            jge     0x100003f6e <_main+0x3e>
+100003f57: 8b 45 f8                     movl    -8(%rbp), %eax
+100003f5a: 83 c0 0a                     addl    $10, %eax
+100003f5d: 89 45 f8                     movl    %eax, -8(%rbp)
+100003f60: 8b 45 f4                     movl    -12(%rbp), %eax
+100003f63: 83 c0 01                     addl    $1, %eax
+100003f66: 89 45 f4                     movl    %eax, -12(%rbp)
+100003f69: e9 df ff ff ff               jmp     0x100003f4d <_main+0x1d>
+[...]
+```
+
+`addl` meand `add`, `jmp` means jump and so forth. This is not important for now, the point is that `gcc` which is a popular C compiler, will take your code and make it into machine code.
+
+Lets have another example:
+
+
+FizzBuzz
+
+```
+#include <stdio.h>
+int main() {
+    for (int i = 0; i < 100; i++) {
+        if (i % 15 == 0) {
+            printf("fizzbuzz\n");
+        } else if (i % 5 == 0) {
+            printf("buzz\n");
+        } else if (i % 3 == 0) {
+            printf("fizz\n");
+        } else {
+            printf("%d\n",i);
+        }
+    }
+}
+```
+
+What is your name?
+
+```
+#include <stdio.h>
+int main() {
+    char input[20] = {0};
+    while(1) {
+        printf("What is your name: ");
+        scanf("%s",input);
+        printf("\nHello %s\n",input);
+    }
+}
+```
+
+You see how we say `char input[20]` which means we habe 20 elements of type `char` pointed by the input variable, it is literally just a pointer to some memory, and we can use `input[1]` to go to the address `input` plus 1 byte. Same with `int x[10]`, if we do x[3], it will go to the address pointed by `x` and add 3 * 4 to it.
+
+We can make interesting bugs like that, because nobody will check if we go and read somewhere outside of the defined array:
+
+
+```
+#include <stdio.h>
+int main() {
+    char input[20] = {0};
+    int b = 5;
+    while(1) {
+        printf("What is your name: ");
+        scanf("%s",input);
+        printf("\nHello %s\n",input);
+
+        for (int i = 0; i < 40; i++) {
+            printf("  %d -> %d -> %c\n", i, input[i],input[i]);
+        }
+    }
+}
+
+You will see some garbage from element 20 to 39, because it will actually go and read beyond the input bounderioes.
+
+```
