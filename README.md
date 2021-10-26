@@ -466,6 +466,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-134 if](#day-134-if)
 
 [day-135 dictionary; for](#day-135-dictionary-for)
+## week - 020
+
+
 
 [day-136 for; arrays; memory](#day-136-for-arrays-memory)
 
@@ -11336,7 +11339,6 @@ def draw():
 
 pgzrun.go()
 ```
-
 ## [DAY-136] For; Arrays; Memory
 
 Lets make a super simple C program
