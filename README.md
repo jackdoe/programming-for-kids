@@ -11357,6 +11357,50 @@ int main() {
 
 When you execute `gcc -o foo foo.c` (if you save the program in foo.c), it will make the binary `foo`, do `cat foo` to see the actual binary made from the compiler. If you run `objdump -D foo` you will see the assembly code and the machine code corresponding to it.
 
+`cat foo`:
+```
+????X? H__PAGEZERO?__TEXT@@__text__TEXT0?X0??__stubs__TEXT????__stub_helper__TEXT?????__cstring__TEXT????__unwind_info__TEXT??H???__DATA_CONST@@@@__got__DATA_CONST@?__DATA?@?@__la_symbol_ptr__DATA?__data__DA?H__LINKEDIT?@?"?? ?0?0h???H
+                               P?? 
+                                   /usr/lib/dyld9??
+                                                   f:^?[c?υ02 
+
+                                                              ?*(?0?
+                                                                    8d
+                                                                      /usr/lib/libSystem.B.dylib&`)h?UH??H???E??E??E??}?d??E???
+?E??E???E???????u?H?=2??	?E?H??]??%r@L?q@AS?%a?h?????%d
+0?44??4
+       ??#Q@dyld_stub_binderQr?s@_printf?__mh_execute_header!main%?~??0?$ __mh_execute_header_main_printfdyld_stub_binder__dyld_privat
+```
+
+Because its a binary file, most of the bytes are not actually printable ASCII characters, you can use `hexdump` to see the byte's values:
+
+`hexdump -C foo`
+
+```
+00000000  cf fa ed fe 07 00 00 01  03 00 00 00 02 00 00 00  |................|
+00000010  10 00 00 00 58 05 00 00  85 00 20 00 00 00 00 00  |....X..... .....|
+00000020  19 00 00 00 48 00 00 00  5f 5f 50 41 47 45 5a 45  |....H...__PAGEZE|
+00000030  52 4f 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |RO..............|
+00000040  00 00 00 00 01 00 00 00  00 00 00 00 00 00 00 00  |................|
+00000050  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00000060  00 00 00 00 00 00 00 00  19 00 00 00 d8 01 00 00  |................|
+00000070  5f 5f 54 45 58 54 00 00  00 00 00 00 00 00 00 00  |__TEXT..........|
+00000080  00 00 00 00 01 00 00 00  00 40 00 00 00 00 00 00  |.........@......|
+00000090  00 00 00 00 00 00 00 00  00 40 00 00 00 00 00 00  |.........@......|
+000000a0  05 00 00 00 05 00 00 00  05 00 00 00 00 00 00 00  |................|
+000000b0  5f 5f 74 65 78 74 00 00  00 00 00 00 00 00 00 00  |__text..........|
+000000c0  5f 5f 54 45 58 54 00 00  00 00 00 00 00 00 00 00  |__TEXT..........|
+000000d0  30 3f 00 00 01 00 00 00  58 00 00 00 00 00 00 00  |0?......X.......|
+000000e0  30 3f 00 00 04 00 00 00  00 00 00 00 00 00 00 00  |0?..............|
+000000f0  00 04 00 80 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00000100  5f 5f 73 74 75 62 73 00  00 00 00 00 00 00 00 00  |__stubs.........|
+00000110  5f 5f 54 45 58 54 00 00  00 00 00 00 00 00 00 00  |__TEXT..........|
+00000120  88 3f 00 00 01 00 00 00  06 00 00 00 00 00 00 00  |.?..............|
+00000130  88 3f 00 00 01 00 00 00  00 00 00 00 00 00 00 00  |.?..............|
+00000140  08 04 00 80 00 00 00 00  06 00 00 00 00 00 00 00  |................|
+```
+
+`objdump -D foo`
 ```
 [...]
 100003f30: 55                           pushq   %rbp
