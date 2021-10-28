@@ -1,0 +1,11 @@
+from turtle import *
+size = 1
+speed(10000)
+while True:
+    if size % 2 == 0:
+        color('blue')
+    else:
+        color('red')
+
+    circle(size, size * 5)
+    size += 1

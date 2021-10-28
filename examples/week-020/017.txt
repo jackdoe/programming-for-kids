@@ -1,0 +1,14 @@
+import turtle as t
+size = 1
+t.speed(100000)
+t.bgcolor('black')
+t.hideturtle()
+i = 0
+while True:
+    if i % 2 == 0:
+        t.color('cyan')
+    else:
+        t.color('magenta')
+    t.forward(i*3)
+    t.left(91)
+    i+=1
