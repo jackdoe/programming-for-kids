@@ -147,3 +147,104 @@ int main() {
 ```
 
 You will see some garbage from element 20 to 39, because it will actually go and read beyond the input bounderioes.
+
+
+## [DAY-137] For; File; If
+
+Play with [words.txt](words.txt)
+
+Open the file and print all the lines:
+
+```
+f = open("words.txt")
+for line in f:
+    print(line)
+```
+
+Remove the newline:
+
+```
+f = open("words.txt")
+for line in f:
+    word = line.strip()
+    print(word)
+```
+
+Print only words with more than 10 characters:
+
+```
+f = open("words.txt")
+for line in f:
+    word = line.strip()
+    if len(word) > 10:
+        print(word)
+```
+
+Print only words starting with 'ab':
+
+```
+f = open("words.txt")
+for line in f:
+    word = line.strip()
+    if word[0] == 'a' and word[1] == 'b':
+        print(word)
+```
+
+Print words not containing a character
+
+```
+f = open("words.txt")
+for line in f:
+    word = line.strip()
+    if 'e' not in word:
+        print(word)
+```
+
+Avoid words containing multiple characters
+
+```
+f = open("words.txt")
+def avoid(word, characters):
+    for c in characters:
+        for w in word:
+            if w == c:
+                return False
+    return True
+
+for line in f:
+    word = line.strip()
+    if avoid(word, ['a','b','c']):
+        print(word)
+```
+
+Another implementation using 'char' in 'string':
+
+```
+f = open("words.txt")
+
+def avoid(word, characters):
+    for c in characters:
+        for c in word:
+            return False
+    return True
+
+for line in f:
+    word = line.strip()
+    if avoid(word, ['a','b','c']):
+        print(word)
+```
+
+Spinning turtle
+
+![game-137.png](./screenshots/game-137.png "game 137 screenshot")
+
+
+```
+import turtle as t
+size = 10
+t.speed(10000)
+while True:
+    t.right(150)
+    t.forward(size)
+    size += 1
+```
