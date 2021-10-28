@@ -354,3 +354,5 @@
 
 
 [day-136 for; arrays; memory](#day-136-for-arrays-memory)
+
+[day-137 for; file; if](#day-137-for-file-if)
