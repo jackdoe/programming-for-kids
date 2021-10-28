@@ -248,3 +248,72 @@ while True:
     t.forward(size)
     size += 1
 ```
+
+![game-137-3.png](./screenshots/game-137-3.png "game 137-3 screenshot")
+
+```
+import turtle as t
+size = 10
+t.speed(10000)
+while True:
+    t.right(150)
+    t.forward(size)
+    if size % 2 == 0:
+        t.color('cyan')
+    else:
+        t.color('magenta')
+    size += 1
+
+```
+
+![game-137-4.png](./screenshots/game-137-4.png "game 137-4 screenshot")
+
+```
+import turtle as t
+size = 1
+t.speed(100000)
+t.bgcolor('black')
+t.hideturtle()
+i = 0
+while True:
+    if i % 2 == 0:
+        t.color('cyan')
+    else:
+        t.color('magenta')
+    t.forward(i*3)
+    t.left(91)
+    i+=1
+```
+![game-137-2.png](./screenshots/game-137-2.png "game 137-2 screenshot")
+
+```
+from turtle import *
+begin_fill()
+color('red')
+pensize(3)
+left(48)
+forward(133)
+circle(50,200)
+right(140)
+circle(50,200)
+forward(133)
+end_fill()
+done()
+```
+
+![game-137-1.png](./screenshots/game-137-1.png "game 137-1 screenshot")
+
+
+```
+from turtle import *
+size = 1
+speed(10000)
+while True:
+    if size % 2 == 0:
+        color('blue')
+    else:
+        color('red')
+
+    circle(size, size * 5)
+    size += 1
+```
