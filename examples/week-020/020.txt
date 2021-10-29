@@ -1,0 +1,7 @@
+fi = open('words.txt')
+n = 0
+for line in fi:
+    w = line.strip()
+    if len(w) == 5:
+        n += 1
+print(n)
