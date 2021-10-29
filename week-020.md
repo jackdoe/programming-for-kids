@@ -317,3 +317,20 @@ while True:
     circle(size, size * 5)
     size += 1
 ```
+
+
+## [DAY-137] For; File; If
+
+Take it easy.
+
+Count how many lines have exactly 5 characters
+
+```
+fi = open('words.txt')
+n = 0
+for line in fi:
+    w = line.strip()
+    if len(w) == 5:
+        n += 1
+print(n)
+```
