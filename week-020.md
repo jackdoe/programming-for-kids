@@ -319,7 +319,7 @@ while True:
 ```
 
 
-## [DAY-137] For; File; If
+## [DAY-138] For; File; If
 
 Take it easy.
 
@@ -333,4 +333,57 @@ for line in fi:
     if len(w) == 5:
         n += 1
 print(n)
+```
+
+How many words have 7 and how many 5 characters?
+
+```
+fi = open('words.txt')
+n = 0
+x = 0
+for line in fi:
+    w = line.strip()
+    if len(w) == 5:
+        n += 1
+    if len(w) == 7:
+        x += 1 
+print(n)
+print(x)
+```
+## [DAY-139] While; List; Counter
+
+First touchtype for 20 minutes.
+
+Then do some chill turtle shapes.
+
+![game-139-2.png](./screenshots/game-139-2.png "game 139-2 screenshot")
+
+```
+from turtle import *
+
+speed(100000)
+pencolor('cyan')
+size = 66
+while True:
+    forward(size)
+    left(size)
+    size += 1
+```
+
+![game-139-1.png](./screenshots/game-139-1.png "game 139-1 screenshot")
+
+```
+from turtle import *
+
+c = ['cyan','magenta']
+dist = 20
+
+hideturtle()
+speed(11)
+
+while True:
+    color(c[dist%2])
+    forward(dist)
+    left(90)
+    dist = dist-3
 ```
