@@ -146,12 +146,96 @@ font = {
         [1,1,0],
     ],
 
+    '=': [
+        [0,0,0],
+        [1,1,1],
+        [0,0,0],
+        [1,1,1],
+        [0,0,0],
+    ],
+
+
+
+    'w': [
+        [1,0,1,0,1],
+        [1,0,1,0,1],
+        [1,0,1,0,1],
+        [1,0,1,0,1],
+        [1,1,1,1,1],
+    ],
+
+    't': [
+        [0,1,0],
+        [1,1,1],
+        [0,1,0],
+        [0,1,0],
+        [0,0,1],
+    ],
+
+
+
     '0': [
         [1,1,1],
         [1,0,1],
         [1,0,1],
         [1,0,1],
         [1,1,1],
+    ],
+
+    '1': [
+        [0,1,1],
+        [0,0,1],
+        [0,0,1],
+        [0,0,1],
+        [0,0,1],
+    ],
+
+    '2': [
+        [1,1,1],
+        [0,0,1],
+        [1,1,1],
+        [1,0,0],
+        [1,1,1],
+    ],
+
+    '%': [
+        [1,0,1],
+        [0,0,0],
+        [0,1,0],
+        [0,0,0],
+        [1,0,1],
+    ],
+
+    '+': [
+        [0,0,0],
+        [0,1,0],
+        [1,1,1],
+        [0,1,0],
+        [0,0,0],
+    ],
+
+    '*': [
+        [0,0,0],
+        [1,0,1],
+        [0,1,0],
+        [1,0,1],
+        [0,0,0],
+    ],
+
+    ':': [
+        [0,1,0],
+        [0,1,0],
+        [0,0,0],
+        [0,1,0],
+        [0,1,0],
+    ],
+
+    'r': [
+        [0,0,0],
+        [1,1,1],
+        [1,0,0],
+        [1,0,0],
+        [1,0,0],
     ],
 
 
@@ -163,6 +247,54 @@ font = {
         [1,0,1],
     ],
 
+    '\'': [
+        [0,1,0],
+        [0,1,0],
+        [0,0,0],
+        [0,0,0],
+        [0,0,0],
+    ],
+
+    '"': [
+        [1,1,0],
+        [1,1,0],
+        [0,0,0],
+        [0,0,0],
+        [0,0,0],
+    ],
+
+    '.': [
+        [0,0,0],
+        [0,0,0],
+        [0,0,0],
+        [0,1,1],
+        [0,1,1],
+    ],
+
+    ',': [
+        [0,0,0],
+        [0,0,0],
+        [0,0,1],
+        [0,0,1],
+        [0,1,1],
+    ],
+
+    '(': [
+        [0,1,0],
+        [1,0,0],
+        [1,0,0],
+        [1,0,0],
+        [0,1,0],
+    ],
+
+    ')': [
+        [0,1,0],
+        [0,0,1],
+        [0,0,1],
+        [0,0,1],
+        [0,1,0],
+    ],
+
 
     ' ': [
         [0,0,0],
@@ -172,14 +304,14 @@ font = {
         [0,0,0],
     ],
 
-    
+
 }
 
 
 class Input(threading.Thread):
     def __init__(self, cb):
         threading.Thread.__init__(self)
-        
+
         self.fd = sys.stdin.fileno()
         self.cb = cb
         self.esc = False
@@ -187,9 +319,23 @@ class Input(threading.Thread):
     def run(self):
         while True:
             c = self.getchr()
-            if c == 'q':
-                break
-            self.cb(c)
+            if ord(c) == 27:
+                self.esc = True
+            self.seq += c
+
+            if self.esc:
+                if len(self.seq) == 4:
+                    print("esc: ", len(self.seq),bytes(self.seq,"utf-8"),  self.seq, self.esc)
+
+                    self.cb(self.seq)
+
+                    self.esc = False
+                    self.seq = ''
+            else:
+                self.seq = ''
+                if c == 'q':
+                    break
+                self.cb(c)
 
     def getchr(self):
         old_settings = termios.tcgetattr(self.fd)
@@ -206,11 +352,15 @@ FBIOGET_FSCREENINFO=0x4602
 
 class FrameBuffer:
     def __init__(self):
+        #
+        # most of this is from https://github.com/chidea/FBpyGIF/blob/master/FBpyGIF/fb.py
+        #
+
         f = open('/dev/fb0','r+b')
         vi = ioctl(f, FBIOGET_VSCREENINFO, bytes(160))
         vi = list(struct.unpack('I'*40, vi))
         #(1920, 1080, 1920, 1080, 0, 0, 24, 0,
-        #   w     h     vw    vh  xo yo bpp col 
+        #   w     h     vw    vh  xo yo bpp col
         #            virtual size offset    1=gray
         # 16, 8, 0, 8, 8, 0, 0, 8, 0, 24, 0, 0, 0, 0, 4294967295, 4294967295, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         #   (bit offset, bits, bigend)         non acv   height(mm) width(mm) accl, pixclock, .....                angle, colorspace, reserved[4]
@@ -224,7 +374,7 @@ class FrameBuffer:
         ffm = 'c'*16+'L'+'I'*4+'H'*3+'ILIIHHH'
         fic = struct.calcsize(ffm)
         fi = struct.unpack(ffm, ioctl(f, FBIOGET_FSCREENINFO, bytes(fic)))
-        #(b'B', b'C', b'M', b'2', b'7', b'0', b'8', b' ', b'F', b'B', b'\x00', b'\x00', b'\x00', b'\x00', b'\x00', b'\x00', 
+        #(b'B', b'C', b'M', b'2', b'7', b'0', b'8', b' ', b'F', b'B', b'\x00', b'\x00', b'\x00', b'\x00', b'\x00', b'\x00',
         # 16 char =id
         # 1025519616, 6220800, 0, 0, 2, 1, 1, 0, 5760, 0, 0, 0, 0, 0, 0)
         # smem_len      type type_aux, visual, xpanstep, ypanstep, ywrapstep, line_length, mmio_start, mmio_len, accel, capabilities, reserved[2]
@@ -273,9 +423,19 @@ class FrameBuffer:
             self.mm.write(b.read(s))
 
     def text(self, offX, offY, t, color=(255,255,255), pixelsize=5):
+        origX = offX
         for (n,c) in enumerate(t):
-            glyph = font[c]
-            self.char(offX + (len(glyph[0])*pixelsize + int(pixelsize/2)) * n, offY, glyph, color, pixelsize)
+            if c == '\n' or c == '\r':
+                glyph = font[' ']
+                offY += len(glyph)*pixelsize + pixelsize
+                offX = origX
+            else:
+                glyph = font[' ']
+                if c in font:
+                    glyph = font[c]
+
+                self.char(offX, offY, glyph, color, pixelsize)
+                offX += (len(glyph[0])*pixelsize + int(pixelsize/2))
 
 
     def char(self, offX, offY, glyph, color=(255,255,255), pixelsize=4):
@@ -286,21 +446,41 @@ class FrameBuffer:
                     pixelcolor = color
                 for pixelX in range(pixelsize):
                     for pixelY in range(pixelsize):
-                        self.dot(offX + (x*pixelsize) + pixelX, offY + (y *pixelsize) + pixelY, pixelcolor)
-            
+                        ox = offX + (x*pixelsize) + pixelX
+                        oy =  offY + (y *pixelsize) + pixelY
+                        if ox < self.w and oy < self.h:
+                            self.dot(ox,oy, pixelcolor)
+
 
 os.system("setterm -cursor off")
 fb = FrameBuffer()
+fb.fill(0, 0,0)
+
 text = ''
+#from random import randint
+#for i in range(10000):
+#    fb.text(randint(0,fb.w), randint(0,fb.h), 'hello')
+#"""
+
 def refresh(c):
     global text
     fb.fill(0, 0,0)
+    if c == '\x1b[[A':
+        try:
+            exec(compile(text, '<string>','exec'))
+        except Exception as e:
+            fb.text(0,fb.h-100,str(e), (255,0,0))
+
+        return
+
     if c == '\x7f':
         text = text[:len(text)-1]
     else:
         text += c
-    fb.text(10,10,text, (0,0,255))
 
+    fb.text(10,10,text, (100,200,255))
+
+    
 #    for x in range(ord(c)):
 #        for y in range(ord(c)):
 #            fb.dot(x,y,100+x,100+y,0)
