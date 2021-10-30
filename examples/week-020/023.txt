@@ -1,0 +1,13 @@
+from turtle import *
+
+c = ['cyan','magenta']
+dist = 20
+
+hideturtle()
+speed(11)
+
+while True:
+    color(c[dist%2])
+    forward(dist)
+    left(90)
+    dist = dist-3

@@ -1,0 +1,9 @@
+from turtle import *
+
+speed(100000)
+pencolor('cyan')
+size = 66
+while True:
+    forward(size)
+    left(size)
+    size += 1

@@ -357,4 +357,6 @@
 
 [day-137 for; file; if](#day-137-for-file-if)
 
-[day-137 for; file; if](#day-137-for-file-if)
+[day-138 for; file; if](#day-138-for-file-if)
+
+[day-139 while; list; counter](#day-139-while-list-counter)
