@@ -6,7 +6,7 @@ import struct
 import threading
 import tty, termios, sys
 import time
-
+os.system("clear")
 font = {
     'a': [
         [0,1,0],
@@ -172,6 +172,23 @@ font = {
         [0,0,1],
     ],
 
+    'u': [
+        [0,0,0],
+        [1,0,1],
+        [1,0,1],
+        [1,0,1],
+        [0,1,1],
+    ],
+
+
+    'T': [
+        [1,1,1],
+        [0,1,0],
+        [0,1,0],
+        [0,1,0],
+        [0,1,0],
+    ],
+
 
 
     '0': [
@@ -325,8 +342,6 @@ class Input(threading.Thread):
 
             if self.esc:
                 if len(self.seq) == 4:
-                    print("esc: ", len(self.seq),bytes(self.seq,"utf-8"),  self.seq, self.esc)
-
                     self.cb(self.seq)
 
                     self.esc = False
@@ -465,7 +480,30 @@ text = ''
 def refresh(c):
     global text
     fb.fill(0, 0,0)
-    if c == '\x1b[[A':
+
+    # HELP
+    if c == '\x1b[[A': # F1
+        pass
+
+    # SAVE
+    if c == '\x1b[[B': # F2
+        f = open('current.txt', 'w')
+        f.write(text)
+        f.close()
+
+    # LOAD
+    if c == '\x1b[[C': # F3
+        f = open('current.txt', 'r')
+        text = f.read()
+        f.close()
+
+    # CLEAR
+    if c == '\x1b[[D': # F4
+        pass
+
+    # RUN
+    os.system("clear")
+    if c == '\x1b[[E': # F5
         try:
             exec(compile(text, '<string>','exec'))
         except Exception as e:
@@ -473,12 +511,14 @@ def refresh(c):
 
         return
 
-    if c == '\x7f':
-        text = text[:len(text)-1]
-    else:
-        text += c
 
-    fb.text(10,10,text, (100,200,255))
+    if len(c) == 1:
+        if c == '\x7f':
+            text = text[:len(text)-1]
+        else:
+            text += c
+
+    fb.text(0,0,text, (100,200,255))
 
     
 #    for x in range(ord(c)):
