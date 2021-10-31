@@ -3,7 +3,7 @@ import random
 import sys
 from itertools import cycle
 from PIL import Image, ImageDraw, ImageFont
-
+import time
 
 cards = [
 """
@@ -246,9 +246,12 @@ for card in cards:
     for line in run(card).strip().split("\n"):
         possible.add(line)
 
+random.seed(time.time())
+shuffled = list(possible)
 
-rotate = cycle(possible)
 for (i,card) in enumerate(cards):
+    random.shuffle(shuffled)
+    rotate = cycle(shuffled)
     numbers = []
     for x in range(10):
         numbers.append(next(rotate))
