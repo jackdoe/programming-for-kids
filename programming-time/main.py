@@ -1,4 +1,5 @@
 from io import StringIO
+import os
 import random
 import sys
 from itertools import cycle
@@ -172,7 +173,7 @@ print(sum)
 WIDTH = 1050 
 HEIGHT = 600
 
-fnt = ImageFont.truetype('Perfect DOS VGA 437.ttf', 35)
+fnt = ImageFont.truetype(os.path.join('..','fonts','437.ttf'),35)
 #bgcolor = (0,0,0)
 #fgcolor = (255, 176, 0)
 bgcolor = (255,255,255)
@@ -223,14 +224,14 @@ def back(id, numbers):
         d.text((x,y), str(n), font=fnt, fill=fgcolor)
         y += 80
         x = random.randint(60, 500)
-    img.save('images\\card_'+str(id)+'_back.png')
+    img.save(os.path.join('images','card_'+str(id)+'_back.png'))
 
 def front(id, code):
     img = Image.new('RGB', (HEIGHT, WIDTH), color = bgcolor)
     d = ImageDraw.Draw(img)
     border(d)
     d.multiline_text((60,60), code, font=fnt, fill=fgcolor)
-    img.save('images\\card_'+str(id)+'_front.png')
+    img.save(os.path.join('images','card_'+str(id)+'_front.png'))
 
 
 def run(code):
