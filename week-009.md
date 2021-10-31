@@ -4,7 +4,7 @@ open `cmd` and run:
 
 ```
 pip install pygame
-pip install pgzrun
+pip install pgzero
 ```
 
 then make a circle
