@@ -7,6 +7,37 @@ from PIL import Image, ImageDraw, ImageFont
 
 cards = [
 """
+# PROGRAMMING TIME
+# 
+# Start with 1 card per
+# player, and the rest 
+# put face down (numbers
+# up).
+#
+# Each player has to
+# interpret the code on
+# their card, and look
+# for their output at
+# the top most card of
+# the deck.
+# First person to see
+# their number, takes
+# the top card.
+# It is now their active
+# card.
+#
+# Player with most cards
+# wins.
+# 
+# If nobody's output
+# is on the deck, then
+# discard top most card.
+
+print(3)
+
+"""
+,
+"""
 # 0 % 2 = 0
 # 1 % 2 = 1
 # 2 % 2 = 0
@@ -15,6 +46,48 @@ cards = [
 for i in range(3):
     if i % 2 == 1:
         print(i)
+""",
+
+"""
+# 0 % 2 = 0
+# 1 % 2 = 1
+# 2 % 2 = 0
+# ...
+
+sum = 0
+
+for i in range(10):
+    if i % 2 == 1:
+        sum += 1
+
+print(sum)
+""",
+
+"""
+
+a = {
+    "x": 10,
+    "y": 20,
+    "z": 5
+}
+
+a["k"] = 8
+
+print(a["x"] + a["k"])
+
+""",
+
+
+"""
+a = {
+    "x": 10,
+    "y": 20,
+    "z": 5
+}
+
+a["k"] = 8
+
+print(a["x"] + a["k"])
 """,
 
 
@@ -64,7 +137,6 @@ HEIGHT = 600
 
 
 def border(d):
-    
     d.multiline_text((30,10), """
 +-------------------------+
 |                         |
@@ -128,13 +200,13 @@ def run(code):
     sys.stdout = old_stdout
     return redirected_output.getvalue()
 
-possible = []
+
+possible = set()
 for card in cards:
     for line in run(card).strip().split("\n"):
-        possible.append(line)
+        possible.add(line)
 
 
-random.shuffle(possible)
 rotate = cycle(possible)
 for (i,card) in enumerate(cards):
     numbers = []
