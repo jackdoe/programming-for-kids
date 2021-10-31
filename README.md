@@ -3672,7 +3672,7 @@ open `cmd` and run:
 
 ```
 pip install pygame
-pip install pgzrun
+pip install pgzero
 ```
 
 then make a circle
@@ -4203,6 +4203,7 @@ def draw():
                          
 pgzrun.go()
 ```
+
 ## [DAY-68] Lists; Functions
 
 Shoot bullets and remove them from the list, play sound, and also level up after killing 3 snakes!
