@@ -8,12 +8,12 @@ def poster(filter):
         if f.endswith(filter + ".png"):
             filtered.append(f)
     
-    n = 5
+    n = 4
     images = [Image.open(os.path.join('images',x)) for x in filtered]
     widths, heights = zip(*(i.size for i in images))
 
     total_width = widths[0] * n
-    total_height = int(len(images) / 5) * heights[0]
+    total_height = int(len(images) / n) * heights[0]
      
 
     new_im = Image.new('RGB', (total_width, total_height))

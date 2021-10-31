@@ -10,29 +10,28 @@ cards = [
 """
 # PROGRAMMING TIME
 # 
+#
 # Start with 1 card per
-# player, and the rest 
-# put face down (numbers
+# player, put the rest
+# face down (numbers 
 # up).
 #
 # Each player has to
-# interpret the code on
+# interpred the code on
 # their card, and look
-# for their output at
+# for the output at
 # the top most card of
 # the deck.
-# First person to see
-# their number, takes
-# the top card.
-# It is now their active
-# card.
 #
+# First person to see
+# their output, takes
+# the card from the deck
+# and it becomes their
+# active card.
+# 
 # Player with most cards
 # wins.
-# 
-# If nobody's output
-# is on the deck, then
-# discard top most card.
+
 
 print(3)
 
@@ -48,7 +47,6 @@ for i in range(3):
     if i % 2 == 1:
         print(i)
 """,
-
 """
 # 0 % 2 = 0
 # 1 % 2 = 1
@@ -63,7 +61,6 @@ for i in range(10):
 
 print(sum)
 """,
-
 """
 
 a = {
@@ -99,7 +96,6 @@ def sum(a,b):
 x = sum(1,2)
 print(sum(x, sum(2,3)))
 """,
-
 """
 # 1 + 2 = 3
 # 3 + 3 = 6
@@ -146,7 +142,6 @@ b = '11'
 print(a + b)
 
 """,
-
 """
 
 a = [1,2,0,1]
@@ -157,27 +152,58 @@ for n in a:
 
 print(sum)
 """,
-
 """
 
-a = [1,2,0,1]
+a = [6,-2,-1,1]
 sum = 0
 
 for n in a:
     sum += n
 
 print(sum)
+""",
 """
+
+a = [1,2,3]
+r = 0
+
+for n in a:
+    r *= n
+
+print(r)
+""",
+"""
+# ASCII
+#  a -> 97
+#  ...
+#  o -> 111
+#  ...
+
+print(ord('q'))
+
+""",
+
+
+"""
+# ASCII
+#  a -> 97
+#  ...
+#  c -> 99
+#  ...
+
+print(ord(chr(111)))
+
+""",
 ]
 
 WIDTH = 1050 
 HEIGHT = 600
 
 fnt = ImageFont.truetype(os.path.join('..','fonts','437.ttf'),35)
-#bgcolor = (0,0,0)
-#fgcolor = (255, 176, 0)
-bgcolor = (255,255,255)
-fgcolor = (0,0,0)
+bgcolor = (0,0,0)
+fgcolor = (255, 176, 0)
+#bgcolor = (255,255,255)
+#fgcolor = (0,0,0)
 
 def border(d):
     d.multiline_text((30,10), """
