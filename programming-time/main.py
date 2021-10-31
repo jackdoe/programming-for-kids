@@ -76,8 +76,6 @@ a["k"] = 8
 print(a["x"] + a["k"])
 
 """,
-
-
 """
 a = {
     "x": 10,
@@ -89,8 +87,6 @@ a["k"] = 8
 
 print(a["x"] + a["k"])
 """,
-
-
 """
 
 # sometimes things 
@@ -129,12 +125,58 @@ for c in a:
     sum += ord(c)
 
 print(sum % 100)
+""",
+"""
+
+# 
+# len('abc') -> 3
+#
+
+b = 8
+
+print(len('hi' * b))
+
+""",
+"""
+
+a = '1'
+b = '11'
+
+print(a + b)
+
+""",
+
+"""
+
+a = [1,2,0,1]
+sum = 0
+
+for n in a:
+    sum += n
+
+print(sum)
+""",
+
+"""
+
+a = [1,2,0,1]
+sum = 0
+
+for n in a:
+    sum += n
+
+print(sum)
 """
 ]
 
 WIDTH = 1050 
 HEIGHT = 600
 
+fnt = ImageFont.truetype('Perfect DOS VGA 437.ttf', 35)
+#bgcolor = (0,0,0)
+#fgcolor = (255, 176, 0)
+bgcolor = (255,255,255)
+fgcolor = (0,0,0)
 
 def border(d):
     d.multiline_text((30,10), """
@@ -169,27 +211,25 @@ def border(d):
 |                         |
 |                         |
 +-------------------------+
-""", font=fnt, fill=(255, 176, 0))
-
-fnt = ImageFont.truetype('Perfect DOS VGA 437.ttf', 35)
+""", font=fnt, fill=fgcolor)
 
 def back(id, numbers):
-    img = Image.new('RGB', (HEIGHT, WIDTH), color = (0,0,0))
+    img = Image.new('RGB', (HEIGHT, WIDTH), color = bgcolor)
     d = ImageDraw.Draw(img)
     border(d)
     x = random.randint(60, 500) 
     y = 60 + random.randint(0,80)
     for n in numbers:
-        d.text((x,y), str(n), font=fnt, fill=(255, 176, 0))
+        d.text((x,y), str(n), font=fnt, fill=fgcolor)
         y += 80
         x = random.randint(60, 500)
     img.save('images\\card_'+str(id)+'_back.png')
 
 def front(id, code):
-    img = Image.new('RGB', (HEIGHT, WIDTH), color = (0,0,0))
+    img = Image.new('RGB', (HEIGHT, WIDTH), color = bgcolor)
     d = ImageDraw.Draw(img)
     border(d)
-    d.multiline_text((60,60), code, font=fnt, fill=(255, 176, 0))
+    d.multiline_text((60,60), code, font=fnt, fill=fgcolor)
     img.save('images\\card_'+str(id)+'_front.png')
 
 
