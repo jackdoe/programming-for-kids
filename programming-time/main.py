@@ -261,13 +261,25 @@ print(x)
 """)
 
 cards.append("""
-a = ['7','8','9']
-x = ''
+a = ['8','9']
+x = '7'
 
 for c in a:
     x += c
 
 print(x)
+""")
+
+
+
+cards.append("""
+a = ['7','8','9']
+x = '7'
+
+for c in a:
+    x += c
+
+print(len(x))
 """)
 
 cards.append("""
