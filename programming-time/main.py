@@ -361,6 +361,120 @@ print(x)
 """)
 
 
+cards.append("""
+# you can index into
+# a string, just as lists
+# s = "abc"
+# s[0] is 'a'
+# s[1] is 'b'
+# s[2] is 'c'
+
+# Split a string into
+# a list of strings:
+# "a b".split(" ")
+# makes ["a","b"]
+
+a = "hello world"
+b = a.split(" ")
+
+print(ord(b[1][1]))
+""")
+
+cards.append("""
+# you can index into
+# a string, just as lists
+# s = "abc"
+# s[0] is 'a'
+# s[1] is 'b'
+# s[2] is 'c'
+
+a = "hello world"
+
+print(ord(a[7]))
+""")
+
+cards.append("""
+x = {
+    'a': 'hello',
+    'b': 'world'
+}
+
+print(len(x['a'] + x['b']))
+""")
+
+cards.append("""
+# time.time() gives
+# the amount of seconds
+# since midnight 1st of
+# Jan 1970 in Greenwich.
+# 
+# e.g. at the time this
+# card is made:
+# 1635787548.417151
+
+import time
+
+now = time.time()
+print(str(now)[0])
+""")
+
+
+cards.append("""
+# str(1) makes the integer 1
+# to the string 1
+
+a = '1'
+b = 2
+
+print(a + str(b))
+""")
+
+
+cards.append("""
+# int('2') makes the string 2
+# to the integer 2
+
+a = '1'
+b = 2
+
+print(int(a) + b)
+""")
+
+
+cards.append("""
+# int('2') makes the string 2
+# to the integer 2
+
+a = '1'
+b = 2
+c = 3
+
+r = 0
+for i in range(c):
+    r += int(a) + b
+
+print(r)
+""")
+
+
+cards.append("""
+# you can index into
+# a string, just as lists
+# s = "abc"
+# s[0] is 'a'
+# s[1] is 'b'
+# s[2] is 'c'
+
+a = 'hello world'
+
+m = 0
+
+for i in range(len(a)):
+    if a[i] == 'o':
+        m += 1
+
+print(m)
+""")
 WIDTH = 1050 
 HEIGHT = 600
 
