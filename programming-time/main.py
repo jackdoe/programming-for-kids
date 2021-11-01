@@ -363,7 +363,9 @@ print(x)
 
 cards.append("""
 # you can index into
-# a string, just as lists
+# a string, just as 
+# lists
+#
 # s = "abc"
 # s[0] is 'a'
 # s[1] is 'b'
@@ -382,7 +384,9 @@ print(ord(b[1][1]))
 
 cards.append("""
 # you can index into
-# a string, just as lists
+# a string, just as
+# lists
+#
 # s = "abc"
 # s[0] is 'a'
 # s[1] is 'b'
@@ -399,7 +403,8 @@ x = {
     'b': 'world'
 }
 
-print(len(x['a'] + x['b']))
+r = x['a'] +  x['b'] 
+print(len(r))
 """)
 
 cards.append("""
@@ -420,8 +425,9 @@ print(str(now)[0])
 
 
 cards.append("""
-# str(1) makes the integer 1
-# to the string 1
+# str(1) makes the
+# integer 1 to the 
+# string 1
 
 a = '1'
 b = 2
@@ -431,8 +437,9 @@ print(a + str(b))
 
 
 cards.append("""
-# int('2') makes the string 2
-# to the integer 2
+# int('2') makes the 
+# string 2 to the 
+# integer 2
 
 a = '1'
 b = 2
@@ -442,8 +449,9 @@ print(int(a) + b)
 
 
 cards.append("""
-# int('2') makes the string 2
-# to the integer 2
+# int('2') makes the 
+# string 2 to the 
+# integer 2
 
 a = '1'
 b = 2
@@ -459,7 +467,9 @@ print(r)
 
 cards.append("""
 # you can index into
-# a string, just as lists
+# a string, just as 
+# lists
+#
 # s = "abc"
 # s[0] is 'a'
 # s[1] is 'b'
@@ -475,6 +485,30 @@ for i in range(len(a)):
 
 print(m)
 """)
+
+
+
+cards.append("""
+memory = []
+for i in range(10000):
+    memory.append(0)
+
+memory[800] = 3
+memory[801] = 97
+memory[802] = 98
+memory[803] = 99
+
+def show(m, addr):
+    l = m[addr]
+    for i in range(l):
+        c = m[addr+i+1]
+        print(chr(c))
+
+show(memory, 800)
+""")
+
+
+
 WIDTH = 1050 
 HEIGHT = 600
 
