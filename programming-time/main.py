@@ -205,7 +205,63 @@ for x in a:
 
 print(b[2])
 """,
+"""
+print(5)
+""",
+"""
+b = ord('a') - 90
+print(b)
+""",
+"""
+a = [ord('c'),
+     -ord('b'),
+     ord('a')]
+r = ord('d')
+for c in a:
+    r -= c
+print(r)
+""",
+"""
+sum = 0
+for i in range(5):
+    sum += i
+print(sum)
+""",
+"""
+a = '7'
+b = '9'
+c = '8'
+print(a + b + c)
+""",
+"""
+a = ['7','8','9']
+x = ''
+for c in a:
+    x += c
+print(x)
+""",
+"""
+a = ['7','8','9']
+x = ''
+for c in a:
+    x += c
+print(x)
+""",
+
+"""
+b = ['9','3','4']
+f = ['3','4','7']
+l = ''
+for i in b:
+    l += i
+for i in f:
+    l += i
+print(l)
+
+"""
 ]
+
+
 
 WIDTH = 1050 
 HEIGHT = 600
