@@ -327,6 +327,36 @@ print(r)
 
 
 
+cards.append("""
+a = ['1','1','1','2']
+b = {}
+for x in a:
+    b[x] = True
+
+r = ''
+for k in b:
+    r += k
+
+print(r)
+""")
+
+
+cards.append("""
+# Dictionary keys
+# can be integers as 
+# well
+
+b = {}
+b[1] = 5
+b[2] = 6
+x = 0
+for k in b:
+    x += k
+
+print(x)
+""")
+
+
 WIDTH = 1050 
 HEIGHT = 600
 
