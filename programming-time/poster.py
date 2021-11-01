@@ -2,13 +2,13 @@ import os
 from PIL import Image
 dir = os.listdir('images')
 
-def poster(filter):
+def poster(name):
     filtered = []
     for f in dir:
-        if f.endswith(filter + ".png"):
+        if f.endswith(".png"):
             filtered.append(f)
-    
-    n = 4
+    filtered.sort()
+    n = 12
     images = [Image.open(os.path.join('images',x)) for x in filtered]
     widths, heights = zip(*(i.size for i in images))
 
@@ -27,7 +27,6 @@ def poster(filter):
             y_offset += im.size[1]
             x_offset = 0
 
-    new_im.save(filter + '.jpg')
+    new_im.save(name + '.jpg')
 
-poster('back')
 poster('front')
