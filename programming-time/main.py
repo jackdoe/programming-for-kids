@@ -137,7 +137,6 @@ cards.append("""
 b = 8
 
 print(len('hi' * b))
-
 """)
 
 cards.append("""
@@ -145,7 +144,6 @@ a = '1'
 b = '11'
 
 print(a + b)
-
 """)
 
 cards.append("""
@@ -186,7 +184,6 @@ cards.append("""
 #  ...
 
 print(ord('q'))
-
 """)
 
 cards.append("""
@@ -200,7 +197,6 @@ print(ord(chr(111)))
 """)
 
 cards.append("""
-
 a = [1,2,3]
 b = [3,4,5]
 
@@ -229,23 +225,28 @@ cards.append("""
 a = [ord('c'),
      -ord('b'),
      ord('a')]
+
 r = ord('d')
+
 for c in a:
     r -= c
+
 print(r)
 """)
 
 cards.append("""
 sum = 0
+
 for i in range(5):
     sum += i
+
 print(sum)
 """)
 
 cards.append("""
 a = '7'
-b = '9'
-c = '8'
+b = '8'
+c = '9'
 
 print(a + b + c)
 """)
@@ -328,6 +329,9 @@ print(r)
 
 
 cards.append("""
+# You can override
+# keys in dictionaries
+
 a = ['1','1','1','2']
 b = {}
 for x in a:
