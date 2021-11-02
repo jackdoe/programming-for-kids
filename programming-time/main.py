@@ -619,6 +619,7 @@ memory[800] = 3
 memory[801] = 97
 memory[802] = 98
 memory[803] = 99
+memory[804] = 48
 
 def show(m, addr):
     l = m[addr]
