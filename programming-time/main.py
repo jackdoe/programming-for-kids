@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 import time
 
 cards = []
-cards.append([1,"""
+cards.append([1, """
 # PROGRAMMING TIME
 # 
 #
@@ -37,7 +37,7 @@ print(3)
 
 """])
 
-cards.append([1,"""
+cards.append([1, """
 # 0 % 2 = 0
 # 1 % 2 = 1
 # 2 % 2 = 0
@@ -48,7 +48,7 @@ for i in range(3):
         print(i)
 """])
 
-cards.append([1,"""
+cards.append([1, """
 # 0 % 2 = 0
 # 1 % 2 = 1
 # 2 % 2 = 0
@@ -63,7 +63,7 @@ for i in range(10):
 print(sum)
 """])
 
-cards.append([1,"""
+cards.append([1, """
 a = {
     "x": 10,
     "y": 20,
@@ -75,7 +75,7 @@ a["k"] = 8
 print(a["x"] + a["k"])
 """])
 
-cards.append([1,"""
+cards.append([1, """
 i = 0
 while i < 3:
     i += 1
@@ -84,7 +84,7 @@ print(i)
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 i = 0
 while True:
     i += 1
@@ -94,16 +94,14 @@ print(i)
 """])
 
 
-
-cards.append([1,"""
+cards.append([1, """
 a = 'hello world'
 
 print(len(a))
 """])
 
 
-
-cards.append([1,"""
+cards.append([1, """
 a = 'hello world'
 b = a[2:5]
 
@@ -111,7 +109,7 @@ print(len(b))
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 a = 'hello world'
 b = a[:2]
 
@@ -119,8 +117,7 @@ print(len(b))
 """])
 
 
-
-cards.append([1,"""
+cards.append([1, """
 a = 'hello world'
 b = a[0:2] + a[6:9]
 
@@ -128,7 +125,7 @@ print(len(b))
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 def hello():
     return 'world'
 
@@ -138,7 +135,7 @@ print(len(a))
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 def world():
     return 'world'
 
@@ -151,7 +148,7 @@ print(len(a))
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 a = 'hello world'
 b = a[2:]
 
@@ -159,7 +156,7 @@ print(len(b))
 """])
 
 
-cards.append([2,"""
+cards.append([2, """
 def min(a):
     if len(a) == 0:
         return None
@@ -173,7 +170,7 @@ def min(a):
 print(min([3,2,4,3]))
 """])
 
-cards.append([2,"""
+cards.append([2, """
 def max(a):
     if len(a) == 0:
         return None
@@ -188,8 +185,7 @@ print(max([1,2,4,3]))
 """])
 
 
-
-cards.append([2,"""
+cards.append([2, """
 def avg(a):
     sum = 0
     for n in a:
@@ -199,7 +195,7 @@ def avg(a):
 print(avg([2,2,4,4]))
 """])
 
-cards.append([2,"""
+cards.append([2, """
 x = 0
 
 for i in range(2):
@@ -210,7 +206,7 @@ print(x)
 """])
 
 
-cards.append([2,"""
+cards.append([2, """
 # sometimes things 
 # are not as they seem
 
@@ -221,7 +217,7 @@ x = sum(1,2)
 print(sum(x, sum(2,3)))
 """])
 
-cards.append([2,"""
+cards.append([2, """
 # 1 + 2 = 3
 # 3 + 3 = 6
 # ...
@@ -234,7 +230,7 @@ for i in range(5):
 print(sum)
 """])
 
-cards.append([3,"""
+cards.append([3, """
 # ASCII:
 #  a -> 97
 #  b -> 98
@@ -250,7 +246,7 @@ for c in a:
 print(sum % 100)
 """])
 
-cards.append([1,"""
+cards.append([1, """
 # 
 # len('abc') -> 3
 #
@@ -260,14 +256,14 @@ b = 8
 print(len('hi' * b))
 """])
 
-cards.append([1,"""
+cards.append([1, """
 a = '1'
 b = '11'
 
 print(a + b)
 """])
 
-cards.append([2,"""
+cards.append([2, """
 a = [1,2,0,1]
 sum = 0
 
@@ -277,7 +273,7 @@ for n in a:
 print(sum)
 """])
 
-cards.append([2,"""
+cards.append([2, """
 a = [6,-2,-1,1]
 sum = 0
 
@@ -287,7 +283,7 @@ for n in a:
 print(sum)
 """])
 
-cards.append([2,"""
+cards.append([2, """
 a = [1,2,3]
 r = 0
 
@@ -297,7 +293,7 @@ for n in a:
 print(r)
 """])
 
-cards.append([1,"""
+cards.append([1, """
 # ASCII
 #  a -> 97
 #  ...
@@ -307,7 +303,7 @@ cards.append([1,"""
 print(ord('q'))
 """])
 
-cards.append([1,"""
+cards.append([1, """
 # ASCII
 #  a -> 97
 #  ...
@@ -317,7 +313,7 @@ cards.append([1,"""
 print(ord(chr(111)))
 """])
 
-cards.append([3,"""
+cards.append([3, """
 a = [1,2,3]
 b = [3,4,5]
 
@@ -329,11 +325,11 @@ for x in a:
 print(b[2])
 """])
 
-cards.append([1,"""
+cards.append([1, """
 print(5)
 """])
 
-cards.append([1,"""
+cards.append([1, """
 # ASCII
 #  A -> '65'
 #  B -> '66'
@@ -343,7 +339,7 @@ b = ord('C') - 90
 
 print(b)
 """])
-cards.append([3,"""
+cards.append([3, """
 a = [ord('c'),
      -ord('b'),
      ord('a')]
@@ -356,7 +352,7 @@ for c in a:
 print(r)
 """])
 
-cards.append([1,"""
+cards.append([1, """
 sum = 0
 
 for i in range(5):
@@ -365,7 +361,7 @@ for i in range(5):
 print(sum)
 """])
 
-cards.append([1,"""
+cards.append([1, """
 a = '7'
 b = '8'
 c = '9'
@@ -373,7 +369,7 @@ c = '9'
 print(a + b + c)
 """])
 
-cards.append([2,"""
+cards.append([2, """
 a = ['7','8','9']
 x = ''
 
@@ -383,7 +379,7 @@ for c in a:
 print(x)
 """])
 
-cards.append([2,"""
+cards.append([2, """
 a = ['8','9']
 x = '7'
 
@@ -394,8 +390,7 @@ print(x)
 """])
 
 
-
-cards.append([2,"""
+cards.append([2, """
 a = ['2','1','1']
 x = a.pop()
 
@@ -405,7 +400,7 @@ for c in a:
 print(len(x))
 """])
 
-cards.append([2,"""
+cards.append([2, """
 # ' '.join([1,2,3])
 #   -> "1 2 3"
 
@@ -414,7 +409,7 @@ a = ['7','8','9']
 print(''.join(a))
 """])
 
-cards.append([3,"""
+cards.append([3, """
 # ASCII
 #  0 -> 48
 #  1 -> 49
@@ -435,7 +430,7 @@ print(ord(l[3]) -
       ord(l[1]))
 """])
 
-cards.append([3,"""
+cards.append([3, """
 # ASCII
 #  0 -> 48
 #  1 -> 49
@@ -449,8 +444,7 @@ print(r)
 """])
 
 
-
-cards.append([3,"""
+cards.append([3, """
 # You can override
 # keys in dictionaries
 
@@ -467,7 +461,7 @@ print(r)
 """])
 
 
-cards.append([3,"""
+cards.append([3, """
 # Dictionary keys
 # can be integers as 
 # well
@@ -483,7 +477,7 @@ print(x)
 """])
 
 
-cards.append([3,"""
+cards.append([3, """
 # you can index into
 # a string, just as 
 # lists
@@ -504,7 +498,7 @@ b = a.split(" ")
 print(ord(b[1][1]))
 """])
 
-cards.append([2,"""
+cards.append([2, """
 # you can index into
 # a string, just as
 # lists
@@ -519,7 +513,7 @@ a = "hello world"
 print(ord(a[7]))
 """])
 
-cards.append([1,"""
+cards.append([1, """
 x = {
     'a': 'hello',
     'b': 'world'
@@ -529,7 +523,7 @@ r = x['a'] +  x['b']
 print(len(r))
 """])
 
-cards.append([2,"""
+cards.append([2, """
 # time.time() gives
 # the amount of seconds
 # since midnight 1st of
@@ -546,7 +540,7 @@ print(str(now)[0])
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 # str(1) makes the
 # integer 1 to the 
 # string 1
@@ -558,7 +552,7 @@ print(a + str(b))
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 # int('2') makes the 
 # string 2 to the 
 # integer 2
@@ -570,7 +564,7 @@ print(int(a) + b)
 """])
 
 
-cards.append([2,"""
+cards.append([2, """
 # int('2') makes the 
 # string 2 to the 
 # integer 2
@@ -587,7 +581,7 @@ print(r)
 """])
 
 
-cards.append([2,"""
+cards.append([2, """
 # you can index into
 # a string, just as 
 # lists
@@ -609,8 +603,7 @@ print(m)
 """])
 
 
-
-cards.append([3,"""
+cards.append([3, """
 memory = []
 for i in range(10000):
     memory.append(0)
@@ -631,8 +624,7 @@ show(memory, 800)
 """])
 
 
-
-cards.append([3,"""
+cards.append([3, """
 class Point:
     x = 0
     y = 0
@@ -649,7 +641,7 @@ print(a.x - b.x + b.y)
 """])
 
 
-cards.append([1,"""
+cards.append([1, """
 # 5 / 2 is 2
 # and 1 remainder
 #
@@ -663,24 +655,81 @@ cards.append([1,"""
 print(99 % 10)
 """])
 
+cards.append([2, """
+a = "world"
+b = ['h','e','llo']
+
+print(len(a[0] + b[2]))
+"""])
 
 
-WIDTH = 1050 
+cards.append([1, """
+while True:
+    break
+
+print(5)
+"""])
+
+cards.append([2, """
+def mul(a,b):
+    r = 0
+    for i in range(b):
+        r += a
+    return r
+
+print(mul(2,3))
+"""])
+
+cards.append([2, """
+i = 0
+while 1 == 1:
+    i += 1
+    if i > 5:
+        break
+
+print(i)
+"""])
+
+
+cards.append([2, """
+i = 0
+while 1 == 1:
+    i += 1
+    if i > 5:
+        break
+print(i)
+"""])
+cards.append([1, """
+a = "world"
+b = ['h','e','llo']
+
+print(len(a[0] + b[2]))
+"""])
+
+WIDTH = 1050
 HEIGHT = 600
+OFFX = 80
+OFFY = 70
+fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 35)
 
-fnt = ImageFont.truetype(os.path.join('..','fonts','437.ttf'),35)
-bgcolor = (0,0,0)
+bgcolor = (0, 0, 0)
 fgcolor = (255, 176, 0)
 #bgcolor = (255,255,255)
 #fgcolor = (0,0,0)
 
-def border(d, difficulty):
-    top = '+----------->'+str(difficulty).zfill(1)+'<-----------+'
+
+def chunks(lst, n):
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
+
+def border(d, difficulty, id):
+    top = '+-------->' + str(id).zfill(2) + ' @ ' + \
+        str(difficulty).zfill(2)+'<--------+'
     if difficulty == 0:
         top = '+-------------------------+'
 
-
-    d.multiline_text((50,10), """
+    d.multiline_text((50, 10), """
 """+top+"""
 |                         |
 |                         |
@@ -713,24 +762,41 @@ def border(d, difficulty):
 +-------------------------+
 """, font=fnt, fill=fgcolor)
 
+
 def back(id, difficulty, numbers):
-    img = Image.new('RGB', (HEIGHT, WIDTH), color = bgcolor)
+    img = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
     d = ImageDraw.Draw(img)
-    border(d, 0)
-    x = random.randint(80, 500) 
-    y = 60 + random.randint(0,80)
+    border(d, 0, 0)
+    x = random.randint(OFFX, 500)
+    y = 60 + random.randint(0, 80)
     for n in numbers:
-        d.text((x,y), str(n), font=fnt, fill=fgcolor)
+        d.text((x, y), str(n), font=fnt, fill=fgcolor)
         y += 80
-        x = random.randint(80, 500)
-    img.save(os.path.join('images','back_card_'+str(id).zfill(2)+'.png'))
+        x = random.randint(OFFX, 500)
+    img.save(os.path.join('images', 'back_card_'+str(id).zfill(3)+'.png'))
+
 
 def front(id, difficulty, code):
-    img = Image.new('RGB', (HEIGHT, WIDTH), color = bgcolor)
+    img = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
     d = ImageDraw.Draw(img)
-    border(d,difficulty)
-    d.multiline_text((80,80), code, font=fnt, fill=fgcolor)
-    img.save(os.path.join('images','front_card_'+str(id)+'.png'))
+    border(d, difficulty, id)
+    d.multiline_text((OFFX, OFFY), code, font=fnt, fill=fgcolor)
+    img.save(os.path.join('images', 'front_card_'+str(id).zfill(3)+'.png'))
+
+
+def cheat(answers):
+    for (n, a) in enumerate(list(chunks(answers, 28))):
+        img = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
+        d = ImageDraw.Draw(img)
+        border(d, 0, 0)
+        d.multiline_text((OFFX, OFFY), "\n".join(a), font=fnt, fill=fgcolor)
+        img.save(os.path.join('images', 'front_card_answers_'+str(n).zfill(3)+'.png'))
+
+        back = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
+        backd = ImageDraw.Draw(back)
+        border(backd, 0, 0)
+        back.save(os.path.join('images', 'back_card_answers_'+str(n).zfill(3)+'.png'))
+
 
 
 def run(code):
@@ -741,15 +807,18 @@ def run(code):
     return redirected_output.getvalue()
 
 
+qa = []
 possible = set()
-for card in cards:
+for (i,card) in enumerate(cards):
     for line in run(card[1]).strip().split("\n"):
         possible.add(line)
+        qa.append(str(i).zfill(3) + ": " + line)
+
 
 random.seed(time.time())
 shuffled = list(possible)
 
-for (i,card) in enumerate(cards):
+for (i, card) in enumerate(cards):
     random.shuffle(shuffled)
     rotate = cycle(shuffled)
     numbers = []
@@ -758,3 +827,4 @@ for (i,card) in enumerate(cards):
     front(i, card[0], card[1])
     back(i, card[0], numbers)
 
+cheat(qa)
