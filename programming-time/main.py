@@ -159,7 +159,47 @@ print(len(b))
 """])
 
 
-cards.append([1,"""
+cards.append([2,"""
+def min(a):
+    if len(a) == 0:
+        return None
+
+    s = a[0]
+    for n in a:
+        if n < s:
+            s = n
+    return s
+
+print(min([3,2,4,3]))
+"""])
+
+cards.append([2,"""
+def max(a):
+    if len(a) == 0:
+        return None
+
+    m = a[0]
+    for n in a:
+        if n > m:
+            m = n
+    return m
+
+print(max([1,2,4,3]))
+"""])
+
+
+
+cards.append([2,"""
+def avg(a):
+    sum = 0
+    for n in a:
+        sum += n
+    return sum/len(a)
+
+print(avg([2,2,4,4]))
+"""])
+
+cards.append([2,"""
 x = 0
 
 for i in range(2):
@@ -169,7 +209,8 @@ for i in range(2):
 print(x)
 """])
 
-cards.append([1,"""
+
+cards.append([2,"""
 # sometimes things 
 # are not as they seem
 
@@ -180,7 +221,7 @@ x = sum(1,2)
 print(sum(x, sum(2,3)))
 """])
 
-cards.append([1,"""
+cards.append([2,"""
 # 1 + 2 = 3
 # 3 + 3 = 6
 # ...
@@ -193,7 +234,7 @@ for i in range(5):
 print(sum)
 """])
 
-cards.append([1,"""
+cards.append([3,"""
 # ASCII:
 #  a -> 97
 #  b -> 98
@@ -226,7 +267,7 @@ b = '11'
 print(a + b)
 """])
 
-cards.append([1,"""
+cards.append([2,"""
 a = [1,2,0,1]
 sum = 0
 
@@ -236,7 +277,7 @@ for n in a:
 print(sum)
 """])
 
-cards.append([1,"""
+cards.append([2,"""
 a = [6,-2,-1,1]
 sum = 0
 
@@ -246,7 +287,7 @@ for n in a:
 print(sum)
 """])
 
-cards.append([1,"""
+cards.append([2,"""
 a = [1,2,3]
 r = 0
 
@@ -276,7 +317,7 @@ cards.append([1,"""
 print(ord(chr(111)))
 """])
 
-cards.append([1,"""
+cards.append([3,"""
 a = [1,2,3]
 b = [3,4,5]
 
@@ -295,13 +336,14 @@ print(5)
 cards.append([1,"""
 # ASCII
 #  A -> '65'
+#  B -> '66'
 #  ..
 
 b = ord('C') - 90
 
 print(b)
 """])
-cards.append([1,"""
+cards.append([3,"""
 a = [ord('c'),
      -ord('b'),
      ord('a')]
@@ -331,7 +373,7 @@ c = '9'
 print(a + b + c)
 """])
 
-cards.append([1,"""
+cards.append([2,"""
 a = ['7','8','9']
 x = ''
 
@@ -341,7 +383,7 @@ for c in a:
 print(x)
 """])
 
-cards.append([1,"""
+cards.append([2,"""
 a = ['8','9']
 x = '7'
 
@@ -353,7 +395,7 @@ print(x)
 
 
 
-cards.append([1,"""
+cards.append([2,"""
 a = ['2','1','1']
 x = a.pop()
 
@@ -363,7 +405,7 @@ for c in a:
 print(len(x))
 """])
 
-cards.append([1,"""
+cards.append([2,"""
 # ' '.join([1,2,3])
 #   -> "1 2 3"
 
@@ -372,7 +414,7 @@ a = ['7','8','9']
 print(''.join(a))
 """])
 
-cards.append([2,"""
+cards.append([3,"""
 # ASCII
 #  0 -> 48
 #  1 -> 49
@@ -393,7 +435,7 @@ print(ord(l[3]) -
       ord(l[1]))
 """])
 
-cards.append([1,"""
+cards.append([3,"""
 # ASCII
 #  0 -> 48
 #  1 -> 49
@@ -408,7 +450,7 @@ print(r)
 
 
 
-cards.append([1,"""
+cards.append([3,"""
 # You can override
 # keys in dictionaries
 
@@ -425,7 +467,7 @@ print(r)
 """])
 
 
-cards.append([1,"""
+cards.append([3,"""
 # Dictionary keys
 # can be integers as 
 # well
@@ -441,7 +483,7 @@ print(x)
 """])
 
 
-cards.append([2,"""
+cards.append([3,"""
 # you can index into
 # a string, just as 
 # lists
@@ -528,7 +570,7 @@ print(int(a) + b)
 """])
 
 
-cards.append([1,"""
+cards.append([2,"""
 # int('2') makes the 
 # string 2 to the 
 # integer 2
@@ -568,7 +610,7 @@ print(m)
 
 
 
-cards.append([2,"""
+cards.append([3,"""
 memory = []
 for i in range(10000):
     memory.append(0)
@@ -589,15 +631,21 @@ show(memory, 800)
 
 
 
-# cards.append([2,"""
-# def fib(n):
-#    if n <= 1:
-#        return n
-#    else:
-#        return(fib(n-1) + fib(n-2))
+cards.append([3,"""
+class Point:
+    x = 0
+    y = 0
 
-# print(fib(5))
-# """])
+a = Point()
+a.x = 5
+a.y = 10
+
+b = Point()
+b.x = 3
+b.y = 1
+
+print(a.x - b.x + b.y)
+"""])
 
 
 WIDTH = 1050 
