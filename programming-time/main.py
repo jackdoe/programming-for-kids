@@ -699,6 +699,8 @@ while 1 == 1:
         break
 print(i)
 """])
+
+
 cards.append([1, """
 a = "world"
 b = ['h','e','llo']
@@ -706,6 +708,125 @@ b = ['h','e','llo']
 print(len(a[0] + b[2]))
 """])
 
+cards.append([3, """
+class Actor:
+    x = 0
+    y = 0
+
+player = Actor()
+
+def update():
+    player.x += 1
+    player.y += 1
+
+def draw():
+    print(player.x)
+    print(player.y)
+
+while True:
+    update()
+    draw()
+
+    break
+"""])
+
+cards.append([3, """
+def fib(n):
+    if n <= 1:
+        return n
+    else:
+        return(fib(n-1) + fib(n-2))
+
+print(fib(5))
+"""])
+
+cards.append([1, """
+a = '7798'
+b = 2
+
+if b > 2:
+    b -= 1
+
+print(a[b])
+"""])
+
+
+cards.append([1, """
+a = '7798'
+b = 2
+
+if b < 2 or b == 2:
+    b -= 1
+
+print(a[b])
+"""])
+
+
+cards.append([1, """
+a = '7798'
+b = 2
+c = 3
+if b < 2 and c >= 3:
+    b -= 1
+
+print(a[b])
+"""])
+
+cards.append([1, """
+a = ['7',2,'5',9]
+b = 2
+
+b += 1
+
+print(a[b])
+"""])
+
+cards.append([1, """
+a = ['7',2,'5',9]
+a.pop()
+a.pop()
+
+print(a[len(a)-1])
+"""])
+
+cards.append([2, """
+a = [4,5,6]
+b = [1,2,3]
+c = [*a, *b]
+
+print(len(c))
+"""])
+
+
+cards.append([2, """
+a = [4,5,6]
+b = [1,2,3]
+c = [*a, *b]
+
+print(len(c))
+"""])
+
+
+cards.append([2, """
+a = []
+a.append(1)
+a.append(2)
+
+b = a.pop()
+
+print(b)
+"""])
+
+
+cards.append([2, """
+a = []
+a.append(1)
+a.append(2)
+
+b = a.pop()
+
+print(b)
+"""])
 WIDTH = 1050
 HEIGHT = 600
 OFFX = 80
@@ -714,8 +835,8 @@ fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 35)
 
 bgcolor = (0, 0, 0)
 fgcolor = (255, 176, 0)
-#bgcolor = (255,255,255)
-#fgcolor = (0,0,0)
+bgcolor = (255, 255, 255)
+fgcolor = (0, 0, 0)
 
 
 def chunks(lst, n):
@@ -790,26 +911,32 @@ def cheat(answers):
         d = ImageDraw.Draw(img)
         border(d, 0, 0)
         d.multiline_text((OFFX, OFFY), "\n".join(a), font=fnt, fill=fgcolor)
-        img.save(os.path.join('images', 'front_card_answers_'+str(n).zfill(3)+'.png'))
+        img.save(os.path.join(
+            'images', 'front_card_answers_'+str(n).zfill(3)+'.png'))
 
         back = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
         backd = ImageDraw.Draw(back)
         border(backd, 0, 0)
-        back.save(os.path.join('images', 'back_card_answers_'+str(n).zfill(3)+'.png'))
-
+        back.save(os.path.join(
+            'images', 'back_card_answers_'+str(n).zfill(3)+'.png'))
 
 
 def run(code):
     old_stdout = sys.stdout
     redirected_output = sys.stdout = StringIO()
-    exec(code)
+    try:
+        exec(code, globals())
+    except Exception as e:
+        old_stdout.write("error "+ str(e) + ", code:"  + code)
+        raise(e)
+
     sys.stdout = old_stdout
     return redirected_output.getvalue()
 
 
 qa = []
 possible = set()
-for (i,card) in enumerate(cards):
+for (i, card) in enumerate(cards):
     for line in run(card[1]).strip().split("\n"):
         possible.add(line)
         qa.append(str(i).zfill(3) + ": " + line)
