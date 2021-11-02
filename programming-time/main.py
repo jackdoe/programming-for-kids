@@ -649,6 +649,22 @@ print(a.x - b.x + b.y)
 """])
 
 
+cards.append([1,"""
+# 5 / 2 is 2
+# and 1 remainder
+#
+# 7 / 2 is 3
+# and 1 remainder
+# 
+# 11 / 4 is 2
+# and 3 remainder
+# 11 % 4 is 3
+
+print(99 % 10)
+"""])
+
+
+
 WIDTH = 1050 
 HEIGHT = 600
 
