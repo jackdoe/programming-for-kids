@@ -889,7 +889,6 @@ print(compress(a)[1])
 """])
 
 
-
 cards.append([3, """
 def decompress(x):
   o = []
@@ -905,8 +904,6 @@ def decompress(x):
 a = [1, 4, 2, 1, 3, 4]
 print(decompress(a)[2])
 """])
-
-
 
 
 cards.append([3, """
@@ -988,6 +985,7 @@ cards.append([1, """
 a = \"""hello
 this
 is
+a
 multiline
 string
 \"""
@@ -1026,9 +1024,9 @@ print(c)
 SCALE = 2
 WIDTH = 1058 * SCALE
 HEIGHT = 671 * SCALE
-OFFX = 80 * SCALE
-OFFY = 80 * SCALE
-fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 76)
+COLS = 33
+ROWS = 28
+fnt = ImageFont.truetype('font.ttf', 75)
 
 bgcolor = (20, 20, 20, 255)
 fgcolor = (178, 0, 255, 0)
@@ -1041,79 +1039,59 @@ def chunks(lst, n):
         yield lst[i:i + n]
 
 
-def border(d, difficulty, id):
-    top = '+--------->' + str(id).zfill(2) + ' @ ' + str(difficulty).zfill(2)+'<---------+'
+def border(d, difficulty, data, id):
+    lines = []
+    bottom = '+-------------------------------+'
+    top = '+----------->' + str(id).zfill(2) + ' @ ' + \
+        str(difficulty).zfill(2)+'<-----------+'
     if difficulty == 0:
-        top = '+---------------------------+'
-    d.rectangle([0,0,HEIGHT-1,WIDTH-1],outline=(0,0,0,0))
-    d.multiline_text((50, 00), """
-"""+top+"""
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-|                           |
-+---------------------------+
-""", font=fnt, fill=fgcolor)
+        top = bottom
+    lines.append(top)
+
+
+    text = data.split('\n')
+    for i in range(ROWS):
+      code = ''
+      if i <= len(text) -1:
+        code = text[i]
+      code = code.ljust(COLS - 3, ' ')
+      lines.append('| '+code+'|')
+    lines.append(bottom)
+
+    d.rectangle([0, 0, HEIGHT-1, WIDTH-1], outline=(0, 0, 0, 0))
+    d.multiline_text((50, 50),"\n".join(lines), font=fnt, fill=fgcolor)
 
 
 def back(id, difficulty, numbers):
     img = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
     d = ImageDraw.Draw(img)
-    border(d, 0, 0)
-    x = random.randint(OFFX, 500)
-    y = 60*SCALE + random.randint(0, 80 * SCALE)
+    lines = []
     for n in numbers:
-        d.text((x, y), str(n), font=fnt, fill=fgcolor)
-        y += 80 * SCALE
-        x = random.randint(OFFX, 500*SCALE)
-    img.save(os.path.join('images', 'back_card_'+str(id).zfill(3)+'.tiff'),compression = "tiff_lzw")
+        lines.append(str(n).rjust(random.randint(0,COLS - 3), ' '))
+
+    border(d, 0, "\n".join(lines), 0)
+      
+    img.save(os.path.join('images', 'back_card_' +
+             str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
 
 
 def front(id, difficulty, code):
     img = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
     d = ImageDraw.Draw(img)
-    border(d, difficulty, id)
-    d.multiline_text((OFFX, OFFY), code, font=fnt, fill=fgcolor)
-    img.save(os.path.join('images', 'front_card_'+str(id).zfill(3)+'.tiff'),compression = "tiff_lzw")
+    border(d, difficulty, code, id)
+    img.save(os.path.join('images', 'front_card_' +
+             str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
 
 
-def cheat(answers, numbrs):
-    for (n, a) in enumerate(list(chunks(answers, 28))):
+def cheat(answers, numbers):
+    for (n, a) in enumerate(list(chunks(answers, ROWS))):
         img = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
         d = ImageDraw.Draw(img)
-        border(d, 0, 0)
-        d.multiline_text((OFFX, OFFY), "\n".join(a), font=fnt, fill=fgcolor)
+        border(d, 0, "\n".join(a), 0)
         img.save(os.path.join(
-            'images', 'front_card_answers_'+str(n).zfill(3)+'.tiff'),compression = "tiff_lzw")
+            'images', 'front_card_answers_'+str(n).zfill(3)+'.tiff'), compression="tiff_lzw")
 
-        back(800 + n,0, numbers)
-
+        back(800 + n, 0, numbers)
 
 
 def run(code):
@@ -1122,7 +1100,7 @@ def run(code):
     try:
         exec(code, globals())
     except Exception as e:
-        old_stdout.write("error "+ str(e) + ", code:"  + code)
+        old_stdout.write("error " + str(e) + ", code:" + code)
         raise(e)
 
     sys.stdout = old_stdout
@@ -1147,9 +1125,10 @@ for (i, card) in enumerate(cards):
     random.shuffle(shuffled)
     rotate = cycle(shuffled)
     numbers = []
-    for x in range(11):
+    for x in range(ROWS):
         numbers.append(next(rotate))
     front(i, card[0], card[1])
     back(i, card[0], numbers)
+
 
 cheat(qa, numbers)
