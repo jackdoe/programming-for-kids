@@ -11,7 +11,7 @@ def poster(name):
             filtered.append(f)
     filtered.sort()
 
-    n = 12
+    n = 10
     images = [Image.open(os.path.join('images',x)) for x in filtered]
     widths, heights = zip(*(i.size for i in images))
 

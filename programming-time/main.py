@@ -928,27 +928,9 @@ print(delta(a)[3])
 
 
 cards.append([1, """
-print(1 + 2 + 3)
-"""])
-
-cards.append([1, """
-print(len('abc'))
-"""])
-
-
-
-cards.append([1, """
 x = 0
 for i in range(len('a')):
   x += 11
-
-print(x)
-"""])
-
-cards.append([1, """
-x = 0
-while x < 10:
-  x += 1
 
 print(x)
 """])
@@ -960,12 +942,6 @@ while x < 10 or x < 5:
 
 print(x)
 """])
-
-
-cards.append([1, """
-print(15 % 10)
-"""])
-
 
 cards.append([3, """
 def is_prime(n):
@@ -984,7 +960,6 @@ elif is_prime(7):
 else:
     print(3)
 """])
-
 
 
 cards.append([3, """
@@ -1021,12 +996,6 @@ lines = a.split('\\n')
 print(len(lines))
 """])
 
-cards.append([1, """
-a = "h2llo"
-
-print(a[1])
-"""])
-
 cards.append([2, """
 a = "h2llo"
 b = 3
@@ -1036,14 +1005,6 @@ a += str(b)
 print(a[len(a)-1])
 """])
 
-cards.append([1, """
-a = "h2llo"
-b = 3
-
-a += str(b)
-
-print(a[len(a)-1])
-"""])
 
 cards.append([2, """
 phones = {
@@ -1064,10 +1025,10 @@ print(c)
 
 
 
-WIDTH = 1050
-HEIGHT = 600
+WIDTH = 1058
+HEIGHT = 671
 OFFX = 80
-OFFY = 70
+OFFY = 80
 fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 35)
 
 bgcolor = (0, 0, 0)
@@ -1082,42 +1043,43 @@ def chunks(lst, n):
 
 
 def border(d, difficulty, id):
-    top = '+-------->' + str(id).zfill(2) + ' @ ' + \
-        str(difficulty).zfill(2)+'<--------+'
+    top = '+--------->' + str(id).zfill(2) + ' @ ' + str(difficulty).zfill(2)+'<---------+'
     if difficulty == 0:
-        top = '+-------------------------+'
+        top = '+---------------------------+'
 
-    d.multiline_text((50, 10), """
+    d.multiline_text((50, 00), """
 """+top+"""
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-|                         |
-+-------------------------+
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
+|                           |
++---------------------------+
 """, font=fnt, fill=fgcolor)
 
 
