@@ -1005,7 +1005,6 @@ a += str(b)
 print(a[len(a)-1])
 """])
 
-
 cards.append([2, """
 phones = {
     "Jack": 5551212,
@@ -1032,7 +1031,7 @@ OFFY = 80 * SCALE
 fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 76)
 
 bgcolor = (0, 0, 0)
-fgcolor = (255, 176, 0)
+fgcolor = (178, 0, 255, 0)
 #bgcolor = (255, 255, 255)
 #fgcolor = (0, 0, 0)
 
@@ -1084,40 +1083,40 @@ def border(d, difficulty, id):
 
 
 def back(id, difficulty, numbers):
-    img = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
+    img = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
     d = ImageDraw.Draw(img)
     border(d, 0, 0)
     x = random.randint(OFFX, 500)
-    y = 60 + random.randint(0, 80)
+    y = 60*SCALE + random.randint(0, 80 * SCALE)
     for n in numbers:
         d.text((x, y), str(n), font=fnt, fill=fgcolor)
-        y += 80
-        x = random.randint(OFFX, 500)
-    img.save(os.path.join('images', 'back_card_'+str(id).zfill(3)+'.png'))
+        y += 80 * SCALE
+        x = random.randint(OFFX, 500*SCALE)
+    img.save(os.path.join('images', 'back_card_'+str(id).zfill(3)+'.tiff'),compression = "tiff_lzw")
 
 
 def front(id, difficulty, code):
-    img = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
+    img = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
     d = ImageDraw.Draw(img)
     border(d, difficulty, id)
     d.multiline_text((OFFX, OFFY), code, font=fnt, fill=fgcolor)
-    img.save(os.path.join('images', 'front_card_'+str(id).zfill(3)+'.png'))
+    img.save(os.path.join('images', 'front_card_'+str(id).zfill(3)+'.tiff'),compression = "tiff_lzw")
 
 
 def cheat(answers):
     for (n, a) in enumerate(list(chunks(answers, 28))):
-        img = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
+        img = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
         d = ImageDraw.Draw(img)
         border(d, 0, 0)
         d.multiline_text((OFFX, OFFY), "\n".join(a), font=fnt, fill=fgcolor)
         img.save(os.path.join(
-            'images', 'front_card_answers_'+str(n).zfill(3)+'.png'))
+            'images', 'front_card_answers_'+str(n).zfill(3)+'.tiff'),compression = "tiff_lzw")
 
-        back = Image.new('RGB', (HEIGHT, WIDTH), color=bgcolor)
+        back = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
         backd = ImageDraw.Draw(back)
         border(backd, 0, 0)
         back.save(os.path.join(
-            'images', 'back_card_answers_'+str(n).zfill(3)+'.png'))
+            'images', 'back_card_answers_'+str(n).zfill(3)+'.tiff'),compression = "tiff_lzw")
 
 
 def run(code):

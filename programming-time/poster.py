@@ -7,7 +7,7 @@ def chunks(lst, n):
 def poster(name):
     filtered = []
     for f in dir:
-        if f.endswith(".png") and f.startswith(name):
+        if f.endswith(".tiff") and (name == 'both' or f.startswith(name)):
             filtered.append(f)
     filtered.sort()
 
@@ -18,7 +18,7 @@ def poster(name):
     total_width = widths[0] * n
     total_height = math.ceil(len(images) / n) * heights[0]
 
-    new_im = Image.new('RGB', (total_width, total_height))
+    new_im = Image.new('CMYK', (total_width, total_height))
 
     x_offset = 0
     y_offset = 0
@@ -30,7 +30,7 @@ def poster(name):
         y_offset += im.size[1]
         x_offset = 0
 
-    new_im.save(name + '.jpg')
+    new_im.save(name + '.tiff',compression = "tiff_lzw")
 
 poster('front')
 poster('back')
