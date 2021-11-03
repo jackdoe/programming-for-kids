@@ -44,8 +44,8 @@ cards.append([1, """
 # ...
 
 for i in range(3):
-    if i % 2 == 1:
-        print(i)
+  if i % 2 == 1:
+    print(i)
 """])
 
 cards.append([1, """
@@ -57,17 +57,17 @@ cards.append([1, """
 sum = 0
 
 for i in range(10):
-    if i % 2 == 1:
-        sum += 1
+  if i % 2 == 1:
+    sum += 1
 
 print(sum)
 """])
 
 cards.append([1, """
 a = {
-    "x": 10,
-    "y": 20,
-    "z": 5
+  "x": 10,
+  "y": 20,
+  "z": 5
 }
 
 a["k"] = 8
@@ -78,7 +78,7 @@ print(a["x"] + a["k"])
 cards.append([1, """
 i = 0
 while i < 3:
-    i += 1
+  i += 1
 
 print(i)
 """])
@@ -87,9 +87,9 @@ print(i)
 cards.append([1, """
 i = 0
 while True:
-    i += 1
-    if i > 3:
-        break
+  i += 1
+  if i > 3:
+    break
 print(i)
 """])
 
@@ -127,7 +127,7 @@ print(len(b))
 
 cards.append([1, """
 def hello():
-    return 'world'
+  return 'world'
 
 a = hello()
 
@@ -137,10 +137,10 @@ print(len(a))
 
 cards.append([1, """
 def world():
-    return 'world'
+  return 'world'
 
 def hello():
-    return 'hello'
+  return 'hello'
 
 a = hello() + world()
 
@@ -158,28 +158,28 @@ print(len(b))
 
 cards.append([2, """
 def min(a):
-    if len(a) == 0:
-        return None
+  if len(a) == 0:
+    return None
 
-    s = a[0]
-    for n in a:
-        if n < s:
-            s = n
-    return s
+  s = a[0]
+  for n in a:
+    if n < s:
+      s = n
+  return s
 
 print(min([3,2,4,3]))
 """])
 
 cards.append([2, """
 def max(a):
-    if len(a) == 0:
-        return None
+  if len(a) == 0:
+    return None
 
-    m = a[0]
-    for n in a:
-        if n > m:
-            m = n
-    return m
+  m = a[0]
+  for n in a:
+    if n > m:
+      m = n
+  return m
 
 print(max([1,2,4,3]))
 """])
@@ -187,10 +187,10 @@ print(max([1,2,4,3]))
 
 cards.append([2, """
 def avg(a):
-    sum = 0
-    for n in a:
-        sum += n
-    return sum/len(a)
+  sum = 0
+  for n in a:
+    sum += n
+  return sum/len(a)
 
 print(avg([2,2,4,4]))
 """])
@@ -199,8 +199,8 @@ cards.append([2, """
 x = 0
 
 for i in range(2):
-    for j in range(3):
-        x += 1
+  for j in range(3):
+    x += 1
 
 print(x)
 """])
@@ -211,7 +211,7 @@ cards.append([2, """
 # are not as they seem
 
 def sum(a,b):
-    return a * b
+  return a * b
 
 x = sum(1,2)
 print(sum(x, sum(2,3)))
@@ -225,7 +225,7 @@ cards.append([2, """
 sum = 0
 
 for i in range(5):
-    sum += i
+  sum += i
 
 print(sum)
 """])
@@ -241,7 +241,7 @@ a = 'acd'
 sum = 0
 
 for c in a:
-    sum += ord(c)
+  sum += ord(c)
 
 print(sum % 100)
 """])
@@ -268,7 +268,7 @@ a = [1,2,0,1]
 sum = 0
 
 for n in a:
-    sum += n
+  sum += n
 
 print(sum)
 """])
@@ -278,7 +278,7 @@ a = [6,-2,-1,1]
 sum = 0
 
 for n in a:
-    sum += n
+  sum += n
 
 print(sum)
 """])
@@ -288,7 +288,7 @@ a = [1,2,3]
 r = 0
 
 for n in a:
-    r *= n
+  r *= n
 
 print(r)
 """])
@@ -319,8 +319,8 @@ b = [3,4,5]
 
 i = 0
 for x in a:
-    b[i] = x
-    i += 1
+  b[i] = x
+  i += 1
 
 print(b[2])
 """])
@@ -341,13 +341,13 @@ print(b)
 """])
 cards.append([3, """
 a = [ord('c'),
-     -ord('b'),
-     ord('a')]
+   -ord('b'),
+   ord('a')]
 
 r = ord('d')
 
 for c in a:
-    r -= c
+  r -= c
 
 print(r)
 """])
@@ -356,7 +356,7 @@ cards.append([1, """
 sum = 0
 
 for i in range(5):
-    sum += i
+  sum += i
 
 print(sum)
 """])
@@ -374,7 +374,7 @@ a = ['7','8','9']
 x = ''
 
 for c in a:
-    x += c
+  x += c
 
 print(x)
 """])
@@ -384,7 +384,7 @@ a = ['8','9']
 x = '7'
 
 for c in a:
-    x += c
+  x += c
 
 print(x)
 """])
@@ -395,7 +395,7 @@ a = ['2','1','1']
 x = a.pop()
 
 for c in a:
-    x += c
+  x += c
 
 print(len(x))
 """])
@@ -422,12 +422,12 @@ f = ['3','4']
 l = ''
 
 for i in b:
-    l += i
+  l += i
 for i in f:
-    l += i
+  l += i
 
 print(ord(l[3]) -
-      ord(l[1]))
+    ord(l[1]))
 """])
 
 cards.append([3, """
@@ -451,11 +451,11 @@ cards.append([3, """
 a = ['1','1','1','2']
 b = {}
 for x in a:
-    b[x] = True
+  b[x] = True
 
 r = ''
 for k in b:
-    r += k
+  r += k
 
 print(r)
 """])
@@ -471,7 +471,7 @@ b[1] = 5
 b[2] = 6
 x = 0
 for k in b:
-    x += k
+  x += k
 
 print(x)
 """])
@@ -515,8 +515,8 @@ print(ord(a[7]))
 
 cards.append([1, """
 x = {
-    'a': 'hello',
-    'b': 'world'
+  'a': 'hello',
+  'b': 'world'
 }
 
 r = x['a'] +  x['b'] 
@@ -575,7 +575,7 @@ c = 3
 
 r = 0
 for i in range(c):
-    r += int(a) + b
+  r += int(a) + b
 
 print(r)
 """])
@@ -596,8 +596,8 @@ a = 'hello world'
 m = 0
 
 for i in range(len(a)):
-    if a[i] == 'o':
-        m += 1
+  if a[i] == 'o':
+    m += 1
 
 print(m)
 """])
@@ -606,7 +606,7 @@ print(m)
 cards.append([3, """
 memory = []
 for i in range(10000):
-    memory.append(0)
+  memory.append(0)
 
 memory[800] = 3
 memory[801] = 97
@@ -615,10 +615,10 @@ memory[803] = 99
 memory[804] = 48
 
 def show(m, addr):
-    l = m[addr]
-    for i in range(l):
-        c = m[addr+i+1]
-        print(chr(c))
+  l = m[addr]
+  for i in range(l):
+    c = m[addr+i+1]
+    print(chr(c))
 
 show(memory, 800)
 """])
@@ -626,8 +626,8 @@ show(memory, 800)
 
 cards.append([3, """
 class Point:
-    x = 0
-    y = 0
+  x = 0
+  y = 0
 
 a = Point()
 a.x = 5
@@ -665,17 +665,17 @@ print(len(a[0] + b[2]))
 
 cards.append([1, """
 while True:
-    break
+  break
 
 print(5)
 """])
 
 cards.append([2, """
 def mul(a,b):
-    r = 0
-    for i in range(b):
-        r += a
-    return r
+  r = 0
+  for i in range(b):
+    r += a
+  return r
 
 print(mul(2,3))
 """])
@@ -683,9 +683,9 @@ print(mul(2,3))
 cards.append([2, """
 i = 0
 while 1 == 1:
-    i += 1
-    if i > 5:
-        break
+  i += 1
+  if i > 5:
+    break
 
 print(i)
 """])
@@ -694,9 +694,9 @@ print(i)
 cards.append([2, """
 i = 0
 while 1 == 1:
-    i += 1
-    if i > 5:
-        break
+  i += 1
+  if i > 5:
+    break
 print(i)
 """])
 
@@ -710,32 +710,34 @@ print(len(a[0] + b[2]))
 
 cards.append([3, """
 class Actor:
-    x = 0
-    y = 0
+  x = 0
+  y = 0
 
 player = Actor()
 
 def update():
-    player.x += 1
-    player.y += 1
+  player.x += 1
+  player.y += 1
 
 def draw():
-    print(player.x)
-    print(player.y)
+  print(player.x)
+  print(player.y)
 
 while True:
-    update()
-    draw()
+  update()
+  draw()
 
-    break
+  break
 """])
 
 cards.append([3, """
 def fib(n):
-    if n <= 1:
-        return n
-    else:
-        return(fib(n-1) + fib(n-2))
+  if n <= 1:
+    return n
+  else:
+    a = fib(n-1)
+    b = fib(n-2)
+    return(a + b)
 
 print(fib(5))
 """])
@@ -745,7 +747,7 @@ a = '7798'
 b = 2
 
 if b > 2:
-    b -= 1
+  b -= 1
 
 print(a[b])
 """])
@@ -756,7 +758,7 @@ a = '7798'
 b = 2
 
 if b < 2 or b == 2:
-    b -= 1
+  b -= 1
 
 print(a[b])
 """])
@@ -767,7 +769,7 @@ a = '7798'
 b = 2
 c = 3
 if b < 2 and c >= 3:
-    b -= 1
+  b -= 1
 
 print(a[b])
 """])
@@ -827,6 +829,241 @@ b = a.pop()
 
 print(b)
 """])
+
+cards.append([2, """
+b = '4321'
+a = [b[0],b[1],b[2],b[3]]
+
+print(a[3])
+"""])
+
+
+cards.append([1, """
+b = '4321'
+
+print(b[len(b) - 1])
+"""])
+
+cards.append([1, """
+x = [1,2,3,4]
+
+print(x[len(x)-2])
+"""])
+
+
+cards.append([1, """
+x = [1,2,3,4]
+
+print(x[3] - x[1])
+"""])
+
+
+cards.append([2, """
+a = []
+while True:
+  a.append(1)
+  if len(a) > 5:
+    break
+
+print(len(a))
+"""])
+
+
+cards.append([3, """
+def compress(x):
+  o = [x[0],0]
+
+  for n in x:
+    p = o[len(o)-2]
+
+    if n == p:
+      o[len(o)-1]+=1
+    else:
+      o.append(n)
+      o.append(1)
+
+  return o
+
+a = [1,1,1,1,2,3,3,3,3]
+print(compress(a)[1])
+"""])
+
+
+
+cards.append([3, """
+def decompress(x):
+  o = []
+  l = len(x)
+  for i in range(0,l,2):
+    n = x[i+1]
+
+    for k in range(n):
+      o.append(x[i])
+
+  return o
+
+a = [1, 4, 2, 1, 3, 4]
+print(decompress(a)[2])
+"""])
+
+
+
+
+cards.append([3, """
+def delta(x):
+  o = [x[0]]
+  l = len(x)
+
+  for i in range(1,l):
+    p=x[i]
+    c=x[i-1]
+
+    o.append(p-c)
+
+  return o
+
+a = [1, 2, 3, 4, 5 ,6]
+print(delta(a)[3])
+"""])
+
+
+cards.append([1, """
+print(1 + 2 + 3)
+"""])
+
+cards.append([1, """
+print(len('abc'))
+"""])
+
+
+
+cards.append([1, """
+x = 0
+for i in range(len('a')):
+  x += 11
+
+print(x)
+"""])
+
+cards.append([1, """
+x = 0
+while x < 10:
+  x += 1
+
+print(x)
+"""])
+
+cards.append([1, """
+x = 0
+while x < 10 or x < 5:
+  x += 1
+
+print(x)
+"""])
+
+
+cards.append([1, """
+print(15 % 10)
+"""])
+
+
+cards.append([3, """
+def is_prime(n):
+  if n == 0 or n == 1:
+    return False
+  for x in range(2,n):
+    if n%x == 0:
+      return False
+
+  return True
+
+if is_prime(9):
+    print(1)
+elif is_prime(7):
+    print(2)
+else:
+    print(3)
+"""])
+
+
+
+cards.append([3, """
+# series converge to pi
+# pi = 4 - 4/3 + 4/5 - 4/7 + 4/9 ...
+k = 1
+s = 0
+for i in range(1000):
+  if i % 2 == 0:
+    s += 4/k
+  else:
+    s -= 4/k
+  k += 2
+   
+print(int(s))
+"""])
+
+cards.append([1, """
+text = "hello 1 2 3"
+s = text.split(" ")
+
+print(s[1])
+"""])
+
+cards.append([1, """
+a = \"""hello
+this
+is
+multiline
+string
+\"""
+
+lines = a.split('\\n')
+print(len(lines))
+"""])
+
+cards.append([1, """
+a = "h2llo"
+
+print(a[1])
+"""])
+
+cards.append([2, """
+a = "h2llo"
+b = 3
+
+a += str(b)
+
+print(a[len(a)-1])
+"""])
+
+cards.append([1, """
+a = "h2llo"
+b = 3
+
+a += str(b)
+
+print(a[len(a)-1])
+"""])
+
+cards.append([2, """
+phones = {
+    "Jack": 5551212,
+    "John": 5556622,
+    "Jill": 555621
+}
+
+s = phones["Jack"]
+print(str(s)[0])
+"""])
+
+cards.append([1, """
+a,b,c = [1,2,3]
+
+print(c)
+"""])
+
+
+
 WIDTH = 1050
 HEIGHT = 600
 OFFX = 80
@@ -949,7 +1186,7 @@ for (i, card) in enumerate(cards):
     random.shuffle(shuffled)
     rotate = cycle(shuffled)
     numbers = []
-    for x in range(10):
+    for x in range(11):
         numbers.append(next(rotate))
     front(i, card[0], card[1])
     back(i, card[0], numbers)
