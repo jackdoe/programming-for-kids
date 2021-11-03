@@ -1072,8 +1072,8 @@ fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 35)
 
 bgcolor = (0, 0, 0)
 fgcolor = (255, 176, 0)
-bgcolor = (255, 255, 255)
-fgcolor = (0, 0, 0)
+#bgcolor = (255, 255, 255)
+#fgcolor = (0, 0, 0)
 
 
 def chunks(lst, n):
@@ -1173,10 +1173,13 @@ def run(code):
 
 qa = []
 possible = set()
-for (i, card) in enumerate(cards):
-    for line in run(card[1]).strip().split("\n"):
+for (_i, card) in enumerate(cards):
+    _out = run(card[1]).strip().split("\n")
+    if len(_out) == 0:
+        raise "NO OUTPUT: " + card[1]
+    for line in _out:
         possible.add(line)
-        qa.append(str(i).zfill(3) + ": " + line)
+        qa.append(str(_i).zfill(3) + ": " + line)
 
 
 random.seed(time.time())

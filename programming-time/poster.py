@@ -7,7 +7,7 @@ def chunks(lst, n):
 def poster(name):
     filtered = []
     for f in dir:
-        if f.endswith(".png"):
+        if f.endswith(".png") and f.startswith(name):
             filtered.append(f)
     filtered.sort()
 
@@ -33,3 +33,4 @@ def poster(name):
     new_im.save(name + '.jpg')
 
 poster('front')
+poster('back')
