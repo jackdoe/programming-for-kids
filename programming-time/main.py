@@ -1024,12 +1024,12 @@ print(c)
 """])
 
 
-
-WIDTH = 1058
-HEIGHT = 671
-OFFX = 80
-OFFY = 80
-fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 35)
+SCALE = 2
+WIDTH = 1058 * SCALE
+HEIGHT = 671 * SCALE
+OFFX = 80 * SCALE
+OFFY = 80 * SCALE
+fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 76)
 
 bgcolor = (0, 0, 0)
 fgcolor = (255, 176, 0)
@@ -1046,7 +1046,7 @@ def border(d, difficulty, id):
     top = '+--------->' + str(id).zfill(2) + ' @ ' + str(difficulty).zfill(2)+'<---------+'
     if difficulty == 0:
         top = '+---------------------------+'
-
+    d.rectangle([0,0,HEIGHT-1,WIDTH-1])
     d.multiline_text((50, 00), """
 """+top+"""
 |                           |
