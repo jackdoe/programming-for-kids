@@ -1028,7 +1028,7 @@ WIDTH = 1058 * SCALE
 HEIGHT = 671 * SCALE
 OFFX = 80 * SCALE
 OFFY = 80 * SCALE
-fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 75)
+fnt = ImageFont.truetype(os.path.join('..', 'fonts', '437.ttf'), 76)
 
 bgcolor = (20, 20, 20, 255)
 fgcolor = (178, 0, 255, 0)
@@ -1045,7 +1045,7 @@ def border(d, difficulty, id):
     top = '+--------->' + str(id).zfill(2) + ' @ ' + str(difficulty).zfill(2)+'<---------+'
     if difficulty == 0:
         top = '+---------------------------+'
-    #d.rectangle([0,0,HEIGHT-1,WIDTH-1],outline=(0,0,0,0))
+    d.rectangle([0,0,HEIGHT-1,WIDTH-1],outline=(0,0,0,0))
     d.multiline_text((50, 00), """
 """+top+"""
 |                           |
@@ -1103,7 +1103,7 @@ def front(id, difficulty, code):
     img.save(os.path.join('images', 'front_card_'+str(id).zfill(3)+'.tiff'),compression = "tiff_lzw")
 
 
-def cheat(answers):
+def cheat(answers, numbrs):
     for (n, a) in enumerate(list(chunks(answers, 28))):
         img = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
         d = ImageDraw.Draw(img)
@@ -1112,11 +1112,8 @@ def cheat(answers):
         img.save(os.path.join(
             'images', 'front_card_answers_'+str(n).zfill(3)+'.tiff'),compression = "tiff_lzw")
 
-        back = Image.new('CMYK', (HEIGHT, WIDTH), color=bgcolor)
-        backd = ImageDraw.Draw(back)
-        border(backd, 0, 0)
-        back.save(os.path.join(
-            'images', 'back_card_answers_'+str(n).zfill(3)+'.tiff'),compression = "tiff_lzw")
+        back(800 + n,0, numbers)
+
 
 
 def run(code):
@@ -1155,4 +1152,4 @@ for (i, card) in enumerate(cards):
     front(i, card[0], card[1])
     back(i, card[0], numbers)
 
-cheat(qa)
+cheat(qa, numbers)

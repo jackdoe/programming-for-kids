@@ -15,20 +15,21 @@ def poster(name):
     images = [Image.open(os.path.join('images',x)) for x in filtered]
     widths, heights = zip(*(i.size for i in images))
 
-    total_width = widths[0] * n
-    total_height = math.ceil(len(images) / n) * heights[0]
+    total_width = 14024
+    total_height = 19857
 
-    new_im = Image.new('CMYK', (total_width, total_height))
+    new_im = Image.new('CMYK', (total_width, total_height), (20,20,20,255))
 
-    x_offset = 0
-    y_offset = 0
+    base_x =  int((total_width - widths[0] * n)/2)
+    x_offset = base_x
+    y_offset = int((total_height - (math.ceil(len(images) / n) * heights[0]))/2)
     for row in chunks(images, n):
         for im in row:
             new_im.paste(im, (x_offset,y_offset))
             x_offset += im.size[0]
 
         y_offset += im.size[1]
-        x_offset = 0
+        x_offset = base_x
 
     new_im.save(name + '.tiff',compression = "tiff_lzw")
 
