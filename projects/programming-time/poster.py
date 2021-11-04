@@ -15,8 +15,8 @@ def poster(name):
     images = [Image.open(os.path.join('images',x)) for x in filtered]
     widths, heights = zip(*(i.size for i in images))
 
-    total_width = 14024
-    total_height = 19857
+    total_width = int(14024/2)
+    total_height = int(19857/2)
 
     new_im = Image.new('CMYK', (total_width, total_height), (20,20,20,255))
 

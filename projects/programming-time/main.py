@@ -1022,12 +1022,12 @@ print(c)
 """])
 
 
-SCALE = 2
+SCALE = 1
 WIDTH = 1058 * SCALE
 HEIGHT = 671 * SCALE
 COLS = 33
 ROWS = 28
-fnt = ImageFont.truetype('font.ttf', 75)
+fnt = ImageFont.truetype('font.ttf', 35)
 
 bgcolor = (20, 20, 20, 255)
 fgcolor = (178, 0, 255, 0)
@@ -1060,7 +1060,7 @@ def border(d, difficulty, data, id):
     lines.append(bottom)
 
     d.rectangle([0, 0, HEIGHT-1, WIDTH-1], outline=(0, 0, 0, 0))
-    d.multiline_text((50, 50),"\n".join(lines), font=fnt, fill=fgcolor)
+    d.multiline_text((45, 25),"\n".join(lines), font=fnt, fill=fgcolor)
 
 
 def back(id, difficulty, numbers):
