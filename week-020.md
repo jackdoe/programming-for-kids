@@ -487,3 +487,98 @@ while True:
         size = random.randint(10,300)
         x.circle(size)
 ```
+
+
+## [DAY-141] Wiki; API
+
+Today we are going to make a small app that uses wikipedia. First install the wikipedia package:
+```
+pip3 install wikipedia
+```
+
+```
+import wikipedia as wiki
+
+while True:
+    what = input("search> ")
+    summary = wiki.summary(what)
+    print(summary)
+    print('*' * 40)
+```
+
+Will search wikipeadia the string you input, like this:
+
+```
+search> leonadro da vinci
+Leonardo da Vinci (15 April 1452 – 2 May 1519) was an Italian polymath of...
+[...]
+search>
+```
+
+Lets do the same but with pygame:
+
+![game-141.png](./screenshots/game-141.png "game 141 screenshot")
+
+```
+import wikipedia as wiki
+import pgzrun
+
+HEIGHT = 800
+WIDTH = 800
+text = ''
+info = ''
+def on_key_down(key, mod, unicode):
+    global text, info
+    if key == keys.BACKSPACE:
+        if len(text) > 0:
+            text = text[:-1]
+    elif key == keys.RETURN:
+        info = wiki.summary(text)
+        text = ''
+
+    elif len(unicode) > 0 and ord(unicode) >= 32 and ord(unicode) <= 126:
+        text += unicode
+
+
+def draw():
+    screen.clear()
+    screen.draw.text(info, (10,10), fontsize=18,fontname="437-win", width=WIDTH-20)
+    screen.draw.text(text, (WIDTH/2,HEIGHT - 40), color=(255,0,0), fontsize=30,fontname="437-win")
+
+pgzrun.go()
+```
+
+What does this do actually? How does the wikipedia module work? First thing you want to check is the documentation page, https://pypi.org/project/wikipedia/ and then you can also check the source code: https://github.com/goldsmith/Wikipedia
+
+Next you would like to think, how would this python module download the data from wikipedia.
+
+What it actually does, is it opens a web page, just a page that is specifically made to be easier to be read with programs, try to open: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&explaintext=&titles=Dog which will be the page for `Dog`, you will see:
+
+```
+{"batchcomplete":"","query":{"pages":{"4269567":{"pageid":4269567,"ns":0,"title":"Dog","extract":"The dog or domestic dog
+[...]
+an end to the dinosaurs and the appearance of the first carnivoran...
+[...]
+Their personality traits include hypersocial behavior, boldnes
+[...]
+```
+
+You can see the equivalent HTML page at https://en.wikipedia.org/wiki/Dog, The other page, which had structured data easier to read by python and any other programming language, is called API, Application Proggramming Interface. It just means that someone thought explicitly that their output will be read by programs and not people, and so they designed the interface that way. In the wikipedia example they return JSON.
+
+JSON is data serialization format, its goal is to make it easy for programs to exchange data, for example I can have an array, or dictionary, and I want to make it easy for some other program to read it, so I use JSON to make it into text with special rules, and they can use their JSON decoder to make it into data.
+
+```
+>>> import json
+>>> a = {"a":"b","c":3}
+>>>
+>>> print(json.dumps([1,2,a]))
+[1, 2, {"a": "b", "c": 3}]
+>>>
+>>> d = json.loads('[1, 2, {"a": "b", "c": 3}]')
+>>> d
+[1, 2, {'a': 'b', 'c': 3}]
+```
+
+
+You see how it looks similar to the wikipedia API output, we will go in depth in the JSON format some times later, the point now is to just recognize that there is a whole world of APIs that are gluing the programs on your computer, and even the internet together so they can communicate. JSON is one of the most common serialization protocol, but there are many many more.
+
