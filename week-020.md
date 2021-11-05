@@ -387,3 +387,103 @@ while True:
     left(90)
     dist = dist-3
 ```
+
+
+
+
+## [DAY-140] While; Turtle; Strings
+
+Read the strings chapter in the Thinking Python book.
+
+Then do some chill turtle shapes.
+
+![game-140-1.png](./screenshots/game-140-1.png "game 140-1 screenshot")
+
+```
+import turtle
+import random
+turtles = []
+for i in range(5):
+    a = turtle.Turtle()
+    a.speed(10000)
+    a.hideturtle()
+    turtles.append(a)
+
+while True:
+    for x in turtles:
+        size = random.randint(10,300)
+        extent = random.randint(0, 360)
+        x.circle(size, extent=extent)
+
+```
+
+
+![game-140-2.png](./screenshots/game-140-2.png "game 140-2 screenshot")
+
+```
+import turtle
+import random
+turtles = []
+for i in range(5):
+    a = turtle.Turtle()
+    a.speed(10000)
+    a.hideturtle()
+    turtles.append(a)
+
+
+
+while True:
+    for x in turtles:
+        size = random.randint(10,300)
+        for i in range(4):
+            x.forward(size)
+            x.right(90)
+
+        x.circle(size)
+```
+
+
+
+
+![game-140-3.png](./screenshots/game-140-3.png "game 140-3 screenshot")
+
+```
+import turtle
+import random
+turtles = []
+for i in range(5):
+    a = turtle.Turtle()
+    a.speed(10000)
+    a.hideturtle()
+    turtles.append(a)
+
+
+
+while True:
+    for x in turtles:
+        size = random.randint(10,300)
+        for i in range(4):
+            x.forward(size)
+            x.right(90)
+```
+
+
+![game-140-4.png](./screenshots/game-140-4.png "game 140-4 screenshot")
+
+```
+import turtle
+import random
+turtles = []
+for i in range(5):
+    a = turtle.Turtle()
+    a.speed(10000)
+    a.hideturtle()
+    turtles.append(a)
+
+
+
+while True:
+    for x in turtles:
+        size = random.randint(10,300)
+        x.circle(size)
+```
