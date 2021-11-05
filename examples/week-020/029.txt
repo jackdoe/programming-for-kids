@@ -1,0 +1,7 @@
+import wikipedia as wiki
+
+while True:
+    what = input("search> ")
+    summary = wiki.summary(what)
+    print(summary)
+    print('*' * 40)
