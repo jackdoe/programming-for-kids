@@ -1,0 +1,15 @@
+import turtle
+import random
+turtles = []
+for i in range(5):
+    a = turtle.Turtle()
+    a.speed(10000)
+    a.hideturtle()
+    turtles.append(a)
+
+
+
+while True:
+    for x in turtles:
+        size = random.randint(10,300)
+        x.circle(size)
