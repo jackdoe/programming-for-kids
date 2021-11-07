@@ -1,0 +1,11 @@
+from turtle import *
+import random
+speed(0)
+size = 300
+hideturtle()
+while True:
+    #size -= 1
+    circle(size, steps=random.randint(10,20))
+    if size < -300:
+        break
+done()

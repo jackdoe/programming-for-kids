@@ -364,3 +364,5 @@
 [day-140 while; turtle; strings](#day-140-while-turtle-strings)
 
 [day-141 wiki; api](#day-141-wiki-api)
+
+[day-142 while](#day-142-while)
