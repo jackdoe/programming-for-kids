@@ -582,3 +582,76 @@ JSON is data serialization format, its goal is to make it easy for programs to e
 
 You see how it looks similar to the wikipedia API output, we will go in depth in the JSON format some times later, the point now is to just recognize that there is a whole world of APIs that are gluing the programs on your computer, and even the internet together so they can communicate. JSON is one of the most common serialization protocol, but there are many many more.
 
+
+## [DAY-142] While
+
+
+today is again, chill turtle art
+
+ever growing circle
+
+![game-142-1.png](./screenshots/game-142-1.png "game 142-1 screenshot")
+
+```
+from turtle import *
+speed(0)
+size = 0
+hideturtle()
+while True:
+    size += 1
+    circle(size)
+```
+
+
+evergrowing circle and also go into negative radius
+
+![game-142-2.png](./screenshots/game-142-2.png "game 142-2 screenshot")
+
+
+```
+from turtle import *
+speed(0)
+size = 300
+hideturtle()
+while True:
+    size -= 1
+    circle(size)
+```
+
+
+stop when the bottom circle is the same as the top one
+
+![game-142-3.png](./screenshots/game-142-3.png "game 142-3 screenshot")
+
+
+```
+from turtle import *
+speed(0)
+size = 300
+hideturtle()
+while True:
+    size -= 1
+    circle(size)
+    if size < -300:
+        break
+done()
+```
+
+make the circles more edgy
+
+![game-142-4.png](./screenshots/game-142-4.png "game 142-4 screenshot")
+
+
+```
+from turtle import *
+import random
+speed(0)
+size = 300
+hideturtle()
+while True:
+    #size -= 1
+    circle(size, steps=random.randint(10,20))
+    if size < -300:
+        break
+done()
+```
