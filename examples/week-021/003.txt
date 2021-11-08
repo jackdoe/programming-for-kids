@@ -1,0 +1,12 @@
+a = 'hey'
+rev = ''
+for i in range(0,len(a)):
+    # i = 0
+    # a[2 - 0] -> a[2] -> y
+    # i = 1
+    # a[2 - 1] -> a[1] -> e
+    # i = 2
+    # a[2 - 2] -> a[0] -> h
+    print(i,a[len(a)-1-i])
+    rev +=a[len(a)-1-i]
+print(rev)
