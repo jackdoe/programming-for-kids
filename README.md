@@ -12129,7 +12129,6 @@ print(sum)
 
 Print its index, and the letter with the corresponding ascii
 
-
 ```
 a = ['h','e','l','l','o']
 sum = 0
@@ -12157,6 +12156,7 @@ print(sum)
 See how lists and strings both have len() and are indexable, meaning you can go to a specific index a[i] and do something.
 
 You can mutate (change) the list, meaning you can change its content
+
 ```
 a = ['h','e','l','o']
 a[2] = 'b'
@@ -12164,6 +12164,7 @@ print(a)
 ```
 
 But you can not change a string inplace:
+
 ```
 a = 'hello'
 a[2] = 'b'
