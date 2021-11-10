@@ -371,3 +371,5 @@
 
 
 [day-143 strings](#day-143-strings)
+
+[day-143 strings; lists](#day-143-strings-lists)

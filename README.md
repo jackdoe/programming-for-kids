@@ -489,6 +489,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-143 strings](#day-143-strings)
 
+[day-143 strings; lists](#day-143-strings-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -12111,3 +12113,73 @@ a[slice(None, None, -1)].
 While the :-based notation is very helpful for simple slicing, the explicit use of 
 slice() objects simplifies the programmatic generation of slicing.
 ```
+
+## [DAY-143] Strings; Lists
+
+Sum the ascii of the elements of a list.
+
+```
+a = ['h','e','l','l','o']
+sum = 0
+for i in a:
+    sum += ord(a)
+
+print(sum)
+```
+
+Print its index, and the letter with the corresponding ascii
+
+
+```
+a = ['h','e','l','l','o']
+sum = 0
+for i in range(len(a)):
+    m = ord(a[i])
+    print('index: ', i, a[i], '=', m)
+    sum += m
+
+print(sum)
+```
+
+Now do the same with a string
+
+```
+a = 'hello'
+sum = 0
+for i in range(len(a)):
+    m = ord(a[i])
+    print('index: ', i, a[i], '=', m)
+    sum += m
+
+print(sum)
+```
+
+See how lists and strings both have len() and are indexable, meaning you can go to a specific index a[i] and do something.
+
+You can mutate (change) the list, meaning you can change its content
+```
+a = ['h','e','l','o']
+a[2] = 'b'
+print(a)
+```
+
+But you can not change a string inplace:
+```
+a = 'hello'
+a[2] = 'b'
+print(a)
+```
+
+You will get `TypeError: 'str' object does not support item assignment`. If you want to change a string, you have to make a new one and reasign the variable to point to the new string.
+
+```
+a = 'hello'
+
+a = a[0:2] + 'b' + a[3:5]
+```
+
+See how we make completely new string, made up from the parts of the old string, and also the letter 'b' in the middle, and we make the variable `a` point to the new string.
+
+
+
+
