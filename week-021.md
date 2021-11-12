@@ -165,3 +165,141 @@ See how we make completely new string, made up from the parts of the old string,
 
 
 
+
+
+## [DAY-144] While
+
+More turtle
+
+![game-144.png](./screenshots/game-144.png "game 144 screenshot")
+
+
+```
+import turtle as t
+import random
+
+t.bgcolor('black')
+t.pensize(6)
+t.speed(0)
+
+size = 20
+colors =['cyan','royalblue','lawngreen','red','purple','white','yellow']
+
+while True:
+    t.pencolor(random.choice(colors))
+    t.circle(size)
+    t.left(12)
+
+    size += 1
+```
+
+![game-144-2.png](./screenshots/game-144-2.png "game 144-2 screenshot")
+
+
+```
+from turtle import *
+
+size = 20
+speed(0)
+hideturtle()
+
+while True:
+    size += 5
+
+    circle(size)
+```
+
+![game-144-3.png](./screenshots/game-144-3.png "game 144-3 screenshot")
+
+```
+import turtle as t 
+
+size = 0
+t.speed(0)
+
+while True:
+    t.forward(size)
+    t.left(90)
+
+    size += 1
+```
+
+
+Lets talk again about Memory.
+
+```
+a = 'hello'
+print(len(a))
+a += 'b'
+print(len(a))
+print(a[2])
+```
+
+First lets imagine a simplified representation of the string 'hello' in memory. 
+
+Lets imagine the computer memory as a long line of numbered boxes, so we can go directly to specific box
+
+```
+[-------------------------------------------------------]
+ 0                                                    1024
+```
+
+Each of the boxes can contain value between 0 and 255, so in order to store our string, we need at least 5 boxes, one for each letter, the memory does not understand such thing as character, only numnbers between 0 and 255, that is why we have the ASCII table, to have a standard how to represent characters as numbers in a common way. So we will store `h` which is 104 and, `e` which is 101, etc
+
+Lets say that python finds out some free memory at address 555, and we just store 104,101,108,108,111, The problem with that is that we dont know when the string actually ends, so either we have to read to the first `0`, or we have to store the length of the string, and usually you store the length. So we will store the number 5, which we know is the length, and then the ASCII characters.
+
+```
+[--------------5 104 101 108 108 111------------------------------------]
+ 0             ^                                                       1024
+               555
+```
+
+Now the variable `a` just points to box 555, when we do `len(a)` we can just read the number stored at this address, and when we do `a[1]` we can read the value at address `555 + 1 + 1` which will give us (101)
+
+
+What happens now when we do `a += 'b'`, this is the same as `a = a + 'b'`, which means ok, lets make a new string, with size `6` copy the original string there, and then add `b` (which is 98 in ascii) to the end. So python will try to find a space in memory for at least 7 bytes (6 for the string, and one for the lenth), and do the copy.
+
+```
+[--------------5 104 101 108 108 111------6 104 101 108 108 111 98--------]
+ 0             ^                          ^                              1024
+             555                         763  
+```
+
+
+Imagine the next free space in memory is on address 763, it will copy the data from address 556 to 560 to address 764 to 769, it will put `98` on address 770 and of course it will place the number `7` (the length of the new string), on address 763. And now we have a new string, it will just re-assign the variable `a` to point to 763 instead of 555. Now the string on address 555 is not referenecd by any variable, and if it is not used by anything else (e.g. a list that also points to it), it can be garbage collected, and memory can be marked as free.
+
+
+Lets talk about this code:
+
+```
+a = 'he'
+b = 'lo'
+c = 6
+d = [a,b,c]
+print(d[1])
+```
+
+One way python could represent a list is very similar to a string, you have length, and just addressess of the elements
+
+
+```
+[---2 555 763 847-----------2 104 101 ----------------2 108 111 ------6-----------]
+ 0  ^                       ^                         ^               ^           1024
+    125                    555                       763             847 
+```
+
+
+The variable d will point to address `125`, from there you have first element on address 555, second on 763 and third on 847, to do `print(d[1]`) means go to 125 + 1 + 1, and follow the pointer, so go to 555 ... and so on.
+
+See there is a small problem because now python does not know if certain address contains a string, number or a list, so usually you need one more byte of information for the type of the object. Imagine 1 is for integer, 2 for string and 3 for list.
+
+```
+[---3 2 555 763 847-------2 2 104 101 --------------2 2 108 111 -----1 6-----------]
+ 0  ^                     ^                         ^                ^          1024
+    125                  555                       763               847 
+```
+
+ok now its eaier :) we know when we go to certain address of some data what to expect, so we know if we should print ascii or the number itself, or follow the reference to wherever it goes.
+
+
+
