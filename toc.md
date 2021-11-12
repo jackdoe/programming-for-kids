@@ -373,3 +373,5 @@
 [day-143 strings](#day-143-strings)
 
 [day-143 strings; lists](#day-143-strings-lists)
+
+[day-144 while](#day-144-while)
