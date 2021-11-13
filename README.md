@@ -493,6 +493,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-144 while](#day-144-while)
 
+[day-145 while; classes](#day-145-while-classes)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -12320,3 +12322,40 @@ See there is a small problem because now python does not know if certain address
 ```
 
 ok now its eaier :) we know when we go to certain address of some data what to expect, so we know if we should print ascii or the number itself, or follow the reference to wherever it goes.   
+
+## [DAY-145] While; Classes
+
+Circles And Squares.
+
+![game-145.png](./screenshots/game-145.png "game 145 screenshot")
+
+
+```
+import turtle as t
+
+a = t.Turtle()
+a.speed(0)
+a.pencolor('fuchsia')
+
+b = t.Turtle()
+b.speed(0)
+b.pencolor('mediumspringgreen')
+
+
+c = t.Turtle()
+c.speed(0)
+c.pencolor('deepskyblue')
+
+size = 30
+
+while True:
+    a.forward(size*2)
+    a.left(90)
+    b.forward(size*3)
+    b.right(90)
+    c.forward(size*4)
+    c.right(90)
+    c.circle(size+1)
+
+    size += 2
+```

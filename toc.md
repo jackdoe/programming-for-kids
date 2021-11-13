@@ -375,3 +375,5 @@
 [day-143 strings; lists](#day-143-strings-lists)
 
 [day-144 while](#day-144-while)
+
+[day-145 while; classes](#day-145-while-classes)
