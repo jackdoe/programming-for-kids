@@ -12260,8 +12260,8 @@ First lets imagine a simplified representation of the string 'hello' in memory.
 Lets imagine the computer memory as a long line of numbered boxes, so we can go directly to specific box
 
 ```
-[------------------------------------------------------------------------]
- 0                                                                      1024
+[-------------------------------------------------------------------------]
+ 0                                                                       1024
 ```
 
 Each of the boxes can contain value between 0 and 255, so in order to store our string, we need at least 5 boxes, one for each letter, the memory does not understand such thing as character, only numnbers between 0 and 255, that is why we have the ASCII table, to have a standard how to represent characters as numbers in a common way. So we will store `h` which is 104 and, `e` which is 101, etc
@@ -12269,8 +12269,8 @@ Each of the boxes can contain value between 0 and 255, so in order to store our 
 Lets say that python finds out some free memory at address 555, and we just store 104,101,108,108,111, The problem with that is that we dont know when the string actually ends, so either we have to read to the first `0`, or we have to store the length of the string, and usually you store the length. So we will store the number 5, which we know is the length, and then the ASCII characters.
 
 ```
-[--------------5 104 101 108 108 111--------------------------------------]
- 0             ^                                                         1024
+[--------------5 104 101 108 108 111----------------------------------------------]
+ 0             ^                                                                 1024
                555
 ```
 
@@ -12280,8 +12280,8 @@ Now the variable `a` just points to box 555, when we do `len(a)` we can just rea
 What happens now when we do `a += 'b'`, this is the same as `a = a + 'b'`, which means ok, lets make a new string, with size `6` copy the original string there, and then add `b` (which is 98 in ascii) to the end. So python will try to find a space in memory for at least 7 bytes (6 for the string, and one for the lenth), and do the copy.
 
 ```
-[--------------5 104 101 108 108 111------6 104 101 108 108 111 98--------]
- 0             ^                          ^                              1024
+[--------------5 104 101 108 108 111------6 104 101 108 108 111 98----------------]
+ 0             ^                          ^                                      1024
              555                         763  
 ```
 
@@ -12303,8 +12303,8 @@ One way python could represent a list is very similar to a string, you have leng
 
 
 ```
-[---2 555 763 847-----------2 104 101 ----------------2 108 111 ------6----]
- 0  ^                       ^                         ^               ^   1024
+[---2 555 763 847-----------2 104 101 ----------------2 108 111 ------6-----------]
+ 0  ^                       ^                         ^               ^          1024
     125                    555                       763             847 
 ```
 
@@ -12314,8 +12314,8 @@ The variable d will point to address `125`, from there you have first element on
 See there is a small problem because now python does not know if certain address contains a string, number or a list, so usually you need one more byte of information for the type of the object. Imagine 1 is for integer, 2 for string and 3 for list.
 
 ```
-[---3 2 555 763 847-------2 2 104 101 --------------2 2 108 111 -----1 6---]
- 0  ^                     ^                         ^                ^    1024
+[---3 2 555 763 847-------2 2 104 101 --------------2 2 108 111 -----1 6----------]
+ 0  ^                     ^                         ^                ^           1024
     125                  555                       763               847 
 ```
 
