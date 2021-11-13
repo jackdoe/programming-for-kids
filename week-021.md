@@ -283,7 +283,7 @@ One way python could represent a list is very similar to a string, you have leng
 
 
 ```
-[---2 555 763 847-----------2 104 101 ----------------2 108 111 ------6-----------]
+[---3 555 763 847-----------2 104 101 ----------------2 108 111 ------6-----------]
  0  ^                       ^                         ^               ^          1024
     125                    555                       763             847 
 ```
@@ -299,7 +299,4 @@ See there is a small problem because now python does not know if certain address
     125                  555                       763               847 
 ```
 
-ok now its eaier :) we know when we go to certain address of some data what to expect, so we know if we should print ascii or the number itself, or follow the reference to wherever it goes.
-
-
-
+ok now its eaier :) we know when we go to certain address of some data what to expect, so we know if we should print ascii or the number itself, or follow the reference to wherever it goes.   
