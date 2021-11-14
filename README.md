@@ -495,6 +495,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-145 while; classes](#day-145-while-classes)
 
+[day-146 while](#day-146-while)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -12393,5 +12395,44 @@ for i in range(70):
     a.forward(10)
     a.right(5)
     size += 1
+t.done()
+```
+
+
+## [DAY-146] While
+
+Another flower
+
+![game-146.png](./screenshots/game-146.png "game 146 screenshot")
+
+
+```
+import turtle as t
+
+a = t.Turtle()
+a.speed(0)
+a.right(90)
+a.forward(300)
+a.hideturtle()
+
+b = t.Turtle()
+b.speed(0)
+b.hideturtle()
+
+def square(charlie, size):
+    for i in range(4):
+        charlie.forward(size)
+        if i == 1:
+            charlie.write(str(size))
+        charlie.right(90)
+
+size = 0
+while True:
+    square(b,size)
+    b.right(9)
+    size += 1
+    if size > 125:
+        break
+
 t.done()
 ```
