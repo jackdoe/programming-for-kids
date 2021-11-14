@@ -373,3 +373,42 @@ for i in range(70):
     size += 1
 t.done()
 ```
+
+
+## [DAY-146] While
+
+Another flower
+
+![game-146.png](./screenshots/game-146.png "game 146 screenshot")
+
+
+```
+import turtle as t
+
+a = t.Turtle()
+a.speed(0)
+a.right(90)
+a.forward(300)
+a.hideturtle()
+
+b = t.Turtle()
+b.speed(0)
+b.hideturtle()
+
+def square(charlie, size):
+    for i in range(4):
+        charlie.forward(size)
+        if i == 1:
+            charlie.write(str(size))
+        charlie.right(90)
+
+size = 0
+while True:
+    square(b,size)
+    b.right(9)
+    size += 1
+    if size > 125:
+        break
+
+t.done()
+```
