@@ -1,3 +1,0 @@
-a = 'hello'
-a[2] = 'b'
-print(a)

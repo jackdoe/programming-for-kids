@@ -1,5 +1,0 @@
-a = 'he'
-b = 'lo'
-c = 6
-d = [a,b,c]
-print(d[1])

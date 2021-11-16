@@ -1,6 +1,0 @@
-a = ['h','e','l','l','o']
-sum = 0
-for i in a:
-    sum += ord(a)
-
-print(sum)
