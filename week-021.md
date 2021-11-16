@@ -484,7 +484,7 @@ You can be that person, that disrupts. Every time you create something that peop
 
 Every human in the world has brilliant ideas, multiple ideas per week. Most of the ideas are not good, but everyone has few great ideas per week. The problem is that nobody executes on those ideas, they just get forgotten and disappear. The execution of an idea is the real deal, the idea on its own is almost worthless. How many people do you think had the Fortnite idea before Epic games? Oh lets build Minecraft and Counter Strike together and booom Fortnite is born, I bet hundreds of developers thought about it, and many of them could've made it, but.. they didn't.
 
-Today we will talk about why people do not make their ideas into being, and just forget them. There are usually many reasons, one of them is they think they cant make the idea, or they think the idea is not good, or people wont like it, or they just dont feel like making it. The problem is, it is extremely hard to evaluate an idea that is not obviously bad. Lets just spit out some ideas.
+Lets just think outloud about some ideas:
 
 * Ninja Fortnite where you die if you are seen
 * Fifa Minecraft where you can build your field
@@ -496,7 +496,7 @@ Today we will talk about why people do not make their ideas into being, and just
 * AR minecraft
 * AR lasertag
 
-Those ideas came out just in few minutes. Now how would you decide which ones to buld? First, my advice is, build what you want to build right now, just looking at this list, I could start working on AR minecraft right after I finish writing this sentence hehe, just thinking about it it made me excited. However when you jump like that into execution of an idea, and you expect it to resonate with other people, you will be wrong most of the time, bencause your frequency is different than other people, so they might not like what you like.
+Those ideas came out just in few minutes. Now how would you decide which ones to buld? First, my advice is, build what you want to build right now, just looking at this list, I could start working on AR minecraft right after I finish writing this sentence, just thinking about it it made me excited. However when you jump like that into execution of an idea, and you expect it to resonate with other people, you will be wrong most of the time, bencause your frequency is different than other people, so they might not like what you like.
 
 If you want your product to be used by other people, you first have to carefully research if they would actually use and pay for what you are going to build. The process is as follows:
 
