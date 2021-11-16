@@ -12545,7 +12545,7 @@ even more simplified
 * step 3: ask for money if you can
 * step 4: goto step 1
 
-In most cases there is no better signal than people paying for your product, everything else is mostly noise, unless you are so ahead of the market that people dont even know they would pay for your product. The key question here is 'who do you ask', 'who are your users', 'how many are they in the world', 'how many you can reach with ads/marketing', 'how much are they willing to pay'. There is a lot of skill into figuring the answers to those questions.
+In most cases (but not all), there is no better signal than people paying for your product. In some rare cases, you may be so ahead of the market, or have an insight which is invisible to others, that people don't even know they would pay for your product yet. The key question here is 'who do you ask', 'who are your users', 'how many are they in the world', 'how many you can reach with ads/marketing', 'how much are they willing to pay'. There is a lot of skill into figuring the answers to those questions.
 
 If you want to make your idea not fail, you have to put in the effort, work with designers, and artists to help you build the MVP or the proof of concept. It is really hard to say if ideas fail because they are bad, or because the creators did not do a good job making it.
 
