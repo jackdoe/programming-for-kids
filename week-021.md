@@ -521,6 +521,6 @@ There is no better signal than people paying for your product, everything else i
 
 If you want to make your idea not fail, you have to put in effort, work with designers, and artists to help you build the MVP, or the proof of concept. It is really hard to say if ideas fail because they are bad ideas, or because the creators did not do a good job making it.
 
-It is unprecedented, how few people are needed for an idea to come to life, sometimes only 1 person, a good developer, or designer is enough to completely make the MVP. Alot of that is because in the last 50 years we have dramatically improved the programming languages and tools. From assembler to python, from paint to photoshop, the productivity of a single person is like an army of people in 1991.
+It is unprecedented, how few people are needed for an idea to come to life, sometimes only 1 person, a good developer, or designer is enough to completely make the MVP. A lot of that is because in the last 50 years we have dramatically improved the programming languages and tools. From assembler to python, from paint to photoshop, the productivity of a single person is like an army of people in 1991.
 
 A single person can change the world, most of the people however wont even try. 95% of the content in the internet is made by 5% of the people. 95% of the games in roblox is made by 5% of the players. The 5% is where all the fun is, I promise you, its like a rollercoaster.
