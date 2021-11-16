@@ -12471,6 +12471,7 @@ Facebook makes about 30 euros per month for each user they are selling.
 Homework:
 
 * Why do you think whatsapp is free?
+* Why is primary education free?
 * Why is google translate free?
 * Why is google maps free?
 * Why is google search free?
