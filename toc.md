@@ -381,3 +381,5 @@
 [day-147 while](#day-147-while)
 
 [day-148 money](#day-148-money)
+
+[day-149 creators, consumers and ideas](#day-149-creators-consumers-and-ideas)

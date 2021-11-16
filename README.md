@@ -499,6 +499,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-148 money](#day-148-money)
 
+[day-149 creators, consumers and ideas](#day-149-creators-consumers-and-ideas)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -12459,8 +12461,7 @@ Lets take the PlayStation as an example, they were selling the console for 600$,
 
 So on the surface it might seem like Sony is making money on the console itself, but this is actually not true.
 
-Lets go over Roblox, how do they make money? Every developer that makes a game there is taking a cut from all the robux spent by players, and Roblox is taking 75.5% of each transaction, so when you buy something for 10$ roblox gets 7.5$ and the developer gets 2.5$. Roblox is distributed through Apple's app store, how does Apple make money? they take 30% of all payments made oh the platform, so apple will take 30% as well, so the 10$ you pay, 3$ go to Apple, 5.3$ goes to roblox and 1.7$ goes to the developers.
-
+Lets go over Roblox, how do they make money? Every developer that makes a game there is taking a cut from all the robux spent by players, and Roblox is taking 75.5% of each transaction, so when you buy something for 10$ roblox gets 7.5$ and the developer gets 2.5$. Roblox is distributed through Apple's app store, how does Apple make money? they take 30% of all payments made oh the platform, so apple will take 30% as well, so the 10$ you pay, 3$ go to Apple, 5.3$ goes to Roblox and 1.7$ goes to the developers (the content creators of roblox).
 
 Now there are other companies, such as Facebook, where they actually do not sell you anything, but they sell you to their customers. They are selling the fact that they can make you do something you did not intend to do, like buy a skateboard or buy karaoke machine, so they use that to sell it to for-profit corporations who make skateboards and karaoke machines.
 
@@ -12504,4 +12505,50 @@ You will study a lot of theories when you grow up, about how money flows, or how
 
 You see those forces, of the companies competing to get cheaper, sometimes they forget.. why do people use their product, even worse, sometimes they forget what their product really is. And then a new company comes, like a candle in a dark night, usually its only few people, maybe 2 or 3, working from their parent's garage, that can see what those companies can not see anymore. This is called disrupting the market. When new force appears, previously unknown, and people rejoice. The big corporations grinding their wheels create the right conditions, the right pressure, so a diamond is formed.
 
-And remember, you can be that person, that disrupts. Every time you create something that people want, you disrupt it a bit, and sometimes your creation will resonate with the people's frequency, this is called product market fit.
+You can be that person, that disrupts. Every time you create something that people want, you disrupt it a bit, and sometimes your creation will resonate with the people's frequency, this is called product market fit.
+
+
+## [DAY-149] Creators, Consumers and Ideas
+
+Every human in the world has brilliant ideas, multiple ideas per week. Most of the ideas are not good, but everyone has few great ideas per week. The problem is that nobody executes on those ideas, they just get forgotten and disappear. The execution of an idea is the real deal, the idea on its own is almost worthless. How many people do you think had the Fortnite idea before Epic games? Oh lets build Minecraft and Counter Strike together and booom Fortnite is born, I bet hundreds of developers thought about it, and many of them could've made it, but.. they didn't.
+
+Today we will talk about why people do not make their ideas into being, and just forget them. There are usually many reasons, one of them is they think they cant make the idea, or they think the idea is not good, or people wont like it, or they just dont feel like making it. The problem is, it is extremely hard to evaluate an idea that is not obviously bad. Lets just spit out some ideas.
+
+* Ninja Fortnite where you die if you are seen
+* Fifa Minecraft where you can build your field
+* Neighbourhood Nintendo Switch game exchange library
+* 1 year photo collage with your friends, one photo per day from 5 people joined in a video
+* Dog meeting app, so you know when your dog's best friend is on a walk, so you can go together
+* Neighbourhood book exchange platform
+* make/write an augmented reality book
+* AR minecraft
+* AR lasertag
+
+Those ideas came out just in few minutes. Now how would you decide which ones to buld? First, my advice is, build what you want to build right now, just looking at this list, I could start working on AR minecraft right after I finish writing this sentence hehe, just thinking about it it made me excited. However when you jump like that into execution of an idea, and you expect it to resonate with other people, you will be wrong most of the time, bencause your frequency is different than other people, so they might not like what you like.
+
+If you want your product to be used by other people, you first have to carefully research if they would actually use and pay for what you are going to build. The process is as follows:
+
+* have an idea
+* build a super duper simple prototype that is totally broken, but good enough to illustrate the idea
+* use your prototype for some time
+* ask your friends to use your prototype
+* delete the prototype and start from scratch
+* build MVP - minimum viable product, which is a somewhat polished prototype that you can show to more people
+* ask for money as soon as possible, nothing says that people like your product like them paying money for it.
+* ask people if they like it, figure out what they do and dont like, and go back to change your MVP while you build on it
+* keep iterating on the MVP while you are building features on it, and at some point it will become product, instead of minimum viable product
+
+even more simplified
+
+* step 1: build something [ with feedback ]
+* step 2: ask for feedback
+* step 3: ask for money if you can
+* step 4: goto step 1
+
+There is no better signal than people paying for your product, everything else is mostly noise. The key question here is 'who do you ask', 'who are your users', 'how many are they in the world', 'how many you can reach with ads/marketing', 'how much are they willing to pay'. There is a lot of skill into figuring the answers to those questions.
+
+If you want to make your idea not fail, you have to put in effort, work with designers, and artists to help you build the MVP, or the proof of concept. It is really hard to say if ideas fail because they are bad ideas, or because the creators did not do a good job making it.
+
+It is unprecedented, how few people are needed for an idea to come to life, sometimes only 1 person, a good developer, or designer is enough to completely make the MVP. Alot of that is because in the last 50 years we have dramatically improved the programming languages and tools. From assembler to python, from paint to photoshop, the productivity of a single person is like an army of people in 1991.
+
+A single person can change the world, most of the people however wont even try. 95% of the content in the internet is made by 5% of the people. 95% of the games in roblox is made by 5% of the players. The 5% is where all the fun is, I promise you, its like a rollercoaster.
