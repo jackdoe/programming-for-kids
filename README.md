@@ -12545,10 +12545,10 @@ even more simplified
 * step 3: ask for money if you can
 * step 4: goto step 1
 
-There is no better signal than people paying for your product, everything else is mostly noise. The key question here is 'who do you ask', 'who are your users', 'how many are they in the world', 'how many you can reach with ads/marketing', 'how much are they willing to pay'. There is a lot of skill into figuring the answers to those questions.
+In most cases there is no better signal than people paying for your product, everything else is mostly noise, unless you are so ahead of the market that people dont even know they would pay for your product. The key question here is 'who do you ask', 'who are your users', 'how many are they in the world', 'how many you can reach with ads/marketing', 'how much are they willing to pay'. There is a lot of skill into figuring the answers to those questions.
 
 If you want to make your idea not fail, you have to put in the effort, work with designers, and artists to help you build the MVP or the proof of concept. It is really hard to say if ideas fail because they are bad, or because the creators did not do a good job making it.
 
-It is unprecedented, how few people are needed for an idea to come to life, sometimes only 1 person, a good developer, or designer is enough to completely make the MVP. A lot of that is because in the last 50 years we have dramatically improved the programming languages and tools. From assembler to python, from paint to photoshop, the productivity of a single person is like an army of people in 1991.
+It is unprecedented, how few people are needed for an idea to come to life, sometimes only 1 person, a good developer, or designer is enough to completely make the MVP. A lot of that is because in the last 50 years we have dramatically improved the programming languages and tools. From assembler to python, from paint to photoshop, the productivity of a single person now is like an army of people in 1991.
 
 A single person can change the world, most of the people however wont even try. 95% of the content in the internet is made by 5% of the people. 95% of the games in roblox is made by 5% of the players. The 5% is where all the fun is, I promise you, its like a rollercoaster.
