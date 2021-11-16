@@ -12479,6 +12479,7 @@ Homework:
 * How is tocaboca making money?
 * How are the youtube content creators making money?
 * How does H&M make money?
+* How does the government make money?
 
 A good thing to think about is also why are some things so expensive, how can we have smartphones for 50$ and for 2000$, what is the difference, Apple's hardware is surely expensive but is the difference between 32G phone ans 128G phone really that much? Why are the airpods 200$ when there are better headphones for 100$. Apple's physical product is not just the product you are buying, you are also buying the apple brand, which is valued very highly by the people. So even if somebody makes "better" product physically, it is not better overall, and many people still prefer Apple.
 
