@@ -1,0 +1,16 @@
+import turtle as t
+import random
+
+t.bgcolor('black')
+t.pensize(6)
+t.speed(0)
+
+size = 20
+colors =['cyan','royalblue','lawngreen','red','purple','white','yellow']
+
+while True:
+    t.pencolor(random.choice(colors))
+    t.circle(size)
+    t.left(12)
+
+    size += 1

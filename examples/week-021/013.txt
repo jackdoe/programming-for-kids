@@ -1,0 +1,10 @@
+from turtle import *
+
+size = 20
+speed(0)
+hideturtle()
+
+while True:
+    size += 5
+
+    circle(size)

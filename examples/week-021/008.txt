@@ -1,0 +1,8 @@
+a = 'hello'
+sum = 0
+for i in range(len(a)):
+    m = ord(a[i])
+    print('index: ', i, a[i], '=', m)
+    sum += m
+
+print(sum)

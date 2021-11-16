@@ -1,0 +1,29 @@
+import turtle as t
+import random
+
+a = t.Turtle()
+a.speed(0)
+
+b = t.Turtle()
+b.speed(0)
+
+b.hideturtle()
+a.hideturtle()
+
+b.pensize(5)
+a.pensize(4)
+
+b.pencolor('chocolate')
+
+b.right(90)
+b.forward(300)
+
+size = 0
+for i in range(70):
+    a.pencolor(random.choice(['red','orange','yellow','hotpink','magenta','deepskyblue','mediumspringgreen']))
+    b.right(180)
+    a.circle(size,extent=90)
+    a.forward(10)
+    a.right(5)
+    size += 1
+t.done()

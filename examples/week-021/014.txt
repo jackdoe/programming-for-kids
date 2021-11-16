@@ -1,0 +1,10 @@
+import turtle as t 
+
+size = 0
+t.speed(0)
+
+while True:
+    t.forward(size)
+    t.left(90)
+
+    size += 1

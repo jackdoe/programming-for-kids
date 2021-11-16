@@ -372,10 +372,12 @@
 
 [day-143 strings](#day-143-strings)
 
-[day-143 strings; lists](#day-143-strings-lists)
+[day-144 strings; lists](#day-144-strings-lists)
 
-[day-144 while](#day-144-while)
+[day-145 while](#day-145-while)
 
-[day-145 while; classes](#day-145-while-classes)
+[day-146 while; classes](#day-146-while-classes)
 
-[day-146 while](#day-146-while)
+[day-147 while](#day-147-while)
+
+[day-148 money](#day-148-money)

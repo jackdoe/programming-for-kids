@@ -489,13 +489,15 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-143 strings](#day-143-strings)
 
-[day-143 strings; lists](#day-143-strings-lists)
+[day-144 strings; lists](#day-144-strings-lists)
 
-[day-144 while](#day-144-while)
+[day-145 while](#day-145-while)
 
-[day-145 while; classes](#day-145-while-classes)
+[day-146 while; classes](#day-146-while-classes)
 
-[day-146 while](#day-146-while)
+[day-147 while](#day-147-while)
+
+[day-148 money](#day-148-money)
 
 ## [DAY-0] The Computer
 
@@ -12120,7 +12122,7 @@ While the :-based notation is very helpful for simple slicing, the explicit use 
 slice() objects simplifies the programmatic generation of slicing.
 ```
 
-## [DAY-143] Strings; Lists
+## [DAY-144] Strings; Lists
 
 Sum the ascii of the elements of a list.
 
@@ -12191,11 +12193,11 @@ See how we make completely new string, made up from the parts of the old string,
 
 
 
-## [DAY-144] While
+## [DAY-145] While
 
 More turtle
 
-![game-144.png](./screenshots/game-144.png "game 144 screenshot")
+![game-145.png](./screenshots/game-145.png "game 145 screenshot")
 
 
 ```
@@ -12217,7 +12219,7 @@ while True:
     size += 1
 ```
 
-![game-144-2.png](./screenshots/game-144-2.png "game 144-2 screenshot")
+![game-145-2.png](./screenshots/game-145-2.png "game 145-2 screenshot")
 
 
 ```
@@ -12233,7 +12235,7 @@ while True:
     circle(size)
 ```
 
-![game-144-3.png](./screenshots/game-144-3.png "game 144-3 screenshot")
+![game-145-3.png](./screenshots/game-145-3.png "game 145-3 screenshot")
 
 ```
 import turtle as t 
@@ -12325,11 +12327,11 @@ See there is a small problem because now python does not know if certain address
 
 ok now its eaier :) we know when we go to certain address of some data what to expect, so we know if we should print ascii or the number itself, or follow the reference to wherever it goes.   
 
-## [DAY-145] While; Classes
+## [DAY-146] While; Classes
 
 Circles And Squares.
 
-![game-145.png](./screenshots/game-145.png "game 145 screenshot")
+![game-146.png](./screenshots/game-146.png "game 146 screenshot")
 
 
 ```
@@ -12363,7 +12365,7 @@ while True:
 ```
 
 
-![game-145-1.png](./screenshots/game-145-1.png "game 145-1 screenshot")
+![game-146-1.png](./screenshots/game-146-1.png "game 146-1 screenshot")
 
 
 ```
@@ -12399,11 +12401,11 @@ t.done()
 ```
 
 
-## [DAY-146] While
+## [DAY-147] While
 
 Another flower
 
-![game-146.png](./screenshots/game-146.png "game 146 screenshot")
+![game-147.png](./screenshots/game-147.png "game 147 screenshot")
 
 
 ```
@@ -12436,3 +12438,42 @@ while True:
 
 t.done()
 ```
+
+## [DAY-148] Money
+
+Every time you use something, ask yourself how does the company that made it make money. How can it be so expensive or so cheap, or worse, how can it be free.
+
+
+Most of the things you own and use are made by for-profit companies, for-profit means that the company tries to maximize its revenue and profit. This is in contrast with non-profit organizations, which does not try to make more money than it needs in order to function. For example Wikipedia is run by Wikimedia Foundation, which is a non profit organization.
+
+Revenue means how much moeny comes in the company by selling its products, and profit means the revenue minus the expenses it has to produce the product. For example, if we have a company to make video games, and we pay ourselves 1000 euro in salary, and we sell each video game for 2 euro, then if we sell 600 video games, we will have 1200 euro in revenue, and 200 euro in profit: `1200 revenue - 1000 expense = 200 profit`.
+
+The profit also taxed, so we have to pay some percent from the profit to the government, lets say its 10%, so from 200 euro profit, we will pay 20 euro to the government, it will use those money to pay its employees, and pay for health insurance, social insurance, build infrastructure, and maybe small percent of those will go to research and development projects, such as CERN.
+
+After all that, we will be left with 180 euro profit. Almost every for-profit organization will try to maximize this number, for example one way we can increase this is if we try to reduce the expenses, imagine we hire cheaper developers and we pay them 800 euro instead of 1000, then it seems we will get 400 euro in profit (or 360 after tax), but maybe those developers will make a worse game, so we wont eb able to sell 600 copies, and we sell 450, and then instead of getting 400 profit we get `900 revenue - 800 expense = 100 profit`, or 90 after tax.
+
+
+Now think about what it means for something to be free, like Fortnite, or Roblox, or TikTok or Instagram, or when something is sold below its production cost, like the PlayStation 3.
+
+Lets take the PlayStation as an example, they were selling the console for 600$, but it cost them 840$ to produce, why would they do that? First think how Sony makes money, each game you buy for 60$ Sony gets 30%, so 18$ goes to sony, when you buy 20 games through the year, which is what an average person spends on video games, they get 360$ profit, so in one year they will break even after 1 year, but people use the same video console for multiple years, so every consecutive year they get more and more profit.
+
+So on the surface it might seem like Sony is making money on the console itself, but this is actually not true.
+
+Lets go over Roblox, how do they make money? Every developer that makes a game there is taking a cut from all the robux spent by players, and Roblox is taking 75.5% of each transaction, so when you buy something for 10$ roblox gets 7.5$ and the developer gets 2.5$. Roblox is distributed through Apple's app store, how does Apple make money? they take 30% of all payments made oh the platform, so apple will take 30% as well, so the 10$ you pay, 3$ go to Apple, 5.3$ goes to roblox and 1.7$ goes to the developers.
+
+
+Now there are other companies, such as Facebook, where they actually do not sell you anything, but they sell you to their customers. They are selling the fact that they can make you do something you did not intend to do, like buy a skateboard or buy karaoke machine, so they use that to sell it to for-profit corporations who make skateboards and karaoke machines.
+
+In order for them to do that, they need to be very very precise with their predictions, what exactly they can make you do and when. That requires immense amount of data, so they have to track every possible thing. For example when you are walking, your phone has an accelerometer that can see how is the phone oriented in space (x,y,z) so just by that they can see when you are walking to somebody, or when you are in the same mall with somebody, or are you in school? which people are in the same school because the basket you put your phones in is the same for all students in your class, etc. They must record every time you scroll a video, or you hesitate to scroll.
+
+Facebook makes about 30 euros per month for each user they are selling.
+
+Homework:
+
+* Why do you think whatsapp is free?
+* Why is google translate free?
+* Why is google maps free?
+* Why is google search free?
+* Why is fortnite free?
+* Why is youtube free?
+
