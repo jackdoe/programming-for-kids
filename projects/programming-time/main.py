@@ -1022,18 +1022,16 @@ print(c)
 """])
 
 
-SCALE = 1
-WIDTH = 1058 * SCALE
-HEIGHT = 671 * SCALE
+cards.sort(key=lambda x:x[0])
+
+WIDTH = 1058
+HEIGHT = 671
 COLS = 33
 ROWS = 28
 fnt = ImageFont.truetype('font.ttf', 35)
 
-bgcolor = (20, 20, 20, 255)
-fgcolor = (178, 0, 255, 0)
-#bgcolor = (255, 255, 255)
-#fgcolor = (0, 0, 0)
-
+fgcolor = (20, 20, 20, 255)
+bgcolor = (0 , 0, 0, 0)
 
 def chunks(lst, n):
     for i in range(0, len(lst), n):
@@ -1059,8 +1057,13 @@ def border(d, difficulty, data, id):
       lines.append('| '+code+'|')
     lines.append(bottom)
 
-    d.rectangle([0, 0, HEIGHT-1, WIDTH-1], outline=(0, 0, 0, 0))
-    d.multiline_text((45, 25),"\n".join(lines), font=fnt, fill=fgcolor)
+    help = (20, 20, 20, 20)
+    size = 2
+    d.rectangle([0, 0, size, size], fill=help)
+    d.rectangle([HEIGHT-size, WIDTH-size, HEIGHT, WIDTH], fill=help)
+    d.rectangle([0, WIDTH-size, size, WIDTH], fill=help)
+    d.rectangle([HEIGHT-size, 0, HEIGHT, size], fill=help)
+    d.multiline_text((45, 18),"\n".join(lines), font=fnt, fill=fgcolor)
 
 
 def back(id, difficulty, numbers):
