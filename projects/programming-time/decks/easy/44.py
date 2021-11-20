@@ -15,8 +15,8 @@
 # where 'a' points to, is equal
 # to the value where b points to
 # the computer (CPU) itself has an
-# instruction to compar two
-# integers
+# instruction to compare two
+# integers.
 
 a = 2
 b = 1
