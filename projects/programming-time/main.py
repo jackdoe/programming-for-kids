@@ -31,6 +31,11 @@ def border(d, data, id):
     lines.append(top)
 
     text = data.split('\n')
+    if text[len(text)-1] == "":
+        text.pop()
+    if len(text) > ROWS:
+        raise Exception(str(id) + "'s text has too many rows" + data)
+
     for i in range(ROWS):
         code = ''
         if i <= len(text) - 1:
@@ -118,6 +123,7 @@ for deck in ['easy', 'medium', 'hardcore']:
         for line in _out:
             possible.add(line)
             qa.append(str(i).zfill(3) + ": " + line)
+    
         front(deck, i, text)
 
     random.seed(time.time())

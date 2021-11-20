@@ -1,5 +1,4 @@
 # | computer memory |
-# |.................|
 # |....1 2..........|
 # |....^............|
 # '----+------------'
@@ -7,8 +6,8 @@
 # x ---+ 
 #
 # the variable x is stored some-
-# where in memory, its type (1 for
-# integer) and value (2)
+# where in memory, its type, 1 for
+# integer and value (2)
 
 x = 2
 
