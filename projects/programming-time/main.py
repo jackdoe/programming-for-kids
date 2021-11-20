@@ -98,6 +98,7 @@ for deck in ['easy', 'medium', 'hardcore']:
     except:
         pass
     files = os.listdir(os.path.join('decks', deck))
+    files.sort()
     print('printing', deck, 'deck, with', len(files), 'cards')
     seen = {}
     qa = []
