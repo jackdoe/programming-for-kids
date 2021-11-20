@@ -1,3 +1,8 @@
+# if the door is locked:
+#   knock
+# else:
+#   enter 
+
 if 1 == 2:
   print(3)
 else:

@@ -97,7 +97,7 @@ for deck in ['easy', 'medium', 'hardcore']:
         os.mkdir(images_path)
     except:
         pass
-    files = os.listdir(os.path.join('decks', deck))
+    files = [f for f in os.listdir(os.path.join('decks', deck)) if f.endswith(".py")]
     files.sort()
     print('printing', deck, 'deck, with', len(files), 'cards')
     seen = {}
