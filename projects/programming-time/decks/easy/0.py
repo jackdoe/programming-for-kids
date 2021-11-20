@@ -1,8 +1,5 @@
-cards = []
-cards.append("""
 # PROGRAMMING TIME
 # 
-#
 # Start with 1 card per
 # player, put the rest
 # face down (numbers 
@@ -24,7 +21,4 @@ cards.append("""
 # Player with most cards
 # wins.
 
-
 print(3)
-
-""")

@@ -1,3 +1,4 @@
+from subprocess import Popen, PIPE
 from io import StringIO
 import os
 import random
@@ -5,7 +6,6 @@ import sys
 from itertools import cycle
 from PIL import Image, ImageDraw, ImageFont
 import time
-import intro,easy,medium,hard
 
 HEIGHT = 1039
 WIDTH = 744
@@ -14,7 +14,8 @@ ROWS = 27
 fnt = ImageFont.truetype('font.ttf', 35)
 
 fgcolor = (20, 20, 20, 255)
-bgcolor = (0 , 0, 0, 0)
+bgcolor = (0, 0, 0, 0)
+
 
 def chunks(lst, n):
     for i in range(0, len(lst), n):
@@ -31,11 +32,11 @@ def border(d, data, id):
 
     text = data.split('\n')
     for i in range(ROWS):
-      code = ''
-      if i <= len(text) -1:
-        code = text[i]
-      code = code.ljust(COLS - 3, ' ')
-      lines.append('| '+code+'|')
+        code = ''
+        if i <= len(text) - 1:
+            code = text[i]
+        code = code.ljust(COLS - 3, ' ')
+        lines.append('| '+code+'|')
     lines.append(bottom)
 
     help = (20, 20, 20, 20)
@@ -44,7 +45,7 @@ def border(d, data, id):
     d.rectangle([WIDTH-size, HEIGHT-size, WIDTH, HEIGHT], fill=help)
     d.rectangle([0, HEIGHT-size, size, HEIGHT], fill=help)
     d.rectangle([WIDTH-size, 0, WIDTH, size], fill=help)
-    d.multiline_text((47, 24),"\n".join(lines), font=fnt, fill=fgcolor)
+    d.multiline_text((47, 24), "\n".join(lines), font=fnt, fill=fgcolor)
 
 
 def back(deck, id, numbers):
@@ -52,10 +53,10 @@ def back(deck, id, numbers):
     d = ImageDraw.Draw(img)
     lines = []
     for n in numbers:
-        lines.append(str(n).rjust(random.randint(0,COLS - 3), ' '))
+        lines.append(str(n).rjust(random.randint(0, COLS - 3), ' '))
 
     border(d, "\n".join(lines), 0)
-      
+
     img.save(os.path.join('images', deck, 'back_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
 
@@ -64,7 +65,7 @@ def front(deck, id, code):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
     d = ImageDraw.Draw(img)
     border(d, code, id)
-    img.save(os.path.join('images', deck,'front_card_' +
+    img.save(os.path.join('images', deck, 'front_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
 
 
@@ -81,58 +82,54 @@ def cheat(deck, answers, numbers):
     return i
 
 
-def run(code):
-    old_stdout = sys.stdout
-    redirected_output = sys.stdout = StringIO()
+def run(file):
+    process = Popen(["/usr/local/bin/python3", file], stdout=PIPE)
+    (output, err) = process.communicate()
+    exit_code = process.wait()
+    if exit_code != 0:
+        raise Exception(file + " exitted with " + str(exit_code))
+    return output
+
+
+for deck in ['easy', 'medium', 'hardcore']:
     try:
-        exec(code, globals())
-    except Exception as e:
-        old_stdout.write("error " + str(e) + ", code:" + code)
-        raise(e)
-
-    sys.stdout = old_stdout
-    return redirected_output.getvalue()
-
-
-
-
-
-for (deck, cards) in [['easy', [*intro.cards, *easy.cards]],['medium',[*intro.cards,*medium.cards]], ['hard',[*intro.cards,*hard.cards]]]:
-    path = os.path.join('images', deck)
-    try:
-        os.mkdir(path)
+        images_path = os.path.join('images', deck)
+        os.mkdir(images_path)
     except:
         pass
-    print('printing', deck, 'deck, with',len(cards),'cards')
+    files = os.listdir(os.path.join('decks', deck))
+    print('printing', deck, 'deck, with', len(files), 'cards')
     seen = {}
     qa = []
     possible = set()
-    for (_i, card) in enumerate(cards):
-        if card in seen:
-            raise Exception("ALREADY SEEN: " + card)
-        seen[card] = True
-        _out = run(card).strip().split("\n")
+    for (i, file) in enumerate(files):
+        fp = os.path.join("decks", deck, file)
+        f = open(fp, "r")
+        text = f.read()
+        f.close()
+        if text in seen:
+            raise Exception("ALREADY SEEN: " + text)
+        seen[text] = True
+        _out = run(fp).decode().strip().split("\n")
         if len(_out) == 0:
-            raise "NO OUTPUT: " + card
+            raise "NO OUTPUT: " + file
         for line in _out:
             possible.add(line)
-            qa.append(str(_i).zfill(3) + ": " + line)
+            qa.append(str(i).zfill(3) + ": " + line)
+        front(deck, i, text)
 
     random.seed(time.time())
     shuffled = list(possible)
     print('possible results', len(possible), 'rows', ROWS)
+    random.shuffle(shuffled)
 
-    for (i, card) in enumerate(cards):
-        random.shuffle(shuffled)
-        rotate = cycle(shuffled)
-        numbers = []
-        for x in range(ROWS):
-            numbers.append(next(rotate))
-        front(deck, i, card)
-        back(deck, i, numbers)
+    if len(shuffled) > ROWS:
+        raise Exception(str(len(shuffled)) + ">" + str(ROWS))
+    back(deck, 0, shuffled)
 
-    cheatsheet = cheat(deck, qa, numbers)
+    cheatsheet = cheat(deck, qa, shuffled)
 
     a1 = 55
-    print(deck, 'total number of cards:', cheatsheet + len(cards), 'cheatsheet:', cheatsheet, 'missing:', a1 -  (cheatsheet + len(cards)))
+    print(deck, 'total number of cards:', cheatsheet + len(files),
+          'cheatsheet:', cheatsheet, 'missing:', a1 - (cheatsheet + len(files)))
     print('*' * 40)
