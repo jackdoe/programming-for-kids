@@ -16,7 +16,7 @@ a = 0
 
 a = a + 1
 
-# same as a = a + 1
 a += 1
+# += is shortcut for a = a + 1
 
 print(a)
