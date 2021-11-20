@@ -1,12 +1,27 @@
-# -----------+
-# |          |
-# v          |
-#            |
-# print 7    | repeat
-#            | 4
-# |          | times
-# -----------+
-#    
+# | computer memory |
+# |                 |
+# |    0            |
+# |    |            |
+# '----+------------'
+#      | 
+# x ---+ 
+#
+# the variable x is stored some-
+# where in memory.
 
-for i in range(4):
-  print(7)
+x = 0
+
+# .--<-----<---<------<-.
+# v         #           |
+while True: #           ^
+  if x > 2: #           |
+    break   #--->-->----+. break
+            #           | \ out
+  x = x + 1 #           |  \ of
+            #           |   v
+  # >--->------->--->---'   ' the
+  # go back to the start   / loop
+  #                       /
+#<-----<------<------<---'
+
+print(x)

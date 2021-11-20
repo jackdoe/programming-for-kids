@@ -25,7 +25,7 @@ def chunks(lst, n):
 def border(d, data, id):
     lines = []
     bottom = '+-----------------------------------+'
-    top = '+--------------->' + str(id).zfill(3) + '<---------------+'
+    top = '.--------------->' + str(id).zfill(3) + '<---------------.'
     if id == 0:
         top = bottom
     lines.append(top)
@@ -37,6 +37,7 @@ def border(d, data, id):
             code = text[i]
         code = code.ljust(COLS - 3, ' ')
         lines.append('| '+code+'|')
+
     lines.append(bottom)
 
     help = (20, 20, 20, 20)
