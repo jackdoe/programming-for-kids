@@ -8,8 +8,8 @@
 #  a --+       |
 #  b ----------+
 #
-# What does it mean? for
-# a to be equal to b?
+# What does it mean for 'a' to be
+# equal to 'b'?
 #
 # It means the value in memory
 # where 'a' points to, is equal
