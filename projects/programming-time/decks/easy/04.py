@@ -1,6 +1,6 @@
 # | computer memory |
 # |.................|
-# |....2 104 105....|
+# |....2 2 104 105..|
 # |....^............|
 # +----+---+--------+
 #      |   
@@ -18,7 +18,7 @@
 # ...
 # we also store the length of the
 # string nearby, so print() knows
-# when to stop
+# when to stop, also its type (2)
 
 a = 'hi'
 print(a)
