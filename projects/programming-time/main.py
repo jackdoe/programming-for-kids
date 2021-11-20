@@ -24,10 +24,10 @@ def chunks(lst, n):
 
 def border(d, data, id):
     lines = []
-    bottom = '+-----------------------------------+'
-    top = '.--------------->' + str(id).zfill(3) + '<---------------.'
+    bottom = "'-----------------------------------'"
+    top = '.------------->  ' + str(id).zfill(3) + '  <-------------.'
     if id == 0:
-        top = bottom
+        top = '.-----------------------------------.'
     lines.append(top)
 
     text = data.split('\n')
