@@ -14,12 +14,37 @@ ROWS = 27
 fnt = ImageFont.truetype('font.ttf', 35)
 
 fgcolor = (20, 20, 20, 255)
+border_color = (0, 0, 0, 67)
 bgcolor = (0, 0, 0, 0)
 
 
 def chunks(lst, n):
     for i in range(0, len(lst), n):
         yield lst[i:i + n]
+
+def ignore_until_comment(line):
+    ignore = True
+    out = ''
+    for s in line:
+        if s == '#':
+            ignore = False
+        if not ignore:
+            out += s
+        else:
+            out += ' '
+    return out
+
+def ignore_the_comment(line):
+    in_comment = False
+    out = ''
+    for s in line:
+        if s == '#':
+            in_comment = True
+        if in_comment:
+            out += ' '
+        else:
+            out += s
+    return out
 
 
 def border(d, data, id):
@@ -28,7 +53,9 @@ def border(d, data, id):
     top = '.------------->  ' + str(id).zfill(3) + '  <-------------.'
     if id == 0:
         top = '.-----------------------------------.'
-    lines.append(top)
+    around = []
+    around.append(top)
+    lines.append('')
 
     text = data.split('\n')
     if text[len(text)-1] == "":
@@ -40,10 +67,15 @@ def border(d, data, id):
         code = ''
         if i <= len(text) - 1:
             code = text[i]
-        code = code.ljust(COLS - 3, ' ')
-        lines.append('| '+code+'|')
 
-    lines.append(bottom)
+        lines.append('  '+ignore_the_comment(code).ljust(COLS - 3, ' ')+' ')
+        comment = ''
+        if '#' in code:
+            comment = ignore_until_comment(code)
+
+        around.append('| ' + comment.ljust(COLS - 3, ' ') + '|')
+    lines.append('')
+    around.append(bottom)
 
     help = (20, 20, 20, 20)
     size = 2
@@ -51,8 +83,10 @@ def border(d, data, id):
     d.rectangle([WIDTH-size, HEIGHT-size, WIDTH, HEIGHT], fill=help)
     d.rectangle([0, HEIGHT-size, size, HEIGHT], fill=help)
     d.rectangle([WIDTH-size, 0, WIDTH, size], fill=help)
-    d.multiline_text((47, 24), "\n".join(lines), font=fnt, fill=fgcolor)
 
+
+    d.multiline_text((47, 24), "\n".join(lines), font=fnt, fill=fgcolor)
+    d.multiline_text((47, 24), "\n".join(around), font=fnt, fill=border_color)
 
 def back(deck, id, numbers):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
