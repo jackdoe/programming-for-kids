@@ -22,6 +22,6 @@ a = 2
 b = 6
 
 if a == b:
-  print(7)
+  print(a + b)
 else:
-  print(3)
+  print(a * b)

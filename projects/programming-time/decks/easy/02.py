@@ -4,12 +4,12 @@
 #   enter 
 
 if 1 == 2:
-  print(3)
+  print('hey')
 else:
   if 2 == 2:
-    print(4)
+    print('hi')
   else:
     if True:
-      print(6)
+      print('hoi')
     else:
-      print(5)
+      print('hola')

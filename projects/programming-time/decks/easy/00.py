@@ -1,7 +1,5 @@
 # PROGRAMMING TIME
 #
-# (EASY MODE)
-# 
 # Start with 1 card per player,
 # put the rest face down (numbers 
 # up).

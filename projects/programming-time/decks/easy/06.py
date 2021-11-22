@@ -21,7 +21,6 @@ a = '7'
 b = 7
 
 if a == b:
-  print(4)
+  print('seven')
 else:
-  print(3)
-
+  print(7)

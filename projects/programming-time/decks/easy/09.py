@@ -1,26 +1,26 @@
 # | computer memory    |
 # |....................|
-# |....1 0... 5 1......|
+# |....1 4... 5 1......|
 # |....^......^........|
-# '----+---+-----------'
-#      |   |
-# a ---+   |
-# b -------+
+# '----+------+--------'
+#      |      |
+# a ---+      |
+# b ----------+
 #
-# What is 'a == 0'? Well == means
-# compare, but what is the value
-# of it? In python if comparison's
-# value is True or False, so
-# 1 == 1 is True, and 1 == 0 is
-# False. True is usually stored
-# as 1 in the memory. False is 0.
-#
-# if True/False:
-#   ...
+# What is the value of 'a == 0'?
+# It is either True or False,
+# depending of the value of 'a',
+# 4 == 4 is True, and 4 == 3 is
+# False. True is stored as 1 in
+# the memory, False is 0. This is
+# called a boolean value, we also
+# need to store its type(5).
 
-a = 0
-b = a == 0
+a = 4
+b = a == 4
+
 if b:
-  a = 1
+  print('a is four')
+else:
+  print('a is not four')
 
-print(a)

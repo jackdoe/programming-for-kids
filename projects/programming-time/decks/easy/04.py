@@ -2,7 +2,7 @@
 # |.................|
 # |....2 2 104 105..|
 # |....^............|
-# +----+---+--------+
+# +----+------------+
 #      |   
 # a ---+   
 #
@@ -10,15 +10,15 @@
 # of characters, but computers
 # don't understand characters,
 # so people came up with common
-# way to them characters in memory
+# way to put characters in memory
 # we call it the ASCII standard:
 # a  -> 97
 # ...
 # h  -> 104
 # ...
 # we also store the length of the
-# string nearby, so print() knows
-# when to stop, also its type (2)
+# string and its type(2), so
+# print() knows when to stop.
 
 a = 'hi'
 print(a)
