@@ -12,7 +12,7 @@
 # (50 is for 2 and 51 is for 3..)
 # But when you compare string to
 # number in python, it will not
-# compare 49 to 1, it will just
+# compare 55 to 1, it will just
 # say 'string' is not the same
 # as number, so they cant be
 # equal.
