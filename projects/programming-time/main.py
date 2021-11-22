@@ -14,7 +14,7 @@ ROWS = 27
 fnt = ImageFont.truetype('font.ttf', 35)
 
 fgcolor = (20, 20, 20, 255)
-border_color = (0, 0, 0, 67)
+border_color = (0, 0, 0, 100)
 bgcolor = (0, 0, 0, 0)
 
 
