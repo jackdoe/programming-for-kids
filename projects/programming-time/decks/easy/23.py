@@ -1,5 +1,21 @@
-a = '7'
-b = '8'
-c = '9'
+# concatinate two strings
+# into a result
 
-print(a + b + c)
+def concat(a,b):
+  result = ''
+
+  for char in a:
+    result += char
+
+  for char in b:
+    result += char
+
+  return result
+
+x = 'he'
+y = 'llo'
+
+# or just r = x + y
+r = concat(x,y)
+
+print(r)
