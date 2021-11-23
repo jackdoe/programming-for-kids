@@ -9,7 +9,7 @@
 # the ascii of 0, which is 48,
 # so 51 - 48 = 3
 #
-# 3 * 100 + 2 * 10 + 8 * 1 = 328
+# 3*100 + 2*10 + 8*1 = 328
 
 def to_integer(s):
   out = 0
