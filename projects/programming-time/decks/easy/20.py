@@ -22,6 +22,6 @@ def equal(a,b):
 
 x = 'hi'
 y = 'hi'
-
+# or just use x == y
 if equal(x,y):
     print(x)

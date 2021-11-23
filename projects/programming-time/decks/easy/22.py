@@ -24,5 +24,5 @@ def to_integer(s):
   return out
 
 a = '328'
-
+# or just use int(a)
 print(to_integer(a))
