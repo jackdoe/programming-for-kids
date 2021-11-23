@@ -1,16 +1,16 @@
-# | computer memory |
-# |....1 2..........|
-# |....^............|
-# '----+------------'
-#      | 
-# x ---+ 
+# | computer memory      |
+# |......................| 0  - 20
+# |..1 3.................| 21 - 41
+# |..^...................| 84 -104
+# '--+-------------------'
+#    |
+# x -+ 
 #
 # the variable x is stored some-
-# where in memory, its type, 1 for
-# integer and value (2)
+# where in memory (addr 23), its
+# type, 1 for integer, and value 3
 
-x = 2
-
+x = 3
 # .--<-----<-----<----<-.
 # v         #           |
 while True: #           ^
