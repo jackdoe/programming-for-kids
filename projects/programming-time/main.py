@@ -60,7 +60,7 @@ def border(d, data, id):
     text = data.split('\n')
     if text[len(text)-1] == "":
         text.pop()
-    if len(text) > ROWS:
+    if len(text) > ROWS+1:
         raise Exception(str(id) + "'s text has too many rows" + data)
 
     for i in range(ROWS):
@@ -105,16 +105,18 @@ def back(deck, id, numbers):
              str(id).zfill(3)+'.jpg'))
 
 
-def front(deck, id, code):
+def front(deck, id, code,html):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
     d = ImageDraw.Draw(img)
     border(d, code, id)
     img.save(os.path.join('images', deck, 'front_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
-
-    img.save(os.path.join('images', deck, 'front_card_' +
-             str(id).zfill(3)+'.jpg'))
-
+    jpg = os.path.join('images', deck, 'front_card_' +
+             str(id).zfill(3)+'.jpg')
+    img.save(jpg)
+    html.write('<img width="25%" src="' + jpg + '">')
+    if int(id) % 4 == 0:
+        html.write('<br>')
 
 def cheat(deck, answers, numbers):
     i = 0
@@ -139,8 +141,9 @@ def run(file):
         raise Exception(file + " exitted with " + str(exit_code))
     return output
 
-
+random.seed(time.time())
 for deck in ['easy', 'medium', 'hardcore']:
+    html = open(deck + '.html','w')
     try:
         images_path = os.path.join('images', deck)
         os.mkdir(images_path)
@@ -166,10 +169,9 @@ for deck in ['easy', 'medium', 'hardcore']:
         for line in _out:
             possible.add(line)
             qa.append(str(i).zfill(3) + ": " + line)
-    
-        front(deck, i, text)
 
-    random.seed(time.time())
+        front(deck, i, text, html)
+
     shuffled = list(possible)
     print('possible results', len(possible), 'rows', ROWS)
     random.shuffle(shuffled)
@@ -184,3 +186,4 @@ for deck in ['easy', 'medium', 'hardcore']:
     print(deck, 'total number of cards:', cheatsheet + len(files),
           'cheatsheet:', cheatsheet, 'missing:', a1 - (cheatsheet + len(files)))
     print('*' * 40)
+    html.close()
