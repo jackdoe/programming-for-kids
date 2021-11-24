@@ -9,9 +9,9 @@ import time
 
 HEIGHT = 1039
 WIDTH = 744
-COLS = 37
-ROWS = 27
-fnt = ImageFont.truetype('font.ttf', 35)
+COLS = 39
+ROWS = 28
+fnt = ImageFont.truetype('font.ttf', 33)
 
 fgcolor = (20, 20, 20, 255)
 border_color = (0, 0, 0, 100)
@@ -49,10 +49,10 @@ def ignore_the_comment(line):
 
 def border(d, data, id):
     lines = []
-    bottom = "'-----------------------------------'"
-    top = '.------------->  ' + str(id).zfill(3) + '  <-------------.'
+    bottom = "'--------------------------------------'"
+    top = '.-------------->  ' + str(id).zfill(3) + '  <---------------.'
     if id == 0:
-        top = '.-----------------------------------.'
+        top = '.--------------------------------------.'
     around = []
     around.append(top)
     lines.append('')
@@ -73,20 +73,21 @@ def border(d, data, id):
         if '#' in code:
             comment = ignore_until_comment(code)
 
-        around.append('| ' + comment.ljust(COLS - 3, ' ') + '|')
+        around.append('| ' + comment.ljust(COLS - 3, ' ') + ' |')
+
     lines.append('')
     around.append(bottom)
 
-    help = (20, 20, 20, 20)
-    size = 2
-    d.rectangle([0, 0, size, size], fill=help)
-    d.rectangle([WIDTH-size, HEIGHT-size, WIDTH, HEIGHT], fill=help)
-    d.rectangle([0, HEIGHT-size, size, HEIGHT], fill=help)
-    d.rectangle([WIDTH-size, 0, WIDTH, size], fill=help)
+#    help = (20, 20, 20, 20)
+#    size = 2
+#    d.rectangle([0, 0, size, size], fill=help)
+#    d.rectangle([WIDTH-size, HEIGHT-size, WIDTH, HEIGHT], fill=help)
+#    d.rectangle([0, HEIGHT-size, size, HEIGHT], fill=help)
+#    d.rectangle([WIDTH-size, 0, WIDTH, size], fill=help)
 
 
-    d.multiline_text((47, 24), "\n".join(lines), font=fnt, fill=fgcolor)
-    d.multiline_text((47, 24), "\n".join(around), font=fnt, fill=border_color)
+    d.multiline_text((42, 38), "\n".join(lines), font=fnt, fill=fgcolor)
+    d.multiline_text((42, 38), "\n".join(around), font=fnt, fill=border_color)
 
 def back(deck, id, numbers):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
@@ -100,6 +101,9 @@ def back(deck, id, numbers):
     img.save(os.path.join('images', deck, 'back_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
 
+    img.save(os.path.join('images', deck, 'back_card_' +
+             str(id).zfill(3)+'.jpg'))
+
 
 def front(deck, id, code):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
@@ -107,6 +111,9 @@ def front(deck, id, code):
     border(d, code, id)
     img.save(os.path.join('images', deck, 'front_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
+
+    img.save(os.path.join('images', deck, 'front_card_' +
+             str(id).zfill(3)+'.jpg'))
 
 
 def cheat(deck, answers, numbers):
@@ -117,6 +124,8 @@ def cheat(deck, answers, numbers):
         border(d, "\n".join(a), 0)
         img.save(os.path.join(
             'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.tiff'), compression="tiff_lzw")
+        img.save(os.path.join(
+            'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.jpg'))
         i += 1
         back(deck, 0, numbers)
     return i
