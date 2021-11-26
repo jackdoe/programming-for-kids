@@ -1,6 +1,5 @@
-# int('2') makes the 
-# string 2 to the 
-# integer 2
+# int('1') makes the string 1
+# to the integer 1
 
 a = '1'
 b = 2

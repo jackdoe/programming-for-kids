@@ -1,4 +1,4 @@
-# PROGRAMMING TIME
+# PROGRAMMING TIME (1)
 #
 # Start with 1 card per player,
 # put the rest face down (numbers
@@ -9,10 +9,9 @@
 # for the output at the top most
 # card of the deck.
 #
-# First person to see their
-# output, takes  the card from
-# the deck and it becomes their
-# active card.
+# First person to see their output
+# takes the card from the deck and
+# it becomes their active  card.
 #
 # Player with most cards wins.
 
@@ -23,6 +22,5 @@
 #   3 -> range      |    0 -> 48
 #   4 -> list       |    9 -> 57
 #   5 -> boolean    |
-
 
 print(3)

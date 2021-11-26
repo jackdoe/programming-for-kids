@@ -4,6 +4,7 @@
 # loops.
 
 a = 5
+
 while True:
   if True:
     break
@@ -13,6 +14,7 @@ while True:
 for i in range(1000):
   if True:
     break
+
   a += 1  
 
 print(a)

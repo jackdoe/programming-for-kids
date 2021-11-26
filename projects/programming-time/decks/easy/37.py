@@ -1,5 +1,6 @@
 x = 0
-for i in range(len('a')):
+b = range(len('a'))
+for i in b:
   x += 11
 
 print(x)

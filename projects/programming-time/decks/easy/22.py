@@ -15,12 +15,15 @@ def to_integer(s):
   result = 0
   zero = ord('0')
   ten = len(s) - 1
+
   for char in s:
     digit = ord(char) - zero
     result += digit * (10 ** ten)
     ten -= 1
+
   return result
 
 a = '328'
+
 # or just use int(a)
 print(to_integer(a))
