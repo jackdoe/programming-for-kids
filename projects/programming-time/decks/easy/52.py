@@ -1,11 +1,25 @@
+# The area of rectangle
+# is its width times its height
+# for example:
+#  
+#        ######
+#    3   ######
+# height ######
+#          6
+#        width
+#
+# so the amout of area the rectangle
+# ocupies its 3 rows
+# 6 pieces each, so 6 + 6 + 6, or
+# 3 * 6
+
 def area(width, height):
   a = width * height
   return a
 
-rect_width = 2
+rect_width = 3
 rect_height = 6
 
 r = area(rect_width, rect_height)
 
 print(r)
-
