@@ -1,5 +1,21 @@
-a = []
-for i in range(3):
-    a.append(i)
+# Files are just collection of
+# bytes that are stored on disk
+# and you can open them by their
+# name.
 
-print(a[2])
+# to open a file use the builtin
+# function open()
+# with parameters of the filename
+# and do you want to read(r) or
+# write(w) in the file.
+
+file = open("hello.txt","w")
+file.write("hi")
+file.close()
+
+
+file = open("hello.txt","r")
+data = file.read()
+file.close()
+
+print(data)
