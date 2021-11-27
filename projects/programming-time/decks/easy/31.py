@@ -3,11 +3,11 @@
 # |.^....................| 22 - 43
 # '-+--------------------'
 #   | addr: 2
-# a +
+# a + (a = 'h')
 #
 # Strings are immutable in python,
 # which means they can't be changed.
-#
+
 # a = a + 'i'
 # | computer memory      |
 # |.2 1 105..............| 0  - 21
