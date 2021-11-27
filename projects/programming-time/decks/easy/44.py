@@ -16,6 +16,7 @@
 # list as 'b', a[0] will be the same
 # as b[0], which is the integer at
 # address 74, and its value is 4
+
 a = [1,2,3]
 b = a
 

@@ -17,3 +17,8 @@ not entirely true things:
   i think describing lists as basically
   array of pointers is handy so beginners
   start to think about how references are followed
+
+* ranges in cython are basically for (i=start;i<stop;i+=step)
+  but are differeint in other implementations
+  but i describe them as stateful variables, which
+  is not entirely correct, but not horribly wrong either
