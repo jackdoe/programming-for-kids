@@ -1,6 +1,5 @@
 # concatinate two strings
 # into a result
-
 def concat(a,b):
   result = ''
 

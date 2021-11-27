@@ -2,7 +2,7 @@
 # |......................| 0  - 21
 # |......................| 22 - 43
 # |......................| 44 - 65
-# |.2 1 230 136 166......| 66 - 87
+# |.2 1 194 174..........| 66 - 87
 # |.^....................| 88 -109
 # |.|....................| 110-131
 # '-+--------------------'
@@ -16,10 +16,10 @@
 # and we have the numbers and...
 # we quickly run out of space.
 # We store strings in UTF8 format.
-# For example 戦 actually takes 3
+# For example ® actually takes 2
 # bytes to be stored, but its length
 # is 1
 
-b = '戦'
+b = '®'
 
 print(len(b))
