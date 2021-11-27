@@ -6,7 +6,6 @@
 # pattern, to just have a list of
 # functions and call each one with
 # the message.
-
 observers = []
 
 def observerA(x):
@@ -26,4 +25,3 @@ observers.append(observerB)
 
 send(6)
 send(5)
-

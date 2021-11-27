@@ -7,8 +7,7 @@
 #
 # Strings are immutable in python,
 # which means they can't be changed.
-
-# a = a + 'i'
+#     (a = a + 'i')
 # | computer memory      |
 # |.2 1 105..............| 0  - 21
 # |.........2 2 105 106..| 22 - 43

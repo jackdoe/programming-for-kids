@@ -60,7 +60,7 @@ def border(d, data, id):
     text = data.split('\n')
     if text[len(text)-1] == "":
         text.pop()
-    if len(text) > ROWS+1:
+    if len(text) > ROWS:
         raise Exception(str(id) + "'s text has too many rows" + data)
 
     for i in range(ROWS):

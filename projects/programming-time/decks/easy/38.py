@@ -15,7 +15,6 @@
 # When you pass parameters to a
 # function, they are just like
 # normal variables
-
 def multiply(a,b):
   r = 0
   for i in range(a):

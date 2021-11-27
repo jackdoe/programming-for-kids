@@ -20,7 +20,6 @@ def to_integer(s):
     digit = ord(char) - zero
     result += digit * (10 ** ten)
     ten -= 1
-
   return result
 
 a = '328'

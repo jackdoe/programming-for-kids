@@ -14,7 +14,6 @@
 # x[length - 1] to get to the end
 # index, and then subtract 'i' from
 # it.
-
 def reverse(x):
   le = len(x)
   result = []
