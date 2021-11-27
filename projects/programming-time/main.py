@@ -89,7 +89,7 @@ def border(d, data, id):
     d.multiline_text((42, 38), "\n".join(lines), font=fnt, fill=fgcolor)
     d.multiline_text((42, 38), "\n".join(around), font=fnt, fill=border_color)
 
-def back(deck, id, numbers):
+def back(deck, id, numbers, html):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
     d = ImageDraw.Draw(img)
     lines = []
@@ -100,9 +100,10 @@ def back(deck, id, numbers):
 
     img.save(os.path.join('images', deck, 'back_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
-
-    img.save(os.path.join('images', deck, 'back_card_' +
-             str(id).zfill(3)+'.jpg'))
+    jpg = os.path.join('images', deck, 'back_card_' +
+             str(id).zfill(3)+'.jpg')
+    img.save(jpg)
+    html.write('<img width="25%" src="' + jpg + '">')
 
 
 def front(deck, id, code,html):
@@ -115,10 +116,10 @@ def front(deck, id, code,html):
              str(id).zfill(3)+'.jpg')
     img.save(jpg)
     html.write('<img width="25%" src="' + jpg + '">')
-    if int(id) % 4 == 0:
-        html.write('<br>')
+    if int(id+1) % 4 == 0:
+      html.write('<br>')
 
-def cheat(deck, answers, numbers):
+def cheat(deck, answers, numbers, html):
     i = 0
     for (n, a) in enumerate(list(chunks(answers, ROWS))):
         img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
@@ -126,10 +127,11 @@ def cheat(deck, answers, numbers):
         border(d, "\n".join(a), 0)
         img.save(os.path.join(
             'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.tiff'), compression="tiff_lzw")
-        img.save(os.path.join(
-            'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.jpg'))
+        jpg = os.path.join(
+            'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.jpg')
+        img.save(jpg)
         i += 1
-        back(deck, 0, numbers)
+        html.write('<img width="25%" src="' + jpg + '">')
     return i
 
 
@@ -178,9 +180,9 @@ for deck in ['easy', 'medium', 'hardcore']:
 
     if len(shuffled) > ROWS:
         raise Exception(str(len(shuffled)) + ">" + str(ROWS))
-    back(deck, 0, shuffled)
+    back(deck, 0, shuffled, html)
 
-    cheatsheet = cheat(deck, qa, shuffled)
+    cheatsheet = cheat(deck, qa, shuffled, html)
 
     a1 = 55
     print(deck, 'total number of cards:', cheatsheet + len(files),

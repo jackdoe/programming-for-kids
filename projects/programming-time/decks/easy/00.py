@@ -1,5 +1,5 @@
 # PROGRAMMING TIME (1)
-#
+# [DECK: BASICS OF BASICS]
 # Start with 1 card per player,
 # put the rest face down (numbers
 # up).
