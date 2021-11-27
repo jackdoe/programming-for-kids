@@ -26,3 +26,4 @@ observers.append(observerB)
 
 send(6)
 send(5)
+
