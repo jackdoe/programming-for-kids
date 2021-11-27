@@ -5,7 +5,11 @@
 # be unpacked in the variables x
 # and y
 
-points = [[0,1],[1,2],[3,2]]
+points = [
+  [0,1],
+  [1,2],
+  [3,2]
+]
 
 for x,y in points:
   if x == 3 and y == 2:

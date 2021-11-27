@@ -1,6 +1,22 @@
-x = 0
-b = range(len('a'))
-for i in b:
-  x += 11
+# we start subtracting 'b' from 'a'
+# until 'a' becomes smaller than 0
+# then we calculate the remainder
+def divide(a,b):
+  reminder = 0
+  multiple = 0
 
-print(x)
+  while a > 0:
+    a -= b
+    if a < 0:
+      # we need to calculate
+      # the remainder now,
+      # try it on paper with 4/3
+      reminder = b+a
+    else:
+      multiple += 1
+
+  return [multiple, reminder]
+
+# or simply r = 4 % 3
+m,r = divide(4,3)
+print(r)
