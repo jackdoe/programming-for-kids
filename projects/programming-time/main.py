@@ -51,7 +51,7 @@ def border(d, data, id):
     lines = []
     bottom = "'--------------------------------------'"
     top = '.-------------->  ' + str(id).zfill(3) + '  <---------------.'
-    if id == 0:
+    if id == -1:
         top = '.--------------------------------------.'
     around = []
     around.append(top)
@@ -96,7 +96,7 @@ def back(deck, id, numbers, html):
     for n in numbers:
         lines.append(str(n).rjust(random.randint(0, COLS - 3), ' '))
 
-    border(d, "\n".join(lines), 0)
+    border(d, "\n".join(lines), -1)
 
     img.save(os.path.join('images', deck, 'back_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
@@ -124,7 +124,7 @@ def cheat(deck, answers, numbers, html):
     for (n, a) in enumerate(list(chunks(answers, ROWS))):
         img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
         d = ImageDraw.Draw(img)
-        border(d, "\n".join(a), 0)
+        border(d, "\n".join(a), -1)
         img.save(os.path.join(
             'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.tiff'), compression="tiff_lzw")
         jpg = os.path.join(
