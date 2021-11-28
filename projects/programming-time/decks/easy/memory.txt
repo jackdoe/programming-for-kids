@@ -1,0 +1,102 @@
+BASICS OF BASICS - MEMORY
+ KIHON NO KIHON  - 
+    
+Imaigne your computer's memory is
+like a page with squares each square
+can contain a value between 0 and
+255.
+
+  | computer memory      |
+  |......................| 0  - 21
+  |......................| 22 - 43
+  |......................| 44 - 65
+  |......................| 65 - 87
+  |......................| 88 -109
+  '----------------------'
+
+
+You can go to each specific square
+by knowing its position, starting
+from top left 0, 1, 2, 3 etc
+
+This position is called 'address'.
+For example, putting 65 on address
+55 would look like this:
+
+  | computer memory      |
+  |......................| 0  - 21
+  |......................| 22 - 43
+  |..........65..........| 44 - 65
+  |......................| 65 - 87
+  |......................| 88 -109
+  '----------------------'
+
+One thing to note, is that the
+program itself is also in memory.
+
+
+  | computer memory      |
+  |......................| 0  - 21
+  |......................| 22 - 43
+  |..........65..........| 44 - 65
+  |......................| 65 - 87
+  |PPPPPPPPPPPP..........| 88 -109
+  '----------------------'
+
+There is no difference between code
+and data on the modern processors.
+
+Imagine the processor, when you
+power on the computer, it will fetch
+the memory at address 88 (on our toy
+coputer), and start executing the
+instructions, which can be things
+like 'add', 'multiply', 'compare'
+Each instruction has a number as the
+processor only knows numbers
+e.g. ADD=5, MULTIPLY=6, COMPARE=7.
+
+This is oversimplified model of
+how computers work. but it is good
+enough to give you intuition,
+about how functions and variables
+work.
+
+This memory is called RAM, or RANDOM
+ACCESS MEMORY, which means it is
+easy to go to specific address.
+
+This memory is wiped out when your
+computer is powered off. In contrast
+with the persistent storage, called
+Hard Disk, or just Disk, where you
+can save things and find them later
+after turning the computer on. The
+files you store your program in, are
+stored on the disk. When you start
+your program, the first thing it
+will happen is it will load the file
+from disk to memory, and start
+running the instructions from memory.
+
+The disk is much slower than RAM,
+it takes 100 nanoseconds to read
+from RAM, and 150,000 nanoseconds to
+read from modern hard disk.
+
+The term disk comes from the fact
+that years ago the hard disk was
+actually a disk, and a sensitive
+magnetic needle was moving to read
+the data. This is no longer the case,
+but the name disk remained.
+
+Many computer things are named after
+things from the past, and make no
+sense.  When you 'hangup' the phone,
+it used to mean to literally put the
+phone on a hook on the wall, not
+pressing the hangup button, so dont
+be too scared of those names, they
+are just names.
+            
