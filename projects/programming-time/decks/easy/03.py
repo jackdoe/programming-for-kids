@@ -5,21 +5,21 @@
 # |....|......|..........| 66 - 87
 # '----+------+----------'
 #      |      |
-# a ---+      |  a addr: 5
-# b ----------+  b addr: 12
+# x ---+      |  x addr: 5
+# y ----------+  y addr: 12
 #
-# a's value is stored somewhere
-# in computer's memory (RAM)
+# x's value is stored somewhere in
+# computer's memory (RAM), same as
+# y's value
 #
 # you can read and write the value
 # as many times as you want.
 #
+x = 3
+y = 6
 
-a = 3
-b = 6
+x = 2
+x = 4
+x = 2
 
-a = 2
-a = 4
-a = 2
-
-print(1 + a + b)
+print(1 + x + y)

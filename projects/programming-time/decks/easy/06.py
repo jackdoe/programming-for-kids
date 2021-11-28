@@ -5,8 +5,8 @@
 # |...|......^.,,........| 66 - 87
 # '---+------+-----------'
 #     |      |
-# a --+      |   a addr: 25
-# b ---------+   b addr: 54
+# x --+      |   x addr: 25
+# y ---------+   y addr: 54
 #
 # 49 is the ASCII for the number 1
 # (50 is for 2 and 51 is for 3..)
@@ -17,10 +17,10 @@
 # as number, so they cant be
 # equal.
 
-a = '7'
-b = 7
+x = '7'
+y = 7
 
-if a == b:
+if x == y:
   print('seven')
 else:
   print(7)

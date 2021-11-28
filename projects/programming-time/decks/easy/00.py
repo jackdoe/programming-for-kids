@@ -22,5 +22,7 @@
 #   3 -> range      |    0 -> 48
 #   4 -> list       |    9 -> 57
 #   5 -> boolean    |
+# license: CC BY 4.0
+# programmingtime@fastmail.com
 
 print(3)

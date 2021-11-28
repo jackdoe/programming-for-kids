@@ -4,7 +4,7 @@
 # |...|..................| 44 - 66
 # '---+------------------'
 #     |   
-# a --+ addr: 3
+# x --+ addr: 3
 #
 # strings are just a sequence
 # of characters, but computers
@@ -20,8 +20,8 @@
 # string and its type(2), so
 # print() knows when to stop.
 
-a = 'hi'
-print(a)
+x = 'hi'
+print(x)
 
 # this is not exactly the memory
 # layout in python, but its close

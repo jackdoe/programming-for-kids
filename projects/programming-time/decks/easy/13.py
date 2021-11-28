@@ -5,8 +5,8 @@
 # |....|.......^...........|
 # +----+-------+-----------+
 #      |       |
-# a ---+       |
-# b -----------+
+# x ---+       |
+# y -----------+
 #
 # 55 is the ASCII for the number 7
 # To compare two strings, first
@@ -14,10 +14,10 @@
 # if its the same, you compare
 # character by character.
 
-a = '7'
-b = '77'
+x = '7'
+y = '77'
 
-if a == b:
-  print(a)
+if x == y:
+  print(x)
 else:
-  print(b)
+  print(y)

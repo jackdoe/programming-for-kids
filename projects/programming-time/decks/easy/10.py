@@ -7,13 +7,14 @@
 # |.|......2 2 104 105...| 110-131
 # '-+--------------------'
 #   |
-# a-+  addr: 2
+# x-+  addr: 2
 #
-# lists are just ordered sequence
+# Lists are just ordered sequence
 # of items, each pointing to some
 # location in memory.
 
-a = [9,'hi',7]
+x = [9,'hi',7]
 
-# print the first element from 'a'
-print(a[0])
+# print the first element from the
+# list
+print(x[0])

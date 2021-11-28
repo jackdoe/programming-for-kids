@@ -4,23 +4,23 @@
 # |....^......^........|
 # '----+------+--------'
 #      |      |
-# a ---+      |
-# b ----------+
+# x ---+      |
+# y ----------+
 #
-# What is the value of 'a == 0'?
+# What is the value of 'x == 0'?
 # It is either True or False,
-# depending of the value of 'a',
+# depending of the value of x,
 # 4 == 4 is True, and 4 == 3 is
 # False. True is stored as 1 in
 # the memory, False is 0. This is
 # called a boolean value, we also
 # need to store its type(5).
 
-a = 4
-b = a == 4
+x = 4
+y = x == 4
 
-if b:
-  print('a is four')
+if y:
+  print('x is four')
 else:
-  print('a is not four')
+  print('x is not four')
 

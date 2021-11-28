@@ -5,23 +5,22 @@
 # |....^........|........| 66 - 87
 # '----+--------+--------'
 #      |        |
-#  a --+        |  a addr: 48
-#  b -----------+  b addr: 35
+#  x --+        |  y addr: 48
+#  y -----------+  x addr: 35
 #
-# What does it mean for 'a' to be
-# equal to 'b'?
+# What does it mean for x to be
+# equal to y?
 #
-# It means the value in memory
-# where 'a' points to, is equal
-# to the value where b points to
-# the computer (CPU) itself has an
-# instruction to compare two
-# integers.
+# It means the value in memory where
+# x points to, is equal to the value
+# where y points to. The computer
+# (CPU) itself has an instruction to
+# compare two integers.
 
-a = 2
-b = 6
+x = 2
+y = 6
 
-if a == b:
-  print(a + b)
+if x == y:
+  print(x + y)
 else:
-  print(a * b)
+  print(x * y)
