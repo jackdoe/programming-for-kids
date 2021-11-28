@@ -88,13 +88,14 @@ The term disk comes from the fact
 that years ago the hard disk was
 actually a disk, and a sensitive
 magnetic needle was moving to read
-the data. This is no longer the case,
-but the name disk remained.
+and write the data. This is no
+longer the case, but the name disk
+remained.
 
 Many computer things are named after
 things from the past, and make no
 sense.  When you 'hangup' the phone,
-it used to mean to literally put the
+it used to literally mean to put the
 phone on a hook on the wall, not
 pressing the hangup button, so dont
 be too scared of those names, they
