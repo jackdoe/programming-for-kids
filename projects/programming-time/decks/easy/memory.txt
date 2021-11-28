@@ -1,6 +1,6 @@
 BASICS OF BASICS - MEMORY
- KIHON NO KIHON  - 
-    
+ KIHON NO KIHON  - メモリ
+
 Imaigne your computer's memory is
 like a page with squares each square
 can contain a value between 0 and
