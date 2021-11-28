@@ -4,17 +4,17 @@
 # |..^.............^...........|
 # +--+-------------|-----------+
 #    |             |
-# x--+             |
-# b----------------+
+# x -+             |
+# y ---------------+
 #
-# x[0] gets the first character
-# of the string pointed by the
-# variable x
+# x[0] gets the first character of
+# the string pointed by the variable
+# x
 #
 # ord('a') returns the ASCII code
-# for a, which is 97
+# for the character a, which is 97
 
 x = 'hi'
-b = ord(x[0])
+y = ord(x[0])
 
-print(b)
+print(y)

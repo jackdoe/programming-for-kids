@@ -7,17 +7,17 @@
 # |..|........|.................|
 # '--+--------+-----------------'
 #    |        |
-# a -+        |
-# a ----------+
+# x -+        |
+# x ----------+
 #
-# The variable 'a' in hello()
-# is different than the 'a'
-# defined outside.
+# The variable x in hello() is
+# different than the x defined
+# outside.
 
 def hello():
-  a = 3
+  x = 3
 
-a = 6
+x = 6
 hello()
 
-print(a)
+print(x)

@@ -7,16 +7,16 @@
 # |..|..|...^...................|
 # '--+--+---+-------------------'
 #    |  |   |
-# a -+  |   |
-# b ----+   |
-# c --------+
+# x -+  |   |
+# y ----+   |
+# z --------+
 #
 # Adding two strings makes another
 # string. This is called:
 # concatinating strings.
     
-a = '1'
-b = '11'
-c = a + b
+x = '1'
+y = '11'
+z = x + y
 
-print(c)
+print(z)

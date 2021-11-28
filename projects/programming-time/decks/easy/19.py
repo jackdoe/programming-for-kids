@@ -4,7 +4,7 @@
 # |..^..........................|
 # '--+--------------------------'
 #    |
-# a -+
+# x -+
 #
 # The global keyword allows the
 # hello() function to access
@@ -12,10 +12,10 @@
 # outside.
 
 def hello():
-  global a
-  a = 3
+  global x
+  x = 3
 
-a = 6
+x = 6
 hello()
 
-print(a)
+print(x)
