@@ -1,3 +1,56 @@
+BASICS OF BASICS - BIT
+ KIHON NO KIHON  - ビット
+
+Everything in the computer is built
+on top of microscopic on/off
+switches, they can either be ON or
+OFF, 0 or 1. It has TRILOIONS of
+them.
+
+So, the minimum amount of
+information you can store, 0 or 1,
+we all that: a bit.
+
+We call a group of 8 bits: a byte.
+1024 bytes are a kilobyte,
+1024 kilobytes are a megabyte,
+1024 megabytes are a gigabyte,
+1024 gigabytes are a terabyte,
+1024 terabytes are a petabyte,
+....
+
+
+Your computer has maybe 16 gigabytes
+of memory, which is 17179869184
+bytes or 137438953472 bits of memory.
+
+It might seem like a lot, but think
+about a picture you take with your
+phone, it is usually 4032x3020
+pixels, a pixel is a dot, if you
+zoom in a lot you will be able to
+see all the dots. This dot can have
+16 million colors, combination of
+red green and blue, 1 byte for red 1
+byte green 1 byte blue. So this
+picture alone in its raw format can
+occupy 4032*3020*3 or 36529920 bytes
+or around 35 megabytes. Of course we
+use different compression methods to
+extract patterns of the pixels and
+store them with less bytes, and with
+compression those pictures are
+around 3 megabytes.
+            
+
+Its kind of strange to think about
+it like that, but probably the best
+way to learn it is to make a
+computer yourself, check out Ben
+Eater's 8 bit computer on youtube.
+    
+------------------------------------
+
 BASICS OF BASICS - MEMORY
  KIHON NO KIHON  - メモリ
 

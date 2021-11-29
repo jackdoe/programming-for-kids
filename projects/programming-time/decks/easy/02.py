@@ -3,7 +3,7 @@
 # else:
 #   enter 
 
-if 1 == 2:
+if 1 == 2 or 2 == 3:
   print('hey')
 else:
   if 2 == 2:

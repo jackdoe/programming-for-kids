@@ -10,11 +10,12 @@
 #
 # x's value is stored somewhere in
 # computer's memory (RAM), same as
-# y's value
+# y's value.
 #
-# you can read and write the value
-# as many times as you want.
-#
+# You can read and write the value
+# as many times as you want. It will
+# keep overwriting the memory at
+# address 5.
 x = 3
 y = 6
 

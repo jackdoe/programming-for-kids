@@ -17,6 +17,7 @@ def divide(a,b):
 
   return [multiple, reminder]
 
-# or simply r = 4 % 3
+# or simply reminder = 4 % 3
+#           multiple = int(4/3)
 m,r = divide(4,3)
 print(r)
