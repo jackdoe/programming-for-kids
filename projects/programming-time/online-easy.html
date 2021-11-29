@@ -3,11 +3,16 @@
 <head>
     <title>戦</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.min.js"></script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
     <style>
+        body,
+        pre,
+        textarea {
+            font-family: monospace;
+            font-size: 14px;
+            margin: 0;
+        }
+
         #players {
             display: flex;
             flex-wrap: wrap;
@@ -41,7 +46,6 @@
 
 <body>
     <div id='game-url'></div>
-    all possible answers:<br>
     <img src="images/easy/back_card_000.jpg" width="25%">
     <br>
     <br>
@@ -135,7 +139,7 @@ ${code}
         }
     })
 
-    document.getElementById('game-url').innerHTML += `<textarea style="color: white; background-color: black; border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${game_id}</textarea>`
+    document.getElementById('game-url').innerHTML += `game url:<br><textarea style="border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${game_id}</textarea>`
 
     let players = {}
     let connections = {}
