@@ -13,7 +13,7 @@
 #
 # Adding two strings makes another
 # string. This is called:
-# concatinating strings.
+# concatenating strings.
     
 x = '1'
 y = '11'

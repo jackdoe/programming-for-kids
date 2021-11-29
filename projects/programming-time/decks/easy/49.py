@@ -10,7 +10,7 @@
 # b----+   b addr: 92
 # UTF8:
 # it is a very simple format, the
-# first byte dicttes how long is
+# first byte dictates how long is
 # the sequence of bytes for one
 # character.
 # 

@@ -1,4 +1,4 @@
-# This is called 'destructuring'
+# This is called 'Destructuring'
 # when on the left side you have a
 # bunch of things and on the right
 # you have something that can be

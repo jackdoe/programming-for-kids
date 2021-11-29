@@ -1,6 +1,6 @@
 # To reverse a list you can make
 # a new list with the elements
-# inserted in the oposite order.
+# inserted in the opposite order.
 # 
 # length starts from 1, e.g.
 # a = [] has length of 0
