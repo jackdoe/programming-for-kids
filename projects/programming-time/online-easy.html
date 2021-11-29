@@ -236,7 +236,7 @@ ${code}
                                 answer: parsed.value,
                             }
                         } else {
-                            player.card = random.randint(0, 52)
+                            player.card = randint(0, 52)
                             player.score++
                             player.error = null
                         }
@@ -280,6 +280,7 @@ ${code}
             })
 
             document.getElementById('solve').addEventListener('click', e => {
+                console.log('sending',{ command: 'solve', value: document.getElementById('solve-value').value })
                 conn.send(JSON.stringify({ command: 'solve', value: document.getElementById('solve-value').value }))
             })
         }
