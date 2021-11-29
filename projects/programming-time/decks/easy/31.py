@@ -3,26 +3,26 @@
 # |.^....................| 22 - 43
 # '-+--------------------'
 #   | addr: 2
-# a + (a = 'h')
+# x + (x = 'h')
 #
 # Strings are immutable in python,
 # which means they can't be changed.
-#     (a = a + 'i')
-# | computer memory      |
 # |.2 1 105..............| 0  - 21
-# |.........2 2 105 106..| 22 - 43
-# '---------^------------'
-#           | addr: 31
-# a --------+
-#
-# New string will be created for
-# 'h' + 'i', and the variable 'a'
-# will point to it.
-# the old string will have nothing
-# pointing to it, and the garbage
-# collector will sweep it and mark
-# the memory as free again.
+# |...........2 105 111..| 22 - 43
+# |....2 2 105 111 106...| 44 - 65
+# '----^-----------------'
+#      | addr: 49
+# x ---+ (x = 'hoi')
+# Three strings will be created one
+# for 'h', 'ho' and 'hoi', in the
+# end the variable x will point to
+# the last one. The unused strings
+# will have nothing pointing to
+# them, and the garbage collector
+# will sweep them and mark the
+# memory as free again.
 
-a = 'h'
-a = a + 'i'
-print(a)
+x = 'h'
+x = x + 'o'
+x = x + 'i'
+print(x)
