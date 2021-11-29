@@ -182,6 +182,8 @@ ${code}
         document.body.innerHTML = 'connection lost, refresh the page'
         console.log('RECONNECT')
     }
+    let answerE = document.getElementById('solve-value')
+
 
     peer.on('open', function (id) {
         if (i_am_master) {
@@ -194,13 +196,15 @@ ${code}
             document.getElementById('pick').addEventListener('click', e => {
                 players[id].card = randint(0, 52)
                 players[id].error = null
+                answerE.value = ''
                 broadcast(players)
                 render(players)
             })
 
             document.getElementById('solve').addEventListener('click', async e => {
                 let player = players[id]
-                let answer = document.getElementById('solve-value').value
+                let answer = answerE.value
+                answerE.value = ''
                 let expected = await run(player.card)
                 if (String(expected) != String(answer)) {
                     player.error = {
@@ -276,11 +280,13 @@ ${code}
             conn.on('error', reconnect_screen)
 
             document.getElementById('pick').addEventListener('click', e => {
+                answerE.value = ''
                 conn.send(JSON.stringify({ command: 'pick' }))
             })
 
             document.getElementById('solve').addEventListener('click', e => {
-                conn.send(JSON.stringify({ command: 'solve', value: document.getElementById('solve-value').value }))
+                conn.send(JSON.stringify({ command: 'solve', value: answerE.value }))
+                answerE.value = ''
             })
         }
     })
