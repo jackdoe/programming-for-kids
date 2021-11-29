@@ -1,5 +1,6 @@
 # PROGRAMMING TIME (1)
-# [DECK: BASICS OF BASICS]
+#   DECK: BASICS OF BASICS
+#          KIHON NO KIHON
 #
 # Start with 1 card per player, put
 # the rest face down (code down).
@@ -22,5 +23,6 @@
 #   5 -> boolean    |
 # license: CC BY 4.0
 # programmingtime@fastmail.com
+# punkjazz.org/programming-time
 
 print(3)
