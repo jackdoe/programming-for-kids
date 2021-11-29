@@ -1,0 +1,288 @@
+<html>
+
+<head>
+    <title>戦</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-themelist.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+    <style>
+        #players {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+
+        .player {
+            border: 2px;
+            margin: 5px;
+            padding: 5px;
+            border-color: silver;
+            border-style: dashed;
+            width: 50ch;
+            flex: 1;
+        }
+
+
+        .self {
+            border-color: magenta;
+        }
+
+        #loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='game-url'></div>
+    all possible answers:<br>
+    <img src="images/easy/back_card_000.jpg" width="25%">
+    <br>
+    <br>
+    <input id='solve-value'>
+    <button id='solve'>solve</button><button id='pick'>pick another card</button>
+    <div id='players'>
+    </div>
+</body>
+
+<script>
+    const sleep = function (ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const uuid = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    const persistedID = () => {
+        let id = localStorage.getItem("id")
+        if (!id) {
+            id = uuid()
+            localStorage.setItem('id', id)
+        }
+        return id
+    }
+    const randint = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    let pyodide = undefined
+    loadPyodide({
+        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+    }).then(f => {
+        pyodide = f
+    }).catch(e => {
+        console.error(e)
+    })
+
+    let cache = {}
+    const download = async (id) => {
+        id = String(parseInt(id)).padStart(2, '0');
+        if (cache[id]) {
+            return cache[id]
+        }
+        let r = await fetch('decks/easy/' + id + '.py')
+        let code = await r.text()
+        cache[id] = code
+        return code
+    }
+
+    const run = async (id) => {
+        let code = await download(id)
+        let data = pyodide.runPython(`
+import sys
+import io
+sys.stdout = io.StringIO()
+${code}
+        `)
+        let stdout = pyodide.runPython("sys.stdout.getvalue()").replace('\n', '')
+
+        console.log('run data', stdout)
+        return stdout
+    }
+
+    let game_id = window.location.hash.substring(1)
+    let i_am_master = false
+    if (game_id.length < 3) {
+        game_id = persistedID()
+        window.location.replace("#" + game_id);
+        i_am_master = true
+    }
+
+    let id = persistedID()
+    if (!i_am_master) {
+        i_am_master = id == game_id
+    }
+
+    if (i_am_master) {
+        console.log('i am master')
+    }
+    const peer = new Peer(i_am_master ? game_id : id, {
+        debug: 1,
+        config: {
+            'iceServers': [
+                { url: 'stun:stun.l.google.com:19302' },
+            ]
+        }
+    })
+
+    document.getElementById('game-url').innerHTML += `<textarea style="color: white; background-color: black; border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${game_id}</textarea>`
+
+    let players = {}
+    let connections = {}
+    const broadcast = (data) => {
+        console.log('broadcasting', data)
+        for (c of Object.values(connections)) {
+            c.send(JSON.stringify(data))
+        }
+    }
+    const render = async (players) => {
+        let sorted = []
+        for (p in players) {
+            sorted.push(players[p])
+        }
+        sorted = sorted.sort((a, b) => {
+            if (a.id == id) return -1
+            if (b.id == id) return 1
+            return a.id.localeCompare(b.id)
+        })
+        console.log(sorted)
+        let game = document.createElement('div')
+        game.setAttribute('id', 'players')
+        for (p of sorted) {
+            let element = document.createElement('div')
+            element.classList.add('player')
+            let pre = document.createElement('pre')
+            let card = await download(p.card)
+            if (p.id == id) {
+                element.classList.add('self')
+            }
+            pre.innerHTML = JSON.stringify(p, null, 2) + '\n' + card
+
+            element.appendChild(pre)
+            game.appendChild(element)
+        }
+        document.body.replaceChild(game, document.getElementById('players'))
+    }
+
+    const reconnect_screen = () => {
+        console.log('RECONNECT')
+    }
+
+    peer.on('open', function (id) {
+        if (i_am_master) {
+            id = game_id
+            player = players[id] || { id: id, score: 0, card: randint(0, 52) }
+            players[id] = player
+            console.log('peer open', players)
+            render(players)
+            document.getElementById('pick').addEventListener('click', e => {
+                players[id].card = randint(0, 52)
+                players[id].error = null
+                broadcast(players)
+                render(players)
+            })
+
+            document.getElementById('solve').addEventListener('click', async e => {
+                let player = players[id]
+                let answer = document.getElementById('solve-value').value
+                let expected = await run(player.card)
+                if (String(expected) != String(answer)) {
+                    player.error = {
+                        message: 'wrong answer',
+                        answer: answer,
+                    }
+                } else {
+                    player.card = randint(0, 52)
+                    player.score++
+                    player.error = null
+                }
+                broadcast(players)
+                render(players)
+            })
+            peer.on('connection', (conn) => {
+                conn.on('open', () => {
+                    player = players[conn.peer] || { id: conn.peer, score: 0, card: randint(0, 52) }
+                    players[conn.peer] = player
+                    connections[conn.peer] = conn
+                    broadcast(players)
+                    render(players)
+                })
+                conn.on('data', async (data) => {
+                    let parsed = JSON.parse(data)
+                    player = players[conn.peer]
+                    if (parsed.command == 'pick') {
+                        player.card = randint(0, 52)
+                        player.error = null
+                    }
+                    if (parsed.command == 'solve') {
+                        let expected = await run(player.card)
+                        if (String(expected) != String(parsed.value)) {
+                            player.error = {
+                                message: 'wrong answer',
+                                answer: parsed.value,
+                            }
+                        } else {
+                            player.card = random.randint(0, 52)
+                            player.score++
+                            player.error = null
+                        }
+                    }
+                    broadcast(players)
+                    render(players)
+                })
+                conn.on('close', () => {
+                    delete (players[conn.id])
+                    delete (connections[conn.id])
+                    broadcast(players)
+                    render(players)
+                })
+                conn.on('error', () => {
+                    delete (players[conn.id])
+                    delete (connections[conn.id])
+                    broadcast(players)
+                    render(players)
+                })
+            })
+        } else {
+            let conn = peer.connect(game_id)
+            conn.on('open', () => {
+                console.log('connected to master')
+            })
+            conn.on('data', (data) => {
+                let parsed = JSON.parse(data)
+                if (parsed.error) {
+                    console.log(parsed)
+                } else {
+                    players = parsed
+                }
+                console.log('received', parsed)
+                render(players)
+            })
+            conn.on('close', reconnect_screen)
+            conn.on('error', reconnect_screen)
+
+            document.getElementById('pick').addEventListener('click', e => {
+                conn.send(JSON.stringify({ command: 'pick' }))
+            })
+
+            document.getElementById('solve').addEventListener('click', e => {
+                conn.send(JSON.stringify({ command: 'solve', value: document.getElementById('solve-value').value }))
+            })
+        }
+    })
+    peer.on('close', reconnect_screen)
+    peer.on('error', reconnect_screen)
+
+</script>
+
+</html>
