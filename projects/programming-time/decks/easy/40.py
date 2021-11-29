@@ -1,5 +1,5 @@
 # you can have multiline strings
-# in pythin with """ instead of "
+# in python with """ instead of "
 #
 # '\n' is the new line character.
 # so you can split by it.

@@ -1,4 +1,4 @@
-# concatinate two strings
+# concatenate two strings
 # into a result
 def concat(a,b):
   result = ''

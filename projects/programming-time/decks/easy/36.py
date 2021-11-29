@@ -1,6 +1,6 @@
-# Concatinate two lists into a new
+# Concatenate two lists into a new
 # list is very similar to
-# concatinating two strings.
+# concatenating two strings.
 #  * make a new list
 #  * append elements from listA
 #  * append elements from listB
@@ -8,7 +8,7 @@
 # just to append all elements from
 # listB into the back of listA
 # this however will change listA
-# and sometimes you dont want that.
+# and sometimes you don't want that.
 def concat(listA, listB):
   r = []
 

@@ -6,7 +6,7 @@
 #
 # same with string
 # s1 = 'hello'
-# s2 = s1[0:2] wlll make s2 be 'he'
+# s2 = s1[0:2] will make s2 be 'he'
 #
 # s1 = 'banana'
 # s2 = a[0:4:2]

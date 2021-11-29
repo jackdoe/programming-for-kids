@@ -8,8 +8,8 @@
 #          6
 #        width
 #
-# so the amout of area the rectangle
-# ocupies its 3 rows 6 pieces each,
+# so the amount of area the rectangle
+# occupies its 3 rows 6 pieces each,
 # so 6 + 6 + 6, or 3 * 6
 
 def area(width, height):
