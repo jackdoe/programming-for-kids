@@ -4,7 +4,7 @@
 # put the rest face down (numbers
 # up).
 #
-# Each player has to interpred the
+# Each player has to interpret the
 # code on their card, and look
 # for the output at the top most
 # card of the deck.

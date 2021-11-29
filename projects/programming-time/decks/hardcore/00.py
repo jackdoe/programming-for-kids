@@ -7,7 +7,7 @@
 # up).
 #
 # Each player has to
-# interpred the code on
+# interpret the code on
 # their card, and look
 # for the output at
 # the top most card of
