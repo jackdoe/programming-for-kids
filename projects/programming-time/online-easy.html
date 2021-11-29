@@ -79,14 +79,6 @@
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
-    let pyodide = undefined
-    loadPyodide({
-        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
-    }).then(f => {
-        pyodide = f
-    }).catch(e => {
-        console.error(e)
-    })
 
     let cache = {}
     const download = async (id) => {
@@ -127,7 +119,15 @@ ${code}
         i_am_master = id == game_id
     }
 
+    let pyodide = undefined
     if (i_am_master) {
+        loadPyodide({
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+        }).then(f => {
+            pyodide = f
+        }).catch(e => {
+            console.error(e)
+        })
         console.log('i am master')
     }
     const peer = new Peer(i_am_master ? game_id : id, {
@@ -179,11 +179,13 @@ ${code}
     }
 
     const reconnect_screen = () => {
+        document.body.innerHTML = 'connection lost, refresh the page'
         console.log('RECONNECT')
     }
 
     peer.on('open', function (id) {
         if (i_am_master) {
+            let changed = false
             id = game_id
             player = players[id] || { id: id, score: 0, card: randint(0, 52) }
             players[id] = player
@@ -245,16 +247,14 @@ ${code}
                     render(players)
                 })
                 conn.on('close', () => {
-                    delete (players[conn.id])
-                    delete (connections[conn.id])
+                    console.log('closing',conn.peer)
+                    delete (players[conn.peer])
+                    delete (connections[conn.peer])
                     broadcast(players)
                     render(players)
                 })
                 conn.on('error', () => {
-                    delete (players[conn.id])
-                    delete (connections[conn.id])
-                    broadcast(players)
-                    render(players)
+                    conn.close()
                 })
             })
         } else {
@@ -280,7 +280,6 @@ ${code}
             })
 
             document.getElementById('solve').addEventListener('click', e => {
-                console.log('sending',{ command: 'solve', value: document.getElementById('solve-value').value })
                 conn.send(JSON.stringify({ command: 'solve', value: document.getElementById('solve-value').value }))
             })
         }
