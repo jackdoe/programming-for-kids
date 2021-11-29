@@ -12,7 +12,7 @@
 # deck. You can check if the output
 # is correct on the joker cards.
 #
-# Player with most cards wins.
+# The player with most cards wins.
 
 # Cheat Sheet:
 #   Value Type      |    ASCII
