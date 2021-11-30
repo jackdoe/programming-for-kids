@@ -7,8 +7,8 @@
 # crocodile: ..,---*<  so < is its
 # mouth, so you can see which number
 # the crocodile will eat
-#   5 ..,---*< 3
-#   5 >*---,.. 3
+# 3 ..,---*< 5 (3 is smaller than 5)
+# 5 >*---,.. 3 (5 is bigger than 3)
 # remember: the crocodile always
 # eats the bigger number.
 
