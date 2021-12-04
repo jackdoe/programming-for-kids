@@ -9,8 +9,8 @@
 # code on their card, and say the
 # output, if the output is correct,
 # pick the top most card from the
-# deck. You can check if the output
-# is correct on the joker cards.
+# deck. Wherever you see [@] you
+# must use a dice to get the value.
 #
 # The player with most cards wins.
 
