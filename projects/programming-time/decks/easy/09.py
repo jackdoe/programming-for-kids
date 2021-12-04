@@ -16,7 +16,7 @@
 # called a boolean value, we also
 # need to store its type(5).
 
-x = 4
+x = 4 # [@]
 y = x == 4
 
 if y:

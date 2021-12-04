@@ -21,7 +21,7 @@ def multiply(a,b):
     r += b
   return r
 
-x = 3
+x = 3 # [@]
 # or simply result = 4 * 3
 result = multiply(4,x)
 

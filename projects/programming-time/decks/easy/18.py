@@ -17,7 +17,7 @@
 def hello():
   x = 3
 
-x = 6
+x = 6 # [@]
 hello()
 
 print(x)

@@ -10,11 +10,11 @@
 # where in memory (addr 24), its
 # type, 1 for integer, and value 3
 
-x = 3
+x = 3 # [@]
 # .--<-----<-----<----<-.
 # v         #           |
 while True: #           ^
-  if x > 4: #           |
+  if x > 4: # [@]       |
     break   #--->-->----+. break
             #           | \ out
   x = x + 1 #           |  \ of

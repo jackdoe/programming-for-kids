@@ -12,5 +12,8 @@ multiline
 string
 """
 
+if 0 == 0: # [@] == [@]
+  a += '\n\nhello\n'
+
 lines = a.split('\n')
 print(len(lines))

@@ -14,7 +14,7 @@
 # ord('a') returns the ASCII code
 # for the character a, which is 97
 
-x = 'hi'
+x = 'hi' # [a][a]
 y = ord(x[0])
 
 print(y)

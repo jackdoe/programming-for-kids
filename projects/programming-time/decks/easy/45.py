@@ -23,5 +23,5 @@ def send(v):
 observers.append(observerA)
 observers.append(observerB)
 
-send(6)
-send(5)
+send(6) # [@]
+send(5) # [@]

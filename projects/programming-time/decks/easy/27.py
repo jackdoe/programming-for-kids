@@ -11,4 +11,4 @@
 # 11 / 4 is 2
 # and 3 remainder, so 11 % 4 is 3
 
-print(99 % 10)
+print(99 % 10) # [@] % [@]

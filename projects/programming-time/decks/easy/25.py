@@ -18,8 +18,8 @@
 # not equal to integer, even though
 # the ASCII for '7' is 55
 
-x = '7'
-y = 55
+x = '7' # [1]
+y = 55  # 10*[@]
 
 if x == y:
   print('fifty five')

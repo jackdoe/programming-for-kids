@@ -22,7 +22,7 @@ def to_integer(s):
     ten -= 1
   return result
 
-a = '328'
+a = '328' # [1][1][1]
 
 # or just use int(a)
 print(to_integer(a))

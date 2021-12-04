@@ -20,5 +20,5 @@
 #  > 192  2 bytes sequence
 #  < 128  1 byte (ASCII fits here)
 
-b = '®'
+b = '®' # [a]
 print(len(b))

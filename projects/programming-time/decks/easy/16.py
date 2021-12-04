@@ -16,6 +16,6 @@
 # and return the length stored next
 # to it(1).
 
-x = 'b'
+x = 'b' # [a]
 
 print(len(x))

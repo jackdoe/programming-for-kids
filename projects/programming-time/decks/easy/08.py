@@ -12,11 +12,11 @@
 # add 1 to it, and store it back to
 # x's location in memory
 
-x = 0
+x = 0 # [@]
 
 x = x + 1
 
 # += is shortcut for x = x + 1
-x += 1
+x += 1 # [@]
 
 print(x)

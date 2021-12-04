@@ -12,8 +12,8 @@ def contains(haystack, needle):
 
   return false
 
-a = [7,2,5,8]
-b = 5
+a = [1,2,3,4,5,6]
+b = 5 # [@]
 
 # or just use 'if b in a' 
 if contains(a, b):

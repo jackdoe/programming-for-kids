@@ -6,7 +6,7 @@
 if 1 == 2 or 2 == 3:
   print('hey')
 else:
-  if 2 == 2:
+  if 2 == 2: # [@] == [@]
     print('hi')
   else:
     if True:

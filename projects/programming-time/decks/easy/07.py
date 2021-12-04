@@ -17,8 +17,8 @@
 # (CPU) itself has an instruction to
 # compare two integers.
 
-x = 2
-y = 6
+x = 2 # [@]
+y = 6 # [@]
 
 if x == y:
   print(x + y)

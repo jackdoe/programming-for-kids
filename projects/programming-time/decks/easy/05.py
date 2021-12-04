@@ -18,9 +18,9 @@
 # it stops before reaching the
 # end so it will stop at 2.
 
-sum = 0
+sum = 0 # [@]
 n = range(0, 3, 1)
 for i in n:
-  sum += 0
+  sum += i
   
 print(sum)

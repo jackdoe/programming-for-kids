@@ -24,5 +24,5 @@ def get(k):
                   # million records
 set('hello', 5)   # inserted in
 set('world', 5)   # another chain
-set('hoi',6)
+set('hoi',6) # [@]
 print(get('hoi'))

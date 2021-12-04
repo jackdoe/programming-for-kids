@@ -8,7 +8,7 @@
 # 'a' will become [1,2]
 # and 'b' will be 3
 #
-a = [7,2,5,9]
+a = [7,2,5,9] # [@],[@],[@],[@]
 
 b = a.pop()
 c = a.pop()

@@ -20,7 +20,7 @@ def concat(listA, listB):
 
   return r
 
-a = [1,2]
+a = [1,2] # [@],[@],[@]
 b = [3,4]
 
 c = concat(a,b)

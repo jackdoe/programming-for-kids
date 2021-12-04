@@ -17,8 +17,8 @@
 # string. This is called:
 # concatenating strings.
     
-x = '1'
-y = '11'
+x = '1' # [1]
+y = '11' # [1]
 z = x + y
 w = z
 print(w)
