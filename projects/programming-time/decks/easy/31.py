@@ -22,7 +22,7 @@
 # will sweep them and mark the
 # memory as free again.
 
-x = 'h' # [a]
+x = 'h' # [@]
 x = x + 'o'
 x = x + 'i'
 print(x)

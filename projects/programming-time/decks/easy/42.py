@@ -13,7 +13,7 @@ game = [
 # incomplete, checks only middle
 # vertical, but you get the idea
 def win(g, symbol):
-  if g[1] == symbol:
+  if g[@] == symbol:
     if g[4] == symbol:
       if g[7] == symbol:
         return True

@@ -7,5 +7,5 @@
 
 dice symbol:
   number:      [@] -> 1..6
-  char:        [a] -> chr(96+[@]) -> 'a'..'f'
-  numeric char [1] -> chr(47+[@]) -> '0'..'5'
+  char:        [@] -> chr(96+[#]) -> 'a'..'f'
+  numeric char [@] -> chr(47+[#]) -> '0'..'5'

@@ -20,6 +20,6 @@
 # bytes to be stored, but its length
 # is 1
 
-b = '®' # [a]
+b = '®' # [@]
 
 print(len(b))

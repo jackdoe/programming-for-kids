@@ -17,7 +17,7 @@
 # as number, so they cant be
 # equal.
 
-x = '7' # [1]
+x = '7' # [@]
 y = 7 # [@]
 
 if x == y:

@@ -13,7 +13,7 @@
 # of items, each pointing to some
 # location in memory.
 
-x = [9,'hi',7] # [@],[a],[@]
+x = [9,'hi',7] # [@],[@],[@]
 
 # print the first element from the
 # list

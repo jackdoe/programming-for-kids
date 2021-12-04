@@ -14,8 +14,8 @@
 # if its the same, you compare
 # character by character.
 
-x = '7' # [1]
-y = '77' # [1]
+x = '7' # [@]
+y = '77' # [@]
 
 if x == y:
   print(x)

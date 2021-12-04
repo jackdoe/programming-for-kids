@@ -20,7 +20,7 @@
 # string and its type(2), so
 # print() knows when to stop.
 
-x = 'hi' # [a]
+x = 'hi' # [@]
 print(x)
 
 # this is not exactly the memory

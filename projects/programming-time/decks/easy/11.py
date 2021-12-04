@@ -17,7 +17,7 @@
 # len() returns the length of a
 # string.
 
-x = 'he' # [a] + [a]
-y = 'llo' # [a] + [a]
+x = 'he' # [@] + [@]
+y = 'llo' # [@] + [@]
 
 print(len(x) + len(y))

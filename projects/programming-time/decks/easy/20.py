@@ -21,8 +21,8 @@ def equal(a,b):
 
   return True
 
-x = 'hi' # [a][a]
-y = 'hi' # [a][a]
+x = 'hi' # [@][@]
+y = 'hi' # [@][@]
 # or just use x == y
 if equal(x,y):
     print(x)

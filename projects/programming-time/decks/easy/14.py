@@ -19,7 +19,7 @@
 #  e -> 101
 #  ...
 
-x = 'hel' # [a]
-y = 'lo' # [a]
+x = 'hel' # [@]
+y = 'lo' # [@]
 z = x + y
 print(z)

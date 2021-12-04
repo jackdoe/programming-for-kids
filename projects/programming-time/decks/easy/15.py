@@ -18,7 +18,7 @@
 # use chr(y) to go from ASCII code
 # to character.
 
-x = '7' # [1]
+x = '7' # [@]
 y = 55  # [@]
 
 if x == y:

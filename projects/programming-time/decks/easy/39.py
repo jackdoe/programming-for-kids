@@ -19,6 +19,6 @@ def split(str, sep):
     
 text = "hello 7 8 9"
 # or just splitted = text.split(" ")
-splitted = split(text, " ") # [a]
+splitted = split(text, " ") # [@]
 
 print(splitted[2])

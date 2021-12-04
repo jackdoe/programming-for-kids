@@ -9,7 +9,7 @@
 # is the same as
 #  data = [1,2]
 #  a = data[0]
-#  b = data[1]
+#  b = data[@]
 #
 # it is quite handy to unpack lists
 # like that

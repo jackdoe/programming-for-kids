@@ -17,7 +17,7 @@
 # write(w)
 
 file = open("hello.txt","w")
-file.write("hi") # [a][a]
+file.write("hi") # [@][@]
 file.close()
 
 file = open("hello.txt","r")
