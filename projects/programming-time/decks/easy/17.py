@@ -10,6 +10,8 @@
 # x -+  |   |
 # y ----+   |
 # z --------+
+# w --------+ w and z point to same
+#             place in memory
 #
 # Adding two strings makes another
 # string. This is called:
@@ -18,5 +20,5 @@
 x = '1'
 y = '11'
 z = x + y
-
-print(z)
+w = z
+print(w)

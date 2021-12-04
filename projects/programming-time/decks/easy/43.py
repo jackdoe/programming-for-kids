@@ -2,9 +2,9 @@
 #   == means 'is equal'
 #   > means 'greater than'
 #   < means 'less than'
-# some people get confused by < and >
-# but its quite easy, imagine a
-# crocodile: ..,---*<  so < is its
+# people get confused by < and > but
+# its quite easy, imagine a
+# crocodile: ..,---*< so < is its
 # mouth, so you can see which number
 # the crocodile will eat
 # 3 ..,---*< 5 (3 is smaller than 5)

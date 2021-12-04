@@ -46,10 +46,7 @@
 
 <body>
     <div id='game-url'></div>
-    <img src="images/easy/back_card_000.jpg" width="25%">
-    <br>
-    <br>
-    <input id='solve-value'>
+    <input id='solve-value' autocomplete="off">
     <button id='solve'>solve</button><button id='pick'>pick another card</button>
     <div id='players'>
     </div>
@@ -170,7 +167,7 @@ ${code}
             if (p.id == id) {
                 element.classList.add('self')
             }
-            pre.innerHTML = JSON.stringify(p, null, 2) + '\n' + card
+            pre.innerHTML = ((p.id == id) ? '[YOUR CARD]\n' : '') + JSON.stringify(p, null, 2) + '\n' + card
 
             element.appendChild(pre)
             game.appendChild(element)
