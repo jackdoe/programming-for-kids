@@ -19,7 +19,7 @@ def get(k):
   chain = table[hash(k)]
   for e in chain: # only search the
     if e[0] == k: # chain we need
-      return e[@] # doesn't matter
+      return e[1] # doesn't matter
   return None     # if we have
                   # million records
 set('hello', 5)   # inserted in
