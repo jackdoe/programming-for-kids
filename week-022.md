@@ -21,15 +21,16 @@ colorB = textinput('pencolor b',"what is your name?:")
 
 size = 0
 while True:
-	b.pencolor(colorB)
-	b.forward(size*3)
-	b.left(91)
+    b.pencolor(colorB)
+    b.forward(size*3)
+    b.left(91)
 
-	a.pencolor(colorA)
-	a.forward(size*10)
-	a.circle(size, 360)
-	a.left(500)
-	size += 1
+    a.pencolor(colorA)
+    a.forward(size*10)
+    a.circle(size, 360)
+    a.left(500)
+
+    size += 1
 ```
 
 More circles
@@ -40,14 +41,15 @@ More circles
 import turtle as t
 t.bgcolor('black')
 t.hideturtle()
-size = -800
+size = -300
 t.speed(0)
 while True:
-	if size %2 == 0:
-		t.pencolor('cyan')
-	else:
-		t.pencolor('magenta')
-		
-	t.circle(size*3)
-	size += 1
+    if size % 2 == 0:
+        t.pencolor('cyan')
+    else:
+        t.pencolor('magenta')
+
+    t.circle(size*3)
+    size += 1
+
 ```
