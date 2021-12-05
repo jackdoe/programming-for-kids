@@ -13,12 +13,13 @@ colorB = textinput('pencolor b',"what is your name?:")
 
 size = 0
 while True:
-	b.pencolor(colorB)
-	b.forward(size*3)
-	b.left(91)
+    b.pencolor(colorB)
+    b.forward(size*3)
+    b.left(91)
 
-	a.pencolor(colorA)
-	a.forward(size*10)
-	a.circle(size, 360)
-	a.left(500)
-	size += 1
+    a.pencolor(colorA)
+    a.forward(size*10)
+    a.circle(size, 360)
+    a.left(500)
+
+    size += 1
