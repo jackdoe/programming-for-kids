@@ -11,4 +11,3 @@ while True:
 
     t.circle(size*3)
     size += 1
-

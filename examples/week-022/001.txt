@@ -1,5 +1,7 @@
 from turtle import *
+
 bgcolor('black')
+
 a = Turtle()
 a.speed(0)
 a.hideturtle()

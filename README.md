@@ -12568,7 +12568,9 @@ Circles And Squares.
 
 ```
 from turtle import *
+
 bgcolor('black')
+
 a = Turtle()
 a.speed(0)
 a.hideturtle()
@@ -12612,5 +12614,4 @@ while True:
 
     t.circle(size*3)
     size += 1
-
 ```
