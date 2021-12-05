@@ -1,0 +1,24 @@
+from turtle import *
+bgcolor('black')
+a = Turtle()
+a.speed(0)
+a.hideturtle()
+
+b = Turtle()
+b.speed(0)
+b.hideturtle()
+
+colorA = textinput('pencolor a',"what is your name?:")
+colorB = textinput('pencolor b',"what is your name?:")
+
+size = 0
+while True:
+	b.pencolor(colorB)
+	b.forward(size*3)
+	b.left(91)
+
+	a.pencolor(colorA)
+	a.forward(size*10)
+	a.circle(size, 360)
+	a.left(500)
+	size += 1

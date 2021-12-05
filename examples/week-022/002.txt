@@ -1,0 +1,13 @@
+import turtle as t
+t.bgcolor('black')
+t.hideturtle()
+size = -800
+t.speed(0)
+while True:
+	if size %2 == 0:
+		t.pencolor('cyan')
+	else:
+		t.pencolor('magenta')
+		
+	t.circle(size*3)
+	size += 1

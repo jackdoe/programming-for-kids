@@ -500,6 +500,11 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-148 money](#day-148-money)
 
 [day-149 creators, consumers and ideas](#day-149-creators-consumers-and-ideas)
+## week - 022
+
+
+
+[day-150 while; classes](#day-150-while-classes)
 
 ## [DAY-0] The Computer
 
@@ -12554,3 +12559,56 @@ If you want to make your idea not fail, you have to put in the effort, work with
 It is unprecedented, how few people are needed for an idea to come to life, sometimes only 1 person, a good developer, or designer is enough to completely make the MVP. A lot of that is because in the last 50 years we have dramatically improved the programming languages and tools. From assembler to python, from paint to photoshop, the productivity of a single person now is like an army of people in 1991.
 
 A single person can change the world, most of the people however wont even try. 95% of the content in the internet is made by 5% of the people. 95% of the games in roblox is made by 5% of the players. The 5% is where all the fun is, I promise you, its like a rollercoaster.
+
+## [DAY-150] While; Classes
+
+Circles And Squares.
+
+![game-150.png](./screenshots/game-150.png "game 150 screenshot")
+
+```
+from turtle import *
+bgcolor('black')
+a = Turtle()
+a.speed(0)
+a.hideturtle()
+
+b = Turtle()
+b.speed(0)
+b.hideturtle()
+
+colorA = textinput('pencolor a',"what is your name?:")
+colorB = textinput('pencolor b',"what is your name?:")
+
+size = 0
+while True:
+	b.pencolor(colorB)
+	b.forward(size*3)
+	b.left(91)
+
+	a.pencolor(colorA)
+	a.forward(size*10)
+	a.circle(size, 360)
+	a.left(500)
+	size += 1
+```
+
+More circles
+
+![game-150-a.png](./screenshots/game-150-a.png "game 150-a screenshot")
+
+```
+import turtle as t
+t.bgcolor('black')
+t.hideturtle()
+size = -800
+t.speed(0)
+while True:
+	if size %2 == 0:
+		t.pencolor('cyan')
+	else:
+		t.pencolor('magenta')
+		
+	t.circle(size*3)
+	size += 1
+```
