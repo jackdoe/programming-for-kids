@@ -12,8 +12,8 @@
 # remember: the crocodile always
 # eats the bigger number.
 
-x = 0 # [@]
-y = 1 # [@]
+x = ⚂
+y = ⚂
 
 a = x == y
 b = x > y

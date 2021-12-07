@@ -23,6 +23,6 @@
 #     if n > 18:
 #       print(n)
 #     n += 1
-for i in range(20): # [@][@][@]
+for i in range(20):
   if i > 18:
     print(i)

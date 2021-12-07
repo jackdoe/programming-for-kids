@@ -1,6 +1,6 @@
 # | computer memory             |
 # |.............................|
-# |..1 6........................|
+# |..1 ⚂........................|
 # |..^..........................|
 # '--+--------------------------'
 #    |
@@ -10,12 +10,15 @@
 # hello() function to access
 # the same variable as defined
 # outside.
+# So after the function runs, the
+# value will change, because x is
+# global.
 
 def hello():
   global x
   x = 3
 
-x = 6 # [@]
+x = ⚂
 hello()
 
 print(x)

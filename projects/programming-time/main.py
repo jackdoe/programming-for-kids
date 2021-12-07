@@ -10,8 +10,8 @@ import time
 HEIGHT = 1039
 WIDTH = 744
 COLS = 39
-ROWS = 28
-fnt = ImageFont.truetype('font.ttf', 33)
+ROWS = 31
+fnt = ImageFont.truetype('dejavu-sans-mono.book.ttf', 28)
 
 fgcolor = (20, 20, 20, 255)
 border_color = (0, 0, 0, 100)
@@ -86,8 +86,8 @@ def border(d, data, id):
 #    d.rectangle([WIDTH-size, 0, WIDTH, size], fill=help)
 
 
-    d.multiline_text((42, 38), "\n".join(lines), font=fnt, fill=fgcolor)
-    d.multiline_text((42, 38), "\n".join(around), font=fnt, fill=border_color)
+    d.multiline_text((36, 38), "\n".join(lines), font=fnt, fill=fgcolor)
+    d.multiline_text((36, 38), "\n".join(around), font=fnt, fill=border_color)
 
 def back(deck, id, numbers, html):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
@@ -136,12 +136,19 @@ def cheat(deck, answers, numbers, html):
 
 
 def run(file):
-    process = Popen(["/usr/local/bin/python3", file], stdout=PIPE)
-    (output, err) = process.communicate()
-    exit_code = process.wait()
-    if exit_code != 0:
-        raise Exception(file + " exitted with " + str(exit_code))
-    return output
+  tmpfile = "/tmp/card.py"
+  fo = open(tmpfile, "w")
+  fi = open(file)
+  for line in fi.readlines():
+    fo.write(line.replace('⚂',str(random.randint(1,20))))
+  fi.close()
+  fo.close()
+  process = Popen(["/usr/local/bin/python3", tmpfile], stdout=PIPE)
+  (output, err) = process.communicate()
+  exit_code = process.wait()
+  if exit_code != 0:
+    raise Exception(file + " exitted with " + str(exit_code))
+  return output
 
 random.seed(time.time())
 for deck in ['easy', 'medium', 'hardcore']:
@@ -156,7 +163,6 @@ for deck in ['easy', 'medium', 'hardcore']:
     print('printing', deck, 'deck, with', len(files), 'cards')
     seen = {}
     qa = []
-    possible = set()
     for (i, file) in enumerate(files):
         fp = os.path.join("decks", deck, file)
         f = open(fp, "r")
@@ -169,23 +175,12 @@ for deck in ['easy', 'medium', 'hardcore']:
         if len(_out) == 0:
             raise "NO OUTPUT: " + file
         for line in _out:
-            possible.add(line)
             qa.append(str(i).zfill(3) + ": " + line)
 
         front(deck, i, text, html)
 
-    shuffled = list(possible)
-    print('possible results', len(possible), 'rows', ROWS)
-    random.shuffle(shuffled)
-
-    if len(shuffled) > ROWS:
-        raise Exception(str(len(shuffled)) + ">" + str(ROWS))
-    back(deck, 0, shuffled, html)
-
-    cheatsheet = cheat(deck, qa, shuffled, html)
 
     a1 = 55
-    print(deck, 'total number of cards:', cheatsheet + len(files),
-          'cheatsheet:', cheatsheet, 'missing:', a1 - (cheatsheet + len(files)))
+    print(deck, 'total number of cards:', len(files), 'missing:', a1 - (len(files)))
     print('*' * 40)
     html.close()

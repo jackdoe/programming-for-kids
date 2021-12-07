@@ -1,14 +1,14 @@
 # | computer memory  |
 # |..................|
-# |....2 1 98........|
+# |....2 1 ⚂.........|
 # |....^.............|
 # |....|.............|
 # +----+-------------+
 #      |
 # x ---+
 #
-# 98 is the ASCII for the letter
-# 'b', len(string) returns the
+# 97 is the ASCII for the letter
+# 'a', len(string) returns the
 # length of the string. So the
 # computer will go to the memory
 # where the variable x points, and
@@ -16,6 +16,6 @@
 # and return the length stored next
 # to it(1).
 
-x = 'b' # [@]
+x = chr(96+⚂)
 
 print(len(x))

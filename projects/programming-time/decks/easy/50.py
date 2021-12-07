@@ -22,7 +22,10 @@ def get(k):
       return e[1] # doesn't matter
   return None     # if we have
                   # million records
-set('hello', 5)   # inserted in
-set('world', 5)   # another chain
-set('hoi',6) # [@]
-print(get('hoi'))
+set('hello', ⚂)   # inserted in
+set('world', ⚂)   # another chain
+set('hoi', True)
+if get('hoi'):
+  print(get('hello'))
+else:
+  print(get('world'))

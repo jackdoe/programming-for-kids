@@ -1,4 +1,5 @@
-# we start subtracting 'b' from 'a'
+# Basic division:
+# We start subtracting 'b' from 'a'
 # until 'a' becomes smaller than 0
 # then we calculate the remainder
 def divide(a,b):
@@ -19,5 +20,7 @@ def divide(a,b):
 
 # or simply reminder = 4 % 3
 #           multiple = int(4/3)
-m,r = divide(4,3) # [@],[@]
-print(r)
+pizza = ⚂
+pieces = ⚂
+m,rem = divide(pizza,pieces) 
+print(rem)

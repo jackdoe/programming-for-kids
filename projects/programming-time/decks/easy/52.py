@@ -17,8 +17,8 @@ def area(width, height):
   a = width * height
   return a
 
-rect_width = 3 # [@]
-rect_height = 6 # [@]
+rect_width = ⚂
+rect_height = ⚂
 
 r = area(rect_width, rect_height)
 

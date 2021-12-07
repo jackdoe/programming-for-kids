@@ -8,6 +8,7 @@
 # '----+-----------------'
 #      |
 # b----+   b addr: 92
+#
 # UTF8:
 # it is a very simple format, the
 # first byte dictates how long is
@@ -19,6 +20,8 @@
 #  > 224  3 bytes sequence
 #  > 192  2 bytes sequence
 #  < 128  1 byte (ASCII fits here)
+# even though ® is 2 bytes in memory
+# its length is 1
 
-b = '®' # [@]
-print(len(b))
+b = '®'
+print(len(b) * ⚂)

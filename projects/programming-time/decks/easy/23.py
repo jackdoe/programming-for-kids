@@ -11,7 +11,7 @@ def concat(a,b):
 
   return result
 
-x = 'he'
+x = chr(96 + ⚂) + chr(96 + ⚂)
 y = 'llo'
 
 # or just r = x + y

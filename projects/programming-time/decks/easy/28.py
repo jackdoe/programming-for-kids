@@ -3,7 +3,7 @@
 # You can also break out of for
 # loops.
 
-a = 5 # [@]
+a = ⚂
 
 while True:
   if True:

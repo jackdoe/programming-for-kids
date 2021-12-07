@@ -20,9 +20,9 @@ def concat(listA, listB):
 
   return r
 
-a = [1,2] # [@],[@],[@]
-b = [3,4]
+a = [⚂,⚂]
+b = [⚂,⚂]
 
-c = concat(a,b)
+ab = concat(a,b)
 
-print(len(c))
+print(ab.pop(1) + ab.pop(1))

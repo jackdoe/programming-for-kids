@@ -1,27 +1,29 @@
 # | computer memory      |
-# |...2 2 104 105........| 0  - 21
+# |...2 2 ⚂ ⚂............| 0  - 21
 # |...^..................| 22 - 43
 # |...|..................| 44 - 66
 # '---+------------------'
 #     |   
 # x --+ addr: 3
 #
-# strings are just a sequence
+# Strings are just a sequence
 # of characters, but computers
 # don't understand characters,
 # so people came up with common
 # way to put characters in memory
 # we call it the ASCII standard:
-# a  -> 97
-# ...
-# h  -> 104
-# ...
-# we also store the length of the
+#
+# use ord('a') to get the ASCII of
+# a character, and chr(97) to make
+# a number into a character.
+#
+# ord('a')  -> 97
+# chr(97)   -> 'a'
+#
+# We also store the length of the
 # string and its type(2), so
 # print() knows when to stop.
 
-x = 'hi' # [@]
+# for example x = '5' + chr(97+8)
+x = '⚂' + chr(96 + ⚂)
 print(x)
-
-# this is not exactly the memory
-# layout in python, but its close

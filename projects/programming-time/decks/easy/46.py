@@ -23,6 +23,6 @@ def reverse(x):
     result.append(element)
   return result
 
-a = [1,2,3] # [@],[@],[@]
+a = [⚂,⚂,⚂]
 b = reverse(a)
 print(b[0])

@@ -10,7 +10,6 @@
 # so 51 - 48 = 3
 #
 # 3*100 + 2*10 + 8*1 = 328
-
 def to_integer(s):
   result = 0
   zero = ord('0')
@@ -22,7 +21,11 @@ def to_integer(s):
     ten -= 1
   return result
 
-a = '328' # [@][@][@]
+# str() makes a number into string
+# so the number 12 becomes '12'
+# and int('12') converts the string
+# to integer 12
+a = str(⚂ * ⚂)
 
 # or just use int(a)
 print(to_integer(a))

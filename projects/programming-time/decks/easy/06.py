@@ -1,7 +1,7 @@
 # | computer memory      |
 # |......................| 0  - 21
-# |...2 1 55.............| 22 - 43
-# |...^......1 7.........| 44 - 65
+# |...2 1 ⚂..............| 22 - 43
+# |...^......1 ⚂.........| 44 - 65
 # |...|......^...........| 66 - 87
 # '---+------+-----------'
 #     |      |
@@ -10,15 +10,15 @@
 #
 # 49 is the ASCII for the number 1
 # (50 is for 2 and 51 is for 3..)
-# But when you compare string to
-# number in python, it will not
-# compare 55 to 7, it will just
-# say 'string' is not the same
-# as number, so they cant be
-# equal.
+# If we have the string '2' and the
+# number 50, python will not compare
+# the ascii code 50 to the number
+# 50, it will just say type 'string'
+# is not the same as type integer ,
+# so they cant be equal.
 
-x = '7' # [@]
-y = 7 # [@]
+x = '⚂'
+y = ⚂
 
 if x == y:
   print('seven')

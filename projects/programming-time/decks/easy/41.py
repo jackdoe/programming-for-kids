@@ -14,5 +14,5 @@
 # it is quite handy to unpack lists
 # like that
 
-a,b,c,d = [1,2,3,4] #[@],[@],[@],[@]
-print(c)
+a,b,c = [⚂,⚂,⚂]
+print(a + b + c)

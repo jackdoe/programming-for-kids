@@ -9,12 +9,12 @@
 observers = []
 
 def observerA(x):
-  if x == 5:
-    print(x)
+  if x > 10:
+    print('up')
 
 def observerB(x):
-  if x == 3:
-    print(x)
+  if x < 10:
+    print('down')
 
 def send(v):
   for o in observers:
@@ -23,5 +23,5 @@ def send(v):
 observers.append(observerA)
 observers.append(observerB)
 
-send(6) # [@]
-send(5) # [@]
+send(⚂)
+

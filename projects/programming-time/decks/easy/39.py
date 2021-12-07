@@ -17,8 +17,10 @@ def split(str, sep):
   r.append(tmp)
   return r
     
-text = "hello 7 8 9"
-# or just splitted = text.split(" ")
-splitted = split(text, " ") # [@]
+text = "hellothisispython"
 
-print(splitted[2])
+# or just use the split method on
+# the string object: text.split(" ")
+splitted = split(text, chr(96+⚂))
+
+print(splitted[0])

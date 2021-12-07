@@ -4,16 +4,21 @@
 # '\n' is the new line character.
 # so you can split by it.
 
-a = """hello
-this
-is
-a
-multiline
-string
+message = """Hi,
+Long time no see,
+This is a letter from Python, a new
+programming language I am
+learning. It also supports multiline
+strings.
+
+Best,
+Jack
 """
 
-if 0 == 0: # [@] == [@]
-  a += '\n\nhello\n'
+if chr(96+⚂) in message:
+  message += "Have a nice day!"
+else:
+  message += "Have a good day!"
 
-lines = a.split('\n')
-print(len(lines))
+lines = message.split('\n')
+print(lines[len(lines)-1])
