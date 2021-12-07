@@ -86,17 +86,13 @@ def border(d, data, id):
 #    d.rectangle([WIDTH-size, 0, WIDTH, size], fill=help)
 
 
-    d.multiline_text((36, 38), "\n".join(lines), font=fnt, fill=fgcolor)
-    d.multiline_text((36, 38), "\n".join(around), font=fnt, fill=border_color)
+    d.multiline_text((36, 20), "\n".join(lines), font=fnt, fill=fgcolor)
+    d.multiline_text((36, 20), "\n".join(around), font=fnt, fill=border_color)
 
 def back(deck, id, numbers, html):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
     d = ImageDraw.Draw(img)
-    lines = []
-    for n in numbers:
-        lines.append(str(n).rjust(random.randint(0, COLS - 3), ' '))
-
-    border(d, "\n".join(lines), -1)
+    border(d, "\n".join(numbers), -1)
 
     img.save(os.path.join('images', deck, 'back_card_' +
              str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
@@ -179,7 +175,11 @@ for deck in ['easy', 'medium', 'hardcore']:
 
         front(deck, i, text, html)
 
-
+    hello = []
+    message = '        print("Hello World!")'
+    for i in range(ROWS):
+      hello.append(message)
+    back(deck, 0, hello, html)
     a1 = 55
     print(deck, 'total number of cards:', len(files), 'missing:', a1 - (len(files)))
     print('*' * 40)
