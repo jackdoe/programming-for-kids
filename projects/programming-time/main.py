@@ -3,6 +3,7 @@ from io import StringIO
 import os
 import random
 import sys
+import re
 from itertools import cycle
 from PIL import Image, ImageDraw, ImageFont
 import time
@@ -14,6 +15,8 @@ ROWS = 31
 fnt = ImageFont.truetype('dejavu-sans-mono.book.ttf', 28)
 
 fgcolor = (20, 20, 20, 255)
+dice_color = (20, 255, 160, 50)
+#cmyk(0%, 99%, 67%, 22%)
 border_color = (0, 0, 0, 100)
 bgcolor = (0, 0, 0, 0)
 
@@ -54,7 +57,9 @@ def border(d, data, id):
     if id == -1:
         top = '.--------------------------------------.'
     around = []
+    dice = []
     around.append(top)
+    dice.append('')
     lines.append('')
 
     text = data.split('\n')
@@ -67,6 +72,8 @@ def border(d, data, id):
         code = ''
         if i <= len(text) - 1:
             code = text[i]
+        dice_line = re.sub('[^⚂]',' ',code)
+        code = code.replace('⚂', ' ')
 
         lines.append('  '+ignore_the_comment(code).ljust(COLS - 3, ' ')+' ')
         comment = ''
@@ -74,8 +81,10 @@ def border(d, data, id):
             comment = ignore_until_comment(code)
 
         around.append('| ' + comment.ljust(COLS - 3, ' ') + ' |')
+        dice.append('  ' + dice_line.ljust(COLS - 3, ' ') + '  ')
 
     lines.append('')
+    dice.append('')
     around.append(bottom)
 
 #    help = (20, 20, 20, 20)
@@ -88,6 +97,7 @@ def border(d, data, id):
 
     d.multiline_text((36, 20), "\n".join(lines), font=fnt, fill=fgcolor)
     d.multiline_text((36, 20), "\n".join(around), font=fnt, fill=border_color)
+    d.multiline_text((36, 20), "\n".join(dice), font=fnt, fill=dice_color)
 
 def back(deck, id, numbers, html):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)

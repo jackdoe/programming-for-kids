@@ -9,10 +9,12 @@
 # is the same as
 #  data = [1,2]
 #  a = data[0]
-#  b = data[@]
+#  b = data[1]
 #
 # it is quite handy to unpack lists
 # like that
 
 a,b,c = [⚂,⚂,⚂]
 print(a + b + c)
+
+
