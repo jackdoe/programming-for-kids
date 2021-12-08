@@ -13,7 +13,7 @@
 #   bark('Ruffles')
 # The first one is called object
 # oriented programming(OOP), and the
-# second is callse procedural
+# second is called procedural
 # programming
 class Dog:
   def __init__(self, name, age):

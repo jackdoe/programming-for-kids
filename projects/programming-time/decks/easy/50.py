@@ -24,8 +24,8 @@ def get(k):
                   # million records
 set('hello', ⚂)   # inserted in
 set('world', ⚂)   # another chain
-set('hoi', True)
-if get('hoi'):
+set('hoi', ⚂)
+if get('hoi') > 5:
   print(get('hello'))
 else:
   print(get('world'))

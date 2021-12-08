@@ -2,14 +2,14 @@
 # in python with """ instead of "
 #
 # '\n' is the new line character.
-# so you can split by it.
+# so you can split by it. The ASCII
+# code for \n is 10.
 
 message = """Hi,
-Long time no see,
-This is a letter from Python, a new
-programming language I am
-learning. It also supports multiline
-strings.
+Long time no see, This is a letter
+from Python, a new programming
+language I am learning. It also
+supports multiline strings.
 
 Best,
 Jack
