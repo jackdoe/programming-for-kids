@@ -76,6 +76,13 @@
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
+    const dice = () => {
+        let out = []
+        for (let i = 0; i < 6; i++) {
+            out.push(randint(1,20))
+        }
+        return out
+    }
 
     let cache = {}
     const download = async (id) => {
@@ -89,13 +96,35 @@
         return code
     }
 
-    const run = async (id) => {
+    const run = async (id, input_dice) => {
         let code = await download(id)
+        let splitted = code.split('\n')
+        input_dice = input_dice.map(e => parseInt(e))
+        let cursor = 0
+        let modified = []
+        for (let line of code.split('\n')) {
+            let fixed = ''
+            for (let i = 0; i < line.length; i++) {
+                let char = line.charAt(i)
+                if (char == '#') {
+                        break
+                } 
+                if (char.charCodeAt(0) == 9858) {
+                    fixed += '' + input_dice[cursor++]
+                } else {
+                    fixed += char
+                }
+            }
+            modified.push(fixed)
+        }
+
         let data = pyodide.runPython(`
 import sys
 import io
+
 sys.stdout = io.StringIO()
-${code}
+
+${modified.join('\n')}
         `)
         let stdout = pyodide.runPython("sys.stdout.getvalue()").replace('\n', '')
 
@@ -168,7 +197,7 @@ ${code}
                 element.classList.add('self')
             }
             pre.innerHTML = ((p.id == id) ? '[YOUR CARD]\n' : '') + JSON.stringify(p, null, 2) + '\n' + card
-
+            
             element.appendChild(pre)
             game.appendChild(element)
         }
@@ -186,12 +215,13 @@ ${code}
         if (i_am_master) {
             let changed = false
             id = game_id
-            player = players[id] || { id: id, score: 0, card: randint(0, 52) }
+            player = players[id] || { id: id, score: 0, card: randint(0, 52), dice: dice() }
             players[id] = player
             console.log('peer open', players)
             render(players)
             document.getElementById('pick').addEventListener('click', e => {
                 players[id].card = randint(0, 52)
+                players[id].dice = dice()
                 players[id].error = null
                 answerE.value = ''
                 broadcast(players)
@@ -202,14 +232,15 @@ ${code}
                 let player = players[id]
                 let answer = answerE.value
                 answerE.value = ''
-                let expected = await run(player.card)
+                let expected = await run(player.card,player.dice)
                 if (String(expected) != String(answer)) {
                     player.error = {
-                        message: 'wrong answer',
+                        message: answer + 'is wrong answer',
                         answer: answer,
                     }
                 } else {
                     player.card = randint(0, 52)
+                    player.dice = dice()
                     player.score++
                     player.error = null
                 }
@@ -218,7 +249,7 @@ ${code}
             })
             peer.on('connection', (conn) => {
                 conn.on('open', () => {
-                    player = players[conn.peer] || { id: conn.peer, score: 0, card: randint(0, 52) }
+                    player = players[conn.peer] || { id: conn.peer, score: 0, card: randint(0, 52), dice: dice() }
                     players[conn.peer] = player
                     connections[conn.peer] = conn
                     broadcast(players)
@@ -229,18 +260,20 @@ ${code}
                     player = players[conn.peer]
                     if (parsed.command == 'pick') {
                         player.card = randint(0, 52)
+                        player.dice = dice()
                         player.error = null
                     }
                     if (parsed.command == 'solve') {
-                        let expected = await run(player.card)
+                        let expected = await run(player.card,player.dice)
                         if (String(expected) != String(parsed.value)) {
                             player.error = {
-                                message: 'wrong answer',
+                                message: parsed.value + 'is wrong answer',
                                 answer: parsed.value,
                             }
                         } else {
                             player.card = randint(0, 52)
                             player.score++
+                            player.dice = dice()
                             player.error = null
                         }
                     }
