@@ -22,7 +22,10 @@
 #
 # int('1') makes the string 1
 # to the integer 1
-
 a = '1'
 b = ⚂
-print(int(a) + b)
+# if b is even
+if b % 2 == 0:
+  print(b + int(a))
+else:
+  print(b - int(a))

@@ -1,16 +1,7 @@
-# | computer memory            |
-# |............................|
-# |..2 2 ⚂ ⚂......2 2 ⚂ ⚂......|
-# |..^............^............|
-# +--+------------+------------+
-#    |            |
-# x--+            |
-# y---------------+
 # To check if two strings are
 # equal to each other, first check
 # the length, and then check the
 # characters at each position.
-
 def equal(a,b):
   if len(a) != len(b):
     return False
@@ -21,8 +12,9 @@ def equal(a,b):
 
   return True
 
-x = '⚂⚂'
-y = '⚂⚂'
+x = '⚂'
+y = '⚂'
+
 # or just use x == y
 if equal(x,y):
     print(x)

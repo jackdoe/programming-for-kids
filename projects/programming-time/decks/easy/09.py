@@ -4,9 +4,10 @@
 # |....^......^........|
 # '----+------+--------'
 #      |      |
-# x ---+      |
-# y ----------+
-#
+# x ---+      | NB: ? is 1 or 0
+# y ----------+     depending
+#                   if ⚂ == 4
+#                   
 # What is the value of 'x == 0'?
 # It is either True or False,
 # depending of the value of x,
