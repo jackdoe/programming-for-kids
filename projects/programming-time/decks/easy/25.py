@@ -16,11 +16,10 @@
 # compare the types, and in this
 # case it will see that string is
 # not equal to integer, even though
-# the ASCII for '7' is 55
+# the ASCII for '7' is 55.
 
 x = '55'
 y = 7
-
 
 if x == y:
   print('fifty five')
