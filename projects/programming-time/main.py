@@ -145,8 +145,14 @@ def run(file):
   tmpfile = "/tmp/card.py"
   fo = open(tmpfile, "w")
   fi = open(file)
+  fo.write("""
+import random as __random
+def get_dice():
+  return __random.randint(1,20)
+
+""")
   for line in fi.readlines():
-    fo.write(line.replace('⚂',str(random.randint(1,20))))
+    fo.write(line.replace('⚂',"get_dice()"))
   fi.close()
   fo.close()
   process = Popen(["/usr/local/bin/python3", tmpfile], stdout=PIPE)

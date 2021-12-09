@@ -8,8 +8,9 @@
 # 'a' will become [1,2]
 # and 'b' will be 3
 #
-# pop() also takes an argument where you can specify which index to remove
-# e.g.
+# pop() also takes an argument where
+# you can specify which index to
+# remove e.g.
 # a = [1,2,3]
 # b = a.pop(1)
 # a.pop(1) will remove index 1, so

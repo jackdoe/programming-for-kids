@@ -1,27 +1,31 @@
-# | computer memory    |
-# |....................|
-# |....1 ⚂... 5 ?......|
-# |....^......^........|
-# '----+------+--------'
-#      |      |
-# x ---+      | NB: ? is 1 or 0
-# y ----------+     depending
-#                   if ⚂ == 4
-#                   
-# What is the value of 'x == 0'?
-# It is either True or False,
-# depending of the value of x,
-# 4 == 4 is True, and 4 == 3 is
-# False. True is stored as 1 in
-# the memory, False is 0. This is
-# called a boolean value, we also
-# need to store its type(5).
+# `import` loads a module, a module
+# is a just a bunch of code you are
+# adding to your program because it
+# helps you to solve a problem,
+# e.g. the datetime module gives you
+# functionality to get the current
+# date and time. You can also
+# download modules for python using
+# the `pip3` command. Some modules
+# are coming directly with python,
+# like `random` and `datetime`.
+import datetime
 
-x = ⚂
-y = x == 4
+# now() returns an object that has:
+#  now.year
+#  now.month
+#  now.day
+#  now.hour
+#  now.minute
+#  now.second
+now = datetime.datetime.now()
 
-if y:
-  print('x is four')
+meeting_time = ⚂
+
+# check your watch, if the current
+# minute is less than the
+# meeting_time then you are on time!
+if now.minute < meeting_time:
+  print('on time')
 else:
-  print('x is not four')
-
+  print('you are late')

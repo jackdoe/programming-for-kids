@@ -1,26 +1,22 @@
-# | computer memory      |
-# |....1 3....1 ⚂........| 0  - 21
-# |....^......^..........| 22 - 43
-# |....|......|..........| 44 - 65
-# |....|......|..........| 66 - 87
-# '----+------+----------'
-#      |      |
-# x ---+      |  x addr: 5
-# y ----------+  y addr: 12
-#
-# x's value is stored somewhere in
-# computer's memory (RAM), same as
-# y's value.
-#
-# You can read and write the value
-# as many times as you want. It will
-# keep overwriting the memory at
-# address 5.
-x = 3
-y = ⚂
+# a list where we will keep all the
+# rolls
+rolls = []
 
-x = 2 
-x = 4
-x = 2
+# 4 % 3 means divide 4 by 3 and take
+# the remainder.
+n = (⚂ % 4) + 1
 
-print(1 + x + y)
+# start from i = 0 up to, but
+# excluding, n, increase `i` with 2
+# at each step
+for i in range(0, n, 2):
+  # roll the dice every time
+  rolls.append(⚂)
+
+# sort the list in ascending order
+# that means [3,1,2,5] will become
+# [1,2,3,5]
+rolls.sort()
+
+# print the element at index 0
+print(rolls[0])

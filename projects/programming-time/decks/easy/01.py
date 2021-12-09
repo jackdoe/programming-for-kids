@@ -1,28 +1,23 @@
-# | computer memory      |
-# |......................| 0  - 21
-# |..1 ⚂.................| 22 - 43
-# |..^...................| 44 - 65
-# '--+-------------------'
-#    |  
-# x -+
-#
-# the variable x is stored some-
-# where in memory (addr 24), its
-# type, 1 for integer, and value ⚂
+# compare two numbers and return the
+# smaller one
+def min(a,b):
+  # if a is bigger than b, then
+  # return b because it is smaller
+  if a > b:
+    return b
+  else:
+    return a
+
+# compare two numbers and return the
+# bigger one
+def max(a,b):
+  # if a is bigger than b, return a
+  if a > b:
+    return a
+  else:
+    return b
 
 x = ⚂
-# .--<-----<-----<----<-.
-# v         #           |
-while True: #           ^
-  if x > 4: #           |
-    break   #--->-->----+. break
-            #           | \ out
-  x = x + 1 #           |  \ of
-            #           |   v
-  # >--->------->--->---'   ' the
-  # go back to the start   / loop
-  #                       /
-  #                      /
-#<-----<------<------<--'
+y = ⚂
 
-print(x)
+print(max(5,min(x,y)))

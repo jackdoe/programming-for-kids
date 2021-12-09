@@ -59,7 +59,7 @@
 
 <body>
     <div id='game-url'></div>
-    <input id='solve-value' autocomplete="off">
+    <textarea id='solve-value'></textarea>
     <button id='solve'>solve</button><button id='pick'>pick another card</button>
     <div id='players'>
     </div>
@@ -123,7 +123,7 @@
                     break
                 }
                 if (char.charCodeAt(0) == 9858) {
-                    fixed += '' + input_dice[cursor++]
+                    fixed += 'get_dice()'
                 } else {
                     fixed += char
                 }
@@ -136,7 +136,14 @@ import sys
 import io
 
 sys.stdout = io.StringIO()
-
+__dice = ${JSON.stringify(input_dice)}
+__cursor = 0
+def get_dice():
+  global __cursor
+  d = __dice[__cursor % len(__dice)]
+  __cursor+=1
+  return d
+  
 ${modified.join('\n')}
         `)
         let stdout = pyodide.runPython("sys.stdout.getvalue()").replace('\n', '')
@@ -212,7 +219,7 @@ ${modified.join('\n')}
             }
             let txt = `score: ${p.score}\ndice: ${p.dice.join(', ')}`
             if (p.error) {
-                txt += `\nerror: ${p.error}`
+                txt += `\nerror: ${p.error.message}`
             }
             pre.innerHTML = ((p.id == id) ? '[YOUR CARD] ' : '') + txt + "\n<img src='images/easy/front_card_" + zeroPad(p.card, 3) + ".jpg'>"
 
@@ -253,7 +260,7 @@ ${modified.join('\n')}
                 let expected = await run(player.card, player.dice)
                 if (String(expected) != String(answer)) {
                     player.error = {
-                        message: answer + 'is wrong answer',
+                        message: 'wrong answer',
                         answer: answer,
                     }
                 } else {
@@ -285,7 +292,7 @@ ${modified.join('\n')}
                         let expected = await run(player.card, player.dice)
                         if (String(expected) != String(parsed.value)) {
                             player.error = {
-                                message: parsed.value + 'is wrong answer',
+                                message: 'wrong answer',
                                 answer: parsed.value,
                             }
                         } else {

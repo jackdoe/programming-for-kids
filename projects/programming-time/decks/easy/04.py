@@ -1,29 +1,24 @@
-# | computer memory      |
-# |...2 2 97 ?...........| 0  - 21
-# |...^..................| 22 - 43
-# |...|..................| 44 - 66
-# '---+------------------'
-#     | NB: ? is 96+⚂
-# x --+ addr: 3
-#
-# Strings are just a sequence
-# of characters, but computers
-# don't understand characters,
-# so people came up with common
-# way to put characters in memory
-# we call it the ASCII standard.
-# In memory we also store the 
-# length of the string and its 
-# type(2)
-#
-# use ord('a') to get the ASCII of
-# a character, and chr(97) to make
-# a number into a character.
-#
-# ord('a')  -> 97
-# chr(97)   -> 'a'
-#
-# for example x = 'a' + chr(97+8)
-# is the same as  x = 'a' + 'h'
-x = 'a' + chr(96 + ⚂)
-print(x)
+# is_prime checks if a number is
+# prime or not
+def is_prime(n):
+  # 0 and 1 are not prime
+  if n == 0 or n == 1:
+    return False
+
+  # check if the number is divisable
+  # by any number from 2 to n
+  for x in range(2,n):
+    # if there is no reminder that
+    # means it is divisable, and it
+    # is not a prime
+    if n % x == 0:
+      return False
+
+  return True
+
+
+n = ⚂
+if is_prime(n):
+  print('prime')
+else:
+  print('not a prime')

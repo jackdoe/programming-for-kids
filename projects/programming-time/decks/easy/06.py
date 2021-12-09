@@ -1,26 +1,31 @@
-# | computer memory      |
-# |......................| 0  - 21
-# |...2 1 ?..............| 22 - 43
-# |...^......1 ⚂.........| 44 - 65
-# |...|......^...........| 66 - 87
-# '---+------+-----------'
-#     |      |   NB: ? is 96+⚂
-# x --+      |   x addr: 25
-# y ---------+   y addr: 54
-#
-# 49 is the ASCII for the number 1
-# (50 is for 2 and 51 is for 3..)
-# If we have the string '2' and the
-# number 50, python will not compare
-# the ascii code 50 to the number
-# 50, it will just say type 'string'
-# is not the same as type integer ,
-# so they cant be equal.
+# render the tic tac toe game,
+# example output:
+#  0 - - 
+#  - 0 x 
+#  x - -
+def render(game):
+  for i in range(len(game)):
+    if i != 0 and i % 3 == 0:
+      # pring empty line every
+      # 3rd item
+      print('')
 
-x = chr(96+⚂)
-y = ⚂
+    # by default end='\n' which
+    # means if you dont specify
+    # print() will add new line to
+    # the end, end=' ' prints space
+    print(game[i], end=' ')
+  # 8 is not divisable by 3
+  print('')
 
-if x == y:
-  print('seven')
-else:
-  print(7)
+game = [
+  '-','-','-',
+  '-','-','-',
+  '-','-','-',
+]
+
+game[0] = '0'
+game[⚂ % 9] = 'x'
+game[4] = '0'
+game[⚂ % 9] = 'x'
+render(game)

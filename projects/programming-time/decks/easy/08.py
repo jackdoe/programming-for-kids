@@ -1,22 +1,31 @@
-# | computer memory |
-# |.................|
-# |....1 ⚂..........|
-# |....^............|
-# +----+------------+
-#      |
-#      |
-# x ---+
-# 
-# x = x + 1 means the computer has
-# to read the current value of x,
-# add 1 to it, and store it back to
-# x's location in memory
+#                | y
+#  y > 0   , - ~ | ~ - ,       y > 0
+#  x < 0 '       |       ' ,   x > 0
+#    ,           |           ,
+#   ,     2      |    1       ,
+#  ,             |             ,
+#--|-------------|-------------|---
+# -x             |             +x
+#   ,     3      |    4       ,
+#    ,           |           ,
+#      ,         |        , '
+#  y < 0 ` - , _ | _ ,  '
+#  x < 0         |-y         y < 0
+#                            x > 0
+#
+def quadrant(x,y):
+  if y > 0 and x > 0:
+    return 1
+  elif y < 0 and x > 0:
+    return 4
+  elif y < 0 and x < 0:
+    return 3
+  elif y > 0 and x < 0:
+    return 2
+  else:      # origin
+    return 0 # x = 0, y = 0
 
-x = ⚂
+point_x = ⚂ - 10
+point_y = ⚂ - 10
 
-x = x + 1
-
-# += is shortcut for x = x + 1
-x += 1
-
-print(x)
+print(quadrant(point_x,point_y))

@@ -1,20 +1,20 @@
-# | computer memory      |
-# |.4 3 69 108 78........| 0  - 21
-# |.^../...|...|.........| 22 - 43
-# |.|.v....|...v.........| 44 - 65
-# |.|.1 ⚂..|...1 7.......| 66 - 87
-# |.|......v.............| 88 -109
-# |.|......2 2 104 105...| 110-131
-# '-+--------------------'
-#   |
-# x-+  addr: 2
-#
-# Lists are just ordered sequence
-# of items, each pointing to some
-# location in memory.
+# return a random number between 1
+# and 20
+def random():
+  dice = ⚂
+  return dice
 
-x = [⚂,'hi',7]
+sum = 0
+max = 0
+n = 3
+for i in range(n):
+  value = random()
+  sum += value
+  if value > max:
+    max = value
 
-# print the first element from the
-# list
-print(x[0])
+# the average of a series of items
+# is the sum divided by the count
+avg = sum / n
+
+print(max - avg)
