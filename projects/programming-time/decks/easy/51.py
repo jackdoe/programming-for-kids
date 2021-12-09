@@ -11,11 +11,13 @@
 # 18 -----+     ||       18:addr 51
 # range(20) ----+|range(20):addr 35
 # 20 ------------+       20:addr 105
+#
 # How does 'range(20)' know when its
 # done? The range object has some
 # memory to keep its current number.
 # So it can just keep updating it
 # until it reaches the stop value.
+#
 # Another way to write it:
 #   n = 0
 #   stop = 20
@@ -23,6 +25,7 @@
 #     if n > 18:
 #       print(n)
 #     n += 1
+
 for i in range(20):
   if i > 18:
     print(i)

@@ -11,7 +11,10 @@
 # don't understand characters,
 # so people came up with common
 # way to put characters in memory
-# we call it the ASCII standard:
+# we call it the ASCII standard.
+# In memory we also store the 
+# length of the string and its 
+# type(2)
 #
 # use ord('a') to get the ASCII of
 # a character, and chr(97) to make
@@ -20,10 +23,7 @@
 # ord('a')  -> 97
 # chr(97)   -> 'a'
 #
-# We also store the length of the
-# string and its type(2), so
-# print() knows when to stop.
-
-# for example x = '5' + chr(97+8)
+# for example x = 'a' + chr(97+8)
+# is the same as  x = 'a' + 'h'
 x = 'a' + chr(96 + ⚂)
 print(x)

@@ -5,6 +5,7 @@
 # the separator, then append the
 # temporary string to the result,
 # and reset it to empty.
+
 def split(str, sep):
   r = []
   tmp = ''
@@ -14,6 +15,7 @@ def split(str, sep):
       tmp = ''
     else:
       tmp += char
+
   r.append(tmp)
   return r
     

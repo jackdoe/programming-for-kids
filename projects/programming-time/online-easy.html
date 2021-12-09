@@ -211,6 +211,9 @@ ${modified.join('\n')}
                 element.classList.add('self')
             }
             let txt = `score: ${p.score}\ndice: ${p.dice.join(', ')}`
+            if (p.error) {
+                txt += `\nerror: ${p.error}`
+            }
             pre.innerHTML = ((p.id == id) ? '[YOUR CARD] ' : '') + txt + "\n<img src='images/easy/front_card_" + zeroPad(p.card, 3) + ".jpg'>"
 
             element.appendChild(pre)
