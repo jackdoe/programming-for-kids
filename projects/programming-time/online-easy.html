@@ -25,10 +25,23 @@
             padding: 5px;
             border-color: silver;
             border-style: dashed;
-            width: 50ch;
-            flex: 1;
         }
+        img {
+            width: 400px;
+        }
+        @media (max-width: 1000px) {
+            pre {
+                width: 100%
+            }
+            img {
+                width: 100%;
+            }
 
+        #players {
+            display: block;
+            flex-wrap: none;
+        }
+        }
 
         .self {
             border-color: magenta;
@@ -79,7 +92,7 @@
     const dice = () => {
         let out = []
         for (let i = 0; i < 6; i++) {
-            out.push(randint(1,20))
+            out.push(randint(1, 20))
         }
         return out
     }
@@ -107,8 +120,8 @@
             for (let i = 0; i < line.length; i++) {
                 let char = line.charAt(i)
                 if (char == '#') {
-                        break
-                } 
+                    break
+                }
                 if (char.charCodeAt(0) == 9858) {
                     fixed += '' + input_dice[cursor++]
                 } else {
@@ -164,8 +177,9 @@ ${modified.join('\n')}
             ]
         }
     })
+    const zeroPad = (num, places) => String(num).padStart(places, '0')
 
-    document.getElementById('game-url').innerHTML += `game url:<br><textarea style="border: 0px;resize: none; width: 100%" disabled >${window.location.href.split('#')[0]}#${game_id}</textarea>`
+    document.getElementById('game-url').innerHTML += `<a href='${window.location.href.split('#')[0]}#${game_id}'>game link</a><br>(share with friends to join your game)<br><br>`
 
     let players = {}
     let connections = {}
@@ -196,8 +210,9 @@ ${modified.join('\n')}
             if (p.id == id) {
                 element.classList.add('self')
             }
-            pre.innerHTML = ((p.id == id) ? '[YOUR CARD]\n' : '') + JSON.stringify(p, null, 2) + '\n' + card
-            
+            let txt = `score: ${p.score}\ndice: ${p.dice.join(', ')}`
+            pre.innerHTML = ((p.id == id) ? '[YOUR CARD] ' : '') + txt + "\n<img src='images/easy/front_card_" + zeroPad(p.card, 3) + ".jpg'>"
+
             element.appendChild(pre)
             game.appendChild(element)
         }
@@ -215,12 +230,12 @@ ${modified.join('\n')}
         if (i_am_master) {
             let changed = false
             id = game_id
-            player = players[id] || { id: id, score: 0, card: randint(0, 52), dice: dice() }
+            player = players[id] || { id: id, score: 0, card: randint(0, 54), dice: dice() }
             players[id] = player
             console.log('peer open', players)
             render(players)
             document.getElementById('pick').addEventListener('click', e => {
-                players[id].card = randint(0, 52)
+                players[id].card = randint(0, 54)
                 players[id].dice = dice()
                 players[id].error = null
                 answerE.value = ''
@@ -232,14 +247,14 @@ ${modified.join('\n')}
                 let player = players[id]
                 let answer = answerE.value
                 answerE.value = ''
-                let expected = await run(player.card,player.dice)
+                let expected = await run(player.card, player.dice)
                 if (String(expected) != String(answer)) {
                     player.error = {
                         message: answer + 'is wrong answer',
                         answer: answer,
                     }
                 } else {
-                    player.card = randint(0, 52)
+                    player.card = randint(0, 54)
                     player.dice = dice()
                     player.score++
                     player.error = null
@@ -249,7 +264,7 @@ ${modified.join('\n')}
             })
             peer.on('connection', (conn) => {
                 conn.on('open', () => {
-                    player = players[conn.peer] || { id: conn.peer, score: 0, card: randint(0, 52), dice: dice() }
+                    player = players[conn.peer] || { id: conn.peer, score: 0, card: randint(0, 54), dice: dice() }
                     players[conn.peer] = player
                     connections[conn.peer] = conn
                     broadcast(players)
@@ -259,19 +274,19 @@ ${modified.join('\n')}
                     let parsed = JSON.parse(data)
                     player = players[conn.peer]
                     if (parsed.command == 'pick') {
-                        player.card = randint(0, 52)
+                        player.card = randint(0, 54)
                         player.dice = dice()
                         player.error = null
                     }
                     if (parsed.command == 'solve') {
-                        let expected = await run(player.card,player.dice)
+                        let expected = await run(player.card, player.dice)
                         if (String(expected) != String(parsed.value)) {
                             player.error = {
                                 message: parsed.value + 'is wrong answer',
                                 answer: parsed.value,
                             }
                         } else {
-                            player.card = randint(0, 52)
+                            player.card = randint(0, 54)
                             player.score++
                             player.dice = dice()
                             player.error = null
@@ -281,7 +296,7 @@ ${modified.join('\n')}
                     render(players)
                 })
                 conn.on('close', () => {
-                    console.log('closing',conn.peer)
+                    console.log('closing', conn.peer)
                     delete (players[conn.peer])
                     delete (connections[conn.peer])
                     broadcast(players)
