@@ -146,9 +146,8 @@ def get_dice():
   
 ${modified.join('\n')}
         `)
-        let stdout = pyodide.runPython("sys.stdout.getvalue()").replace('\n', '')
-
-        console.log('run data', stdout)
+        let stdout = pyodide.runPython("sys.stdout.getvalue()").trim()
+        console.log(JSON.stringify({data: stdout}))
         return stdout
     }
 
@@ -258,7 +257,7 @@ ${modified.join('\n')}
                 let answer = answerE.value
                 answerE.value = ''
                 let expected = await run(player.card, player.dice)
-                if (String(expected) != String(answer)) {
+                if (String(expected) != String(answer).trim()) {
                     player.error = {
                         message: 'wrong answer',
                         answer: answer,
@@ -290,7 +289,7 @@ ${modified.join('\n')}
                     }
                     if (parsed.command == 'solve') {
                         let expected = await run(player.card, player.dice)
-                        if (String(expected) != String(parsed.value)) {
+                        if (String(expected) != String(parsed.value).trim()) {
                             player.error = {
                                 message: 'wrong answer',
                                 answer: parsed.value,

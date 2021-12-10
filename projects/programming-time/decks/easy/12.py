@@ -1,21 +1,28 @@
-# | computer memory             |
-# |.............................|
-# |..1 0........................|
-# |..^............3 0 ⚂ 1.......|
-# |..|............^.............|
-# |..|............|...1 ⚂.......|
-# |..|............|...^.........|
-# '--+------------+---+---------'
-#    |            |   |
-# i -+            |   |
-# range(0,5,1)----+   |
-# stop ---------------+
-#
-# Even though there is no named
-# variable for range(), it still
-# needs to be stored in memory.
+# n = 3 will print this
+# x
+# xx
+# xxx
+# xx
+# x
 
-stop = ⚂
-for i in range(0,stop,1):
-  if i == 2:
-    print(i)
+n = ⚂
+
+# range(start, stop, step)
+forward = range(1, n, 1)
+for i in forward:
+  # in python you can multiply
+  # string by number
+  # 'ab' * 4 -> 'abababab'
+  # it just repeats the string
+  # so 'x' * i, when `i` is 1 will
+  # be just 'x' but when `i` is 2
+  # it will be 'xx' ans so on.
+  print('x' * i)
+
+# range can also go backwards
+# start at n, up to 0, adding -1 on
+# every step
+back = range(n, 0, -1)
+for i in back:
+  print('x' * i)
+  

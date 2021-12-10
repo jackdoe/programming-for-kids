@@ -14,7 +14,7 @@ animal = 'dog'
 
 b = ⚂
 
-if b > len(animal):
+if b > len(animal)-1:
   b = 0
 
 print(animal[b])
