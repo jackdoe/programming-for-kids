@@ -1,31 +1,15 @@
-# | computer memory      |
-# |....2 2 49............| 0  - 21
-# |....^......1 ⚂........| 22 - 43
-# |....|......^ 1 ?......| 44 - 65
-# |....|......|.^...1 ?..| 66 - 87
-# '----+------+-+---^----'
-#      |      | |   |
-# a ---+      | |   |
-# b ----------+ |   |
-# int(a) -------+   |
-# int(a) + b -------+ addr: 83
-# print's param-----+ addr: 83
-#
-# Everything happens in memory.
-# int(a) has to be computed, and
-# placed somewhere in memory, then
-# int(a)+b has to be computed and
-# placed somewhere in memory and
-# then print will get a paremeter
-# pointing where the result of
-# int(a)+b is stored.
-#
-# int('1') makes the string 1
-# to the integer 1
-a = '1'
-b = ⚂
-# if b is even
-if b % 2 == 0:
-  print(b + int(a))
-else:
-  print(b - int(a))
+numbers = [1,2,3,4,5]
+letters = ['a','b','c','d','e','f']
+special = ['!','$','@']
+
+# because we can not concatinate
+# string and a integer, we need to
+# make the integer into string
+# str(1) makes the string '1'
+n = str(numbers[⚂ % len(numbers)])
+l = letters[⚂ % len(letters)]
+s = special[⚂ % len(special)]
+
+password = l + l + n + n + s + s
+
+print(password)
