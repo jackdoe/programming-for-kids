@@ -3,10 +3,13 @@
 def calc(op, a, b):
   if op == '+':
     return a + b
+
   if op == '-':
     return a - b
+
   if op == '*':
     return a * b
+
   if op == '/':
     return a / b
 
