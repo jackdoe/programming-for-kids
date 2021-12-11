@@ -11,10 +11,18 @@ def concat(a,b):
 
   return result
 
+# chr(`x`) returns the ascii
+# character for code `x`
+#
+# chr(97) returns 'a'
+# chr(98) returns 'b'
+# chr(99) returns 'c'
+#
 x = chr(96 + ⚂) + chr(96 + ⚂)
 y = 'llo'
 
-# or just r = x + y
+# in python you can also concatenate
+# strings by doing `r = x + y`
 r = concat(x,y)
 
 print(r)

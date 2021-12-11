@@ -1,20 +1,17 @@
-# | computer memory            |
-# |............................|
-# |..2 2 ? ?.......1 ?.........|
-# |..^.............^...........|
-# +--+-------------|-----------+
-#    |             |
-# x -+             | NB: ? is 96+⚂
-# y ---------------+
-#
-# x[0] gets the first character of
-# the string pointed by the variable
-# x
-#
-# ord('a') returns the ASCII code
-# for the character a, which is 97
+a = 0
+stop = ⚂
 
-x = chr(96+⚂) + chr(96+⚂)
-y = ord(x[0])
+# another way to write the same
+# code:
+#
+#  while True:
+#    if a < stop:
+#       break
+#
+#    a += 1
+#
 
-print(y)
+while a < stop:
+  a += 1
+
+print(a)

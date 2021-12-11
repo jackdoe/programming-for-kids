@@ -13,9 +13,8 @@
 # example of a dictionary, from
 # character (key) to its ASCII code
 # (value)
-
 ascii = {
-    97: 'a', 98: 'b', 99: 'c',
+     97: 'a',  98: 'b',  99: 'c',
     100: 'd', 101: 'e', 102: 'f',
     103: 'g', 104: 'h', 105: 'i',
     106: 'j', 107: 'k', 108: 'l',
