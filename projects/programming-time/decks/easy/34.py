@@ -1,25 +1,25 @@
-# | computer memory      |
-# |......................| 0  - 21
-# |......................| 22 - 43
-# |......................| 44 - 65
-# |.2 1 194 174..........| 66 - 87
-# |.^....................| 88 -109
-# |.|....................| 110-131
-# '-+--------------------'
-#   |
-# b-+  addr: 68
-#
-# Imagine each slot in the memory
-# can occupy from 0 to 255, called
-# one byte. The English alphabet
-# is 26 symbols + 26 for upper case
-# and we have the numbers and...
-# we quickly run out of space.
-# We store strings in UTF8 format.
-# For example ® actually takes 2
-# bytes to be stored, but its length
-# is 1
+print("""
+Wake up! You hear the sound of
+footsteps coming your way. Its the
+prison guard in front of your cell
+Can you find of a way to escape?
+""")
 
-b = '®'
+# you can escape if you roll higher
+# number than five
+chance = ⚂ > 5
 
-print(len(b))
+if chance:
+  print("""
+You are in luck! The guard gets
+distracted by a cat, eating his food
+from the table, and you manage to
+steal the keys.
+  """)
+else:
+  print("""
+No luck! You will have to sleep
+another night in the cold cell.
+  """)
+  
+  

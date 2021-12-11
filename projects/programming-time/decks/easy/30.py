@@ -21,7 +21,7 @@
 # variable x point to the same place
 odd = [1]
 x = ⚂
-if x % 2 != 0:
+if x % 2 == 0:
   x = x-1
 
 odd.append(x)
