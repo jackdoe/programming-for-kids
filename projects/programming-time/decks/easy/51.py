@@ -1,31 +1,17 @@
-# | computer memory      |
-# |..1 0.................| 0  - 21
-# |..^..........3 0 20 1.| 22 - 43
-# |..|....1 18..^........| 44 - 65
-# |..|....^.....|........| 65 - 87
-# |..|....|.....|1 20....| 88 -109
-# '--+----+-----+^-------'
-#    |    |     ||
-#    |    |     ||  
-# i -+    |     ||        i:addr 2
-# 18 -----+     ||       18:addr 51
-# range(20) ----+|range(20):addr 35
-# 20 ------------+       20:addr 105
-#
-# How does 'range(20)' know when its
-# done? The range object has some
-# memory to keep its current number.
-# So it can just keep updating it
-# until it reaches the stop value.
-#
-# Another way to write it:
-#   n = 0
-#   stop = 20
-#   while n < stop:
-#     if n > 18:
-#       print(n)
-#     n += 1
+# choose a random element from a
+# list
+def choice(data):
+  # in the real world
+  # imagine a 4294967296 sided dice
+  # but in this game, 20 sided will
+  # have to do
+  dice = ⚂
+  return data[dice % len(data)]
 
-for i in range(20):
-  if i > 18:
-    print(i)
+
+name = choice(["Alice", "Bob"])
+age = choice([9, 10, 11, 12])
+
+print("Hello!")
+print("Name: " + name)
+print("Age: " + str(age))
