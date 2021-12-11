@@ -1,27 +1,26 @@
-# | computer memory  |
-# |..................|
-# |....2 1 55..1 55..|
-# |....^.......^.....|
-# |....|.......|.....|
-# +----+-------+-----+
-#      |       |
-# x ---+       |
-# y -----------+
-#
-# 55 is the ASCII for the number 7
-# Even though the raw values are
-# the same, the types are not, so
-# python knows that '7' is not 55.
-# To get the ASCII code of a
-# character use ord(x), or if you
-# want to go the other way around,
-# use chr(y) to go from ASCII code
-# to character.
+# roll() the dice untill you get a
+# number bigger or equal to `min`.
+# A function can call itself, This
+# is called recursion.
+def roll(min):
+  dice = ⚂
 
-x = '7'
-y = 55
+  if dice < min:
+    return roll(min)
 
-if x == y:
-  print('seven')
-else:
-  print(7)
+  return dice
+
+enemy_hp = 20
+my_hp = 25
+
+enemy_attack = roll(2)
+player_attack = roll(7)
+
+# keep attacking until either me or
+# my enemy runs out of health points
+while enemy_hp > 0 and my_hp > 0:
+  enemy_hp -= player_attack
+  my_hp -= enemy_attack
+
+print(enemy_hp)
+print(my_hp)

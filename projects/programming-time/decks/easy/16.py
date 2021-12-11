@@ -1,21 +1,30 @@
-# | computer memory  |
-# |..................|
-# |....2 1 ?.........|
-# |....^.............|
-# |....|.............|
-# +----+-------------+
-#      | NB: ? is 96+⚂
-# x ---+
-#
-# 97 is the ASCII for the letter
-# 'a', len(string) returns the
-# length of the string. So the
-# computer will go to the memory
-# where the variable x points, and
-# skip the type(2 for string) slot
-# and return the length stored next
-# to it(1).
+# roll the dice until it is smaller
+# than `max`
+def roll(max):
+  while True:
+    dice = ⚂
+    if dice < max:
+      return dice
 
-x = chr(96+⚂)
+# make a line half with # and half %
+# e.g line(5) will return ###%%
+def line(n):
+  s = ''
+  for i in range(n):
+    if i >= n/2:
+      s += '%'
+    else:
+      s += '#'
 
-print(len(x))
+  return s
+
+def box(w,h):
+  s = ''
+  for i in range(h):
+    s += line(w) + '\n'
+
+  return s
+
+width = roll(10)
+height = roll(10)
+print(box(width,height))

@@ -184,6 +184,9 @@ for deck in ['easy', 'medium', 'hardcore']:
             raise Exception("ALREADY SEEN: " + text)
         seen[text] = True
         _out = run(fp).decode().strip().split("\n")
+        print('-' * 40)
+        print(file, '\n' + "\n".join(_out))
+        print('-' * 40)
         if len(_out) == 0:
             raise "NO OUTPUT: " + file
         for line in _out:
