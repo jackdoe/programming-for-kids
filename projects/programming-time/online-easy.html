@@ -60,7 +60,7 @@
 <body>
     <div id='game-url'></div>
     <textarea id='solve-value'></textarea>
-    <button id='solve'>solve</button><button id='pick'>pick another card</button>
+    <button id='solve'>solve</button>
     <div id='players'>
     </div>
 </body>
@@ -195,6 +195,16 @@ ${modified.join('\n')}
             c.send(JSON.stringify(data))
         }
     }
+    const change = (id) => {
+        let p = players[id]
+        if (!p) return;
+        p.card = randint(0, 54)
+        p.dice = dice()
+        p.error = null
+        answerE.value = ''
+        broadcast(players)
+        render(players)
+    }
     const render = async (players) => {
         let sorted = []
         for (p in players) {
@@ -220,6 +230,9 @@ ${modified.join('\n')}
             if (p.error) {
                 txt += `\nerror: ${p.error.message}`
             }
+            if (i_am_master) {
+                txt += `\n<button id='pick' onclick='javascript: change("${p.id}")'>change card</button>`
+            }
             pre.innerHTML = ((p.id == id) ? '[YOUR CARD] ' : '') + txt + "\n<img src='images/easy/front_card_" + zeroPad(p.card, 3) + ".jpg'>"
 
             element.appendChild(pre)
@@ -243,14 +256,6 @@ ${modified.join('\n')}
             players[id] = player
             console.log('peer open', players)
             render(players)
-            document.getElementById('pick').addEventListener('click', e => {
-                players[id].card = randint(0, 54)
-                players[id].dice = dice()
-                players[id].error = null
-                answerE.value = ''
-                broadcast(players)
-                render(players)
-            })
 
             document.getElementById('solve').addEventListener('click', async e => {
                 let player = players[id]
@@ -282,11 +287,6 @@ ${modified.join('\n')}
                 conn.on('data', async (data) => {
                     let parsed = JSON.parse(data)
                     player = players[conn.peer]
-                    if (parsed.command == 'pick') {
-                        player.card = randint(0, 54)
-                        player.dice = dice()
-                        player.error = null
-                    }
                     if (parsed.command == 'solve') {
                         let expected = await run(player.card, player.dice)
                         if (String(expected) != String(parsed.value).trim()) {
@@ -332,11 +332,6 @@ ${modified.join('\n')}
             })
             conn.on('close', reconnect_screen)
             conn.on('error', reconnect_screen)
-
-            document.getElementById('pick').addEventListener('click', e => {
-                answerE.value = ''
-                conn.send(JSON.stringify({ command: 'pick' }))
-            })
 
             document.getElementById('solve').addEventListener('click', e => {
                 conn.send(JSON.stringify({ command: 'solve', value: answerE.value }))
