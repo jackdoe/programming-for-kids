@@ -10,7 +10,12 @@ else:
   if x == y:
     print('hi')
   else:
-    if True:
+    if x > 10 or y < 10:
       print('hoi')
     else:
-      print('hola')
+      if x > 5 and y > 5:
+        print('hola')
+      elif x < 10 and y > 10:
+        print('heya')
+      else:
+        print('heyhey')

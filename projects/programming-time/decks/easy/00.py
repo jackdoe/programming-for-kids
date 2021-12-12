@@ -17,12 +17,12 @@
 
 # Cheat Sheet:
 #   Value Type      |    ASCII
-#   1 -> integer    |    a -> 97
-#   2 -> string     |    z -> 122
-#   3 -> range      |    0 -> 48
-#   4 -> list       |    9 -> 57
-#   5 -> boolean    |
-#
+#   1 -> integer    |    A -> 97
+#   2 -> string     |    Z -> 90
+#   3 -> range      |    a -> 97
+#   4 -> list       |    z -> 122
+#   5 -> boolean    |    0 -> 48
+#                   |    9 -> 57
 # license: CC BY 4.0
 # github.com/jackdoe
 # programmingtime@fastmail.com
