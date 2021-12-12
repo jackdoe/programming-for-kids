@@ -16,14 +16,15 @@
 # time.
 
 a = 'hello world'
-# There is operator in all
-# programming languages, which means
-# certain operations have higher
-# priority than others, % has higher
-# priority than +, so ⚂ % len(a)
-# will be evaluated first, and then
-# 2 + whatever the result from it
-# was.
+
+# There is operator precedence in
+# all programming languages, which
+# means certain operations have
+# higher priority than others, % has
+# higher priority than +, so ⚂ %
+# len(a) will be evaluated first,
+# and then 2 + whatever the result
+# from it was.
 b = a[2:2 + ⚂ % len(a)]
 
 print(len(b))
