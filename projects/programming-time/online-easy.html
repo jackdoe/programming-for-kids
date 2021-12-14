@@ -6,11 +6,27 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
     <style>
         body,
-        pre,
         textarea {
             font-family: monospace;
             font-size: 14px;
-            margin: 0;
+                         
+            padding: 5px;
+        }
+
+        pre {
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        input {
+            width: 5ch;
+            margin-top: 10px;
+            margin-bottom: 10px;                         
+
+        }
+        textarea {
+            margin-top: 10px;
+            margin-bottom: 10px;                         
         }
 
         #players {
@@ -59,6 +75,17 @@
 
 <body>
     <div id='game-url'></div>
+    <a href='cheatsheet.txt'>cheatsheet.txt</a> <a href='memory.txt'>memory.txt</a><br>
+    modulo calculator: <input id='a' type=text> % <input id='b' type=text> <button id='equal'>=</button> <input id='c' type=text><br>
+    <script>
+      document.getElementById('equal').addEventListener('click',() => {
+          try {
+              document.getElementById('c').value = document.getElementById('a').value % document.getElementById('b').value
+          } catch(e) {
+              document.getElementById('c').value = e.message
+          }
+      })
+    </script>
     <textarea id='solve-value'></textarea>
     <button id='solve'>solve</button>
     <div id='players'>
@@ -247,7 +274,19 @@ ${modified.join('\n')}
     }
     let answerE = document.getElementById('solve-value')
 
-
+    const isEqual = (a,b) => {
+        b = b.trim()
+        a = a.trim()
+        if (a == b) {
+            return true
+        }
+        let af = parseFloat(a)
+        let bf = parseFloat(b)
+        if (isNaN(af) || isNaN(bf)) {
+            return false
+        }
+        return af.toFixed(1) == bf.toFixed(1)
+    }
     peer.on('open', function (id) {
         if (i_am_master) {
             let changed = false
@@ -262,7 +301,7 @@ ${modified.join('\n')}
                 let answer = answerE.value
                 answerE.value = ''
                 let expected = await run(player.card, player.dice)
-                if (String(expected) != String(answer).trim()) {
+                if (!isEqual(expected,answer)) {
                     player.error = {
                         message: 'wrong answer',
                         answer: answer,
@@ -289,7 +328,7 @@ ${modified.join('\n')}
                     player = players[conn.peer]
                     if (parsed.command == 'solve') {
                         let expected = await run(player.card, player.dice)
-                        if (String(expected) != String(parsed.value).trim()) {
+                        if (!isEqual(expected,parsed.value)) {
                             player.error = {
                                 message: 'wrong answer',
                                 answer: parsed.value,

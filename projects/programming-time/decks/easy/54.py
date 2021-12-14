@@ -1,5 +1,3 @@
-# Rect class (read card 53 for what
-# is a class)
 class Rect:
   def __init__(self, x, y, w, h):
     self.x = x # topleft X
@@ -23,8 +21,10 @@ class Rect:
     return False    
 
 box = Rect(10,10,20,20)
+
 pos_x = ⚂
 pos_y = ⚂
+
 if box.contains(pos_x, pos_y):
   print('inside')
 else:

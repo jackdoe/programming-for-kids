@@ -1,20 +1,3 @@
-# Classes are blueprints of code
-# that describe what an object can
-# do. To make a new dog use
-# Dog('Ruffles',5), this calls the
-# __init__ function with magic
-# parameter self(the newlly created
-# dog), name and age. ruffles.bark()
-# will call the bark() method on the
-# object ruffles. Or you can make a
-# bark() function that takes a name:
-#   def bark(name):
-#      print(name + 'oof!')
-#   bark('Ruffles')
-# The first one is called object
-# oriented programming(OOP), and the
-# second is called procedural
-# programming
 class Dog:
   def __init__(self, name, age):
     self.name = name
@@ -26,5 +9,21 @@ class Dog:
     else:
       print(self.name + ' oof!')
 
+  def older(self, other_dog):
+    # am I older than the other dog
+    if self.age > other_dog.age:
+      return True
+    else:
+      return False
+
+
 ruffles = Dog('Ruffles', ⚂)
 ruffles.bark()
+
+max = Dog('Max', ⚂)
+max.bark()
+
+if max.older(ruffles):
+  print("max is older")
+else:
+  print("ruffles is older")

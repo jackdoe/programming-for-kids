@@ -33,7 +33,9 @@ ASCII TABLE:
 62  >     94  ^   126  ~
 63  ?     95  _
 
-modulo (remainder) table
+####################################
+
+Modulo (remainder) table
 for A % B
 
  % | 0 1 2 3 4 5 6 7 8 9 B
@@ -50,5 +52,101 @@ for A % B
  9 | X 0 1 0 1 4 3 2 1 0
  A
 
+####################################
+
+Computer Memory
+In our game we made up 1 memory byte
+per type,
+
+1 -> integer  
+2 -> string   
+3 -> range    
+4 -> list     
+5 -> boolean  
+
+When you store a value in memory,
+python also puts down its type. In
+the real python the type information
+is much bigger, but the idea is the
+same.
+
+####################################
+Functions
+
+Functions are mini programs with a
+name that you can call as many times
+as you want.
+
+Example:
+
+# sum all elements from a list
+# that are smaller than cutoff
+def sum_cutoff(data,cutoff):
+  r = 0
+  for d in data:
+    if d < cutoff:
+      r += d
+  return r
+
+a = [1,2,4,2,4,2,199,1,1]
+s1 = sum_cutoff(a, 10)
+s2 = sum_cutoff(a, 2)
+
+The way to declare a function is:
+
+def func_name(param1,param2,..):
+   func code
+   ...
+   ...
+``
+
+the function can take as many
+parameters as you want.
 
 
+####################################
+
+Classes
+
+Classes are blueprints of code that
+describe what an object can do. 
+
+
+class Dog:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def bark(self):
+    if self.age > 5:
+      print(self.name + ' Woof!')
+    else:
+      print(self.name + ' oof!')
+
+ruffles = Dog('Ruffles', 5)
+ruffles.bark()
+
+max = Dog('Ruffles', 3)
+max.bark()
+
+To make a new dog use
+Dog('Ruffles',5), this calls the
+__init__ function with magic
+parameter self(the newlly created
+dog), name and age. ruffles.bark()
+will call the bark() method on the
+object ruffles. Or you can make a
+bark() function that takes a name
+and age:
+
+  def bark(name, age):
+     if age > 5:
+       print(name + 'Woof!')
+     else:
+       print(name + 'oof!')
+  bark('Ruffles',5)
+
+The first one is called object
+oriented programming(OOP), and the
+second is called procedural
+programming.

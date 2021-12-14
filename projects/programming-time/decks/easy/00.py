@@ -27,5 +27,5 @@
 # github.com/jackdoe
 # programmingtime@fastmail.com
 # punkjazz.org/programming-time
-
-print(⚂)
+a = ⚂
+print(a/2)
