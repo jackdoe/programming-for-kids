@@ -53,23 +53,139 @@ for A % B
  A
 
 ####################################
+Variables
 
-Computer Memory
-In our game we made up 1 memory byte
-per type,
+A variable is a name to a value you
+will use later.
 
-1 -> integer  
-2 -> string   
-3 -> range    
-4 -> list     
-5 -> boolean  
+name = 'John'
+age = 15
 
-When you store a value in memory,
-python also puts down its type. In
-the real python the type information
-is much bigger, but the idea is the
-same.
+In this example the variables are
+`name` and `age` and their values
+are 'John' and 15
 
+try this:
+
+name = input("What is your name: ")
+print(name)
+
+Here we have one variable, called
+`name` that we do not actually know
+the value of, until the user types
+it in
+
+Variables in python have to start
+with a letter, so you can have
+variable named a1 but you cant name
+it 1a
+
+####################################
+Strings
+
+A string is an ordered sequence of
+characters, for example: 'Jackie' or
+'abc'
+
+In python you can declare strings
+with a pair single or double quites
+
+"aaa"
+'aaa'
+
+"abcdef"
+
+
+####################################
+Integers/Floats
+
+Integers are whole numbers
+ 2
+ 0
+ -6
+
+Floating point numbers are fractions
+
+1.5
+3.2
+-18934.2
+
+####################################
+Lists
+
+Lists are ordered sequence of
+things.
+
+a = [1,2,3]
+
+x = 1
+b = [x,1,2,]
+
+y = 'hello'
+
+c = [1,2,y]
+
+And of course you can have lists in
+lists in lists..
+z = [1, [2,3], ['a',4,[5,6,7]]]
+
+You can access each element by its
+indexm, starting at 0
+
+so if a = [2,4,6], then a[0] = 2,
+a[1] = 4, a[2] = 6
+
+####################################
+For
+
+For is used if you want to do
+something multiple times
+
+for i in range(0,10,1):
+  print(i)
+
+range(start, stop, step) returns a
+ranged sequence starting from 0 up
+to 10 (but not including 10), each
+step adding 1 until it reaches 10.
+
+x = range(10)
+for i in x:
+  print(x)
+
+you can skip the start and step
+parameters to the range, then its
+just range(stop), so range(10) is
+the same as range(0,10,1).
+
+you can use `break` to stop the loop
+from inside
+
+####################################
+While
+
+Do something until you break out.
+
+while True:
+  print("forever")
+
+while <condition>:
+  ... run code
+  if something:
+      break
+
+You can also break the while loops.
+####################################
+If
+
+X = 1 == 2
+
+if X:
+  code if X is true
+else:
+  code if X is false
+
+  
 ####################################
 Functions
 
@@ -150,3 +266,47 @@ The first one is called object
 oriented programming(OOP), and the
 second is called procedural
 programming.
+
+####################################
+
+Computer Memory
+In our game we made up 1 memory byte
+per type,
+
+1 -> integer  
+2 -> string   
+3 -> range    
+4 -> list     
+5 -> boolean  
+
+When you store a value in memory,
+python also puts down its type. In
+the real python the type information
+is much bigger, but the idea is the
+same.
+
+| computer memory                |
+|..........3 0 3 1......4 1 99...|
+|.....1 2..^............^../.....|
+|.....^....|............|.v......|
+|.....|....|...2.1 97...|.1 3....|
+|.....|....|...^....5 1.|........|
+|.....|....|...|....^...|........|
+'-----+----+---+----|---+--------'
+      |    |   |    |   |
+x = 2 +    |   |    |   |
+r = range(3)   |    |   |
+y = 'a' -------+    |   |
+a = True -----------+   |
+z = [3] ----------------+
+
+Each byte in memory has an address,
+similar to list's indexes, you can
+just get memory[482] which will make
+the processor load the value at
+address 482, so you can see the list
+has type 4, length 1, and first
+element points to address 99, where
+it has an integer with type 1 and
+value 3.
+
