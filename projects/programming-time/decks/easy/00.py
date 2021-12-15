@@ -13,16 +13,15 @@
 # the deck. Wherever you see ⚂ you
 # must roll a dice to get the value.
 #
-# The player with most cards wins.
+# All players work together to
+# defeat an evil computer
+# program. Their computer needs 30
+# bytes of memory to beat the evil
+# computer, each card you solve adds
+# 1 byte of memory to the player's
+# computer. The goal of the game is
+# to solve 30 cards together.
 
-# Cheat Sheet:
-#   Value Type      |    ASCII
-#   1 -> integer    |    A -> 97
-#   2 -> string     |    Z -> 90
-#   3 -> range      |    a -> 97
-#   4 -> list       |    z -> 122
-#   5 -> boolean    |    0 -> 48
-#                   |    9 -> 57
 # license: CC BY 4.0
 # github.com/jackdoe
 # programmingtime@fastmail.com
