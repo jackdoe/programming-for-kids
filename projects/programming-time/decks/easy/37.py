@@ -18,9 +18,9 @@ def divide(a,b):
 
   return [multiple, reminder]
 
-# or simply reminder = 4 % 3
-#           multiple = int(4/3)
+# or simply remainder = 4 % 3
+#            multiple = int(4/3)
 pizza = ⚂
 pieces = ⚂
-m,rem = divide(pizza,pieces) 
-print(rem)
+m,remainder = divide(pizza,pieces) 
+print(remainder)

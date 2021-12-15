@@ -10,9 +10,9 @@ table = [  # This is a simple
 def hash(s): # returns 0,1,2 or 3
   return ord(s[0]) % len(table)
 
-def set(k,v):
-  chain = table[hash(k)]
+def set(k,v): # key, value
   if get(k) == None:
+    chain = table[hash(k)]
     chain.append([k,v]) # pair of
                         # key value
 def get(k):
