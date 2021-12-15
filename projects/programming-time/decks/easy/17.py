@@ -26,6 +26,6 @@ for row in image:
     elif pixel == 1:
       print('@', end='')
     else:
-      print('#', end='')
+      print('%', end='')
   # print new line after every row
   print('')
