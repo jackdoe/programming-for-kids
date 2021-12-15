@@ -14,7 +14,7 @@ def fizzbuzz():
       fb.append("fizzbuzz")
     elif i % 3 == 0:
       fb.append("fizz")
-    elif i % 3 == 0:
+    elif i % 5 == 0:
       fb.append("buzz")
     else:
       fb.append(i)
