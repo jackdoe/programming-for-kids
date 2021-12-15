@@ -5,7 +5,7 @@
 # xx
 # x
 
-n = ⚂
+n = 1 + (⚂ % 5)
 
 # range(start, stop, step)
 forward = range(1, n, 1)
