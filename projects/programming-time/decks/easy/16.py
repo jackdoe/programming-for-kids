@@ -6,15 +6,15 @@ def roll(max):
     if dice < max:
       return dice
 
-# make a line half with # and half %
-# e.g line(5) will return ###%%
+# make a line half with * and half %
+# e.g line(5) will return ***%%
 def line(n):
   s = ''
   for i in range(n):
     if i >= n/2:
       s += '%'
     else:
-      s += '#'
+      s += '*'
 
   return s
 

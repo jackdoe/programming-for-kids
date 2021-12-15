@@ -1,5 +1,4 @@
-# compare two numbers and return the
-# smaller one
+# return the smaller number
 def min(a,b):
   # if a is bigger than b, then
   # return b because it is smaller
@@ -8,8 +7,7 @@ def min(a,b):
   else:
     return a
 
-# compare two numbers and return the
-# bigger one
+# return the bigger number
 def max(a,b):
   # if a is bigger than b, return a
   if a > b:

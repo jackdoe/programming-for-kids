@@ -1,7 +1,7 @@
 # if the door is locked:
 #   knock
 # else:
-#   enter 
+#   enter
 x = ⚂
 y = ⚂
 if 1 == 2 or 2 == 3:

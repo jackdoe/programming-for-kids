@@ -1,5 +1,8 @@
-# is_prime checks if a number is
-# prime or not
+# Prime numbers are numbers
+# divisable without remainder only
+# by themselves and one, to check
+# the remainder use the modulo
+# operator % e.g. 6 % 5 is 1
 def is_prime(n):
   # 0 and 1 are not prime
   if n == 0 or n == 1:
@@ -15,7 +18,6 @@ def is_prime(n):
       return False
 
   return True
-
 
 n = ⚂
 if is_prime(n):
