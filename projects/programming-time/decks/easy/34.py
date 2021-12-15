@@ -1,3 +1,5 @@
+# you can use multiline strings in
+# python, by using """ instead of "
 print("""
 Wake up! You hear the sound of
 footsteps coming your way. Its the

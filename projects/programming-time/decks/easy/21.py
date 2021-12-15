@@ -1,17 +1,23 @@
-a = 0
-stop = ⚂
+# delta encoding is a way to store a
+# sequence by storing the
+# differences between the elements
+# for example [1,2,3,5] can be
+# represented as [1,2-1,3-2,5-3] or
+# [1,1,1,2]
+def delta(x):
+  result = [x[0]]
 
-# another way to write the same
-# code:
-#
-#  while True:
-#    if a < stop:
-#       break
-#
-#    a += 1
-#
+  # start from 1 because we already
+  # have x[0] in the output
+  for i in range(1,len(x)):
+    prev = x[i]
+    current = x[i-1]
 
-while a < stop:
-  a += 1
+    result.append(prev-current)
 
-print(a)
+  return result
+
+a = [1, 2, 3, ⚂, 5, ⚂, 6]
+
+encoded = delta(a)
+print(encoded)
