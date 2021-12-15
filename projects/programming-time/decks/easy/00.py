@@ -6,12 +6,12 @@
 # Start with 1 card per player, put
 # the rest face down (code down).
 #
-# Each player takes turn to
-# interpret the code on their card,
-# and say the output, if the output
-# is correct, get a new card from
-# the deck. Wherever you see ⚂ you
-# must roll a dice to get the value.
+# Each player interprets the code on
+# their card, and say the output, if
+# the output is correct, they get a
+# new card from the deck. Wherever
+# you see ⚂ you must roll a dice to
+# get the value.
 #
 # All players work together to
 # defeat an evil computer
