@@ -1,4 +1,4 @@
-# n = 3 will print this
+# n = 3 will print this:
 # x
 # xx
 # xxx

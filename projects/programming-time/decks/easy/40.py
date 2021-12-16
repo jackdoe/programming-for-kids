@@ -27,5 +27,5 @@ mem[x] = 1 # type 1 for integer
 mem[x+1] = ⚂ % 4
 y = 782
 mem[y] = 1 # type 1 for integer
-mem[y+1] =  ⚂ % 4
+mem[y+1] = ⚂ % 4
 print(equal(mem,x,y))

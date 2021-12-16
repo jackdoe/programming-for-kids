@@ -95,6 +95,13 @@ with a pair single or double quites
 
 "abcdef"
 
+You can access each character by its
+index, starting from 0
+
+x = "abc"
+x[0] is 'a'
+x[1] is 'b'
+x[2] is 'c'
 
 ####################################
 Integers/Floats

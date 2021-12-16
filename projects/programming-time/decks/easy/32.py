@@ -21,6 +21,7 @@ def contains(haystack, needle):
 weekday = [0,1,2,3,4]
 weekend = [5,6]
 day = ⚂
+
 # or just use 'if day in weekday' 
 if contains(weekday, day):
   print('work work')
@@ -28,4 +29,3 @@ elif contains(weekend, day):
   print('yey, weekend')
 else:
   print('oops, expected 0 to 6')
-
