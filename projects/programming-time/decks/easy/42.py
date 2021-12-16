@@ -19,6 +19,8 @@ def win(g, symbol):
         return True
   return False
 
+game[⚂ % len(game)] = '0'
+
 if win(game, 'x'):
   print('x')
 else:

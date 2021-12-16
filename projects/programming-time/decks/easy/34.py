@@ -14,7 +14,7 @@ chance = ⚂ > 5
 if chance:
   print("""
 You are in luck! The guard gets
-distracted by a cat, eating his food
+distracted by a cat eating his food
 from the table, and you manage to
 steal the keys.
   """)
