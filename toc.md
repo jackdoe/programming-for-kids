@@ -388,3 +388,5 @@
 
 
 [day-150 while; classes](#day-150-while-classes)
+
+[day-151 classes; while](#day-151-classes-while)
