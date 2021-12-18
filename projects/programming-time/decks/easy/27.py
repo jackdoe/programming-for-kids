@@ -1,18 +1,31 @@
-# % means get the remainder
-# of a division.
-#
-#
-# 5 / 2 is 2
-# and 1 remainder
-#
-# 7 / 2 is 3
-# and 1 remainder
-# 
-# 11 / 4 is 2
-# and 3 remainder, so 11 % 4 is 3
-#
-# The % operator is super handy, for
-# example if x % 2 == 0 then x is
-# even, otherwise its odd.
+# Morse code is an old method to
+# encode characters into a sequence
+# of short and long signals.
+morse = {
+  'a': '.-',     'b': '-...',
+  'c': '-.-.',   'd': '-..',
+  'e': '.',      'f': '..-.',
+  'g': '--.',    'h':'....',
+  'i': '..',     'j': '.---',
+  'k': '-.-',    'l': '.-..',
+  'm': '--',     'n': '-.',
+  'o': '---',    'p': '.--.',
+  'q': '--.-',   'r': '.-.',
+  's': '...',    't': '-',
+  'u': '..-',    'v': '...-',
+  'w': '.--',    'x': '-..-',
+  'y': '-.--',   'z': '--..',
+  ' ': '/',
+}
+# encode string into a list of
+# morse code signals, encode("sos")
+# will return ['...','---','...']
+def encode(str):
+  r = []
+  for c in str:
+    r.append(morse[c])
 
-print(99 % ⚂)
+  return r
+password = "donald duck"
+encoded = encode(password)
+print(encoded[⚂ % len(encoded)])
