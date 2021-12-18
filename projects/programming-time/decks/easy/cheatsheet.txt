@@ -53,6 +53,7 @@ for A % B
  A
 
 ####################################
+
 Variables
 
 A variable is a name to a value you
@@ -81,6 +82,7 @@ variable named a1 but you cant name
 it 1a
 
 ####################################
+
 Strings
 
 A string is an ordered sequence of
@@ -104,6 +106,7 @@ x[1] is 'b'
 x[2] is 'c'
 
 ####################################
+
 Integers/Floats
 
 Integers are whole numbers
@@ -118,6 +121,7 @@ Floating point numbers are fractions
 -18934.2
 
 ####################################
+
 Lists
 
 Lists are ordered sequence of
@@ -143,6 +147,7 @@ so if a = [2,4,6], then a[0] = 2,
 a[1] = 4, a[2] = 6
 
 ####################################
+
 For
 
 For is used if you want to do
@@ -169,6 +174,7 @@ you can use `break` to stop the loop
 from inside
 
 ####################################
+
 While
 
 Do something until you break out.
@@ -182,18 +188,21 @@ while <condition>:
       break
 
 You can also break the while loops.
+
 ####################################
+
 If
 
 X = 1 == 2
 
 if X:
-  code if X is true
+  code if X is True
 else:
-  code if X is false
+  code if X is False
 
   
 ####################################
+
 Functions
 
 Functions are mini programs with a
@@ -317,3 +326,30 @@ element points to address 99, where
 it has an integer with type 1 and
 value 3.
 
+####################################
+
+Morse code:
+
+  'a': '.-',     'b': '-...',
+  'c': '-.-.',   'd': '-..',
+  'e': '.',      'f': '..-.',
+  'g': '--.',    'h':'....',
+  'i': '..',     'j': '.---',
+  'k': '-.-',    'l': '.-..',
+  'm': '--',     'n': '-.',
+  'o': '---',    'p': '.--.',
+  'q': '--.-',   'r': '.-.',
+  's': '...',    't': '-',
+  'u': '..-',    'v': '...-',
+  'w': '.--',    'x': '-..-',
+  'y': '-.--',   'z': '--..'
+  '1': '.----',  '2': '..---',
+  '3': '...--',  '4': '....-',
+  '5': '.....',  '6': '-....',
+  '7': '--...',  '8': '---..',
+  '9': '----.',  '9': '----.',
+  '0': '-----',  ' ': '/',
+
+
+
+####################################
