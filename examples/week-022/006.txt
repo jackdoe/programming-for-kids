@@ -1,3 +1,5 @@
-
-Prints infinite sequence of smilies
-
+while True:
+    for i in range(0,10):
+        print(':3'* i)
+    for i in range(10,0,-1):
+        print(':D' * i)

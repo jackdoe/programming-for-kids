@@ -1,61 +1,49 @@
 import pgzrun
 
-WIDTH = 500
-HEIGHT = 500
+WIDTH = 800
+HEIGHT = 800
 
-king = Actor('c2')
 elf = Actor('c1')
-flower =  Actor('flower')
-rock = Actor('rock')
+x = 0
+y = 0
 
-king.x = 480
-king.y = 125
-flower.y = 380
-flower.x = 480
-rock.x = 480
-rock.y = 250
-
+color = None
 drop = []
-
-speed = 5
+size = 40
 def update():
-    global speed
+    global color,size
+
     if keyboard.W:
-        elf.y -= speed
+        elf.y -= 5
     if keyboard.S:
-        elf.y += speed
+        elf.y += 5
     if keyboard.D:
-        elf.x += speed
+        elf.x += 5
     if keyboard.A:
-        elf.x -= speed
+        elf.x -= 5
     if keyboard.C:
         screen.clear()
 
-    if elf.colliderect(king):
-        elf.image=king.image
-        speed = 2
-    if elf.colliderect(rock):
-        elf.image=rock.image
-        speed = 1
-    if elf.colliderect(flower):
-        elf.image=flower.image
-        speed = 10
-    if keyboard.SPACE and elf.image != 'c1':
-        a = Actor(elf.image)
-        a.x = elf.x
-        a.y = elf.y
-        drop.append(a)
+    if keyboard.SPACE and color != None:
 
-        elf.image='c1'
-        speed = 5
+        drop.append([color, Rect(elf.x, elf.y, size, size)])
 
+    if keyboard.K_1:
+        color = (255,0,0)
+    if keyboard.K_2:
+        color = (25,41, 88)
+
+    if keyboard.K_8:
+        size += 1
+    if keyboard.K_9:
+        size -= 1
 def draw():
     screen.clear()
     elf.draw()
-    king.draw()
-    flower.draw()
-    rock.draw()
-    for d in drop:
-        d.draw()
 
+    for pixel in drop:
+        screen.draw.rect(pixel[1],pixel[0])
+
+    if color != None:
+        screen.draw.rect(Rect(elf.x,elf.y,size,size), color)
 pgzrun.go()
