@@ -12909,6 +12909,8 @@ pgzrun.go()
 
 Find Waldo, here are two different implementations of the game, one uses dictionaries and one doesnt.
 
+In this game, one of the actors has his back turned, and the purpose of the game is to find them.
+
 We are using this example to practice lists, using `for element in list` and `for i in range(len(list))`, and overusing iterating over the list to find a matching element.
 
 ```
