@@ -11,8 +11,8 @@
 #
 # rot13() is an early encryption
 # method, each character is replaced
-# with character 13 places away
-#
+# with character 13 places away:
+# (a + 13 = n, and n + 13 = a)
 # a b c d e f g h i j k l m
 # ↕ ↕ ↕ ↕ ↕ ↕ ↕ ↕ ↕ ↕ ↕ ↕ ↕
 # n o p q r s t u v w x y z

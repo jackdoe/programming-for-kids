@@ -18,7 +18,7 @@ def sum(data):
 def avg(data):
   n = sum(data)
   # `len` is a builtin function
-  # that python provides, that
+  # that python provides, it
   # returns the length of a list or
   # string, e.g. len([1,2]) is 2 and
   # len('abc') is 3
