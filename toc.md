@@ -392,3 +392,5 @@
 [day-151 classes; while](#day-151-classes-while)
 
 [day-152 lists](#day-152-lists)
+
+[day-153 lists; dictionaries](#day-153-lists-dictionaries)

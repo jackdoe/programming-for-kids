@@ -510,6 +510,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-152 lists](#day-152-lists)
 
+[day-153 lists; dictionaries](#day-153-lists-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -12896,6 +12898,142 @@ def draw():
     rock.draw()
     for d in drop:
         d.draw()
+
+pgzrun.go()
+```
+
+
+## [DAY-153] Lists; Dictionaries
+
+![game-153.png](./screenshots/game-153.png "game 153 screenshot")
+
+Find Waldo, here are two different implementations of the game, one uses dictionaries and one doesnt.
+
+We are using this example to practice lists, using `for element in list` and `for i in range(len(list))`, and overusing iterating over the list to find a matching element.
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 400
+elf.y = 400
+drop = []
+
+def on_key_down(key):
+    if key == keys.SPACE:
+        found = False
+        for i in drop:
+            if i.image == 'c2-back':
+                found = True
+        if not found:
+            a = Actor('c2-back')
+            a.x = random.randint(0,1500)
+            a.y = random.randint(0,1500)
+            drop.append(a)
+        for i in range(100):
+            a = Actor('c2')
+            a.x = random.randint(0,2000)
+            a.y = random.randint(0,2000)
+            drop.append(a)
+    if key == keys.P:
+        for i in drop:
+            if i.image == 'c2-back':
+                i.x = random.randint(elf.x - 200,elf.x + 200)
+                i.y = random.randint(elf.y - 200,elf.y + 200)
+
+waldo_found = False
+def update():
+    global waldo_found
+    if keyboard.W:
+        for x in range(len(drop)):
+            i = drop[x]
+            i.y += 5
+    if keyboard.S:
+        for a in range(len(drop)):
+            drop[a].y -= 5
+    if keyboard.A:
+        for i in drop:
+            i.x += 5
+    if keyboard.D:
+        for i in drop:
+            i.x -= 5
+    for i in drop:
+        if i.image == 'c2-back' and elf.colliderect(i):
+            waldo_found = True
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    for i in drop:
+        i.draw()
+    if waldo_found == True:
+        screen.draw.text(" YOU HAVE FOUND WALDO ", (10,10))
+
+pgzrun.go()
+```
+
+
+A second implementation where we use a `waldo` variable so we dont have to scan the list of actors so many times, and also we move the elf instead of moving all the actors. And we use a dictionary with positions to try to avoid adding an actor close to already existing one.
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 400
+elf.y = 400
+drop = []
+waldo = Actor('c2-back')
+seen = {}
+def on_key_down(key):
+    if key == keys.SPACE:
+        waldo.x = random.randint(0,WIDTH)
+        waldo.y = random.randint(0,HEIGHT)
+        place = str(int(waldo.x/50)) + "_" + str(int(waldo.y/100))
+        seen[place] = True
+        for i in range(100):
+            x = random.randint(0,WIDTH)
+            y = random.randint(0,HEIGHT)
+            place = str(int(x/50)) + "_" + str(int(y/100))
+            if place not in seen:
+                a = Actor('c2')
+                a.x = x
+                a.y = y
+                drop.append(a)
+                seen[place] = True
+
+waldo_found = False
+def update():
+    global waldo_found
+
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.D:
+        elf.x += 5
+
+    if waldo.colliderect(elf):
+        waldo_found = True
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    for i in drop:
+        i.draw()
+    waldo.draw()
+
+    if waldo_found == True:
+        screen.draw.text(" YOU HAVE FOUND WALDO ", (10,10))
 
 pgzrun.go()
 ```

@@ -1,0 +1,56 @@
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 400
+elf.y = 400
+drop = []
+waldo = Actor('c2-back')
+seen = {}
+def on_key_down(key):
+    if key == keys.SPACE:
+        waldo.x = random.randint(0,WIDTH)
+        waldo.y = random.randint(0,HEIGHT)
+        place = str(int(waldo.x/50)) + "_" + str(int(waldo.y/100))
+        seen[place] = True
+        for i in range(100):
+            x = random.randint(0,WIDTH)
+            y = random.randint(0,HEIGHT)
+            place = str(int(x/50)) + "_" + str(int(y/100))
+            if place not in seen:
+                a = Actor('c2')
+                a.x = x
+                a.y = y
+                drop.append(a)
+                seen[place] = True
+
+waldo_found = False
+def update():
+    global waldo_found
+
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.D:
+        elf.x += 5
+
+    if waldo.colliderect(elf):
+        waldo_found = True
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    for i in drop:
+        i.draw()
+    waldo.draw()
+
+    if waldo_found == True:
+        screen.draw.text(" YOU HAVE FOUND WALDO ", (10,10))
+
+pgzrun.go()
