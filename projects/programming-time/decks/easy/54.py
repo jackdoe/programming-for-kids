@@ -14,13 +14,13 @@ class Rect:
     x_left = self.x
     x_right = self.x + self.w
     y_top = self.y
-    y_bottom = self.y + self.h
+    y_bottom = self.y - self.h
     if x > x_left and x < x_right:
-      if y > y_top and y < y_bottom:
+      if y > y_bottom and y < y_top:
         return True
     return False    
 
-box = Rect(10,10,20,20)
+box = Rect(10,10,5,8)
 
 pos_x = ⚂
 pos_y = ⚂
