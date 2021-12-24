@@ -3,10 +3,10 @@
 # roll the dice until you find
 # another door
 while True:
-  ghost = ⚂ % 3
-  door = ⚂ % 3
+  ghost_door = ⚂ % 3
+  your_door = ⚂ % 3
 
-  if door == ghost:
+  if your_door == ghost_door:
     print("RUUUNNN!!")
   else:
     print("phew! no ghost!")
