@@ -1,28 +1,31 @@
-# n = 3 will print this:
-# x
-# xx
-# xxx
-# xx
-# x
+# use the fullmoon module to
+# compute when the next full moon is
+from fullmoon import NextFullMoon
+import datetime
 
-n = 1 + (⚂ % 5)
+# NextFullMoon() returns an object
+# which has next_full_moon() method,
+# which returns datetime object of
+# the next full moon
+n = NextFullMoon().next_full_moon()
 
-# range(start, stop, step)
-forward = range(1, n, 1)
-for i in forward:
-  # in python you can multiply
-  # string by number
-  # 'ab' * 4 -> 'abababab'
-  # it just repeats the string
-  # so 'x' * i, when `i` is 1 will
-  # be just 'x' but when `i` is 2
-  # it will be 'xx' ans so on.
-  print('x' * i)
+# datetime.now() returns the current
+# datetime
+today = datetime.datetime.now()
 
-# range can also go backwards
-# start at n, up to 0, adding -1 on
-# every step
-back = range(n, 0, -1)
-for i in back:
-  print('x' * i)
-  
+# You can subtract datetime objects
+# from eachother, it returns a date
+# difference object which has .days
+# property to get the difference in
+# days. Since `n` is in the future,
+# subtracting `today` from it will
+# return the days remaining to the
+# next full nmoon.
+diff = n - today
+remaining = diff.days
+
+# HINT: use your phone to lookup
+# when the next full moon is and
+# count the days from now to compute
+# the result of this card.
+print(remaining)
