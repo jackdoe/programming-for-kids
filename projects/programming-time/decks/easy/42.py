@@ -23,7 +23,9 @@ game[⚂ % len(game)] = '0'
 
 if win(game, 'x'):
   print('x')
-else:
+elif win(game, '0'):
   print('0')
+else:
+  print('-')
 
   

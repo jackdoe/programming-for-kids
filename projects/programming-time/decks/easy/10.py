@@ -1,20 +1,23 @@
-# return a random number between 1
-# and 20
-def random():
-  dice = ⚂
-  return dice
+# reverse polish notation calculator
+calc = [⚂, ⚂, '+', ⚂, '*', 3, '-']
 
-sum = 0
-max = 0
-n = 3
-for i in range(n):
-  value = random()
-  sum += value
-  if value > max:
-    max = value
-
-# the average of a series of items
-# is the sum divided by the count
-avg = sum / n
-
-print(max - avg)
+# * take 2 numbers from the front
+# * take 1 operation
+# * compute the result and put back
+# * print the result if only
+#   one element is left
+while True:
+  a = calc.pop(0)
+  b = calc.pop(0)
+  op = calc.pop(0)
+  if op == '+':
+    calc.insert(0, a + b)
+  if op == '-':
+    calc.insert(0, a - b)
+  if op == '*':
+    calc.insert(0, a * b)
+    
+  if len(calc) == 1:
+    print(calc[0])
+    break
+    

@@ -17,12 +17,11 @@ y = ⚂
 
 a = x == y
 b = x > y
-c = x < y
+c = (x - 5) < y
 # brackets are important, first
-# evaluate a, if its true then
-# evaluate (b or c), and both a
-# and (b or c) has to be true.
-if a and (b or c):
+# evaluate a, if its false then
+# evaluate (b and c)
+if a or (b and c):
   print(x)
 else:
   print(y)
