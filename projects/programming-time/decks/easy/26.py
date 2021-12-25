@@ -5,9 +5,9 @@ def pick(items):
   return items[⚂ % len(items)]
 
 locations = [
-  [52.37,4.89],   # amsterdam
-  [51.49, -0.12]  # london
-  [40.71, -74.04] # new york
+  [52.37,4.89],    # amsterdam
+  [51.49, -0.12],  # london
+  [40.71, -74.04], # new york
   [0, 0] # use your current location
          # you can find it on
          # google earth
