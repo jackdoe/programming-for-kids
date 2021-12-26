@@ -13,7 +13,6 @@ bears = {
   "Love-A-Lot Bear": "Magenta pink",
   "Tenderheart Bear": "Brown",
 }
-
 favorite = [
   "Cheer Bear",
   "Love-A-Lot Bear",
@@ -24,7 +23,9 @@ favorite = [
 # of favorite names
 you = favorite[⚂ % len(favorite)]
 
-# for example bears["Grumpy Bear"]
-# is "Indigo Blue"
+# you can get the value of a key
+# with bears[key] for example
+# bears["Grumpy Bear"] is "Indigo
+# Blue"
 color = bears[you]
 print('your color: ' + color)
