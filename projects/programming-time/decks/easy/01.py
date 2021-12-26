@@ -1,21 +1,31 @@
-# return the smaller number
-def min(a,b):
-  # if a is bigger than b, then
-  # return b because it is smaller
-  if a > b:
-    return b
-  else:
-    return a
+# RSA - algorithm is possibly the
+# most used encryption algorithm in
+# the world.
+# in our example we use small prime
+# numbers, but 3564925531837 and
+# 754875236820775169247373371859 are
+# also prime numbers
 
-# return the bigger number
-def max(a,b):
-  # if a is bigger than b, return a
-  if a > b:
-    return a
-  else:
-    return b
+p = 11 # must be prime number
+q = 17 # must be prime number
+e = 7 # prime number between
+      # (p-q)*(q-1), in our case
+      # (11-1)*(17-1) = 160
+      # so `e` must be a prime
+      # number > 1 and < 160,
+      # so I picked 7 as its also
+      # my lucky number.
+N = p * q # 187
 
-x = ⚂
-y = ⚂
+message = ⚂
 
-print(max(5,min(x,y)))
+# 2**5 is 2*2*2*2*2 = 32
+encrypted = (message**e) % N
+print(encrypted)
+
+# // is floor division:
+# x//y is the same as int(x/y)
+# e.g. 5/2 is 2.5, but 5//2 is 2
+d = (((p-1) * (q-1)) + 1) // e
+decrypted = (encrypted**d) % N
+print(decrypted)
