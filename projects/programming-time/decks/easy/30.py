@@ -1,29 +1,30 @@
-# | computer memory      |
-# |.4 1 50...............| 0  - 21
-# |.^...v................| 22 - 43
-# |.|...1 1....1 ⚂.......| 44 - 65
-# '-+----------^---------'
-#   |          |
-# odd          |
-# x -----------+
-#
-# odd.append(x) will add reference
-# to x's value in the end of 'odd'
-# 
-# |.4 2 50 56...........| 0  - 21
-# |.^...v...\...........| 22 - 43
-# |.|...1 1..`>1 ⚂......| 44 - 65
-# '-+----------^--------'
-#   |          | 
-# odd          |
-# x -----------+
-# you see how odd[1] and the
-# variable x point to the same place
-odd = [1]
-x = ⚂
-if x % 2 == 0:
-  x = x-1
+def pick(data):
+  return data[⚂ % len(data)]
 
-odd.append(x)
+# R = Rock, P = Paper, S = Scissors
+game = ["R","P","S"]
 
-print(odd[1])
+wins_a = 0
+wins_b = 0
+
+while wins_a < 3 and wins_b < 3:
+  a = pick(game)
+  b = pick(game)
+
+  if a == b:
+    print('Tie!')    
+  elif a == 'R' and b == 'S':
+    wins_a += 1
+  elif a == 'R' and b == 'P':
+    wins_b += 1
+  elif a == 'P' and b == 'S':
+    wins_b += 1
+  elif a == 'P' and b == 'R':
+    wins_a += 1
+  elif a == 'S' and b == 'P':
+    wins_a += 1
+  elif a == 'S' and b == 'R':
+    wins_b += 1
+
+print(wins_a)
+print(wins_b)
