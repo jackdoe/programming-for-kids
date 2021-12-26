@@ -1,31 +1,30 @@
-# RSA - algorithm is possibly the
-# most used encryption algorithm in
-# the world.
-# in our example we use small prime
-# numbers, but 3564925531837 and
-# 754875236820775169247373371859 are
-# also prime numbers
+# Prime number is a number that is
+# divisible, without remainder, only
+# by itself and 1 (e.g. 2, 3, 5, 7,
+# 11). To check the remainder use
+# the modulo operator %. For example
+# 5 is a prime number:
+#  5 % 1 is 0 (reminder of 5/1 is 0)
+#  5 % 2 is 1 (reminder of 5/2 is 1)
+#  5 % 3 is 2 (reminder of 5/3 is 2)
+#  5 % 4 is 1 (reminder of 5/4 is 1)
+#  5 % 5 is 0 (reminder of 5/5 is 0)
+def is_prime(n):
+  # 0 and 1 are not prime
+  if n == 0 or n == 1:
+    return False
+  # check if the number is divisable
+  # by any number from 2 to n
+  for x in range(2,n):
+    # if there is no reminder that
+    # means it is divisable, and it
+    # is not a prime
+    if n % x == 0:
+      return False
+    return True
 
-p = 11 # must be prime number
-q = 17 # must be prime number
-e = 7 # prime number between
-      # (p-q)*(q-1), in our case
-      # (11-1)*(17-1) = 160
-      # so `e` must be a prime
-      # number > 1 and < 160,
-      # so I picked 7 as its also
-      # my lucky number.
-N = p * q # 187
-
-message = ⚂
-
-# 2**5 is 2*2*2*2*2 = 32
-encrypted = (message**e) % N
-print(encrypted)
-
-# // is floor division:
-# x//y is the same as int(x/y)
-# e.g. 5/2 is 2.5, but 5//2 is 2
-d = (((p-1) * (q-1)) + 1) // e
-decrypted = (encrypted**d) % N
-print(decrypted)
+n = ⚂
+if is_prime(n):
+  print('prime')
+else:
+  print('not a prime')

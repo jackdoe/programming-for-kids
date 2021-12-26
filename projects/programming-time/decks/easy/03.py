@@ -4,7 +4,9 @@ rolls = []
 
 # 4 % 3 means divide 4 by 3 and take
 # the remainder.
-n = (⚂ % 4) + 2
+n = (⚂ % 4)
+if n < 2:
+  n = 2
 
 # start from i = 0 up to, but
 # excluding, n, increase `i` with 2
