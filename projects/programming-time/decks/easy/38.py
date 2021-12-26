@@ -1,21 +1,31 @@
-# do basic math operations on `a`
-# and `b`, supports +,-,*,/
-def calc(op, a, b):
-  if op == '+':
-    return a + b
+#            |y        |x=5
+#            |         |
+#           6|    B    |     C
+#           5|         |         y=4
+#-----------4|---------P------------
+#           3|         |
+#           2|    A    |     D
+#           1|         |
+#------------+---------+------------
+#           0| 1 2 3 4 5 6 7 8 9   x
+#            |         |
+#            |         |
+#            |         |
 
-  if op == '-':
-    return a - b
+x0 = 5
+y0 = 4
 
-  if op == '*':
-    return a * b
+x,y = [⚂,⚂]
 
-  if op == '/':
-    return a / b
-
-
-x = ⚂
-y = ⚂
-r = calc('+',x,y) * calc('-',x,y)
-
-print(r)
+if x < x0 and y < y0:
+  print("A")
+elif x < x0 and y > y0:
+  print("B")
+elif x > x0 and y > y0:
+  print("C")
+elif x > x0 and y < y0:
+  print("D")
+elif x == x0 and y == y0:
+  print("P")
+else:
+  print("Strange dice roll.")
