@@ -18,7 +18,7 @@ root = LinkedList(
       None,
       ⚂
     ),
-    ⚂,
+    ⚂
   ),
   ⚂
 )

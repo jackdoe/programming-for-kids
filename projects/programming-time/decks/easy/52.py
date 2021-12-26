@@ -1,12 +1,12 @@
-# binary search is a way to search
-# more efficienty a sorted list
-# imagine the list [1,2,3,4,5,6]
-# and you are lookingm for 5
-# you just check the middle element
-# if it is bigger than 5 you search
-# in the right half, if not you try
-# the left part, and then the half
-# of the half, and so on
+# Binary search is a way to search
+# more efficienty a sorted list.
+# Imagine the list [1,2,3,4,5,6] and
+# you are looking for 5, you just
+# check the middle element if it is
+# bigger than 5 you search in the
+# right half, if not you try the
+# left part, and then the half of
+# the half, and so on.
 def search(data, key):
   start = 0
   end = len(data) - 1
