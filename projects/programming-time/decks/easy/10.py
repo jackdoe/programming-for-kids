@@ -16,8 +16,9 @@ while True:
     calc.insert(0, a - b)
   if op == '*':
     calc.insert(0, a * b)
+  if op == '/':
+    calc.insert(0, a / b)
     
   if len(calc) == 1:
     print(calc[0])
     break
-    
