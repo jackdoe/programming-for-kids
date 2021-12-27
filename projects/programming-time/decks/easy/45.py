@@ -20,6 +20,10 @@ def send(v):
   for o in observers:
     o(v)
 
+# Adding the functions observerA and
+# B to the list, you see, its the
+# function itself, not its return
+# value
 observers.append(observerA)
 observers.append(observerB)
 
