@@ -1,6 +1,6 @@
 # The RSA algorithm is possibly the
 # most used encryption algorithm in
-# the world.  In our example we use
+# the world. In our example we use
 # small prime numbers, but 3389 and
 # 2178583086560517094530555255075673
 # are also prime numbers. Usually
