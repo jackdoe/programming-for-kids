@@ -12,7 +12,7 @@ int main(void) {
 
   // strings in C are arrays of
   // characters ending with the null
-  // character \0 we can have array
+  // character \0
   char word[3] = {c, c, '\0'};
 
   // %d means print integer
