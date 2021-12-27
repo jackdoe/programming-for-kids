@@ -15,17 +15,17 @@ e = 7 # prime number between
       # number > 1 and < 160,
       # so I picked 7 as its also
       # my lucky number.
+d = 23 # number such that:
+       # φ(N) = (p-1)*(q-1)
+       # (d*e) % φ(N) = 1
+       # so: (23 * 7) % 160 = 1
 N = p * q # 187, called modulus
 
 message = ⚂
 
 # 2**5 is 2*2*2*2*2 = 32
 encrypted = (message**e) % N
-print(encrypted)
+print(encrypted) # e,N: public key
 
-# // is floor division:
-# x//y is the same as int(x/y)
-# e.g. 5/2 is 2.5, but 5//2 is 2
-d = (((p-1) * (q-1)) + 1) // e
 decrypted = (encrypted**d) % N
-print(decrypted)
+print(decrypted) # d,N: private key

@@ -17,7 +17,7 @@ def concat(a,b):
 # chr(97) returns 'a'
 # chr(98) returns 'b'
 # chr(99) returns 'c'
-#
+# ...
 x = chr(96 + ⚂) + chr(96 + ⚂)
 y = 'llo'
 
