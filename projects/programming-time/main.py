@@ -25,11 +25,11 @@ def chunks(lst, n):
     for i in range(0, len(lst), n):
         yield lst[i:i + n]
 
-def ignore_until_comment(line):
+def ignore_until_comment(line, sym):
     ignore = True
     out = ''
-    for s in line:
-        if s == '#':
+    for (i,s) in enumerate(line):
+        if line[i:i+len(sym)] == sym:
             ignore = False
         if not ignore:
             out += s
@@ -37,11 +37,11 @@ def ignore_until_comment(line):
             out += ' '
     return out
 
-def ignore_the_comment(line):
+def ignore_the_comment(line, sym):
     in_comment = False
     out = ''
-    for s in line:
-        if s == '#':
+    for (i,s) in enumerate(line):
+        if line[i:i+len(sym)] == sym:
             in_comment = True
         if in_comment:
             out += ' '
@@ -68,6 +68,10 @@ def border(d, data, id):
     if len(text) > ROWS:
         raise Exception(str(id) + "'s text has too many rows" + data)
 
+    sym = '#'
+    if '#include' in data:
+      sym = '//'
+
     for i in range(ROWS):
         code = ''
         if i <= len(text) - 1:
@@ -75,10 +79,10 @@ def border(d, data, id):
         dice_line = re.sub('[^⚂]',' ',code)
         code = code.replace('⚂', ' ')
 
-        lines.append('  '+ignore_the_comment(code).ljust(COLS - 3, ' ')+' ')
+        lines.append('  '+ignore_the_comment(code,sym).ljust(COLS - 3, ' ')+' ')
         comment = ''
-        if '#' in code:
-            comment = ignore_until_comment(code)
+        if '#' in code or '//' in code:
+            comment = ignore_until_comment(code,sym)
 
         around.append('| ' + comment.ljust(COLS - 3, ' ') + ' |')
         dice.append('  ' + dice_line.ljust(COLS - 3, ' ') + '  ')
@@ -142,20 +146,40 @@ def cheat(deck, answers, numbers, html):
 
 
 def run(file):
-  tmpfile = "/tmp/card.py"
-  fo = open(tmpfile, "w")
-  fi = open(file)
-  fo.write("""
+
+  if file.endswith(".c"):
+    tmpfile = "/tmp/card.c"
+    fo = open(tmpfile, "w")
+    fi = open(file)
+    fo.write("""
+    #include <stdlib.h>
+    #include <time.h>
+    int get_dice(void) {
+      srand((int)time(NULL));
+      return 1 + (rand() % 20);
+    }
+  """)
+    for line in fi.readlines():
+      fo.write(line.replace('⚂',"get_dice()"))
+    fi.close()
+    fo.close()
+    process = Popen(["./compile.sh", tmpfile], stdout=PIPE)
+  else:
+    tmpfile = "/tmp/card.py"
+    fo = open(tmpfile, "w")
+    fi = open(file)
+    fo.write("""
 import random as __random
 def get_dice():
   return __random.randint(1,20)
 
 """)
-  for line in fi.readlines():
-    fo.write(line.replace('⚂',"get_dice()"))
-  fi.close()
-  fo.close()
-  process = Popen(["/usr/local/bin/python3", tmpfile], stdout=PIPE)
+    for line in fi.readlines():
+      fo.write(line.replace('⚂',"get_dice()"))
+    fi.close()
+    fo.close()
+    process = Popen(["/usr/local/bin/python3", tmpfile], stdout=PIPE)
+
   (output, err) = process.communicate()
   exit_code = process.wait()
   if exit_code != 0:
@@ -163,14 +187,14 @@ def get_dice():
   return output
 
 random.seed(time.time())
-for deck in ['easy', 'medium', 'hardcore']:
+for deck in ['c','easy']:
     html = open(deck + '.html','w')
     try:
         images_path = os.path.join('images', deck)
         os.mkdir(images_path)
     except:
         pass
-    files = [f for f in os.listdir(os.path.join('decks', deck)) if f.endswith(".py")]
+    files = [f for f in os.listdir(os.path.join('decks', deck)) if f.endswith(".py") or f.endswith('.c')]
     files.sort()
     print('printing', deck, 'deck, with', len(files), 'cards')
     seen = {}
