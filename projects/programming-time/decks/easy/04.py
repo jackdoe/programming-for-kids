@@ -1,10 +1,10 @@
-# RSA - algorithm is possibly the
+# The RSA algorithm is possibly the
 # most used encryption algorithm in
 # the world.
 # in our example we use small prime
-# numbers, but 3564925531837 and
-# 754875236820775169247373371859 are
-# also prime numbers
+# numbers, but 1528622835711533 and 
+# 2178583086560517094530555255075673
+# are also prime numbers.
 
 p = 11 # must be prime number
 q = 17 # must be prime number
