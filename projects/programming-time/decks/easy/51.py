@@ -16,11 +16,11 @@ root = LinkedList(
   LinkedList(
     LinkedList(
       None,
-      ⚂
+      ⚂ # first dice roll
     ),
-    ⚂
+    ⚂ # second dice roll
   ),
-  ⚂
+  ⚂ # third dice roll
 )
 # start from the root and follow the
 # chain of .next elements until we
