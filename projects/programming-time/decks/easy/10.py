@@ -6,26 +6,27 @@
 # ------------+---------+----------
 # * (+ 2 4) 4 | (3+2)*4 | 3 2 + 4 *
 # ---------------------------------
+calc = [⚂, ⚂, '+', ⚂, '*']
 
-calc = [⚂, ⚂, '+', ⚂, '*', 3, '-']
+# lambda is a way to make nameless
+# or anonymous function
+ops = {
+  '+': lambda a,b: a + b,
+  '*': lambda a,b: a * b,
+  '/': lambda a,b: a / b,
+}
+# we can use a list like a stack of
+# cards, append adds a card on top
+# and pop removes the top card
+stack = []
+for tk in calc:
+  print(stack)
+  if tk in ops:
+    x,y = stack.pop(),stack.pop()
+    # lookup and call the operation
+    result = ops[tk](x,y)
+    stack.append(result)
+  else:
+    stack.append(tk)
 
-# * take 2 numbers from the front
-# * take 1 operation
-# * compute the result and put it
-#   in the beginning of the list
-# * print the result if only
-#   one element is left
-while True:
-  a = calc.pop(0)
-  b = calc.pop(0)
-  op = calc.pop(0)
-  if op == '+':
-    calc.insert(0, a + b)
-  if op == '-':
-    calc.insert(0, a - b)
-  if op == '*':
-    calc.insert(0, a * b)
-    
-  if len(calc) == 1:
-    print(calc[0])
-    break
+print(stack.pop())
