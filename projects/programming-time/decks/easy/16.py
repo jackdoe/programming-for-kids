@@ -1,30 +1,31 @@
-# roll the dice until it is smaller
-# than `max`
-def roll(max):
-  while True:
-    dice = ⚂
-    if dice < max:
-      return dice
+# Diffie–Hellman Key Exchange
+# algorithm is a method to compute a
+# shared secret over public channel
+p = 23    # shared prime
+g = 5     # shared base
 
-# make a line half with * and half %
-# e.g line(5) will return ***%%
-def line(n):
-  s = ''
-  for i in range(n):
-    if i >= n/2:
-      s += '%'
-    else:
-      s += '*'
+a = 6     # Alice's secret
+b = 15    # Bob's secret
 
-  return s
+A = (g**a) % p
+# Alice yells `A` to Bob
+# anyone can hear it!
+print("Alice -> Bob: ", A)
 
-def box(w,h):
-  s = ''
-  for i in range(h):
-    s += line(w) + '\n'
+B = (g**b) % p
+# Bob yells `B` to Allice
+# anyone can hear it!
+print("Bob -> Alice: ", B)
 
-  return s
+# Alice Computes shared secret based
+# on B (yelled publicly by Bob), her
+# secret `a` and the shared prime
+# number `p`
+ab = (B**a) % p
 
-width = roll(10)
-height = roll(10)
-print(box(width,height))
+# Bob does the same, but with his
+# secret `b`, and the value `A` he
+# heard from Alice
+ba = (A**b) % p
+
+print("Shared Secret:", ab, ba)
