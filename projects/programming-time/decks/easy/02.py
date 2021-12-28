@@ -1,31 +1,31 @@
-# a dictionary is a way to lookup
-# keys and values in this example we
-# have the Care Bear name as key
-# and its color as value
-bears = {
-  "Bedtime Bear": "Aqua blue",
-  "Birthday Bear": "Golden yellow",
-  "Cheer Bear": "Carnation pink",
-  "Friend Bear": "Peach",
-  "Funshine Bear": "Lemon yellow",
-  "Good Luck Bear": "Green",
-  "Grumpy Bear": "Indigo blue",
-  "Love-A-Lot Bear": "Magenta pink",
-  "Tenderheart Bear": "Brown",
-}
-favorite = [
-  "Cheer Bear",
-  "Love-A-Lot Bear",
-  "Friend Bear"
-]
+# Diffie–Hellman Key Exchange
+# algorithm is a method to compute a
+# shared secret over public channel
+p = 23    # publicly shared prime
+g = 5     # publicly shared base
 
-# Pick a random bear from the list
-# of favorite names
-you = favorite[⚂ % len(favorite)]
+a = ⚂     # Alice's private secret
+b = ⚂     # Bob's private secret
 
-# you can get the value of a key
-# with bears[key] for example
-# bears["Grumpy Bear"] is "Indigo
-# Blue"
-color = bears[you]
-print('your color: ' + color)
+A = (g**a) % p
+# Alice yells `A` to Bob
+# anyone can hear it!
+print("Alice -> Bob: ", A)
+
+B = (g**b) % p
+# Bob yells `B` to Allice
+# anyone can hear it!
+print("Bob -> Alice: ", B)
+
+# Alice Computes shared secret based
+# on B (yelled publicly by Bob), her
+# secret `a` and the shared prime
+# number `p`
+ab = (B**a) % p
+
+# Bob does the same, but with his
+# secret `b`, and the value `A` he
+# heard from Alice
+ba = (A**b) % p
+
+print("Shared Secret:", ab, ba)

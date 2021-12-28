@@ -7,7 +7,7 @@
 # If a = 12 and b = 8, then gcd(a,b)
 # or gcd(12,8) is 4. This algorithm
 # is more than 2300 years old,
-# written by Euler in year 300BC If
+# written by Euler in year 300BC. If
 # gcd(a,b) = 1, then a and b are
 # considered relatively prime, even
 # though a and b might not be prime.
@@ -15,15 +15,14 @@
 # algorithms today, and it is used
 # in almost all internet
 # communication.
+
 def gcd(a, b):
   while b != 0:
-    # keep b in temporary variable
-    t = b
+    tmp = b
     b = a % b
-    # set  equal to the original
-    # value of b
-    a = t
+    a = tmp
   return a
+
 
 x = ⚂
 y = ⚂

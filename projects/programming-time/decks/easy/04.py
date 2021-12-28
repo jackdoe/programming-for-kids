@@ -21,7 +21,7 @@ d = 23 # number such that:
        # so: (23 * 7) % 160 = 1
 N = p * q # 187, called modulus
 
-message = ⚂
+message = 50 + ⚂
 
 # 2**5 is 2*2*2*2*2 = 32
 encrypted = (message**e) % N
