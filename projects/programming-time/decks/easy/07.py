@@ -16,7 +16,7 @@ def remove(data, removeme):
   return filtered
 
 players = [
-  'jackie',
+  'john',
   'abby',
   'penny'
 ]
