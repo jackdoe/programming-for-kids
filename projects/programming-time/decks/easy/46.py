@@ -23,6 +23,8 @@ def reverse(x):
     result.append(element)
   return result
 
-a = [⚂,⚂,⚂]
-b = reverse(a)
-print(b[0])
+a = [⚂,⚂,⚂]    # another quick way
+b = reverse(a) # to reverse a list
+c = a[::-1]    # or string is to
+print(b)       # use [::-1] negative
+print(c)       # slice step
