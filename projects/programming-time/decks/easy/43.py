@@ -1,27 +1,31 @@
-# what do the symbols mean
-#   == means 'is equal'
-#   > means 'greater than'
-#   < means 'less than'
-# people get confused by < and > but
-# its quite easy, imagine a
-# crocodile: ..,---*< so < is its
-# mouth, so you can see which number
-# the crocodile will eat
-# 3 ..,---*< 5 (3 is smaller than 5)
-# 5 >*---,.. 3 (5 is bigger than 3)
-# remember: the crocodile always
-# eats the bigger number.
-
-x = ⚂
-y = ⚂
-
-a = x == y
-b = x > y
-c = (x - 5) < y
-# brackets are important, first
-# evaluate a, if its false then
-# evaluate (b and c)
-if a or (b and c):
-  print(x)
-else:
-  print(y)
+from socket import *
+from threading import Thread
+def server():
+  s = socket(AF_INET,SOCK_DGRAM)
+  s.bind(("127.0.0.1", 31337))
+  while True:
+    d,addr = s.recvfrom(1024)
+    x = int.from_bytes(d, 'little')
+    x *= 2
+    d = x.to_bytes(1,'little')
+    s.sendto(d, addr)
+    break
+def client():
+  s = socket(AF_INET,SOCK_DGRAM)
+  dst = ("127.0.0.1", 31337)
+  while True:
+    dice = ⚂
+    data = dice.to_bytes(1,'little')
+    n = s.sendto(data, dst)
+    d, addr = s.recvfrom(1024)
+    x = int.from_bytes(d, 'little')
+    print('sent: ' + str(dice))
+    print('recv: ' + str(x))
+    if x == dice * 2:
+      break
+t1 = Thread(target=server)
+t2 = Thread(target=client)
+t1.start()
+t2.start()
+t1.join()
+t2.join()
