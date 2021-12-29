@@ -13,14 +13,16 @@
 # '----^-----------------'
 #      | addr: 49
 # x ---+ (x = '?oi')
+#
 # Three strings will be created one
 # for '?', '?o' and '?oi', in the
 # end the variable x will point to
 # the last one. The unused strings
 # will have nothing pointing to
 # them, and the garbage collector
-# will sweep them and mark the
-# memory as free again.
+# will reclaim the memory, so it can
+# be used later again by your
+# program.
 
 x = chr(96 + ⚂)
 x = x + 'o'
