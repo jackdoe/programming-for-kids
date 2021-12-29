@@ -7,8 +7,8 @@
 # * (+ 2 4) 4 | (3+2)*4 | 3 2 + 4 *
 # ---------------------------------
 calc = [⚂, ⚂, '+', ⚂, '*']
-# lambda is a way to make nameless
-# or anonymous function
+# lambda is a way to make anonynmous
+# (nameless) function
 ops = {
   '+': lambda a,b: a + b,
   '*': lambda a,b: a * b,
