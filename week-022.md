@@ -594,7 +594,7 @@ while True:
 ```
 If you save it in the file `hello.py`, and you have to start it with `python hello.py`. Python is a program on its own, which will load the `hello.py` file and execute it line by line. The `python` program is called `interpreter` because it interprets the code, kind of like when you read a program, trying to find out what it does, you interpret the code in your head and evaluate it.
 
-`c` and `c++` on the other hand are compiled languages, you need a program `gcc` for c and `g++` for c++ to transform your source code to machine code, that your computer will directly run, instruction by instruction.
+`c` and `c++` on the other hand are compiled languages, you need a program `gcc` for c and `g++` for c++ to transform your source code to machine code, that your computer will directly run, instruction by instruction. `gcc` and `g++` are compilers.
 
 Lets start where everything starts, print "Hello World". Save the following program in a file `hello.cpp` (cpp for c plus plus).
 
