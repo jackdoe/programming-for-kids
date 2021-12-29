@@ -1,0 +1,15 @@
+
+#include <iostream>
+
+using namespace std;
+
+int main(void) {
+	for (int i = 1000; i >= 0 ; i--) {
+		if (i < 500) {
+			cout << "HIII " << i << endl;
+		} else {
+			cout << "Hello World " << i << endl;
+		}
+	}
+	return 0;
+}

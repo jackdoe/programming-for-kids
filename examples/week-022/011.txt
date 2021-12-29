@@ -1,0 +1,101 @@
+import random
+import pgzrun
+
+WIDTH = 600
+HEIGHT = 600
+game_over = False
+lives = 3
+obsticles = [
+    Rect(100,100,20,20),
+    Rect(200,200,100,200),
+]
+
+class Mover:
+    def __init__(self, image, x, y, direction):
+        self.actor = Actor(image)
+        self.direction = direction
+        self.actor.x = x
+        self.actor.y = y
+        self.counter = 0
+
+    def draw(self):
+        self.actor.draw()
+
+    def update(self):
+        orig_x = self.actor.x
+        orig_y = self.actor.y
+        self.counter += 1
+        if self.counter > 120 and self.actor.image == "c2":
+            self.direction = random.choice(['up','down','left','right'])
+            self.counter = 0
+
+        if self.direction == 'up':
+            self.actor.y -= 1
+        if self.direction == 'down':
+            self.actor.y += 1
+        if self.direction == 'left':
+            self.actor.x -= 1
+        if self.direction == 'right':
+            self.actor.x += 1
+        
+        if self.actor.x > WIDTH:
+            self.actor.x = 0
+        if self.actor.x < 0:
+            self.actor.x = WIDTH
+        if self.actor.y > HEIGHT:
+            self.actor.y = 0
+        if self.actor.y < 0:
+            self.actor.y = HEIGHT 
+        hit_wall = False
+        for o in obsticles:
+            if self.actor.colliderect(o):
+                self.actor.x = orig_x
+                self.actor.y = orig_y
+                hit_wall = True
+                break
+        if hit_wall and self.actor.image == "c2":
+            self.direction = random.choice(['up','down','left','right'])
+
+
+pacman = Mover("c1", 10, 10, 'up')
+movers = [pacman, 
+  Mover("c2", 100, 40, 'up'),
+  Mover("c2", 100, 50, 'up'),
+  Mover("c2", 100, 60, 'up'),
+  Mover("c2", 100, 70, 'up')
+]
+
+def update():
+    global lives,game_over
+    if keyboard.W:
+        pacman.direction = 'up'
+    if keyboard.S:
+        pacman.direction = 'down'
+    if keyboard.A:
+        pacman.direction = 'left'
+    if keyboard.D:
+        pacman.direction = 'right'
+
+    for m in movers:
+        m.update()
+    for o in movers:
+        if pacman.actor.colliderect(o.actor) and o != pacman:
+            lives -= 1
+            pacman.actor.x = 0
+            pacman.actor.y = 0
+            
+            if lives < 0:
+                game_over = True
+
+def draw():
+    screen.fill('black')
+    for o in obsticles:
+        screen.draw.filled_rect(o,(255,0,0))
+    screen.draw.text('lives: ' + str(lives), (10,10))
+    if game_over == True:
+        screen.fill('royalblue')
+        screen.draw.text('GAME OVER YOU LOST',(10,10))
+    for m in movers:
+        m.draw()
+
+pgzrun.go()

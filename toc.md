@@ -394,3 +394,7 @@
 [day-152 lists](#day-152-lists)
 
 [day-153 lists; dictionaries](#day-153-lists-dictionaries)
+
+[day-154 classes](#day-154-classes)
+
+[day-155 c++](#day-155-c++)
