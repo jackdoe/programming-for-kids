@@ -472,3 +472,194 @@ def draw():
 
 pgzrun.go()
 ```
+## [DAY-154] Classes
+
+
+Pacman, make things move around, stop when they hit something
+
+![game-154.png](./screenshots/game-154.png "game 154 screenshot")
+
+
+```
+import random
+import pgzrun
+
+WIDTH = 600
+HEIGHT = 600
+game_over = False
+lives = 3
+obsticles = [
+    Rect(100,100,20,20),
+    Rect(200,200,100,200),
+]
+
+class Mover:
+    def __init__(self, image, x, y, direction):
+        self.actor = Actor(image)
+        self.direction = direction
+        self.actor.x = x
+        self.actor.y = y
+        self.counter = 0
+
+    def draw(self):
+        self.actor.draw()
+
+    def update(self):
+        orig_x = self.actor.x
+        orig_y = self.actor.y
+        self.counter += 1
+        if self.counter > 120 and self.actor.image == "c2":
+            self.direction = random.choice(['up','down','left','right'])
+            self.counter = 0
+
+        if self.direction == 'up':
+            self.actor.y -= 1
+        if self.direction == 'down':
+            self.actor.y += 1
+        if self.direction == 'left':
+            self.actor.x -= 1
+        if self.direction == 'right':
+            self.actor.x += 1
+        
+        if self.actor.x > WIDTH:
+            self.actor.x = 0
+        if self.actor.x < 0:
+            self.actor.x = WIDTH
+        if self.actor.y > HEIGHT:
+            self.actor.y = 0
+        if self.actor.y < 0:
+            self.actor.y = HEIGHT 
+        hit_wall = False
+        for o in obsticles:
+            if self.actor.colliderect(o):
+                self.actor.x = orig_x
+                self.actor.y = orig_y
+                hit_wall = True
+                break
+        if hit_wall and self.actor.image == "c2":
+            self.direction = random.choice(['up','down','left','right'])
+
+
+pacman = Mover("c1", 10, 10, 'up')
+movers = [pacman, 
+  Mover("c2", 100, 40, 'up'),
+  Mover("c2", 100, 50, 'up'),
+  Mover("c2", 100, 60, 'up'),
+  Mover("c2", 100, 70, 'up')
+]
+
+def update():
+    global lives,game_over
+    if keyboard.W:
+        pacman.direction = 'up'
+    if keyboard.S:
+        pacman.direction = 'down'
+    if keyboard.A:
+        pacman.direction = 'left'
+    if keyboard.D:
+        pacman.direction = 'right'
+
+    for m in movers:
+        m.update()
+    for o in movers:
+        if pacman.actor.colliderect(o.actor) and o != pacman:
+            lives -= 1
+            pacman.actor.x = 0
+            pacman.actor.y = 0
+            
+            if lives < 0:
+                game_over = True
+
+def draw():
+    screen.fill('black')
+    for o in obsticles:
+        screen.draw.filled_rect(o,(255,0,0))
+    screen.draw.text('lives: ' + str(lives), (10,10))
+    if game_over == True:
+        screen.fill('royalblue')
+        screen.draw.text('GAME OVER YOU LOST',(10,10))
+    for m in movers:
+        m.draw()
+
+pgzrun.go()
+```
+
+## [DAY-155] c++
+
+First lets discuss a bit about the difference between `c++` and `python`. For example, lets examine what happens with the following program:
+
+```
+while True:
+    print("hello world")
+```
+If you save it in the file `hello.py`, and you have to start it with `python hello.py`. Python is a program on its own, which will load the `hello.py` file and execute it line by line. The `python` program is called `interpreter` because it interprets the code, kind of like when you read a progra, trying to find out what it does, you interpret the code in your head and evaluate it.
+
+`c` and `c++` on the other hand are compiled languages, you need a program `gcc` for C and `g++` for c++ to transform your source code to machine code, that your computer will directly run, instruction by instruction.
+
+Lets start where everything starts, print "Hello World". Save the following program in a file `hello.cpp` (cpp for c plus plus).
+
+
+```
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	cout << "Hello World " << endl;
+}
+```
+
+Now lets compile it, `g++ -o hello hello.cpp` will make a program `hello` that you will be able to execute by running `./hello` you see it is very different, you run directly `hello` which will make your computer execute its instructions one by one, which is very different than running python to load your `hello.py`, in the python case your computer is running the python executable which loads your `hello.py` and interprets it line by line.
+
+`int main()` declares the `main` function, each c/c++ program must have a main() function, thats where your program starts, unlike python, where it starts from the top of the file. You can think of your processor jumping to the address of the main function in memory, as we spoke in the previous lessons, in the computer's memoruy code is data, and data is code.
+
+`cout` means `character output` and `<<` means `pour into the cout` whatever follows, e.g. `cout << 5` will just print 5, `cout "hello"` will print hello, `cout << 5 << "hello"` will print 5hello, and `endl` inserts the newline character `\n`.
+
+`using namespace std;` is similar to from `turtle import *`, we will get into it later
+
+And very importantly you `c++` does not care about your spaces, the following program compiles just fine
+
+```
+#include <iostream>
+using namespace std;int main(void) {cout << "Hello World " << endl;}
+```
+
+Each code block is surrounded by `{}` and each statement ends with `;` and thats it
+
+Try out the following programs, and just experiment with them using your python knowledge. (hint: `int` means integer)
+
+```
+#include <iostream>
+
+using namespace std;
+
+int main(void) {
+	int i = 1000;
+
+	while(i) {
+		if (i < 500) {
+			cout << "HIII" << endl;
+		} else {
+			cout << "Hello World " << i << endl;
+		}
+		i--;
+	}
+}
+```
+
+```
+
+#include <iostream>
+
+using namespace std;
+
+int main(void) {
+	for (int i = 1000; i >= 0 ; i--) {
+		if (i < 500) {
+			cout << "HIII " << i << endl;
+		} else {
+			cout << "Hello World " << i << endl;
+		}
+	}
+	return 0;
+}
+```
