@@ -1,28 +1,31 @@
-# concatenate two strings
-# into a result
-def concat(a,b):
-  result = ''
+# a+b
+# add 1 to a, b times
+def add(a,b):
+  while b > 0:
+    a += 1
+    b -= 1
+  return a
 
-  for char in a:
-    result += char
+# a*b
+# add a to a, b times
+def multiply(a,b):
+  r = 0
+  while b > 0:
+    r = add(r,a)
+    b -= 1
+  return r
 
-  for char in b:
-    result += char
+# a**b
+# a to the power of b
+# multiply a by a, b times
+def pow(a,b):
+  r = 1 # start from 1, as 0*x is 0
+  while b > 0:
+    r = multiply(r,a)
+    b -= 1
+  return r
 
-  return result
-
-# chr(`x`) returns the ascii
-# character for code `x`
-#
-# chr(97) returns 'a'
-# chr(98) returns 'b'
-# chr(99) returns 'c'
-# ...
-x = chr(96 + ⚂) + chr(96 + ⚂)
-y = 'llo'
-
-# in python you can also concatenate
-# strings by doing `r = x + y`
-r = concat(x,y)
-
-print(r)
+x = 2
+y = 10
+xy = pow(x,y)
+print(xy)
