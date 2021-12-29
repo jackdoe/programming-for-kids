@@ -1,16 +1,16 @@
 table = [  # This is a simple
-  [],      # hash table, from key
-  [],      # to value.
-  [],      # We store values based
-  [],      # on first char of the
-]          # key.
-
-# naive, but reduces search time
-# by 1/26 for random keys
+  [],      # Chaining Hash Table
+  [],      # with 4 chains(buckets).
+  [],      # We store [key,value]
+  [],      # pairs in specific chain
+]          # based on the hash
+           # function.
+# Naive hash function. Many words
+# start with the same character.
 def hash(s): # returns 0,1,2 or 3
   return ord(s[0]) % len(table)
 
-def set(k,v): # key, value
+def put(k,v): # key, value
   if get(k) == None:
     chain = table[hash(k)]
     chain.append([k,v]) # pair of
@@ -22,9 +22,9 @@ def get(k):
       return e[1] # doesn't matter
   return None     # if we have
                   # million records
-set('hello', ⚂)   # inserted in
-set('world', ⚂)   # another chain
-set('hoi', ⚂)
+put('hello', ⚂)   # inserted in
+put('world', ⚂)   # another chain
+put('hoi', ⚂)
 if get('hoi') > 5:
   print(get('hello'))
 else:

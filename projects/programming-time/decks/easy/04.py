@@ -17,7 +17,7 @@ e = 7 # prime number between
       # my lucky number.
 d = 23 # number such that:
        # φ(N) = (p-1)*(q-1)
-       # (d*e) % φ(N) = 1
+       # (d * e) % φ(N) = 1
        # so: (23 * 7) % 160 = 1
 N = p * q # 187, called modulus
 

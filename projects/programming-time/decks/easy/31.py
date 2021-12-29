@@ -21,8 +21,7 @@
 # will have nothing pointing to
 # them, and the garbage collector
 # will reclaim the memory, so it can
-# be used later again by your
-# program.
+# be used again by your program.
 
 x = chr(96 + ⚂)
 x = x + 'o'
