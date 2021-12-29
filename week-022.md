@@ -647,7 +647,6 @@ int main(void) {
 ```
 
 ```
-
 #include <iostream>
 
 using namespace std;
