@@ -19,13 +19,13 @@ def multiply(a,b):
 # a to the power of b
 # multiply a by a, b times
 def pow(a,b):
-  r = 1 # start from 1, as 0*x is 0
+  r = 1 # x**0 is 1
   while b > 0:
     r = multiply(r,a)
     b -= 1
   return r
 
-x = 2
-y = 10
+x = 1 + ⚂
+y = ⚂ %
 xy = pow(x,y)
 print(xy)

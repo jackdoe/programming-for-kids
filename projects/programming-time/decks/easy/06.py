@@ -1,31 +1,23 @@
-# render the tic tac toe game,
-# example output:
-#  0 - - 
-#  - 0 x 
-#  x - -
-def render(game):
-  for i in range(len(game)):
-    if i != 0 and i % 3 == 0:
-      # pring empty line every
-      # 3rd item
-      print('')
+# A square root of a number is a
+# value that, when multiplied by
+# itself, gives the number. Example:
+# 4*4 = 16, so a square root of 16
+# is 4. Newton's method of finding
+# the square root of x:
+# root = (x + (n / x))/2 where x
+# is any guess which can be assumed
+# to be n or 1.
+#
+# We will run the algorithm 10 times
+# to get good approximations
+def sqrt(x):
+  n = x
+  for i in range(10):
+    x = (x + (n / x))/2.0
+  return x
 
-    # by default end='\n' which
-    # means if you dont specify
-    # print() will add new line to
-    # the end, end=' ' prints space
-    print(game[i], end=' ')
-  # 8 is not divisable by 3
-  print('')
 
-game = [
-  '-','-','-',
-  '-','-','-',
-  '-','-','-',
-]
+squares = [100,1024,25,16,4,9]
 
-game[0] = '0'
-game[⚂ % 9] = 'x'
-game[4] = '0'
-game[⚂ % 9] = 'x'
-render(game)
+x = squares[⚂ % len(squares)]
+print(sqrt(x))

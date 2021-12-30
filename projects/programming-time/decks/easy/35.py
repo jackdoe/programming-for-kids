@@ -1,29 +1,31 @@
-# a,b = [1,2] is the same as a=1,b=2
-# called Destructuring, it can be
-# used in the for loop while
-# destructuring each point, e.g. x,y
-# in case of [1,6] will be x=1,y=6
+# a - b
+# subtract 1 from a b times
+def subtract(a,b):
+  while b > 0:
+    a -= 1
+    b -= 1
+  return a
 
-points = [
-  [1,6],
-  [4,5],
-  [8,17],
-  [3,2],
-  [12,14],
-  [6,20],
-  [1,11],
-  [2,11],
-  [19,6],
-]
+# a//b
+# divide without reminder (floor)
+# how many times you can subtract b
+# from a?
+def divide(a,b):
+  n = 0
+  while a > 0:
+    a = subtract(a,b)
+    n += 1
+  return n
 
-pos_x = ⚂
-pos_y = ⚂
-found = False
-for x,y in points:
-  if x == pos_x and y == pos_y:
-    found = True
-
-if found:
-  print(str(pos_x)+' '+str(pos_y))
-else:
-  print('missing')
+# math.log(a,b)
+# logarighm of a with base b
+# how many times you can divide a by
+# b?
+def log(a,b):
+  n = 0
+  while a > 1:
+    a = divide(a,b)
+    n += 1
+  return n
+base = [2,4,32][⚂ % 3]
+print(log(1024,base))
