@@ -516,6 +516,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-155 c++](#day-155-c++)
 
+[day-156 for; while](#day-156-for-while)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -13165,7 +13167,7 @@ while True:
 ```
 If you save it in the file `hello.py`, and you have to start it with `python hello.py`. Python is a program on its own, which will load the `hello.py` file and execute it line by line. The `python` program is called `interpreter` because it interprets the code, kind of like when you read a program, trying to find out what it does, you interpret the code in your head and evaluate it.
 
-`c` and `c++` on the other hand are compiled languages, you need a program `gcc` for c and `g++` for c++ to transform your source code to machine code, that your computer will directly run, instruction by instruction. `gcc` and `g++` are compilers.
+`c` and `c++` on the other hand are compiled languages, you need a program `gcc` for c and `g++` for c++ to transform your source code to machine code, that your computer will directly run, instruction by instruction, `gcc` and `g++` are compilers.
 
 Lets start where everything starts, print "Hello World". Save the following program in a file `hello.cpp` (cpp for c plus plus).
 
@@ -13233,3 +13235,84 @@ int main(void) {
 	return 0;
 }
 ```
+
+## [DAY-156] for; while
+
+Write the same code with for and while loops.
+
+```
+#include <iostream>
+using namespace std;
+int main(void) {
+	int x = 3;
+	while(x < 3000000){
+		cout << x  << endl;
+		x = x+3;
+	}
+    return 0;
+}
+```
+
+```
+#include <iostream>
+using namespace std;
+int main(void) {
+	for (int x = 0; x < 3000000; x = x + 3) {
+		cout << x  << endl;
+	}
+    return 0;
+}
+```
+
+<hr>
+
+```
+#include <iostream>
+using namespace std;
+int main(void) {
+	for (int x = 10; x > 0; x = x - 1) {
+		cout << x << " " << b.age << endl;
+	}
+    return 0;
+}
+```
+
+```
+#include <iostream>
+using namespace std;
+int main(void) {
+	int x = 10;
+	while(x > 0){
+		cout << x << " " << b.age << endl;
+		x -= 1;
+	}
+    return 0;
+}
+```
+
+<hr>
+
+```
+#include <iostream>
+using namespace std;
+int main(void) {
+	int x = 0;
+	while (x < 10) {
+		cout << x << endl;
+		x+=1;
+	}
+    return 0;
+}
+```
+
+```
+#include <iostream>
+using namespace std;
+int main(void) {
+	for(int x = 0; x < 10; x += 1){
+		cout << x << endl;
+	}
+    return 0;
+}
+```
+

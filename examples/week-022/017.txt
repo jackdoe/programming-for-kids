@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main(void) {
+	int x = 3;
+	while(x < 3000000){
+		cout << x  << endl;
+		x = x+3;
+	}
+    return 0;
+}
