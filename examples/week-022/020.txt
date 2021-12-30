@@ -3,7 +3,7 @@ using namespace std;
 int main(void) {
 	int x = 10;
 	while(x > 0){
-		cout << x << " " << b.age << endl;
+		cout << x  << endl;
 		x -= 1;
 	}
 	return 0;
