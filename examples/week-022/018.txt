@@ -4,5 +4,5 @@ int main(void) {
 	for (int x = 0; x < 3000000; x = x + 3) {
 		cout << x  << endl;
 	}
-    return 0;
+	return 0;
 }

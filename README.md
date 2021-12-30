@@ -13249,7 +13249,7 @@ int main(void) {
 		cout << x  << endl;
 		x = x+3;
 	}
-    return 0;
+	return 0;
 }
 ```
 
@@ -13260,7 +13260,7 @@ int main(void) {
 	for (int x = 0; x < 3000000; x = x + 3) {
 		cout << x  << endl;
 	}
-    return 0;
+	return 0;
 }
 ```
 
@@ -13273,7 +13273,7 @@ int main(void) {
 	for (int x = 10; x > 0; x = x - 1) {
 		cout << x << " " << b.age << endl;
 	}
-    return 0;
+	return 0;
 }
 ```
 
@@ -13286,7 +13286,7 @@ int main(void) {
 		cout << x << " " << b.age << endl;
 		x -= 1;
 	}
-    return 0;
+	return 0;
 }
 ```
 
@@ -13301,7 +13301,7 @@ int main(void) {
 		cout << x << endl;
 		x+=1;
 	}
-    return 0;
+	return 0;
 }
 ```
 
@@ -13312,7 +13312,7 @@ int main(void) {
 	for(int x = 0; x < 10; x += 1){
 		cout << x << endl;
 	}
-    return 0;
+	return 0;
 }
 ```
 

@@ -4,5 +4,5 @@ int main(void) {
 	for (int x = 10; x > 0; x = x - 1) {
 		cout << x << " " << b.age << endl;
 	}
-    return 0;
+	return 0;
 }
