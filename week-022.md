@@ -698,7 +698,7 @@ int main(void) {
 using namespace std;
 int main(void) {
 	for (int x = 10; x > 0; x = x - 1) {
-		cout << x << " " << b.age << endl;
+		cout << x << endl;
 	}
 	return 0;
 }
@@ -710,7 +710,7 @@ using namespace std;
 int main(void) {
 	int x = 10;
 	while(x > 0){
-		cout << x << " " << b.age << endl;
+		cout << x  << endl;
 		x -= 1;
 	}
 	return 0;
