@@ -19,7 +19,7 @@ def multiply(a,b):
 # a to the power of b
 # multiply a by a, b times
 def pow(a,b):
-  r = 1 # x**0 is 1
+  r = 1 # a**0 is 1
   while b > 0:
     r = multiply(r,a)
     b -= 1
