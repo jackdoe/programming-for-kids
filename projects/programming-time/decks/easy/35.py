@@ -1,5 +1,5 @@
 # a - b
-# subtract 1 from a b times
+# subtract 1 from a, b times
 def subtract(a,b):
   while b > 0:
     a -= 1
