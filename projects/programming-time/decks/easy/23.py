@@ -26,6 +26,6 @@ def pow(a,b):
   return r
 
 x = 1 + ⚂
-y = ⚂ %
+y = ⚂ % 5
 xy = pow(x,y)
 print(xy)
