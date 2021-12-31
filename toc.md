@@ -400,3 +400,8 @@
 [day-155 c++](#day-155-c++)
 
 [day-156 for; while](#day-156-for-while)
+## week - 023
+
+
+
+[day-157 strings; cin](#day-157-strings-cin)
