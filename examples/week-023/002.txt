@@ -21,7 +21,7 @@ int main()
         }
 
         int match = 1 + (sum % 100);
-        cout << "love test match:" << endl;
+        cout << "love test result:" << endl;
         cout << match << endl;
     }
 }
