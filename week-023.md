@@ -9,13 +9,13 @@ while True:
     name1 = input('name 1: ')
     name2 = input('name 2: ')
 
-    for c in name1:
-        sum += ord(c)
-    for c in name2:
-        sum += ord(c)        
-    
+    for i in range(len(name1)):
+        sum += ord(name1[i])
+    for i in range(len(name2)):
+        sum += ord(name2[i])
+
     match = 1 + (sum % 100)
-    print("love test match:")
+    print("love test result:")
     print(match)
 ```
 
@@ -45,7 +45,7 @@ int main()
         }
 
         int match = 1 + (sum % 100);
-        cout << "love test match:" << endl;
+        cout << "love test result:" << endl;
         cout << match << endl;
     }
 }
