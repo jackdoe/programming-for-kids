@@ -40,7 +40,7 @@ while True:
 ```
 
 
-## [DAY-42] Lists; Functions: Grid; While
+## [DAY-42] Lists; Functions; Grid; While
 
 World without a player
 
