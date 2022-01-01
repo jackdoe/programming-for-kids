@@ -236,7 +236,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-41 lists; if; while](#day-41-lists-if-while)
 
-[day-42 lists; functions: grid; while](#day-42-lists-functions:-grid-while)
+[day-42 lists; functions; grid; while](#day-42-lists-functions-grid-while)
 
 [day-43 if; range](#day-43-if-range)
 
@@ -2773,7 +2773,7 @@ while True:
 ```
 
 
-## [DAY-42] Lists; Functions: Grid; While
+## [DAY-42] Lists; Functions; Grid; While
 
 World without a player
 

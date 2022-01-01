@@ -119,7 +119,7 @@
 
 [day-41 lists; if; while](#day-41-lists-if-while)
 
-[day-42 lists; functions: grid; while](#day-42-lists-functions:-grid-while)
+[day-42 lists; functions; grid; while](#day-42-lists-functions-grid-while)
 
 [day-43 if; range](#day-43-if-range)
 
