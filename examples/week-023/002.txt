@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    for(;;) {
+    while(1) {
         string name1;
         string name2;
 

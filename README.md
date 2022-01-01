@@ -13342,14 +13342,14 @@ while True:
     print(match)
 ```
 
-If you ommit the condition from the for loop, it becomes an infinite loop.
+Write the same program in c++:
 
 ```
 #include <iostream>
 using namespace std;
 int main()
 {
-    for(;;) {
+    while(1) {
         string name1;
         string name2;
 
