@@ -13347,8 +13347,7 @@ Write the same program in c++:
 ```
 #include <iostream>
 using namespace std;
-int main()
-{
+int main(void) {
     while(1) {
         string name1;
         string name2;
