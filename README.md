@@ -525,6 +525,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-158 if; while](#day-158-if-while)
 
+[day-159 strings; sizeof](#day-159-strings-sizeof)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -13325,7 +13327,6 @@ int main(void) {
 
 ## [DAY-157] strings; cin
 
-
 Make love tester in python:
 
 ```
@@ -13438,3 +13439,82 @@ print(r)
 
 The pattern, start with an empty result, iterate over the list and append append to the result is very very common. Examine the above code and notice how the part where it adds to the result is the same regardless if the list is list of strings, integers or list of lists
 
+## [DAY-159] strings; sizeof
+
+Back to basics, how are strings layed out in memory, and how many bytes the primitive types occupy in memory:
+
+```
+#include <iostream>
+using namespace std;
+int main(void) {
+    char c = 'a';
+    int x = 'a';
+    bool b = true;
+    int sum = 0;
+    long l = 1;
+    short s = 1;
+    float f = 0.555;
+    double d = 0.4123123;
+    long double ld = 0.123123;
+
+    cout << "char" << sizeof(c) << endl;
+    cout << "bool" << sizeof(b) << endl;
+    cout << "int" << sizeof(sum) << endl;
+    cout << "short" << sizeof(s) << endl;
+    cout << "long" << sizeof(l) << endl;
+    cout << "float" << sizeof(f) << endl;
+    cout << "double" << sizeof(d) << endl;
+    cout << "long double" << sizeof(ld) << endl;
+
+    int ages[10]= {10,12,10,9,10,12,12,2,3,2};
+    cout << sizeof(ages) << endl;;
+
+    long double z[5] = {0,0,0,0,0};
+    cout << sizeof(z) << endl;;
+
+    char s1[10] = {'h','e','l','l','o','w','o','r','d','\0'};
+    char s2[] = "helloword";
+    
+    cout << s1 << endl;
+    cout << s2 << endl;
+}
+```
+<hr>
+argc and argv
+
+```
+#include <iostream>
+using namespace std;
+int main(int argc, char* argv[]) {
+    cout << "Have " << argc << " arguments:" << endl;
+    cout << "my name is: " << argv[0] << endl;
+    for (int i = 0; i < argc; ++i) {
+        cout << i << ": " << argv[i] << endl;
+    }
+    return 0;
+}
+```
+Compile the the program above as `g++ -o xyz file.cpp`, and run it with `./xyz hello world "aaa bbbb cccc" ddd`. You see `g++` has a `main` function as well, and it has `argc` and `argv` as well.
+
+<hr>
+Formatting example:
+
+```
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void) {
+    for (int fahr=0; fahr<=100; fahr+=10){
+        cout<< endl
+        << setw(6)
+        << setprecision(0)
+        << fahr
+        << setw(10)
+        << setprecision(3)
+        << 5.0/9.0 * (fahr-32.0);
+
+    }
+    cout << endl;
+    return(0);
+}
+```

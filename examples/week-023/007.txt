@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void) {
+    for (int fahr=0; fahr<=100; fahr+=10){
+        cout<< endl
+        << setw(6)
+        << setprecision(0)
+        << fahr
+        << setw(10)
+        << setprecision(3)
+        << 5.0/9.0 * (fahr-32.0);
+
+    }
+    cout << endl;
+    return(0);
+}

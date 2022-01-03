@@ -407,3 +407,5 @@
 [day-157 strings; cin](#day-157-strings-cin)
 
 [day-158 if; while](#day-158-if-while)
+
+[day-159 strings; sizeof](#day-159-strings-sizeof)
