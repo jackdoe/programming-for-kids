@@ -22,7 +22,7 @@ def sqrt(x):
 #       area = 2*2 = 4
 areas = [100,1024,25,16,4,9]
 
-area = squares[⚂ % len(areas)]
+area = areas[⚂ % len(areas)]
 # Find the width (same as height) of
 # the square with the chosen area.
 print(sqrt(area))
