@@ -523,6 +523,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-157 strings; cin](#day-157-strings-cin)
 
+[day-158 if; while](#day-158-if-while)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -13375,3 +13377,64 @@ int main()
 ```
 
 `cin` is `character input`, you can perform a read operation by geting data out of cin with `>>`. Both `cin` and `cout` are streams. We will talk more about it later. For now just remember `cin >> variable` will read from the input and put the value in `variable`, and `cout << variable` will print the value of the variable.
+
+
+
+## [DAY-158] if; while
+
+rock paper scissors again
+
+```
+import random
+options = ['rock','paper','scissors']
+
+while True:
+    player = input(' '.join(options) + ': ')
+    if player not in options:
+        print("i dont know what to do with " + player)
+        continue
+    computer = random.choice(options)
+    print(computer)
+    if player == computer:
+        print("its a tie!")
+    if player == 'rock':
+        if computer == 'paper':
+            print('U lose the round')
+        elif computer == 'scissors':
+            print('U win this round')
+    if player == 'paper':
+        if computer == 'rock':
+            print('U win this round')
+        elif computer == 'scissors':
+            print('U lose the round')
+    if player == 'scissors':
+        if computer == 'rock':
+            print('U lose the round')
+        elif computer == 'paper':
+            print('U win this round')
+```
+
+sum things
+
+```
+data = ['hello','world','earth']
+r = ''
+for d in data:
+  r += d
+print(r)
+
+data = [1,2,3]
+r = 0
+for d in data:
+  r += d
+print(r)
+
+data = [[1,2],[3,4],[5,6]]
+r = []
+for d in data:
+  r += d
+print(r)
+```
+
+The pattern, start with an empty result, iterate over the list and append append to the result is very very common. Examine the above code and notice how the part where it adds to the result is the same regardless if the list is list of strings, integers or list of lists
+
