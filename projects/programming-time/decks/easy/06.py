@@ -16,8 +16,13 @@ def sqrt(x):
     x = (x + (n / x))/2.0
   return x
 
+# square area is width*height
+#   ##  width = 2
+#   ##  height = 2
+#       area = 2*2 = 4
+areas = [100,1024,25,16,4,9]
 
-squares = [100,1024,25,16,4,9]
-
-x = squares[⚂ % len(squares)]
-print(sqrt(x))
+area = squares[⚂ % len(areas)]
+# Find the width (same as height) of
+# the square with the chosen area.
+print(sqrt(area))
