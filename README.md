@@ -529,7 +529,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-160 pointers](#day-160-pointers)
 
-[day-161 pointers](#day-161-pointers)
+[day-161 if; while; functions](#day-161-if-while-functions)
 
 [day-162 pointers](#day-162-pointers)
 
@@ -13558,7 +13558,7 @@ int main(int argc, char* argv[]) {
 ```
 
 
-## [DAY-161] pointers
+## [DAY-161] if; while; functions
 
 Tic tac toe with 9 variables, one for each position of the grid.
 

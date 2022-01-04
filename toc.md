@@ -412,6 +412,6 @@
 
 [day-160 pointers](#day-160-pointers)
 
-[day-161 pointers](#day-161-pointers)
+[day-161 if; while; functions](#day-161-if-while-functions)
 
 [day-162 pointers](#day-162-pointers)
