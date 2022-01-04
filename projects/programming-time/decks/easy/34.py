@@ -1,27 +1,31 @@
-# you can use multiline strings in
-# python, by using """ instead of "
-print("""
-Wake up! You hear the sound of
-footsteps coming your way. Its the
-prison guard in front of your cell
-Can you find of a way to escape?
-""")
+# Bayes' Theorem
+# P(A|B) = (P(A)*P(B|A)) / P(B)
+#
+# The probability of A given B is
+# equal to the probability of A on
+# its own, times probability of B
+# given A, divided by the
+# probability of B on its own.
 
-# you can escape if you roll higher
-# number than five
-chance = ⚂ > 5
+# What is the probability to rain?
+# - 60% of all rainy days start out
+#   cloudy in the morning.
+# - 50% of all mornings are cloudy
+# - In june, it rains, on average 9
+#   out of 30 days (30%).
 
-if chance:
-  print("""
-You are in luck! The guard gets
-distracted by a cat eating his food
-from the table, and you manage to
-steal the keys.
-  """)
-else:
-  print("""
-No luck! You will have to sleep
-another night in the cold cell.
-  """)
-  
-  
+# overall there is 30% probability
+# to rain
+P_rain = 0.3 # 1 is 100% probability
+             # 0.3 is 30%
+# 60% of rainy days start with
+# clouds
+P_cloud_rain = 0.6
+
+# 50+dice% of the mornings have
+# clouds
+P_cloud = 0.5 + (⚂ / 100)
+
+# probability to rain
+P = (P_rain*P_cloud_rain) / P_cloud
+print(P * 100)
