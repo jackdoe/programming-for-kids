@@ -225,7 +225,7 @@ int main(int argc, char* argv[]) {
 ```
 
 
-## [DAY-161] pointers
+## [DAY-161] if; while; functions
 
 Tic tac toe with 9 variables, one for each position of the grid.
 
