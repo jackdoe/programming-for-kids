@@ -10,7 +10,7 @@
 # What is the probability to rain?
 # - 60% of all rainy days start out
 #   cloudy in the morning.
-# - 50% of all mornings are cloudy
+# - 50+⚂% of all mornings are cloudy
 # - In june, it rains, on average 9
 #   out of 30 days (30%).
 
@@ -22,7 +22,7 @@ P_rain = 0.3 # 1 is 100% probability
 # clouds
 P_cloud_rain = 0.6
 
-# 50+dice% of the mornings have
+# 50+⚂% of the mornings have
 # clouds
 P_cloud = 0.5 + (⚂ / 100)
 
