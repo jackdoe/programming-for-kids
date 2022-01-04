@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main(int argc, char* argv[]) {
+    int a = 7;
+    int *pa = &a;
+
+    *pa = 8;
+    cout << a << endl;
+
+    int b[8] = {10,11,12,13,14,15,16,17};
+    cout << b << endl;
+    cout << (b + 3) << endl;
+    cout << *(b + 3) << endl;
+    cout << b[3] << endl;
+
+    return 0;
+}

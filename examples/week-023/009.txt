@@ -1,0 +1,35 @@
+  a b c
+0 - - -
+1 - - -
+2 - - -
+[x] enter position (row col): 0 a
+
+  a b c
+0 x - -
+1 - - -
+2 - - -
+[0] enter position (row col): 0 b
+
+  a b c
+0 x 0 -
+1 - - -
+2 - - -
+[x] enter position (row col): 1 a
+
+  a b c
+0 x 0 -
+1 x - -
+2 - - -
+[0] enter position (row col): 1 b
+
+  a b c
+0 x 0 -
+1 x 0 -
+2 - - -
+[x] enter position (row col): 2 a
+
+  a b c
+0 x 0 -
+1 x 0 -
+2 x - -
+x wins!

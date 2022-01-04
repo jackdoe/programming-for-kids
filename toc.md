@@ -409,3 +409,9 @@
 [day-158 if; while](#day-158-if-while)
 
 [day-159 strings; sizeof](#day-159-strings-sizeof)
+
+[day-160 pointers](#day-160-pointers)
+
+[day-161 pointers](#day-161-pointers)
+
+[day-162 pointers](#day-162-pointers)
