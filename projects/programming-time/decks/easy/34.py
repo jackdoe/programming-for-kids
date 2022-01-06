@@ -11,13 +11,13 @@
 # - 60% of all rainy days start out
 #   cloudy in the morning.
 # - 50+⚂% of all mornings are cloudy
-# - In june, it rains, on average 9
-#   out of 30 days (30%).
+# - In june, it rains, on average 3
+#   out of 30 days (10%).
 
-# overall there is 30% probability
+# overall there is 10% probability
 # to rain
-P_rain = 0.3 # 1 is 100% probability
-             # 0.3 is 30%
+P_rain = 0.1 # 1 is 100% probability
+             # 0.1 is 10%
 # 60% of rainy days start with
 # clouds
 P_cloud_rain = 0.6
@@ -26,6 +26,6 @@ P_cloud_rain = 0.6
 # clouds
 P_cloud = 0.5 + (⚂ / 100)
 
-# probability to rain
+# probability to rain on cloudy day
 P = (P_rain*P_cloud_rain) / P_cloud
 print(P * 100)
