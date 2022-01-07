@@ -1,4 +1,6 @@
-# Welcome to the hounted house ⌂!
+# Welcome to the haunted house!
+# ⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂
+# 
 #     ___
 #   _/ @@\   +--0--+ +--1--+ +--2--+
 #  ( \  O/__ |     | |     | |     |
@@ -8,6 +10,7 @@
 # `"""""``   +-----+ +-----+ +-----+
 # (ghost art
 #  by jgs)
+#
 #
 # There are 3 doors.
 # Behind one of the doors there is a
