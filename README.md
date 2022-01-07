@@ -13792,9 +13792,83 @@ def game():
 game()
 ```
 
+Another way to write the same program, using few function.
 
+```
+def print_board(a1,a2,a3,b1,b2,b3,c1,c2,c3):
+    print('  ',1,2,3)
+    print('a ',a1,a2,a3)
+    print('b ',b1,b2,b3)
+    print('c ',c1,c2,c3)
 
+def win(xz, a1,a2,a3,b1,b2,b3,c1,c2,c3):
+    if a1 == xz and a2 == xz and a3 == xz:
+        return True
+    if a3 == xz and b3 == xz and c3 == xz:
+        return True
+    if a2 == xz and b2 == xz and c2 == xz:
+        return True
+    if a1 == xz and b1 == xz and c1 == xz:
+        return True
+    if c1 == xz and c2 == xz and c3 == xz:
+        return True
+    if b1 == xz and b2 == xz and b3 == xz:
+        return True
+    if c1 == xz and b2 == xz and a3 == xz:
+        return True
+    if a1 == xz and b2 == xz and c3 == xz:
+        return True
+    return False
 
+def get_input(xz, a1,a2,a3,b1,b2,b3,c1,c2,c3):
+    ask = input(xz + ' choose a number from 1,2,3 and a letter from a,b,c: ')
+    if ask == 'a1':
+        a1 = xz
+    if ask == 'a2':
+        a2 = xz
+    if ask == 'a3':
+        a3 = xz
+    if ask == 'b1':
+        b1 = xz
+    if ask == 'b2':
+        b2 = xz
+    if ask == 'b3':
+        b3 = xz
+    if ask == 'c1':
+        c1 = xz
+    if ask == 'c2':
+        c2 = xz
+    if ask == 'c3':
+        c3 = xz    
+    return  a1,a2,a3,b1,b2,b3,c1,c2,c3
+
+def game():
+    a1 = a2 = a3 = b1 = b2 = b3 = c1 = c2 = c3 = '-'
+    xz = 'x'
+    while True:
+        print_board(a1,a2,a3,b1,b2,b3,c1,c2,c3)
+        a1,a2,a3,b1,b2,b3,c1,c2,c3 = get_input(xz, a1,a2,a3,b1,b2,b3,c1,c2,c3)
+
+        if win(xz, a1,a2,a3,b1,b2,b3,c1,c2,c3):
+            print(xz + " WINS 🥳🥳🥳!!!")
+            break
+
+        if xz == 'x':
+            xz = '0'
+        else:
+            xz = 'x'
+
+game()
+```
+
+Now the game loop is very obvious:
+
+* print the board
+* get the input and modify the variables
+* check if there is a winnner
+* swap the symbol (from x to 0 and from 0 to x)
+
+But in the same time, when you read the functions it is a bit confusing what is a1 a2 a3.. etc. This is ok for such a small program, either way works fine, but when programs grow you have to think about 'wait if someone is reading this function, will it make sense', 'will my variable names make sense to someone else'.
 
 
 
