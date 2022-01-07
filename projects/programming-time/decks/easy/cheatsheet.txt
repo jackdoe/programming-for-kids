@@ -353,3 +353,17 @@ Morse code:
 
 
 ####################################
+
+Destructuring:
+
+a,b,c = [1,2,3]
+
+a is 1
+b is 2
+c is 3
+
+for x,y in [[1,2],[3,4],[5,6]]:
+    print(x,y)
+    # x is 1, y is 2
+    # x is 3, y is 4
+    # x is 5, y is 6
