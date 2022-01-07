@@ -1,27 +1,31 @@
-# Files are just collection of bytes
-# that are stored on disk. You can
-# find them by their name. The
-# computer uses a special
-# data-structure, called a
-# filesystem, to allow you to access
-# your files quickly.  Each file has
-# some attributes attached to it,
-# like its size who can access it,
-# who created it, when it was
-# created, or modified.
+class HandmadeRange:
+  def __init__(self,start,end,skip):
+    self.start = start
+    self.end = end
+    self.skip = skip
 
-# To open a file use the built-in
-# function open() with parameters of
-# the filename and parameter to
-# specify if you want to read(r) or
-# write(w)
+  def __iter__(self):
+    self.n = self.start
+    return self
 
-file = open("hello.txt","w")
-file.write(chr(96+⚂) + chr(96+⚂))
-file.close()
+  def __next__(self):
+    if self.n < self.end:
+      result = self.n
+      self.n += self.skip
+      return result
+    else:
+      # Raise an exception when we
+      # reach the end. An exception
+      # is a way to communicate
+      # between multiple function
+      # calls. For example dividing
+      # by zero throws ZeroDivision:
+      #   a = 1
+      #   try:
+      #      print(a/0)
+      #   except ZeroDivisionError:
+      #      print("0 is illegal")
+      raise StopIteration
 
-file = open("hello.txt","r")
-data = file.read()
-file.close()
-
-print(data)
+for i in HandmadeRange(0,25,⚂):
+  print(i)
