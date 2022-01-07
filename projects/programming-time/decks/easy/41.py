@@ -1,5 +1,5 @@
 # Compute Euler's number
-# e = 1 + 1/1 + 1/2 + 1/ (1*2*3) …
+# e = 1 + 1/1 + 1/2 + 1/(1*2*3) + …
 def compute_e(end):
   e = f = 1.0
   for i in range(2, end):
@@ -8,9 +8,9 @@ def compute_e(end):
            # incrementally
   return e
 
-# Compute 𝜋
-# Leibniz's formula to compute 𝜋
-# 𝜋 = 4 – 4/3 + 4/5 – 4/7 + 4/9 – …
+# Compute pi
+# Leibniz's formula to compute pi
+# pi = 4 – 4/3 + 4/5 – 4/7 + 4/9 – …
 def compute_pi(end):
   pi = 0
   n = 4
@@ -23,7 +23,7 @@ def compute_pi(end):
     # (2 * (3 % 2)) - 1 = 1
     sign = (2*(i % 2)) - 1
     pi += sign * n/d
-    d+=2
+    d += 2
   return pi
 
 e = compute_e(3 + ⚂ % 3)
