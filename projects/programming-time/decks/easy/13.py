@@ -1,7 +1,20 @@
-# There are 3 doors
-# behind one of them is a ghost,
-# roll the dice until you find
-# another door
+# Welcome to the hounted house ⌂!
+#     ___
+#   _/ @@\   +--0--+ +--1--+ +--2--+
+#  ( \  O/__ |     | |     | |     |
+#   \    \__)|*    | |*    | |*    |
+#   /     \  |     | |     | |     |
+#  /      _\ |     | |     | |     |
+# `"""""``   +-----+ +-----+ +-----+
+# (ghost art
+#  by jgs)
+#
+# There are 3 doors.
+# Behind one of the doors there is a
+# ghost.
+#
+# Roll the dice until your door is
+# different form the ghost's door.
 while True:
   ghost_door = ⚂ % 3
   your_door = ⚂ % 3
