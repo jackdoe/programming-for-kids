@@ -16,7 +16,7 @@ class HandmadeRange:
     else:
       # Raise an exception when we
       # reach the end. An exception
-      # is a way to communicate
+      # is a way to communicate up
       # between multiple function
       # calls. For example dividing
       # by zero throws ZeroDivision:
