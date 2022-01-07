@@ -1,0 +1,74 @@
+def board(a1,a2,a3,b1,b2,b3,c1,c2,c3):
+    print('  ',1,2,3)
+    print('a ',a1,a2,a3)
+    print('b ',b1,b2,b3)
+    print('c ',c1,c2,c3)
+
+def game():
+    a1 = '-'
+    a2 = '-'
+    a3 = '-'
+    b1 = '-'
+    b2 = '-'
+    b3 = '-'
+    c1 = '-'
+    c2 = '-'
+    c3 = '-'
+
+
+    xz = 'x'
+    while True:
+        board(a1,a2,a3,b1,b2,b3,c1,c2,c3)
+        ask = input(xz + ' choose a number from 1,2,3 and a letter from a,b,c: ')
+        if ask == 'a1':
+            a1 = xz
+        if ask == 'a2':
+            a2 = xz
+        if ask == 'a3':
+            a3 = xz
+        if ask == 'b1':
+            b1 = xz
+        if ask == 'b2':
+            b2 = xz
+        if ask == 'b3':
+            b3 = xz
+        if ask == 'c1':
+            c1 = xz
+        if ask == 'c2':
+            c2 = xz
+        if ask == 'c3':
+            c3 = xz
+
+        if a1 == xz and a2 == xz and a3 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if a3 == xz and b3 == xz and c3 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if a2 == xz and b2 == xz and c2 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if a1 == xz and b1 == xz and c1 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if c1 == xz and c2 == xz and c3 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if b1 == xz and b2 == xz and b3 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if c1 == xz and b2 == xz and a3 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if a1 == xz and b2 == xz and c3 == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+
+
+
+        if xz == 'x':
+            xz = '0'
+        else:
+            xz = 'x'
+
+game()

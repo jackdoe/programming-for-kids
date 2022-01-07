@@ -414,4 +414,6 @@
 
 [day-161 if; while; functions](#day-161-if-while-functions)
 
-[day-162 pointers](#day-162-pointers)
+[day-162 if; while; variables](#day-162-if-while-variables)
+
+[day-163 pointers](#day-163-pointers)
