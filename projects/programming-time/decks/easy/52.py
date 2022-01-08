@@ -1,5 +1,5 @@
-# Binary search is a way to search
-# more efficienty a sorted list.
+# Binary Search is a way to search
+# a sorted list very efficiently.
 # Imagine the list [1,2,3,4,5,6] and
 # you are looking for 5, you just
 # check the middle element if it is
@@ -7,7 +7,7 @@
 # right half, if not you try the
 # left part, and then the half of
 # the half, and so on.
-def search(data, key):
+def bsearch(data, key):
   start = 0
   end = len(data) - 1
   mid = 0
@@ -24,7 +24,7 @@ def search(data, key):
 
   return  -1
 a = [1,3,4,7,9,11,12,13,14,19,20]
-idx = search(a, ⚂)
+idx = bsearch(a, ⚂)
 if idx == -1:
   print("not found")
 else:
