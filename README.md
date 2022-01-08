@@ -13883,6 +13883,7 @@ Do the same tic tac toe but with a list instead of 9 variables
 
 ![game-163.png](./screenshots/game-163.png "game 163 screenshot")
 
+> (this is the code that she wrote)
 
 ```
 def board(g):
