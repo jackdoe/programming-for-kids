@@ -534,6 +534,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-162 if; while; variables](#day-162-if-while-variables)
 
 [day-163 if; while; lists](#day-163-if-while-lists)
+## week - 024
+
+
 
 [day-164 pointers](#day-164-pointers)
 
@@ -13878,6 +13881,9 @@ But in the same time, when you read the functions it is a bit confusing what is 
 
 Do the same tic tac toe but with a list instead of 9 variables
 
+![game-163.png](./screenshots/game-163.png "game 163 screenshot")
+
+
 ```
 def board(g):
     print('  ',1,2,3)
@@ -14004,7 +14010,5 @@ game()
 ## [DAY-164] pointers
 
 Watch "What Are Pointers? (C++)", by javidx9 on youtube. https://www.youtube.com/watch?v=iChalAKXffs
-
-
 
 
