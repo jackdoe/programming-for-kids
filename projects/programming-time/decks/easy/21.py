@@ -22,7 +22,7 @@ encoded = delta(a)
 
 print(encoded)
 
-# python has builtin `sum` function
+# python has built-in `sum` function
 # that sums the integers from a list
 avg = sum(encoded) / len(encoded)
 print(avg)

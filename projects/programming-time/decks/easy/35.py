@@ -18,7 +18,7 @@ def divide(a,b):
   return n
 
 # math.log(a,b)
-# logarighm of a with base b
+# logarithm of a with base b
 # how many times you can divide a by
 # b?
 def log(a,b):

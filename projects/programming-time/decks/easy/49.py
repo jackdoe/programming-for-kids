@@ -4,7 +4,7 @@
 # [1,1,1,1,1,1,1] can be encoded as
 # [1,7] (or 1 appears 7 times)
 # [1,1,1,1,1,1,1,2,2,2,2] can be
-# shrinked to [1,7,2,4]
+# reduced to [1,7,2,4]
 def compress(x):
   o = [x[0],0]
 

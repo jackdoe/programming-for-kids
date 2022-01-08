@@ -13,11 +13,11 @@ def is_prime(n):
   # 0 and 1 are not prime
   if n == 0 or n == 1:
     return False
-  # check if the number is divisable
+  # check if the number is divisible
   # by any number from 2 to n
   for x in range(2,n):
     # if there is no reminder that
-    # means it is divisable, and it
+    # means it is divisible, and it
     # is not a prime
     if n % x == 0:
       return False

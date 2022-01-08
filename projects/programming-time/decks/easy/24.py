@@ -24,7 +24,7 @@ ascii = {
     118: 'v', 119: 'w', 120: 'x',
     121: 'y', 122: 'z'
 }
-# to get the characterof code 122 we
-# can look it up with ascii[122]
+# to get the character of code 122
+# we can look it up with ascii[122]
 c = ascii[96 + ⚂]
 print(c)

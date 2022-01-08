@@ -6,7 +6,7 @@
 # remove([2,2,3,5],2) will return
 # [3,5]. In python you can also do
 # [2,4,6].remove(4) which will
-# remove "inplace" one occurance,
+# remove "in-place" one occurrence,
 # modifying the list itself
 def remove(data, removeme):
   filtered = []

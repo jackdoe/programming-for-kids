@@ -1,9 +1,9 @@
 # for each number from 1 to 20
-#   if divisable by 3 and 5
-#     print fizzbuzz
-#   if something is divisable by 3
+#   if divisible by 3 and 5
+#     print fizz buzz
+#   if something is divisible by 3
 #     print fizz
-#   if something is divisable by 5
+#   if something is divisible by 5
 #     print buzz
 #   else
 #     print the integer

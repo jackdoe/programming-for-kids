@@ -6,7 +6,7 @@ a = [pick(), pick(), pick()]
 
 # Sorting a list is quite common,
 # the list object has a method
-# `sort`, that sorts inplace, so it
+# `sort`, that sorts in-place, so it
 # will just modify the list itself,
 # without returning anything. This
 # is called mutating, like the
