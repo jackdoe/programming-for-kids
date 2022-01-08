@@ -1,0 +1,51 @@
+def board(g):
+    print('  ',1,2,3)
+    print('a ',g[0],g[1],g[2])
+    print('b ',g[3],g[4],g[5])
+    print('c ',g[6],g[7],g[8])
+
+def check(g, xz, i1,i2,i3):
+    if g[i1] == xz and g[i2] == xz and g[i3] == xz:
+        return True
+    return False
+
+def game():
+    g = ['-','-','-','-','-','-','-','-','-']
+
+    xz = 'x'
+    while True:
+        board(g)
+
+        # get the input and update the game board
+        ask = input(xz + ' choose a number from 1,2,3 and a letter from a,b,c: ')
+        index = 0
+        if ask[0] == 'a':
+            index = 0 + int(ask[1]) - 1 # convert a1 to index 0, a3 to index 3
+        if ask[0] == 'b':
+            index = 3 + int(ask[1]) - 1 # convert b1 to index 3 and b3 to index 5
+        if ask[0] == 'c':
+            index = 6 + int(ask[1]) - 1 # convert c1 to index 6 and c3 to index 8
+        g[index] = xz
+
+        # check if we have a winner
+
+        # horizontal
+        if check(g,xz,0,1,2) or check(g,xz,3,4,5) or check(g,xz,6,7,8):
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        # vertical
+        if check(g,xz,1,4,7) or check(g,xz,0,3,6) or check(g,xz,2,5,8):
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        # diagonal
+        if check(g,xz,0,4,8) or check(g,xz,2,4,6):
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+
+        # swap the synmbol for the next turn
+        if xz == 'x':
+            xz = '0'
+        else:
+            xz = 'x'
+
+game()
