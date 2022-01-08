@@ -541,6 +541,9 @@ But in the same time, when you read the functions it is a bit confusing what is 
 
 Do the same tic tac toe but with a list instead of 9 variables
 
+![game-163.png](./screenshots/game-163.png "game 163 screenshot")
+
+
 ```
 def board(g):
     print('  ',1,2,3)
@@ -663,10 +666,3 @@ def game():
 
 game()
 ```
-
-## [DAY-164] pointers
-
-Watch "What Are Pointers? (C++)", by javidx9 on youtube. https://www.youtube.com/watch?v=iChalAKXffs
-
-
-
