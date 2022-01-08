@@ -627,6 +627,7 @@ def game():
 
     xz = 'x'
     while True:
+        # print the board
         board(g)
 
         # get the input and update the game board
@@ -641,7 +642,6 @@ def game():
         g[index] = xz
 
         # check if we have a winner
-
         # horizontal
         if check(g,xz,0,1,2) or check(g,xz,3,4,5) or check(g,xz,6,7,8):
             print(xz+ ' Wins 🥳🥳🥳')
