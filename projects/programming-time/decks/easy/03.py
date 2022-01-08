@@ -21,7 +21,7 @@ def is_prime(n):
     # is not a prime
     if n % x == 0:
       return False
-    return True
+  return True
 
 n = ⚂
 if is_prime(n):
