@@ -537,7 +537,134 @@ But in the same time, when you read the functions it is a bit confusing what is 
 
 
 
-## [DAY-163] pointers
+## [DAY-163] if; while; lists
+
+Do the same tic tac toe but with a list instead of 9 variables
+
+```
+def board(g):
+    print('  ',1,2,3)
+    print('a ',g[0],g[1],g[2])
+    print('b ',g[3],g[4],g[5])
+    print('c ',g[6],g[7],g[8])
+
+def game():
+    g = ['-','-','-','-','-','-','-','-','-']
+
+    xz = 'x'
+    while True:
+        board(g)
+        ask = input(xz + ' choose a number from 1,2,3 and a letter from a,b,c: ')
+
+        if ask == 'a1':
+            g[0] = xz
+        if ask == 'a2':
+            g[1] = xz
+        if ask == 'a3':
+            g[2] = xz
+        if ask == 'b1':
+            g[3] = xz
+        if ask == 'b2':
+            g[4] = xz
+        if ask == 'b3':
+            g[5] = xz
+        if ask == 'c1':
+            g[6] = xz
+        if ask == 'c2':
+            g[7] = xz
+        if ask == 'c3':
+            g[8] = xz
+
+        if g[0] == xz and g[1] == xz and g[2] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if g[3] == xz and g[4] == xz and g[5] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if g[6] == xz and g[7] == xz and g[8] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if g[1] == xz and g[4] == xz and g[7] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if g[0] == xz and g[3] == xz and g[6] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if g[2] == xz and g[5] == xz and g[8] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if g[0] == xz and g[4] == xz and g[8] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        if g[2] == xz and g[4] == xz and g[6] == xz:
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+
+        if xz == 'x':
+            xz = '0'
+        else:
+            xz = 'x'
+
+game()
+```
+
+alternative way of writing this:
+
+```
+def board(g):
+    print('  ',1,2,3)
+    print('a ',g[0],g[1],g[2])
+    print('b ',g[3],g[4],g[5])
+    print('c ',g[6],g[7],g[8])
+
+def check(g, xz, i1,i2,i3):
+    if g[i1] == xz and g[i2] == xz and g[i3] == xz:
+        return True
+    return False
+
+def game():
+    g = ['-','-','-','-','-','-','-','-','-']
+
+    xz = 'x'
+    while True:
+        board(g)
+
+        # get the input and update the game board
+        ask = input(xz + ' choose a number from 1,2,3 and a letter from a,b,c: ')
+        index = 0
+        if ask[0] == 'a':
+            index = 0 + int(ask[1]) - 1 # convert a1 to index 0, a3 to index 3
+        if ask[0] == 'b':
+            index = 3 + int(ask[1]) - 1 # convert b1 to index 3 and b3 to index 5
+        if ask[0] == 'c':
+            index = 6 + int(ask[1]) - 1 # convert c1 to index 6 and c3 to index 8
+        g[index] = xz
+
+        # check if we have a winner
+
+        # horizontal
+        if check(g,xz,0,1,2) or check(g,xz,3,4,5) or check(g,xz,6,7,8):
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        # vertical
+        if check(g,xz,1,4,7) or check(g,xz,0,3,6) or check(g,xz,2,5,8):
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+        # diagonal
+        if check(g,xz,0,4,8) or check(g,xz,2,4,6):
+            print(xz+ ' Wins 🥳🥳🥳')
+            break
+
+        # swap the synmbol for the next turn
+        if xz == 'x':
+            xz = '0'
+        else:
+            xz = 'x'
+
+game()
+```
+
+## [DAY-164] pointers
 
 Watch "What Are Pointers? (C++)", by javidx9 on youtube. https://www.youtube.com/watch?v=iChalAKXffs
 
