@@ -1,0 +1,31 @@
+import random
+def test(taal,toets):
+    i = random.randint(0,len(taal)-1)
+    f = input(taal[i]+ ': ')
+    if f == toets[i]:
+        print('corect')
+    else:
+        print("WRONG, one more try!")
+        f = input(taal[i]+ ': ')
+        if f == toets[i]:
+            print('corect')
+        else:
+            print('better luck next time the correct answer was: '+toets[i])
+
+short = ['t.z.t','v.l.n.r','e.d','nr.','zg.','Gebr.','dr.',
+         's.v.p','t.o.v','nl.','N.B.','sr.','jr.','C',
+         'etc','t.a.v','P.S.','B. en W.','NL','v.a','drs']
+
+long = ['ten zijner tijd','van links naar rechts','en dergelijk',
+        'nummer','zogenaamd','gebroeders','doctor',
+        "s'il vous plait",'ten opzichte van','namelijk',
+        'Nota Bene','senior','junior','Celsius',
+        'etcetra','ter attentie van','postscriptum',
+        'Burgemeesteren Wethouders','Nederland','vanaf','doctorandes']
+
+for i in range(len(short)):
+    print(short[i] + ' -> ' + long[i])
+
+while True:
+    test(short,long)
+    test(long, short)
