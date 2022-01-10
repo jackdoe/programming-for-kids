@@ -10,10 +10,10 @@ def delta(x):
   # start from 1 because we already
   # have x[0] in the output
   for i in range(1,len(x)):
-    prev = x[i]
-    current = x[i-1]
-
-    result.append(prev-current)
+    current = x[i]
+    prev = x[i-1]
+    d = current - prev
+    result.append(d)
 
   return result
 
