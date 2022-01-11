@@ -423,4 +423,8 @@
 
 [day-164 pointers](#day-164-pointers)
 
-[day-165 pointers](#day-165-pointers)
+[day-165 if; while](#day-165-if-while)
+
+[day-166 if; while](#day-166-if-while)
+
+[day-167 pointers](#day-167-pointers)
