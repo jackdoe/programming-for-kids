@@ -63,16 +63,17 @@ def run_card(file_name, values=range(1, 21)):
 
 def test_01():
     """gcd"""
-    *_, output = run_card("01", [12, 16])
-    assert int(output) == 4
+    output = run_card("01", [12, 16])
+    result = int(output[-1])
+    assert result == 4
 
 
 def test_02():
     """Diffie-Hellman Key Exchange"""
-    *_, output = run_card("02", [15, 7])
+    output = run_card("02", [15, 7])
 
     # Example output: Shared Secret: 15 15
-    match = re.search(r"(\d+).+?(\d+)", output)
+    match = re.search(r"(\d+).+?(\d+)", output[-1])
     assert match is not None
     secret_ab = match.group(1)
     secret_ba = match.group(2)
@@ -83,90 +84,91 @@ def test_02():
 
 def test_03():
     """is_prime"""
-    *_, output = run_card("03", [1])
-    assert output == "not a prime"
+    output = run_card("03", [1])
+    assert output[-1] == "not a prime"
 
-    *_, output = run_card("03", [2])
-    assert output == "prime"
+    output = run_card("03", [2])
+    assert output[-1] == "prime"
 
-    *_, output = run_card("03", [4])
-    assert output == "not a prime"
+    output = run_card("03", [4])
+    assert output[-1] == "not a prime"
 
-    *_, output = run_card("03", [13])
-    assert output == "prime"
+    output = run_card("03", [13])
+    assert output[-1] == "prime"
 
 
 def test_04():
     """RSA algorithm"""
-    die = 17
-    *_, output = run_card("04", [die])
+    output = run_card("04", [17])
 
     # recreate message as done in card
     message = 50 + 17
-    decrypted = int(output)
+    decrypted = int(output[-1])
     assert decrypted == message
 
 
 def test_05():
     """sum & average"""
-    *_, output = run_card("05", [10, 11, 12])
-    average = float(output)
+    output = run_card("05", [10, 11, 12])
+    average = float(output[-1])
     assert average == 11
 
 
 def test_06():
     """square root"""
-    *_, output = run_card("06", [1])
-    area = float(output)
+    output = run_card("06", [1])
+    area = float(output[-1])
     assert area == 32
 
 
 def test_07():
     """remove() element from list"""
-    *_, winner = run_card("07", [1, 2])
+    output = run_card("07", [1, 2])
+    winner = output[-1]
     assert winner == "penny"
 
 
 def test_08():
     """quadrant"""
-    *_, output = run_card("08", [11, 11])
-    assert int(output) == 1
+    output = run_card("08", [11, 11])
+    assert int(output[-1]) == 1
 
-    *_, output = run_card("08", [11, 9])
-    assert int(output) == 4
+    output = run_card("08", [11, 9])
+    assert int(output[-1]) == 4
 
-    *_, output = run_card("08", [9, 9])
-    assert int(output) == 3
+    output = run_card("08", [9, 9])
+    assert int(output[-1]) == 3
 
-    *_, output = run_card("08", [9, 11])
-    assert int(output) == 2
+    output = run_card("08", [9, 11])
+    assert int(output[-1]) == 2
 
-    *_, output = run_card("08", [10, 10])
-    assert int(output) == 0
+    output = run_card("08", [10, 10])
+    assert int(output[-1]) == 0
 
 
 def test_09():
     """import"""
     now = datetime.datetime.now()
     meeting_time = 10
-    *_, output = run_card("09", [meeting_time])
+    output = run_card("09", [meeting_time])
 
     expected = "on time" if now.minute < meeting_time else "you are late"
-    assert output == expected
+    assert output[-1] == expected
 
 
 def test_10():
     """Reverse Polish Notation"""
-    *_, output = run_card("10", [10, 11, 12])
+    output = run_card("10", [10, 11, 12])
+    result = float(output[-1])
     expected = (10 + 11) * 12
-    assert float(output) == expected
+    assert result == pytest.approx(expected)
 
 
 def test_11():
     """encryption by transposition"""
     message = [1, 2, 3]
-    *_, output = run_card("11", message)
-    assert output == "nop"
+    output = run_card("11", message)
+    assert output[-1] == "nop"
 
 
 # test_12(): not implemented due to package requirement
@@ -181,8 +183,8 @@ def test_13():
 
 def test_14():
     """sort / reverse"""
-    *_, output = run_card("14", [3, 5, 2])
-    a_0 = int(output)
+    output = run_card("14", [3, 5, 2])
+    a_0 = int(output[-1])
     assert a_0 == 5
 
 
@@ -197,28 +199,28 @@ def test_15():
 
 def test_16():
     """dictionary lookup"""
-    *_, output = run_card("16", [1])
-    assert "Magenta pink" in output
+    output = run_card("16", [1])
+    assert "Magenta pink" in output[-1]
 
 
 def test_17():
     """lambda functions"""
-    *_, output = run_card("17", [13, 5])
-    result = int(output)
+    output = run_card("17", [13, 5])
+    result = int(output[-1])
     assert result == 13
 
 
 def test_18():
     """mixed scope"""
-    *_, output = run_card("18", [11])
-    x = int(output)
+    output = run_card("18", [11])
+    x = int(output[-1])
     assert x == 11
 
 
 def test_19():
     """global scope"""
-    *_, output = run_card("19", [11])
-    x = int(output)
+    output = run_card("19", [11])
+    x = int(output[-1])
     assert x == 3
 
 
@@ -236,47 +238,46 @@ def test_20():
 def test_21():
     """delta encoding"""
     output = run_card("21", [13])
-
     numbers = [int(x) for x in output[-2][1 : len(output[-2]) - 1].split(", ")]
     assert numbers == [1, 1, 1, 1, 1, 1, -3]
 
 
 def test_22():
     """string to int"""
-    *_, output = run_card("22", [11])
-    result = int(output)
+    output = run_card("22", [11])
+    result = int(output[-1])
     assert result == 121
 
 
 def test_23():
-    """arithmetic primitives"""
-    *_, output = run_card("23", [9, 8])
-    result = int(output)
+    """howebrew arithmetic primitives"""
+    output = run_card("23", [9, 8])
+    result = int(output[-1])
     assert result == 1000
 
 
 def test_24():
     """dict lookup"""
-    *_, output = run_card("24", [2])
-    assert output == "b"
+    output = run_card("24", [2])
+    assert output[-1] == "b"
 
 
 def test_25():
     """fizbuzz"""
-    *_, output = run_card("25", [1])
-    assert output == "1"
+    output = run_card("25", [1])
+    assert output[-1] == "1"
 
-    *_, output = run_card("25", [3])
-    assert output == "fizz"
+    output = run_card("25", [3])
+    assert output[-1] == "fizz"
 
-    *_, output = run_card("25", [5])
-    assert output == "buzz"
+    output = run_card("25", [5])
+    assert output[-1] == "buzz"
 
-    *_, output = run_card("25", [15])
-    assert output == "fizzbuzz"
+    output = run_card("25", [15])
+    assert output[-1] == "fizzbuzz"
 
-    *_, output = run_card("25", [19])
-    assert output == "19"
+    output = run_card("25", [19])
+    assert output[-1] == "19"
 
 
 # test_25(): not implemented due to package requirement
@@ -284,22 +285,71 @@ def test_25():
 
 def test_27():
     """morse code"""
-    *_, output = run_card("27", [4])
-    assert output == ".-.."  # letter l
+    output = run_card("27", [4])
+    assert output[-1] == ".-.."  # letter l
 
 
 def test_28():
     """break"""
-    *_, output = run_card("28", [11, 7])
-    result = int(output)
+    output = run_card("28", [11, 7])
+    result = int(output[-1])
     assert result == 25  # 12 + 13
 
 
 def test_29():
     """reduce"""
-    *_, output = run_card("29", [13])
-    result = float(output)
+    output = run_card("29", [13])
+    result = float(output[-1])
     assert result == pytest.approx(7.5)
+
+
+def test_30():
+    """Rock, Paper, Scissors"""
+    output = run_card("30", [3, 1, 3, 2, 3, 3, 4, 1, 4, 2, 4, 3, 5, 1])
+    wins_a = int(output[-2])
+    wins_b = int(output[-1])
+    assert wins_a == 3
+    assert wins_b == 2
+
+
+def test_31():
+    """strings in memory"""
+    output = run_card("31", [1])
+    assert output[-1] == "aoi"
+
+
+def test_32():
+    """find element in collection"""
+    output = run_card("32", [1])
+    assert output[-1] == "work work"
+
+    output = run_card("32", [5])
+    assert output[-1] == "yey, weekend"
+
+    output = run_card("32", [19])
+    assert output[-1] == "oops, expected 0 to 6"
+
+
+def test_33():
+    """pop element from list"""
+    output = run_card("33", [1, 2, 3])
+    result = int(output[-1])
+    assert result == 2
+
+
+def test_34():
+    """Bayes' Theorem"""
+    output = run_card("34", [10])
+    P_computed = float(output[-1])
+    P_expected = 100 * (0.1 * 0.6) / (0.5 + 10 / 100)
+    assert P_computed == pytest.approx(P_expected)
+
+
+def test_35():
+    """homebrew log"""
+    output = run_card("35", [3])
+    result = int(output[0])
+    assert result == 10
 
 
 if __name__ == "__main__":
