@@ -2,8 +2,8 @@
 # |...2 1 ?..............| 0  - 21
 # |...^..................| 22 - 43
 # '---+------------------'
-#    | addr: 3, ? is 96 + ⚂
-# x -+
+#     | addr: 3, ? is 96 + ⚂
+# x --+
 #
 # Strings are immutable in python,
 # which means they can't be changed.
