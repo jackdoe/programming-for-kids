@@ -54,8 +54,27 @@ def border(d, data, id):
     lines = []
     bottom = "'--------------------------------------'"
     top = '.-------------->  ' + str(id).zfill(3) + '  <---------------.'
-    if id == -1:
-        top = '.--------------------------------------.'
+   symbol = '|'
+
+#    bottom = "└──────────────────────────────────────┘"
+#    top = '┌───────────────┤ ' + str(id).zfill(3) + ' ├────────────────┐'
+#    if id == -1:
+#        top = '┌──────────────────────────────────────┐'
+#    symbol = '│'
+    
+#    bottom = "╙──────────────────────────────────────╜"
+#    top = '╓───────────────╢ ' + str(id).zfill(3) + ' ╟────────────────╖'
+#    if id == -1:
+#        top = '╓──────────────────────────────────────╖'
+#    symbol = '║'
+
+#    bottom = "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+#    top = '┏━━━━━━━━━━━━━━━━▶ ' + str(id).zfill(3) + ' ◀━━━━━━━━━━━━━━━┓'
+#    if id == -1:
+#        top = '┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓'
+#    symbol = '┃'
+
+
     around = []
     dice = []
     around.append(top)
@@ -84,7 +103,7 @@ def border(d, data, id):
         if '#' in code or '//' in code:
             comment = ignore_until_comment(code,sym)
 
-        around.append('| ' + comment.ljust(COLS - 3, ' ') + ' |')
+        around.append(symbol + ' ' + comment.ljust(COLS - 3, ' ') + ' ' + symbol)
         dice.append('  ' + dice_line.ljust(COLS - 3, ' ') + '  ')
 
     lines.append('')
