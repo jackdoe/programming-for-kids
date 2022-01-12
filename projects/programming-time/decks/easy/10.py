@@ -1,4 +1,4 @@
-# Reverse Polish Notation.
+# Reverse Polish Notation (RPN).
 # See `(3 + 2) * 4` in different
 # notations:
 #   Prefix    │  Infix  │ Postfix
