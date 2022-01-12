@@ -28,4 +28,4 @@ elif x > x0 and y < y0:
 elif x == x0 and y == y0:
   print("P")
 else:
-  print("Strange dice roll.")
+ raise Exception("Strange roll..")
