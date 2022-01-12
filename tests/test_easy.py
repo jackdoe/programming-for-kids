@@ -365,7 +365,6 @@ def test_40():
     assert output[-1] == "False"
 
 
-@pytest.mark.skip(reason="wait for update")
 def test_41():
     """approximate e and pi"""
     output = run_card("41", [3, 3])
