@@ -17,7 +17,9 @@ y0 = 4
 x,y = [⚂,⚂]
 
 # assume dice can roll only > 0
-if x < x0 and y < y0:
+if x == x0 and y == y0:
+  print("P")
+elif x < x0 and y < y0:
   print("A")
 elif x < x0 and y > y0:
   print("B")
@@ -25,7 +27,5 @@ elif x > x0 and y > y0:
   print("C")
 elif x > x0 and y < y0:
   print("D")
-elif x == x0 and y == y0:
-  print("P")
 else:
- raise Exception("Strange roll..")
+  print("on a line")

@@ -367,3 +367,68 @@ for x,y in [[1,2],[3,4],[5,6]]:
     # x is 1, y is 2
     # x is 3, y is 4
     # x is 5, y is 6
+
+####################################
+
+Exceptions:
+
+
+try:
+    0/0
+except ZeroDivisionError:
+    print("noo you cant do that")
+
+you can `try` to run some code and
+expect certain exceptions so you can
+handle them, as the above example
+
+Exceptions bubble up the stack until
+someone catches them (with except)
+or the program will terminate
+
+```
+def x():
+    raise Exception("NOOO")
+
+def y():
+    x()
+
+def z():
+    y()
+    print("success")
+
+z()
+```
+    
+the stack looks like:
+    z() -> y() -> x()
+
+so when x raises (throws) the
+exception, it will go up until the
+program exits before success is
+printed, because nobody catches it.
+
+```
+def x():
+    raise Exception("NOOO")
+
+def y():
+    try:
+        x()
+    except:
+        print("moving on..")
+
+def z():
+    y()
+    print("success")
+
+
+z()
+```        
+
+the stack looks like:
+    z() -> y() -> x()
+
+The exception is thrown at x(), but
+y() caches it, so the program
+continues

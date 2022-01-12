@@ -340,6 +340,9 @@ def test_38():
     output = run_card("38", [5, 4])
     assert output[-1] == "P"
 
+    output = run_card("38", [5, 1])
+    assert output[-1] == "on a line"
+
 
 def test_39():
     """split string on separator"""
