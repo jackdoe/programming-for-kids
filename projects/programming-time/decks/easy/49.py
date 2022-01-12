@@ -17,7 +17,7 @@ def compress(x):
     if n == prev:
       o[len(o)-1]+=1
     else:
-      # if its a new numnber add a
+      # if its a new number add a
       # new entry to the output with
       # count 1
       o.append(n)
