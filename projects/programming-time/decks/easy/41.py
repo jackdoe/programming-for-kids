@@ -26,6 +26,6 @@ def compute_pi(end):
     d += 2
   return pi
 
-e = compute_e(3 + ⚂ % 3)
-pi = compute_pi(2 + ⚂ % 3)
+e = compute_e(4 + ⚂ % 3)
+pi = compute_pi(4 + ⚂ % 3)
 print(e,pi)
