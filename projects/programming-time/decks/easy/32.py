@@ -20,7 +20,7 @@ def contains(haystack, needle):
 # 5 Sat, 6 Sun
 weekday = [0,1,2,3,4]
 weekend = [5,6]
-day = ⚂
+day = ⚂ % 10
 
 # or just use 'if day in weekday' 
 if contains(weekday, day):

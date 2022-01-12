@@ -1,11 +1,11 @@
-# Reverse Polish Notation.
+# Reverse Polish Notation (RPN).
 # See `(3 + 2) * 4` in different
 # notations:
-#   Prefix    |  Infix  | Postfix
-#    (PN)     |         |  (RPN)
-# ------------+---------+----------
-# * (+ 2 4) 4 | (3+2)*4 | 3 2 + 4 *
-# ---------------------------------
+#   Prefix    │  Infix  │ Postfix
+#    (PN)     │         │  (RPN)
+# ────────────┼─────────┼──────────
+# * (+ 2 4) 4 │ (3+2)*4 │ 3 2 + 4 *
+# ────────────┴─────────┴──────────
 calc = [⚂, ⚂, '+', ⚂, '*']
 # lambda is a way to make anonynmous
 # (nameless) function
