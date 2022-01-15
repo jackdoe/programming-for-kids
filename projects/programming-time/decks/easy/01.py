@@ -11,7 +11,7 @@
 # 300BC. If gcd(a,b) = 1, then a and
 # b are considered relatively prime,
 # even though a and b might not be
-# prime.  This is one of the most
+# prime. This is one of the most
 # important algorithms today, and it
 # is used in almost all internet
 # communication.

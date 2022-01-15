@@ -14,13 +14,13 @@
 # get the value.
 #
 # All players work together to
-# defeat an evil computer
-# program. Their computer needs 30
-# bytes of memory to beat the evil
-# computer, each card you solve adds
-# 1 byte of memory to the player's
-# computer. The goal of the game is
-# to solve 30 cards together.
+# defeat an evil computer program.
+# Their computer needs 30 bytes of
+# memory to beat the evil computer,
+# each card you solve adds 1 byte of
+# memory to the players' computer.
+# The goal of the game is for the
+# players solve 30 cards as a team.
 
 # license: CC BY 4.0
 # github.com/jackdoe
