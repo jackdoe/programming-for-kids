@@ -1,4 +1,4 @@
 00-09|..........|
 10-19|0000......| int age at memory address 10, occupying 4 bytes
 20-29|..........|
-30-30|..........|
+30-39|PPPPPPPPPP| the program itself
