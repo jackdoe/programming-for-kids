@@ -544,7 +544,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-166 if; while](#day-166-if-while)
 
-[day-167 pointers](#day-167-pointers)
+[day-167 c; printf; scanf](#day-167-c-printf-scanf)
+
+[day-168 pointers](#day-168-pointers)
 
 ## [DAY-0] The Computer
 
@@ -14199,9 +14201,47 @@ while True:
 board(g)
 ```
 
+## [DAY-167] C; printf; scanf
+
+We will use `printf` to display text and `scanf` to read text input from the user. First compile the following program, save it to a file `hello.c` and run `gcc -o hello hello.c` the C compiler we will use is called `gcc`, just as the C++ compiler we used was called `g++`, and the options are again `-o` for 'output file name' and then the source code file `hello.c`.
+
+```
+#include <stdio.h>
+
+int main(void) {
+    int age = 0;
+
+    printf("How old are you: ");
+    scanf("%d",&age);
+    
+    if (age > 10) {
+        printf("you are a grownup\n");
+    } else {
+        printf("are you a little kid, %d %d %c\n", age, 101, 101);
+    }
+    return 0;
+}
+```
+
+Now lets read it line by line, first we make a variable `age` of type `integer` with initial value of `0`, then we print "How old are you" using `printf`, and immidiately after tat we do `scanf("%d",&age)`, first we say to scanf that we are looking for a integer `%d` and then once it reads an integer to put it on memory where the variable `age` is located at. With the `&` symbol we take the memory address of the variable.
+
+Then we compare if the age that the user entered is > 10, we print one thing, and if not we print `printf("are you a little kid, %d %d %c\n", age, 102, 103);` this will print the age itself (the first %d) will use the second parameter which is `age`, then the second %d will print 102, and then %c will print the ascii value of 103 (g).
+
+Both printf and scanf's first argument is the formatting string, while it is printing or scanning the input, whenever it sees %d %c %f (digit, character, floating point number), it will read from the arguments you passed to it and do what you want, read or write depending if printf or scanf.
+
+This is just the first steps towards C, dont worry if you dont get the `&` thing and the memory address, with some practice things will click and it will all make sense.
+
+```
+00-09|..........|
+10-19|0000......| int age at memory address 10, occupying 4 bytes
+20-29|..........|
+30-30|..........|
+```
+
+`&age` is the address of age, which is 10, its as simple as that, `scanf` gets the value 10 as the location in memory in which it should write down the number that it processed from the user input.
 
 
-## [DAY-167] pointers
+## [DAY-168] pointers
 
 Watch "What Are Pointers? (C++)", by javidx9 on youtube. https://www.youtube.com/watch?v=iChalAKXffs
 
