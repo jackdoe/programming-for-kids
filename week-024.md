@@ -224,8 +224,68 @@ Lets say your coputer has only 30 bytes of memory:
 
 `&age` is the address of age, which is 10, its as simple as that, `scanf` gets the value 10 as the location in memory in which it should write down the number that it processed from the user input.
 
+## [DAY-168] c; while; if
 
-## [DAY-168] pointers
+Rock paper scissors in C.
+
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ROCK 0
+#define PAPER 1
+#define SCISSORS 2
+
+int main(void) {
+    while (1) {
+        int player;
+        printf("rock(0) paper(1) scissors(2): ");
+        scanf("%d", &player);
+
+        int computer = rand() % 3;
+        printf("player: %d, computer: %d\n", player, computer);
+
+        if (computer == player) {
+            printf("its a tie\n");
+        } else {
+            if (computer == ROCK && player == PAPER) {
+                printf("player wins\n");
+            }
+            if (computer == ROCK && player == SCISSORS) {
+                printf("computer wins\n");
+            }
+            if (computer == PAPER && player == ROCK) {
+                printf("computer wins\n");
+            }
+            if (computer == PAPER && player == SCISSORS) {
+                printf("player wins\n");
+            }
+            if (computer == SCISSORS && player == ROCK) {
+                printf("player wins\n");
+            }
+            if (computer == SCISSORS && player == PAPER) {
+                printf("computer wins\n");
+            }
+        }
+    }
+    return 0;
+}
+```
+
+`#include <stdlin.h>` is needed for the `rand` function, it returns an integer, but since we need a number from 0, 1, 2 we just do `rand() % 3`, which will take the reminder from the random number and 3.
+
+Try this in python:
+
+```
+for i in range(100000):
+    print(i, i % 3)
+```
+
+`#define ROCK 0` just makes the c compiler to replace ROCK with 0 wherever it sees it in the source code. 
+
+
+## [DAY-169] pointers
 
 Watch "What Are Pointers? (C++)", by javidx9 on youtube. https://www.youtube.com/watch?v=iChalAKXffs
 
