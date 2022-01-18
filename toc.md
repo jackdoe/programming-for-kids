@@ -429,4 +429,6 @@
 
 [day-167 c; printf; scanf](#day-167-c-printf-scanf)
 
-[day-168 pointers](#day-168-pointers)
+[day-168 c; while; if](#day-168-c-while-if)
+
+[day-169 pointers](#day-169-pointers)
