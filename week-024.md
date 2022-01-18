@@ -213,11 +213,13 @@ Both printf and scanf's first argument is the formatting string, while it is pri
 
 This is just the first steps towards C, dont worry if you dont get the `&` thing and the memory address, with some practice things will click and it will all make sense.
 
+Lets say your coputer has only 30 bytes of memory:
+
 ```
 00-09|..........|
 10-19|0000......| int age at memory address 10, occupying 4 bytes
 20-29|..........|
-30-30|..........|
+30-39|PPPPPPPPPP| the program itself
 ```
 
 `&age` is the address of age, which is 10, its as simple as that, `scanf` gets the value 10 as the location in memory in which it should write down the number that it processed from the user input.
