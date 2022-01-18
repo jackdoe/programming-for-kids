@@ -9,7 +9,7 @@ int main(void) {
     if (age > 10) {
         printf("you are a grownup\n");
     } else {
-        printf("are you a little kid, %d %d %c\n", age, 101, 101);
+        printf("are you a little kid, %d %d %c\n", age, 102, 103);
     }
     return 0;
 }
