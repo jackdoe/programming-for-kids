@@ -124,9 +124,15 @@ def test_11():
     assert output[-1] == "nop"
 
 
-@pytest.mark.skip(reason="not implemented due to package requirement")
 def test_12():
-    """fullmoon"""
+    """bloom filters"""
+    output = run_card("12", [10, 11, 12, 13])
+    result = output[-1]
+    assert result == "we might have seen it"
+
+    output = run_card("12", [1, 2, 4, 5])
+    result = output[-1]
+    assert result == "we have never seen it"
 
 
 def test_13():
