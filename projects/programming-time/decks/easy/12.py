@@ -1,5 +1,5 @@
 # Bloom filters are a probabilistic
-# data structure, if you dont find
+# data structure, if you don't find
 # your key in it, it is guaranteed
 # it was never added, but if you
 # find it, it might be some other
