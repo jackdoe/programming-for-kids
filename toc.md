@@ -431,4 +431,6 @@
 
 [day-168 c; while; if](#day-168-c-while-if)
 
-[day-169 pointers](#day-169-pointers)
+[day-169 c; while; if](#day-169-c-while-if)
+
+[day-170 pointers](#day-170-pointers)

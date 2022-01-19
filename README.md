@@ -548,7 +548,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-168 c; while; if](#day-168-c-while-if)
 
-[day-169 pointers](#day-169-pointers)
+[day-169 c; while; if](#day-169-c-while-if)
+
+[day-170 pointers](#day-170-pointers)
 
 ## [DAY-0] The Computer
 
@@ -14365,7 +14367,61 @@ You will see:
 54 0
 ...
 ```
-## [DAY-169] pointers
+
+
+## [DAY-169] c; while; if
+
+Battle ship in C.
+
+Arrays are continous block of memory, for example `int x[10]` creates 10 integers (4 bytes each, so 40 bytes block), you can access each element by its index from `x[0]` to `x[9]`, e.g. `x[2] = 5` will set the 3rd element to be equal to 5.
+
+In C it is very easy to have multi dimensional arrays, simply say `int x[10][10]` and that creates 10x10 integers you can access by their row and column, we will use two dimensional array to store our boards for the battleship game. As usual, we use one hidden board with the ships and one display board with the guesses.
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 10
+int main(void) {
+    int hidden[SIZE][SIZE];
+    int display[SIZE][SIZE];
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            hidden[i][j] = 0;
+            display[i][j] = 0;
+        }
+    }
+
+    // make 20 random ships
+    for (int i = 0; i < 20; i++) {
+        hidden[rand() % SIZE][rand() % SIZE] = 1;
+    }
+
+    while (1) {
+        // print the display board
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                printf("%d ", display[i][j]);
+            }
+            printf("\n");
+        }
+
+        // get the row and column from the user
+        int row, column;
+        printf("row column> ");
+        scanf("%d %d", &row, &column);
+
+        // modify the display board depending if ship is 
+        // found in the hidden board or not.
+        if (hidden[row][column] == 1) {
+            display[row][column] = 1;
+        } else {
+            display[row][column] = 2;
+        }
+    }
+    return 0;
+}
+```
+## [DAY-170] pointers
 
 Watch "What Are Pointers? (C++)", by javidx9 on youtube. https://www.youtube.com/watch?v=iChalAKXffs
 
