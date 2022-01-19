@@ -389,7 +389,7 @@ int main(void) {
         scanf("%d %d", &row, &column);
 
         // modify the display board depending if ship is 
-        // found in the hidden board or not.s
+        // found in the hidden board or not.
         if (hidden[row][column] == 1) {
             display[row][column] = 1;
         } else {
