@@ -10,7 +10,7 @@ def hash(key):
   return key * 31
 
 def put(key):
-  # depending on the has function,
+  # depending on the hash function,
   # and the bloom filter size, many
   # keys might collide
   slot = hash(key) % len(bloom)
