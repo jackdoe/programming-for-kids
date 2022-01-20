@@ -1,29 +1,31 @@
-# the suntime 
-from suntime import Sun
+# a graph is collection of nodes
+# that are connected in some way
+# 4 is connected to 3 and 5, 3 is
+# connected to 0 and 2.. etc
+graph = {
+  0 : [⚂ % 6, ⚂ % 6],
+  1 : [4, ⚂ % 6],
+  2 : [2, 3, 4],
+  3 : [0, 2],
+  4 : [3, 5],
+  5 : [0, 2, 4]
+}
+# Breadth-First Search
+def bfs(graph, node):
+  # avoid getting into a cycle
+  visited = {}
+  visited[node] = True
+  queue = []
+  queue.append(node)
 
-def pick(items):
-  return items[⚂ % len(items)]
+  while queue:
+    # pop the first element
+    s = queue.pop(0)
+    print(s, len(queue)) 
 
-locations = [
-  [52.37,4.89],    # amsterdam
-  [51.49, -0.12],  # london
-  [40.71, -74.04], # new york
-  [0, 0] # use your current location
-         # you can find it on
-         # google earth
-]
+    for neighbour in graph[s]:
+      if neighbour not in visited:
+        visited[neighbour] = True
+        queue.append(neighbour)
 
-location = pick(locations)
-
-# get the sunset time for this
-# location
-sun = Sun(location[0], location[1])
-today_sunset = sun.get_sunset_time()
-
-# HINT: use your phone to find
-# today's sunset time in the picked
-# location 
-h = today_sunset.hour
-m = today_sunset.minute
-print(str(h) + ":" + str(m))
-
+bfs(graph, 0)

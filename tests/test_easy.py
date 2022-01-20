@@ -241,10 +241,13 @@ def test_25():
     assert output[-1] == "19"
 
 
-@pytest.mark.skip(reason="not implemented due to package requirement")
 def test_26():
-    """suntime"""
-
+    output = run_card("26", [10,11,12])
+    assert output[0] == "0 0"
+    assert output[1] == "4 1"
+    assert output[2] == "5 1"
+    assert output[3] == "3 1"
+    assert output[4] == "2 0"
 
 def test_27():
     """morse code"""

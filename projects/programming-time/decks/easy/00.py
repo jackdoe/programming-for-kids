@@ -19,8 +19,8 @@
 # memory to beat the evil computer,
 # each card you solve adds 1 byte of
 # memory to the players' computer.
-# The goal of the game is for the
-# players solve 30 cards as a team.
+# The goal of the game is to solve
+# 30 cards as a team.
 
 # license: CC BY 4.0
 # github.com/jackdoe

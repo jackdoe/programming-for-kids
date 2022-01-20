@@ -26,4 +26,6 @@ a.sort()
 # mutating the list.
 a.reverse()
 
+# a[0] is the element at index 0
+# or the first element in the list
 print(a[0])
