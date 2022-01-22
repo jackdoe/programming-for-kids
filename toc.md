@@ -434,3 +434,8 @@
 [day-169 c; while; if](#day-169-c-while-if)
 
 [day-170 pointers](#day-170-pointers)
+## week - 025
+
+
+
+[day-171 while; for; if; list](#day-171-while-for-if-list)
