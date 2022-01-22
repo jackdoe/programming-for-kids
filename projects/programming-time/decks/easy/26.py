@@ -1,5 +1,5 @@
 # a graph is collection of nodes
-# that are connected in some way
+# that are connected in some way,
 # 4 is connected to 3 and 5, 3 is
 # connected to 0 and 2.. etc
 graph = {

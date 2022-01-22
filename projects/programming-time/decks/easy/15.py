@@ -1,4 +1,4 @@
-# roll() the dice UN till you get a
+# roll() the dice until you get a
 # number bigger or equal to `min`.
 # A function can call itself, This
 # is called recursion.
