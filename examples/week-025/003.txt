@@ -1,0 +1,9 @@
+# ...
+
+    if pick_black.image == 'chess/pawn-black' and pick_black.y == 700:
+        pick_black.image = 'chess/queen-black'
+    
+    # drop it
+    pick_black = None    
+
+# ...        
