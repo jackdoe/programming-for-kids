@@ -177,3 +177,53 @@ def draw():
 
 pgzrun.go()
 ```
+
+
+
+## [DAY-172] if
+
+Add Queening the Pawn functionality, which means when a white/black pawn reaches the of the board it turns into a queen. Think a bit what that means, for a white pawn it reaches the end of the board when its .y property is 0, and for a black pawn when its 700. The only thing left to do is to actually check if we are holding a pawn.
+
+
+```
+# ...
+# shouldnt be able to drop if there is already white piece there
+if elf.colliderect(b):
+    for w in white:
+        if w != pick_white and b.colliderect(w):
+            return
+
+    # snap the white piece to the board
+    pick_white.x = b.x
+    pick_white.y = b.y
+
+    # take the black piece if there
+    for bl in list(black):
+        if bl.colliderect(pick_white):
+            black.remove(bl)
+
+    # Queening the Pawn:
+    # pick_white.image is chess/pawn-white for the white pawn
+    # set the pick_white.image to chess/queen-white if it reaches the black end of the board
+    if pick_white.image == 'chess/pawn-white' and pick_white.y == 0:
+        pick_white.image = 'chess/queen-white'
+    
+    # drop it
+    pick_white = None
+    break
+# ...    
+```
+
+and respective for the black pawn:
+
+```
+# ...
+
+    if pick_black.image == 'chess/pawn-black' and pick_black.y == 700:
+        pick_black.image = 'chess/queen-black'
+    
+    # drop it
+    pick_black = None    
+
+# ...        
+```
