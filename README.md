@@ -14433,11 +14433,13 @@ Watch "What Are Pointers? (C++)", by javidx9 on youtube. https://www.youtube.com
 
 ## [DAY-171] while; for; if; list
 
-Build a chess game (almost) in 3 days.
+Build a chess game in 3 days.
 
 * day 1, build the board, black and white squares, think carefully about the algorithm how to alternate between the colors
 * day 2, build the basic movement, how to pick and drop a piece (use the pieces from https://joszs.itch.io/, they are licensed as CC 4.0 and are very very beautiful)
 * day 3, polish the pieces, make it possible to take a piece
+* todo: add queening the pawn code later
+* todo: add restrictions to illegal moves
 
 ![game-171.png](./screenshots/game-171.png "game 171 screenshot")
 
