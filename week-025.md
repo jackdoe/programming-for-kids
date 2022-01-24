@@ -339,9 +339,9 @@ def on_key_down(key):
                 pick_white.y = square.y
 
                 # take the black piece if there
-                for bl in list(black):
-                    if bl.colliderect(pick_white):
-                        black.remove(bl)
+                for b in list(black):
+                    if b.colliderect(pick_white):
+                        black.remove(b)
 
                 # Queening the Pawn:
                 # pick_white.image is chess/pawn-white for the white pawn
