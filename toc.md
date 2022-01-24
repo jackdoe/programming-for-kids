@@ -441,3 +441,5 @@
 [day-171 while; for; if; list](#day-171-while-for-if-list)
 
 [day-172 if](#day-172-if)
+
+[day-173 if; variables](#day-173-if-variables)
