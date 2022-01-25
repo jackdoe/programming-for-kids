@@ -438,3 +438,75 @@ def draw():
 pgzrun.go()
 
 ```
+
+## [DAY-174] if; list
+
+The knight moves in shape L, so we have to make all other moves illegal.
+
+First draw on a sheet of paper all possible moves, and 
+
+![game-174.png](./screenshots/game-174.png "game 174 screenshot")
+
+There are many ways you can implement this but we will focus on two, one with just if conditions, and one with a list of possible moves.
+
+With if conditions, what we do is we set the move as bad (`good = False`), and then we check if it is actually one of the good moves we do `good = True`, in the end if its not a good move we return from the `on_key_press` function and the piece is not dropped on the square.
+
+```
+    elif key == keys.P and pick_black != None:
+        for square in board:
+            if king.colliderect(square):
+                ...
+
+                # knight can only move L shape
+                if pick_black.image == 'chess/knight-black':
+                    good = False
+                    if square.x == x + 100 and square.y == y - 200:
+                        good = True
+                    elif square.x == x + 100 and square.y == y + 200:
+                        good = True
+                    elif square.x == x - 200 and square.y == y - 100:
+                        good = True      
+                    elif square.x == x - 200 and square.y == y + 100:
+                        good = True                   
+                    elif square.x == x - 100 and square.y == y + 200:
+                        good = True
+                    elif square.x == x + 200 and square.y == y + 100:
+                        good = True
+                    elif square.x == x + 200 and square.y == y - 100:
+                        good = True
+                    elif square.x == x - 100 and square.y == y - 200:
+                        good = True
+                    elif square.x == x and square.y == y:
+                        good = True
+
+                    if not good:
+                        return
+...                        
+```
+
+For the white pieces we will try the other approach, which checks if a the move is in a list of allowed moves. You can check if a list is in a list, e.g. `a = [[1,2],[3,4]]` you can just try `if [1,2] in a`, so we can simply build a list of possible moves, and check if the square we are dropping the piece on is one of those moves.
+
+```
+...
+    elif key == keys.SPACE and pick_white != None:
+        for square in board:
+            # shouldnt be able to drop if there is already white piece there
+            if elf.colliderect(square):
+                ...
+
+                # knight can only move L shape
+                knight_possible = [
+                    [x,y],
+                    [x+100,y-200],
+                    [x+100,y+200],
+                    [x-200,y-100],
+                    [x-200,y+100],
+                    [x-100,y+200],
+                    [x+200,y+100],
+                    [x+200,y-100],
+                    [x-100,y-200]
+                ]
+                if pick_white.image == 'chess/knight-white' and [square.x,square.y] not in knight_possible:
+                    return
+...
+```
