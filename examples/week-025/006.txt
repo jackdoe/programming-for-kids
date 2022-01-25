@@ -1,0 +1,22 @@
+...
+    elif key == keys.SPACE and pick_white != None:
+        for square in board:
+            # shouldnt be able to drop if there is already white piece there
+            if elf.colliderect(square):
+                ...
+
+                # knight can only move L shape
+                knight_possible = [
+                    [x,y],
+                    [x+100,y-200],
+                    [x+100,y+200],
+                    [x-200,y-100],
+                    [x-200,y+100],
+                    [x-100,y+200],
+                    [x+200,y+100],
+                    [x+200,y-100],
+                    [x-100,y-200]
+                ]
+                if pick_white.image == 'chess/knight-white' and [square.x,square.y] not in knight_possible:
+                    return
+...
