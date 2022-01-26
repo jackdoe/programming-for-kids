@@ -563,6 +563,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-174 if; list](#day-174-if-list)
 
+[day-175 if](#day-175-if)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -14949,3 +14951,38 @@ For the white pieces we will try the other approach, which checks if a the move 
                     return
 ...
 ```
+
+
+## [DAY-175] if
+
+The pawn can only move 2 squares from starting position and 1 square otherwise, try to implement this rule by yourself.
+
+> this is the code she wrote
+
+```
+...
+                #if pawn.y ==  600:
+                #pawn can only move 200:
+                #else
+                #pwan can move only 100
+                if pick_white.image == 'chess/pawn-white':
+                    if y == 600:
+                        if y - square.y > 200:
+                            return
+                    if y != 600:
+                        if y - square.y >100:
+                            return
+
+...
+
+                if pick_black.image == 'chess/pawn-black':
+                    if y == 100:
+                        if square.y - y > 200:
+                            return
+                    if y != 100:
+                        if square.y - y >100:
+                            return
+```
+
+
+
