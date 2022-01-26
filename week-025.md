@@ -516,7 +516,7 @@ For the white pieces we will try the other approach, which checks if a the move 
 
 The pawn can only move 2 squares from starting position and 1 square otherwise, try to implement this rule by yourself.
 
-> this is the code she wrote
+> this is the code she wrote (including the comment)
 
 ```
 ...
