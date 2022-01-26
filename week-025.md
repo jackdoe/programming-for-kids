@@ -510,3 +510,37 @@ For the white pieces we will try the other approach, which checks if a the move 
                     return
 ...
 ```
+
+
+## [DAY-175] if
+
+The pawn can only move 2 squares from starting position and 1 square otherwise, try to implement this rule by yourself.
+
+> this is the code she wrote
+
+```
+...
+                #if pawn.y ==  600:
+                #pawn can only move 200:
+                #else
+                #pwan can move only 100
+                if pick_white.image == 'chess/pawn-white':
+                    if y == 600:
+                        if y - square.y > 200:
+                            return
+                    if y != 600:
+                        if y - square.y >100:
+                            return
+
+...
+
+                if pick_black.image == 'chess/pawn-black':
+                    if y == 100:
+                        if square.y - y > 200:
+                            return
+                    if y != 100:
+                        if square.y - y >100:
+                            return
+```
+
+
