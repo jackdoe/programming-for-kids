@@ -1,0 +1,7 @@
+...
+                if pick_black.image == 'chess/king-black':
+                    if square.y - pick_y > 100 or square.y - pick_y < -100:
+                        return
+                    if square.x - pick_x > 100 or square.x - pick_x < -100:
+                        return
+...                        
