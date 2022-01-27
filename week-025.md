@@ -543,4 +543,18 @@ The pawn can only move 2 squares from starting position and 1 square otherwise, 
                             return
 ```
 
+## [DAY-176] if
 
+First rename x and y to pick_x and pick_y so things are clearer when you compare square.x with pick_x. Then come up with a way to limit the king's movements to only one square.
+
+> this is the code she wrote
+
+```
+...
+                if pick_black.image == 'chess/king-black':
+                    if square.y - pick_y > 100 or square.y - pick_y < -100:
+                        return
+                    if square.x - pick_x > 100 or square.x - pick_x < -100:
+                        return
+...                        
+```
