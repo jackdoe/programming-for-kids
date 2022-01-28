@@ -558,3 +558,19 @@ First rename x and y to pick_x and pick_y so things are clearer when you compare
                         return
 ...                        
 ```
+
+## [DAY-177] if
+
+The rook can move only vertically or horizontaly, meaning that either its x or y does not change. Try to code the rule by yourself. If you get stuck, try to do only vertical (x does not change) or horizontal (y does not change), and then think how to add the other direction.
+
+Remember, always try the simple thing first.
+
+> this is the code she wrote
+
+```
+...
+                if pick_black.image == 'chess/rook-black':
+                    if square.x != pick_x and square.y != pick_y:
+                        return
+...                        
+```
