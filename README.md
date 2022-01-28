@@ -567,6 +567,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-176 if](#day-176-if)
 
+[day-177 if](#day-177-if)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -14998,6 +15000,22 @@ First rename x and y to pick_x and pick_y so things are clearer when you compare
                     if square.y - pick_y > 100 or square.y - pick_y < -100:
                         return
                     if square.x - pick_x > 100 or square.x - pick_x < -100:
+                        return
+...                        
+```
+
+## [DAY-177] if
+
+The rook can move only vertically or horizontaly, meaning that either its x or y does not change. Try to code the rule by yourself. If you get stuck, try to do only vertical (x does not change) or horizontal (y does not change), and then think how to add the other direction.
+
+Remember, always try the simple thing first.
+
+> this is the code she wrote
+
+```
+...
+                if pick_black.image == 'chess/rook-black':
+                    if square.x != pick_x and square.y != pick_y:
                         return
 ...                        
 ```
