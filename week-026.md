@@ -40,3 +40,73 @@ Now lets make the bishop rule. If the steps change in x is the same as the chang
 
 ...
 ```
+
+
+
+## [DAY-179] if; for
+
+Today we will do two more rules, one is the queen and one for the pawn. The queen can move like the rook and the bishop combined, so horizontally, vertically and diagonally. The pawn can move one step diagonally if she can take an enemy piece.
+
+Lets start with the queen, as we already have the rook and bishop rules, it is quite easy, we just have to say 'if the move is not like the rook and not like the bishop then its illegal'.
+
+```
+                if pick_white.image == 'chess/rook-white':
+                    if square.x != pick_x and square.y != pick_y:
+                        return
+                if pick_white.image == 'chess/bishop-white':
+                    d_y = pick_y - square.y
+                    d_x = pick_x - square.x
+                    if abs(d_y) != abs(d_x):
+                        return
+                if pick_white.image == 'chess/queen-white':
+                    d_y = pick_y - square.y
+                    d_x = pick_x - square.x
+                    if abs(d_y) != abs(d_x) and square.x != pick_x and square.y != pick_y:
+                        return
+...                        
+
+```
+
+
+The pawn is a bit more complicated, we need to check if the move is actually one step diagonally, and we also need to have a way to check if a piece is on specific position. We will make `is_on_square` function, that takes a position and a list and checks if any of the items of that list is on that position.
+
+```
+def is_on_square(x, y, pieces):
+    for p in pieces:
+        if p.x == x and p.y == y:
+            return True
+
+    return False
+
+```
+
+
+Now that we have the `is_on_square` function, we can simply check if the `y` of the square is exactly on top of the original position, and the `x` of the square is either one to the left or one to the right, which would mean either 1 square left diagonal or right diagonal, and then check if there is a black piece there, if it is allow the move.
+
+![game-179.png](./screenshots/game-179.png "game 179 screenshot")
+
+
+```
+...
+                if pick_white.image == 'chess/pawn-white':
+                    # 1 or 2 squares
+                    if pick_y == 600:
+                        if pick_y - square.y > 200:
+                            return
+                    if pick_y != 600:
+                        if pick_y - square.y > 100:
+                            return
+
+                    # pawn can only go left or right if theres someone
+                    if pick_x != square.x:
+                        ok = False
+                        if pick_y - square.y == 100 and pick_x - square.x == 100 and is_on_square(square.x, square.y, black):
+                            ok = True
+                        if pick_y - square.y == 100 and pick_x - square.x == -100 and is_on_square(square.x, square.y, black):
+                            ok = True
+
+                        if not ok:
+                            return
+...
+```
+
