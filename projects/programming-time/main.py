@@ -14,7 +14,7 @@ COLS = 39
 ROWS = 31
 fnt = ImageFont.truetype('dejavu-sans-mono.book.ttf', 28)
 
-fgcolor = (20, 20, 20, 255)
+fgcolor = (51, 0, 0, 255)
 dice_color = (20, 255, 160, 50)
 #cmyk(0%, 99%, 67%, 22%)
 border_color = (0, 0, 0, 100)
@@ -109,7 +109,7 @@ def back(deck, id, numbers, html):
     border(d, "\n".join(numbers), -1)
 
     img.save(os.path.join('images', deck, 'back_card_' +
-             str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
+                          str(id).zfill(3)+'.tiff'), compression="tiff_lzw",dpi=(300,300))
     jpg = os.path.join('images', deck, 'back_card_' +
              str(id).zfill(3)+'.jpg')
     img.save(jpg)
@@ -121,7 +121,7 @@ def front(deck, id, code,html):
     d = ImageDraw.Draw(img)
     border(d, code, id)
     img.save(os.path.join('images', deck, 'front_card_' +
-             str(id).zfill(3)+'.tiff'), compression="tiff_lzw")
+                          str(id).zfill(3)+'.tiff'), compression="tiff_lzw", dpi=(300,300))
     jpg = os.path.join('images', deck, 'front_card_' +
              str(id).zfill(3)+'.jpg')
     img.save(jpg)
@@ -136,7 +136,7 @@ def cheat(deck, answers, numbers, html):
         d = ImageDraw.Draw(img)
         border(d, "\n".join(a), -1)
         img.save(os.path.join(
-            'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.tiff'), compression="tiff_lzw")
+            'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.tiff'), compression="tiff_lzw", dpi=(300,300))
         jpg = os.path.join(
             'images', deck, 'front_card_answers_'+str(n).zfill(3)+'.jpg')
         img.save(jpg)
