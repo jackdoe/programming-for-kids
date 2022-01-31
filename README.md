@@ -576,7 +576,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-179 if; for](#day-179-if-for)
 
-[day-179 if](#day-179-if)
+[day-180 if](#day-180-if)
 
 ## [DAY-0] The Computer
 
@@ -15140,7 +15140,7 @@ Now that we have the `is_on_square` function, we can simply check if the `y` of 
 ...
 ```
 
-## [DAY-179] if
+## [DAY-180] if
 
 There is an important rule in chess, that many people dont know, En Passant (In Passing).
 
