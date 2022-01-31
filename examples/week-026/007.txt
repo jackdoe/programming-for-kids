@@ -1,0 +1,57 @@
+enpassant = None
+
+
+def on_key_down(key):
+    global pick_white, pick_black, pick_x, pick_y, enpassant
+
+    ...
+    elif key == keys.SPACE and pick_white != None:
+        for square in board:
+            # shouldnt be able to drop if there is already white piece there
+            if elf.colliderect(square):
+                ...
+                if pick_white.image == 'chess/pawn-white':
+                    # 1 or 2 squares
+                    if pick_y == 600:
+                        if pick_y - square.y == 200:
+                            enpassant = pick_white
+
+                        if pick_y - square.y > 200:
+                            return
+                    if pick_y != 600:
+                        if pick_y - square.y > 100:
+                            return
+                    # if y > 200 first move:
+
+                    # pawn can only go left or right if theres someone
+                    if pick_x != square.x:
+                        ok = False
+                        if pick_y - square.y == 100 and pick_x - square.x == 100 and is_on_square(square.x, square.y, black):
+                            ok = True
+                        if pick_y - square.y == 100 and pick_x - square.x == -100 and is_on_square(square.x, square.y, black):
+                            ok = True
+
+                        if (pick_y - square.y == 100 and pick_x - square.x == 100) or (pick_y - square.y == 100 and pick_x - square.x == -100):
+                            if enpassant != None and enpassant.image == 'chess/pawn-black':
+                                if enpassant.x == square.x and enpassant.y == square.y + 100:
+                                    black.remove(enpassant)
+                                    ok = True
+
+                        if not ok:
+                            return
+
+                    # pawns cant move backwards
+                    if square.y > pick_y:
+                        return
+                    # Queening the Pawn:
+                    # pick_white.image is chess/pawn-white for the white pawn
+                    # set the pick_white.image to chess/queen-white if it reaches the black end of the board
+                    if square.y == 0:
+                        pick_white.image = 'chess/queen-white'
+                ...
+                # snap the white piece to the board
+                pick_white.x = square.x
+                pick_white.y = square.y
+                if enpassant != pick_white:
+                    enpassant = None
+...

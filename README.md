@@ -576,6 +576,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-179 if; for](#day-179-if-for)
 
+[day-179 if](#day-179-if)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -15138,4 +15140,96 @@ Now that we have the `is_on_square` function, we can simply check if the `y` of 
 ...
 ```
 
+## [DAY-179] if
+
+There is an important rule in chess, that many people dont know, En Passant (In Passing).
+
+From Wikipedia (https://en.wikipedia.org/wiki/En_passant):
+
+> En passant (French: [ɑ̃ paˈsɑ̃], lit. in passing) is a move in chess. It is a special pawn capture that can only occur immediately after a pawn makes a move of two squares from its starting square and provided that it could have been captured by an enemy pawn had it advanced only one square. The opponent captures the just-moved pawn "in passing" through the first square. The result is the same as if the pawn had advanced only one square and the enemy pawn had captured it normally.
+
+> The en passant capture must be made on the very next turn or the right to do so is lost. En passant capture is a common theme in chess compositions.
+
+> The en passant capture rule was added in the 15th century when the rule that gave pawns an initial double-step move was introduced. It prevents a pawn from using the two-square advance to pass an adjacent enemy pawn without the risk of being captured.
+
+
+![game-180-a.png](./screenshots/game-180-a.png "game 180-a screenshot")
+![game-180-b.png](./screenshots/game-180-b.png "game 180-b screenshot")
+![game-180-c.png](./screenshots/game-180-c.png "game 180-b screenshot")
+
+So its pretty nice rule, what we have to do is to remember each pawn that moves two squares and consider it possible en_passant, and then if the oponnent's pawn wants to move diagonally we will check if there is en_passant above(black)/below(white) and if there is we will capture it. If any move is made we will clear the en-passant
+
+the code looks like this:
+
+```
+enpassant = None
+
+
+def on_key_down(key):
+    global pick_white, pick_black, pick_x, pick_y, enpassant
+
+    ...
+    elif key == keys.SPACE and pick_white != None:
+        for square in board:
+            # shouldnt be able to drop if there is already white piece there
+            if elf.colliderect(square):
+                ...
+                if pick_white.image == 'chess/pawn-white':
+                    # 1 or 2 squares
+                    if pick_y == 600:
+                        if pick_y - square.y == 200:
+                            enpassant = pick_white
+
+                        if pick_y - square.y > 200:
+                            return
+                    if pick_y != 600:
+                        if pick_y - square.y > 100:
+                            return
+                    # if y > 200 first move:
+
+                    # pawn can only go left or right if theres someone
+                    if pick_x != square.x:
+                        ok = False
+                        if pick_y - square.y == 100 and pick_x - square.x == 100 and is_on_square(square.x, square.y, black):
+                            ok = True
+                        if pick_y - square.y == 100 and pick_x - square.x == -100 and is_on_square(square.x, square.y, black):
+                            ok = True
+
+                        if (pick_y - square.y == 100 and pick_x - square.x == 100) or (pick_y - square.y == 100 and pick_x - square.x == -100):
+                            if enpassant != None and enpassant.image == 'chess/pawn-black':
+                                if enpassant.x == square.x and enpassant.y == square.y + 100:
+                                    black.remove(enpassant)
+                                    ok = True
+
+                        if not ok:
+                            return
+
+                    # pawns cant move backwards
+                    if square.y > pick_y:
+                        return
+                    # Queening the Pawn:
+                    # pick_white.image is chess/pawn-white for the white pawn
+                    # set the pick_white.image to chess/queen-white if it reaches the black end of the board
+                    if square.y == 0:
+                        pick_white.image = 'chess/queen-white'
+                ...
+                # snap the white piece to the board
+                pick_white.x = square.x
+                pick_white.y = square.y
+                if enpassant != pick_white:
+                    enpassant = None
+...
+```
+
+Notice how we set enpassant = pick_white if the pawn moves 2 squares (this will be used if the black pawn tries to capture), and later when we see that the pawn is moving diagonally we do:
+
+```
+if (pick_y - square.y == 100 and pick_x - square.x == 100) or (pick_y - square.y == 100 and pick_x - square.x == -100):
+    if enpassant != None and enpassant.image == 'chess/pawn-black':
+        if enpassant.x == square.x and enpassant.y == square.y + 100:
+            black.remove(enpassant)
+            ok = True
+```
+
+This basically checks if it is one square diagonal to the left or one square diagonal to the right, and if it is it checks if there is active enpassant and it is a black pawn, then it checks if it sits directly above the square we want to go to, and if it is we capture it and mark the move valid.
 
