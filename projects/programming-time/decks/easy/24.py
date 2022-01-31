@@ -1,18 +1,17 @@
 # A dictionary is a super nice way
 # to organize data so that you can
-# access things by their name or
-# key. Unlike lists where we need to
-# know the position of a value we
-# need in order to use it, or we
-# have to iterate over the whole
-# list to see if we can find the
-# value we are looking for.
-# Dictionaries allow us to instantly
-# lookup and find a value by its
-# key. The ASCII table is an
-# example of a dictionary, from
-# character (key) to its ASCII code
-# (value)
+# access things by their key. Unlike
+# lists where we need to know the
+# position of a value we need in
+# order to use it, or we have to
+# iterate over the whole list to see
+# if we can find the value we are
+# looking for.  Dictionaries allow
+# us to instantly lookup and find a
+# value by its key. The ASCII table
+# is an example of a dictionary,
+# from ASCII code(key) to its
+# character (value)
 ascii = {
      97: 'a',  98: 'b',  99: 'c',
     100: 'd', 101: 'e', 102: 'f',
@@ -24,6 +23,7 @@ ascii = {
     118: 'v', 119: 'w', 120: 'x',
     121: 'y', 122: 'z'
 }
+
 # to get the character of code 122
 # we can look it up with ascii[122]
 c = ascii[96 + ⚂]

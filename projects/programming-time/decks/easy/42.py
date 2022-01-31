@@ -1,7 +1,7 @@
 # Lists are one of the most handy
 # data structures, you can use them
 # for all kinds of things, like
-# in this example, for tic-tac-toe
+# in this example, for a tic-tac-toe
 # game.
 
 game = [

@@ -7,10 +7,10 @@
 # If a = 12 and b = 8, then gcd(a,b)
 # or gcd(12,8) is 4. This algorithm
 # is more than 2300 years old,
-# written by Euclid in year
-# 300BC. If gcd(a,b) = 1, then a and
-# b are considered relatively prime,
-# even though a and b might not be
+# written by Euclid in year 300BC.
+# If gcd(a,b) = 1, then a and b are
+# considered relatively prime, even
+# though a and b might not be
 # prime. This is one of the most
 # important algorithms today, and it
 # is used in almost all internet

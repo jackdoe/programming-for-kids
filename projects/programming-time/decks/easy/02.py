@@ -13,7 +13,7 @@ A = (g**a) % p
 print("Alice -> Bob: ", A)
 
 B = (g**b) % p
-# Bob yells `B` to Allice
+# Bob yells `B` to Alice
 # anyone can hear it!
 print("Bob -> Alice: ", B)
 

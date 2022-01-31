@@ -12,14 +12,14 @@ a = [pick(), pick(), pick()]
 # is called mutating, like the
 # teenage mutant ninja turtles, they
 # changed from turtles to ninja
-# turtles, so they mutated.  After
+# turtles, so they mutated. After
 # that the list will be sorted in
 # ascending order (smaller numbers
 # first).
 a.sort()
 
 # reverse() does what it says,
-# inplace it will reverse the list,
+# in-place it will reverse the list,
 # it takes first and last elements
 # and swaps them, then the second
 # and pre-last, and so on. Again

@@ -12,7 +12,7 @@
 #
 # The variable x in hello() is
 # different than the x defined
-# outside..
+# outside.
 
 def hello():
   x = 3

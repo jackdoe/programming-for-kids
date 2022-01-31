@@ -8,7 +8,7 @@ def sum(data):
 # average value means the sum of the
 # elements divided by the amount of
 # elements. avg([2,4,6]) means: (2 +
-# 4 + 6) / 3 which is 4.  In your
+# 4 + 6) / 3 which is 4. In your
 # school class if you have 5
 # children with ages [9,8,10,9,9],
 # the average age is 9, you can
