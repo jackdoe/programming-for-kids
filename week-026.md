@@ -110,7 +110,7 @@ Now that we have the `is_on_square` function, we can simply check if the `y` of 
 ...
 ```
 
-## [DAY-179] if
+## [DAY-180] if
 
 There is an important rule in chess, that many people dont know, En Passant (In Passing).
 
