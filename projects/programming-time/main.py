@@ -12,7 +12,7 @@ HEIGHT = 1039
 WIDTH = 744
 COLS = 39
 ROWS = 31
-fnt = ImageFont.truetype('dejavu-sans-mono.book.ttf', 26)
+fnt = ImageFont.truetype('dejavu-sans-mono.book.ttf', 25)
 
 fgcolor = (51, 0, 0, 255)
 dice_color = (20, 255, 160, 50)
@@ -98,9 +98,9 @@ def border(d, data, id):
 #    d.rectangle([0, HEIGHT-size, size, HEIGHT], fill=help)
 #    d.rectangle([WIDTH-size, 0, WIDTH, size], fill=help)
 
-    d.multiline_text((60, 35), "\n".join(lines), font=fnt, fill=fgcolor)
-    d.multiline_text((60, 35), "\n".join(around), font=fnt, fill=border_color)
-    d.multiline_text((60, 35), "\n".join(dice), font=fnt, fill=dice_color)
+    d.multiline_text((70, 55), "\n".join(lines), font=fnt, fill=fgcolor)
+    d.multiline_text((70, 55), "\n".join(around), font=fnt, fill=border_color)
+    d.multiline_text((70, 55), "\n".join(dice), font=fnt, fill=dice_color)
 
 def back(deck, id, numbers, html):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
@@ -111,7 +111,7 @@ def back(deck, id, numbers, html):
                           str(id).zfill(3)+'.tiff'), compression="tiff_lzw",dpi=(300,300))
     jpg = os.path.join('images', deck, 'back_card_' +
              str(id).zfill(3)+'.jpg')
-    img.save(jpg)
+    img.save(jpg,dpi=(300,300))
     html.write('<img width="25%" src="' + jpg + '">')
 
 
@@ -123,7 +123,7 @@ def front(deck, id, code,html):
                           str(id).zfill(3)+'.tiff'), compression="tiff_lzw", dpi=(300,300))
     jpg = os.path.join('images', deck, 'front_card_' +
              str(id).zfill(3)+'.jpg')
-    img.save(jpg)
+    img.save(jpg, dpi=(300,300))
     html.write('<img width="25%" src="' + jpg + '">')
     if int(id+1) % 4 == 0:
       html.write('<br>')
