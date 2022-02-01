@@ -202,3 +202,62 @@ if (pick_y - square.y == 100 and pick_x - square.x == 100) or (pick_y - square.y
 ```
 
 This basically checks if it is one square diagonal to the left or one square diagonal to the right, and if it is it checks if there is active enpassant and it is a black pawn, then it checks if it sits directly above the square we want to go to, and if it is we capture it and mark the move valid.
+
+
+## [DAY-181] if
+
+Add undo support. We need to store the piece's position when its picked up, the piece itself and its image (in case of Queening The Pawn) and we need to store those for every move, then if the key 'b' is pressed we need to take the last move and revert it, and so on.
+
+A good strategy for that is to simply use a list, and each time we pick a piece we will append the position_x, position_y, image, actor and then when 'b' is pressed we will pop them out and set them to the actor in question.
+
+```
+...
+back = []
+
+def on_key_down(key):
+    global pick_white, pick_black, pick_x, pick_y, pick_image, enpassant,back
+
+    if key == keys.SPACE and pick_white == None:
+        # pick up the piece below
+        for w in white:
+            if elf.colliderect(w):
+                pick_white = w
+
+                # store the original position
+                pick_x = w.x
+                pick_y = w.y
+                pick_image = w.image
+
+    elif key == keys.SPACE and pick_white != None:
+        for square in board:
+            # shouldnt be able to drop if there is already white piece there
+            if elf.colliderect(square):
+                # make sure the move is valid
+                ...
+                back.append(pick_image)
+                back.append(pick_y)
+                back.append(pick_x)
+                back.append(pick_white)
+
+                pick_white.x = square.x
+                pick_white.y = square.y
+
+                ...
+
+    if key == keys.B:
+        if len(back) != 0:
+            actor = back.pop()
+            x = back.pop()
+            y = back.pop()
+            image = back.pop()
+            actor.x = x
+            actor.y = y
+            actor.image = image
+...            
+```
+
+We are using the list like a stack, we add stuff to it and when we need we pop the top most items. You can see that we append image, y, x, actor but when we pop we get them in reverse order, because pop() removes the top most item from the ist, so we get back actor, x, y, image.
+
+
+There is a fundamental limitation to this aproach, which is that we lose pieces that were taken, so if you undo they will just be gone.
+
