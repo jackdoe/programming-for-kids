@@ -261,3 +261,8 @@ We are using the list like a stack, we add stuff to it and when we need we pop t
 
 There is a fundamental limitation to this aproach, which is that we lose pieces that were taken, so if you undo they will just be gone.
 
+## [DAY-181] look back
+
+Today we will look back on some of the first programs you wrote.
+
+Open our old files and read as many of them as you can.
