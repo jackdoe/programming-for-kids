@@ -463,4 +463,6 @@
 
 [day-181 if](#day-181-if)
 
-[day-181 look back](#day-181-look-back)
+[day-182 look back](#day-182-look-back)
+
+[day-183 generalization](#day-183-generalization)
