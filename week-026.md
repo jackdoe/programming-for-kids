@@ -261,8 +261,22 @@ We are using the list like a stack, we add stuff to it and when we need we pop t
 
 There is a fundamental limitation to this aproach, which is that we lose pieces that were taken, so if you undo they will just be gone.
 
-## [DAY-181] look back
+## [DAY-182] look back
 
 Today we will look back on some of the first programs you wrote.
 
 Open our old files and read as many of them as you can.
+
+## [DAY-183] Generalization
+
+From today we will start to think before we code. You can see the game of chess we made, it kind of works but it is quite hard to add things to it, and to add new rules and etc. It is already around 500 lines of hard to read if statements.
+
+We will do one week of exercises without writing code, just with pen and paper, where we will generalize, or try to extract the common attributes of things. We will think about how to think about things.
+
+Lets start with an example. You know that `1 + 2` is the same as `2 + 1`, or `1 + 2 = 2 + 1`, same with `3 + 5 = 5 + 3`, this is quite intuitive, if you have two apples in one hand and one in the other, you have 3 apples irrelevant of which hand has 2 apples and which has 1. We can generalize that rule to `a + b = b + a`, meaning that any number `a` plus any number `b` is the same as wiriting `b+a`. It might seem like we did nothing here, just stated the obvious, but I will show you how powerful this generalization is.
+
+At first we were thinkging of numbers, but with this generalization we can actually use expressions, for example `a = ((4838 + 8272) * 3)` and `b = ((7467 / 2) + 27838)` and still `a + b = b + a`, we can substitute `a` and `b`, so `((4838 + 8272) * 3) + ((7467 / 2) + 27838) = ((7467 / 2) + 27838) + ((4838 + 8272) * 3)`. We have higher level of reason, we are not confined to numbers anymore, but to whole expressions and expressions of expressions.
+
+Lets talk now about what is needed to represent a chess piece. First we need its color, is it black or white, we need its kind (rook, bishop etc..), and its position x and y. Those are the properties of a piece. Each piece however can move in a different way, this is its behavior. Those are the two main things we have to think about, we can generalize thenm into 'what does the thing do' and 'how does the thing look'.
+
+This week we will spend more time on examples about generalization and abstraction, and after that we will rewrite the chess game. It is very common to write something quick, and then rewrite it when you know how to actually think about it. The first time you code something is almost never good, purely because you still dont know how to represent the things in your program yet, even if you think a lot about it. In the real world you need to combine the both aproaches, of code and explore, and think carefully about how the pieces in your program talk to each other.
