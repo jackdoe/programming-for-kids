@@ -38,7 +38,6 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                 if (wParam == WM_KEYUP) {
                     // unpress backspace
                     // press control
-                    //cout << "sending backspace up" << endl;
                     keybd_event(VK_BACK, 0x0e, KEYEVENTF_KEYUP, 0);
                     keybd_event(VK_CONTROL, 0x1d, 0, 0);
                     ctrlUnpressed = false;
