@@ -466,3 +466,5 @@
 [day-182 look back](#day-182-look-back)
 
 [day-183 generalization](#day-183-generalization)
+
+[day-184 generalization](#day-184-generalization)
