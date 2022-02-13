@@ -14,3 +14,12 @@ The SHA256 sum at time of uploading is:
 ```
 
 If you want it to start automatically, put Backapace.exe in `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`
+
+To remap capslock to control on windows you can just load this .reg file into the registry:
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00
+```
