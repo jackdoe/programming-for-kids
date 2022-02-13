@@ -280,3 +280,8 @@ At first we were thinkging of numbers, but with this generalization we can actua
 Lets talk now about what is needed to represent a chess piece. First we need its color, is it black or white, we need its kind (rook, bishop etc..), and its position x and y. Those are the properties of a piece. Each piece however can move in a different way, this is its behavior. Those are the two main things we have to think about, we can generalize thenm into 'what does the thing do' and 'how does the thing look'.
 
 This week we will spend more time on examples about generalization and abstraction, and after that we will rewrite the chess game. It is very common to write something quick, and then rewrite it when you know how to actually think about it. The first time you code something is almost never good, purely because you still dont know how to represent the things in your program yet, even if you think a lot about it. In the real world you need to combine the both aproaches, of code and explore, and think carefully about how the pieces in your program talk to each other.
+
+## [DAY-184] Generalization
+
+> We (me and my daughter) have spent 30 minutes per day for the last week just talking about how to think about behavior and state. With all kinds of discussions, from tic tac toe, to stratego, to classess and lists and many more concept. The talks were very open and unstructured, so it is hard to put them directly 1:1 in the book. I recommend you do the same. Spend time talking about how to think about your program, how the parts in it communicate, how you group the state, and how do you abstract behaviour. It is also important to think about how to think about problems in general, move one layer above practicality. Discuss patterns.
+
