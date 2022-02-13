@@ -1,14 +1,21 @@
 #include <windows.h>
 #include <iostream>
 
+
 using namespace std;
 
 HHOOK hHook = 0;
 static bool ctrlPressed = false;
-static bool backspacePressed = false;
+static bool replacementPressed = false;
 static bool fake = false;
 static bool ctrlUnpressed = false;
 
+struct alias {
+    BYTE bVk;
+    BYTE bScan;
+};
+
+static struct alias replacement = { 0 };
 
 LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (!fake && nCode == HC_ACTION && wParam != WM_SYSKEYUP && wParam != WM_SYSKEYDOWN) {
@@ -17,36 +24,47 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
         if (p->scanCode == 0x1d) {
             ctrlPressed = wParam == WM_KEYDOWN;
         }
-        /*
-            in order to work with the following sequence:
-
-            ctrl down
-                h down
-                h down
-                h up
-                p down
-                p up
-            ctrl up
-
-            we need to put ctrl back down to support ctrl+h followed by ctrl+p
-        */
      
         if (ctrlPressed) {
-            if (p->scanCode == 0x23) {
+            if (p->scanCode == 0x23 || p->scanCode == 0x24) {
+                if (p->scanCode == 0x23) { 
+                    // ctrl+h -> backspace
+                    replacement.bVk = VK_BACK;
+                    replacement.bScan = 0x0e;
+                }
+                else {
+                    // ctrl+j -> return
+                    replacement.bVk = VK_RETURN;
+                    replacement.bScan = 0x1c;
+                }
+
                 fake = true;
-                // h is up
+
+                /*
+                    in order to work with the following sequence:
+                    ctrl down
+                        h down
+                        h down (hold)
+                        h up
+                        j down
+                        j down (hold)
+                        j up
+                        p down
+                        p up
+                    ctrl up
+                    we need to put ctrl back down to support ctrl+h followed by ctrl+p and vice versa
+                */
+                
                 if (wParam == WM_KEYUP) {
-                    // unpress backspace
-                    // press control
-                    keybd_event(VK_BACK, 0x0e, KEYEVENTF_KEYUP, 0);
+                    keybd_event(replacement.bVk, replacement.bScan, KEYEVENTF_KEYUP, 0);
                     keybd_event(VK_CONTROL, 0x1d, 0, 0);
                     ctrlUnpressed = false;
-                    backspacePressed = false;
+                    replacementPressed = false;
                 }
                 else {
                     // h is down and control was pressed, first we 
                     // need to unpress control otherwise we will send 
-                    // ctrl+backspace which deletes whole word
+                    // ctrl+backspace which deletes the whole word
                     if (!ctrlUnpressed) {
                         // leave control unpressed for repeated ctrl+h
                         // we will press it back if something ch
@@ -54,17 +72,18 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                         keybd_event(VK_CONTROL, 0x1d, KEYEVENTF_KEYUP, 0);
                         ctrlUnpressed = true;
                     }
-                    keybd_event(VK_BACK, 0x0e, 0, 0);
-                    backspacePressed = true;
+
+                    keybd_event(replacement.bVk, replacement.bScan, 0, 0);
+                    replacementPressed = true;
                 }
                 fake = false;
                 return 1;
             }
         }
-        else if (backspacePressed) {
+        else if (replacementPressed) {
             fake = true;
-            keybd_event(VK_BACK, 0x0e, KEYEVENTF_KEYUP, 0);
-            backspacePressed = false;
+            keybd_event(replacement.bVk, replacement.bScan, KEYEVENTF_KEYUP, 0);
+            replacementPressed = false;
             fake = false;
         }
     }
