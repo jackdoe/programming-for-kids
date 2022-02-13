@@ -12,3 +12,4 @@ The SHA256 sum at time of uploading is:
 55c570da3b25b359787d38773e33fc2bea24da224ef73e43aaea2b9646f61a7b  Backspace.exe
 ```
 
+If you want it to start automatically, put Backapace.exe in `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`
