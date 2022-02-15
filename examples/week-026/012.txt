@@ -1,0 +1,2 @@
+    snake_or_ladder = board[player1]
+    player1 += snake_or_ladder
