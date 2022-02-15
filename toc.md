@@ -469,4 +469,4 @@
 
 [day-184 generalization](#day-184-generalization)
 
-[day-187 generalization](#day-187-generalization)
+[day-185 generalization](#day-185-generalization)

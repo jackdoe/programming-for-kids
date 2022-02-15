@@ -586,7 +586,7 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-184 generalization](#day-184-generalization)
 
-[day-187 generalization](#day-187-generalization)
+[day-185 generalization](#day-185-generalization)
 
 ## [DAY-0] The Computer
 
@@ -15326,7 +15326,7 @@ This week we will spend more time on examples about generalization and abstracti
 > We (me and my daughter) have spent 30 minutes per day for the last week just talking about how to think about behavior and state. With all kinds of discussions, from tic tac toe, to stratego, to classess and lists and many more concepts. The talks were very open and unstructured, so it is hard to put them directly 1:1 in the book. I recommend you do the same. Spend time talking about how to think about your program, how the parts in it communicate, how you group the state, and how do you abstract behaviour. It is also important to think about how to think about problems in general, move one layer above practicality. Discuss patterns.
 
 
-## [DAY-187] Generalization
+## [DAY-185] Generalization
 
 Today we will build three different versions of snakes and ladders to illustrate different approaches.
 
