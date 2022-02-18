@@ -585,8 +585,15 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-183 generalization](#day-183-generalization)
 
 [day-184 generalization](#day-184-generalization)
+## week - 027
+
+
 
 [day-185 generalization](#day-185-generalization)
+
+[day-186 if](#day-186-if)
+
+[day-187 if; while; functions](#day-187-if-while-functions)
 
 ## [DAY-0] The Computer
 
@@ -15326,6 +15333,8 @@ This week we will spend more time on examples about generalization and abstracti
 > We (me and my daughter) have spent 30 minutes per day for the last week just talking about how to think about behavior and state. With all kinds of discussions, from tic tac toe, to stratego, to classess and lists and many more concepts. The talks were very open and unstructured, so it is hard to put them directly 1:1 in the book. I recommend you do the same. Spend time talking about how to think about your program, how the parts in it communicate, how you group the state, and how do you abstract behaviour. It is also important to think about how to think about problems in general, move one layer above practicality. Discuss patterns.
 
 
+
+
 ## [DAY-185] Generalization
 
 Today we will build three different versions of snakes and ladders to illustrate different approaches.
@@ -15439,3 +15448,92 @@ while True:
         print('finished')
         break
 ```
+
+## [DAY-186] If
+
+Make snakes and ladders on your own with pygame zero.
+
+![game-186-b.png](./screenshots/game-186-b.png "game 186-b screenshot")
+
+> This is what she wrote. She just went and found 500x500 board so that its easy to compute the position of each square, and hardcoded the jumps.
+
+```
+import pgzrun
+import random
+
+HEIGHT = 500
+WIDTH = 500
+
+elf = Actor("c1")
+elf.x = -25
+elf.y = 475
+game_over = False
+board = Actor("snake-500")
+def on_key_down(key):
+    if key == keys.SPACE:
+        elf.x += random.choice([50,100,150,200,250,300]) 
+        if elf.x > 475 and elf.y == 25:
+            elf.x = 25 
+            elf.y = 25
+        if elf.x > 475:
+            elf.x -= 500 
+            elf.y -= 50
+        if elf.y == 375 and elf.x == 225:
+            elf.y = 475 
+            elf.x = 225
+        if elf.y == 25 and elf.x == 25:
+            elf.y = 175 
+        if elf.y == 475 and elf.x == 125:
+            elf.y = 225 
+            elf.x = 25
+        if elf.y == 325 and elf.x == 175:
+            elf.y = 475 
+            elf.x = 25
+        if elf.y == 475 and elf.x == 275:
+            elf.y = 375 
+            elf.x = 325
+        if elf.y == 175 and elf.x == 125:
+            elf.y = 25 
+            elf.x = 225
+        if elf.y == 75 and elf.x == 325:
+            elf.y = 225 
+            elf.x = 325
+        if elf.y == 25 and elf.x == 425:
+            elf.y = 175 
+            elf.x = 425
+        if elf.y == 475 and elf.x == 425:
+            elf.y = 175 
+            elf.x = 425
+
+def update():
+    global game_over
+    speed = 10
+
+    if keyboard.UP:
+        elf.y -= speed
+    if keyboard.DOWN:
+        elf.y += speed
+    if keyboard.LEFT:  
+        elf.x -= speed
+    if keyboard.RIGHT:
+        elf.x += speed
+    
+    if elf.x == 475 and elf.y == 25:
+        game_over = True
+
+def draw():
+    board.draw()
+    elf.draw()
+    if game_over == True:
+        screen.draw.text('YOU WIN CONGRATULATION',(100,100),color = (0,0,0))
+pgzrun.go()
+```
+> she also made a grid to compute the positions of each square
+
+![game-186-a.png](./screenshots/game-186-a.png "game 186-a screenshot")
+
+## [DAY-187] If; While; Functions
+
+Watch https://www.youtube.com/watch?v=Gi0Fdyhk1_0
+then watch it again and code it together.
+

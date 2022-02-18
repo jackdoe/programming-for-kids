@@ -1,0 +1,69 @@
+import pgzrun
+import random
+
+HEIGHT = 500
+WIDTH = 500
+
+elf = Actor("c1")
+elf.x = -25
+elf.y = 475
+game_over = False
+board = Actor("snake-500")
+def on_key_down(key):
+    if key == keys.SPACE:
+        elf.x += random.choice([50,100,150,200,250,300]) 
+        if elf.x > 475 and elf.y == 25:
+            elf.x = 25 
+            elf.y = 25
+        if elf.x > 475:
+            elf.x -= 500 
+            elf.y -= 50
+        if elf.y == 375 and elf.x == 225:
+            elf.y = 475 
+            elf.x = 225
+        if elf.y == 25 and elf.x == 25:
+            elf.y = 175 
+        if elf.y == 475 and elf.x == 125:
+            elf.y = 225 
+            elf.x = 25
+        if elf.y == 325 and elf.x == 175:
+            elf.y = 475 
+            elf.x = 25
+        if elf.y == 475 and elf.x == 275:
+            elf.y = 375 
+            elf.x = 325
+        if elf.y == 175 and elf.x == 125:
+            elf.y = 25 
+            elf.x = 225
+        if elf.y == 75 and elf.x == 325:
+            elf.y = 225 
+            elf.x = 325
+        if elf.y == 25 and elf.x == 425:
+            elf.y = 175 
+            elf.x = 425
+        if elf.y == 475 and elf.x == 425:
+            elf.y = 175 
+            elf.x = 425
+
+def update():
+    global game_over
+    speed = 10
+
+    if keyboard.UP:
+        elf.y -= speed
+    if keyboard.DOWN:
+        elf.y += speed
+    if keyboard.LEFT:  
+        elf.x -= speed
+    if keyboard.RIGHT:
+        elf.x += speed
+    
+    if elf.x == 475 and elf.y == 25:
+        game_over = True
+
+def draw():
+    board.draw()
+    elf.draw()
+    if game_over == True:
+        screen.draw.text('YOU WIN CONGRATULATION',(100,100),color = (0,0,0))
+pgzrun.go()

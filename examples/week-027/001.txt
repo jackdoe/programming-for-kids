@@ -1,0 +1,15 @@
+player1 = 0
+while True:
+    print("player board position: ", player1)
+    dice = int(input("dice roll> "))
+
+    player1 += dice
+    if player1 == 1:
+        player1 = 3
+    elif player1 == 4:
+        player1 = 2
+    elif player1 == 5:
+        player1 = 7
+    elif player1 == 6:
+        player1 = 0
+

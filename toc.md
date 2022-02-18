@@ -468,5 +468,12 @@
 [day-183 generalization](#day-183-generalization)
 
 [day-184 generalization](#day-184-generalization)
+## week - 027
+
+
 
 [day-185 generalization](#day-185-generalization)
+
+[day-186 if](#day-186-if)
+
+[day-187 if; while; functions](#day-187-if-while-functions)
