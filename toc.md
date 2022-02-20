@@ -477,3 +477,5 @@
 [day-186 if](#day-186-if)
 
 [day-187 if; while; functions](#day-187-if-while-functions)
+
+[day-188 oop](#day-188-oop)
