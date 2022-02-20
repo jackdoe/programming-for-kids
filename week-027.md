@@ -201,3 +201,8 @@ pgzrun.go()
 
 Watch https://www.youtube.com/watch?v=Gi0Fdyhk1_0
 then watch it again and code it together.
+
+
+## [DAY-188] OOP
+
+Watch https://www.youtube.com/watch?v=JeznW_7DlB0
