@@ -968,6 +968,8 @@ Don't worry about what it all means. Just type it character by character. Now do
 
 Today just spend the day chilling on keybr.com
 
+> We spend considerable amount of time on touchtyping and learning english, not all the time spent is reflected in the book, but at least 2 times per week, either on our own practice programs or keybr.com, by day 190 my daughter is at around 50 words per minute and blind typing. The amount spend typing builds really good relationship with the computer, as it has extremely smooth learning curve, and sense of progression. In contrast with programming which is a learning staircase, with walls you have to break through, and sometimes you have to spend months on the same level until the puzzle pieces click together. Some days when she is frustrated or tired I just ask her to type for 20-30 minutes while listening to music, which turns into a bit of meditating experience.
+
 ## [DAY-9] Touch Typing using your program
 
 Open touchtyping.html and spend the day using your awesome program. Once you open it, right click and then click on `View Source` to remember that you actually wrote this! Good job!
