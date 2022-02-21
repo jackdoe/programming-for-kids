@@ -199,10 +199,18 @@ pgzrun.go()
 
 ## [DAY-187] If; While; Functions
 
-Watch https://www.youtube.com/watch?v=Gi0Fdyhk1_0
-then watch it again and code it together.
-
+Watch Programming for Advanced Beginners: Battleships - EP 1, from Robert Heaton (https://www.youtube.com/watch?v=Gi0Fdyhk1_0), and then watch it again and code with the author
 
 ## [DAY-188] OOP
 
-Watch https://www.youtube.com/watch?v=JeznW_7DlB0
+Watch https://www.youtube.com/watch?v=JeznW_7DlB0 (Python Object Oriented Programming (OOP) - For Beginners
+ from Tech With Tim)
+
+## [DAY-189] Keyword Arguments; String Methods
+
+Today you have to watch three videos:
+
+* Python keyword arguments 🔑 by Bro Code - https://www.youtube.com/watch?v=Tu0lFBXQgPw
+* Python string methods by Bro Code - https://www.youtube.com/watch?v=crw3rVFNwIM
+* Python Object Oriented Programming (OOP) - For Beginners from Tech With Tim - https://www.youtube.com/watch?v=JeznW_7DlB0 (watch it again)
+
