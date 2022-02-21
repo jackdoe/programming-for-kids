@@ -479,3 +479,5 @@
 [day-187 if; while; functions](#day-187-if-while-functions)
 
 [day-188 oop](#day-188-oop)
+
+[day-189 keyword arguments; string methods](#day-189-keyword-arguments-string-methods)

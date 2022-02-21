@@ -597,6 +597,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-188 oop](#day-188-oop)
 
+[day-189 keyword arguments; string methods](#day-189-keyword-arguments-string-methods)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -15536,11 +15538,19 @@ pgzrun.go()
 
 ## [DAY-187] If; While; Functions
 
-Watch https://www.youtube.com/watch?v=Gi0Fdyhk1_0
-then watch it again and code it together.
-
+Watch Programming for Advanced Beginners: Battleships - EP 1, from Robert Heaton (https://www.youtube.com/watch?v=Gi0Fdyhk1_0), and then watch it again and code with the author
 
 ## [DAY-188] OOP
 
-Watch https://www.youtube.com/watch?v=JeznW_7DlB0
+Watch https://www.youtube.com/watch?v=JeznW_7DlB0 (Python Object Oriented Programming (OOP) - For Beginners
+ from Tech With Tim)
+
+## [DAY-189] Keyword Arguments; String Methods
+
+Today you have to watch three videos:
+
+* Python keyword arguments 🔑 by Bro Code - https://www.youtube.com/watch?v=Tu0lFBXQgPw
+* Python string methods by Bro Code - https://www.youtube.com/watch?v=crw3rVFNwIM
+* Python Object Oriented Programming (OOP) - For Beginners from Tech With Tim - https://www.youtube.com/watch?v=JeznW_7DlB0 (watch it again)
+
 
