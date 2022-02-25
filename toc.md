@@ -481,3 +481,5 @@
 [day-188 oop](#day-188-oop)
 
 [day-189 keyword arguments; string methods](#day-189-keyword-arguments-string-methods)
+
+[day-190 while](#day-190-while)
