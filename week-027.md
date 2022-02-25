@@ -214,3 +214,33 @@ Today you have to watch three videos:
 * Python string methods by Bro Code - https://www.youtube.com/watch?v=crw3rVFNwIM
 * Python Object Oriented Programming (OOP) - For Beginners from Tech With Tim - https://www.youtube.com/watch?v=JeznW_7DlB0 (watch it again)
 
+
+
+## [DAY-190] While
+
+Make a web whatsapp bot that sends the same message in an infinite loop
+
+* click on the chrome tab with whatsapp
+* click on the search box
+* searche for contact name (dad)
+* clicks on the top result
+* click on the message input field
+* type 'hello world'
+* click the send button
+
+Using https://pyautogui.readthedocs.io/en/latest/ as a guide, use `pyautogui.position()` to find the accurate positions for your screen.
+
+```
+import pyautogui
+import time
+while True:
+    pyautogui.click(305,10)
+    pyautogui.click(117,252)
+    pyautogui.write('dad', interval=0.25)
+    pyautogui.click(185, 395)
+    pyautogui.write('hello world!', interval=0.20)
+    pyautogui.click(935, 1132)
+    time.sleep(1)
+```
+
+Have some fun with it pranking your parents :)
