@@ -8,7 +8,7 @@
 # than 300 digits (1024 bit numbers)
 p = 11 # must be prime number
 q = 17 # must be prime number
-e = 7 # prime number between
+e = 7 # prime number between 3 and
       # (p-1)*(q-1), in our case
       # (11-1)*(17-1) = 160
       # so `e` must be a prime

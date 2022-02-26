@@ -17,7 +17,7 @@
 # ghost.
 #
 # Roll the dice until your door is
-# different form the ghost's door.
+# different from the ghost's door.
 while True:
   ghost_door = ⚂ % 3
   your_door = ⚂ % 3
