@@ -602,8 +602,11 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-190 while](#day-190-while)
 
 [day-191 while](#day-191-while)
+## week - 028
 
-[day-191 class; methods](#day-191-class-methods)
+
+
+[day-192 class; methods](#day-192-class-methods)
 
 ## [DAY-0] The Computer
 
@@ -15659,7 +15662,7 @@ this will send the message:
 
 
 
-## [DAY-191] Class; Methods
+## [DAY-192] Class; Methods
 
 
 There are few ways to represent a rectangle, one is with one point plus width and height, e.g. top left point and width and height.
@@ -15783,4 +15786,5 @@ r = Rect(Point(10,10),Point(20,20))
 r.expand(Point(5,5)).expand(Point(50,3)).expand(Point(50,100))
 print(r.topLeft.x, r.topLeft.y,r.bottomRight.x, r.bottomRight.y)
 ```
+
 

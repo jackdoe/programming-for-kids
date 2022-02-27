@@ -1,0 +1,15 @@
+class Rect:
+    def __init__(self, topLeft, bottomRight):
+        self.topLeft = topLeft
+        self.bottomRight = bottomRight
+
+
+    def expand(self, point):
+        if self.topLeft.x > point.x:
+            self.topLeft.x = point.x
+        ...
+        return self
+
+r = Rect(Point(10,10),Point(20,20))
+r.expand(Point(5,5)).expand(Point(50,3)).expand(Point(50,100))
+print(r.topLeft.x, r.topLeft.y,r.bottomRight.x, r.bottomRight.y)
