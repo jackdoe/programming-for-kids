@@ -485,3 +485,5 @@
 [day-190 while](#day-190-while)
 
 [day-191 while](#day-191-while)
+
+[day-191 class; methods](#day-191-class-methods)
