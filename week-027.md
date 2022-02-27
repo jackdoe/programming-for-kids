@@ -327,7 +327,7 @@ There are few ways to represent a rectangle, one is with one point plus width an
  y=3├───────*──────────────────┐
     │       │##################│
     │       │##################│
-    │      h│##################│ height
+    │       │##################│ height
     │       │##################│
     │       └──────────────────┘
     │              width
