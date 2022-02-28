@@ -15796,7 +15796,7 @@ Richard Buckland's Higher Computing course is absolutely brilliant, you can watc
 
 In the beginning of the course he makes up an virtual 4 bit computer that we can program into useful things.
 
-It has two registers, R0 and R1, 16 bytes of memory and 16 instructions we could use. Some of the instructions take 1 byte, some take 2 bytes. 
+It has two registers, R0 and R1, 16 bytes of memory and 16 instructions we could use. Some of the instructions take 1 byte, some take 2 bytes
 
 ```
                       │ IP: instruction pointer
@@ -15806,7 +15806,7 @@ It has two registers, R0 and R1, 16 bytes of memory and 16 instructions we could
 ┌──────┐ ┌──────┐     ├──────────────────────────────────────────────
 │R0: 0 │ │R1: 0 │     │    0 halt
 └──────┘ └──────┘     │    1 add R0 = R0 + R1
-                      │    2 subtract R0 = R0 - R1
+  0   1   2   3       │    2 subtract R0 = R0 - R1
 ┌───┬───┬───┬───┐     │    3 increment R0 R0 = R0 + 1
 │ 0 │ 0 │ 0 │ 0 │     │    4 increment R1 R1 = R1 + 1
 ├───┼───┼───┼───┤     │    5 decrement R0 R0 = R0 - 1
@@ -15816,7 +15816,7 @@ It has two registers, R0 and R1, 16 bytes of memory and 16 instructions we could
 ├───┼───┼───┼───┤     │  9 X load value of address X into R0
 │ 0 │ 0 │ 0 │ 0 │     │ 10 X load value of address X into R1
 └───┴───┴───┴───┘     │ 11 X store R0 into address X
-                      │ 12 X store R1 into address X
+ 12  13  14  15       │ 12 X store R1 into address X
                       │ 13 X jump to address X
                       │ 14 X jump to address X if R0 == 0
                       │ 15 X jump to address X if R0 != 0
@@ -15852,7 +15852,6 @@ Example programs (also some are from the video lecture):
 │ 0 │ 0 │ 0 │ 0 │
 └───┴───┴───┴───┘ 
 ```
-
 
 
 * print 3
