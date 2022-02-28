@@ -16053,6 +16053,6 @@ The same program looks like this:
 15 halt       # halt
 ```
 
-Which surely looks easier to read than `10 14 3 11 14 13 13 0 0 0 0 0 8 4 0`.
+Which surely looks easier to read than `9 14 3 11 14 13 13 0 0 0 0 0 8 4 0`.
 
 
