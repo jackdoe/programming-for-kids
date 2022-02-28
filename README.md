@@ -15886,7 +15886,7 @@ Example programs (also some are from the video lecture):
 ```
 
 
-* beep and put 3 in R0
+* beep and put 3 in R1
 
 ```
 ┌───┬───┬───┬───┐
@@ -15900,6 +15900,19 @@ Example programs (also some are from the video lecture):
 └───┴───┴───┴───┘ 
 ```
 
+* beep forever
+
+```
+┌───┬───┬───┬───┐
+│ 7 │ 13│  0│ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 3 │
+└───┴───┴───┴───┘ 
+```
 
 * put the value 4 in R0, increment it and put it back in memory and print it
 
@@ -15933,7 +15946,7 @@ START               load addr 14 in R0  increment R0
 └──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
 
 ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐
-│ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│
+│  9│ 14│ 3 │ 11│   │  9│ 14│ 3 │ 11│   │  9│ 14│ 3 │ 11│
 ├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
 │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │
 ├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
@@ -15953,7 +15966,7 @@ put R0 in addr 14   jump to addr 13      print 5
 └──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
 
 ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐
-│ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│
+│  9│ 14│ 3 │ 11│   │  9│ 14│ 3 │ 11│   │  9│ 14│ 3 │ 11│
 ├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
 │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │ 
 ├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
@@ -15971,7 +15984,7 @@ halt
 │R0: 4 │ │R1: 0 │
 └──────┘ └──────┘ 
 ┌───┬───┬───┬───┐
-│ 10│ 14│ 3 │ 11│
+│  9│ 14│ 3 │ 11│
 ├───┼───┼───┼───┤
 │ 14│ 13│ 13│ 0 │
 ├───┼───┼───┼───┤
@@ -16032,12 +16045,12 @@ now lets rewrite this program
 The same program looks like this:
 
 ```
-mov 14, r0 # put value of addr 14 in r0
-inc r0     # increment r0
-mov r0, 14 # put r0's value in addr 14
-jmp 13     # jump to addr 13
-print      # print the next byte
-halt       # halt
+0  mov 14, r0 # put value of addr 14 in r0
+2  inc r0     # r0 += 1
+3  mov r0, 14 # put r0's value in addr 14
+5  jmp 13     # jump to addr 13
+13 print      # print the next byte
+15 halt       # halt
 ```
 
 Which surely looks easier to read than `10 14 3 11 14 13 13 0 0 0 0 0 8 4 0`.

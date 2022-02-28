@@ -1,15 +1,24 @@
-┌──────┐ ┌──────┐ 
-│IP: 0 │ │IS: 0 │
-└──────┘ └──────┘  
-┌──────┐ ┌──────┐
-│R0: 0 │ │R1: 0 │
-└──────┘ └──────┘ 
-┌───┬───┬───┬───┐
-│ 10│ 14│ 3 │ 11│
-├───┼───┼───┼───┤
-│ 14│ 13│ 13│ 0 │
-├───┼───┼───┼───┤
-│ 0 │ 0 │ 0 │ 0 │
-├───┼───┼───┼───┤
-│ 0 │ 8 │ 4 │ 0 │
-└───┴───┴───┴───┘
+code  keyword   what it does
+─────┼────────────────────────────────────
+   0 │ halt      halt
+   1 │ add       add R0 = R0 + R1
+   2 │ sub       subtract R0 = R0 - R1
+     │
+   3 │ inc r0    increment R0 R0 = R0 + 1
+   4 │ inc r1    increment R1 R1 = R1 + 1
+   5 │ dec r0    decrement R0 R0 = R0 - 1
+   6 │ dec r1    decrement R1 R1 = R1 - 1
+     │ 
+   7 │ ring      ring bell
+     │
+ 8 X │ print     print X (whatever the next byte is)
+     │
+ 9 X │ mov addr, r0  load value of address X into R0
+10 X │ mov addr, r1  load value of address X into R1
+     │
+11 X │ mov r0, addr  store R0 into address X
+12 X │ mov r1, addr  store R1 into address X
+     │
+13 X │ jmp addr   jump to address X
+14 X │ je addr    jump to address X if R0 == 0
+15 X │ jne addr   jump to address X if R0 != 0
