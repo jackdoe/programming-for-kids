@@ -124,3 +124,256 @@ r.expand(Point(5,5)).expand(Point(50,3)).expand(Point(50,100))
 print(r.topLeft.x, r.topLeft.y,r.bottomRight.x, r.bottomRight.y)
 ```
 
+## [DAY-193] Richard Buckland's computer
+
+
+Richard Buckland's Higher Computing course is absolutely brilliant, you can watch it on youtube: https://www.youtube.com/watch?v=JA_G8XbVYug&list=PL6B940F08B9773B9F
+
+In the beginning of the course he makes up an virtual 4 bit computer that we can program into useful things.
+
+It has two registers, R0 and R1, 16 bytes of memory and 16 instructions we could use. Some of the instructions take 1 byte, some take 2 bytes. 
+
+```
+                      │ IP: instruction pointer
+┌──────┐ ┌──────┐     │ IS: instruction store (current instruction)
+│IP: 0 │ │IS: 0 │     │ R0: register 0
+└──────┘ └──────┘     │ R1: register 1
+┌──────┐ ┌──────┐     ├──────────────────────────────────────────────
+│R0: 0 │ │R1: 0 │     │    0 halt
+└──────┘ └──────┘     │    1 add R0 = R0 + R1
+                      │    2 subtract R0 = R0 - R1
+┌───┬───┬───┬───┐     │    3 increment R0 R0 = R0 + 1
+│ 0 │ 0 │ 0 │ 0 │     │    4 increment R1 R1 = R1 + 1
+├───┼───┼───┼───┤     │    5 decrement R0 R0 = R0 - 1
+│ 0 │ 0 │ 0 │ 0 │     │    6 decrement R1 R1 = R1 - 1
+├───┼───┼───┼───┤     │    7 ring bell
+│ 0 │ 0 │ 0 │ 0 │     │  8 X print data X
+├───┼───┼───┼───┤     │  9 X load value of address X into R0
+│ 0 │ 0 │ 0 │ 0 │     │ 10 X load value of address X into R1
+└───┴───┴───┴───┘     │ 11 X store R0 into address X
+                      │ 12 X store R1 into address X
+                      │ 13 X jump to address X
+                      │ 14 X jump to address X if R0 == 0
+                      │ 15 X jump to address X if R0 != 0
+```
+
+Example programs (also some are from the video lecture):
+
+* print 7 and beep
+
+```
+┌───┬───┬───┬───┐
+│ 8 │ 7 │ 7 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘ 
+```
+
+
+* beep 3 times
+
+```
+┌───┬───┬───┬───┐
+│ 7 │ 7 │ 7 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘ 
+```
+
+
+
+* print 3
+
+```
+┌───┬───┬───┬───┐
+│ 8 │ 3 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘ 
+```
+
+
+
+* what would this program do?
+
+```
+┌───┬───┬───┬───┐
+│ 7 │ 10│ 3 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘ 
+```
+
+
+* beep and put 3 in R0
+
+```
+┌───┬───┬───┬───┐
+│ 7 │ 10│ 15│ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 3 │
+└───┴───┴───┴───┘ 
+```
+
+
+* put the value 4 in R0, increment it and put it back in memory and print it
+
+```
+┌──────┐ ┌──────┐ 
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘  
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘ 
+┌───┬───┬───┬───┐
+│ 10│ 14│ 3 │ 11│
+├───┼───┼───┼───┤
+│ 14│ 13│ 13│ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 8 │ 4 │ 0 │
+└───┴───┴───┴───┘
+```
+
+Lets walk through each step of the program, you can see the IP(instruction pointer) has a pointer to which memory address it is executing now, and IS(instruction store) is the current instruction:
+
+```
+START               load addr 14 in R0  increment R0
+┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 0 │   │IP: 0 │ │IS: 10│   │IP: 2 │ │IS: 3 │
+└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘  
+┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │   │R0: 4 │ │R1: 0 │   │R0: 5 │ │R1: 0 │
+└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
+
+┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐
+│ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│
+├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
+│ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │
+├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │   │ 0 │ 0 │ 0 │ 0 │   │ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
+│ 0 │ 8 │ 4 │ 0 │   │ 0 │ 8 │ 4 │ 0 │   │ 0 │ 8 │ 4 │ 0 │
+└───┴───┴───┴───┘   └───┴───┴───┴───┘   └───┴───┴───┴───┘
+
+
+
+put R0 in addr 14   jump to addr 13      print 5
+┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
+│IP: 3 │ │IS: 11│   │IP: 5 │ │IS: 13│   │IP: 13│ │IS: 7 │
+└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘ 
+┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
+│R0: 5 │ │R1: 0 │   │R0: 5 │ │R1: 0 │   │R0: 5 │ │R1: 0 │
+└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
+
+┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐
+│ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│   │ 10│ 14│ 3 │ 11│
+├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
+│ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │ 
+├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │   │ 0 │ 0 │ 0 │ 0 │   │ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
+│ 0 │ 8 │ 5 │ 0 │   │ 0 │ 8 │ 5 │ 0 │   │ 0 │ 8 │ 5 │ 0 │
+└───┴───┴───┴───┘   └───┴───┴───┴───┘   └───┴───┴───┴───┘
+
+
+halt
+┌──────┐ ┌──────┐ 
+│IP: 15│ │IS: 0 │
+└──────┘ └──────┘  
+┌──────┐ ┌──────┐
+│R0: 4 │ │R1: 0 │
+└──────┘ └──────┘ 
+┌───┬───┬───┬───┐
+│ 10│ 14│ 3 │ 11│
+├───┼───┼───┼───┤
+│ 14│ 13│ 13│ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 8 │ 5 │ 0 │
+└───┴───┴───┴───┘
+```
+
+We can make a simpler to read language that we can easilly convert to machine code:
+```
+code  keyword   what it does
+─────┼────────────────────────────────────
+   0 │ halt      halt
+   1 │ add       add R0 = R0 + R1
+   2 │ sub       subtract R0 = R0 - R1
+     │
+   3 │ inc r0    increment R0 R0 = R0 + 1
+   4 │ inc r1    increment R1 R1 = R1 + 1
+   5 │ dec r0    decrement R0 R0 = R0 - 1
+   6 │ dec r1    decrement R1 R1 = R1 - 1
+     │ 
+   7 │ ring      ring bell
+     │
+ 8 X │ print     print X (whatever the next byte is)
+     │
+ 9 X │ mov addr, r0  load value of address X into R0
+10 X │ mov addr, r1  load value of address X into R1
+     │
+11 X │ mov r0, addr  store R0 into address X
+12 X │ mov r1, addr  store R1 into address X
+     │
+13 X │ jmp addr   jump to address X
+14 X │ je addr    jump to address X if R0 == 0
+15 X │ jne addr   jump to address X if R0 != 0
+```
+
+now lets rewrite this program
+
+```
+┌──────┐ ┌──────┐ 
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘  
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘ 
+┌───┬───┬───┬───┐
+│ 10│ 14│ 3 │ 11│
+├───┼───┼───┼───┤
+│ 14│ 13│ 13│ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 8 │ 4 │ 0 │
+└───┴───┴───┴───┘
+```
+
+The same program looks like this:
+
+```
+mov 14, r0 # put value of addr 14 in r0
+inc r0     # increment r0
+mov r0, 14 # put r0's value in addr 14
+jmp 13     # jump to addr 13
+print      # print the next byte
+halt       # halt
+```
+
+Which surely looks easier to read than `10 14 3 11 14 13 13 0 0 0 0 0 8 4 0`.
+
