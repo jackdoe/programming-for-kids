@@ -1,0 +1,6 @@
+mov 14, r0 # put value of addr 14 in r0
+inc r0     # increment r0
+mov r0, 14 # put r0's value in addr 14
+jmp 13     # jump to addr 13
+print      # print the next byte
+halt       # halt
