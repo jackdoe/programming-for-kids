@@ -1,0 +1,6 @@
+9X  - load value at address X to R0 (R0 = mem[x])
+14X - jump to address if r0 == 0
+11X - put value of R0 into memory address X (mem[x] = R0)
+5   - decrement R0 (R0 -= 1)
+13X - jump to address X
+8X  - print X

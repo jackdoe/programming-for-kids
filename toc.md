@@ -492,3 +492,5 @@
 [day-192 class; methods](#day-192-class-methods)
 
 [day-193 richard buckland's computer](#day-193-richard-buckland's-computer)
+
+[day-194 self modifying programs](#day-194-self-modifying-programs)

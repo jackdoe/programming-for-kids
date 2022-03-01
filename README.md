@@ -610,6 +610,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-193 richard buckland's computer](#day-193-richard-buckland's-computer)
 
+[day-194 self modifying programs](#day-194-self-modifying-programs)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -15796,7 +15798,7 @@ Richard Buckland's Higher Computing course is absolutely brilliant, you can watc
 
 In the beginning of the course he makes up an virtual 4 bit computer that we can program into useful things.
 
-It has two registers, R0 and R1, 16 bytes of memory and 16 instructions we could use. Some of the instructions take 1 byte, some take 2 bytes
+It has two registers, R0 and R1, 16 4 bit slots in (8 bytes) memory and 16 instructions we could use. Some of the instructions take 1 byte, some take 2 bytes
 
 ```
                       │ IP: instruction pointer
@@ -16054,4 +16056,187 @@ The same program looks like this:
 
 Which surely looks easier to read than `9 14 3 11 14 13 13 0 0 0 0 0 8 4 0`.
 
+## [DAY-194] Self modifying programs
 
+Make a program that prints the numbers from 12 to 1
+
+![game-194.jpg](./screenshots/game-194.jpg "game 194 screenshot")
+
+The instructions we will use are:
+
+```
+9X  - load value at address X to R0 (R0 = mem[x])
+14X - jump to address if r0 == 0
+11X - put value of R0 into memory address X (mem[x] = R0)
+5   - decrement R0 (R0 -= 1)
+13X - jump to address X
+8X  - print X
+```
+
+And this is the program:
+
+```
+┌──────┐ ┌──────┐ 
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘  
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 0 │
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12|
+└───┴───┴───┴───┘
+```
+
+Lets evaluate the program step by step:
+
+
+```
+9 15 - load the value of memory address 15 into R0
+┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 9 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 12│ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 0 │
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12│
+└───┴───┴───┴───┘
+
+---
+
+jump to address 12 if R0 == 0
+┌──────┐ ┌──────┐
+│IP: 2 │ │IS: 14│
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 12│ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 0 │
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12│
+└───┴───┴───┴───┘
+
+---
+
+place the value of R0 in address 7 (mem[7] = 12)
+┌──────┐ ┌──────┐
+│IP: 4 │ │IS: 11│
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 12│ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 12│
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12│
+└───┴───┴───┴───┘
+
+---
+
+print 12
+
+> this is the most important step of the program
+> you see in the previous instruction (11 7), we modified the value 
+> of the print instruction which is about to print the content of 
+> the next byte, which was zero when our program started,
+> but now it is filled with the current value of R0
+
+┌──────┐ ┌──────┐
+│IP: 6 │ │IS: 8 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 12│ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 12│
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12│
+└───┴───┴───┴───┘
+
+---
+
+decrement R0 (R0 -= 1)
+┌──────┐ ┌──────┐
+│IP: 8 │ │IS: 5 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 11│ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 12│
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12│
+└───┴───┴───┴───┘
+
+---
+
+jump to address 2
+┌──────┐ ┌──────┐
+│IP: 9 │ │IS: 13│
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 11│ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 12│
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12│
+└───┴───┴───┴───┘
+
+---
+
+> back from scratch, check if R0 is zero, if not it will put its value 
+> as the second byte of the print instruction and then decrement it 
+> until it reaches zero, at which point it will jump to address 12 and halt, 
+> 
+
+┌──────┐ ┌──────┐
+│IP: 12│ │IS: 0 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 9 │ 15│ 14│ 12│
+├───┼───┼───┼───┤
+│ 11│ 7 │ 8 │ 1 │
+├───┼───┼───┼───┤
+│ 5 │ 13│ 2 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 12│
+└───┴───┴───┴───┘
+
+```
