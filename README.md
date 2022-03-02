@@ -612,6 +612,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-194 self modifying programs](#day-194-self-modifying-programs)
 
+[day-195 loops](#day-195-loops)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -16062,6 +16064,7 @@ Make a program that prints the numbers from 12 to 1
 
 ![game-194.jpg](./screenshots/game-194.jpg "game 194 screenshot")
 
+
 The instructions we will use are:
 
 ```
@@ -16239,4 +16242,94 @@ jump to address 2
 │ 0 │ 0 │ 0 │ 12│
 └───┴───┴───┴───┘
 
+```
+
+
+## [DAY-195] loops
+
+
+![game-195.jpg](./screenshots/game-195.jpg "game 195 screenshot")
+
+![game-195-b.jpg](./screenshots/game-195-b.jpg "game 194-b screenshot")
+
+
+* beep forever
+
+```
+┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 7 │ 13│ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘
+```
+
+* print 6 forever
+
+```
+┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 8 │ 6 │ 13│ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘
+```
+
+* print 0 1 2 3 4 5 6 7 8 ... forever
+
+```
+┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 8 │ 0 │ 3 │ 11│
+├───┼───┼───┼───┤
+│ 1 │ 13│ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘
+```
+
+
+* if R0 == 0 print 6 else print 7
+
+```
+┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 14│ 6 │ 8 │ 7 │
+├───┼───┼───┼───┤
+│ 13│ 8 │ 8 │ 6 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+├───┼───┼───┼───┤
+│ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘
 ```

@@ -494,3 +494,5 @@
 [day-193 richard buckland's computer](#day-193-richard-buckland's-computer)
 
 [day-194 self modifying programs](#day-194-self-modifying-programs)
+
+[day-195 loops](#day-195-loops)
