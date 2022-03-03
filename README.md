@@ -614,6 +614,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-195 loops](#day-195-loops)
 
+[day-196 loops](#day-196-loops)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -16331,5 +16333,54 @@ jump to address 2
 │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘
+```
+
+
+## [DAY-196] loops
+
+![game-196.jpg](./screenshots/game-196.jpg "game 196 screenshot")
+
+* make a program that prints 0 15 1 14 2 13 3 12 4 11 5 10 ... 15 0
+
+```
+┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 15│ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 11│ 5 │ 12│ 7 │
+├───┼───┼───┼───┤
+│ 8 │ 0 │ 8 │ 0 │
+├───┼───┼───┼───┤
+│ 4 │ 3 │ 14│ 15│
+├───┼───┼───┼───┤
+│ 13│ 0 │ 0 │ 0 │
+└───┴───┴───┴───┘
+```
+
+we will start with initial state of R0 and R1 to 15 and 0, then we will put R0's value in memory address 5 and R1 in address 7, where they will become arguments to two print instructions, then we will decrement R0 and increment R1, after that we check if R0 is zero if it is we go to halt at address 15, if not we loop back to the beginning but now with updated values of R0 and R1
+
+* jump to a jump
+
+follow the jumps in this program
+
+```
+┌──────┐ ┌──────┐
+│IP: 0 │ │IS: 0 │
+└──────┘ └──────┘
+┌──────┐ ┌──────┐
+│R0: 0 │ │R1: 0 │
+└──────┘ └──────┘
+┌───┬───┬───┬───┐
+│ 13│ 2 │ 13│ 12│
+├───┼───┼───┼───┤
+│ 13│ 14│ 13│ 11│
+├───┼───┼───┼───┤
+│ 13│ 5 │ 13│ 9 │
+├───┼───┼───┼───┤
+│ 13│ 7 │ 13│ 0 │
 └───┴───┴───┴───┘
 ```

@@ -496,3 +496,5 @@
 [day-194 self modifying programs](#day-194-self-modifying-programs)
 
 [day-195 loops](#day-195-loops)
+
+[day-196 loops](#day-196-loops)
