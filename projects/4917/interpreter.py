@@ -55,10 +55,10 @@ def cpu(IP, IS, R0, R1, memory):
         print("-" * 40)
         IS = memory[IP]
         if (IS >= 8):
-            print(">>> IP: ", IP, " IS: [", IS, ",",
-                  memory[IP+1], "] R0: ", R0, " R1: ", R1)
+            print(">>> IP:", IP, " IS: [", IS, ",",
+                  memory[IP+1], "] R0:", R0, " R1:", R1)
         else:
-            print(">>> IP: ", IP, " IS: [", IS, "] R0: ", R0, "R1: ", R1)
+            print(">>> IP:", IP, " IS: [", IS, "] R0:", R0, "R1:", R1)
         ascii([IP, IS, R0, R1, *memory])
 
         if IS == 0:
