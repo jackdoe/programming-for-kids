@@ -717,8 +717,109 @@ follow the jumps in this program
 
 ## [DAY-197] interpreter
 
-> I wrote a simple interpreter for the 4 bit cpu so we can discuss step by step, feel free to try to see what it does, print it on piece a paper and try to read it line by line
 
+We will make a small program, that can read the program state of our 4 bit computer and run it as it it is real, we will evaluate the input program and depending on the value of the instruction will do what it is said in the instruction set.
+
+
+```
+def cpu(IP, IS, R0, R1, memory):
+    #    0 halt
+    #    1 add R0 = R0 + R1, 2 subtract R0 = R0 - R1
+    #    3 inc R0, 4 inc R1
+    #    5 dec R0, 6 dec R1
+    #    7 ring bell
+    #  8 X print X
+    #  9 X R0 = mem[X]
+    # 10 X R1 = mem[X]
+    # 11 X mem[X] = R0
+    # 12 X mem[X] = R1
+    # 13 X jump to address X
+    # 14 X jump to address X if R0 == 0
+    # 15 X jump to address X if R0 != 0
+
+    while True:
+        IS = memory[IP]
+        print('instruction pointer:',IP,'instruction store:',IS)
+        if IS == 0:
+            break
+        elif IS == 1:
+            R0 = R0 + R1
+            IP += 1
+        elif IS == 2:
+            R0 = R0 - R1
+            IP += 1
+        elif IS == 3:
+            R0 += 1
+            IP += 1
+        elif IS == 4:
+            R1 += 1
+            IP += 1
+        elif IS == 5:
+            R0 -= 1
+            IP += 1
+        elif IS == 6:
+            R1 -= 1
+            IP += 1
+        elif IS == 7:
+            print("*** BEEP ***")
+            IP += 1
+        elif IS == 8:
+            print("*** ", memory[IP+1], " ***")
+            IP += 2
+        elif IS == 9:
+            R0 = memory[memory[IP+1]]
+            IP += 2
+        elif IS == 10:
+            R1 = memory[memory[IP+1]]
+            IP += 2
+        elif IS == 11:
+            memory[memory[IP+1]] = R0
+            IP += 2
+        elif IS == 12:
+            memory[memory[IP+1]] = R1
+            IP += 2
+        elif IS == 13:
+            IP = memory[IP + 1]
+        elif IS == 14:
+            if R0 == 0:
+                IP = memory[IP + 1]
+            else:
+                IP += 2
+        elif IS == 15:
+            if R0 != 0:
+                IP = memory[IP + 1]
+            else:
+                IP += 2
+
+state = []
+program = input('memory> ').split()
+memory = [int(s) for s in program]
+cpu(0,0,0,0, memory)
+```
+
+Try to run the above program and when it asks for input type `3 11 4 8 0 13 0`, this is will print 0 1 2 3 4 5 ..., by now you are probably used to seeing the program written as this:
+
+```
+    ┌────────┐ ┌────────┐
+    │IP:  0  │ │IS:  0  │
+    └────────┘ └────────┘
+    ┌────────┐ ┌────────┐
+    │R0:  0  │ │R1:  0  │
+    └────────┘ └────────┘
+
+    ┌────┬────┬────┬────┐
+  0 │ 3  │ 11 │ 4  │ 8  │ 3
+    ├────┼────┼────┼────┤
+  4 │ 0  │ 13 | 0  │ 0  │ 7
+    ├────┼────┼────┼────┤
+  8 │ 0  │ 0  │ 0  │ 0  │ 11
+    ├────┼────┼────┼────┤
+ 12 │ 0  │ 0  │ 0  │ 0  │ 15
+    └────┴────┴────┴────┘  
+```
+
+
+Here you can also use a better version that helps you debug your programs and also reads them diectly from a file:
 
 ```
 import sys
@@ -863,8 +964,6 @@ f.close()
 
 instruction_pointer, instruction_store, r0, r1, *memory = state
 cpu(instruction_pointer, instruction_store, r0, r1, memory)
-
-
 ```
 
 Save a program as 'name.prog' and run it a `python3 interpreter.py name.prog`, then press enter for each step of the execution.
@@ -889,7 +988,6 @@ For example:
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
     └────┴────┴────┴────┘  
-
 ```
 
 Will output of `python3 interpreter.py example.prog`:
@@ -1018,3 +1116,5 @@ Will output of `python3 interpreter.py example.prog`:
  12 │ 0  │ 0  │ 4  │ 3  │ 15
     └────┴────┴────┴────┘  
 ```
+
+
