@@ -122,6 +122,8 @@ if len(sys.argv) == 1 or ".prog" not in sys.argv[1]:
 f = open(sys.argv[1])
 state = []
 for line in f.readlines():
+    if '#' in line:
+        continue
     for s in line.replace("│", " ").split():
         if s.isdigit():
             state.append(int(s))
