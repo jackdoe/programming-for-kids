@@ -498,3 +498,5 @@
 [day-195 loops](#day-195-loops)
 
 [day-196 loops](#day-196-loops)
+
+[day-196 interpreter](#day-196-interpreter)
