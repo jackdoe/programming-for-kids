@@ -985,4 +985,7 @@ Will output of `python3 interpreter.py example.prog`:
     └────┴────┴────┴────┘  
       12   13   14   15   
 
+
+...
+
 ```
