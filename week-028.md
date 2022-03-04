@@ -670,7 +670,7 @@ jump to address 2
 
 ![game-196.jpg](./screenshots/game-196.jpg "game 196 screenshot")
 
-* make a program that prints 0 15 1 14 2 13 3 12 4 11 5 10 ... 15 0
+* make a program that prints 0 15 1 14 2 13 3 12 4 11 5 10 ... 14 1
 
 ```
 ┌──────┐ ┌──────┐
@@ -715,7 +715,7 @@ follow the jumps in this program
 ```
 
 
-## [DAY-196] interpreter
+## [DAY-197] interpreter
 
 > I wrote a simple interpreter for the 4 bit cpu so we can discuss step by step, feel free to try to see what it does, print it on piece a paper and try to read it line by line
 
@@ -895,13 +895,6 @@ For example:
 Will output of `python3 interpreter.py example.prog`:
 
 ```
-[0, 0]
-[3, 1]
-[12, 3, 8, 0]
-[4, 5, 15, 12]
-[9, 15, 10, 14]
-[13, 0, 1, 3]
-
     ┌────────┐ ┌────────┐
     │IP:  0  │ │IS:  12 │
     └────────┘ └────────┘
