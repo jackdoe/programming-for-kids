@@ -16395,12 +16395,10 @@ follow the jumps in this program
 
 ```
 import sys
-import time
-
 
 def ascii(state, highlight):
     center = []
-    for (i,s) in enumerate(state):
+    for (i, s) in enumerate(state):
         if i-4 in highlight:
             s = "_"+str(s)+"_"
         center.append(str(s).center(4))
@@ -16412,7 +16410,7 @@ def ascii(state, highlight):
     ┌────────┐ ┌────────┐
     │R0: {2}│ │R1: {3}│
     └────────┘ └────────┘
-      0    1    2    3
+
     ┌────┬────┬────┬────┐
   0 │{4}│{5}│{6}│{7}│ 3
     ├────┼────┼────┼────┤
@@ -16422,17 +16420,17 @@ def ascii(state, highlight):
     ├────┼────┼────┼────┤
  12 │{16}│{17}│{18}│{19}│ 15
     └────┴────┴────┴────┘  
-      12   13   14   15   
+
 """.format(*center))
 
 
 def cpu(IP, IS, R0, R1, memory):
     """
                           │ IP: instruction pointer
-    ┌──────┐ ┌──────┐     │ IS: instruction store (current instruction)
+    ┌──────┐ ┌──────┐     │ IS: instruction store, current instruction
     │IP: 0 │ │IS: 0 │     │ R0: register 0
     └──────┘ └──────┘     │ R1: register 1
-    ┌──────┐ ┌──────┐     ├──────────────────────────────────────────────
+    ┌──────┐ ┌──────┐     ├───────────────────────────────────────────
     │R0: 0 │ │R1: 0 │     │    0 halt
     └──────┘ └──────┘     │    1 add R0 = R0 + R1
       0   1   2   3       │    2 subtract R0 = R0 - R1
@@ -16522,13 +16520,23 @@ state = []
 for line in f.readlines():
     if '#' in line:
         continue
-    for s in line.replace("│", " ").split():
+    line = line.replace("│", " ")
+    line = line.replace("_", " ")
+    row = []
+    for s in line.split():
         if s.isdigit():
-            state.append(int(s))
+            row.append(int(s))
+    # remove first and last element in case its pasted from our output
+    if len(row) == 6:
+        row.pop(5)
+        row.pop(0)
+    if len(row) > 0:
+        state += row
 f.close()
 
 instruction_pointer, instruction_store, r0, r1, *memory = state
 cpu(instruction_pointer, instruction_store, r0, r1, memory)
+
 
 ```
 
@@ -16538,26 +16546,34 @@ For example:
 
 ```
 # print 1,2,3,1,2,3,1,2,3... forever
-┌──────┐ ┌──────┐
-│IP: 0 │ │IS: 0 │
-└──────┘ └──────┘
-┌──────┐ ┌──────┐
-│R0: 3 │ │R1: 1 │
-└──────┘ └──────┘
-┌───┬───┬───┬───┐
-│ 12│ 3 │ 8 │ 0 │
-├───┼───┼───┼───┤
-│ 4 │ 5 │ 15│ 12│
-├───┼───┼───┼───┤
-│ 9 │ 15│ 10│ 14│
-├───┼───┼───┼───┤
-│ 13│ 0 │ 1 │ 3 │
-└───┴───┴───┴───┘
+    ┌────────┐ ┌────────┐
+    │IP:  0  │ │IS:  0 │
+    └────────┘ └────────┘
+    ┌────────┐ ┌────────┐
+    │R0:  3  │ │R1:  1  │
+    └────────┘ └────────┘
+
+    ┌────┬────┬────┬────┐
+  0 │ 12 │ 3  │ 8  │ 0  │ 3
+    ├────┼────┼────┼────┤
+  4 │ 4  │ 5  │ 15 │ 12 │ 7
+    ├────┼────┼────┼────┤
+  8 │ 9  │ 15 │ 10 │ 14 │ 11
+    ├────┼────┼────┼────┤
+ 12 │ 13 │ 0  │ 1  │ 3  │ 15
+    └────┴────┴────┴────┘  
+
 ```
 
 Will output of `python3 interpreter.py example.prog`:
 
 ```
+[0, 0]
+[3, 1]
+[12, 3, 8, 0]
+[4, 5, 15, 12]
+[9, 15, 10, 14]
+[13, 0, 1, 3]
 
     ┌────────┐ ┌────────┐
     │IP:  0  │ │IS:  12 │
@@ -16565,7 +16581,7 @@ Will output of `python3 interpreter.py example.prog`:
     ┌────────┐ ┌────────┐
     │R0:  3  │ │R1:  1  │
     └────────┘ └────────┘
-      0    1    2    3
+
     ┌────┬────┬────┬────┐
   0 │_12_│_3_ │ 8  │ 0  │ 3
     ├────┼────┼────┼────┤
@@ -16575,7 +16591,7 @@ Will output of `python3 interpreter.py example.prog`:
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
     └────┴────┴────┴────┘  
-      12   13   14   15   
+
 
 
 
@@ -16585,7 +16601,7 @@ Will output of `python3 interpreter.py example.prog`:
     ┌────────┐ ┌────────┐
     │R0:  3  │ │R1:  1  │
     └────────┘ └────────┘
-      0    1    2    3
+
     ┌────┬────┬────┬────┐
   0 │ 12 │ 3  │_8_ │_1_ │ 3
     ├────┼────┼────┼────┤
@@ -16595,7 +16611,7 @@ Will output of `python3 interpreter.py example.prog`:
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
     └────┴────┴────┴────┘  
-      12   13   14   15   
+
 
 ***  1 ***
 
@@ -16606,7 +16622,7 @@ Will output of `python3 interpreter.py example.prog`:
     ┌────────┐ ┌────────┐
     │R0:  3  │ │R1:  1  │
     └────────┘ └────────┘
-      0    1    2    3
+
     ┌────┬────┬────┬────┐
   0 │ 12 │ 3  │ 8  │ 1  │ 3
     ├────┼────┼────┼────┤
@@ -16616,7 +16632,7 @@ Will output of `python3 interpreter.py example.prog`:
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
     └────┴────┴────┴────┘  
-      12   13   14   15   
+
 
 
 
@@ -16626,7 +16642,7 @@ Will output of `python3 interpreter.py example.prog`:
     ┌────────┐ ┌────────┐
     │R0:  3  │ │R1:  2  │
     └────────┘ └────────┘
-      0    1    2    3
+
     ┌────┬────┬────┬────┐
   0 │ 12 │ 3  │ 8  │ 1  │ 3
     ├────┼────┼────┼────┤
@@ -16636,27 +16652,6 @@ Will output of `python3 interpreter.py example.prog`:
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
     └────┴────┴────┴────┘  
-      12   13   14   15   
-
-
-
-    ┌────────┐ ┌────────┐
-    │IP:  6  │ │IS:  15 │
-    └────────┘ └────────┘
-    ┌────────┐ ┌────────┐
-    │R0:  2  │ │R1:  2  │
-    └────────┘ └────────┘
-      0    1    2    3
-    ┌────┬────┬────┬────┐
-  0 │ 12 │ 3  │ 8  │ 1  │ 3
-    ├────┼────┼────┼────┤
-  4 │ 4  │ 5  │_15_│_12_│ 7
-    ├────┼────┼────┼────┤
-  8 │ 9  │ 15 │ 10 │ 14 │ 11
-    ├────┼────┼────┼────┤
- 12 │ 13 │ 0  │ 1  │ 3  │ 15
-    └────┴────┴────┴────┘  
-      12   13   14   15   
 
 
 ...
