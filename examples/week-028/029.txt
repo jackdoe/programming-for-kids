@@ -115,8 +115,8 @@ def cpu(IP, IS, R0, R1, memory):
         input()
 
 
-if len(sys.argv) == 1 or ".prog" not in sys.argv[1]:
-    print("usage: python3 ", sys.argv[0] + " file.prog")
+if len(sys.argv) == 1 or ".prg" not in sys.argv[1]:
+    print("usage: python3 ", sys.argv[0] + " file.prg")
     sys.exit(1)
 
 f = open(sys.argv[1])

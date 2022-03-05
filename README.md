@@ -16612,8 +16612,8 @@ def cpu(IP, IS, R0, R1, memory):
         input()
 
 
-if len(sys.argv) == 1 or ".prog" not in sys.argv[1]:
-    print("usage: python3 ", sys.argv[0] + " file.prog")
+if len(sys.argv) == 1 or ".prg" not in sys.argv[1]:
+    print("usage: python3 ", sys.argv[0] + " file.prg")
     sys.exit(1)
 
 f = open(sys.argv[1])
@@ -16639,7 +16639,7 @@ instruction_pointer, instruction_store, r0, r1, *memory = state
 cpu(instruction_pointer, instruction_store, r0, r1, memory)
 ```
 
-Save a program as 'name.prog' and run it a `python3 interpreter.py name.prog`, then press enter for each step of the execution.
+Save a program as 'name.prg' and run it a `python3 interpreter.py name.prg`, then press enter for each step of the execution.
 
 For example:
 
@@ -16663,7 +16663,7 @@ For example:
     └────┴────┴────┴────┘  
 ```
 
-Will output of `python3 interpreter.py example.prog`:
+Will output of `python3 interpreter.py example.prg`:
 
 ```
     ┌────────┐ ┌────────┐
