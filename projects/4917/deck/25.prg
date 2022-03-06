@@ -12,6 +12,7 @@
 # 14 X jump to address X if R0 == 0
 # 15 X jump to address X if R0 != 0
 #
+# print 14, 12, 10, ... 0
     ┌────────┐ ┌────────┐
     │IP:  0  │ │IS:  0  │
     └────────┘ └────────┘
