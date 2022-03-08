@@ -1125,9 +1125,9 @@ Make a cutes care game (like jumpscare but cute), the idea is to make a series o
 
 ![game-198-a.jpg](./screenshots/game-198-a.jpg "game 198-a screenshot")
 
-![game-198-c.jpg](./screenshots/game-198-c.jpg "game 198-b screenshot")
+![game-198-c.jpg](./screenshots/game-198-c.png "game 198-b screenshot")
 
-![game-198-b.jpg](./screenshots/game-198-b.jpg "game 198-c screenshot")
+![game-198-b.jpg](./screenshots/game-198-b.png "game 198-c screenshot")
 
 
 > This is the code she wrote, she struggled a bit with the isInside part, but I helped her out.
