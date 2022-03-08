@@ -1118,3 +1118,73 @@ Will output of `python3 interpreter.py example.prg`:
 ```
 
 
+
+## [DAY-198] coordinates
+
+Make a cutes care game (like jumpscare but cute), the idea is to make a series of difficult challenges to make the user to concentrate on the game, and when they least expect it show them a cute corgi.
+
+![game-198-a.jpg](./screenshots/game-198-a.jpg "game 198-a screenshot")
+
+![game-198-c.jpg](./screenshots/game-198-c.jpg "game 198-b screenshot")
+
+![game-198-b.jpg](./screenshots/game-198-b.jpg "game 198-c screenshot")
+
+
+> This is the code she wrote, she struggled a bit with the isInside part, but I helped her out.
+
+```
+import ranom
+import pgzrun
+WIDTH=800
+HEIGHT=800
+elf = Actor("c1")
+elf.x = 520
+elf.y = 420
+corgi = Actor("corgi")
+data = [
+    Rect(0,0,100,200),
+    Rect(520,580, 300, 30),
+    Rect(750,600, 30, 500),
+    Rect(490,490, 50, 100),
+    Rect(500,400, 200, 100),
+]
+def update():
+    if keyboard.W:
+        elf.y -= 2 
+        elf.x += random.randint(-1,1)
+    if keyboard.S:
+        elf.y += 2
+        elf.x += random.randint(-1,1)
+    if keyboard.D:
+        elf.x += 2 
+    if keyboard.A:
+        elf.x -= 2
+    
+    isInside = False
+    for d in data:
+        if elf.colliderect(d):
+            isInside = True
+
+    if not isInside:
+        elf.x = 520 
+        elf.y = 420
+
+mouse_x = 0
+mouse_y = 0
+def on_mouse_move(pos):
+    global mouse_x, mouse_y
+    mouse_x = pos[0]
+    mouse_y = pos[1]
+    
+def draw():
+    screen.clear()
+    for r in data:
+        screen.draw.rect(r, (255,255,255))
+    elf.draw()
+    screen.draw.text("x: " + str(mouse_x) + " y: " + str(mouse_y), (20,20), color=(255,255,255))
+    if elf.y > 780:
+        corgi.draw()
+        sounds.retro.play()
+
+pgzrun.go()
+```
