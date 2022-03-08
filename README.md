@@ -16807,6 +16807,8 @@ Make a cutes care game (like jumpscare but cute), the idea is to make a series o
 
 > This is the code she wrote, she struggled a bit with the isInside part, but I helped her out.
 
+> Also important to google how to play sounds with pygamezero.
+
 ```
 import ranom
 import pgzrun
