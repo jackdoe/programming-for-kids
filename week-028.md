@@ -1196,7 +1196,7 @@ pgzrun.go()
 
 Add a blur around the cutescare game's actor so the game is more spooky
 
-![game-199.jpg](./screenshots/game-199.png "game 199 screenshot")
+![game-199.png](./screenshots/game-199.png "game 199 screenshot")
 
 Use images/fog.png which is a 2000x2000 black png with a transparent circle in the middle, we will use it to create "fog" around the player.
 
