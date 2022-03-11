@@ -619,8 +619,13 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-197 interpreter](#day-197-interpreter)
 
 [day-198 coordinates](#day-198-coordinates)
+## week - 029
+
+
 
 [day-199 coordinates](#day-199-coordinates)
+
+[day-200 coordinates](#day-200-coordinates)
 
 ## [DAY-0] The Computer
 
@@ -16914,4 +16919,31 @@ def draw():
 pgzrun.go()
 ```
 
+
+
+## [DAY-200] coordinates
+
+
+Make a better maze
+
+```
+...
+
+data = [
+    Rect(0,0,100,200),
+    Rect(20,200, 300, 30),
+    Rect(267,226, 30, 500),
+    Rect(408,678, 20, 200),
+    Rect(23,659, 800, 20),
+    Rect(429,101, 30, 500),
+    Rect(299,356, 800, 20)
+]
+
+...
+```
+
+![game-200-a.png](./screenshots/game-200-a.png "game 200-a screenshot")
+
+
+![game-200-b.png](./screenshots/game-200-b.png "game 200-b screenshot")
 
