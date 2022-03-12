@@ -29,7 +29,7 @@ def ascii(state, highlight):
 """.format(*center))
 
 
-def cpu(IP, IS, R0, R1, memory):
+def cpu(IP, IS, R0, R1, memory, debug=True):
     """
                           │ IP: instruction pointer
     ┌──────┐ ┌──────┐     │ IS: instruction store, current instruction
@@ -60,7 +60,8 @@ def cpu(IP, IS, R0, R1, memory):
         if (IS >= 8):
             highlight = [IP, IP+1]
 
-        ascii([IP, IS, R0, R1, *memory], highlight)
+        if debug:
+          ascii([IP, IS, R0, R1, *memory], highlight)
 
         if IS == 0:
             break
@@ -125,8 +126,8 @@ def cpu(IP, IS, R0, R1, memory):
         if R1 < 0:
           R1 += 16
               
-
-        input()
+        if debug:
+          input()
 
 
 if len(sys.argv) == 1 or ".prg" not in sys.argv[1]:
