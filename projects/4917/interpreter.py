@@ -113,6 +113,19 @@ def cpu(IP, IS, R0, R1, memory):
             else:
                 IP += 2
 
+        if R0 > 15:
+          R0 -= 16
+
+        if R1 > 15:
+          R1 -= 16
+              
+        if R0 < 0:
+          R0 += 16
+
+        if R1 < 0:
+          R1 += 16
+              
+
         input()
 
 
