@@ -1,0 +1,208 @@
+## Richard Buckland's 4917 4 bit cpu
+
+(it is a madeup computer, that works in a very similar way to the real
+computer you use)
+
+1 bit is the smallest amount of information we could have, it is either
+1 or 0. For example, we can encode the flip of a coin in 1 bit, it is
+either Heads or Tails.
+
+In 4 bits we can have the numbers from 0 to 15:    
+    
+0000  0    0001  1   0010  2    0011  3
+0100  4    0101  5   0110  6    0111  7
+1000  8    1001  0   1010 10    1011 11
+1100 12    1101 13   1110 14    1111 15
+
+This computer has four important components:
+
+* 4 bit CPU - processor with two general 
+  purpose registers R0 and R1, and two special registers IP(instruction
+  pointer) and IS(instruction store)
+* Memory - 16 addressable nibbles (4 bits)
+  With address from 0 to 15. Called also RAM (random access meory),
+  because we can go and read/write any address
+* Printer - where we can print values
+* Beeper - we can use it to beep
+
+For our programs we need to see only the CPU and the RAM:
+
+# CPU: 
+
+┌────────┐ ┌────────┐
+│ IP:  0 │ │ IS:  0 │
+└────────┘ └────────┘
+┌────────┐ ┌────────┐
+│ R0:  0 │ │ R1:  0 │
+└────────┘ └────────┘
+
+Our CPU has a little bit of memory as well, IP, IS, R0 and R1, each of
+them can hold a 4 bit number from 0 to 15.
+
+It fetches an instruction from the memory address pointed by
+IP(instruction pointer), and puts it in IS(instruction store) and
+executes it. It keeps doing that forever and ever until you turn it off.
+
+# RAM (addressess from 0 to 15):
+
+┌────┬────┬────┬────┐
+│  0 │  1 │  2 │  3 │
+├────┼────┼────┼────┤
+│  5 │  6 │  7 │  8 │
+├────┼────┼────┼────┤
+│  9 │ 10 │ 11 │ 12 │
+├────┼────┼────┼────┤
+│ 12 │ 13 │ 14 │ 15 │
+└────┴────┴────┴────┘
+
+The RAM is reset every time you turn off your computer, so it starts
+zeroed out:
+
+┌────┬────┬────┬────┐
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+└────┴────┴────┴────┘
+
+This is why in real computers we need hard disks, where we persist
+information that survives powering off the device, and when it starts we
+can load this information into the RAM and use it.
+
+In our computer it is possible however to pre-configure the RAM to start
+in certain configuration.
+
+
+# Instructions:
+
+Those are the possible instructions our CPU can do:
+
+ 0 HALT
+ 1 R0 = R0 + R1 (add R0 and R1 and store the result in R0)
+ 2 R0 = R0 - R1 (subtract R0 and R1 and store the result in R0)
+ 3 R0 = R0 + 1  (increment R0)
+ 4 R1 = R1 + 1  (increment R1)
+ 5 R0 = R0 - 1  (decrement R0)
+ 6 R1 = R1 - 1  (decrement R1)
+ 7 BEEP
+
+ 8 X PRINT X (print the next memory cell)
+ 
+ 9 X R0 = RAM[X] (load the vaule of address X into R0)
+10 X R1 = RAM[X] (load the value of address X into R1)
+11 X RAM[X] = R0 (store the value of R0 into address X)
+12 X RAM[X] = R1 (store the value of R1 into address X)
+
+13 X JUMP X (junmp to the value in the next memory cell)
+     e.g. 13 7 means jump to address 7
+14 X JUMP X IF R0 == 0 (jump to X if R0 is equal to 0)
+     e.g. 14 7 means jump to address 7 if R0 is equal to 0
+     otherwise proceed with the next instruction
+15 X JUMP X IF R0 != 0 (jump to X if R0 is *not* equal to 0)
+
+You see some of the instructions take 1 menmory cell, like INCREMENT or
+BEEP, but others take two cellsm like PRINT or JUMP.
+
+
+You can also see that it cant just go and do addition or subtraction
+directly in memory, first it needs to load the values from memory into
+R0 and R1 and then do addition and then put it back in memory.
+
+# Computer
+
+Lets look at the computer as a whole while it has the following program
+preloaded in RAM: 7 8 2 0.
+
+┌────────┐ ┌────────┐
+│ IP:  0 │ │ IS:  0 │
+└────────┘ └────────┘
+┌────────┐ ┌────────┐
+│ R0:  0 │ │ R1:  0 │
+└────────┘ └────────┘
+
+┌────┬────┬────┬────┐
+│  7 │  8 │  4 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+└────┴────┴────┴────┘
+
+Once we boot the computer this is what the CPU will do:
+
+* FETCH the value at address IP into IS
+* EXECUTE the instruction from IS
+* UPDATE the IP location accordingly 
+  e.g. if the instruction is 13 7 (JUMP TO 7), it will just do IP = 7
+  or if it is just 3 (INCREMENT R0) it will do IP = IP + 1
+* GOTO FETCH, forever and ever
+
+so in our case it will look like this:
+
+IP = 0, IS = 7
+  the value at memory address 0 is 7 which when executed is BEEP
+
+IP = 1, IS = 8 4
+  the value at memory address 1 is 8, but the print instruction
+  needs two cells, so it will load both into IS, and PRINT 4
+
+IP = 3, IS = 0
+  the value at address 3 is 0, so the CPU will HALT and not
+  update the instruction pointer(IP) anynmore
+
+
+Another program we could examine: 7 8 4 13 0
+
+
+┌────────┐ ┌────────┐
+│ IP:  0 │ │ IS:  0 │
+└────────┘ └────────┘
+┌────────┐ ┌────────┐
+│ R0:  0 │ │ R1:  0 │
+└────────┘ └────────┘
+
+┌────┬────┬────┬────┐
+│  7 │  8 │  4 │ 13 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+└────┴────┴────┴────┘
+
+The execution is as follows:
+IP = 0, IS = 7 - BEEP, IP = IP + 1
+IP = 1, IS = 8 4 - PRINT 4, IP = IP + 2
+IP = 3, IS = 13 0 - JUMP TO ADDRESS 0, IP = 0
+IP = 0, IS = 7 - BEEP, IP = IP + 1
+...
+
+This is an infinite loop, it will beep and print 4 forever.
+
+# Negative Numbers
+
+Our computer does not understand negative numbers, so if R0 is 0
+and you decrement it, it will turn into 15 (which is the maximum value)
+
+  0 - 1 is 15
+  0 - 2 is 14
+
+* Overflow
+
+You can not have numbers bigger than 15, so if R0 is 15 and you
+increment it, it will turn into 0.
+
+If R0 is 2 and you add 15 to it, it will turn into 1
+  
+
+  1 + 15 is 0
+  2 + 15 is 1
+  3 + 15 is 2
+  ..
+  5 + 15 is 4
