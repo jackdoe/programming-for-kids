@@ -3,12 +3,12 @@
 (it is a madeup computer, that works in a very similar way to the real
 computer you use)
 
-1 bit is the smallest amount of information we could have, it is either
-1 or 0. For example, we can encode the flip of a coin in 1 bit, it is
-either Heads or Tails.
+1 bit is the smallest amount of information we could have, it is
+either 1 or 0. For example, we can encode the flip of a coin in 1 bit,
+it is either Heads or Tails.
 
 In 4 bits we can have the numbers from 0 to 15:    
-    
+
 0000  0    0001  1   0010  2    0011  3
 0100  4    0101  5   0110  6    0111  7
 1000  8    1001  0   1010 10    1011 11
@@ -17,15 +17,13 @@ In 4 bits we can have the numbers from 0 to 15:
 This computer has four important components:
 
 * 4 bit CPU - processor with two general 
-  purpose registers R0 and R1, and two special registers IP(instruction
-  pointer) and IS(instruction store)
+  purpose registers R0 and R1, and two special registers
+  IP(instruction pointer) and IS(instruction store)
 * Memory - 16 addressable nibbles (4 bits)
   With address from 0 to 15. Called also RAM (random access meory),
   because we can go and read/write any address
 * Printer - where we can print values
 * Beeper - we can use it to beep
-
-For our programs we need to see only the CPU and the RAM:
 
 # CPU: 
 
@@ -36,12 +34,12 @@ For our programs we need to see only the CPU and the RAM:
 │ R0:  0 │ │ R1:  0 │
 └────────┘ └────────┘
 
-Our CPU has a little bit of memory as well, IP, IS, R0 and R1, each of
-them can hold a 4 bit number from 0 to 15.
+Our CPU has a little bit of memory as well, IP, IS, R0 and R1, each of them can hold a 4 bit number from 0 to 15.
 
 It fetches an instruction from the memory address pointed by
 IP(instruction pointer), and puts it in IS(instruction store) and
-executes it. It keeps doing that forever and ever until you turn it off.
+executes it. It keeps doing that forever and ever until you turn it
+off.
 
 # RAM (addressess from 0 to 15):
 
@@ -69,11 +67,11 @@ zeroed out:
 └────┴────┴────┴────┘
 
 This is why in real computers we need hard disks, where we persist
-information that survives powering off the device, and when it starts we
-can load this information into the RAM and use it.
+information that survives powering off the device, and when it starts
+we can load this information into the RAM and use it.
 
-In our computer it is possible however to pre-configure the RAM to start
-in certain configuration.
+In our computer it is possible however to pre-configure the RAM to
+start in certain configuration.
 
 
 # Instructions:
@@ -106,15 +104,14 @@ Those are the possible instructions our CPU can do:
 You see some of the instructions take 1 menmory cell, like INCREMENT or
 BEEP, but others take two cellsm like PRINT or JUMP.
 
-
 You can also see that it cant just go and do addition or subtraction
 directly in memory, first it needs to load the values from memory into
 R0 and R1 and then do addition and then put it back in memory.
 
 # Computer
 
-Lets look at the computer as a whole while it has the following program
-preloaded in RAM: 7 8 2 0.
+Lets look at the computer as a whole while it has the following
+program preloaded in RAM: 3 11 4 8 0.
 
 ┌────────┐ ┌────────┐
 │ IP:  0 │ │ IS:  0 │
@@ -124,7 +121,7 @@ preloaded in RAM: 7 8 2 0.
 └────────┘ └────────┘
 
 ┌────┬────┬────┬────┐
-│  7 │  8 │  4 │  0 │
+│  3 │ 11 │  4 │  8 │
 ├────┼────┼────┼────┤
 │  0 │  0 │  0 │  0 │
 ├────┼────┼────┼────┤
@@ -144,20 +141,25 @@ Once we boot the computer this is what the CPU will do:
 
 so in our case it will look like this:
 
-IP = 0, IS = 7
-  the value at memory address 0 is 7 which when executed is BEEP
+IP = 0, IS = 3
+  increment the value of R0
+  IP = IP + 1
 
-IP = 1, IS = 8 4
-  the value at memory address 1 is 8, but the print instruction
-  needs two cells, so it will load both into IS, and PRINT 4
+IP = 1, IS = 11 4
+  store the value of R0 on address 4
+  IP = IP + 2
 
-IP = 3, IS = 0
-  the value at address 3 is 0, so the CPU will HALT and not
+IP = 3, IS = 8 1
+  PRINT 1, you see when we started on address 4 we had the value 0
+  but after the previous instruction, we put 1 there, so when
+  we execute the print instruction it will print 1
+
+IP = 5, IS = 0
+  the value at address 5 is 0, so the CPU will HALT and not
   update the instruction pointer(IP) anynmore
 
 
 Another program we could examine: 7 8 4 13 0
-
 
 ┌────────┐ ┌────────┐
 │ IP:  0 │ │ IS:  0 │
