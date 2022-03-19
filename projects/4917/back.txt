@@ -34,7 +34,8 @@ This computer has four important components:
 │ R0:  0 │ │ R1:  0 │
 └────────┘ └────────┘
 
-Our CPU has a little bit of memory as well, IP, IS, R0 and R1, each of them can hold a 4 bit number from 0 to 15.
+Our CPU has a little bit of memory as well, IP, IS, R0 and R1, each of
+them can hold a 4 bit number from 0 to 15.
 
 It fetches an instruction from the memory address pointed by
 IP(instruction pointer), and puts it in IS(instruction store) and
