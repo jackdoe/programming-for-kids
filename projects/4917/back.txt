@@ -208,3 +208,25 @@ If R0 is 2 and you add 15 to it, it will turn into 1
   3 + 15 is 2
   ..
   5 + 15 is 4
+
+# Game
+
+There are many possible ways to play the game.
+
+* Random Memory Corruption
+  roll a dice to tell you which address to corrupt, and roll again to
+  tell you which value, then you have to explain what the corrupted
+  orogram will do.
+
+* Limited Monkey Patching
+  you can increment the value of one memory address to make the
+  program do something else.
+    
+* Hacking
+  requires two people, and the goal is to HALT the other player's
+  computer without using the HALT instruction, you can modify one
+  memory address per turn
+
+* Composing
+  You can interrupt the current program, and load new program into memory
+  but leaving the values of IP, R0 and R1 from the previous program.
