@@ -190,8 +190,8 @@ This is an infinite loop, it will beep and print 4 forever.
 
 # Negative Numbers
 
-Our computer does not understand negative numbers, so if R0 is 0
-and you decrement it, it will turn into 15 (which is the maximum value)
+Our computer does not understand negative numbers, so if R0 is 0 and
+you decrement it, it will turn into 15 (which is the maximum value)
 
   0 - 1 is 15
   0 - 2 is 14
@@ -229,5 +229,6 @@ There are many possible ways to play the game.
   memory address per turn
 
 * Composing
-  You can interrupt the current program, and load new program into memory
-  but leaving the values of IP, R0 and R1 from the previous program.
+  You can interrupt the current program, and load new program into
+  memory but leaving the values of IP, R0 and R1 from the previous
+  program.
