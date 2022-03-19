@@ -125,7 +125,10 @@ def cpu(IP, IS, R0, R1, memory, debug=True):
 
         if R1 < 0:
           R1 += 16
-              
+
+        if IP > 15:
+          IP -= 16
+
         if debug:
           input()
 
