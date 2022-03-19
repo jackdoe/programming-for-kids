@@ -17,18 +17,50 @@ In 4 bits we can have the numbers from 0 to 15:
 This computer has four important components (explained in detail
 later):
 
-* 4 bit CPU with 4 registers
-  + two purpose registers R0 and R1
-  + two special registers IP(instruction pointer) and IS(instruction
-    store)
-* Memory with 16 cells 4 bits each
+* Memory with 16 cells
   Each cell has address from 0 to 15, we can read and write into any
   of the locations. This kind of memory is called RAM, for random
-  access memory, because we can go and read/write any address.
-* Printer - where we can print values
-* Beeper - we can use it to beep
+  access memory, because we can go and read/write any address. Each
+  cell is 4 bits, so the maximum value is 15.
+* Processor
+  also called CPU, Central Processing Unit, is the pice of the
+  computer that executes the program in the memory
+* Printer
+  where we can print values
+* Beeper
+  we can use it to beep
 
-# CPU:
+# CPU (Processor):
+
+It loads instructions from memory and executes them. You can think of
+the CPU as a blind octopus. The octopus can only work with its arms,
+for example if one arm has 5 coins and the other has 3, it can add
+them and have one arm with 8 coins. Then you can ask the octopus to
+put the conins back on the shelve. The CPU just like the octopus can
+only work with its registers (like the octopus arms), our CPU has 4
+registers, R0, R1, IP(instruction pointer) and IS(instruction
+store). Modern CPUs have around 32 registers (some have more thabn
+600).
+
+                                                                         
+                  ██████████                
+          ████▒▒▒▒▒▒▒▒▒▒████            
+        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██          
+      ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██        
+      ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██        
+    ██▒▒▒▒      ▒▒▒▒▒▒      ▒▒▒▒██      
+    ██▒▒          ▒▒          ▒▒██      
+    ██▒▒    ████  ▒▒  ████    ▒▒██      
+    ██▒▒    ██████████████    ▒▒██      
+      ██▒▒    ██▒▒▒▒▒▒██    ▒▒██        
+    ██▒▒██▒▒██▒▒██████▒▒██▒▒██▒▒██      
+  ██▒▒▒▒██████▒▒██████▒▒██████▒▒▒▒██    
+  ██▒▒██R0▒▒████▒▒▒▒▒▒████▒IS▒██▒▒██    
+    ████R0▒▒██R1██████IP██▒IS▒████      
+    ██R0▒▒████R1▒██▒IP▒████▒IS▒██      
+      ██████▒R1▒██  ██IP▒▒██████        
+            ████      ████              
+
 
 ┌────────┐ ┌────────┐
 │ IP:  0 │ │ IS:  0 │
@@ -37,11 +69,10 @@ later):
 │ R0:  0 │ │ R1:  0 │
 └────────┘ └────────┘
 
-Our CPU has 4 registers, IP, IS, R0 and R1, each of them can hold a 4
-bit number from 0 to 15. Registers are just memory that the CPU can do
-stuff with, e.g. ADD R0 + R1 or INCREMENT R0. IP and IS are a bit
-special, because the CPU uses them to know which instruction to fetch
-and what its value is.
+Each of them can hold a 4 bit number from 0 to 15. Registers are just
+memory that the CPU can do stuff with, e.g. ADD R0 + R1 or INCREMENT
+R0. IP and IS are a bit special, because the CPU uses them to know
+which instruction to fetch and what its value is.
 
 The CPU fetches an instruction from the memory address pointed by
 IP(instruction pointer), and puts it in IS(instruction store) and
@@ -101,7 +132,7 @@ Those are the possible instructions our CPU can do:
 11 X RAM[X] = R0 (store the value of R0 into address X)
 12 X RAM[X] = R1 (store the value of R1 into address X)
 
-13 X JUMP X (junmp to the value in the next memory cell)
+13 X JUMP X (jump to the value in the next memory cell)
      e.g. 13 7 means jump to address 7
 14 X JUMP X IF R0 == 0 (jump to X if R0 is equal to 0)
      e.g. 14 7 means jump to address 7 if R0 is equal to 0
@@ -114,6 +145,9 @@ BEEP, but others take two cellsm like PRINT or JUMP.
 You can also see that it cant just go and do addition or subtraction
 directly in memory, first it needs to load the values from memory into
 R0 and R1 and then do addition and then put it back in memory.
+
+The JUMP instructions are also called BRANCH instructions, BRANCH,
+BRANCH IF ZERO, BRANCH IF NOT ZERO or B, BZ, BNZ for short.
 
 # Computer
 
@@ -186,10 +220,18 @@ Another program we could examine: 7 8 4 13 0
 └────┴────┴────┴────┘
 
 The execution is as follows:
-IP = 0, IS = 7 - BEEP, IP = IP + 1
-IP = 1, IS = 8 4 - PRINT 4, IP = IP + 2
-IP = 3, IS = 13 0 - JUMP TO ADDRESS 0, IP = 0
-IP = 0, IS = 7 - BEEP, IP = IP + 1
+IP = 0, IS = 7
+    BEEP
+    IP = IP + 1
+IP = 1, IS = 8 4
+    PRINT 4
+    IP = IP + 2
+IP = 3, IS = 13 0
+    JUMP TO ADDRESS 0
+    IP = 0
+IP = 0, IS = 7
+    BEEP
+    IP = IP + 1
 ...
 
 This is an infinite loop, it will beep and print 4 forever.
@@ -199,8 +241,10 @@ This is an infinite loop, it will beep and print 4 forever.
 Our computer does not understand negative numbers, so if R0 is 0 and
 you decrement it, it will turn into 15 (which is the maximum value)
 
-  0 - 1 is 15
-  0 - 2 is 14
+  0 - 1 is 15 (subtract 1 from 0)
+  0 - 2 is 14 (subtract 2 from 0)
+
+This is called integer underflow
 
 * Overflow
 
@@ -215,6 +259,69 @@ If R0 is 2 and you add 15 to it, it will turn into 1
   3 + 15 is 2
   ..
   5 + 15 is 4
+
+It is the same for IP, it overflows just like R0 and R1
+
+# Code is Data
+
+You can see that the processor absolutely can not distinguis between
+code and data, it just fetches wherever IP points to and executes it.
+
+It does not have concepts like variables or numbers or letters or
+anything like it. It just sees its registers and the current
+instruction and does it blindly.
+
+Because code and data both live in RAM we can make a program that
+writes itself, a self modifying program.
+
+┌────────┐ ┌────────┐
+│ IP:  0 │ │ IS:  0 │
+└────────┘ └────────┘
+┌────────┐ ┌────────┐
+│ R0:  0 │ │ R1:  0 │
+└────────┘ └────────┘
+
+┌────┬────┬────┬────┐
+│  5 │ 11 │  3 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+└────┴────┴────┴────┘
+
+The execution is as follows:
+
+IP = 0, IS = 5
+    DECREMENT R0, R0 = 0 - 1
+    (since R0 is 0 at start, it will underflow to 15)
+    IP = IP + 1
+IP = 1, IS = 11 3
+    STORE R0 in address 3, RAM[3] = 15
+    (on addr 3 we had HALT before, but now it will be JUMP IF R0 != 0)
+    IP = IP + 2
+IP = 3, IS = 15 0
+    JUMP TO 0 IF R0 != 0
+    (since R0 is 15, it is not 0, so we will jump)
+    IP = 0
+IP = 0, IS = 5
+    DECREMENT R0, R0 = 15 - 1
+    IP = IP + 1
+IP = 1, IS = 11 3
+    STORE R0 in address 3, RAM[3] = 14
+    (we had JMP IF R0 != 0 before, but now it will be JUMP IF R0 == 0)
+    IP = IP + 2
+IP = 3 IS = 14 0
+    JUMP TO 0 IF R0 == 0
+    (since R0 is 14, that means that it is not 0, so we wont jump)
+    IP = IP + 2
+IP = 5 IS = 0
+    HALT
+
+
+So this program changes itself twice, first it changes HALT to JUMP IF
+NOT ZERO, and then to JUMP IF ZERO.
 
 # Game
 
