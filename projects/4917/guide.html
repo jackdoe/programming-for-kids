@@ -1,13 +1,57 @@
-## Richard Buckland's 4917 4 bit computer
-(check out his lectures: https://www.youtube.com/watch?v=gTeDX4yAdyU)
+<html>
+<head><title>4917</title>
+<style>
+body {
+	font-family: monospace;
+	max-width: 60rem;
+	padding: 1rem;
+	font-size: 14px;
+	margin: auto;  
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Richard Buckland's 4917 4 bit computer</h1>
+check out his lectures: <a href="https://www.youtube.com/watch?v=gTeDX4yAdyU">www.youtube.com/watch?v=gTeDX4yAdyU</a><br><br>
 
-# Bits, Nibbles and Bytes
-    
+Table of Contents:
+<ul>
+<li><a href="#intro">intro</a></li>
+<li><a href="#bits">bits</a></li>
+<li><a href="#cpu">cpu</a></li>
+<li><a href="#ram">ram</a></li>
+<li><a href="#instructions">instructions</a></li>
+<li><a href="#how">how the computer works</a></li>
+<li><a href="#overflow">overflow/undefrlow</a></li>
+<li><a href="#code-is-data">code is data</a></li>
+<li><a href="#game">game</a></li>
+</ul>
+
+<pre>
+<h2 id="intro">4917 - the computer:</h2>
+This computer has four important components.
+
+* <a href="#ram"><b>Memory</b></a> with 16 cells
+  Each cell has address from 0 to 15, we can read and write into any
+  of the locations. This kind of memory is called RAM, for random
+  access memory, because we can go and read/write any address. Each
+  cell is 4 bits, so the maximum value is 15.
+* <a href="#cpu"><b>Processor</b></a>
+  also called CPU, Central Processing Unit, is the piece of the
+  computer that executes the program from the memory
+* <b>Printer</b>
+  where we can print values
+* <b>Beeper</b>
+  we can use it to beep
+
+<h2 id="bits">Bits, Nibbles and Bytes:</h2>
 1 bit is the smallest amount of information we could have, it is
 either 1 or 0. For example, we can encode the flip of a coin in 1 bit,
 it is either Heads or Tails.
 
 In 4 bits we can have the numbers from 0 to 15:
+
 
 0000  0    0001  1   0010  2    0011  3
 0100  4    0101  5   0110  6    0111  7
@@ -20,28 +64,10 @@ In 4 bits we can have the numbers from 0 to 15:
 1024 kilobytes is a megabyte
 1024 megabytes is a gigabyte
 1024 gigabytes is a petabyte
+
 ...
-    
-# 4917 - 4 bit the computer
 
-This computer has four important components (explained in detail
-later):
-
-* Memory with 16 cells
-  Each cell has address from 0 to 15, we can read and write into any
-  of the locations. This kind of memory is called RAM, for random
-  access memory, because we can go and read/write any address. Each
-  cell is 4 bits, so the maximum value is 15.
-* Processor
-  also called CPU, Central Processing Unit, is the piece of the
-  computer that executes the program from the memory
-* Printer
-  where we can print values
-* Beeper
-  we can use it to beep
-
-# CPU (Processor):
-
+<h2 id="cpu">CPU (Processor):</h2>
 The CPU loads instructions from memory and executes them. You can
 think of the CPU as an octopus. The octopus can only work with its
 arms, for example if one arm has 5 coins and the other has 3, it can
@@ -90,8 +116,7 @@ address pointed by IP(instruction pointer), and puts it in
 IS(instruction store) and executes it. It keeps doing that forever and
 ever until you turn it off.
 
-# RAM (addressees from 0 to 15):
-
+<h2 id="ram">RAM (addresses/locations from 0 to 15):</h2>
 ┌────┬────┬────┬────┐
 │  0 │  1 │  2 │  3 │
 ├────┼────┼────┼────┤
@@ -123,8 +148,7 @@ In our computer it is possible however to pre-configure the RAM to
 start in certain configuration.
 
 
-# Instructions:
-
+<h2 id="instructions">Instructions:</h2>
 Those are the possible instructions our CPU can do:
 
  0 HALT
@@ -161,7 +185,7 @@ The JUMP instructions are also called BRANCH instructions, BRANCH,
 BRANCH IF ZERO, BRANCH IF NOT ZERO or B, BZ, BNZ for short.
 
 
-# How does the computer work.
+<h2 id="how">How does the computer work:</h2>
 
 Lets look at the computer as a whole while it has the following
 program preloaded in RAM: 3 11 4 8 0.
@@ -249,7 +273,7 @@ IP = 0, IS = 7
 This is an infinite loop, it will beep and print 4 forever.
 
 
-# Overflow and Underflow
+<h2 id="overflow">Overflow and Underflow:</h2>
 
 Our computer does not understand negative numbers, so if R0 is 0 and
 you decrement it, it will turn into 15 (which is the maximum value)
@@ -259,12 +283,12 @@ you decrement it, it will turn into 15 (which is the maximum value)
 
 This is called integer underflow
 
-You can not have numbers bigger than 15, so if R0 is 15 and you
+You also can not have numbers bigger than 15, so if R0 is 15 and you
 increment it, it will turn into 0.
 
 If R0 is 2 and you add 15 to it, it will turn into 1
 
-
+  1 + 14 is 15
   1 + 15 is 0
   2 + 15 is 1
   3 + 15 is 2
@@ -274,8 +298,7 @@ If R0 is 2 and you add 15 to it, it will turn into 1
 It is the same for IP, it overflows just like R0 and R1
 This is called integer overflow
 
-# Code is Data
-
+<h2 id="code-is-data">Code is Data:</h2>
 You can see that the processor absolutely can not distinguish between
 code and data, it just fetches wherever IP points to and executes it.
 
@@ -335,7 +358,7 @@ IP = 5 IS = 0
 So this program changes itself twice, first it changes HALT to JUMP IF
 NOT ZERO, and then to JUMP IF ZERO.
 
-# Game
+<h2 id="game">Game:</h2>
 
 There are many possible ways to play the game.
 
@@ -357,3 +380,6 @@ There are many possible ways to play the game.
   You can interrupt the current program, and load new program into
   memory but leaving the values of IP, R0 and R1 from the previous
   program.
+</pre>
+</body>
+</html>
