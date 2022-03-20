@@ -1,8 +1,8 @@
-## Richard Buckland's 4917 4 bit cpu
+## Richard Buckland's 4917 4 bit computer
+(check out his lectures: https://www.youtube.com/watch?v=gTeDX4yAdyU)
 
-(it is a madeup computer, that works in a very similar way to the real
-computer you use)
-
+# Bits, Nibbles and Bytes
+    
 1 bit is the smallest amount of information we could have, it is
 either 1 or 0. For example, we can encode the flip of a coin in 1 bit,
 it is either Heads or Tails.
@@ -14,6 +14,16 @@ In 4 bits we can have the numbers from 0 to 15:
 1000  8    1001  0   1010 10    1011 11
 1100 12    1101 13   1110 14    1111 15
 
+4 bits are called a nibble
+8 bits is a byte
+1024 bytes is a kilobyte
+1024 kilobytes is a megabyte
+1024 megabytes is a gigabyte
+1024 gigabytes is a petabyte
+...
+    
+# 4917 - 4 bit the computer
+
 This computer has four important components (explained in detail
 later):
 
@@ -23,8 +33,8 @@ later):
   access memory, because we can go and read/write any address. Each
   cell is 4 bits, so the maximum value is 15.
 * Processor
-  also called CPU, Central Processing Unit, is the pice of the
-  computer that executes the program in the memory
+  also called CPU, Central Processing Unit, is the piece of the
+  computer that executes the program from the memory
 * Printer
   where we can print values
 * Beeper
@@ -32,15 +42,14 @@ later):
 
 # CPU (Processor):
 
-It loads instructions from memory and executes them. You can think of
-the CPU as a blind octopus. The octopus can only work with its arms,
-for example if one arm has 5 coins and the other has 3, it can add
-them and have one arm with 8 coins. Then you can ask the octopus to
-put the conins back on the shelve. The CPU just like the octopus can
-only work with its registers (like the octopus arms), our CPU has 4
-registers, R0, R1, IP(instruction pointer) and IS(instruction
-store). Modern CPUs have around 32 registers (some have more thabn
-600).
+The CPU loads instructions from memory and executes them. You can
+think of the CPU as an octopus. The octopus can only work with its
+arms, for example if one arm has 5 coins and the other has 3, it can
+add them and have one arm with 8 coins. Then you can ask the octopus
+to put the coins back on the shelve. The CPU just like the octopus
+can only work with its arms, we call them 'registers'. Our CPU has 4
+registers. Modern CPUs have around 32 registers, some have more than
+600.
 
                                                                          
               ██████████                
@@ -69,17 +78,19 @@ store). Modern CPUs have around 32 registers (some have more thabn
 │ R0:  0 │ │ R1:  0 │
 └────────┘ └────────┘
 
-Each of them can hold a 4 bit number from 0 to 15. Registers are just
-memory that the CPU can do stuff with, e.g. ADD R0 + R1 or INCREMENT
-R0. IP and IS are a bit special, because the CPU uses them to know
-which instruction to fetch and what its value is.
+Each of them can hold a 4 bit number from 0 to 15. Registers are
+actually just memory that the CPU can do stuff with (like the arms of
+the octopus), e.g. ADD R0 + R1 or INCREMENT R0. IP and IS are a bit
+special, because the CPU uses them to know which instruction to fetch
+from memory and what its value is. R0 and R1 are called general
+purpose registers because we can use them for whatever we want.
 
-The CPU fetches an instruction from the memory address pointed by
-IP(instruction pointer), and puts it in IS(instruction store) and
-executes it. It keeps doing that forever and ever until you turn it
-off.
+Once you power on the CPU, it fetches an instruction from the memory
+address pointed by IP(instruction pointer), and puts it in
+IS(instruction store) and executes it. It keeps doing that forever and
+ever until you turn it off.
 
-# RAM (addressess from 0 to 15):
+# RAM (addressees from 0 to 15):
 
 ┌────┬────┬────┬────┐
 │  0 │  1 │  2 │  3 │
@@ -127,7 +138,7 @@ Those are the possible instructions our CPU can do:
 
  8 X PRINT X (print the next memory cell)
 
- 9 X R0 = RAM[X] (load the vaule of address X into R0)
+ 9 X R0 = RAM[X] (load the value of address X into R0)
 10 X R1 = RAM[X] (load the value of address X into R1)
 11 X RAM[X] = R0 (store the value of R0 into address X)
 12 X RAM[X] = R1 (store the value of R1 into address X)
@@ -139,8 +150,8 @@ Those are the possible instructions our CPU can do:
      otherwise proceed with the next instruction
 15 X JUMP X IF R0 != 0 (jump to X if R0 is *not* equal to 0)
 
-You see some of the instructions take 1 menmory cell, like INCREMENT or
-BEEP, but others take two cellsm like PRINT or JUMP.
+You see some of the instructions take 1 memory cell, like INCREMENT or
+BEEP, but others take two cells like PRINT or JUMP.
 
 You can also see that it cant just go and do addition or subtraction
 directly in memory, first it needs to load the values from memory into
@@ -149,7 +160,8 @@ R0 and R1 and then do addition and then put it back in memory.
 The JUMP instructions are also called BRANCH instructions, BRANCH,
 BRANCH IF ZERO, BRANCH IF NOT ZERO or B, BZ, BNZ for short.
 
-# Computer
+
+# How does the computer work.
 
 Lets look at the computer as a whole while it has the following
 program preloaded in RAM: 3 11 4 8 0.
@@ -197,7 +209,7 @@ IP = 3, IS = 8 1
 
 IP = 5, IS = 0
   the value at address 5 is 0, so the CPU will HALT and not
-  update the instruction pointer(IP) anynmore
+  update the instruction pointer(IP) anymore
 
 
 Another program we could examine: 7 8 4 13 0
@@ -236,7 +248,8 @@ IP = 0, IS = 7
 
 This is an infinite loop, it will beep and print 4 forever.
 
-# Negative Numbers
+
+# Overflow and Underflow
 
 Our computer does not understand negative numbers, so if R0 is 0 and
 you decrement it, it will turn into 15 (which is the maximum value)
@@ -245,8 +258,6 @@ you decrement it, it will turn into 15 (which is the maximum value)
   0 - 2 is 14 (subtract 2 from 0)
 
 This is called integer underflow
-
-* Overflow
 
 You can not have numbers bigger than 15, so if R0 is 15 and you
 increment it, it will turn into 0.
@@ -261,10 +272,11 @@ If R0 is 2 and you add 15 to it, it will turn into 1
   5 + 15 is 4
 
 It is the same for IP, it overflows just like R0 and R1
+This is called integer overflow
 
 # Code is Data
 
-You can see that the processor absolutely can not distinguis between
+You can see that the processor absolutely can not distinguish between
 code and data, it just fetches wherever IP points to and executes it.
 
 It does not have concepts like variables or numbers or letters or
@@ -330,7 +342,7 @@ There are many possible ways to play the game.
 * Random Memory Corruption
   roll a dice to tell you which address to corrupt, and roll again to
   tell you which value, then you have to explain what the corrupted
-  orogram will do.
+  program will do.
 
 * Limited Monkey Patching
   you can increment the value of one memory address to make the

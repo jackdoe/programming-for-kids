@@ -12,7 +12,7 @@
 # 14 X jump to address X if R0 == 0
 # 15 X jump to address X if R0 != 0
 #
-# 7 beep 8 beep beep 8 beep beep 0
+# 7 beep 8 beep beep 8 beep beep.. and the next run stop
 ┌────────┐ ┌────────┐
 │ IP:  0 │ │ IS:  0 │
 └────────┘ └────────┘
@@ -27,5 +27,5 @@
 ├────┼────┼────┼────┤
 │  8 │  7 │  7 │  8 │
 ├────┼────┼────┼────┤
-│  0 │  0 │  0 │  0 │
+│  8 │ 11 │  7 │  8 │
 └────┴────┴────┴────┘
