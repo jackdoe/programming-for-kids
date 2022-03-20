@@ -43,7 +43,7 @@ store). Modern CPUs have around 32 registers (some have more thabn
 600).
 
                                                                          
-                  ██████████                
+              ██████████                
           ████▒▒▒▒▒▒▒▒▒▒████            
         ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██          
       ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██        

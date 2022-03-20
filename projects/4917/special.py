@@ -30,7 +30,7 @@ def special(deck, name, text, fnt):
 
 intro = """
 
-█████████████████████████████ Scan
+█████████████████████████████ scan
 ██ ▄▄▄▄▄ █▄▄▄ ▀█▄█ █ ▄▄▄▄▄ ██ for
 ██ █   █ ██▄▀ █  █▀█ █   █ ██ info
 ██ █▄▄▄█ ██▀▄ ▄█▀█ █ █▄▄▄█ ██ about
@@ -57,7 +57,7 @@ possible games:
   * monkey patching
     modify one instruction in memory
   * hacking
-    players take turn to HALt each
+    players take turns to HALt each
     other's computers
   * composition
     load new program mid-way as 
