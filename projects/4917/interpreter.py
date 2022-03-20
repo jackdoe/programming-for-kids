@@ -135,7 +135,7 @@ def cpu(IP, IS, R0, R1, memory, debug=True):
           IP -= 16
 
         if debug:
-          input()
+          input('hit enter to continue> ')
 
 
 if len(sys.argv) == 1 or ".prg" not in sys.argv[1]:
