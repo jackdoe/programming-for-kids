@@ -28,6 +28,11 @@ def ascii(state, highlight):
 
 """.format(*center))
 
+def overflow_add(x, n):
+  x += n
+  if x > 15:
+    x -= 16
+  return x
 
 def cpu(IP, IS, R0, R1, memory, debug=True):
     """
@@ -58,7 +63,7 @@ def cpu(IP, IS, R0, R1, memory, debug=True):
         IS = memory[IP]
         highlight = [IP]
         if (IS >= 8):
-            highlight = [IP, IP+1]
+            highlight = [IP,overflow_add(IP,1)]
 
         if debug:
           ascii([IP, IS, R0, R1, *memory], highlight)
@@ -87,30 +92,30 @@ def cpu(IP, IS, R0, R1, memory, debug=True):
             print("*** BEEP ***")
             IP += 1
         elif IS == 8:
-            print("*** ", memory[IP+1], "***")
+            print("*** ", memory[overflow_add(IP,1)], "***")
             IP += 2
         elif IS == 9:
-            R0 = memory[memory[IP+1]]
+            R0 = memory[memory[overflow_add(IP,1)]]
             IP += 2
         elif IS == 10:
-            R1 = memory[memory[IP+1]]
+            R1 = memory[memory[overflow_add(IP,1)]]
             IP += 2
         elif IS == 11:
-            memory[memory[IP+1]] = R0
+            memory[memory[overflow_add(IP,1)]] = R0
             IP += 2
         elif IS == 12:
-            memory[memory[IP+1]] = R1
+            memory[memory[overflow_add(IP,1)]] = R1
             IP += 2
         elif IS == 13:
-            IP = memory[IP + 1]
+            IP = memory[overflow_add(IP,1)]
         elif IS == 14:
             if R0 == 0:
-                IP = memory[IP + 1]
+                IP = memory[overflow_add(IP,1)]
             else:
                 IP += 2
         elif IS == 15:
             if R0 != 0:
-                IP = memory[IP + 1]
+                IP = memory[overflow_add(IP,1)]
             else:
                 IP += 2
 
