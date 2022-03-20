@@ -12,15 +12,15 @@ body {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>Richard Buckland's 4917 4 bit computer</h1>
-check out his lectures: <a href="https://www.youtube.com/watch?v=gTeDX4yAdyU">www.youtube.com/watch?v=gTeDX4yAdyU</a><br><br>
+<h1>Richard Buckland's 4 bit computer</h1>
+check out his lectures: <a href="https://www.youtube.com/watch?v=gTeDX4yAdyU">www.youtube.com/watch?v=gTeDX4yAdyU</a><br>the computer is named: <b>4917</b><br><br>
 
 Table of Contents:
 <ul>
 <li><a href="#intro">intro</a></li>
 <li><a href="#bits">bits</a></li>
 <li><a href="#cpu">cpu</a></li>
-<li><a href="#ram">ram</a></li>
+<li><a href="#ram">memory</a></li>
 <li><a href="#instructions">instructions</a></li>
 <li><a href="#how">how the computer works</a></li>
 <li><a href="#overflow">overflow/undefrlow</a></li>
@@ -29,14 +29,14 @@ Table of Contents:
 </ul>
 
 <pre>
-<h2 id="intro">4917 - the computer:</h2>
+<h2 id="intro">4917 - The Computer:</h2>
 This computer has four important components.
 
 * <a href="#ram"><b>Memory</b></a> with 16 cells
-  Each cell has address from 0 to 15, we can read and write into any
-  of the locations. This kind of memory is called RAM, for random
-  access memory, because we can go and read/write any address. Each
-  cell is 4 bits, so the maximum value is 15.
+  Each cell has address location from 0 to 15, we can read and write
+  into any of the addresses. This kind of memory is called RAM, for
+  random access memory, because we can go and read/write any
+  address. Each cell is 4 bits, so the maximum value is 15.
 * <a href="#cpu"><b>Processor</b></a>
   also called CPU, Central Processing Unit, is the piece of the
   computer that executes the program from the memory
@@ -116,7 +116,11 @@ address pointed by IP(instruction pointer), and puts it in
 IS(instruction store) and executes it. It keeps doing that forever and
 ever until you turn it off.
 
-<h2 id="ram">RAM (addresses/locations from 0 to 15):</h2>
+<h2 id="ram">MEMORY:</h2>
+
+It has 16 addresses from 0 to 15, 0 is the top left, 15 is the bottom
+right:
+
 ┌────┬────┬────┬────┐
 │  0 │  1 │  2 │  3 │
 ├────┼────┼────┼────┤
@@ -127,7 +131,7 @@ ever until you turn it off.
 │ 12 │ 13 │ 14 │ 15 │
 └────┴────┴────┴────┘
 
-The RAM is reset every time you turn off your computer, so it starts
+The memory is reset every time you turn off your computer, so it starts
 zeroed out:
 
 ┌────┬────┬────┬────┐
@@ -142,9 +146,9 @@ zeroed out:
 
 This is why in real computers we need hard disks, where we persist
 information that survives powering off the device, and when it starts
-we can load this information into the RAM and use it.
+we can load this information into the memory and use it.
 
-In our computer it is possible however to pre-configure the RAM to
+In our computer it is possible however to pre-configure the memory to
 start in certain configuration.
 
 
@@ -162,10 +166,10 @@ Those are the possible instructions our CPU can do:
 
  8 X PRINT X (print the next memory cell)
 
- 9 X R0 = RAM[X] (load the value of address X into R0)
-10 X R1 = RAM[X] (load the value of address X into R1)
-11 X RAM[X] = R0 (store the value of R0 into address X)
-12 X RAM[X] = R1 (store the value of R1 into address X)
+ 9 X R0 = MEMORY[X] (load the value of address X into R0)
+10 X R1 = MEMORY[X] (load the value of address X into R1)
+11 X MEMORY[X] = R0 (store the value of R0 into address X)
+12 X MEMORY[X] = R1 (store the value of R1 into address X)
 
 13 X JUMP X (jump to the value in the next memory cell)
      e.g. 13 7 means jump to address 7
@@ -188,7 +192,7 @@ BRANCH IF ZERO, BRANCH IF NOT ZERO or B, BZ, BNZ for short.
 <h2 id="how">How does the computer work:</h2>
 
 Lets look at the computer as a whole while it has the following
-program preloaded in RAM: 3 11 4 8 0.
+program preloaded in memory: 3 11 4 8 0.
 
 ┌────────┐ ┌────────┐
 │ IP:  0 │ │ IS:  0 │
@@ -306,8 +310,8 @@ It does not have concepts like variables or numbers or letters or
 anything like it. It just sees its registers and the current
 instruction and does it blindly.
 
-Because code and data both live in RAM we can make a program that
-writes itself, a self modifying program.
+Because code and data both live in the memory we can make a program
+that writes itself, a self modifying program.
 
 ┌────────┐ ┌────────┐
 │ IP:  0 │ │ IS:  0 │
@@ -333,7 +337,7 @@ IP = 0, IS = 5
     (since R0 is 0 at start, it will underflow to 15)
     IP = IP + 1
 IP = 1, IS = 11 3
-    STORE R0 in address 3, RAM[3] = 15
+    STORE R0 in address 3, MEMORY[3] = 15
     (on addr 3 we had HALT before, but now it will be JUMP IF R0 != 0)
     IP = IP + 2
 IP = 3, IS = 15 0
@@ -344,7 +348,7 @@ IP = 0, IS = 5
     DECREMENT R0, R0 = 15 - 1
     IP = IP + 1
 IP = 1, IS = 11 3
-    STORE R0 in address 3, RAM[3] = 14
+    STORE R0 in address 3, MEMORY[3] = 14
     (we had JMP IF R0 != 0 before, but now it will be JUMP IF R0 == 0)
     IP = IP + 2
 IP = 3 IS = 14 0

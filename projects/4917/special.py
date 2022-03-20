@@ -80,10 +80,10 @@ hello = """
 
  8 X PRINT X
   
- 9 X R0 = RAM[X]       (LDR)
-10 X R1 = RAM[X]       (LDR)
-11 X RAM[X] = R0       (STR)
-12 X RAM[X] = R1       (STR)
+ 9 X R0 = MEMORY[X]    (LDR)
+10 X R1 = MEMORY[X]    (LDR)
+11 X MEMORY[X] = R0    (STR)
+12 X MEMORY[X] = R1    (STR)
   
 13 X JUMP X            (B)
 14 X JUMP X IF R0 == 0 (BZ)
