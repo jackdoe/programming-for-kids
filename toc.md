@@ -509,3 +509,9 @@
 [day-199 coordinates](#day-199-coordinates)
 
 [day-200 coordinates](#day-200-coordinates)
+
+[day-201 computers](#day-201-computers)
+
+[day-202 pointers](#day-202-pointers)
+
+[day-203 strategy](#day-203-strategy)

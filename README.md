@@ -627,6 +627,12 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-200 coordinates](#day-200-coordinates)
 
+[day-201 computers](#day-201-computers)
+
+[day-202 pointers](#day-202-pointers)
+
+[day-203 strategy](#day-203-strategy)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -16946,4 +16952,75 @@ data = [
 
 
 ![game-200-b.png](./screenshots/game-200-b.png "game 200-b screenshot")
+
+## [DAY-201] computers
+
+Watch "The Computer Science Iceberg Explained (Part 1)" by Quabl - https://www.youtube.com/watch?v=H565avw-ufk
+
+## [DAY-202] pointers
+
+Watch "What Are Pointers? (C++)" by javidx9 again - https://www.youtube.com/watch?v=iChalAKXffs 
+
+
+## [DAY-203] Strategy
+
+Add multiple levels in your cutescare game, now you have only one level:
+
+```
+...
+
+data = [
+    Rect(0,0,100,200),
+    Rect(20,200, 300, 30),
+    Rect(267,226, 30, 500),
+    Rect(408,678, 20, 200),
+    Rect(23,659, 800, 20),
+    Rect(429,101, 30, 500),
+    Rect(299,356, 800, 20)
+]
+
+...
+```
+
+To make the game more interesting, add 2 more levels. First think a bit on your own how to do it then come back to the book.
+
+
+```
+...
+level1 = [
+    Rect(0,0,100,200),
+    Rect(20,200, 300, 30),
+    Rect(267,226, 30, 500),
+    ...
+]
+
+level2 = [
+    Rect(267,226, 30, 500),
+    ...
+]
+
+level3 = [
+    Rect(267,226, 30, 500),
+    ...
+]
+
+current_level = level1
+
+
+def update():
+    global current_level
+    
+    if current_level == level1 and elf.x > 700 and elf.y > 700:
+        current_level = level3
+    
+def draw():
+    ....
+    for d in current_level:
+        ...
+...
+```
+
+This pattern of having a 'current' thing is active from possible options is extremely common, you can see it everywhere in all kinds of program.
+
+For example check out Google Chrome's tab bar, you have a current tab, when you click on some other one it changes it. As an exercise try to spot this pattern in the apps you use on your phone or computer.
 
