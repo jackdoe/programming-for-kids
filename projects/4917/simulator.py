@@ -1,6 +1,4 @@
-from dis import dis
 import sys
-
 
 mnemonics = [
     "HLT",  # 0
@@ -22,144 +20,175 @@ mnemonics = [
 ]
 
 
-def overflow_add(x, n):
-    return (x + n) & 0xF
-
-
-def HLT(IP, R0, R1, memory):
+def HLT():
     print("\n*** HALT ***")
-    return IP, R0, R1, memory
 
 
-def ADD(IP, R0, R1, memory):
+def ADD(R0, R1):
     R0 += R1
-    return IP, R0, R1, memory
+    return R0, R1
 
 
-def SUB(IP, R0, R1, memory):
+def SUB(R0, R1):
     R0 -= R1
-    return IP, R0, R1, memory
+    return R0, R1
 
 
-def INC0(IP, R0, R1, memory):
+def INC0(R0, R1):
     R0 += 1
-    return IP, R0, R1, memory
+    return R0, R1
 
 
-def INC1(IP, R0, R1, memory):
+def INC1(R0, R1):
     R1 += 1
-    return IP, R0, R1, memory
+    return R0, R1
 
 
-def DEC0(IP, R0, R1, memory):
+def DEC0(R0, R1):
     R0 -= 1
-    return IP, R0, R1, memory
+    return R0, R1
 
 
-def DEC1(IP, R0, R1, memory):
+def DEC1(R0, R1):
     R1 -= 1
-    return IP, R0, R1, memory
+    return R0, R1
 
 
-def BEEP(IP, R0, R1, memory):
+def BEEP():
     print("\n*** BEEP ***")
-    return IP, R0, R1, memory
 
 
-def PRINT(IP, R0, R1, memory):
-    print("\n*** ", memory[IP], "***")
-    IP = overflow_add(IP, 1)
-    return IP, R0, R1, memory
+def PRINT(R0, R1, IP, memory):
+    print("\n***", memory[memory[IP]], "***")
+    return R0, R1, memory
 
 
-def LDR0(IP, R0, R1, memory):
+def LDR0(R0, R1, IP, memory):
     R0 = memory[memory[IP]]
-    IP = overflow_add(IP, 1)
-    return IP, R0, R1, memory
+    return R0, R1, memory
 
 
-def LDR1(IP, R0, R1, memory):
+def LDR1(R0, R1, IP, memory):
     R1 = memory[memory[IP]]
-    IP = overflow_add(IP, 1)
-    return IP, R0, R1, memory
+    return R0, R1, memory
 
 
-def STR0(IP, R0, R1, memory):
+def STR0(R0, R1, IP, memory):
     memory[memory[IP]] = R0
-    IP = overflow_add(IP, 1)
-    return IP, R0, R1, memory
+    return R0, R1, memory
 
 
-def STR1(IP, R0, R1, memory):
+def STR1(R0, R1, IP, memory):
     memory[memory[IP]] = R1
-    IP = overflow_add(IP, 1)
-    return IP, R0, R1, memory
+    return R0, R1, memory
 
 
-def B(IP, R0, R1, memory):
+def B(IP, R0, memory):
     IP = memory[IP]
-    IP = overflow_add(IP, 1)
-    return IP, R0, R1, memory
+    return IP
 
 
-def BZ(IP, R0, R1, memory):
-    IP = memory[IP] if R0 == 0 else overflow_add(IP, 1)
-    return IP, R0, R1, memory
+def BZ(IP, R0, memory):
+    if R0 == 0:
+        IP = memory[IP]
+    else:
+        IP += 1
+    return IP
 
 
-def BNZ(IP, R0, R1, memory):
-    IP = memory[IP] if R0 != 0 else overflow_add(IP, 1)
-    return IP, R0, R1, memory
+def BNZ(IP, R0, memory):
+    if R0 != 0:
+        IP = memory[IP]
+    else:
+        IP += 1
+    return IP
 
 
-# [function, instruction width]
+# [microcode, type: 1 = register, 2 = memory, 3 = branch, 4 = stateless]
 instruction_set = [
-    [HLT, 1],  # 0
+    [HLT, 4],  # 0
     [ADD, 1],  # 1
     [SUB, 1],  # 2
     [INC0, 1],  # 3
     [INC1, 1],  # 4
     [DEC0, 1],  # 5
     [DEC1, 1],  # 6
-    [BEEP, 1],  # 7
+    [BEEP, 4],  # 7
     [PRINT, 2],  # 8
     [LDR0, 2],  # 9
     [LDR1, 2],  # 10
     [STR0, 2],  # 11
     [STR1, 2],  # 12
-    [B, 2],  # 13
-    [BZ, 2],  # 14
-    [BNZ, 2],  # 15
+    [B, 3],  # 13
+    [BZ, 3],  # 14
+    [BNZ, 3],  # 15
 ]
 
 
 def disassemble(state):
     IP, IS, R0, R1, memory = state
 
-    print(f"\nIP: {IP}, IS: {IS}, R0: {R0}, R1: {R1}")
+    print(f"\n IP: {IP}, IS: {IS}, R0: {R0}, R1: {R1}\n")
 
     index = 0
     halt_seen = False
     while index < len(memory):
         IS = memory[index]
-        microcode, width = instruction_set[IS]
+        microcode, type = instruction_set[IS]
         mnemonic = mnemonics[IS]
         marker = ">" if index == IP else " "
 
         if halt_seen:
-            print(f" {index:02d}: {IS}")
-        elif width == 1:
-            print(f"{marker}{index:02d}: {mnemonic:5}")
+            # memory after HTL assumed to be data
+            print(f" {index:02d}: {IS:02d}")
+            index += 1
+        elif type == 1 or type == 4:
+            # register instruction
+            print(f"{marker}{index:02d}: {IS:02d}     {mnemonic:5}")
+            index += 1
+        elif type == 2 or type == 3:
+            # memory instruction
+            operand = memory[index + 1]
+            print(
+                f"{marker}{index:02d}: {IS:02d} {operand:02d}  {mnemonic:5} {operand}"
+            )
+            index += 2
         else:
-            print(f"{marker}{index:02d}: {mnemonic:5} {memory[index+1]}")
-
-        index += width
+            raise Exception(f"Invalid instruction type: ${type}")
 
         if IS == 0:
             halt_seen = True
 
 
-def cpu(IP, IS, R0, R1, memory, debug=True):
+def exec_instruction(state, instruction):
+    IP, R0, R1, memory = state
+    microcode, type = instruction
+
+    if type == 1:
+        # register instruction
+        R0, R1 = microcode(R0, R1)
+    elif type == 2:
+        # memory instruction
+        R0, R1, memory = microcode(R0, R1, IP, memory)
+        IP += 1
+    elif type == 3:
+        # branch instruction
+        IP = microcode(IP, R0, memory)
+    elif type == 4:
+        # stateless instruction
+        microcode()
+    else:
+        raise Exception(f"Invalid instruction type {type}")
+
+    # truncate registers to 4 bits (all are unsigned nibbles)
+    IP, R0, R1 = (register & 0xF for register in (IP, R0, R1))
+
+    return IP, R0, R1, memory
+
+
+def cpu(IP, R0, R1, memory, debug=True):
+    IS = 0
+
     while True:
         if debug:
             disassemble((IP, IS, R0, R1, memory))
@@ -169,13 +198,14 @@ def cpu(IP, IS, R0, R1, memory, debug=True):
         IS = memory[IP]
 
         # Increment the instruction pointer
-        IP = overflow_add(IP, 1)
+        IP = (IP + 1) & 0xF
 
         # Lookup the function to execute and the width of the instruction
-        microcode, width = instruction_set[IS]
+        instruction = instruction_set[IS]
 
-        # Execute the instruction code
-        IP, R0, R1, memory = microcode(IP, R0, R1, memory)
+        state = IP, R0, R1, memory
+        state = exec_instruction(state, instruction)
+        IP, R0, R1, memory = state
 
         # Exit the for the HLT instruction
         if IS == 0:
@@ -185,12 +215,14 @@ def cpu(IP, IS, R0, R1, memory, debug=True):
         disassemble((IP, IS, R0, R1, memory))
 
 
-def load_program():
+def load_matrix():
     if len(sys.argv) == 1 or ".prg" not in sys.argv[1]:
         print("usage: python3 ", sys.argv[0] + " file.prg")
         sys.exit(1)
 
     f = open(sys.argv[1])
+
+    # for running the debugger
     # f = open(r".\projects\4917\deck\01.prg")
 
     state = []
@@ -214,8 +246,8 @@ def load_program():
 
 
 if __name__ == "__main__":
-    IP, IS, RO, R1, *memory = load_program()
+    IP, IS, RO, R1, *memory = load_matrix()
 
     # Note: IS is not part of the state. It is an internal CPU register
     # not externally accessible
-    cpu(IP, IS, RO, R1, memory)
+    cpu(IP, RO, R1, memory)
