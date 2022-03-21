@@ -32,11 +32,10 @@ Table of Contents:
 <h2 id="intro">4917 - The Computer:</h2>
 This computer has four important components.
 
-* <a href="#ram"><b>Memory</b></a> with 16 cells
-  We can read and write into any of the cell addresses. This kind of
-  memory is called RAM, for Random Access Memory, because we can go
-  and read/write any address. Each cell can contain a number from 0 to
-  15. So we have 16 locations each containing numbers from 0 to 15.
+* <a href="#ram"><b>Memory</b></a>
+  also called RAM, for Random Access Memory, because we can read and
+  write into any location. The memory is where we keep our program and
+  the data that the program can work with.
 * <a href="#cpu"><b>Processor</b></a>
   also called CPU, Central Processing Unit, is the piece of the
   computer that executes the program from the memory
@@ -118,8 +117,20 @@ ever until you turn it off.
 
 <h2 id="ram">MEMORY:</h2>
 
-It has 16 addresses from 0 to 15, 0 is the top left, 15 is the bottom
-right:
+This computer has 16 addressable memory locations, each location can
+hold a number between 0 and 15.
+
+You can think of it as a list of numbers, the position or index on
+each number is its address:
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+^               ^             ^
+|               |             |
+position 0      |             position 15
+                position 8
+
+This however is a bit annoying to read, so using a 4x4 grid makes it a
+bit easier, so it would look like this:
 
 ┌────┬────┬────┬────┐
 │  0 │  1 │  2 │  3 │
@@ -130,6 +141,23 @@ right:
 ├────┼────┼────┼────┤
 │ 12 │ 13 │ 14 │ 15 │
 └────┴────┴────┴────┘
+
+top left is address 0, bottom right is address 15, so we can reach any
+cell by using its address.
+
+For example, if we have the value 5 on address 1 and value 7 on
+address 12, the memory looks like this:
+
+┌────┬────┬────┬────┐
+│  0 │  5 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  7 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+└────┴────┴────┴────┘
+
 
 The memory is reset every time you turn off your computer, so it starts
 zeroed out:
@@ -148,8 +176,8 @@ This is why in real computers we need hard disks, where we persist
 information that survives powering off the device, and when it starts
 we can load this information into the memory and use it.
 
-In our computer it is possible however to pre-configure the memory to
-start in certain configuration.
+In our computer however it is possible however to pre-configure the
+memory to start preloaded with our program.
 
 
 <h2 id="instructions">Instructions:</h2>
