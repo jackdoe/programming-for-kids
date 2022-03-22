@@ -18,6 +18,13 @@ def main():
         choices=["asm", "matrix"],
         default=None,
     )
+    parser.add_argument(
+        "-d",
+        "--debug",
+        help="Turn debugger on/off",
+        choices=["on", "off"],
+        default="on",
+    )
 
     args = parser.parse_args()
     filename = args.filename
@@ -37,6 +44,7 @@ def main():
         print("Unsupported file type.")
 
     visualizer = disassemble if visualize == "asm" else ascii
+    debug = args.debug == "on"
 
     filename = args.filename
 
@@ -45,17 +53,16 @@ def main():
     # visualizer = disassemble
 
     with open(filename) as file:
-        if filename.endswith(".prg"):
-            IP, IS, RO, R1, *memory = load_matrix(file)
-            cpu(visualizer, memory)
-        else:
-            try:
+        try:
+            if filename.endswith(".prg"):
+                IP, IS, RO, R1, *memory = load_matrix(file)
+            else:
                 memory = assemble(file)
-                cpu(visualizer, memory)
-            except AsmError as exc:
-                print(exc.message)
-            except Exception as exc:
-                print(exc)
+            cpu(visualizer, memory, debug=debug)
+        except AsmError as exc:
+            print(exc.message)
+        except Exception as exc:
+            print(exc)
 
 
 if __name__ == "__main__":

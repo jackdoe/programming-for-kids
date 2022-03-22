@@ -4,10 +4,10 @@ from cpu.instruction_set import mnemonics, InstructionType
 REGISTER_PATTERN = re.compile(r"([A-Z]+?)_(R[01])", re.IGNORECASE)
 
 
-def disassemble(state, highlight):
+def disassemble(state, highlight, cycle=0):
     IP, IS, R0, R1, memory = state
 
-    print(f"\n IP: {IP}, R0: {R0}, R1: {R1}\n")
+    print(f"\n IP: {IP}, R0: {R0}, R1: {R1}, Cycle: {cycle}\n")
 
     index = 0
     while index < len(memory):
@@ -69,5 +69,3 @@ def disassemble(state, highlight):
                 index += 2
         else:
             raise Exception(f"Invalid instruction type: {type}")
-
-    input("hit enter to continue> ")

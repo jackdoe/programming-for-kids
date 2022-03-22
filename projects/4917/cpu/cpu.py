@@ -1,4 +1,6 @@
-from cpu.instruction_set import instruction_set, InstructionType
+import time
+
+from cpu.instruction_set import InstructionType, instruction_set
 
 
 def exec_instruction(state, instruction):
@@ -27,14 +29,10 @@ def exec_instruction(state, instruction):
     return IP, R0, R1, memory
 
 
-def cpu(
-    visualizer,
-    memory,
-    IP=0,
-    R0=0,
-    R1=0,
-    debug=True,
-):
+def cpu(visualizer, memory, IP=0, R0=0, R1=0, debug=True):
+    cycle = 0
+    quit = None
+
     while True:
         # Fetch the next instruction
         IS = memory[IP]
@@ -44,7 +42,13 @@ def cpu(
             highlight = [IP, (IP + 1) & 0xF]
 
         if debug:
-            visualizer((IP, IS, R0, R1, memory), highlight)
+            visualizer((IP, IS, R0, R1, memory), highlight, cycle)
+            quit = input("hit enter to continue or 'q' enter to quit> ")
+            if quit == "q":
+                break
+            print()
+        else:
+            time.sleep(0.1)
 
         # Increment the instruction pointer
         IP = (IP + 1) & 0xF
@@ -60,5 +64,7 @@ def cpu(
         if IS == 0:
             break
 
-    if debug:
+        cycle += 1
+
+    if debug and not quit:
         visualizer((IP, IS, R0, R1, memory), highlight)
