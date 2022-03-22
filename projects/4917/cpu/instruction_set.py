@@ -1,22 +1,22 @@
 from enum import Enum
 
 mnemonics = [
-    "hlt",  # 0
-    "add",  # 1
-    "sub",  # 2
-    "inc0",  # 3
-    "inc1",  # 4
-    "dec0",  # 5
-    "dec1",  # 6
-    "beep",  # 7
-    "print",  # 8
-    "ldr0",  # 9
-    "ldr1",  # 10
-    "str0",  # 11
-    "str1",  # 12
-    "b",  # 13
-    "bz",  # 14
-    "bnz",  # 15
+    "HLT",  # 0
+    "ADD",  # 1
+    "SUB",  # 2
+    "INC0",  # 3
+    "INC1",  # 4
+    "DEC0",  # 5
+    "DEC1",  # 6
+    "BEEP",  # 7
+    "PRINT",  # 8
+    "LDR0",  # 9
+    "LDR1",  # 10
+    "STR0",  # 11
+    "STR1",  # 12
+    "B",  # 13
+    "BZ",  # 14
+    "BNZ",  # 15
 ]
 
 

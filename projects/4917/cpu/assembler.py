@@ -40,7 +40,7 @@ def tokenizer(line):
         for type, pattern in token_patterns:
             match = pattern.match(line, start)
             if match:
-                text = match.group(1).lower()
+                text = match.group(1).upper()
                 yield type, text, start
                 start = match.end()
                 break
@@ -71,7 +71,7 @@ def assemble(file):
         token, text, pos = next(iter)
         while token not in END_OF_STATEMENT_TOKENS:
             if token == Token.DIRECTIVE:
-                if text != "data":
+                if text != "DATA":
                     raise AsmError("Invalid directive", pos, line)
                 data_directive_seen = True
                 token, text, pos = next(iter)
