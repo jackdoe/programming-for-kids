@@ -46,7 +46,7 @@ def loopup_mnemonic(text):
 
 
 def HLT():
-    print("\n*** HALT ***")
+    print("*** HALT ***")
 
 
 def ADD(R0, R1):
@@ -80,11 +80,11 @@ def DEC_R1(R0, R1):
 
 
 def BEEP():
-    print("\n*** BEEP ***")
+    print("*** BEEP ***\n")
 
 
 def PRINT(R0, R1, IP, memory):
-    print("\n***", memory[memory[IP]], "***")
+    print("***", memory[memory[IP]], "***\n")
     return R0, R1, memory
 
 

@@ -1,4 +1,4 @@
-def ascii(state, highlight):
+def ascii(state, highlight, cycle=None):
     IP, IS, R0, R1, memory = state
 
     center = []
@@ -30,5 +30,3 @@ def ascii(state, highlight):
             *center
         )
     )
-
-    input("hit enter to continue> ")
