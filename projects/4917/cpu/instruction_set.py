@@ -84,7 +84,7 @@ def BEEP():
 
 
 def PRINT(R0, R1, IP, memory):
-    print("***", memory[memory[IP]], "***\n")
+    print("***", memory[IP], "***\n")
     return R0, R1, memory
 
 
