@@ -3,6 +3,7 @@ from enum import Enum, auto
 
 class InstructionType(Enum):
     BRANCH = auto()
+    IO = auto()
     MEMORY = auto()
     REGISTER = auto()
     REGISTER_ALIAS = auto()
@@ -11,18 +12,18 @@ class InstructionType(Enum):
 
 mnemonics = [
     ("HLT", InstructionType.STATELESS),  # 0
-    ("ADD", InstructionType.REGISTER),  # 1
-    ("SUB", InstructionType.REGISTER),  # 2
-    ("INC0", InstructionType.REGISTER),  # 3
-    ("INC1", InstructionType.REGISTER),  # 4
-    ("DEC0", InstructionType.REGISTER),  # 5
-    ("DEC1", InstructionType.REGISTER),  # 6
+    ("ADD", InstructionType.STATELESS),  # 1
+    ("SUB", InstructionType.STATELESS),  # 2
+    ("INC_R0", InstructionType.REGISTER),  # 3
+    ("INC_R1", InstructionType.REGISTER),  # 4
+    ("DEC_R0", InstructionType.REGISTER),  # 5
+    ("DEC_R1", InstructionType.REGISTER),  # 6
     ("BEEP", InstructionType.STATELESS),  # 7
-    ("PRINT", InstructionType.MEMORY),  # 8
-    ("LDR0", InstructionType.MEMORY),  # 9
-    ("LDR1", InstructionType.MEMORY),  # 10
-    ("STR0", InstructionType.MEMORY),  # 11
-    ("STR1", InstructionType.MEMORY),  # 12
+    ("PRINT", InstructionType.IO),  # 8
+    ("LD_R0", InstructionType.MEMORY),  # 9
+    ("LD_R1", InstructionType.MEMORY),  # 10
+    ("ST_R0", InstructionType.MEMORY),  # 11
+    ("ST_R1", InstructionType.MEMORY),  # 12
     ("B", InstructionType.BRANCH),  # 13
     ("BZ", InstructionType.BRANCH),  # 14
     ("BNZ", InstructionType.BRANCH),  # 15
@@ -31,6 +32,7 @@ mnemonics = [
     ("LD", InstructionType.REGISTER_ALIAS),
     ("ST", InstructionType.REGISTER_ALIAS),
 ]
+
 
 def loopup_mnemonic(text):
     try:
@@ -41,6 +43,7 @@ def loopup_mnemonic(text):
         )
     except StopIteration:
         return None
+
 
 def HLT():
     print("\n*** HALT ***")
@@ -56,22 +59,22 @@ def SUB(R0, R1):
     return R0, R1
 
 
-def INC0(R0, R1):
+def INC_R0(R0, R1):
     R0 += 1
     return R0, R1
 
 
-def INC1(R0, R1):
+def INC_R1(R0, R1):
     R1 += 1
     return R0, R1
 
 
-def DEC0(R0, R1):
+def DEC_R0(R0, R1):
     R0 -= 1
     return R0, R1
 
 
-def DEC1(R0, R1):
+def DEC_R1(R0, R1):
     R1 -= 1
     return R0, R1
 
@@ -85,22 +88,22 @@ def PRINT(R0, R1, IP, memory):
     return R0, R1, memory
 
 
-def LDR0(R0, R1, IP, memory):
+def LD_R0(R0, R1, IP, memory):
     R0 = memory[memory[IP]]
     return R0, R1, memory
 
 
-def LDR1(R0, R1, IP, memory):
+def LD_R1(R0, R1, IP, memory):
     R1 = memory[memory[IP]]
     return R0, R1, memory
 
 
-def STR0(R0, R1, IP, memory):
+def ST_R0(R0, R1, IP, memory):
     memory[memory[IP]] = R0
     return R0, R1, memory
 
 
-def STR1(R0, R1, IP, memory):
+def ST_R1(R0, R1, IP, memory):
     memory[memory[IP]] = R1
     return R0, R1, memory
 
@@ -130,16 +133,16 @@ instruction_set = [
     (HLT, InstructionType.STATELESS),  # 0
     (ADD, InstructionType.REGISTER),  # 1
     (SUB, InstructionType.REGISTER),  # 2
-    (INC0, InstructionType.REGISTER),  # 3
-    (INC1, InstructionType.REGISTER),  # 4
-    (DEC0, InstructionType.REGISTER),  # 5
-    (DEC1, InstructionType.REGISTER),  # 6
+    (INC_R0, InstructionType.REGISTER),  # 3
+    (INC_R1, InstructionType.REGISTER),  # 4
+    (DEC_R0, InstructionType.REGISTER),  # 5
+    (DEC_R1, InstructionType.REGISTER),  # 6
     (BEEP, InstructionType.STATELESS),  # 7
     (PRINT, InstructionType.MEMORY),  # 8
-    (LDR0, InstructionType.MEMORY),  # 9
-    (LDR1, InstructionType.MEMORY),  # 10
-    (STR0, InstructionType.MEMORY),  # 11
-    (STR1, InstructionType.MEMORY),  # 12
+    (LD_R0, InstructionType.MEMORY),  # 9
+    (LD_R1, InstructionType.MEMORY),  # 10
+    (ST_R0, InstructionType.MEMORY),  # 11
+    (ST_R1, InstructionType.MEMORY),  # 12
     (B, InstructionType.BRANCH),  # 13
     (BZ, InstructionType.BRANCH),  # 14
     (BNZ, InstructionType.BRANCH),  # 15

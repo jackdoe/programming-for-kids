@@ -16,30 +16,38 @@ def main():
         "--visualize",
         help="Visualizer to use",
         choices=["asm", "matrix"],
-        default="asm",
+        default=None,
     )
 
     args = parser.parse_args()
+    filename = args.filename
+    visualize = args.visualize
 
     if not args.filename:
         print("No filename specified.")
         exit(1)
 
-    if not (args.filename.endswith(".prg") or args.filename.endswith(".asm")):
-        print("Unsupported file type")
+    if filename.endswith(".prg"):
+        if not visualize:
+            visualize = "matrix"
+    elif filename.endswith(".asm"):
+        if not visualize:
+            visualize = "asm"
+    else:
+        print("Unsupported file type.")
 
-    visualizer = disassemble if args.visualize == "asm" else ascii
+    visualizer = disassemble if visualize == "asm" else ascii
 
     filename = args.filename
 
     # for debugging purposes:
-    # filename = r".\projects\4917\deck\01.asm"
+    # filename = r".\projects\4917\deck\02.prg"
     # visualizer = disassemble
 
     with open(filename) as file:
         if filename.endswith(".prg"):
             IP, IS, RO, R1, *memory = load_matrix(file)
-            cpu(visualizer, memory, IP, RO, R1)
+            cpu(visualizer, memory)
         else:
             try:
                 memory = assemble(file)

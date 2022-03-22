@@ -19,7 +19,7 @@ class Token(Enum):
 token_patterns = [
     (Token.DIRECTIVE, re.compile(r"\.([A-Z]+)", re.IGNORECASE)),
     (Token.REGISTER, re.compile(r"(R[01])", re.IGNORECASE)),
-    (Token.NAME, re.compile(r"([A-Z]+\d?)", re.IGNORECASE)),
+    (Token.NAME, re.compile(r"([_A-Z]+\d?)", re.IGNORECASE)),
     (Token.LOCATION, re.compile(r"(\d+):")),
     (Token.NUMBER, re.compile(r"(\d+)")),
     (Token.COMMA, re.compile(r"(,)")),
@@ -99,7 +99,7 @@ def assemble(file):
                         token, text, pos = next(iter)
                     if token != Token.REGISTER:
                         raise AsmError("Expected R0 or R1", pos, line)
-                    mnemonic += text
+                    mnemonic += f"_{text}"
 
                     # look up the opcode for the modified mnemonic
                     found = loopup_mnemonic(mnemonic)

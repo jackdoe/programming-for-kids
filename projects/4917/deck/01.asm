@@ -4,7 +4,7 @@ ld r0,15    ;; Some comment
 ld r1,14
 add
 print 15
-str0 9
+st_r0 9    ;; Alternative register syntax
 hlt
 
 .data
