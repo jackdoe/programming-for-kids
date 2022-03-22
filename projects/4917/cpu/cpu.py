@@ -60,11 +60,11 @@ def cpu(visualizer, memory, IP=0, R0=0, R1=0, debug=True):
         state = exec_instruction(state, instruction)
         IP, R0, R1, memory = state
 
+        cycle += 1
+
         # Exit the for the HLT instruction
         if IS == 0:
             break
 
-        cycle += 1
-
     if debug and not quit:
-        visualizer((IP, IS, R0, R1, memory), highlight)
+        visualizer((IP, IS, R0, R1, memory), highlight, cycle)
