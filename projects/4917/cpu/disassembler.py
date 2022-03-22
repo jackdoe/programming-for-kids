@@ -38,10 +38,6 @@ def disassemble(state, highlight, cycle=0):
         mnemonic, type = mnemonics[IS]
         marker = ">" if index == IP else " "
 
-        # if halt_seen:
-        #     # memory after HTL assumed to be data
-        #     print(f" {index:02d}: {IS:02d}")
-        #     index += 1
         if type == InstructionType.STATELESS:
             # no operand
             print(f"{marker}{index:02d}: {IS:02d}     {mnemonic:5}")
