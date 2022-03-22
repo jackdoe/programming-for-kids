@@ -4,12 +4,34 @@ from cpu.instruction_set import mnemonics, InstructionType
 REGISTER_PATTERN = re.compile(r"([A-Z]+?)_(R[01])", re.IGNORECASE)
 
 
+def is_ip_aligned(IP, memory):
+    index = 0
+    ip_aligned = False
+    while index < len(memory):
+        IS = memory[index]
+        mnemonic, type = mnemonics[IS]
+        if type == InstructionType.STATELESS:
+            index += 1
+        elif type == InstructionType.REGISTER:
+            index += 1
+        elif type == InstructionType.IO:
+            index += 2
+        elif type == InstructionType.MEMORY:
+            index += 2
+        elif type == InstructionType.BRANCH:
+            index += 2
+        if IP == index:
+            ip_aligned = True
+    return ip_aligned
+
+
 def disassemble(state, highlight, cycle=0):
     IP, IS, R0, R1, memory = state
 
     print("-" * 23)
 
-    index = 0
+    index = 0 if is_ip_aligned(IP, memory) else IP
+
     while index < len(memory):
 
         IS = memory[index]
