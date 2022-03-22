@@ -96,6 +96,4 @@ def disassemble(state, highlight, cycle=0):
         else:
             raise Exception(f"Invalid instruction type: {type}")
 
-    IS = memory[IP]
-    mnemonic = mnemonics[IS][0].replace("_", " ")
-    print(f"\n IP: {IP}, R0: {R0}, R1: {R1}, IS: {IS} ({mnemonic}), Cycle: {cycle}\n")
+    print(f"\n R0: {R0}, R1: {R1}, Cycle: {cycle}\n")
