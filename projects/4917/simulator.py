@@ -1,7 +1,7 @@
 import sys
 import argparse
 
-from cpu.assembler import assemble
+from cpu.assembler import assemble, AsmError
 from cpu.disassembler import disassemble
 from cpu.cpu import cpu
 from cpu.matrix_loader import load_matrix
@@ -32,13 +32,18 @@ def main():
 
     visualizer = disassemble if args.visualize == "asm" else ascii
 
-    file = open(args.filename)
-    if args.filename.endswith(".prg"):
-        IP, IS, RO, R1, *memory = load_matrix(file)
-        cpu(visualizer, memory, IP, RO, R1)
-    else:
-        memory = assemble(file)
-        cpu(visualizer, memory)
+    with open(args.filename) as file:
+        if args.filename.endswith(".prg"):
+            IP, IS, RO, R1, *memory = load_matrix(file)
+            cpu(visualizer, memory, IP, RO, R1)
+        else:
+            try:
+                memory = assemble(file)
+                cpu(visualizer, memory)
+            except AsmError as exc:
+                print(exc.message)
+            except Exception as exc:
+                print(exc)
 
 
 if __name__ == "__main__":
