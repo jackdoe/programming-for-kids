@@ -51,6 +51,7 @@ def main():
     # for debugging purposes:
     # filename = r".\projects\4917\deck\02.prg"
     # visualizer = disassemble
+    # debug = True
 
     with open(filename) as file:
         try:
