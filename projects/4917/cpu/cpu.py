@@ -35,10 +35,7 @@ def cpu(
     R1=0,
     debug=True,
 ):
-    IS = 0
-
     while True:
-
         # Fetch the next instruction
         IS = memory[IP]
 

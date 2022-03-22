@@ -1,10 +1,10 @@
 ;; This is an example program
 
-ldr0  15    ;; Some comment
-ldr1  14
+ld r0,15    ;; Some comment
+ld r1,14
 add
 print 15
-str0  9
+str0 9
 hlt
 
 .data

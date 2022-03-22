@@ -12,7 +12,7 @@ def disassemble(state, highlight):
     while index < len(memory):
         IS = memory[index]
         microcode, type = instruction_set[IS]
-        mnemonic = mnemonics[IS]
+        mnemonic = mnemonics[IS][0]
         marker = ">" if index == IP else " "
 
         # if halt_seen:

@@ -1,26 +1,28 @@
 import re
-from enum import Enum
-from sre_parse import WHITESPACE
-from tkinter import END
+from enum import Enum, auto
 
-from cpu.instruction_set import InstructionType, instruction_set, mnemonics
+from cpu.instruction_set import InstructionType, mnemonics, loopup_mnemonic
 
 
 class Token(Enum):
-    DIRECTIVE = 1
-    NAME = 2
-    NUMBER = 3
-    LOCATION = 4
-    COMMENT = 5
-    WHITESPACE = 6
-    EOL = 7
+    COMMA = auto()
+    COMMENT = auto()
+    DIRECTIVE = auto()
+    EOL = auto()
+    LOCATION = auto()
+    NAME = auto()
+    NUMBER = auto()
+    REGISTER = auto()
+    WHITESPACE = auto()
 
 
 token_patterns = [
-    (Token.DIRECTIVE, re.compile(r"\.([a-z]+)", re.IGNORECASE)),
-    (Token.NAME, re.compile(r"([a-z]+\d?)", re.IGNORECASE)),
+    (Token.DIRECTIVE, re.compile(r"\.([A-Z]+)", re.IGNORECASE)),
+    (Token.REGISTER, re.compile(r"(R[01])", re.IGNORECASE)),
+    (Token.NAME, re.compile(r"([A-Z]+\d?)", re.IGNORECASE)),
     (Token.LOCATION, re.compile(r"(\d+):")),
     (Token.NUMBER, re.compile(r"(\d+)")),
+    (Token.COMMA, re.compile(r"(,)")),
     (Token.COMMENT, re.compile(r"(\s*;;)")),
     (Token.WHITESPACE, re.compile(r"(\s+)")),
 ]
@@ -83,33 +85,53 @@ def assemble(file):
                 if data_directive_seen:
                     raise AsmError(f"Expected a data definition", pos, line)
 
+                mnemonic = text
+
                 # look up the opcode for this mnemonic
-                try:
-                    opcode = mnemonics.index(text)
-                except ValueError:
+                found = loopup_mnemonic(text)
+                if not found:
                     raise AsmError("Invalid mnemonic", pos, line)
+                opcode, instruction_type = found
+
+                if instruction_type == InstructionType.REGISTER_ALIAS:
+                    token, text, pos = next(iter)
+                    if token == Token.WHITESPACE:
+                        token, text, pos = next(iter)
+                    if token != Token.REGISTER:
+                        raise AsmError("Expected R0 or R1", pos, line)
+                    mnemonic += text
+
+                    # look up the opcode for the modified mnemonic
+                    found = loopup_mnemonic(mnemonic)
+                    if not found:
+                        raise AsmError("Invalid mnemonic", pos, line)
+                    opcode, instruction_type = found
+
+                    token, text, pos = next(iter)
+                    if token == Token.WHITESPACE:
+                        token, text, pos = next(iter)
+
+                    if token != Token.COMMA:
+                        raise AsmError("Expected a ','", pos, line)
+
+                token, text, pos = next(iter)
 
                 if address >= len(binary_code):
-                    raise AsmError("Your program exceeds memory capacity.", pos, line)
+                    raise AsmError("Your program exceeds available memory.", pos, line)
 
                 # add the opcode the to binary output
                 binary_code[address] = opcode
                 address += 1
 
-                # look up the instruction type
-                microcode, instruction_type = instruction_set[opcode]
-
-                if (
-                    instruction_type == InstructionType.REGISTER
-                    or instruction_type == InstructionType.STATELESS
+                if instruction_type in (
+                    InstructionType.REGISTER,
+                    InstructionType.STATELESS,
                 ):
                     # instructions without an operand
-                    token, text, pos = next(iter)
                     if token not in END_OF_STATEMENT_TOKENS:
                         raise AsmError("Extra garbage on line", pos, line)
                 else:
                     # instruction with an operand
-                    token, text, pos = next(iter)
                     if token == Token.WHITESPACE:
                         token, text, pos = next(iter)
                     if token != Token.NUMBER:

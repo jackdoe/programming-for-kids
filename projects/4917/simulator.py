@@ -28,12 +28,16 @@ def main():
     if not (args.filename.endswith(".prg") or args.filename.endswith(".asm")):
         print("Unsupported file type")
 
-    print(args)
-
     visualizer = disassemble if args.visualize == "asm" else ascii
 
-    with open(args.filename) as file:
-        if args.filename.endswith(".prg"):
+    filename = args.filename
+
+    # for debugging purposes:
+    # filename = r".\projects\4917\deck\01.asm"
+    # visualizer = disassemble
+
+    with open(filename) as file:
+        if filename.endswith(".prg"):
             IP, IS, RO, R1, *memory = load_matrix(file)
             cpu(visualizer, memory, IP, RO, R1)
         else:
