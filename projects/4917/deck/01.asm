@@ -1,12 +1,12 @@
 ;; This is an example program
 
-LDR0  15 ;; Some comment
-LDR1  14
-ADD
-PRINT 15
-STR0  9
-HLT
+ld r0,15    ;; Some comment
+ld r1,14
+add
+print 15
+st_r0 9    ;; Alternative register syntax
+hlt
 
-.DATA
+.data
 14: 4
 15: 3

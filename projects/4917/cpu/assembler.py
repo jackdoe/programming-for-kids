@@ -1,30 +1,38 @@
 import re
-from enum import Enum
+from enum import Enum, auto
 
-from cpu.instruction_set import InstructionType, instruction_set, mnemonics
+from cpu.instruction_set import InstructionType, mnemonics, loopup_mnemonic
 
 
-class TokenType(Enum):
-    DIRECTIVE = 1
-    NAME = 2
-    NUMBER = 3
-    LOCATION = 4
-    COMMENT = 5
-    EOL = 6
+class Token(Enum):
+    COMMA = auto()
+    COMMENT = auto()
+    DIRECTIVE = auto()
+    EOL = auto()
+    LOCATION = auto()
+    NAME = auto()
+    NUMBER = auto()
+    REGISTER = auto()
+    WHITESPACE = auto()
 
 
 token_patterns = [
-    (TokenType.DIRECTIVE, re.compile(r"\s*\.([A-Z]+)")),
-    (TokenType.NAME, re.compile(r"\s*([A-Z]+\d?)")),
-    (TokenType.LOCATION, re.compile(r"\s*(\d+):")),
-    (TokenType.NUMBER, re.compile(r"\s*(\d+)")),
-    (TokenType.COMMENT, re.compile(r"\s*(;;)")),
+    (Token.DIRECTIVE, re.compile(r"\.([A-Z]+)", re.IGNORECASE)),
+    (Token.REGISTER, re.compile(r"(R[01])", re.IGNORECASE)),
+    (Token.NAME, re.compile(r"([_A-Z]+\d?)", re.IGNORECASE)),
+    (Token.LOCATION, re.compile(r"(\d+):")),
+    (Token.NUMBER, re.compile(r"(\d+)")),
+    (Token.COMMA, re.compile(r"(,)")),
+    (Token.COMMENT, re.compile(r"(\s*;;)")),
+    (Token.WHITESPACE, re.compile(r"(\s+)")),
 ]
 
 
-class AsmException(Exception):
+class AsmError(Exception):
     def __init__(self, reason, pos, line):
-        super().__init__(f"{reason} at position {pos}:\n{line}")
+        pointer = (" " * pos) + "^"
+        self.message = f"{reason}:\n{line}\n{pointer}"
+        super().__init__(self.message)
 
 
 def tokenizer(line):
@@ -39,8 +47,11 @@ def tokenizer(line):
                 start = match.end()
                 break
         else:
-            raise AsmException("Syntax error", start, line)
-    yield TokenType.EOL, "", 0
+            raise AsmError("Syntax error", start, line)
+    yield Token.EOL, "", 0
+
+
+END_OF_STATEMENT_TOKENS = Token.COMMENT, Token.EOL
 
 
 def assemble(file):
@@ -60,75 +71,102 @@ def assemble(file):
         iter = tokenizer(line)
 
         token, text, pos = next(iter)
-        while token != TokenType.EOL:
-            if token == TokenType.COMMENT:
-                break
-            elif token == TokenType.DIRECTIVE:
+        while token not in END_OF_STATEMENT_TOKENS:
+            if token == Token.DIRECTIVE:
                 if text != "DATA":
-                    raise AsmException("Invalid directive", pos, line)
+                    raise AsmError("Invalid directive", pos, line)
                 data_directive_seen = True
                 token, text, pos = next(iter)
-            elif token == TokenType.NAME:
+                if token == Token.WHITESPACE:
+                    token, text, pos = next(iter)
+                if token not in END_OF_STATEMENT_TOKENS:
+                    raise AsmError("Extra garbage on line", pos, line)
+            elif token == Token.NAME:
                 if data_directive_seen:
-                    raise AsmException(f"Invalid data definition", pos, line)
+                    raise AsmError(f"Expected a data definition", pos, line)
+
+                mnemonic = text
 
                 # look up the opcode for this mnemonic
-                try:
-                    opcode = mnemonics.index(text)
-                except ValueError:
-                    raise AsmException("Invalid mnemonic", pos, line)
+                found = loopup_mnemonic(text)
+                if not found:
+                    raise AsmError("Invalid mnemonic", pos, line)
+                opcode, instruction_type = found
+
+                if instruction_type == InstructionType.REGISTER_ALIAS:
+                    token, text, pos = next(iter)
+                    if token == Token.WHITESPACE:
+                        token, text, pos = next(iter)
+                    if token != Token.REGISTER:
+                        raise AsmError("Expected R0 or R1", pos, line)
+                    mnemonic += f"_{text}"
+
+                    # look up the opcode for the modified mnemonic
+                    found = loopup_mnemonic(mnemonic)
+                    if not found:
+                        raise AsmError("Invalid mnemonic", pos, line)
+                    opcode, instruction_type = found
+
+                    token, text, pos = next(iter)
+                    if token == Token.WHITESPACE:
+                        token, text, pos = next(iter)
+
+                    if token != Token.COMMA:
+                        raise AsmError("Expected a ','", pos, line)
+
+                token, text, pos = next(iter)
 
                 if address >= len(binary_code):
-                    raise AsmException(
-                        "Your program exceeds memory capacity.", pos, line
-                    )
+                    raise AsmError("Your program exceeds available memory.", pos, line)
 
                 # add the opcode the to binary output
                 binary_code[address] = opcode
                 address += 1
 
-                # look up the instruction type
-                microcode, instruction_type = instruction_set[opcode]
-
-                if (
-                    instruction_type == InstructionType.REGISTER
-                    or instruction_type == InstructionType.STATELESS
+                if instruction_type in (
+                    InstructionType.REGISTER,
+                    InstructionType.STATELESS,
                 ):
                     # instructions without an operand
-                    token, text, pos = next(iter)
-                    if token != TokenType.COMMENT and token != TokenType.EOL:
-                        raise AsmException("Extra garbage on line", pos, line)
+                    if token not in END_OF_STATEMENT_TOKENS:
+                        raise AsmError("Extra garbage on line", pos, line)
                 else:
                     # instruction with an operand
-                    token, text, pos = next(iter)
-                    if token != TokenType.NUMBER:
-                        raise AsmException(f"Expected numeric operand", pos, line)
+                    if token == Token.WHITESPACE:
+                        token, text, pos = next(iter)
+                    if token != Token.NUMBER:
+                        raise AsmError(f"Expected numeric operand", pos, line)
                     if address >= len(binary_code):
-                        raise AsmException(
+                        raise AsmError(
                             "Your program exceeds memory capacity.", pos, line
                         )
                     operand = int(text)
                     if not (0 <= operand < 16):
-                        raise Exception("Operand out of range", pos, line)
+                        raise AsmError("Operand out of range", pos, line)
                     binary_code[address] = operand
                     address += 1
                     token, text, pos = next(iter)
-            elif token == TokenType.LOCATION:
+                    if token not in END_OF_STATEMENT_TOKENS:
+                        raise AsmError("Extra garbage on line", pos, line)
+            elif token == Token.LOCATION:
                 if not data_directive_seen:
-                    raise AsmException("Invalid placement", pos, line)
+                    raise AsmError("Invalid placement", pos, line)
                 location = int(text)
                 if not (0 <= location < 16):
-                    raise AsmException("Address out of range", pos, line)
+                    raise AsmError("Address out of range", pos, line)
                 token, text, pos = next(iter)
-                if token != TokenType.NUMBER:
-                    raise AsmException("Expected numeric operand", pos, line)
+                if token == Token.WHITESPACE:
+                    token, text, pos = next(iter)
+                if token != Token.NUMBER:
+                    raise AsmError("Expected numeric operand", pos, line)
                 operand = int(text)
                 if not (0 <= operand < 16):
-                    raise AsmException("Operand out of range", pos, line)
+                    raise AsmError("Operand out of range", pos, line)
                 binary_code[location] = operand
                 token, text, pos = next(iter)
-
+                if token not in END_OF_STATEMENT_TOKENS:
+                    raise AsmError("Extra garbage on line", pos, line)
             else:
-                raise AsmException("Invalid token", pos, line)
+                raise AsmError("Invalid token", pos, line)
 
     return binary_code
