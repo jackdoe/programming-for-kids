@@ -82,6 +82,7 @@ def disassemble(state, highlight, cycle=0):
             if index >= len(memory) - 1:
                 # End of memory, no operand: treat as data
                 print(f" {index:02d}: {IS:02d}")
+                index += 1
             else:
                 operand = memory[index + 1]
                 print(
