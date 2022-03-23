@@ -9,17 +9,17 @@ def exec_instruction(state, instruction):
     IP, R0, R1, memory = state
     microcode, type = instruction
 
-    if type == InstructionType.REGISTER:
+    if type is InstructionType.REGISTER:
         # register instruction
         R0, R1 = microcode(R0, R1)
-    elif type == InstructionType.MEMORY:
+    elif type is InstructionType.MEMORY:
         # memory instruction
         R0, R1, memory = microcode(R0, R1, IP, memory)
         IP += 1
-    elif type == InstructionType.BRANCH:
+    elif type is InstructionType.BRANCH:
         # branch instruction
         IP = microcode(IP, R0, memory)
-    elif type == InstructionType.STATELESS:
+    elif type is InstructionType.STATELESS:
         # stateless instruction
         microcode()
     else:

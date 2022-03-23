@@ -83,6 +83,18 @@ def check_number(number, pos, line):
     return number
 
 
+INSTRUCTION_ALIASES = (
+    InstructionType.REGISTER_ALIAS_1,
+    InstructionType.REGISTER_ALIAS_2,
+)
+
+SINGLE_NIBBLE_INSTRUCTIONS = (
+    InstructionType.REGISTER,
+    InstructionType.REGISTER_ALIAS_1,
+    InstructionType.STATELESS,
+)
+
+
 def assemble(file):
     # zero fill the binary code to size of the machine memory
     store = [0] * 16
@@ -103,19 +115,19 @@ def assemble(file):
 
             token, text, pos = next(iter)
             while token not in END_OF_STATEMENT_TOKENS:
-                if token == Token.LABEL:
+                if token is Token.LABEL:
                     if _pass == 1:
                         symbol_table[text] = address
                     token, text, pos = next(iter)
-                    if token == Token.WHITESPACE:
+                    if token is Token.WHITESPACE:
                         token, text, pos = next(iter)
                     if token in END_OF_STATEMENT_TOKENS:
                         break
-                if token == Token.DIRECTIVE:
+                if token is Token.DIRECTIVE:
                     if text != "DATA":
                         raise AsmError(BAD_DIRECTIVE, pos, line)
                     token, text, pos = next(iter)
-                    if token == Token.WHITESPACE:
+                    if token is Token.WHITESPACE:
                         token, text, pos = next(iter)
                     if token != Token.NUMBER:
                         raise AsmError(NUMBER_EXPECTED, pos, line)
@@ -129,7 +141,7 @@ def assemble(file):
                         token, text, pos = next(iter)
                     if token not in END_OF_STATEMENT_TOKENS:
                         raise AsmError(EXTRA_GARBAGE, pos, line)
-                elif token == Token.NAME:
+                elif token is Token.NAME:
 
                     mnemonic = text
 
@@ -141,18 +153,15 @@ def assemble(file):
 
                     token, text, pos = next(iter)
 
-                    if instruction_type in (
-                        InstructionType.REGISTER_ALIAS_1,
-                        InstructionType.REGISTER_ALIAS_2,
-                    ):
-                        if token == Token.WHITESPACE:
+                    if instruction_type in INSTRUCTION_ALIASES:
+                        if token is Token.WHITESPACE:
                             token, text, pos = next(iter)
                         if token != Token.REGISTER:
                             raise AsmError(BAD_REGISTER, pos, line)
                         mnemonic += f"_{text}"
 
                         token, text, pos = next(iter)
-                        if token == Token.WHITESPACE:
+                        if token is Token.WHITESPACE:
                             token, text, pos = next(iter)
 
                         if instruction_type is InstructionType.REGISTER_ALIAS_2:
@@ -173,22 +182,18 @@ def assemble(file):
                         store[address] = opcode
                     address += 1
 
-                    if instruction_type in (
-                        InstructionType.REGISTER,
-                        InstructionType.REGISTER_ALIAS_1,
-                        InstructionType.STATELESS,
-                    ):
+                    if instruction_type in SINGLE_NIBBLE_INSTRUCTIONS:
                         # instructions without an operand
                         if token not in END_OF_STATEMENT_TOKENS:
                             raise AsmError(EXTRA_GARBAGE, pos, line)
                     else:
                         # instruction with an operand
                         operand = 0
-                        if token == Token.WHITESPACE:
+                        if token is Token.WHITESPACE:
                             token, text, pos = next(iter)
-                        if token == Token.NUMBER:
+                        if token is Token.NUMBER:
                             operand = int(text)
-                        elif token == Token.NAME:
+                        elif token is Token.NAME:
                             if _pass == 2:
                                 if text not in symbol_table:
                                     raise AsmError(UNDEFINED_OPERAND, pos, line)
@@ -200,7 +205,7 @@ def assemble(file):
                         if token in (Token.PLUS, Token.MINUS):
                             operator_text = text
                             token, text, pos = next(iter)
-                            if token == Token.WHITESPACE:
+                            if token is Token.WHITESPACE:
                                 token, text, pos = next(iter)
                             if token != Token.NUMBER:
                                 raise AsmError(NUMBER_EXPECTED, pos, line)
