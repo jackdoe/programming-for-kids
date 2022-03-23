@@ -1,11 +1,8 @@
-import sys
 import argparse
 
-from cpu.assembler import assemble, AsmError
-from cpu.disassembler import disassemble
+from cpu.assembler import AsmError, assemble
 from cpu.cpu import cpu
 from cpu.matrix_loader import load_matrix
-from cpu.ascii_visualizer import ascii
 
 
 def main():
@@ -43,7 +40,6 @@ def main():
     else:
         print("Unsupported file type.")
 
-    visualizer = disassemble if visualize == "asm" else ascii
     debug = args.debug == "on"
 
     filename = args.filename
@@ -53,17 +49,17 @@ def main():
     # visualizer = disassemble
     # debug = True
 
-    with open(filename) as file:
-        try:
+    try:
+        with open(filename) as file:
             if filename.endswith(".prg"):
                 IP, IS, RO, R1, *memory = load_matrix(file)
             else:
                 memory = assemble(file)
-            cpu(visualizer, memory, debug=debug)
-        except AsmError as exc:
-            print(exc.message)
-        except Exception as exc:
-            print(exc)
+            cpu(visualize, memory, debug=debug)
+    except AsmError as exc:
+        print(exc.message)
+    except Exception as exc:
+        print(exc)
 
 
 if __name__ == "__main__":
