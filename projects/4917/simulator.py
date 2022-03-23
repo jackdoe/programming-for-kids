@@ -53,17 +53,17 @@ def main():
     # visualizer = disassemble
     # debug = True
 
-    with open(filename) as file:
-        try:
+    try:
+        with open(filename) as file:
             if filename.endswith(".prg"):
                 IP, IS, RO, R1, *memory = load_matrix(file)
             else:
                 memory = assemble(file)
             cpu(visualizer, memory, debug=debug)
-        except AsmError as exc:
-            print(exc.message)
-        except Exception as exc:
-            print(exc)
+    except AsmError as exc:
+        print(exc.message)
+    except Exception as exc:
+        print(exc)
 
 
 if __name__ == "__main__":
