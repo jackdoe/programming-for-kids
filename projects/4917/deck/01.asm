@@ -1,12 +1,16 @@
-;; This is an example program
+;; 01.asm
 
-ld r0,15    ;; Some comment
-ld r1,14
-add
-print 15
-st_r0 9    ;; Alternative register syntax
-hlt
+LD R0,data+1    ;; Some comment
+LD R1,data
+ADD
+PRINT data+1
+ST R0,9   
+HLT
+HLT
+HLT
+HLT
+HLT
 
-.data
-14: 4
-15: 3
+data: 
+  .data 4
+  .data 3

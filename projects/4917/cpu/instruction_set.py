@@ -6,7 +6,8 @@ class InstructionType(Enum):
     IO = auto()
     MEMORY = auto()
     REGISTER = auto()
-    REGISTER_ALIAS = auto()
+    REGISTER_ALIAS_1 = auto()  # single operand, e.g. R0
+    REGISTER_ALIAS_2 = auto()  # two operands, e.g. R0,5
     STATELESS = auto()
 
 
@@ -27,10 +28,10 @@ mnemonics = [
     ("B", InstructionType.BRANCH),  # 13
     ("BZ", InstructionType.BRANCH),  # 14
     ("BNZ", InstructionType.BRANCH),  # 15
-    ("INC", InstructionType.REGISTER_ALIAS),
-    ("DEC", InstructionType.REGISTER_ALIAS),
-    ("LD", InstructionType.REGISTER_ALIAS),
-    ("ST", InstructionType.REGISTER_ALIAS),
+    ("INC", InstructionType.REGISTER_ALIAS_1),
+    ("DEC", InstructionType.REGISTER_ALIAS_1),
+    ("LD", InstructionType.REGISTER_ALIAS_2),
+    ("ST", InstructionType.REGISTER_ALIAS_2),
 ]
 
 
