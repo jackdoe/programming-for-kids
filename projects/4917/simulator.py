@@ -45,8 +45,8 @@ def main():
     filename = args.filename
 
     # for debugging purposes:
-    # filename = r".\projects\4917\deck\02.prg"
-    # visualizer = disassemble
+    # filename = r".\projects\4917\deck\10.asm"
+    # visualize = "asm"
     # debug = True
 
     try:
