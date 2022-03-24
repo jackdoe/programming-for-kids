@@ -157,3 +157,10 @@ Take a piece of paper and list all the apps installed on yout phone, then write 
 |spotify|ads / subscription|
 |human resource machine|paid 7$|
 |...|...|
+
+
+## [DAY-205] fetch-decode-execute
+
+Watch The Fetch-Execute Cycle: What's Your Computer Actually Doing - https://www.youtube.com/watch?v=Z5JC9Ve1sfI
+
+Watch it 3 times and write it down.
