@@ -517,3 +517,5 @@
 [day-203 strategy](#day-203-strategy)
 
 [day-204 money](#day-204-money)
+
+[day-205 fetch-decode-execute](#day-205-fetch-decode-execute)
