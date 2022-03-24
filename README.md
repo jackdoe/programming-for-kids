@@ -17031,7 +17031,6 @@ For example check out Google Chrome's tab bar, you have a current tab, when you 
 
 Take a piece of paper and list all the apps installed on yout phone, then write down next to each one how they make money out of you.
 
-e.g.
 
 |app|how it makes money|
 |---|------------------|
@@ -17039,5 +17038,5 @@ e.g.
 |instagram|ads|
 |duolingo|ads / subscription|
 |spotify|ads / subscription|
-
-
+|human resource machine|paid 7$|
+|...|...|
