@@ -515,3 +515,5 @@
 [day-202 pointers](#day-202-pointers)
 
 [day-203 strategy](#day-203-strategy)
+
+[day-204 money](#day-204-money)
