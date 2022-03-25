@@ -60,8 +60,9 @@ def tokenizer(line):
         for type, pattern in token_patterns:
             match = pattern.match(line, start)
             if match:
-                text = match.group(1).upper()
-                yield type, text, start
+                if type is not Token.WHITESPACE:
+                    text = match.group(1).upper()
+                    yield type, text, start
                 start = match.end()
                 break
         else:
@@ -119,26 +120,27 @@ def assemble(file):
                     if _pass == 1:
                         symbol_table[text] = address
                     token, text, pos = next(iter)
-                    if token is Token.WHITESPACE:
-                        token, text, pos = next(iter)
                     if token in END_OF_STATEMENT_TOKENS:
                         break
                 if token is Token.DIRECTIVE:
                     if text != "DATA":
                         raise AsmError(BAD_DIRECTIVE, pos, line)
+                    operand = 0
                     token, text, pos = next(iter)
-                    if token is Token.WHITESPACE:
-                        token, text, pos = next(iter)
-                    if token != Token.NUMBER:
+                    if token is Token.NAME:
+                        if _pass == 2:
+                            if text not in symbol_table:
+                                raise AsmError(UNDEFINED_OPERAND, pos, line)
+                            operand = symbol_table[text]
+                    elif token is Token.NUMBER:
+                        operand = check_number(int(text), pos, line)
+                    else:
                         raise AsmError(NUMBER_EXPECTED, pos, line)
-                    operand = check_number(int(text), pos, line)
                     if _pass == 2:
                         check_store(address, store, pos, line)
                         store[address] = operand
                     address += 1
                     token, text, pos = next(iter)
-                    if token is Token.WHITESPACE:
-                        token, text, pos = next(iter)
                     if token not in END_OF_STATEMENT_TOKENS:
                         raise AsmError(EXTRA_GARBAGE, pos, line)
                 elif token is Token.NAME:
@@ -154,15 +156,11 @@ def assemble(file):
                     token, text, pos = next(iter)
 
                     if instruction_type in INSTRUCTION_ALIASES:
-                        if token is Token.WHITESPACE:
-                            token, text, pos = next(iter)
                         if token != Token.REGISTER:
                             raise AsmError(BAD_REGISTER, pos, line)
                         mnemonic += f"_{text}"
 
                         token, text, pos = next(iter)
-                        if token is Token.WHITESPACE:
-                            token, text, pos = next(iter)
 
                         if instruction_type is InstructionType.REGISTER_ALIAS_2:
                             # takes a second operand
@@ -189,8 +187,6 @@ def assemble(file):
                     else:
                         # instruction with an operand
                         operand = 0
-                        if token is Token.WHITESPACE:
-                            token, text, pos = next(iter)
                         if token is Token.NUMBER:
                             operand = int(text)
                         elif token is Token.NAME:
@@ -205,8 +201,6 @@ def assemble(file):
                         if token in (Token.PLUS, Token.MINUS):
                             operator_text = text
                             token, text, pos = next(iter)
-                            if token is Token.WHITESPACE:
-                                token, text, pos = next(iter)
                             if token != Token.NUMBER:
                                 raise AsmError(NUMBER_EXPECTED, pos, line)
                             offset = check_number(int(text), pos, line)
@@ -216,8 +210,6 @@ def assemble(file):
                                 operand -= offset
                             operand &= 0xF
                             token, text, pos = next(iter)
-                            if token is Token.WHITESPACE:
-                                token, text, pos = next(iter)
                         check_number(operand, pos, line)
                         if _pass == 2:
                             check_store(address, store, pos, line)
