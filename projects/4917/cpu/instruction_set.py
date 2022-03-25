@@ -35,7 +35,7 @@ mnemonics = [
 ]
 
 
-def loopup_mnemonic(text):
+def lookup_mnemonic(text):
     try:
         return next(
             (opcode, instr[1])

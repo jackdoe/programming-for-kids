@@ -1,7 +1,5 @@
-import re
-from enum import Enum, auto
-
-from cpu.instruction_set import InstructionType, loopup_mnemonic, mnemonics
+from cpu.instruction_set import InstructionType, lookup_mnemonic
+from cpu.tokenizer import TokenType, tokenizer
 
 BAD_DIRECTIVE = "Invalid directive"
 BAD_MNEMONIC = "Invalid mnemonic"
@@ -16,36 +14,6 @@ SYNTAX_ERROR = "Syntax error"
 UNDEFINED_OPERAND = "Operand is undefined"
 
 
-class Token(Enum):
-    COMMA = auto()
-    COMMENT = auto()
-    DIRECTIVE = auto()
-    EOL = auto()
-    LABEL = auto()
-    LOCATION = auto()
-    MINUS = ()
-    NAME = auto()
-    NUMBER = auto()
-    PLUS = ()
-    REGISTER = auto()
-    WHITESPACE = auto()
-
-
-token_patterns = [
-    (Token.DIRECTIVE, re.compile(r"\.([A-Z]+)", re.IGNORECASE)),
-    (Token.LABEL, re.compile(r"([A-Z]\w*):", re.IGNORECASE)),
-    (Token.REGISTER, re.compile(r"(R[01])", re.IGNORECASE)),
-    (Token.NAME, re.compile(r"([A-Z]\w*)", re.IGNORECASE)),
-    (Token.LOCATION, re.compile(r"(\d+):")),
-    (Token.NUMBER, re.compile(r"(\d+)")),
-    (Token.COMMA, re.compile(r"(,)")),
-    (Token.PLUS, re.compile(r"(\+)")),
-    (Token.MINUS, re.compile(r"(-)")),
-    (Token.COMMENT, re.compile(r"(\s*;)")),
-    (Token.WHITESPACE, re.compile(r"(\s+)")),
-]
-
-
 class AsmError(Exception):
     def __init__(self, reason, pos, line):
         pointer = (" " * pos) + "^"
@@ -53,24 +21,7 @@ class AsmError(Exception):
         super().__init__(self.message)
 
 
-def tokenizer(line):
-    start = 0
-    stop = len(line)
-    while start < stop:
-        for type, pattern in token_patterns:
-            match = pattern.match(line, start)
-            if match:
-                if type is not Token.WHITESPACE:
-                    text = match.group(1).upper()
-                    yield type, text, start
-                start = match.end()
-                break
-        else:
-            raise AsmError(SYNTAX_ERROR, start, line)
-    yield Token.EOL, "", 0
-
-
-END_OF_STATEMENT_TOKENS = Token.COMMENT, Token.EOL
+END_OF_STATEMENT_TOKENS = TokenType.COMMENT, TokenType.EOL
 
 
 def check_store(address, store, pos, line):
@@ -114,110 +65,110 @@ def assemble(file):
 
             iter = tokenizer(line)
 
-            token, text, pos = next(iter)
-            while token not in END_OF_STATEMENT_TOKENS:
-                if token is Token.LABEL:
+            token = next(iter)
+            while token.type not in END_OF_STATEMENT_TOKENS:
+                if token.type is TokenType.LABEL:
                     if _pass == 1:
-                        symbol_table[text] = address
-                    token, text, pos = next(iter)
-                    if token in END_OF_STATEMENT_TOKENS:
+                        symbol_table[token.text] = address
+                    token = next(iter)
+                    if token.type in END_OF_STATEMENT_TOKENS:
                         break
-                if token is Token.DIRECTIVE:
-                    if text != "DATA":
-                        raise AsmError(BAD_DIRECTIVE, pos, line)
+                if token.type is TokenType.DIRECTIVE:
+                    if token.text != "DATA":
+                        raise AsmError(BAD_DIRECTIVE, token.pos, line)
                     operand = 0
-                    token, text, pos = next(iter)
-                    if token is Token.NAME:
+                    token = next(iter)
+                    if token.type is TokenType.NAME:
                         if _pass == 2:
-                            if text not in symbol_table:
-                                raise AsmError(UNDEFINED_OPERAND, pos, line)
-                            operand = symbol_table[text]
-                    elif token is Token.NUMBER:
-                        operand = check_number(int(text), pos, line)
+                            if token.text not in symbol_table:
+                                raise AsmError(UNDEFINED_OPERAND, token.pos, line)
+                            operand = symbol_table[token.text]
+                    elif token.type is TokenType.NUMBER:
+                        operand = check_number(int(token.text), token.pos, line)
                     else:
-                        raise AsmError(NUMBER_EXPECTED, pos, line)
+                        raise AsmError(NUMBER_EXPECTED, token.pos, line)
                     if _pass == 2:
-                        check_store(address, store, pos, line)
+                        check_store(address, store, token.pos, line)
                         store[address] = operand
                     address += 1
-                    token, text, pos = next(iter)
-                    if token not in END_OF_STATEMENT_TOKENS:
-                        raise AsmError(EXTRA_GARBAGE, pos, line)
-                elif token is Token.NAME:
+                    token = next(iter)
+                    if token.type not in END_OF_STATEMENT_TOKENS:
+                        raise AsmError(EXTRA_GARBAGE, token.pos, line)
+                elif token.type is TokenType.NAME:
 
-                    mnemonic = text
+                    mnemonic = token.text
 
                     # look up the opcode for this mnemonic
-                    found = loopup_mnemonic(text)
+                    found = lookup_mnemonic(token.text)
                     if not found:
-                        raise AsmError(BAD_MNEMONIC, pos, line)
+                        raise AsmError(BAD_MNEMONIC, token.pos, line)
                     opcode, instruction_type = found
 
-                    token, text, pos = next(iter)
+                    token = next(iter)
 
                     if instruction_type in INSTRUCTION_ALIASES:
-                        if token != Token.REGISTER:
-                            raise AsmError(BAD_REGISTER, pos, line)
-                        mnemonic += f"_{text}"
+                        if token.type is not TokenType.REGISTER:
+                            raise AsmError(BAD_REGISTER, token.pos, line)
+                        mnemonic += f"_{token.text}"
 
-                        token, text, pos = next(iter)
+                        token = next(iter)
 
                         if instruction_type is InstructionType.REGISTER_ALIAS_2:
                             # takes a second operand
-                            if token != Token.COMMA:
-                                raise AsmError(COMMA_EXPECTED, pos, line)
-                            token, text, pos = next(iter)
+                            if token.type != TokenType.COMMA:
+                                raise AsmError(COMMA_EXPECTED, token.pos, line)
+                            token = next(iter)
 
                         # look up the opcode for the modified mnemonic
-                        found = loopup_mnemonic(mnemonic)
+                        found = lookup_mnemonic(mnemonic)
                         if not found:
-                            raise AsmError(BAD_MNEMONIC, pos, line)
+                            raise AsmError(BAD_MNEMONIC, token.pos, line)
                         opcode, instruction_type = found
 
                     # add the opcode the to binary output
                     if _pass == 2:
-                        check_store(address, store, pos, line)
+                        check_store(address, store, token.pos, line)
                         store[address] = opcode
                     address += 1
 
                     if instruction_type in SINGLE_NIBBLE_INSTRUCTIONS:
                         # instructions without an operand
-                        if token not in END_OF_STATEMENT_TOKENS:
-                            raise AsmError(EXTRA_GARBAGE, pos, line)
+                        if token.type not in END_OF_STATEMENT_TOKENS:
+                            raise AsmError(EXTRA_GARBAGE, token.pos, line)
                     else:
                         # instruction with an operand
                         operand = 0
-                        if token is Token.NUMBER:
-                            operand = int(text)
-                        elif token is Token.NAME:
+                        if token.type is TokenType.NUMBER:
+                            operand = int(token.text)
+                        elif token.type is TokenType.NAME:
                             if _pass == 2:
-                                if text not in symbol_table:
-                                    raise AsmError(UNDEFINED_OPERAND, pos, line)
-                                operand = symbol_table[text]
+                                if token.text not in symbol_table:
+                                    raise AsmError(UNDEFINED_OPERAND, token.pos, line)
+                                operand = symbol_table[token.text]
                         else:
-                            raise AsmError(BAD_OPERAND, pos, line)
-                        token, text, pos = next(iter)
+                            raise AsmError(BAD_OPERAND, token.pos, line)
+                        token = next(iter)
                         # check of offset
-                        if token in (Token.PLUS, Token.MINUS):
-                            operator_text = text
-                            token, text, pos = next(iter)
-                            if token != Token.NUMBER:
-                                raise AsmError(NUMBER_EXPECTED, pos, line)
-                            offset = check_number(int(text), pos, line)
+                        if token.type in (TokenType.PLUS, TokenType.MINUS):
+                            operator_text = token.text
+                            token = next(iter)
+                            if token.type is not TokenType.NUMBER:
+                                raise AsmError(NUMBER_EXPECTED, token.pos, line)
+                            offset = check_number(int(token.text), token.pos, line)
                             if operator_text == "+":
                                 operand += offset
                             else:
                                 operand -= offset
                             operand &= 0xF
-                            token, text, pos = next(iter)
-                        check_number(operand, pos, line)
+                            token = next(iter)
+                        check_number(operand, token.pos, line)
                         if _pass == 2:
-                            check_store(address, store, pos, line)
+                            check_store(address, store, token.pos, line)
                             store[address] = operand
                         address += 1
-                        if token not in END_OF_STATEMENT_TOKENS:
-                            raise AsmError(EXTRA_GARBAGE, pos, line)
+                        if token.type not in END_OF_STATEMENT_TOKENS:
+                            raise AsmError(EXTRA_GARBAGE, token.pos, line)
                 else:
-                    raise AsmError(SYNTAX_ERROR, pos, line)
+                    raise AsmError(SYNTAX_ERROR, token.pos, line)
 
     return store
