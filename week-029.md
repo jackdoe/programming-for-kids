@@ -142,3 +142,25 @@ def draw():
 This pattern of having a 'current' thing is active from possible options is extremely common, you can see it everywhere in all kinds of program.
 
 For example check out Google Chrome's tab bar, you have a current tab, when you click on some other one it changes it. As an exercise try to spot this pattern in the apps you use on your phone or computer.
+
+
+## [DAY-204] money
+
+Take a piece of paper and list all the apps installed on yout phone, then write down next to each one how they make money out of you.
+
+
+|app|how it makes money|
+|---|------------------|
+|whatsapp|facebook using who you talk to and how often to show you more relevant ads|
+|instagram|ads|
+|duolingo|ads / subscription|
+|spotify|ads / subscription|
+|human resource machine|paid 7$|
+|...|...|
+
+
+## [DAY-205] fetch-decode-execute
+
+Watch The Fetch-Execute Cycle: What's Your Computer Actually Doing - https://www.youtube.com/watch?v=Z5JC9Ve1sfI
+
+Watch it 3 times and write it down.
