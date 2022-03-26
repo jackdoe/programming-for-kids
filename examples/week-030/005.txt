@@ -1,0 +1,17 @@
+import multiplayer
+import sys
+
+messages = []
+def incoming(text, sender):
+    ip, port = sender
+    if '>' in text:
+        name, message = text.split("> ")
+        if len(message) > 0:
+            messages.append(text)
+    return "\n".join(messages)
+
+ip = sys.argv[1]
+port = sys.argv[2]
+print('listening on', 'ip:', ip, 'port:', port)
+
+multiplayer.server(ip, port, incoming)

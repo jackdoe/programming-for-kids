@@ -1,0 +1,22 @@
+from socket import *
+from threading import Thread
+
+def server(ip, port,fn):
+    t = Thread(target=listen, args=(ip,int(port),fn))
+    t.start()
+    t.join()
+
+def listen(ip, port, fn):
+    sock = socket(AF_INET,SOCK_DGRAM)
+    sock.bind((ip, port))
+    while True:
+        data, addr = sock.recvfrom(1024)
+        r = fn(data.decode("utf-8"), addr)
+        sock.sendto(r.encode("utf-8"), addr)
+
+
+def send(ip, port, message):
+    sock = socket(AF_INET,SOCK_DGRAM)
+    sock.sendto(message.encode("utf-8"), (ip, int(port)))
+    data, addr = sock.recvfrom(1024)
+    return data.decode("utf-8")

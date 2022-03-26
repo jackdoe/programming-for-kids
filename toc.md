@@ -519,3 +519,8 @@
 [day-204 money](#day-204-money)
 
 [day-205 fetch-decode-execute](#day-205-fetch-decode-execute)
+## week - 030
+
+
+
+[day-206 client server](#day-206-client-server)

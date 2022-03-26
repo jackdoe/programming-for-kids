@@ -1,0 +1,11 @@
+import multiplayer
+import sys
+
+name = sys.argv[1]
+ip = sys.argv[2]
+port = sys.argv[3]
+
+while True:
+    my_message = input("message> ")
+    all_messages = multiplayer.send(ip, port, name + "> " + my_message)
+    print(all_messages)
