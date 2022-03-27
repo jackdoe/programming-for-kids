@@ -57,7 +57,6 @@
 
       #output {
           width: 25ch;
-          height: 40ch;
           border: 2px;
           border-style: dashed;
           border-color: gray;
@@ -223,8 +222,7 @@ Instruction set:
                   s = `<memory>${s}</memory>`
               center.push(s)
           }
-          let out = `
-┌────────┐ ┌────────┐
+          let out = `┌────────┐ ┌────────┐
 │IP: ${center[0]}│ │IS: ${center[1]}│
 └────────┘ └────────┘
 ┌────────┐ ┌────────┐
@@ -240,8 +238,6 @@ Instruction set:
 ├────┼────┼────┼────┤
 │${center[16]}│${center[17]}│${center[18]}│${center[19]}│ 
 └────┴────┴────┴────┘
-
-
 `
           return out
       }
