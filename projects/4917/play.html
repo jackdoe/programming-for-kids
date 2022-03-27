@@ -6,28 +6,34 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
     <style>
       body {
 	  font-family: monospace;
 	  max-width: 60rem;
 	  padding: 1rem;
-	  margin: auto;  
+	  margin: auto;
       }
 
       pre {
           font-family: monospace;
           font-size: 16px;
-          margin: 5px;
+          padding: 5px;
           white-space: pre-wrap;
           word-wrap: break-word;
 
       }
+
       button {
           font-family: monospace;
           font-size: 16px;
           margin: 5px;
           padding: 10px;
+      }
+
+      #comment {
+          width: 25ch;
+          border-style: dashed;
+          border-color: red;
       }
 
       #output {
@@ -37,6 +43,7 @@
           border-style: dashed;
           border-color: gray;
       }
+
       #printer {
           width: 25ch;
           height: 5ch;
@@ -52,7 +59,7 @@
       }
       @media only screen and (max-width: 600px) {
           #container {
-              width: 30ch;
+              width: 100%;
               flex-direction: column;
               display: flex;
           }
@@ -110,6 +117,7 @@
     </select></pre>
     <div id='container'>
     <div>
+    <pre id='comment'></pre><br>
     <pre id='output'></pre><br>
     <pre id='printer'></pre><br>
     <button id='step' disabled>step</button><button disabled id='reset' onclick="javascript: reset()">reset</button><br><br>
@@ -148,6 +156,8 @@ Instruction set:
       let stepE = document.getElementById('step')
       let resetE = document.getElementById('reset')
       let cardE = document.getElementById('card')
+      let commentE = document.getElementById('comment')
+
       const reset = async () => {
           stepE.removeAttribute('disabled')
           resetE.removeAttribute('disabled')
@@ -220,9 +230,12 @@ Instruction set:
 
           let state = []
           let card = await download(id)
+          let comment = ''
           for (let line of card.split("\n")) {
-              if (line.indexOf('#') != -1)
+              if (line.indexOf('#') != -1) {
+                  comment = line
                   continue
+              }
               line = line.replace("│", " ")
               line = line.replace("_", " ")
 
@@ -238,6 +251,7 @@ Instruction set:
 
           [IP,IS,R0,R1,...memory] = state
           outputE.innerHTML = ascii([IP, IS, R0, R1, ...memory], [])
+          commentE.innerHTML = comment.replace('# ','')
           printE.innerHTML = ''
       }
 
@@ -334,6 +348,8 @@ Instruction set:
               IP -= 16
           return [IP,IS,R0,R1,memory]
       }
+
+      // just start from card 1
       cardE.value = '1'
       reset()
     </script>      
