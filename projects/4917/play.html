@@ -1,0 +1,271 @@
+
+<html>
+
+  <head>
+    <title>4917</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+	  font-family: monospace;
+	  max-width: 60rem;
+	  padding: 1rem;
+	  font-size: 14px;
+	  margin: auto;  
+      }
+
+      pre, textarea, button {
+          font-family: monospace;
+          font-size: 20px;
+          margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <pre><mark>pick a card:</mark> <select id='card'>
+      <option value='0'>select a card</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>13</option>
+      <option>14</option>
+      <option>15</option>
+      <option>16</option>
+      <option>17</option>
+      <option>18</option>
+      <option>19</option>
+      <option>20</option>
+      <option>30</option>
+      <option>31</option>
+      <option>32</option>
+      <option>33</option>
+      <option>34</option>
+      <option>35</option>
+      <option>36</option>
+      <option>37</option>
+      <option>38</option>
+      <option>39</option>
+      <option>40</option>
+      <option>41</option>
+      <option>42</option>
+      <option>43</option>
+      <option>44</option>
+      <option>45</option>
+      <option>46</option>
+      <option>47</option>
+      <option>48</option>
+      <option>49</option>
+      <option>50</option>
+      <option>51</option>
+      <option>52</option>
+      <option>53</option>
+      <option>54</option>
+    </select></pre>
+    <textarea id='output' cols=24 rows=20></textarea><br>
+    <button id='step' disabled>step</button><button disabled id='reset' onclick="javascript: reset()">reset</button><br><br>
+    <textarea id='printer' cols=24 rows=5></textarea>
+    <script>
+      let IP,IS,R0,R1,memory = [0,0,0,0,[]]
+      let outputE = document.getElementById('output')
+      let printE = document.getElementById('printer')
+      let stepE = document.getElementById('step')
+      let resetE = document.getElementById('reset')
+      const reset = async () => {
+          stepE.removeAttribute('disabled')
+          resetE.removeAttribute('disabled')
+          return await run(parseInt(document.getElementById('card').value))
+      }
+
+      document.getElementById('card').addEventListener('change', reset)
+
+      document.getElementById('step').addEventListener('click',e => {
+          [IP,IS,R0,R1,memory] = step(IP,IS,R0,R1,memory)
+          if (IS == 0) {
+              stepE.setAttribute('disabled','disabled')
+          }
+      })
+
+      var cache = {}
+      const download = async (id) => {
+          id = String(parseInt(id)).padStart(2, '0');
+          if (cache[id]) {
+              return cache[id]
+          }
+          let r = await fetch('deck/' + id + '.prg')
+          let code = await r.text()
+          cache[id] = code
+          return code
+      }
+
+      const ascii = (state, highlight) => {
+          let center = []
+          for (let i = 0; i < state.length; i++) {
+              let s = "" + state[i]
+              if (highlight.indexOf(i-4) != -1)
+                  s = `_${s}_`
+              center.push(s.padStart(4, ' ').padEnd(4,' '))
+          }
+          let out = `
+┌────────┐ ┌────────┐
+│IP: ${center[0]}│ │IS: ${center[1]}│
+└────────┘ └────────┘
+┌────────┐ ┌────────┐
+│R0: ${center[2]}│ │R1: ${center[3]}│
+└────────┘ └────────┘
+
+┌────┬────┬────┬────┐
+│${center[4]}│${center[5]}│${center[6]}│${center[7]}│ 
+├────┼────┼────┼────┤
+│${center[8]}│${center[9]}│${center[10]}│${center[11]}│ 
+├────┼────┼────┼────┤
+│${center[12]}│${center[13]}│${center[14]}│${center[15]}│ 
+├────┼────┼────┼────┤
+│${center[16]}│${center[17]}│${center[18]}│${center[19]}│ 
+└────┴────┴────┴────┘  
+`
+          return out
+      }
+
+      const overflow_add = (x,n) => {
+          x += n
+          if (x > 15)
+              x -= 16
+          return x
+      }
+
+      const print = (x) => {
+          printE.value += x + ' '
+      }
+      
+      const run = async (id) => {
+          [IP,IS,R0,R1,...memory] = [0,0,0,0]
+
+          let state = []
+          let card = await download(id)
+          for (let line of card.split("\n")) {
+              if (line.indexOf('#') != -1)
+                  continue
+              line = line.replace("│", " ")
+              line = line.replace("_", " ")
+
+              let row = []
+              for (let s of line.split(" ")) {
+                  if (!isNaN(parseInt(s))) {
+                      row.push(parseInt(s))
+                  }
+              }
+              if (row.length > 0)
+                  state = state.concat(row)
+          }
+
+          [IP,IS,R0,R1,...memory] = state
+          outputE.value = ascii([IP, IS, R0, R1, ...memory], [])
+          printE.value = ''
+      }
+
+      const step = (IP,IS,R0,R1,memory) => {
+          IS = memory[IP]
+          highlight = [IP]
+          if (IS >= 8)
+              highlight = [IP,overflow_add(IP,1)]
+
+          outputE.value = ascii([IP, IS, R0, R1, ...memory], highlight)
+
+          switch (IS) {
+          case 0:
+              break;
+          case 1:
+              R0 = R0 + R1
+              IP += 1
+              break;
+          case 2:
+              R0 = R0 - R1
+              IP += 1
+              break;
+          case 3:
+              R0 += 1
+              IP += 1
+              break;
+          case 4:
+              R1 += 1
+              IP += 1
+              break;
+          case 5:
+              R0 -= 1
+              IP += 1
+              break;
+          case 6:
+              R1 -= 1
+              IP += 1
+              break;
+          case 7:
+              print("BEEP")
+              IP += 1
+              break;
+          case 8:
+              print(memory[overflow_add(IP,1)])
+              IP += 2
+              break;
+          case 9:
+            R0 = memory[memory[overflow_add(IP,1)]]
+              IP += 2
+              break;
+          case 10:
+            R1 = memory[memory[overflow_add(IP,1)]]
+              IP += 2
+              break;
+          case 11:
+            memory[memory[overflow_add(IP,1)]] = R0
+              IP += 2
+              break;
+          case 12:
+            memory[memory[overflow_add(IP,1)]] = R1
+              IP += 2
+              break;
+          case 13:
+              IP = memory[overflow_add(IP,1)]
+              break;
+          case 14:
+              if (R0 == 0) {
+                IP = memory[overflow_add(IP,1)]
+              } else {
+                  IP += 2
+              }
+              break;
+          case 15:
+              if (R0 != 0) {
+                IP = memory[overflow_add(IP,1)]
+              } else {
+                  IP += 2
+              }
+              break;
+          }
+          if (R0 > 15)
+              R0 -= 16
+
+          if (R1 > 15)
+              R1 -= 16
+              
+          if (R0 < 0)
+              R0 += 16
+
+          if (R1 < 0)
+              R1 += 16
+
+          if (IP > 15)
+              IP -= 16
+          return [IP,IS,R0,R1,memory]
+      }
+    </script>      
+  </body>
+</html>
+
