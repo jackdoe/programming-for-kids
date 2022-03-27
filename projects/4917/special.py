@@ -19,7 +19,7 @@ border_color = (0, 0, 0, 100)
 bgcolor = (0, 0, 0, 0)
 
 
-def special(deck, name, text, fnt):
+def special(deck, name, text, fnt, fgcolor, bgcolor):
     img = Image.new('CMYK', (WIDTH, HEIGHT), color=bgcolor)
     d = ImageDraw.Draw(img)
     d.multiline_text((70, 55), text, font=fnt, fill=fgcolor)
@@ -91,6 +91,6 @@ hello = """
                        """
 deck = 'deck'
 
-special(deck, "back_card_000", hello, bigger)
-special(deck, "front_card_000", intro, fnt)
+special(deck, "back_card_000", hello, bigger, bgcolor, fgcolor)
+special(deck, "front_card_000", intro, fnt, fgcolor, bgcolor)
     
