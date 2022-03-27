@@ -188,10 +188,10 @@ Instruction set:
       const ascii = (state, highlight) => {
           let center = []
           for (let i = 0; i < state.length; i++) {
-              let s = "" + state[i]
+              let s = ("" + state[i]).padStart(4, ' ').padEnd(4,' ')
               if (highlight.indexOf(i-4) != -1)
-                  s = `_${s}_`
-              center.push(s.padStart(4, ' ').padEnd(4,' '))
+                  s = `<mark>${s}</mark>`
+              center.push(s)
           }
           let out = `
 ┌────────┐ ┌────────┐
