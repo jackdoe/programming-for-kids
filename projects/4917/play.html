@@ -14,6 +14,14 @@
 	  margin: auto;
       }
 
+      .mark {
+          background-color: yellow;
+      }
+
+      argument {
+          background-color: orange;
+      }
+
       pre {
           font-family: monospace;
           font-size: 16px;
@@ -126,26 +134,26 @@
     <pre>
 Instruction set:
       
- 0 HALT        
- 1 R0 = R0 + R1
- 2 R0 = R0 - R1
- 3 R0 = R0 + 1 
- 4 R1 = R1 + 1 
- 5 R0 = R0 - 1 
- 6 R1 = R1 - 1 
+<span id="ins_0"> 0 HALT</span>
+<span id="ins_1"> 1 R0 = R0 + R1</span>
+<span id="ins_2"> 2 R0 = R0 - R1</span>
+<span id="ins_3"> 3 R0 = R0 + 1</span>
+<span id="ins_4"> 4 R1 = R1 + 1</span>
+<span id="ins_5"> 5 R0 = R0 - 1</span>
+<span id="ins_6"> 6 R1 = R1 - 1</span>
 
- 7 BEEP
+<span id="ins_7"> 7 BEEP</span>
 
- 8 X PRINT X
-  
- 9 X R0 = MEMORY[X]
-10 X R1 = MEMORY[X]
-11 X MEMORY[X] = R0
-12 X MEMORY[X] = R1
-  
-13 X JUMP X           
-14 X JUMP X IF R0 == 0
-15 X JUMP X IF R0 != 0
+<span id="ins_8"> 8 X PRINT X</span>
+
+<span id="ins_9"> 9 X R0 = MEMORY[X]</span>
+<span id="ins_10">10 X R1 = MEMORY[X]</span>
+<span id="ins_11">11 X MEMORY[X] = R0</span>
+<span id="ins_12">12 X MEMORY[X] = R1</span>
+
+<span id="ins_13">13 X JUMP X</span>
+<span id="ins_14">14 X JUMP X IF R0 == 0</span>
+<span id="ins_15">15 X JUMP X IF R0 != 0</span>
 </pre>
     </div>
     </div>
@@ -187,11 +195,20 @@ Instruction set:
 
       const ascii = (state, highlight) => {
           let center = []
+          for (let i = 0; i <= 15; i++) {
+              let ins = document.getElementById('ins_' + i)
+              ins.className = ''
+              if (i == state[1]) {
+                  ins.className = 'mark'
+              }
+          }
           for (let i = 0; i < state.length; i++) {
-              let s = "" + state[i]
-              if (highlight.indexOf(i-4) != -1)
-                  s = `_${s}_`
-              center.push(s.padStart(4, ' ').padEnd(4,' '))
+              let s = ("" + state[i]).padStart(4, ' ').padEnd(4,' ')
+              let selected = highlight.indexOf(i-4)
+              if (selected != -1) {
+                  s = `<mark>${s}</mark>`
+              }
+              center.push(s)
           }
           let out = `
 ┌────────┐ ┌────────┐
@@ -209,7 +226,9 @@ Instruction set:
 │${center[12]}│${center[13]}│${center[14]}│${center[15]}│ 
 ├────┼────┼────┼────┤
 │${center[16]}│${center[17]}│${center[18]}│${center[19]}│ 
-└────┴────┴────┴────┘  
+└────┴────┴────┴────┘
+
+
 `
           return out
       }
