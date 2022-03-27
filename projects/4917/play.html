@@ -12,6 +12,18 @@
 	  max-width: 60rem;
 	  padding: 1rem;
 	  margin: auto;
+          counter-reset: memory;
+          counter-set: memory -1;
+      }
+
+      memory:before {
+          counter-increment: memory;
+          content: counter(memory);
+          position: absolute;
+          font-size: 10px;
+          color: #696969;
+          margin-left: 1px;
+          margin-top: -7px;
       }
 
       .mark {
@@ -208,6 +220,8 @@ Instruction set:
               if (selected != -1) {
                   s = `<mark>${s}</mark>`
               }
+              if (i > 3)
+                  s = `<memory>${s}</memory>`
               center.push(s)
           }
           let out = `
