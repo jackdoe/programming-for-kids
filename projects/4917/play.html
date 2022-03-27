@@ -4,30 +4,58 @@
   <head>
     <title>4917</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
     <style>
       body {
 	  font-family: monospace;
 	  max-width: 60rem;
 	  padding: 1rem;
-	  font-size: 14px;
 	  margin: auto;  
       }
 
-      pre, textarea, button {
+      pre {
           font-family: monospace;
-          font-size: 20px;
+          font-size: 16px;
           margin: 5px;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+
       }
+      button {
+          font-family: monospace;
+          font-size: 16px;
+          margin: 5px;
+          padding: 10px;
+      }
+
+      #output {
+          width: 25ch;
+          height: 40ch;
+          border: 2px;
+          border-style: dashed;
+          border-color: gray;
+      }
+      #printer {
+          width: 25ch;
+          height: 5ch;
+          border: 2px;
+          border-style: dashed;
+          border-color: blue;
+      }
+
       #container {
+          width: 100%;
           flex-direction: row;
           display: flex;
       }
       @media only screen and (max-width: 600px) {
-      #container {
-          flex-direction: column;
-          display: flex;
-      }
+          #container {
+              width: 30ch;
+              flex-direction: column;
+              display: flex;
+          }
       }
     </style>
   </head>
@@ -80,37 +108,37 @@
       <option>53</option>
       <option>54</option>
     </select></pre>
-    <div display="flex" id='container'>
+    <div id='container'>
     <div>
-    <textarea id='output' cols=24 rows=20></textarea><br>
-    <textarea id='printer' cols=24 rows=2></textarea><br>
+    <pre id='output'></pre><br>
+    <pre id='printer'></pre><br>
     <button id='step' disabled>step</button><button disabled id='reset' onclick="javascript: reset()">reset</button><br><br>
     </div>
     <div>
     <pre>
 Instruction set:
       
- 0 HALT                (HLT)
- 1 R0 = R0 + R1        (ADD)
- 2 R0 = R0 - R1        (SUB)
- 3 R0 = R0 + 1         (INC)
- 4 R1 = R1 + 1         (INC)
- 5 R0 = R0 - 1         (DEC)
- 6 R1 = R1 - 1         (DEC)
+ 0 HALT        
+ 1 R0 = R0 + R1
+ 2 R0 = R0 - R1
+ 3 R0 = R0 + 1 
+ 4 R1 = R1 + 1 
+ 5 R0 = R0 - 1 
+ 6 R1 = R1 - 1 
 
  7 BEEP
 
  8 X PRINT X
   
- 9 X R0 = MEMORY[X]    (LDR)
-10 X R1 = MEMORY[X]    (LDR)
-11 X MEMORY[X] = R0    (STR)
-12 X MEMORY[X] = R1    (STR)
+ 9 X R0 = MEMORY[X]
+10 X R1 = MEMORY[X]
+11 X MEMORY[X] = R0
+12 X MEMORY[X] = R1
   
-13 X JUMP X            (B)
-14 X JUMP X IF R0 == 0 (BZ)
-15 X JUMP X IF R0 != 0 (BNZ)
-    </pre>
+13 X JUMP X           
+14 X JUMP X IF R0 == 0
+15 X JUMP X IF R0 != 0
+</pre>
     </div>
     </div>
     <script>
@@ -119,10 +147,11 @@ Instruction set:
       let printE = document.getElementById('printer')
       let stepE = document.getElementById('step')
       let resetE = document.getElementById('reset')
+      let cardE = document.getElementById('card')
       const reset = async () => {
           stepE.removeAttribute('disabled')
           resetE.removeAttribute('disabled')
-          return await run(parseInt(document.getElementById('card').value))
+          return await run(parseInt(cardE.value))
       }
 
       document.getElementById('card').addEventListener('change', reset)
@@ -183,7 +212,7 @@ Instruction set:
       }
 
       const print = (x) => {
-          printE.value += x + ' '
+          printE.innerHTML += x + ' '
       }
       
       const run = async (id) => {
@@ -208,8 +237,8 @@ Instruction set:
           }
 
           [IP,IS,R0,R1,...memory] = state
-          outputE.value = ascii([IP, IS, R0, R1, ...memory], [])
-          printE.value = ''
+          outputE.innerHTML = ascii([IP, IS, R0, R1, ...memory], [])
+          printE.innerHTML = ''
       }
 
       const step = (IP,IS,R0,R1,memory) => {
@@ -218,7 +247,7 @@ Instruction set:
           if (IS >= 8)
               highlight = [IP,overflow_add(IP,1)]
 
-          outputE.value = ascii([IP, IS, R0, R1, ...memory], highlight)
+          outputE.innerHTML = ascii([IP, IS, R0, R1, ...memory], highlight)
 
           switch (IS) {
           case 0:
@@ -305,6 +334,8 @@ Instruction set:
               IP -= 16
           return [IP,IS,R0,R1,memory]
       }
+      cardE.value = '1'
+      reset()
     </script>      
   </body>
 </html>
