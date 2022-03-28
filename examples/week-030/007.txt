@@ -1,0 +1,3 @@
+def rot13(c):
+    n = ord(c) - ord('a')
+    return chr(97 + ((n + 13) % 26))

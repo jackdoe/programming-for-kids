@@ -1,0 +1,5 @@
+image = [1]
+
+for (index, pixel) in enumerate(image):
+    if pixel == 1:
+        print('+', end='')

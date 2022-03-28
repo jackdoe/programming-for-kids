@@ -524,3 +524,5 @@
 
 
 [day-206 client server](#day-206-client-server)
+
+[day-207 0; 1; infinity; how to break things down](#day-207-0-1-infinity-how-to-break-things-down)
