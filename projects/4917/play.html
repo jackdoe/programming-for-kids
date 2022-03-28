@@ -310,72 +310,73 @@ Instruction set:
 
       const step = ([IP,IS,R0,R1,...memory]) => {
           IS = memory[IP]
+
           switch (IS) {
           case 0:
               break;
           case 1:
               R0 = R0 + R1
-              IP += 1
+              IP = overflow_add(IP,1)
               break;
           case 2:
               R0 = R0 - R1
-              IP += 1
+              IP = overflow_add(IP,1)
               break;
           case 3:
               R0 += 1
-              IP += 1
+              IP = overflow_add(IP,1)
               break;
           case 4:
               R1 += 1
-              IP += 1
+              IP = overflow_add(IP,1)
               break;
           case 5:
               R0 -= 1
-              IP += 1
+              IP = overflow_add(IP,1)
               break;
           case 6:
               R1 -= 1
-              IP += 1
+              IP = overflow_add(IP,1)
               break;
           case 7:
               print("BEEP")
-              IP += 1
+              IP = overflow_add(IP,1)
               break;
           case 8:
               print(memory[overflow_add(IP,1)])
-              IP += 2
+              IP = overflow_add(IP,2)
               break;
           case 9:
-            R0 = memory[memory[overflow_add(IP,1)]]
-              IP += 2
+              R0 = memory[memory[overflow_add(IP,1)]]
+              IP = overflow_add(IP,2)
               break;
           case 10:
             R1 = memory[memory[overflow_add(IP,1)]]
-              IP += 2
+              IP = overflow_add(IP,2)
               break;
           case 11:
-            memory[memory[overflow_add(IP,1)]] = R0
-              IP += 2
+              memory[memory[overflow_add(IP,1)]] = R0
+              IP = overflow_add(IP,2)
               break;
           case 12:
-            memory[memory[overflow_add(IP,1)]] = R1
-              IP += 2
+              memory[memory[overflow_add(IP,1)]] = R1
+              IP = overflow_add(IP,2)
               break;
           case 13:
               IP = memory[overflow_add(IP,1)]
               break;
           case 14:
               if (R0 == 0) {
-                IP = memory[overflow_add(IP,1)]
+                  IP = memory[overflow_add(IP,1)]
               } else {
-                  IP += 2
+                  IP = overflow_add(IP,2)
               }
               break;
           case 15:
               if (R0 != 0) {
-                IP = memory[overflow_add(IP,1)]
+                  IP = memory[overflow_add(IP,1)]
               } else {
-                  IP += 2
+                  IP = overflow_add(IP,2)
               }
               break;
           }
@@ -392,9 +393,6 @@ Instruction set:
           if (R1 < 0)
               R1 += 16
 
-          if (IP > 15)
-              IP -= 16
-
           return [IP,IS,R0,R1,memory]
       }
 
@@ -402,11 +400,9 @@ Instruction set:
       cardE.addEventListener('change', reset)
       stepE.addEventListener('click',e => {
           running = true
-
-          let old = cycles[cycles.length-1]
-          
           let [IP,IS,R0,R1,memory] = step(cycles[cycles.length-1])
-          if (IP != old[0] && IS != old[1])
+
+          if (IS != 0)
               cycles.push([IP,IS,R0,R1,...memory])
           outputE.innerHTML = ascii(cycles[cycles.length-1])
           undoE.removeAttribute('disabled')
