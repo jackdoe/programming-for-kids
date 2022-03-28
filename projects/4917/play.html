@@ -403,12 +403,12 @@ Instruction set:
       stepE.addEventListener('click',e => {
           running = true
 
+          let old = cycles[cycles.length-1]
+          
           let [IP,IS,R0,R1,memory] = step(cycles[cycles.length-1])
-          cycles.push([IP,IS,R0,R1,...memory])
+          if (IP != old[0] && IS != old[1])
+              cycles.push([IP,IS,R0,R1,...memory])
           outputE.innerHTML = ascii(cycles[cycles.length-1])
-
-          if (IS == 0)
-              stepE.setAttribute('disabled','disabled')
           undoE.removeAttribute('disabled')
       })
 
