@@ -140,7 +140,7 @@
     <pre id='comment'></pre><br>
     <pre id='output'></pre><br>
     <pre id='printer'></pre><br>
-    <button id='step' disabled>step</button><button disabled id='undo'>undo</button><br><br>
+    <button id='step' disabled>step</button><button disabled id='undo'>undo</button><button id='reset'>reset</button><br><br>
     </div>
     <div>
     <pre>
@@ -177,6 +177,7 @@ Instruction set:
       let printE = document.getElementById('printer')
       let stepE = document.getElementById('step')
       let undoE = document.getElementById('undo')
+      let resetE = document.getElementById('reset')
       let cardE = document.getElementById('card')
       let commentE = document.getElementById('comment')
       let running = false
@@ -267,6 +268,7 @@ Instruction set:
 ├────┼────┼────┼────┤
 │${center[16]}│${center[17]}│${center[18]}│${center[19]}│ 
 └────┴────┴────┴────┘
+cycle: ${cycles.length-1}
 `
           return out
       }
@@ -401,6 +403,11 @@ Instruction set:
       }
 
       undoE.addEventListener('click',undo)
+      resetE.addEventListener('click',() => {
+          cycles = [cycles[0]]
+          printE.innerHTML = ''
+          outputE.innerHTML = ascii(cycles[cycles.length-1])
+      })
       cardE.addEventListener('change', reset)
       stepE.addEventListener('click',e => {
           running = true
@@ -411,8 +418,6 @@ Instruction set:
           outputE.innerHTML = ascii(cycles[cycles.length-1])
           undoE.removeAttribute('disabled')
       })
-
-
 
       // just start from card 1
       cardE.value = '1'
