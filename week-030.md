@@ -146,3 +146,76 @@ Start the client on two computers with `python3 client.py server_ip 6500`, then 
 
 There is a lot of code you dont understand here, and this is totally ok, we will get back to it in the future. The important part to remember is that IP version 4 addresses are 32 bits, and the port is 16 bits, and IP address allows you to talk to a computer and a port allows you to talk to a program.
 
+
+## [DAY-207] 0; 1; infinity; how to break things down
+
+When you think about any solution to any problem, it is very important to think in context of zero, one and infinity (or one million if infinity is impractical).
+
+Lets look at this code for rot13:
+
+```
+def rot13(c):
+    n = ord(c) - ord('a')
+    return chr(97 + ((n + 13) % 26))
+```
+
+This `97 + ((n + 13) % 26)` seems a bit intimidating, but if we set `n = 0` then `(n + 13) % 26` becomes `13 % 26` which is just 13, so the whole thing becomes 97+13, which is 110. To get `n=0` we need to pass 'a' as a parameter, so this function takes `a` and returns `chr(110)` which is `n`. See 0 is incredibly powerful, now lets try with 1, 97+14 is 111, so if we pass `b` as parameter, the function will return `o`. And for infinity, the biggest `n` we can have here is 25 or `ord('z') - ord('a')`, `(25+13)%26` is 12, 97+12 is `m`, so `a` goes to `n` and `b` goes to `o` and `z` goes to `m`.
+
+Always check the bounderies of the code: 0,1 and ∞ are your friends.
+
+In math as well, you can see how things break down when you use 0 or ∞, everytime you see something divided by a variable, try to make this variable 0.
+
+```
+x = [1,2,3]
+average = sum(x)/len(x)
+```
+
+What happens when you have an empty list? What happens when the list has exactly 1 element? What happens when you have infinite elements in the list?
+
+In any problem, try to reduce it to nothing, one and everything, and each of those steps will help you to understand it better.
+
+
+Look at some old code we wrote in day 81:
+
+```
+image = [
+    1,3,3,3,3,3,1,
+    2,4,5,4,5,4,2,
+    2,4,4,5,4,4,2,
+    2,4,5,4,5,4,2,
+    1,3,3,3,3,3,1,
+]
+
+width = 7
+
+for (index, pixel) in enumerate(image):
+    if index > 0 and index % width == 0:
+        print('')
+
+    if pixel == 1:
+        print('+', end='')
+    elif pixel == 2:
+        print('|', end='')
+    elif pixel == 3:
+        print('-', end='')
+    elif pixel == 4:
+        print(' ', end='')
+    elif pixel == 5:
+        print('*', end='')
+    else:
+        print("dont know what to do with: " + str(pixel))
+```
+
+Think of width as 0 and make the image with only 1 pixel and look at the code again:
+
+```
+image = [1]
+
+for (index, pixel) in enumerate(image):
+    if pixel == 1:
+        print('+', end='')
+```
+
+the code becomes incredibly trivial: `if you see the pixel value 1, print '+'`.
+
+Go back through your previous programs, and re-read them when you set various things to 0 (or empty lists) or 1 (or lists with 1 element).
