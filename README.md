@@ -17120,7 +17120,7 @@ Adding third switch, the possible configurations doubles again `000 001 010 011 
 
 Going back to the IP address, one byte is just 8 switches, 4 bytes is 32 switches.
 
-Now imagine 32 switches.. the possible amount of configurations is 2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2*2 or 4294967295.
+Now imagine 32 switches.. the possible amount of configurations is `2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2` or 4294967295.
 
 So over the internet for any two computers to communicate they need their own 32 bit number, this btw is version 4 of the Internet Protocol, now we are in the process of adopting the new version 6 which has 128 bits for the IP address. Imagine 128 switches, the possible configurations are: 340282366920938463463374607431768211456, which is very very big number.
 
