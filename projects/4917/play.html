@@ -32,7 +32,9 @@
       argument {
           background-color: orange;
       }
-
+      small {
+          padding: 5px;
+      }
       pre {
           font-family: monospace;
           font-size: 16px;
@@ -164,9 +166,11 @@ Instruction set:
 <span id="ins_13">13 X JUMP X</span>
 <span id="ins_14">14 X JUMP X IF R0 == 0</span>
 <span id="ins_15">15 X JUMP X IF R0 != 0</span>
-</pre>
+    </pre><br>
+
     </div>
     </div>
+    <small>hint: click on a memory cell to change its value</small>
     <script>
       let cycles = []
       let outputE = document.getElementById('output')
