@@ -138,7 +138,7 @@
     <pre id='comment'></pre><br>
     <pre id='output'></pre><br>
     <pre id='printer'></pre><br>
-    <button id='step' disabled>step</button><button disabled id='reset' onclick="javascript: reset()">reset</button><br><br>
+    <button id='step' disabled>step</button><button disabled id='undo'>undo</button><br><br>
     </div>
     <div>
     <pre>
@@ -168,28 +168,42 @@ Instruction set:
     </div>
     </div>
     <script>
-      let IP,IS,R0,R1,memory = [0,0,0,0,[]]
+      let cycles = []
       let outputE = document.getElementById('output')
       let printE = document.getElementById('printer')
       let stepE = document.getElementById('step')
-      let resetE = document.getElementById('reset')
+      let undoE = document.getElementById('undo')
       let cardE = document.getElementById('card')
       let commentE = document.getElementById('comment')
+      let running = false
+      const undo = async () => {
+          if (cycles.length > 1) {
+              cycles.pop()
+              outputE.innerHTML = ascii(cycles[cycles.length-1])
+          } else {
+              undoE.setAttribute('disabled','disabled')
+          }
+      }
 
       const reset = async () => {
           stepE.removeAttribute('disabled')
-          resetE.removeAttribute('disabled')
+          undoE.setAttribute('disabled','disabled')
           return await run(parseInt(cardE.value))
       }
 
-      document.getElementById('card').addEventListener('change', reset)
+      const edit = (x) => {
+          let ask = prompt(`enter value for memory address ${x}`)
+          let v = parseInt(ask)
+          if (!isNaN(v)) {
+              if (v > 15)
+                  v = 0
 
-      document.getElementById('step').addEventListener('click',e => {
-          [IP,IS,R0,R1,memory] = step(IP,IS,R0,R1,memory)
-          if (IS == 0) {
-              stepE.setAttribute('disabled','disabled')
+              let [IP,IS,R0,R1,...memory] = cycles[cycles.length-1]
+              memory[x] = v
+              cycles.push([IP,IS,R0,R1,...memory])
           }
-      })
+          outputE.innerHTML = ascii(cycles[cycles.length-1])
+      }
 
       var cache = {}
       const download = async (id) => {
@@ -203,15 +217,26 @@ Instruction set:
           return code
       }
 
-      const ascii = (state, highlight) => {
+      const ascii = (state) => {
           let center = []
+          let highlight = []
+
+          let [IP,IS,R0,R1,...memory] = state
+
+          // what is going to be executed, so highlight it
+          IS = memory[IP]
+          highlight = [IP]
+          if (IS >= 8)
+              highlight = [IP,overflow_add(IP,1)]
+
           for (let i = 0; i <= 15; i++) {
               let ins = document.getElementById('ins_' + i)
               ins.className = ''
-              if (i == state[1]) {
+              if (i == IS) {
                   ins.className = 'mark'
               }
           }
+
           for (let i = 0; i < state.length; i++) {
               let s = ("" + state[i]).padStart(4, ' ').padEnd(4,' ')
               let selected = highlight.indexOf(i-4)
@@ -219,7 +244,7 @@ Instruction set:
                   s = `<mark>${s}</mark>`
               }
               if (i > 3)
-                  s = `<memory>${s}</memory>`
+                  s = `<memory onclick='javascript: edit(${i-4})'>${s}</memory>`
               center.push(s)
           }
           let out = `┌────────┐ ┌────────┐
@@ -252,9 +277,10 @@ Instruction set:
       const print = (x) => {
           printE.innerHTML += x + ' '
       }
-      
       const run = async (id) => {
-          [IP,IS,R0,R1,...memory] = [0,0,0,0]
+          cycles = []
+          running = false
+          printE.innerHTML = ''
 
           let state = []
           let card = await download(id)
@@ -277,20 +303,13 @@ Instruction set:
                   state = state.concat(row)
           }
 
-          [IP,IS,R0,R1,...memory] = state
-          outputE.innerHTML = ascii([IP, IS, R0, R1, ...memory], [])
+          cycles.push(state)
+          outputE.innerHTML = ascii(cycles[cycles.length-1])
           commentE.innerHTML = comment.replace('# ','')
-          printE.innerHTML = ''
       }
 
-      const step = (IP,IS,R0,R1,memory) => {
+      const step = ([IP,IS,R0,R1,...memory]) => {
           IS = memory[IP]
-          highlight = [IP]
-          if (IS >= 8)
-              highlight = [IP,overflow_add(IP,1)]
-
-          outputE.innerHTML = ascii([IP, IS, R0, R1, ...memory], highlight)
-
           switch (IS) {
           case 0:
               break;
@@ -360,6 +379,7 @@ Instruction set:
               }
               break;
           }
+
           if (R0 > 15)
               R0 -= 16
 
@@ -374,8 +394,25 @@ Instruction set:
 
           if (IP > 15)
               IP -= 16
+
           return [IP,IS,R0,R1,memory]
       }
+
+      undoE.addEventListener('click',undo)
+      cardE.addEventListener('change', reset)
+      stepE.addEventListener('click',e => {
+          running = true
+
+          let [IP,IS,R0,R1,memory] = step(cycles[cycles.length-1])
+          cycles.push([IP,IS,R0,R1,...memory])
+          outputE.innerHTML = ascii(cycles[cycles.length-1])
+
+          if (IS == 0)
+              stepE.setAttribute('disabled','disabled')
+          undoE.removeAttribute('disabled')
+      })
+
+
 
       // just start from card 1
       cardE.value = '1'
