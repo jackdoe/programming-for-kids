@@ -30,38 +30,36 @@ def special(deck, name, text, fnt, fgcolor, bgcolor):
 
 intro = """
 
-█████████████████████████████ scan
-██ ▄▄▄▄▄ █▄▄▄ ▀█▄█ █ ▄▄▄▄▄ ██ for
-██ █   █ ██▄▀ █  █▀█ █   █ ██ info
-██ █▄▄▄█ ██▀▄ ▄█▀█ █ █▄▄▄█ ██ about
-██▄▄▄▄▄▄▄█ ▀▄█ ▀ ▀▄█▄▄▄▄▄▄▄██ how
-██▄▄█▄▄█▄▀▀▄▀█▄▀█ █▀▄▀▀▀▀▀▄██ the
-██▀▀▄ ▀█▄▄ ▄██▄█  ▄█ █▄ ▀▀ ██ computer
-██ ▀▄▄█▀▄▀ ▄ █▀▀▄▀ █▄█▀██▀▄██ works.
-██ ▄▄▄▀▀▄▄  ▄█▀▄█ ▄▄█▀▄  ▄ ██ It
-██▄███▄▄▄▄▀█▄ ▄▄ █ ▄▄▄ █  ███ is
-██ ▄▄▄▄▄ ██▄▄▀▄▀██ █▄█ ███▄██ amazing
-██ █   █ █ ▀▄▄▀ ▀▄   ▄▄██  ██ what
-██ █▄▄▄█ █▀██ ▀ █ ▄ █▀ ▄   ██ you
-██▄▄▄▄▄▄▄█▄██▄▄▄██▄████▄██▄██ can
-█████████████████████████████ do!
-
+                          scan
+ ▄▄▄▄▄ █▄▄▄ ▀█▄█ █ ▄▄▄▄▄  for
+ █   █ ██▄▀ █  █▀█ █   █  info
+ █▄▄▄█ ██▀▄ ▄█▀█ █ █▄▄▄█  about
+▄▄▄▄▄▄▄█ ▀▄█ ▀ ▀▄█▄▄▄▄▄▄▄ how
+▄▄█▄▄█▄▀▀▄▀█▄▀█ █▀▄▀▀▀▀▀▄ the
+▀▀▄ ▀█▄▄ ▄██▄█  ▄█ █▄ ▀▀  computer
+ ▀▄▄█▀▄▀ ▄ █▀▀▄▀ █▄█▀██▀▄ works.
+ ▄▄▄▀▀▄▄  ▄█▀▄█ ▄▄█▀▄  ▄  it
+▄███▄▄▄▄▀█▄ ▄▄ █ ▄▄▄ █  █ is
+ ▄▄▄▄▄ ██▄▄▀▄▀██ █▄█ ███▄ amazing
+ █   █ █ ▀▄▄▀ ▀▄   ▄▄██   what
+ █▄▄▄█ █▀██ ▀ █ ▄ █▀ ▄    you
+▄▄▄▄▄▄▄█▄██▄▄▄██▄████▄██▄ can
+                          do!
 license: CC BY 4.0
 author:  https://github.com/jackdoe
-webpage: https://punkx.org/4719
+webpage: https://punkx.org/4917
 email:   b0000@fastmail.com
 
 possible games:
-  * random corruption
-    roll dice to corrupt the memory
-  * monkey patching
-    modify one instruction in memory
-  * hacking
-    players take turns to HALt each
-    other's computers
-  * composition
-    load new program mid-way as 
-    registers keep their old value    
+ * random corruption
+   roll dice to corrupt the memory
+ * monkey patching
+   modify one instruction in memory
+ * hacking
+   take turns to HALT the other comp
+ * composition
+   swap the program while it runs
+
 
 """
 
@@ -92,5 +90,5 @@ hello = """
 deck = 'deck'
 
 special(deck, "back_card_000", hello, bigger, bgcolor, fgcolor)
-special(deck, "front_card_000", intro, fnt, fgcolor, bgcolor)
+special(deck, "front_card_000", intro, fnt, bgcolor, fgcolor)
     
