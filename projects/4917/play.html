@@ -406,7 +406,9 @@ cycle: ${cycles.length-1}
       resetE.addEventListener('click',() => {
           cycles = [cycles[0]]
           printE.innerHTML = ''
+          undoE.setAttribute('disabled','disabled')
           outputE.innerHTML = ascii(cycles[cycles.length-1])
+
       })
       cardE.addEventListener('change', reset)
       stepE.addEventListener('click',e => {
