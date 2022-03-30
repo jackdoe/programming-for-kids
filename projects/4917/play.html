@@ -202,6 +202,7 @@ Instruction set:
       const reset = async () => {
           stepE.removeAttribute('disabled')
           undoE.setAttribute('disabled','disabled')
+          window.location.replace('#' + cardE.value)
           return await run(parseInt(cardE.value))
       }
 
@@ -366,7 +367,7 @@ cycle: ${cycles.length-1}
               IP = overflow_add(IP,2)
               break;
           case 10:
-            R1 = memory[memory[overflow_add(IP,1)]]
+              R1 = memory[memory[overflow_add(IP,1)]]
               IP = overflow_add(IP,2)
               break;
           case 11:
