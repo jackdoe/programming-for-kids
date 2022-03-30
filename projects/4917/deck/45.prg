@@ -12,6 +12,7 @@
 # 14 X jump to address X if R0 == 0
 # 15 X jump to address X if R0 != 0
 #
+# if r0 == r1 beep twice otherwise beep once
 ┌────────┐ ┌────────┐
 │ IP:  0 │ │ IS:  0 │
 └────────┘ └────────┘
