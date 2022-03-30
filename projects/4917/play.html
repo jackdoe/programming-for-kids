@@ -430,8 +430,13 @@ cycle: ${cycles.length-1}
           undoE.removeAttribute('disabled')
       })
 
-      // just start from card 1
-      cardE.value = '1'
+      let start = parseInt(window.location.hash.split('#')[1])
+      if (!isNaN(start) && start > 0 && start <= 54) {
+          cardE.value = start          
+      } else {
+          cardE.value = '1'
+      }
+
       reset()
     </script>      
   </body>

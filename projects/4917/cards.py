@@ -38,10 +38,12 @@ def border(d, data, id):
 
     around = []
     around.append(top)
+
     text = ['']
     for t in  data.split('\n'):
         if '#' not in t:
             text.append(t)
+    text.insert(0, '')
 
     if text[len(text)-1] == "":
         text.pop()
