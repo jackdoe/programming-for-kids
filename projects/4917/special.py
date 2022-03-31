@@ -63,32 +63,31 @@ possible games:
 
 """
 
-hello = """                         
-   
+hello = """
 
- 0 HALT                (HLT)
- 1 R0 = R0 + R1        (ADD)
- 2 R0 = R0 - R1        (SUB)
- 3 R0 = R0 + 1         (INC)
- 4 R1 = R1 + 1         (INC)
- 5 R0 = R0 - 1         (DEC)
- 6 R1 = R1 - 1         (DEC)
 
- 7 BEEP
+| 0| HALT
+| 1| R0 = R0 + R1
+| 2| R0 = R0 - R1
+| 3| R0 = R0 + 1
+| 4| R1 = R1 + 1
+| 5| R0 = R0 - 1
+| 6| R1 = R1 - 1
 
- 8 X PRINT X
-  
- 9 X R0 = MEMORY[X]    (LDR)
-10 X R1 = MEMORY[X]    (LDR)
-11 X MEMORY[X] = R0    (STR)
-12 X MEMORY[X] = R1    (STR)
-  
-13 X JUMP X            (B)
-14 X JUMP X IF R0 == 0 (BZ)
-15 X JUMP X IF R0 != 0 (BNZ)
+| 7| BEEP
+
+| 8| X| PRINT X (LITERAL)
+
+| 9| X| R0 = MEMORY[X]
+|10| X| R1 = MEMORY[X]
+|11| X| MEMORY[X] = R0
+|12| X| MEMORY[X] = R1
+
+|13| X| JUMP TO X
+|14| X| JUMP TO X IF R0 == 0
+|15| X| JUMP TO X IF R0 != 0
                        """
 deck = 'deck'
 
 special(deck, "back_card_000", hello, bigger, bgcolor, fgcolor)
 special(deck, "front_card_000", intro, fnt, bgcolor, fgcolor)
-    
