@@ -219,3 +219,121 @@ for (index, pixel) in enumerate(image):
 the code becomes incredibly trivial: `if you see the pixel value 1, print '+'`.
 
 Go back through your previous programs, and re-read them when you set various things to 0 (or empty lists) or 1 (or lists with 1 element).
+
+
+## [DAY-208] if; lists
+
+Make a game where the player captures falling things, every time they catch a thing it starts falling from a random position again, every 5th catch the difficulty increases by increasing the number of falling things.
+
+![game-208.png](./screenshots/game-208.png "game 208 screenshot")
+
+
+> thats what she wrote
+
+```
+import pgzrun
+import random
+
+HEIGHT = 800
+WIDTH = 800
+score = 0
+player = Actor("chess/white")
+
+dots = [Actor("rock"),Actor("flower")]
+player.y = 760
+game_over = False
+
+def update():
+    global game_over,score
+    if keyboard.A:
+        player.x -= 15 #+ score
+    if keyboard.D:
+        player.x += 15 #+ score
+    if player.x <0:
+        player.x = 0
+    if player.x >790:
+        player.x = 790
+    for d in dots:
+        d.y += 4
+        if player.colliderect(d):
+            d.x = random.randint(50,700)
+            d.y = random.randint(10,300)
+            score += 1
+            if score%5==0:
+                n = Actor(random.choice(["rock", "flower"]))
+                n.x = random.randint(50,700)
+                n.y = random.randint(10,300)
+                dots.append(n)
+
+        if d.y >790:
+            game_over = True
+    
+def draw():
+    screen.fill("black")
+    screen.draw.text(str(score), (10,10),color = (255,255,255))
+    player.draw()
+    for d in dots:
+        d.draw()
+    if game_over == True:
+        screen.fill("deepskyblue")
+        
+pgzrun.go()
+```
+
+## [DAY-209] if; lists
+
+Make each falling object have a different speed
+
+> her initial idea was to just change the falling object's y with a random number
+
+```
+def update():
+    ...
+    for d in dots:
+         d.y += random.randint(1,5)
+         ...
+```
+
+> second idea she had was to use the index of the thing as its speed (up to 4)
+
+```
+def update():
+    ...
+    i = 1
+    for d in dots:
+         d.y += 1
+         i += 1
+         if i > 4:
+             i = 1
+         ...
+```
+
+> her third idea was somehow to use a speed defined outside of the update() loop, but she couldnt implement it so I helped a bit
+
+```
+dots = [[Actor("rock"), 3],[Actor("flower"), 2]]
+
+def update():
+    ...
+    for d in dots:
+        d[0].y += d[1]
+        if player.colliderect(d[0]):
+            d[0].x = random.randint(50,700)
+            d[0].y = random.randint(10,300)
+            score += 1
+            if score%5==0:
+                n = Actor(random.choice(["rock", "flower"]))
+                n.x = random.randint(50,700)
+                n.y = random.randint(10,300)
+                dots.append([n, random.choice([1,2,3])])
+    ...
+
+def draw():
+    ....
+    for d in dots:
+        d[0].draw()
+    ....
+```
+
+This pattern, keeping multiple objects close together in a small group is very important, try to practice it with other things, for example think about how you would add special powers to the falling things (slow down time, increase the player's size, increase player size and speed up time, etc)
+
