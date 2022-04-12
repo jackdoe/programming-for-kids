@@ -526,3 +526,7 @@
 [day-206 client server](#day-206-client-server)
 
 [day-207 0; 1; infinity; how to break things down](#day-207-0-1-infinity-how-to-break-things-down)
+
+[day-208 if; lists](#day-208-if-lists)
+
+[day-209 if; lists](#day-209-if-lists)

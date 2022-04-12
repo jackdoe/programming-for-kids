@@ -1,0 +1,22 @@
+dots = [[Actor("rock"), 3],[Actor("flower"), 2]]
+
+def update():
+    ...
+    for d in dots:
+        d[0].y += d[1]
+        if player.colliderect(d[0]):
+            d[0].x = random.randint(50,700)
+            d[0].y = random.randint(10,300)
+            score += 1
+            if score%5==0:
+                n = Actor(random.choice(["rock", "flower"]))
+                n.x = random.randint(50,700)
+                n.y = random.randint(10,300)
+                dots.append([n, random.choice([1,2,3])])
+    ...
+
+def draw():
+    ....
+    for d in dots:
+        d[0].draw()
+    ....
