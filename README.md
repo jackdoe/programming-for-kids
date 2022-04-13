@@ -648,6 +648,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-209 if; lists](#day-209-if-lists)
 
+[day-210 if; lists](#day-210-if-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -17110,18 +17112,18 @@ Once we add a switch, the possible configurations double, however the previous o
 Adding third switch, the possible configurations doubles again `000 001 010 011 100 101 110 111`:
 
 ```
-     .----------.      .----------.       .----------. 
-     |   ~ON~   |      |   ~ON~   |       |   ~ON~   | 
-     |   ____   |      |   ____   |       |   ____   | 
-     |  |.--.|  |      |  |.--.|  |       |  |.--.|  | 
-     |  ||  ||  |      |  ||  ||  |       |  ||  ||  | 
-     |  ||__||  |      |  ||__||  |       |  ||__||  | 
-     |  ||\ \|  |      |  ||\ \|  |       |  ||\ \|  | 
-     |  |\ \_\  |      |  |\ \_\  |       |  |\ \_\  | 
-     |  |_\[_]  |      |  |_\[_]  |       |  |_\[_]  | 
-     |          |      |          |       |          | 
-     |  ~OFF~   |      |  ~OFF~   |       |  ~OFF~   | 
-     '----------'      '----------'       '----------' 
+     .----------.      .----------.       .----------.
+     |   ~ON~   |      |   ~ON~   |       |   ~ON~   |
+     |   ____   |      |   ____   |       |   ____   |
+     |  |.--.|  |      |  |.--.|  |       |  |.--.|  |
+     |  ||  ||  |      |  ||  ||  |       |  ||  ||  |
+     |  ||__||  |      |  ||__||  |       |  ||__||  |
+     |  ||\ \|  |      |  ||\ \|  |       |  ||\ \|  |
+     |  |\ \_\  |      |  |\ \_\  |       |  |\ \_\  |
+     |  |_\[_]  |      |  |_\[_]  |       |  |_\[_]  |
+     |          |      |          |       |          |
+     |  ~OFF~   |      |  ~OFF~   |       |  ~OFF~   |
+     '----------'      '----------'       '----------'
 ```
 
 Going back to the IP address, one byte is just 8 switches, 4 bytes is 32 switches.
@@ -17330,7 +17332,7 @@ def update():
 
         if d.y >790:
             game_over = True
-    
+
 def draw():
     screen.fill("black")
     screen.draw.text(str(score), (10,10),color = (255,255,255))
@@ -17339,7 +17341,7 @@ def draw():
         d.draw()
     if game_over == True:
         screen.fill("deepskyblue")
-        
+
 pgzrun.go()
 ```
 
@@ -17400,4 +17402,56 @@ def draw():
 
 This pattern, keeping multiple objects close together in a small group is very important, try to practice it with other things, for example think about how you would add special powers to the falling things (slow down time, increase the player's size, increase player size and speed up time, etc)
 
+## [DAY-210] if; lists
+
+add 3 special items to the game
+
+* gold: move all balls back to starting position and slow them down to maximum speed 2
+* elf: reduce the amount of balls by one
+* king: add 5 more balls
+
+> thats what she wrote
+
+```
+...
+gold = Actor("c3")
+king = Actor("c2")
+elf = Actor("c1")
+elf.x = random.randint(50,700)
+king.x = random.randint(50,700)
+gold.x = random.randint(50,700)
+...
+
+def update()
+   ...
+    if gold.colliderect(player):
+        for d in dots:
+            d[0].y = 0
+            d[1].speed = random.randint(1,2)
+        gold.y = 0
+        gold.x = random.randint(50,700)
+
+    if elf.colliderect(player):
+        if len(dots) > 0:
+            dots.pop()
+        elf.y = 0
+        elf.x = random.randint(50,700)
+
+    if king.colliderect(player):
+        for i in range(5):
+            n = Actor(random.choice(["rock", "flower"]))
+            n.x = random.randint(50,700)
+            n.y = random.randint(10,300)
+            dots.append([n,random.randint(1,3)])
+        king.y = 0
+        king.x = random.randint(50,700)
+   ...
+
+def draw():
+   ...
+
+   elf.draw()
+   king.draw()
+   gold.draw()
+```
 

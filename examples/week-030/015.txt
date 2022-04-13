@@ -1,0 +1,40 @@
+...
+gold = Actor("c3")
+king = Actor("c2")
+elf = Actor("c1")
+elf.x = random.randint(50,700)
+king.x = random.randint(50,700)
+gold.x = random.randint(50,700)
+...
+
+def update()
+   ...
+    if gold.colliderect(player):
+        for d in dots:
+            d[0].y = 0
+            d[1].speed = random.randint(1,2)
+        gold.y = 0
+        gold.x = random.randint(50,700)
+
+    if elf.colliderect(player):
+        if len(dots) > 0:
+            dots.pop()
+        elf.y = 0
+        elf.x = random.randint(50,700)
+
+    if king.colliderect(player):
+        for i in range(5):
+            n = Actor(random.choice(["rock", "flower"]))
+            n.x = random.randint(50,700)
+            n.y = random.randint(10,300)
+            dots.append([n,random.randint(1,3)])
+        king.y = 0
+        king.x = random.randint(50,700)
+   ...
+
+def draw():
+   ...
+
+   elf.draw()
+   king.draw()
+   gold.draw()

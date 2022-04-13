@@ -34,7 +34,7 @@ def update():
 
         if d.y >790:
             game_over = True
-    
+
 def draw():
     screen.fill("black")
     screen.draw.text(str(score), (10,10),color = (255,255,255))
@@ -43,5 +43,5 @@ def draw():
         d.draw()
     if game_over == True:
         screen.fill("deepskyblue")
-        
+
 pgzrun.go()
