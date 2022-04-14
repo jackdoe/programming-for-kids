@@ -650,6 +650,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-210 if; lists](#day-210-if-lists)
 
+[day-211 classes](#day-211-classes)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -17454,4 +17456,131 @@ def draw():
    king.draw()
    gold.draw()
 ```
+
+## [DAY-211] classes
+
+This is the same game but with small tweaks, to the elf increases the player size, and the king decreases it, also the player speed varies.
+
+Just try to read the code, it is a bit convoluted and objects are calling other objects and it is a bit intimidating, but focus on the `fall()` method and follow how it is used, then check the player `move_left()` and `move_right()`
+
+```
+import pgzrun
+import random
+
+HEIGHT = 800
+WIDTH = 600
+
+class Player:
+    def __init__(self, w, h):
+        self.speed = 15
+        self.w = w
+        self.h = h
+        self.x = 0
+        self.y = HEIGHT - (h + 10)
+
+    def move_left(self):
+        self.x -= self.speed
+        if self.x < 0:
+            self.x = 0
+
+    def move_right(self):
+        self.x += self.speed
+        if self.x > WIDTH-10:
+            self.x = WIDTH-10
+
+    def hit(self, someActor):
+        playerRect = Rect(self.x, self.y, self.w, self.h)
+        return someActor.colliderect(playerRect)
+    
+    def draw(self):
+        r = Rect(self.x, self.y, self.w, self.h)
+        screen.draw.filled_rect(r, color="red")
+
+class FallingThing:
+    def __init__(self, image):
+        self.thing = Actor(image)
+        self.speed = random.choice([1,1,2,2,3])
+        self.start_from_top()
+
+    def start_from_top(self):
+        self.thing.x = random.randint(50,WIDTH-50)
+        self.thing.y = random.randint(10,HEIGHT/4)
+        self.speed = random.choice([1,2,2,3])
+
+    def hit(self, player, falling):
+        if player.hit(self.thing):
+            if self.thing.image == 'c1':
+                player.w *= 2
+
+            elif self.thing.image == 'c2':
+                player.w /= 2
+                
+            elif self.thing.image == 'c3':
+                for d in falling:
+                    d.start_from_top()
+                
+            player.speed += random.choice([-3,3])
+            if player.speed < 0:
+                player.speed = 1
+
+            falling.append(FallingThing(random.choice(["rock", "flower"])))
+
+            self.start_from_top()
+            return True
+        else:
+            return False
+
+    def fall(self):
+        self.thing.y += self.speed 
+        return self.thing.y
+
+    def draw(self):
+        self.thing.draw()
+
+score = 0
+player = Player(100, 50)
+falling = [
+    FallingThing("c1"),
+    FallingThing("c2"),
+    FallingThing("c3"),
+    FallingThing(random.choice(["rock", "flower"])),
+    FallingThing(random.choice(["rock", "flower"])),
+    FallingThing(random.choice(["rock", "flower"])),
+    FallingThing(random.choice(["rock", "flower"]))
+]
+game_over = False
+
+def update():
+    global game_over, score
+
+    if game_over:
+        return
+
+    if keyboard.A:
+        player.move_left()
+    if keyboard.D:
+        player.move_right()
+
+    for f in falling:
+        if f.hit(player, falling):
+            score += 1
+
+        if f.fall() > HEIGHT:
+            game_over = True
+
+def draw():
+    screen.fill("black")
+
+    player.draw()
+    for f in falling:
+        f.draw()
+
+    if game_over == True:
+        screen.fill("deepskyblue")
+
+    screen.draw.text(str(score), (10,10),color = (255,255,255))        
+
+pgzrun.go()
+```
+
 
