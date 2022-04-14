@@ -486,6 +486,9 @@ game_over = False
 def update():
     global game_over, score
 
+    if game_over:
+        return
+
     if keyboard.A:
         player.move_left()
     if keyboard.D:
