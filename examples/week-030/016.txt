@@ -25,7 +25,7 @@ class Player:
     def hit(self, someActor):
         playerRect = Rect(self.x, self.y, self.w, self.h)
         return someActor.colliderect(playerRect)
-    
+
     def draw(self):
         r = Rect(self.x, self.y, self.w, self.h)
         screen.draw.filled_rect(r, color="red")
@@ -48,11 +48,11 @@ class FallingThing:
 
             elif self.thing.image == 'c2':
                 player.w /= 2
-                
+
             elif self.thing.image == 'c3':
                 for d in falling:
                     d.start_from_top()
-                
+
             player.speed += random.choice([-3,3])
             if player.speed < 0:
                 player.speed = 1
@@ -65,7 +65,7 @@ class FallingThing:
             return False
 
     def fall(self):
-        self.thing.y += self.speed 
+        self.thing.y += self.speed
         return self.thing.y
 
     def draw(self):
@@ -112,6 +112,6 @@ def draw():
     if game_over == True:
         screen.fill("deepskyblue")
 
-    screen.draw.text(str(score), (10,10),color = (255,255,255))        
+    screen.draw.text(str(score), (10,10),color = (255,255,255))
 
 pgzrun.go()

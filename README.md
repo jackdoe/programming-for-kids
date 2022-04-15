@@ -17491,7 +17491,7 @@ class Player:
     def hit(self, someActor):
         playerRect = Rect(self.x, self.y, self.w, self.h)
         return someActor.colliderect(playerRect)
-    
+
     def draw(self):
         r = Rect(self.x, self.y, self.w, self.h)
         screen.draw.filled_rect(r, color="red")
@@ -17514,11 +17514,11 @@ class FallingThing:
 
             elif self.thing.image == 'c2':
                 player.w /= 2
-                
+
             elif self.thing.image == 'c3':
                 for d in falling:
                     d.start_from_top()
-                
+
             player.speed += random.choice([-3,3])
             if player.speed < 0:
                 player.speed = 1
@@ -17531,7 +17531,7 @@ class FallingThing:
             return False
 
     def fall(self):
-        self.thing.y += self.speed 
+        self.thing.y += self.speed
         return self.thing.y
 
     def draw(self):
@@ -17578,9 +17578,16 @@ def draw():
     if game_over == True:
         screen.fill("deepskyblue")
 
-    screen.draw.text(str(score), (10,10),color = (255,255,255))        
+    screen.draw.text(str(score), (10,10),color = (255,255,255))
 
 pgzrun.go()
 ```
+
+This is a different way of writing programs, splitting things into pieces that talk to each other through messages(methods), and those pieces contain state which might or might not be modified when they receive a message, like the player.x or the thing.y. It seems like the program is simpler than the previous way you wrote, but that is not exactly true, now in order to follow what is going on you have to jump from object to object, while previously you were just able to read from top to bottom of the update() function and see what is going on.
+
+There are new ways, and old ways of writing programs, but the truth is, large scale software programming is difficult and also very new, it is only 60 years old, we still dont know how to do it, we dont know how to teach it. There are people that come and preach: 'use only functions dont mutate state', 'use only objects with state', there are the other ones with 'always strongly encapsulate your state', or 'you should be able to follow the code so it should be just a bunch of procedures', 'decouple the logic', 'separate your concerns', 'first write a test for your program before you write the program', 'you should always program with a programming buddy as two people think better than one', use a plastic duck to help you'..
+
+So, relax, in the end of the day the computer will execute some instructions and show few pixels on the screen. Have some fun.
+
 
 
