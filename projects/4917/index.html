@@ -6,7 +6,10 @@
 	  max-width: 60rem;
 	  padding: 1rem;
 	  font-size: 14px;
-	  margin: auto;  
+	  margin: auto;
+      }
+      img {
+          padding: 5px;
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +22,7 @@
     <br>
     <h2>[<a href="guide.html">HOW TO PLAY</a>]</h2>
     <h2>[<a href="play.html">START THE DEBUGGER</a>]</h2>
+
     <br>
     The cards have <b><a href="deck.html">54</a></b> small programs, illustrating various low level concepts such as:
     <ol>
@@ -37,6 +41,43 @@
     </ol>
     <br>
 
+    <a target="_blank" href="photos/a.jpg"><img src="photos/a.jpg" height="400px"></a>
+    <a target="_blank" href="photos/c.jpg"><img src="photos/c.jpg" height="400px"></a>
+    <a target="_blank" href="photos/d.jpg"><img src="photos/d.jpg" height="400px"></a>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="FZ36296Q2TCKS">
+      <table>
+        <tr><td><input type="hidden" name="on0" value="# decks"># decks + €10 shipping</td></tr><tr><td><select name="os0">
+	      <option value="1 deck">1 deck €15,00 EUR</option>
+	      <option value="2 decks - 15% off">2 decks - 15% off €25,00 EUR</option>
+	      <option value="3 decks - 30% off">3 decks - 30% off €30,00 EUR</option>
+        </select> </td></tr>
+      </table>
+      <input type="hidden" name="currency_code" value="EUR">
+      <input type="image" src="https://www.paypalobjects.com/en_US/NL/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+
+    <ul>
+      <li>print on a4: <a href="deck.html">list of all 55 cards</a>, shrinked to width=25% so that they printable on 7 sheets of a4 paper (landscape, no margins)</li>
+      <li>code: <a href="https://github.com/jackdoe/programming-for-kids/tree/master/projects/4917/deck">4917</a></li>
+      <li>author: <a href="https://github.com/jackdoe">github.com/jackdoe</a></li>
+      <li>co author: <a href="https://punkjazz.org/jackie">Jackie (11 yo)</a></li>
+      <li>contact: <a href="mailto:b0000@fastmail.com">b0000@fastmail.com</a></li>
+      <li>price: this game costs 15€ instead of 10€ because I printed only 100 decks instead of 300 like <a href="https://punkjazz.org/programming-time">programming-time</a>, as I thought less people would be interested in machine code than python. The shipping cost of 10€ high for Europe but low for US/Asia so it kind of evens out over all. 50 cents for envelope, 2€ for bus ticket and actual shipping cost for USA is actually 13.50€, but for The Netherlands its only 7€. I printed 100 decks and plan to sell no more than 50, the rest I will dontate to schools.</li>
+      <li>license: CC BY 4.0</li>
+    </ul>
+    <br>
+    The game is based on Richard Buckland's <a href="https://www.youtube.com/watch?v=gTeDX4yAdyU">4 bit computer</a><br><br>
+    
+    Note: When you play with your kid, install <a href="https://x64dbg.com/">x64dbg</a> and show them the actual machine code of a program as it is being executed. Another thing that is really helpful is if you write a small C program that does somewhat the same thing as a specific card to illustrate it better.
+    <br><br>
+
+    Also check out the other game we made: <mark>programming time</mark> <a href="https://punkjazz.org/programming-time">teach your kids python</a>, try to play few cards from each game at lunch or dinner.
+    <br>
+    <hr>
     Example cards (6 out of 55):<br>
     <a href="play.html#1"><img src="images/deck/front_card_001.jpg" height="400px"></a>
     <a href="play.html#2"><img src="images/deck/front_card_002.jpg" height="400px"></a>
@@ -44,25 +85,5 @@
     <a href="play.html#18"><img src="images/deck/front_card_018.jpg" height="400px"></a>
     <a href="play.html#43"><img src="images/deck/front_card_043.jpg" height="400px"></a>
     <a href="images/deck/back_card_000.jpg"><img src="images/deck/back_card_000.jpg" height="400px"></a>
-    <br> 
-    <hr>
-
-    How to print and license:
-    
-    <ul>
-      <li>deck: <a href="deck.html">list of all 55 cards</a>, shrinked to width=25% so that they printable on 7 sheets of a4 paper (landscape, no margins)</li>
-      <li>price: I have not printed them with professional company yet, should be ready by end of april 2022, then it will be about €15 per deck (check out <a href="https://punkjazz.org/programming-time">programing-time</a> for how it would look), the 4917 deck is €15 instead of 10 because I will print only 100 decks instead of 300, so its more expnesive to print</li>
-      <li>code: <a href="https://github.com/jackdoe/programming-for-kids/tree/master/projects/4917/deck">4917</a></li>
-      <li>author: <a href="https://github.com/jackdoe">github.com/jackdoe</a></li>
-      <li>co author: <a href="https://punkjazz.org/jackie">Jackie (11 yo)</a></li>
-      <li>contact: <a href="mailto:b0000@fastmail.com">b0000@fastmail.com</a></li>
-      <li>license: CC BY 4.0</li>
-    </ul>
-    <br>
-
-    The game is based on Richard Buckland's <a href="https://www.youtube.com/watch?v=gTeDX4yAdyU">4 bit computer</a><br><br>
-    
-    Note: When you play with your kid, install <a href="https://x64dbg.com/">x64dbg</a> and show them the actual machine code of a program as it is being executed. Another thing that is really helpful is if you write a small C program that does somewhat the same thing as a specific card to illustrate it better.
-   
   </body>
 </html>
