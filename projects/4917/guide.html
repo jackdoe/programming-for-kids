@@ -111,10 +111,11 @@ special, because the CPU uses them to know which instruction to fetch
 from memory and what its value is. R0 and R1 are called general
 purpose registers because we can use them for whatever we want.
 
-Once you power on the CPU, it fetches an instruction from the memory
-address pointed by IP(instruction pointer), and puts it in
-IS(instruction store) and executes it. It keeps doing that forever and
-ever until you turn it off.
+Once you power on the CPU, it fetches an instruction from the memory address
+pointed by IP(instruction pointer), and puts it in IS(instruction store) and
+executes it and then moves IP to the next instruction, or sets it to a specific
+value if you are JUMPing. It keeps doing that forever and ever until you turn it
+off.
 
 <h2 id="ram">MEMORY:</h2>
 
