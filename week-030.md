@@ -523,3 +523,11 @@ There are new ways, and old ways of writing programs, but the truth is, large sc
 So, relax, in the end of the day the computer will execute some instructions and show few pixels on the screen. Have some fun.
 
 
+
+## [DAY-212] PICO-8
+
+[PICO-8](https://www.lexaloffle.com/pico-8.php) is a fantasy console (virtual computer), it costs one time 15$ to buy it, and then you can play and modify all the games and have access to their source code. You can also write your own games.
+
+For the next week we will follow [PICO-8 Top-Down Adventure Game Tutorial](https://www.youtube.com/watch?v=J1wvvbVQ5zo&list=PLdLmU93eWisKpyk1WZywUSYAq5dkCPFIv) from [Dylan Bennett
+](https://www.youtube.com/channel/UCY3KFjwFe1DyZYxhwHbm7Ew).
+
