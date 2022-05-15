@@ -55,7 +55,7 @@ In 4 bits we can have the numbers from 0 to 15:
 
 0000  0    0001  1   0010  2    0011  3
 0100  4    0101  5   0110  6    0111  7
-1000  8    1001  0   1010 10    1011 11
+1000  8    1001  9   1010 10    1011 11
 1100 12    1101 13   1110 14    1111 15
 
 4 bits are called a nibble
@@ -63,7 +63,7 @@ In 4 bits we can have the numbers from 0 to 15:
 1024 bytes is a kilobyte
 1024 kilobytes is a megabyte
 1024 megabytes is a gigabyte
-1024 gigabytes is a petabyte
+1024 gigabytes is a terabyte
 
 ...
 
@@ -137,9 +137,9 @@ bit easier, so it would look like this:
 ┌────┬────┬────┬────┐
 │  0 │  1 │  2 │  3 │
 ├────┼────┼────┼────┤
-│  5 │  6 │  7 │  8 │
+│  4 │  5 │  6 │  7 │
 ├────┼────┼────┼────┤
-│  9 │ 10 │ 11 │ 12 │
+│  8 │  9 │ 10 │ 11 │
 ├────┼────┼────┼────┤
 │ 12 │ 13 │ 14 │ 15 │
 └────┴────┴────┴────┘
@@ -155,9 +155,9 @@ address 12, the memory looks like this:
 ├────┼────┼────┼────┤
 │  0 │  0 │  0 │  0 │
 ├────┼────┼────┼────┤
-│  0 │  0 │  0 │  7 │
-├────┼────┼────┼────┤
 │  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  7 │  0 │  0 │  0 │
 └────┴────┴────┴────┘
 
 
