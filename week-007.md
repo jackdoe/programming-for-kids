@@ -219,7 +219,7 @@ else:
 
 Today is an important day, its Internet awareness day.
 
-Make the most expensive drone on amazon.com cost 0$, or even -5$. As we did in the first week, open inspect click on the mouse selector (or press Control+Shift+C) and click on the price you want to change, then double click on the HTML and change it to whatever you want.
+Make the most expensive drone on amazon.com cost 0€, or even -5€. As we did in the first week, open inspect click on the mouse selector (or press Control+Shift+C) and click on the price you want to change, then double click on the HTML and change it to whatever you want.
 
 After you are done reload the page to see it is not actually changed.
 
