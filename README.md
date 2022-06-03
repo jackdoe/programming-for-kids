@@ -653,10 +653,15 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-211 classes](#day-211-classes)
 
 [day-212 pico-8 follow adventure game tutorial](#day-212-pico-8-follow-adventure-game-tutorial)
+## week - 031
+
+
 
 [day-213 pico-8 adventure game](#day-213-pico-8-adventure-game)
 
 [day-214 pico-8 follow platformer game tutorial](#day-214-pico-8-follow-platformer-game-tutorial)
+
+[day-215 make a website](#day-215-make-a-website)
 
 ## [DAY-0] The Computer
 
@@ -17604,6 +17609,7 @@ So, relax, in the end of the day the computer will execute some instructions and
 
 For the next week we will follow [PICO-8 Top-Down Adventure Game Tutorial](https://www.youtube.com/watch?v=J1wvvbVQ5zo&list=PLdLmU93eWisKpyk1WZywUSYAq5dkCPFIv) from [Dylan Bennett](https://www.youtube.com/channel/UCY3KFjwFe1DyZYxhwHbm7Ew).
 
+
 ## [DAY-213] PICO-8 Adventure Game
 
 > Following the guide she made the game, I used the time to specifically talk about tables and she particularly had an issue with if() looking like a function. I tried to give her more space and time to follow the tutorial on her own.
@@ -17618,5 +17624,19 @@ In the next week follow the [Platformer Tutorial](https://www.youtube.com/playli
 
 Do not code while watching the video, first watch the video once, and then second time to code with the teacher.
 
+## [DAY-215] make a website
 
+Ask your parents to buy a domain name for you, and buy a domain and some hosting, ask your parent to set it up and install a web server there, buy a domain and point it to the hosting (they know what to do
+
+> make sure you talk about how IP addressess work and how DNS works
+
+```
+$ cd /var
+$ cd www
+$ cd html
+$ nano index.html
+
+```
+
+write `<h1>Hello</h1>` in the editor and then hit CTRL+S to save it, and then open your website through your browser and phone
 
