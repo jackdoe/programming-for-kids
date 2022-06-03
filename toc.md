@@ -545,3 +545,5 @@
 [day-214 pico-8 follow platformer game tutorial](#day-214-pico-8-follow-platformer-game-tutorial)
 
 [day-215 make a website](#day-215-make-a-website)
+
+[day-216 directories](#day-216-directories)
