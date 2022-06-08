@@ -12,7 +12,7 @@ def subtract(a,b):
 # from a?
 def divide(a,b):
   n = 0
-  while a > 0:
+  while a >= b:
     a = subtract(a,b)
     n += 1
   return n
