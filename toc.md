@@ -547,3 +547,5 @@
 [day-215 make a website](#day-215-make-a-website)
 
 [day-216 directories](#day-216-directories)
+
+[day-217 directories](#day-217-directories)
