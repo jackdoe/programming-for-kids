@@ -61,3 +61,8 @@ You can imagine there is a path to get to song.mp3, its Games -> Fortnite -> sou
 In linux (the operating system which is used by your web server) the directory we use `/` (slash) to be able to say where are we going, e.g. /Games/Fortnite/sound/song.mp3 will be how we can access the file directly, `/` is the beginning of the path or this is the "root" directory, which is a bit confusing because in linux there is also `/root` which is the `home` directory for the `root` user (the system administrator), but we call `/` the root of the file system.
 
 Using the `cd` command allows us to move our gnome to specific part of the tree. so if we say `cd /Games` now our gnome will be in the Games directory, and from here we can access song.mp3 by just doing `Fortnite/sound/song.mp3`.
+
+
+## [DAY-217] directories
+
+> We spent the next week or so every day making few changes to the website, doing links and uploading files with `scp`, I did not document the process, but it was mainly teaching directory navigation with `cd` and `ls` and editting with `nano`. We also did few small python programs with nano just to get used to starting programs on a remote machine. It was especially interesting when there was laggy internet and you type something and it takes a while to show on screen, the realization that your editor is running on another computer was very powerful, so I suggest you simmulate the slow internet environment if you can.
