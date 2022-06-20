@@ -549,3 +549,7 @@
 [day-216 directories](#day-216-directories)
 
 [day-217 directories](#day-217-directories)
+
+[day-218 variables](#day-218-variables)
+
+[day-219 lists](#day-219-lists)
