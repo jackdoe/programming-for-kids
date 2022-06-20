@@ -66,3 +66,119 @@ Using the `cd` command allows us to move our gnome to specific part of the tree.
 ## [DAY-217] directories
 
 > We spent the next week or so every day making few changes to the website, doing links and uploading files with `scp`, I did not document the process, but it was mainly teaching directory navigation with `cd` and `ls` and editting with `nano`. We also did few small python programs with nano just to get used to starting programs on a remote machine. It was especially interesting when there was laggy internet and you type something and it takes a while to show on screen, the realization that your editor is running on another computer was very powerful, so I suggest you simmulate the slow internet environment if you can.
+
+
+## [DAY-218] variables
+
+![game-218.png](./screenshots/game-218.png "game 218 screenshot")
+
+Today we make the simplest game of a flling elf, make it fall and then bounce up when it reaches the end
+
+> thats the game that she wrote, I had to help a bit with the speed_y = -5, first she just made it reset to the top, so the elf was going in circles, but after that she made it to go up when it reaches the end.
+
+```
+import pgzrun
+
+elf = Actor("c1")
+elf.y = 50
+
+WIDTH = 800
+HEIGHT = 800
+speed_y = 5
+
+
+def update():
+    global speed_y
+
+    elf.y += speed_y
+
+    if elf.y > 795:
+        speed_y = -5
+    if elf.y < 50:
+        speed_y = 5
+
+    if keyboard.A:
+        elf.x += -5
+
+    if keyboard.D:
+        elf.x += 5
+
+
+def draw():
+    screen.fill("black")
+    elf.draw()
+
+
+pgzrun.go()
+```
+
+## [DAY-219] lists
+
+![game-219.png](./screenshots/game-219.png "game 219 screenshot")
+
+Improve the game to have an row of monsters that you have to avoid, also make the elf bounce left and right as well. It should be gameover if you collide with any of the monsters
+
+> this is the game she made, she did some experimentation with random, and needed a bit of help with the list of monsters
+
+```
+import pgzrun
+
+elf = Actor("c1")
+elf.y = 50
+
+WIDTH = 800
+HEIGHT = 800
+game_over = False
+speed_y = 5
+speed_x = 5
+monsters = []
+monster_speed_y = 1
+
+for i in range(20):
+    monster = Actor("c1")
+    monster.x = 10 + (i * 70)
+    monster.y = 10
+    monsters.append(monster)
+
+
+def update():
+    global speed_y, speed_x, game_over
+
+    elf.y += speed_y
+    elf.x += speed_x
+
+    if elf.y > 795:
+        speed_y = -5
+    if elf.y < 50:
+        speed_y = 5
+    if elf.x > 795:
+        speed_x = -5
+    if elf.x < 50:
+        speed_x = 5
+
+    if keyboard.A:
+        elf.x += -5
+
+    if keyboard.D:
+        elf.x += 5
+
+    for m in monsters:
+        m.y += monster_speed_y
+        if m.y > 795:
+            m.y = 10
+        if m.colliderect(elf):
+            game_over = True
+
+
+def draw():
+    screen.fill("black")
+    elf.draw()
+
+    for m in monsters:
+        m.draw()
+    if game_over == True:
+        screen.fill("pink")
+
+
+pgzrun.go()
+```
