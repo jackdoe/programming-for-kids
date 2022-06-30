@@ -675,6 +675,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-220 lists](#day-220-lists)
 
+[day-221 lists](#day-221-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -17884,7 +17886,6 @@ pgzrun.go()
 
 Make the elf be able to attack the monsters with a bullet.
 
-
 ```
 ...
 bull =  Actor("bullet")
@@ -17926,4 +17927,38 @@ print(a)
 print(b)
 print(c)
 ```
+
+
+## [DAY-221] lists
+
+
+Make a boss that spawns after 20 mosters are defeated.
+
+```
+...
+boss = Actor("c2")
+boss.x = -200
+boss.y = -200
+counter = 0
+...
+def update():
+    global counter
+    ...
+    for m in list(monsters):
+        ...
+        if m.colliderect(bull):
+            monsters.remove(m)
+            counter++
+            if counter > 20:
+                boss.x = 400
+                boss.y = 400
+
+
+
+def draw():
+    ...
+    boss.draw()
+```
+
+Using the same pattern as the player's bullet, we draw the boss off-screen, we keep a counter of how many monsters are killed and once we kill more than 20, we move the boss in the middle of the screen.
 
