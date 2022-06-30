@@ -1,5 +1,0 @@
-# cd /var
-# cd www
-# cd html
-# nano index.html
-
