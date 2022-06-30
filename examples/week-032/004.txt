@@ -1,0 +1,23 @@
+...
+boss = Actor("c2")
+boss.x = -200
+boss.y = -200
+counter = 0
+...
+def update():
+    global counter
+    ...
+    for m in list(monsters):
+        ...
+        if m.colliderect(bull):
+            monsters.remove(m)
+            counter++
+            if counter > 20:
+                boss.x = 400
+                boss.y = 400
+
+
+
+def draw():
+    ...
+    boss.draw()

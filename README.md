@@ -670,12 +670,15 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-218 variables](#day-218-variables)
 
 [day-219 lists](#day-219-lists)
+## week - 032
 
-[day-219 lists](#day-219-lists)
+
 
 [day-220 lists](#day-220-lists)
 
 [day-221 lists](#day-221-lists)
+
+[day-222 lists](#day-222-lists)
 
 ## [DAY-0] The Computer
 
@@ -17810,7 +17813,8 @@ pgzrun.go()
 ```
 
 
-## [DAY-219] lists
+
+## [DAY-220] lists
 
 ![game-219.png](./screenshots/game-219.png "game 219 screenshot")
 
@@ -17882,7 +17886,7 @@ pgzrun.go()
 ```
 
 
-## [DAY-220] lists
+## [DAY-221] lists
 
 Make the elf be able to attack the monsters with a bullet.
 
@@ -17929,8 +17933,7 @@ print(c)
 ```
 
 
-## [DAY-221] lists
-
+## [DAY-222] lists
 
 Make a boss that spawns after 20 mosters are defeated.
 
@@ -17961,4 +17964,6 @@ def draw():
 ```
 
 Using the same pattern as the player's bullet, we draw the boss off-screen, we keep a counter of how many monsters are killed and once we kill more than 20, we move the boss in the middle of the screen.
+
+
 

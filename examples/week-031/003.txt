@@ -1,0 +1,33 @@
+import pgzrun
+
+elf = Actor("c1")
+elf.y = 50
+
+WIDTH = 800
+HEIGHT = 800
+speed_y = 5
+
+
+def update():
+    global speed_y
+
+    elf.y += speed_y
+
+    if elf.y > 795:
+        speed_y = -5
+    if elf.y < 50:
+        speed_y = 5
+
+    if keyboard.A:
+        elf.x += -5
+
+    if keyboard.D:
+        elf.x += 5
+
+
+def draw():
+    screen.fill("black")
+    elf.draw()
+
+
+pgzrun.go()
