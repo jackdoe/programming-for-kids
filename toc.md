@@ -553,3 +553,7 @@
 [day-218 variables](#day-218-variables)
 
 [day-219 lists](#day-219-lists)
+
+[day-219 lists](#day-219-lists)
+
+[day-220 lists](#day-220-lists)
