@@ -79,7 +79,7 @@ Make the elf be able to attack the monsters with a bullet.
 ```
 ...
 bull =  Actor("bullet")
-bull.x = -10 
+bull.x = -10
 bull.y = -19
 bullet_speed=1
 ...
@@ -151,4 +151,61 @@ def draw():
 
 Using the same pattern as the player's bullet, we draw the boss off-screen, we keep a counter of how many monsters are killed and once we kill more than 20, we move the boss in the middle of the screen.
 
+
+## [DAY-223] lists
+
+![game-223.png](./screenshots/game-223.png "game 223 screenshot")
+
+Make the boss shoot bullets in 4 directions
+
+```
+...
+boss_bullets = []
+bossIsAlive = False
+...
+
+def new_boss_bullet(x,y, where_to_go):
+    b = Actor("bullet")
+    b.x = x
+    b.y = y
+    b.direction = where_to_go
+
+...
+def update():
+    global bossIsAlive
+    ...
+    if timer > 120:
+        ...
+        if bossIsAlive:
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"left"))
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"right"))
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"up"))
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"down"))
+
+        timer = 0
+    for m in list(monsters):
+        ...
+        if m.colliderect(bull):
+            ...
+            if counter > 20:
+                bossIsAlive = True
+                ...
+    if bossIsAlive:
+        for b in boss_bullets:
+          if b.direction == "left":
+              b.x -= speed
+          if b.direction == "right":
+              b.x += speed
+          if b.direction == "up":
+              b.y -= speed
+          if b.direction == "down":
+              b.y += speed
+
+def draw():
+    ...
+    if bossIsAlive:
+        boss.draw()
+        for b in boss_bullets:
+            b.draw()
+```
 
