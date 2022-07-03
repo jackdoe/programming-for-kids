@@ -165,6 +165,13 @@ bossIsAlive = False
 ...
 
 def new_boss_bullet(x,y, where_to_go):
+    #      KEY | VALUE
+    #      ----+------
+    #     image| "bullet"
+    #        x | 47
+    #        y | 27
+    # direction| "right"
+
     b = Actor("bullet")
     b.x = x
     b.y = y
@@ -208,4 +215,78 @@ def draw():
         for b in boss_bullets:
             b.draw()
 ```
+
+
+Think about the objects in python like the tables in Lua, you can just add another row in the table, in our case we will add "direction" and we will put there the value we need.
+
+
+## [DAY-224] lists
+
+Make the boss die after being hit by 10 player bullets, and also make it so that the boss bullets kill the player if hit
+
+```
+...
+bossHP = 100
+...
+
+def update():
+    global bossHP
+    ...
+    if bossIsAlive:
+        if boss.colliderect(elf):
+            game_over = True
+        for b in boss_bullets:
+            if b.colliderect(elf):
+                game_over = True
+        if bull.colliderect(boss):
+            bossHP -= 10
+            bull.y = -100
+
+            # move the boss a tiny amount
+            boss.x += random.randint(-10,10)
+            boss.y += random.randint(-10,10)
+
+            if bossHP <= 0:
+                bossIsAlive = False
+        ...
+```
+
+
+
+## [DAY-225] functions
+
+Make the elf bullet move in a random direction, reuse the code for moving the boss bullet
+
+```
+...
+def move(speed,b):
+    if b.direction == "left":
+        b.x -= speed
+    if b.direction == "right":
+        b.x += speed
+    if b.direction == "up":
+        b.y -= speed
+    if b.direction == "down":
+        b.y += speed
+    if b.direction == "diagonal_right":
+        b.y += speed
+        b.x += speed
+...
+def update():
+    ...
+    if keyboard.K_1:
+        bull.direction= random.choice(['up','left','down','right', 'diagonal_right'])
+    ...
+    move(bullet_speed,bull)
+    bullet_speed *= 1.06
+    if bullet_speed > 20:
+        bullet_speed = 1
+    ...
+    if bossIsAlive:
+        for b in boss_bullets:
+            move(1,b)
+        ...
+```
+
+Our `move` function can work with **any** object that has the `direciton`, `x`  and `y` properties, it doesn't even care if its a bullet or a car.
 
