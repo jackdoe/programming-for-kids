@@ -1,0 +1,24 @@
+...
+bossHP = 100
+...
+
+def update():
+    global bossHP
+    ...
+    if bossIsAlive:
+        if boss.colliderect(elf):
+            game_over = True
+        for b in boss_bullets:
+            if b.colliderect(elf):
+                game_over = True
+        if bull.colliderect(boss):
+            bossHP -= 10
+            bull.y = -100
+
+            # move the boss a tiny amount
+            boss.x += random.randint(-10,10)
+            boss.y += random.randint(-10,10)
+
+            if bossHP <= 0:
+                bossIsAlive = False
+        ...

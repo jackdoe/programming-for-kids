@@ -1,6 +1,6 @@
 ...
 bull =  Actor("bullet")
-bull.x = -10 
+bull.x = -10
 bull.y = -19
 bullet_speed=1
 ...

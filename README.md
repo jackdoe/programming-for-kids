@@ -680,6 +680,12 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-222 lists](#day-222-lists)
 
+[day-223 lists](#day-223-lists)
+
+[day-224 lists](#day-224-lists)
+
+[day-225 functions](#day-225-functions)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -17893,7 +17899,7 @@ Make the elf be able to attack the monsters with a bullet.
 ```
 ...
 bull =  Actor("bullet")
-bull.x = -10 
+bull.x = -10
 bull.y = -19
 bullet_speed=1
 ...
@@ -17965,5 +17971,143 @@ def draw():
 
 Using the same pattern as the player's bullet, we draw the boss off-screen, we keep a counter of how many monsters are killed and once we kill more than 20, we move the boss in the middle of the screen.
 
+
+## [DAY-223] lists
+
+![game-223.png](./screenshots/game-223.png "game 223 screenshot")
+
+Make the boss shoot bullets in 4 directions
+
+```
+...
+boss_bullets = []
+bossIsAlive = False
+...
+
+def new_boss_bullet(x,y, where_to_go):
+    #      KEY | VALUE
+    #      ----+------
+    #     image| "bullet"
+    #        x | 47
+    #        y | 27
+    # direction| "right"
+
+    b = Actor("bullet")
+    b.x = x
+    b.y = y
+    b.direction = where_to_go
+
+...
+def update():
+    global bossIsAlive
+    ...
+    if timer > 120:
+        ...
+        if bossIsAlive:
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"left"))
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"right"))
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"up"))
+            boss_bullets.append(new_boss_bullet(boss.x, boss.y,"down"))
+
+        timer = 0
+    for m in list(monsters):
+        ...
+        if m.colliderect(bull):
+            ...
+            if counter > 20:
+                bossIsAlive = True
+                ...
+    if bossIsAlive:
+        for b in boss_bullets:
+          if b.direction == "left":
+              b.x -= speed
+          if b.direction == "right":
+              b.x += speed
+          if b.direction == "up":
+              b.y -= speed
+          if b.direction == "down":
+              b.y += speed
+
+def draw():
+    ...
+    if bossIsAlive:
+        boss.draw()
+        for b in boss_bullets:
+            b.draw()
+```
+
+
+Think about the objects in python like the tables in Lua, you can just add another row in the table, in our case we will add "direction" and we will put there the value we need.
+
+
+## [DAY-224] lists
+
+Make the boss die after being hit by 10 player bullets, and also make it so that the boss bullets kill the player if hit
+
+```
+...
+bossHP = 100
+...
+
+def update():
+    global bossHP
+    ...
+    if bossIsAlive:
+        if boss.colliderect(elf):
+            game_over = True
+        for b in boss_bullets:
+            if b.colliderect(elf):
+                game_over = True
+        if bull.colliderect(boss):
+            bossHP -= 10
+            bull.y = -100
+
+            # move the boss a tiny amount
+            boss.x += random.randint(-10,10)
+            boss.y += random.randint(-10,10)
+
+            if bossHP <= 0:
+                bossIsAlive = False
+        ...
+```
+
+
+
+## [DAY-225] functions
+
+Make the elf bullet move in a random direction, reuse the code for moving the boss bullet
+
+```
+...
+def move(speed,b):
+    if b.direction == "left":
+        b.x -= speed
+    if b.direction == "right":
+        b.x += speed
+    if b.direction == "up":
+        b.y -= speed
+    if b.direction == "down":
+        b.y += speed
+    if b.direction == "diagonal_right":
+        b.y += speed
+        b.x += speed
+...
+def update():
+    ...
+    if keyboard.K_1:
+        bull.direction= random.choice(['up','left','down','right', 'diagonal_right'])
+    ...
+    move(bullet_speed,bull)
+    bullet_speed *= 1.06
+    if bullet_speed > 20:
+        bullet_speed = 1
+    ...
+    if bossIsAlive:
+        for b in boss_bullets:
+            move(1,b)
+        ...
+```
+
+Our `move` function can work with **any** object that has the `direciton`, `x`  and `y` properties, it doesn't even care if its a bullet or a car.
 
 
