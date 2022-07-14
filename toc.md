@@ -568,3 +568,5 @@
 [day-224 lists](#day-224-lists)
 
 [day-225 functions](#day-225-functions)
+
+[day-226 lists](#day-226-lists)
