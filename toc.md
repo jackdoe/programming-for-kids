@@ -570,3 +570,10 @@
 [day-225 functions](#day-225-functions)
 
 [day-226 lists](#day-226-lists)
+## week - 033
+
+
+
+[day-227 lists](#day-227-lists)
+
+[day-228 files](#day-228-files)
