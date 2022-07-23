@@ -98,3 +98,46 @@ while True:
 ```
 
 Spend some time on chaining methods `f.read()` returns a string, then calling `.splitlines()` on the string returns a list of strings.
+
+## [DAY-229] strings
+
+Improve the game to print which character is different from the user input.
+
+> We spent most of the time discussing strings and indexes, in the end that is what she wrote.
+
+```
+import random
+f = open('words.txt') # Open file on read mode
+words = f.read().splitlines() # List with stripped line-breaks
+f.close() # Close file
+
+def select_words(n):
+    picked = []
+    for i in range(n):
+        word = random.choice(words)
+        picked.append(word)
+    return " ".join(picked)
+
+scr=4
+a = select_words(scr)
+while True:
+    print(a)
+
+    s = input('> ')
+    if s != a:
+        print("INCORRECT") 
+
+        for i in range(len(a)):
+            if len(s) <= i:
+                print(a[i] + " SORRY MISSING")
+            else:
+                if a[i] != s[i]:
+                    print(a[i] + " != " + s[i])
+                else:
+                    print(a[i])
+    else:
+        print("CORRECT")
+        a = select_words(scr)
+        scr+=1
+
+```
