@@ -577,3 +577,5 @@
 [day-227 lists](#day-227-lists)
 
 [day-228 files](#day-228-files)
+
+[day-229 strings](#day-229-strings)
