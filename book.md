@@ -31,7 +31,7 @@ Spend 30 minutes per day. Every day.
 # Hello World
 
 ::: warning
-*This chapter is for parents, kids skip to the next one.* [day 0 - the computer](https://github.com/jackdoe/programming-for-kids/blob/master/book.md#day-0-the-computer)
+*This chapter is for parents, kids skip to the next one - day 0 - the computer*
 :::
 
 

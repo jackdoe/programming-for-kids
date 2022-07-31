@@ -29,7 +29,7 @@ Spend 30 minutes per day. Every day.
 # Hello World
 
 ::: warning
-*This chapter is for parents, kids skip to the next one.* [day 0 - the computer](https://github.com/jackdoe/programming-for-kids/blob/master/book.md#day-0-the-computer)
+*This chapter is for parents, kids skip to the next one - day 0 - the computer*
 :::
 
 
@@ -114,13 +114,19 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 <div style="page-break-before:always"></div>
 
 
+# THE "BOOK" - [book.md](book.md)
 
-# WORK IN PROGRESS
+The book is work in progress, so far I spent about 15 months adding to it, and teaching my daughter 2-3 times a week.
 
---
+If you have any ideas or feedback, make a pull request, or send me an email to programmingtime@fastmail.com
 
-The whole book: [https://github.com/jackdoe/programming-for-kids/blob/master/book.md](book.md)
+## Other projects
 
-if you have any ideas or feedback, make a pull request, or send me an email to programmingtime@fastmail.com
+While writing the book we also developed few other projects:
+
+* [4917](https://punkx.org/4917/) - card game to teach kids machine code
+* [programming-time](https://punkjazz.org/programming-time/) - card game to teach kids about reading code
+* [punk](https://punkjazz.org/punk/] - online game turn based python to move pieces on the board
+
 
 
