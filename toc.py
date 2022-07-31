@@ -33,6 +33,7 @@ for fn in dir:
             line = line[:-1]
             if line.startswith('## [DAY-'):
                 clear = line.lower().replace('## ','').replace('[','').replace(']','')
-                toc.write('\n['+clear+'](#'+sanitize(clear)+')\n')
+                toc.write('\n['+clear+'](https://github.com/jackdoe/programming-for-kids/blob/master/'+fn+'#'+sanitize(clear)+')\n')
+
 
 toc.close()
