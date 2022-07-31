@@ -579,3 +579,7 @@
 [day-228 files](#day-228-files)
 
 [day-229 strings](#day-229-strings)
+
+[day-229 files; strings](#day-229-files-strings)
+
+[day-230 dictionaries](#day-230-dictionaries)

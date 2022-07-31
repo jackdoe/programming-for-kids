@@ -697,6 +697,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-229 strings](#day-229-strings)
 
+[day-229 files; strings](#day-229-files-strings)
+
+[day-230 dictionaries](#day-230-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -18480,4 +18484,141 @@ while True:
         scr+=1
 
 ```
+
+## [DAY-229] files; strings
+
+![game-229.png](./screenshots/game-229.png "game 229 screenshot")
+
+Make a game that draws with an image and you can save the image and load it. Copy the game from [day 99](https://github.com/jackdoe/programming-for-kids#day-99-classes-lists-functions-cartesian-coordinates) and think it through, google "how to split string in python". Play with the str.split in the python interpreter. Also think about what file.readlines() does.
+
+
+```
+import pgzrun
+import sys # for sys.exit()
+import random
+
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor("elf")
+speed = 3
+back = []
+def update():
+    global score
+    if keyboard.A:
+        elf.x -= speed
+    if keyboard.D:
+        elf.x += speed
+    if keyboard.W:
+        elf.y -= speed
+    if keyboard.S:
+        elf.y += speed
+    if keyboard.J:
+        f = Actor('bullet')
+        f.x = elf.x
+        f.y = elf.y
+        back.append(f)
+
+    if keyboard.M:
+        f = open("save.txt", "w")
+        for x in back:
+            f.write(str(x.x))
+            f.write(",")
+            f.write(str(x.y))
+            f.write("\n")
+        f.close()
+    if keyboard.L:
+        f = open("save.txt", "r")
+        for line in f.readlines():
+            (x,y) = line.split(",") # 30,20
+            a = Actor('bullet')
+            a.x = float(x) # "40" 40
+            a.y = float(y)
+            back.append(a)
+        f.close()
+    if keyboard.Q:
+        sys.exit(0)
+
+def draw():
+    screen.fill('black')
+    for i in back:
+        i.draw()
+
+    elf.draw()
+
+pgzrun.go()
+
+```
+
+## [DAY-230] dictionaries
+
+![game-230.png](./screenshots/game-230.png "game 230 screenshot")
+
+Make a drawing game that draws a circle with different size.
+
+```
+import pgzrun
+import sys  # for sys.exit()
+import random
+
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor("elf")
+speed = 3
+back = []
+radius = 5
+
+def update():
+    global score,radius
+    if keyboard.A:
+        elf.x -= speed
+    if keyboard.D:
+        elf.x += speed
+    if keyboard.W:
+        elf.y -= speed
+    if keyboard.S:
+        elf.y += speed
+    if keyboard.K_1:
+        radius += 1
+    if keyboard.K_2:
+        radius -= 1
+    if keyboard.J:
+        f = {
+            "x": elf.x, # x position
+            "y": elf.y, # y position
+            "color": [255, 0, 0], # color
+            "radius": radius # current radius
+        }
+
+        back.append(f)
+
+    if keyboard.Q:
+        sys.exit(0)
+
+
+def draw():
+    screen.fill('black')
+
+    screen.draw.circle(
+        [elf.x,elf.y],  # position
+        radius,         # radius
+        [255,0,255]     # color
+    )
+
+    for circle in back:
+        screen.draw.circle(
+            [circle["x"], circle["y"]], # position
+            circle["radius"],           # radius
+            circle["color"]             # color
+        )
+
+    elf.draw()
+
+
+pgzrun.go()
+```
+
+
+> Spend significant amount of time discussing the dictionaries, first start with static radius of 20 pixels, then add it as a variable that you can change.
 

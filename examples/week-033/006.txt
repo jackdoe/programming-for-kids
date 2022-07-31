@@ -1,0 +1,60 @@
+import pgzrun
+import sys  # for sys.exit()
+import random
+
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor("elf")
+speed = 3
+back = []
+radius = 5
+
+def update():
+    global score,radius
+    if keyboard.A:
+        elf.x -= speed
+    if keyboard.D:
+        elf.x += speed
+    if keyboard.W:
+        elf.y -= speed
+    if keyboard.S:
+        elf.y += speed
+    if keyboard.K_1:
+        radius += 1
+    if keyboard.K_2:
+        radius -= 1
+    if keyboard.J:
+        f = {
+            "x": elf.x, # x position
+            "y": elf.y, # y position
+            "color": [255, 0, 0], # color
+            "radius": radius # current radius
+        }
+
+        back.append(f)
+
+    if keyboard.Q:
+        sys.exit(0)
+
+
+def draw():
+    screen.fill('black')
+
+    screen.draw.circle(
+        [elf.x,elf.y],  # position
+        radius,         # radius
+        [255,0,255]     # color
+    )
+
+    for circle in back:
+        screen.draw.circle(
+            [circle["x"], circle["y"]], # position
+            circle["radius"],           # radius
+            circle["color"]             # color
+        )
+
+    elf.draw()
+
+
+pgzrun.go()
