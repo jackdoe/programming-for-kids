@@ -1,6 +1,6 @@
 
 
-# THE "BOOK" - [book.md](book.md)
+# PROGRAMMING FOR KIDS BOOK - [book.md](book.md)
 
 The book is work in progress, so far I spent about 15 months adding to it, and teaching my daughter 2-3 times a week.
 
