@@ -13,4 +13,6 @@ While writing the book we also developed few other projects:
 * [programming-time](https://punkjazz.org/programming-time/) - card game to teach kids about reading code
 * [punk](https://punkjazz.org/punk/) - online game turn based python to move pieces on the board
 
-## license: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+## license
+
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
