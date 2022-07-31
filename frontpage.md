@@ -1,3 +1,8 @@
+
+
+
+# WORK IN PROGRESS
+
 --
 
 The whole book: [https://github.com/jackdoe/programming-for-kids/blob/master/book.md](book.md)

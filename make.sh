@@ -6,6 +6,6 @@ for i in  cover.md hello.md toc.md $(ls -1 week-*.md | sort -k 2 -t- -n); do
     echo >> book.md
 done
 
-cat cover.md hello.md toc.md frontpage.md > README.md
+cat cover.md hello.md frontpage.md > README.md
 
 python3 extract.py
