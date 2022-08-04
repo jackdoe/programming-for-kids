@@ -700,6 +700,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-230 dictionaries](#day-230-dictionaries)
 
+[day-231 dictionaries](#day-231-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -18620,4 +18622,120 @@ pgzrun.go()
 
 
 > Spend significant amount of time discussing the dictionaries, first start with static radius of 20 pixels, then add it as a variable that you can change.
+
+
+## [DAY-231] dictionaries
+
+![game-231.png](./screenshots/game-231.png "game 231 screenshot")
+
+Continue to improve on the drawing program, add support for mutiple colos and filled/not filled circles, also organize your code with comments.
+
+
+```
+import pgzrun
+import random
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor("elf")
+speed = 3
+back = []
+radius = 5
+color = [255, 0, 0]
+filled = True
+
+
+def update():
+    global radius, color, filled
+
+    #######################################################
+    # MOVEMENT
+    #######################################################
+    if keyboard.A:
+        elf.x -= speed
+    if keyboard.D:
+        elf.x += speed
+    if keyboard.W:
+        elf.y -= speed
+    if keyboard.S:
+        elf.y += speed
+
+    #######################################################
+    # FILLED NOT FILLED
+    #######################################################
+    if keyboard.F:
+        filled = True
+    if keyboard.G:
+        filled = False
+
+    #######################################################
+    # COLOR AND RADIUS
+    #######################################################
+    # RADIUS
+    if keyboard.K_9:
+        radius += 1
+    if keyboard.K_0:
+        radius -= 1
+    # COLORS
+    if keyboard.K_1:
+        color = [255, 0, 0]
+    if keyboard.K_2:
+        color = [0, 255, 0]
+    if keyboard.K_3:
+        color = [0, 0, 255]
+    if keyboard.K_4:
+        color = [255, 0, 255]
+    if keyboard.K_5:
+        color = [255, 255, 0]
+    if keyboard.K_6:
+        color = [0, 255, 255]
+    if keyboard.K_7:
+        color = [128, 128, 255]
+    if keyboard.K_8:
+        color = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
+
+    #######################################################
+    # ADD CIRCLES TO DRAW LATER
+    #######################################################
+    if keyboard.SPACE:
+        f = {
+            "x": elf.x,            # x position
+            "y": elf.y,            # y position
+            "color": color,        # [red, green, blue]
+            "radius": radius,      # current radius
+            "filled": filled
+        }
+
+        back.append(f)
+
+
+def draw():
+    screen.fill('white')
+
+    for circle in back:
+        if not circle["filled"]:
+            # ...
+            screen.draw.circle(
+                [circle["x"], circle["y"]], # [x, y]
+                circle["radius"],           # radius
+                circle["color"]             # [red, green, blue]
+            )
+        else:
+            screen.draw.filled_circle(
+                [circle["x"], circle["y"]], # [x, y]
+                circle["radius"],           # radius
+                circle["color"]             # [red, green, blue]
+            )
+
+    screen.draw.circle(
+        [elf.x, elf.y], # pos [x, y]
+        radius,         # radius
+        [255, 0, 255]   # color [red, green, blue]
+    )
+
+    elf.draw()
+
+
+pgzrun.go()
+```
 
