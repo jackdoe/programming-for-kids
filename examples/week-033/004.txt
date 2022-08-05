@@ -17,7 +17,7 @@ while True:
 
     s = input('> ')
     if s != a:
-        print("INCORRECT") 
+        print("INCORRECT")
 
         for i in range(len(a)):
             if len(s) <= i:

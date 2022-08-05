@@ -36,7 +36,7 @@ while True:
 
     s = input('> ')
     if s != a:
-        print("INCORRECT") 
+        print("INCORRECT")
     else:
         print("CORRECT")
         a = select_words(scr)

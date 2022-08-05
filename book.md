@@ -702,6 +702,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-231 dictionaries](#day-231-dictionaries)
 
+[day-232 dictionaries](#day-232-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -18400,7 +18402,7 @@ while True:
 
     s = input('> ')
     if s != a:
-        print("INCORRECT") 
+        print("INCORRECT")
     else:
         print("CORRECT")
         a = select_words(scr)
@@ -18434,7 +18436,7 @@ while True:
 
     s = input('> ')
     if s != a:
-        print("INCORRECT") 
+        print("INCORRECT")
     else:
         print("CORRECT")
         a = select_words(scr)
@@ -18469,7 +18471,7 @@ while True:
 
     s = input('> ')
     if s != a:
-        print("INCORRECT") 
+        print("INCORRECT")
 
         for i in range(len(a)):
             if len(s) <= i:
@@ -18732,6 +18734,137 @@ def draw():
         radius,         # radius
         [255, 0, 255]   # color [red, green, blue]
     )
+
+    elf.draw()
+
+
+pgzrun.go()
+```
+
+## [DAY-232] dictionaries
+
+![game-232.png](./screenshots/game-232.png "game 232 screenshot")
+
+Add option to draw rectangles or circles
+
+
+```
+import pgzrun
+import random
+HEIGHT = 600
+WIDTH = 600
+
+elf = Actor("elf")
+speed = 3
+dict_to_draw = []
+radius = 5
+color = [255, 0, 0]
+filled = True
+userect = True
+
+def update():
+    global radius, color, filled,userect
+
+    #######################################################
+    # MOVEMENT
+    #######################################################
+    if keyboard.A:
+        elf.x -= speed
+    if keyboard.D:
+        elf.x += speed
+    if keyboard.W:
+        elf.y -= speed
+    if keyboard.S:
+        elf.y += speed
+
+    #######################################################
+    # FILLED NOT FILLED, RECT NOT RECT
+    #######################################################
+    if keyboard.F:
+        filled = True
+    if keyboard.G:
+        filled = False
+    if keyboard.R:
+        userect = True
+    if keyboard.T:
+        userect = False
+
+    #######################################################
+    # COLOR AND RADIUS
+    #######################################################
+    # RADIUS
+    if keyboard.K_9:
+        radius += 1
+    if keyboard.K_0:
+        radius -= 1
+    # COLORS
+    if keyboard.K_1:
+        color = [255, 0, 0]
+    if keyboard.K_2:
+        color = [0, 255, 0]
+    if keyboard.K_3:
+        color = [0, 0, 255]
+    if keyboard.K_4:
+        color = [255, 0, 255]
+    if keyboard.K_5:
+        color = [255, 255, 0]
+    if keyboard.K_6:
+        color = [0, 255, 255]
+    if keyboard.K_7:
+        color = [128, 128, 255]
+    if keyboard.K_8:
+        color = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
+
+    #######################################################
+    # ADD CIRCLES TO DRAW
+    #######################################################
+    if keyboard.SPACE:
+        f = {
+            "x": elf.x,            # x position
+            "y": elf.y,            # y position
+            "color": color,        # [red, green, blue]
+            "radius": radius,      # current radius
+            "filled": filled,
+            "userect":userect
+        }
+
+        dict_to_draw.append(f)
+
+
+def draw():
+
+    screen.fill('white')
+
+    for element in dict_to_draw:
+        if not element["filled"]:
+            if not element["userect"]:
+                screen.draw.circle(
+                    [element["x"], element["y"]], # [x, y]
+                    element["radius"],            # radius
+                    element["color"]              # [red, green, blue]
+                )
+            else:
+                baz = Rect([element["x"], element["y"]], [element["radius"], element["radius"]])
+                screen.draw.rect(baz,element["color"])
+        else:
+            if not element["userect"]:
+                screen.draw.filled_circle(
+                    [element["x"], element["y"]], # [x, y]
+                    element["radius"],            # radius
+                    element["color"]              # [red, green, blue]
+                )
+            else:
+                baz = Rect([element["x"], element["y"]], [element["radius"], element["radius"]])
+                screen.draw.filled_rect(baz, element["color"])
+    if userect:
+        baz = Rect([elf.x, elf.y], [radius, radius])
+        screen.draw.rect(baz,color)
+    else:
+        screen.draw.circle(
+            [elf.x, elf.y],  # pos [x, y]
+            radius,          # radius
+            color            # color [red, green, blue]
+        )
 
     elf.draw()
 
