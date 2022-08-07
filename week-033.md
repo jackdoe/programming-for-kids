@@ -525,3 +525,37 @@ def draw():
 
 pgzrun.go()
 ```
+
+## [DAY-233] scope
+
+> Today I wrote some example programs on paper and we went through them, focusing on scope.
+
+![game-233-a.jpeg](./screenshots/game-233-a.jpeg "game 233-a screenshot")
+![game-233-b.jpeg](./screenshots/game-233-b.jpeg "game 233-b screenshot")
+![game-233-c.jpeg](./screenshots/game-233-c.jpeg "game 233-c screenshot")
+
+Another important subject we discussed was what acually happens when you do `x = [1,2,3]; some_list.append(x)`, how `[1,2,3]` exists separately from the variable.
+
+
+Using [pythontutor.com](https://pythontutor.com/render.html#code=l%20%3D%20%5B%5D%0Adef%20abc%28%29%3A%0A%20%20%20%20x%20%3D%20%7B%22a%22%3A1%7D%0A%20%20%20%20l.append%28x%29%0A%20%20%20%20%0Aabc%28%29%0Aabc%28%29%0Aprint%28l%29&cumulative=false&curInstr=13&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false) for the following code:
+
+
+```
+l = []
+def abc():
+    x = {"a":1}
+    l.append(x)
+    
+abc()
+abc()
+print(l)
+```
+
+Step through it multiple times and look how the variable `x` disappears but the dictionary `{"a":1}` remains.
+
+![game-233-d.png](./screenshots/game-233-d.png "game 233-d screenshot")
+![game-233-e.png](./screenshots/game-233-e.png "game 233-e screenshot")
+
+
+
+
