@@ -586,3 +586,5 @@
 [day-231 dictionaries](#day-231-dictionaries)
 
 [day-232 dictionaries](#day-232-dictionaries)
+
+[day-233 scope](#day-233-scope)
