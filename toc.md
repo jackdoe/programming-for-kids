@@ -588,3 +588,10 @@
 [day-232 dictionaries](#day-232-dictionaries)
 
 [day-233 scope](#day-233-scope)
+## week - 034
+
+
+
+[day-234 lists](#day-234-lists)
+
+[day-234 lists](#day-234-lists)
