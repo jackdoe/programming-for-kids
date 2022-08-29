@@ -1,0 +1,9 @@
+import util
+
+x = util.choice(6,7)
+y = util.choice(2,4)
+z = util.choice(8,9)
+
+s = util.sum(x,y,z)
+
+print(s)

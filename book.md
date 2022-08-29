@@ -711,7 +711,11 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-234 lists](#day-234-lists)
 
-[day-234 lists](#day-234-lists)
+[day-235 lists](#day-235-lists)
+
+[day-236 modules](#day-236-modules)
+
+[day-237 files](#day-237-files)
 
 ## [DAY-0] The Computer
 
@@ -18973,7 +18977,7 @@ def draw():
 pgzrun.go()
 ```
 
-## [DAY-234] lists
+## [DAY-235] lists
 
 Make the previous game into jumpscare game, when enemy hits you show scary image and play scary soubd.
 
@@ -18991,4 +18995,43 @@ def draw():
         sounds.retro.play()
 ...
 ```
+
+## [DAY-236] modules
+
+Make one file `util.py`
+
+```
+import random
+def sum(a,b,c):
+    return a + b + c
+    
+def choice(a,b):
+    if random.randint(0,1) == 1:
+        return a:
+    else:
+        return b
+```
+
+
+Now make another file in the same directory:
+
+```
+import util
+
+x = util.choice(6,7)
+y = util.choice(2,4)
+z = util.choice(8,9)
+
+s = util.sum(x,y,z)
+
+print(s)
+```
+
+We have created a "module", which is just a bunch of code grouped together that we can access.
+
+From now on we will keep growing our `util` module with handy functions that we can use in other programs.
+
+## [DAY-237] files
+
+Watch [Python Tutorial: File Objects - Reading and Writing to Files](https://www.youtube.com/watch?v=Uh2ebFW8OYM), and also try it out in your editor.
 

@@ -1,0 +1,9 @@
+import random
+def sum(a,b,c):
+    return a + b + c
+    
+def choice(a,b):
+    if random.randint(0,1) == 1:
+        return a:
+    else:
+        return b
