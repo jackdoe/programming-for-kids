@@ -126,4 +126,4 @@ For the next weeks we will move to using the command line more and more. Using c
 
 It might seem like artificial change, from using graphical interfaces to terminal intefaces, but I think it is in the core of how you interact with the machine. How do you express your thoughts and tell it what to do.
 
-Tomorrow we will skim through [UNIX Programming Enviornment](https://archive.org/details/UnixProgrammingEnviornment/) book from 1984, by the legends Brian W. Kernigan, Rob Pike.
+Tomorrow we will skim through [UNIX Programming Enviornment](https://archive.org/details/UnixProgrammingEnviornment/) book from 1984, by the legends Brian W. Kernigan and Rob Pike.
