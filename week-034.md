@@ -125,3 +125,5 @@ At the moment you use google docs to write your school projects, and Steam or Ep
 For the next weeks we will move to using the command line more and more. Using command line editors such as `nano` and commands such as `mkdir`, `ls`, `grep` and `find` to navigate make directories, list their contents, search for patterns in files and find specific files. Using `date` to see the current time and `cal` to see the calendar, `cp` to copy a file and `mv` to rename it or `cat` to show its contents.
 
 It might seem like artificial change, from using graphical interfaces to terminal intefaces, but I think it is in the core of how you interact with the machine. How do you express your thoughts and tell it what to do.
+
+Tomorrow we will skim through [UNIX Programming Enviornment](https://archive.org/details/UnixProgrammingEnviornment/) book from 1984, by the legends Brian W. Kernigan, Rob Pike.
