@@ -1,0 +1,9 @@
+int i = 1;
+for (;;) {
+    if (i >= 10) {
+        break;
+    }
+    printf("%d\n",i)
+    i++
+}
+

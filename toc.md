@@ -601,3 +601,7 @@
 [day-237 files](#day-237-files)
 
 [day-238 principles](#day-238-principles)
+
+[day-239 directories](#day-239-directories)
+
+[day-240 for](#day-240-for)

@@ -719,6 +719,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-238 principles](#day-238-principles)
 
+[day-239 directories](#day-239-directories)
+
+[day-240 for](#day-240-for)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -19050,4 +19054,107 @@ For the next weeks we will move to using the command line more and more. Using c
 It might seem like artificial change, from using graphical interfaces to terminal intefaces, but I think it is in the core of how you interact with the machine. How do you express your thoughts and tell it what to do.
 
 Tomorrow we will skim through [UNIX Programming Enviornment](https://archive.org/details/UnixProgrammingEnviornment/) book from 1984, by the legends Brian W. Kernigan and Rob Pike.
+
+
+## [DAY-239] directories
+
+Copy this program into a python file on your desktop, then run it
+
+```
+import os
+import random
+
+possible = ["a b c", "hello","world", "has space","maybe empty","empty","not empty"]
+
+def md(p):
+    one_of_five = ''
+    for i in range(1,6):
+        a = random.choice(possible)
+        one_of_five= a
+        os.makedirs(os.path.join(p,a), exist_ok=True)
+
+    return one_of_five
+
+
+p = os.path.join(".","secret mission")
+for i in range(10):
+    p = os.path.join(p, md(p))
+    print(p)
+
+with open(os.path.join(p, "password.txt"), "w") as f:
+    f.write("the password is: " + str(random.randint(123123,477217972)* 31))
+```
+
+It will create a random tree of directories, and in one of them there will be a file named password.txt with a random password.
+
+Use the command line to find the password, using the ``dir` and `cd` commands (on macos/linux use `ls` and `cd`)
+
+
+
+## [DAY-240] for
+
+
+> we were camping and had an old introduction to C book, and decided to skim through some of the code
+
+```
+int i;
+for (i = 1; i < 10; i++) {
+    printf("%d\n",i)
+}
+```
+
+a for loop in C has 3 parts separated by `;` (semi-colon)
+
+The first part `i = 1` is the initialization part, it will be executed only once.
+
+You can also write the above loop like this:
+
+```
+int i = 1;
+for (; i < 10; i++) {
+    printf("%d\n",i)
+}
+
+```
+
+The second part `i < 10` is the condition, if the condition is true it will enter the loop and execute the block of code inside, otherwise it will continue with the code after the loop. If you dont put any condition in, it is always going to enter the loop turning it into infinite loop unless you break out of it. You can also write it like this:
+
+```
+for (i = 1; ; i++) {
+    if (i >= 10) {
+        break;
+    }
+    printf("%d\n",i)
+}
+
+```
+
+The third part `i++` or `i+=1` is the `increment` part, it will be executed just after the code in the loop is finished and is about to go back to start, you can also write it like this:
+
+```
+for (i = 1; i < 10; ) {
+    printf("%d\n",i)
+    
+    i++
+}
+
+```
+
+You can see that each of the 3 parts are optional, you can write the same loop like this:
+
+```
+int i = 1;
+for (;;) {
+    if (i >= 10) {
+        break;
+    }
+    printf("%d\n",i)
+    i++
+}
+
+```
+
+
+So you see having the 3 parts, `init; condition; increment` together with the `for` keyword makes it read nicer.
+
 
