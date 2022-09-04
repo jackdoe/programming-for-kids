@@ -160,7 +160,7 @@ with open(os.path.join(p, "password.txt"), "w") as f:
 
 It will create a random tree of directories, and in one of them there will be a file named password.txt with a random password.
 
-Use the command line to find the password, using the ``dir` and `cd` commands (on macos/linux use `ls` and `cd`)
+Use the command line to find the password, using the `dir` and `cd` commands (on macos/linux use `ls` and `cd`)
 
 
 
