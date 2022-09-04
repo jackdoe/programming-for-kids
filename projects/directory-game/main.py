@@ -19,4 +19,4 @@ for i in range(10):
     print(p)
 
 with open(os.path.join(p, "password.txt"), "w") as f:
-    f.write("the password is: " + str(477217972* 31))
+    f.write("the password is: " + str(random.randint(123123,477217972)* 31))
