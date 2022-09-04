@@ -152,7 +152,6 @@ def md(p):
 p = os.path.join(".","secret mission")
 for i in range(10):
     p = os.path.join(p, md(p))
-    print(p)
 
 with open(os.path.join(p, "password.txt"), "w") as f:
     f.write("the password is: " + str(random.randint(123123,477217972)* 31))
