@@ -5,6 +5,8 @@ The book is work in progress, so far I spent about 15 months adding to it, and t
 
 If you have any ideas or feedback, make a pull request, or send me an email to programmingtime@fastmail.com
 
+Link to the book: [book.md](book.md)
+
 ## Other projects
 
 While writing the book we also developed few other projects:
