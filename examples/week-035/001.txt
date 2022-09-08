@@ -1,0 +1,23 @@
+C:\Users\jackie\Desktop>python3 editor.py
+> example file
+========================================
+0: example file
+========================================
+> with many lines
+========================================
+0: example file
+1: with many lines
+========================================
+> save a.txt
+a.txt saved!
+>
+^C (Ctrl + C)
+
+
+C:\Users\jackie\Desktop>python3 editor.py
+> open a.txt
+========================================
+0: example file
+1: with many lines
+========================================
+>

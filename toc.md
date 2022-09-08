@@ -605,3 +605,8 @@
 [day-239 directories](#day-239-directories)
 
 [day-240 for](#day-240-for)
+## week - 035
+
+
+
+[day-241 lists](#day-241-lists)
