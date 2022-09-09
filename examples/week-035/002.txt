@@ -9,8 +9,8 @@ some header and footer of =====..x40:
   print("=" * 40)
   for i in range(len(lines)):
       print(str(i) + " " + lines[i])
-  print("=" * 40) 
-     
+  print("=" * 40)
+
 * join list of lines into a string:
   lines = ["a","b","c"]
   s = "\n".join(lines)
@@ -19,7 +19,7 @@ some header and footer of =====..x40:
   a
   b
   c
-      
+
 
 * read the lines of a file:
   lines = []

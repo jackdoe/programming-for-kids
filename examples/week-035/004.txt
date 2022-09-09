@@ -1,0 +1,41 @@
+* how to check if string starts with "d "
+    if line.startswith("d "):
+       print("yey")
+
+
+* how to split a string
+    line = "d 25"
+    a,b = line.split(" ")
+    # a is "d"
+    # b is "25"
+
+* how to convert string to a number:
+    x = ["hello","this","is"]
+    a = "5"
+    n = int(a)
+
+    # access the element at index n from the list x
+    print(x[n])
+
+* how to delete a item from a list
+    x = ["hello","this","is"]
+
+    # delete the element on index 1
+    del x[1]
+
+    # or you can use pop(1) to
+    # remove and return the value at index 1
+    a = x.pop(1)
+
+    # or just use x.pop(1) if you dont care about
+    # the element it is returning
+    x.pop(1)
+
+
+* if you try to access a list beyond its size it will
+  crash, so you need to check if a number fits to be
+  used as an index
+
+    n = 5
+    if n < len(lines):
+       print("yey")
