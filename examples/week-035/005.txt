@@ -1,0 +1,107 @@
+* how to check if string starts with "goto "
+    if line.startswith("goto "):
+       print("yey")
+
+
+* how to split a string
+  .split(separator) is a method you call on the string
+  it returns a list splitted by the separator
+    line = "d 25"
+    x = line.split(" ")
+    x is a list ["d","25"]
+
+  you can also use destructuring to directly assign
+  the list into separate variables
+    a,b = line.split(" ")
+  a is "d"
+  b is "25"
+
+
+* how to convert string to a number:
+    x = ["hello","this","is"]
+    a = "5"
+    n = int(a)
+
+  access the element at index n from the list x
+    print(x[n])
+
+* insert into a list in a specific position
+
+    a = ["hello","world"]
+    x = 1
+    a.insert(x, "beautiful")
+    print(a)
+  prints ['hello', 'beautiful', 'world']
+
+  if you try to insert beyond the list size, it will
+  just add it to the end
+
+    x = 20
+    a.insert(x, "zzz")
+    print(a)
+  prints ['hello', 'beautiful', 'world', 'zzz']
+
+
+* string formatting
+  python has 'f' strings, which are formatted strings
+
+    i = 2
+    print(f"hello {i:05}")
+  prints 00002, so it will make sure it will occupy
+  5 spaces, filling with 0, this is handy if you want
+  to print things with the same width.
+
+  e.g. lets say you have this lines:
+  0: hello
+  1: world
+  ...
+  9: good
+  10: morning
+
+
+  see how 'morning' is one space to the right, because 10
+  has one more symbol than 9, so with print(f"{i:02}")
+  it will look like this:
+
+  00: hello
+  01: world
+  ...
+  09: good
+  10: morning
+
+
+
+* example code:
+
+    x = []
+    # start at -1, because we always insert on the "next line"
+    # and in the beginning the next line is going to be 0
+    # so we need to start at -1
+    position = -1
+    while True:
+        a = input("> ")
+        if a == "goto 5":
+            position = 5
+        else:
+            # insert at the next line
+            position += 1
+            x.insert(position, a)
+            for line in x:
+                print(line)
+
+
+
+* example how to show which line we have the position on
+  use f strings in your solution
+
+    def printWithLineNumbers(a, position):
+        print("=" * 40)
+        for i in range(len(a)):
+            if i == position:
+                print("*" + str(i) + ": " + a[i])
+            else:
+                print(" " + str(i) + ": " + a[i])
+        print("=" * 40)
+
+
+

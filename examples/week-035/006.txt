@@ -1,0 +1,101 @@
+python3 editor2.py
+> hello
+========================================
+*000: hello
+========================================
+> this is a new
+========================================
+ 000: hello
+*001: this is a new
+========================================
+> file
+========================================
+ 000: hello
+ 001: this is a new
+*002: file
+========================================
+> with
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+*003: with
+========================================
+> a lot
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+ 003: with
+*004: a lot
+========================================
+> of information
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+ 003: with
+ 004: a lot
+*005: of information
+========================================
+> goto 2
+========================================
+ 000: hello
+ 001: this is a new
+*002: file
+ 003: with
+ 004: a lot
+ 005: of information
+========================================
+> that i am writing in my new editor
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+*003: that i am writing in my new editor
+ 004: with
+ 005: a lot
+ 006: of information
+========================================
+> d 4
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+*003: that i am writing in my new editor
+ 004: a lot
+ 005: of information
+========================================
+> which is amazing and it can edit
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+ 003: that i am writing in my new editor
+*004: which is amazing and it can edit
+ 005: a lot
+ 006: of information
+========================================
+> goto 6
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+ 003: that i am writing in my new editor
+ 004: which is amazing and it can edit
+ 005: a lot
+*006: of information
+========================================
+> now i will append in the end of the file
+========================================
+ 000: hello
+ 001: this is a new
+ 002: file
+ 003: that i am writing in my new editor
+ 004: which is amazing and it can edit
+ 005: a lot
+ 006: of information
+*007: now i will append in the end of the file
+========================================
+>
+
