@@ -614,3 +614,5 @@
 [day-242 lists](#day-242-lists)
 
 [day-243 lists](#day-243-lists)
+
+[day-242 lists](#day-242-lists)

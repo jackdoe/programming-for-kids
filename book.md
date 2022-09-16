@@ -732,6 +732,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-243 lists](#day-243-lists)
 
+[day-242 lists](#day-242-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -19564,4 +19566,123 @@ python3 editor2.py
 >
 
 ```
+
+## [DAY-242] lists
+
+![game-242.jpg](./screenshots/game-242.jpg "game 242 screenshot")
+
+> She was super tired after shool and training, so I had to help out a lot.
+
+Make goto support `goto 7` to go to specific line index, and `goto hello` to go to the first line that contains the word `hello`
+
+
+```
+* check if a string is an integer:
+
+  z = "helloo"
+  if z.isdigit():
+      print("Z IS A DIGIT")
+  else:
+      print("Z IS NOT A DIGIT")
+
+
+* find the first line containing a string
+
+  def find(where, what):
+      for i in range(len(where)):
+          if what in where[i]:
+              return i
+      return -1
+
+
+  x = ['hello world', 'b' ,'hello']
+  found = find(x, "b")
+  if found >= 0:
+     print(f"index {found} matching with value {x[found]}")
+```
+
+
+How it should look:
+
+```
+> hello
+========================================
+*000: hello
+========================================
+> world
+========================================
+ 000: hello
+*001: world
+========================================
+> this is hello
+========================================
+ 000: hello
+ 001: world
+*002: this is hello
+========================================
+> how can it be
+========================================
+ 000: hello
+ 001: world
+ 002: this is hello
+*003: how can it be
+========================================
+> blabla
+========================================
+ 000: hello
+ 001: world
+ 002: this is hello
+ 003: how can it be
+*004: blabla
+========================================
+> goto world
+========================================
+ 000: hello
+*001: world
+ 002: this is hello
+ 003: how can it be
+ 004: blabla
+========================================
+> goto 3
+========================================
+ 000: hello
+ 001: world
+ 002: this is hello
+*003: how can it be
+ 004: blabla
+========================================
+> z
+========================================
+ 000: hello
+ 001: world
+ 002: this is hello
+ 003: how can it be
+*004: z
+ 005: blabla
+========================================
+> goto world
+========================================
+ 000: hello
+*001: world
+ 002: this is hello
+ 003: how can it be
+ 004: z
+ 005: blabla
+========================================
+> m
+========================================
+ 000: hello
+ 001: world
+*002: m
+ 003: this is hello
+ 004: how can it be
+ 005: z
+ 006: blabla
+========================================
+>
+```
+
+
+Lookup the documentation for .split(" "), to see how to make "goto hello world" be split into ["goto", "hello world"] instead of ["goto","hello","world"] (hint, .split() takes two parameters, separator which in our case is " ", and maxsplit, which by default is -1, but you can limit how many times you want to split)
+
 

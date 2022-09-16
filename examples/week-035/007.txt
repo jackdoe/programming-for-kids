@@ -1,0 +1,22 @@
+* check if a string is an integer:
+
+  z = "helloo"
+  if z.isdigit():
+      print("Z IS A DIGIT")
+  else:
+      print("Z IS NOT A DIGIT")
+
+
+* find the first line containing a string
+
+  def find(where, what):
+      for i in range(len(where)):
+          if what in where[i]:
+              return i
+      return -1
+
+
+  x = ['hello world', 'b' ,'hello']
+  found = find(x, "b")
+  if found >= 0:
+     print(f"index {found} matching with value {x[found]}")
