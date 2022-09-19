@@ -1,0 +1,10 @@
+
+while True:
+     line = input('> ')
+
+     ...
+     else:
+         if pos >= 0 and pos < len(lines) and len(line) > 0:
+              prev = lines[pos]
+              prefix = (' ' * countSpaces(prev)) # n spaces
+              line = prefix + line
