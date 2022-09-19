@@ -516,3 +516,95 @@ How it should look:
 
 Lookup the documentation for .split(" "), to see how to make "goto hello world" be split into ["goto", "hello world"] instead of ["goto","hello","world"] (hint, .split() takes two parameters, separator which in our case is " ", and maxsplit, which by default is -1, but you can limit how many times you want to split)
 
+
+## [DAY-243] lists; strings
+
+![game-243.jpg](./screenshots/game-243.jpg "game 243 screenshot")
+
+> today was a 'write this code and lets go over it' kind of lesson
+
+When adding a line, use the number of starting spaces from previous line this is super handy if you are writing python, or a presentation.
+
+This is how it should look:
+
+```
+
+> hello
+========================================
+*000: hello
+========================================
+>    testing
+========================================
+ 000: hello
+*001:    testing
+========================================
+> another line
+========================================
+ 000: hello
+ 001:    testing
+*002:    another line
+========================================
+>
+========================================
+ 000: hello
+ 001:    testing
+ 002:    another line
+*003:
+========================================
+> and again
+========================================
+ 000: hello
+ 001:    testing
+ 002:    another line
+ 003:
+*004: and again
+========================================
+> goto 2
+========================================
+ 000: hello
+ 001:    testing
+*002:    another line
+ 003:
+ 004: and again
+========================================
+> zzz
+========================================
+ 000: hello
+ 001:    testing
+ 002:    another line
+*003:    zzz
+ 004:
+ 005: and again
+========================================
+>
+
+```
+
+use the following function which just iterates the characters of a string and counts spaces and breaks out if it sees the first non space
+
+```
+    def countSpaces(string):
+        n = 0
+        for character in string:
+            if character == ' ':
+                n += 1
+            else:
+                break
+        return n
+
+```
+
+you need to use this function to modify the 'line' if we have a previous line and the current line has at least 1 character:
+
+```
+
+while True:
+     line = input('> ')
+
+     ...
+     else:
+         if pos >= 0 and pos < len(lines) and len(line) > 0:
+              prev = lines[pos]
+              prefix = (' ' * countSpaces(prev)) # n spaces
+              line = prefix + line
+```
