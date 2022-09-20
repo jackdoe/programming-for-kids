@@ -608,3 +608,31 @@ while True:
               prefix = (' ' * countSpaces(prev)) # n spaces
               line = prefix + line
 ```
+
+## [DAY-244] files; strings
+
+Create 1000 files 1.txt 2.txt etc.. each file should contain "hello\n" 500 times
+
+```
+MAKE BIG STRING:
+
+  # make a string containing "hello\n" 500 times:
+  a = "hello\n" * 500
+
+
+WRITE TO A FILE:
+
+  # with open and close
+  name = "1.txt"
+  f = open(name, "w")
+  s = "hello\n"
+  f.write(s)
+  f.close()
+
+
+  # or using `with` so it automatically closes the file:
+  name = "1.txt"
+  s = "hello\n"
+  with open(name, "w") as f:
+      f.write(s)
+```
