@@ -620,3 +620,5 @@
 [day-243 lists; strings](#day-243-lists-strings)
 
 [day-244 files; strings](#day-244-files-strings)
+
+[day-245 lists](#day-245-lists)
