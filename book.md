@@ -739,6 +739,11 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-244 files; strings](#day-244-files-strings)
 
 [day-245 lists](#day-245-lists)
+## week - 036
+
+
+
+[day-246 strings](#day-246-strings)
 
 ## [DAY-0] The Computer
 
@@ -19857,4 +19862,25 @@ print(f"smallest: {smallest}, largest: {largest}")
 After the test is done, google for 'how to find smallest/largest numbers from a ist in python' and see how the `min` and `max` functions work.
 
 
+
+## [DAY-246] strings
+
+```
+# make a function to count how many times a given character
+# appears in a string
+
+def count(c, s):
+    # .. count how many times `c` appears in `s`
+    # example string s "hello"
+    # example character c "l"
+    return 0
+
+
+
+n = count("l","hello")
+print(f"character l appears {n} times")
+
+# what would happen if we do: n = count(1, [1,2,3,4,1,5])
+
+```
 

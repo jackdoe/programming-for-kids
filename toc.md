@@ -622,3 +622,8 @@
 [day-244 files; strings](#day-244-files-strings)
 
 [day-245 lists](#day-245-lists)
+## week - 036
+
+
+
+[day-246 strings](#day-246-strings)
