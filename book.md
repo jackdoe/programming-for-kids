@@ -747,6 +747,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-247 lists](#day-247-lists)
 
+[day-248 lists](#day-248-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -19921,4 +19923,58 @@ HINTS:
   it to access the correct index from the lists
 ```
 
+## [DAY-248] lists
+
+![game-248.jpg](./screenshots/game-248.jpg "game 248 screenshot")
+
+```
+* ask the user to name 5 book
+* ask the user which year each book was published
+* ask the user to enter each book's author
+* print each book with its author and year
+
+HOW IT SHOULD LOOK:
+
+book> Tom de Groot 1
+book> Tom de Groot 2
+book> Tom de Groot 3
+book> Tom de Groot 4
+book> Sam
+year> 1996
+year> 1997
+year> 1998
+year> 1999
+year> 2000
+author> Liz Pichon
+author> Liz Pichon
+author> Liz Pichon
+author> Liz Pichon
+author> Lincoln Pierce
+
+
+Tom de Groot 1, author: Liz Pichon, year: 1996
+Tom de Groot 1, author: Liz Pichon, year: 1997
+Tom de Groot 1, author: Liz Pichon, year: 1998
+Tom de Groot 1, author: Liz Pichon, year: 1999
+Sam, author: Lincoln Pierce, year: 2000
+
+
+
+HINTS:
+
+* use for i in range(5) to get input 5 times
+* use authors.append(...) to append something to the list authors
+* if you have the list names and the list ages, think about what you
+  have on index 0 in each list, e.g. authors[0] and years[0] and books[0]
+  again, use for i in range(5) to do something 5 times
+* use f strings (format strings) to print
+  e.g.
+  
+  a = 1
+  b = 'zzz'
+  c = 6
+  print(f"banana: {a}, apple: {b}, hello: {c}")
+
+  will print "banana: 1, apple: zzz, hello: 6"
+```
 

@@ -629,3 +629,5 @@
 [day-246 strings](#day-246-strings)
 
 [day-247 lists](#day-247-lists)
+
+[day-248 lists](#day-248-lists)
