@@ -154,3 +154,62 @@ HINTS:
   append this small list to a big list of books
   
 ```
+
+
+## [DAY-250] dictionaries
+
+
+![game-250-a.jpg](./screenshots/game-250-a.jpg "game 250-a screenshot")
+![game-250-b.jpg](./screenshots/game-250-b.jpg "game 250-b screenshot")
+
+```
+* ask the user for 5 books:
+  book's title
+  book's author
+  book's year
+
+
+HOW IT SHOUDL LOOK:
+
+title> Tom de Groot 1
+author> Liz Pichon
+year> 1996
+---------------
+title> Tom de Groot 2
+author> Liz Pichon
+year> 1997
+---------------
+title> Tom de Groot 3
+author> Liz Pichon
+year> 1998
+---------------
+title> Tom de Groot 4
+author> Liz Pichon
+year> 1998
+---------------
+title> Sam
+author> Lincoln Pierce
+year> 200
+---------------
+Tom de Groot 1, author: Liz Pichon, year: 1996
+Tom de Groot 1, author: Liz Pichon, year: 1997
+Tom de Groot 1, author: Liz Pichon, year: 1998
+Tom de Groot 1, author: Liz Pichon, year: 1999
+Sam, author: Lincoln Pierce, year: 2000
+
+
+HINTS:
+
+* use a dictionary to represent book
+  book = {}
+  book["title"] = a
+  book["author"] = b
+  ...
+
+  append the book to a list of books
+
+  then you can do
+  for b in books:
+      print(b["title"])
+      ...
+```      
