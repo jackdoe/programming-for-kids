@@ -749,6 +749,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-248 lists](#day-248-lists)
 
+[day-249 lists](#day-249-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -19976,5 +19978,51 @@ HINTS:
   print(f"banana: {a}, apple: {b}, hello: {c}")
 
   will print "banana: 1, apple: zzz, hello: 6"
+```
+
+## [DAY-249] lists
+
+```
+* ask the user for 5 books:
+  book's title
+  book's author
+  book's year
+
+
+HOW IT SHOUDL LOOK:
+
+title> Tom de Groot 1
+author> Liz Pichon
+year> 1996
+---------------
+title> Tom de Groot 2
+author> Liz Pichon
+year> 1997
+---------------
+title> Tom de Groot 3
+author> Liz Pichon
+year> 1998
+---------------
+title> Tom de Groot 4
+author> Liz Pichon
+year> 1998
+---------------
+title> Sam
+author> Lincoln Pierce
+year> 200
+---------------
+Tom de Groot 1, author: Liz Pichon, year: 1996
+Tom de Groot 1, author: Liz Pichon, year: 1997
+Tom de Groot 1, author: Liz Pichon, year: 1998
+Tom de Groot 1, author: Liz Pichon, year: 1999
+Sam, author: Lincoln Pierce, year: 2000
+
+
+HINTS:
+
+* use 1 list of 3 elements to represent a book
+  [title, author, year]
+  append this small list to a big list of books
+  
 ```
 
