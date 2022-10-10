@@ -633,3 +633,5 @@
 [day-248 lists](#day-248-lists)
 
 [day-249 lists](#day-249-lists)
+
+[day-250 dictionaries](#day-250-dictionaries)
