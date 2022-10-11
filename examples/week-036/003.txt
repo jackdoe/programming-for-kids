@@ -39,7 +39,7 @@ HINTS:
   again, use for i in range(5) to do something 5 times
 * use f strings (format strings) to print
   e.g.
-  
+
   a = 1
   b = 'zzz'
   c = 6

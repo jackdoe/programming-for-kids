@@ -47,4 +47,3 @@ HINTS:
   for b in books:
       print(b["title"])
       ...
-```      

@@ -753,6 +753,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-250 dictionaries](#day-250-dictionaries)
 
+[day-251 dictionaries](#day-251-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -19973,7 +19975,7 @@ HINTS:
   again, use for i in range(5) to do something 5 times
 * use f strings (format strings) to print
   e.g.
-  
+
   a = 1
   b = 'zzz'
   c = 6
@@ -20025,7 +20027,7 @@ HINTS:
 * use 1 list of 3 elements to represent a book
   [title, author, year]
   append this small list to a big list of books
-  
+
 ```
 
 
@@ -20085,5 +20087,85 @@ HINTS:
   for b in books:
       print(b["title"])
       ...
-```      
+```
+
+
+## [DAY-251] dictionaries
+
+![game-251.jpg](./screenshots/game-251.jpg "game 251 screenshot")
+
+
+```
+UNIQUE WORD COUNT
+
+
+read a file and count how many times each word appears
+lets say we have the file "aaa.txt" with the following text:
+
+What will we do with a drunken sailor?
+What will we do with a drunken sailor?
+What will we do with a drunken sailor?
+Early in the morning!
+Way hay and up she rises
+Way hay and up she rises
+Way hay and up she rises
+Early in the morning!
+Shave his belly with a rusty razor
+Shave his belly with a rusty razor
+Shave his belly with a rusty razor
+Early in the morning!
+Way hay and up she rises
+Way hay and up she rises
+Way hay and up she rises
+Early in the morning!
+
+
+the output should be:
+
+What: 3
+will: 3
+we: 3
+do: 3
+with: 6
+a: 6
+drunken: 3
+sailor?: 3
+Early: 4
+in: 4
+the: 4
+morning!: 4
+Way: 6
+hay: 6
+and: 6
+up: 6
+she: 6
+rises: 6
+Shave: 3
+his: 3
+belly: 3
+rusty: 3
+razor: 3
+
+
+HINTS:
+
+GOOGLE: how to open a file in python
+GOOGLE: how to read each word from a file in python
+
+
+DICTIONARY:
+
+        words = {}
+        how to check if the key `sailor` exists in a dictionary:
+            if "sailor" in words:
+               print("yes")
+            else:
+                print("no")
+
+        how to print all keys and values of a dictionary:
+
+        for word in words:
+            count = words[word] # get the value of each word
+            print(f"{word}: {count}")
+```
 

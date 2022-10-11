@@ -38,4 +38,4 @@ HINTS:
 * use 1 list of 3 elements to represent a book
   [title, author, year]
   append this small list to a big list of books
-  
+
