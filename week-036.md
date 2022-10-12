@@ -293,3 +293,58 @@ DICTIONARY:
             count = words[word] # get the value of each word
             print(f"{word}: {count}")
 ```
+
+
+## [DAY-252] dictionaries
+
+```
+* UNIQUE INPUTS
+
+ask the user to enter 10 strings, and after they are done,
+print only the unique ones
+
+> asda
+> zz
+> asda
+...
+unique inputs:
+asda, zz
+
+
+HINTS:
+
+in a dictionary table, the keys are unique
+a = {}
+a["aaa"] = "hello"
+a["aaa"] = "bzbz"
+print(a["aaa"]) will print 'bzbz' because we will
+overwrite the value for the key 'aaa'
+
+
+* UNIQUE ELEMENTS IN A LIST
+
+write a function, that takes a list of numbers, and returns a new list only with
+the unique elements
+
+
+def uniq(a):
+    b = []
+    # ...
+    return b
+
+
+
+print(uniq([1,2,1,1,1,1,2,2,1,1,1,1,3,4]))
+
+# should print
+# [1,2,3,4]
+
+HINTS:
+dictionary keys can be integers as well, e.g.:
+
+a = {}
+b = 88
+a[b] = 5
+
+print(a[b])
+```
