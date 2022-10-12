@@ -755,6 +755,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-251 dictionaries](#day-251-dictionaries)
 
+[day-252 dictionaries](#day-252-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20167,5 +20169,60 @@ DICTIONARY:
         for word in words:
             count = words[word] # get the value of each word
             print(f"{word}: {count}")
+```
+
+
+## [DAY-252] dictionaries
+
+```
+* UNIQUE INPUTS
+
+ask the user to enter 10 strings, and after they are done,
+print only the unique ones
+
+> asda
+> zz
+> asda
+...
+unique inputs:
+asda, zz
+
+
+HINTS:
+
+in a dictionary table, the keys are unique
+a = {}
+a["aaa"] = "hello"
+a["aaa"] = "bzbz"
+print(a["aaa"]) will print 'bzbz' because we will
+overwrite the value for the key 'aaa'
+
+
+* UNIQUE ELEMENTS IN A LIST
+
+write a function, that takes a list of numbers, and returns a new list only with
+the unique elements
+
+
+def uniq(a):
+    b = []
+    # ...
+    return b
+
+
+
+print(uniq([1,2,1,1,1,1,2,2,1,1,1,1,3,4]))
+
+# should print
+# [1,2,3,4]
+
+HINTS:
+dictionary keys can be integers as well, e.g.:
+
+a = {}
+b = 88
+a[b] = 5
+
+print(a[b])
 ```
 
