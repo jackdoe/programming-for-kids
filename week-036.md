@@ -383,7 +383,6 @@ think about a dictionary table that looks like this:
 key   | value
 ------+------
 "aaa" | 2
-1     | 3
-
-
+1     | 9
+...
 ```
