@@ -757,6 +757,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-252 dictionaries](#day-252-dictionaries)
 
+[day-253 dictionaries](#day-253-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20224,5 +20226,44 @@ b = 88
 a[b] = 5
 
 print(a[b])
+```
+
+## [DAY-253] dictionaries
+
+```
+* COUNT
+
+write a function to count how many times elements appear in a list
+
+def count(a):
+    b = {}
+    # ....
+    return b
+
+print(count([1,2,1,1,"aaa","bbb",1,1,2,2,1,"aaa",1,1,1,3,4]))
+
+# should print
+# {1: 9, 2: 3, 'aaa': 2, 'bbb': 1, 3: 1, 4: 1}
+
+HINTS:
+
+to check if a key is in a dictionary use 'in':
+
+d = {}
+k = "hello"
+if k in d:
+    print("YES")
+else:
+    print("NO")
+
+
+think about a dictionary table that looks like this:
+
+key   | value
+------+------
+"aaa" | 2
+1     | 3
+
+
 ```
 
