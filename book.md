@@ -759,6 +759,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-253 dictionaries](#day-253-dictionaries)
 
+[day-254 memory](#day-254-memory)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20265,4 +20267,58 @@ key   | value
 1     | 9
 ...
 ```
+
+
+## [DAY-254] memory
+
+> The goal of today was to understand deeply what 'equals' means and what variables mean, we discussed the following code:
+
+```
+x = 3
+y = 4
+
+y = x
+x = 6
+print(y)
+```
+
+```
+x = [1,2]
+y = [3,4]
+
+y = x
+x.append(6)
+print(y)
+```
+
+```
+x = [1,[3,4]]
+y = x[1][1]
+
+x[1][1] = 6
+print(y)
+```
+
+```
+x = "abc"
+y = x[1]
+
+x = "def"
+print(y)
+```
+
+
+Assuming very very simplfied memory model, but discussing the difference about value and pointer, and how pointers are just numbers of the address of the thing they point to. We used pen and paper, and I will attach the notes as we were talking through it, but you will have come up with your own way to explain it and use whatever you think is needed, e.g. you can use an array of cards to represent memory, or use minecraft to build a long line of blocks, or whatever works for you. We also spent fair bit of time on talking how the code is also in memory and it is not different than any value you store in memory. 
+
+![game-254-a.jpg](./screenshots/game-254-a.jpg "game 254-a screenshot")
+![game-254-b.jpg](./screenshots/game-254-b.jpg "game 254-b screenshot")
+![game-254-c.jpg](./screenshots/game-254-c.jpg "game 254-c screenshot")
+![game-254-d.jpg](./screenshots/game-254-d.jpg "game 254-d screenshot")
+
+The main focus was on `x = 3` means: python will find some space in memory, lets say on address 13, and will put the value 3 there, later when I do `y = 4` it will do the same, find some empty place e.g. address 17, and put the value 4 there. So when I do `y = x`, it will actually load the value of address 13 in some register, and then put it on address 17, the processor does not know about x or y, it just knows addresses and what to do with them (load/store etc).
+
+Now the big difference is when we do `x = [1,2]`, then first we need to put the list somewhere in memory, e.g. addr 20, and the value of x is actually the address of that list, so lets say x is on address 5, then the value on address 5 is actually 20, so when we do `y = x` it will just go to address 5, load the value in register, and then store it at wherever y is (e.g. address 15). So now both x and y point to address 20.
+
+> at this point you have to listen and look at the body language and take your time, I also discussed how does it know if a value is a regular or an address, the difference between how python and C does it and other things, we also spent some time on the binary numbers and why a byte, or 8 bits, has 256 values.
+
 

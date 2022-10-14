@@ -641,3 +641,5 @@
 [day-252 dictionaries](#day-252-dictionaries)
 
 [day-253 dictionaries](#day-253-dictionaries)
+
+[day-254 memory](#day-254-memory)
