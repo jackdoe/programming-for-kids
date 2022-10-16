@@ -12,6 +12,7 @@ Link to the book: [book.md](book.md)
 While writing the book we also developed few other projects:
 
 * [4917](https://punkx.org/4917/) - card game to teach kids machine code
+* [unix pipe game](https://punkx.org/unix-pipe-game/) - card game to teach kids basic unix commands
 * [programming-time](https://punkjazz.org/programming-time/) - card game to teach kids about reading code
 * [punk](https://punkjazz.org/punk/) - online game turn based python to move pieces on the board
 
