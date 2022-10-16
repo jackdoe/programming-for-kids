@@ -1,0 +1,130 @@
+
+<html>
+  <head><title>The UNIX Pipe Card Game</title>
+    <style>
+      body {
+	  font-family: monospace;
+	  max-width: 50rem;
+	  padding: 1rem;
+	  font-size: 14px;
+	  margin: auto;
+      }
+      img {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>The UNIX Pipe Card Game</h1>
+
+    This is a card game for teaching kids how to combine unix commands through <mark>pipes</mark>.<br><br>
+    This game assumes the parent knows the basic unix commands: <code>cat, grep, tail, head, wc, sort, uniq</code>. The parent should show also show those commands in action the computer as well, if you do not have any UNIX system you can use <a href='https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192'>jslinux</a> in your browser.
+
+    <a target="_blank" href="photos/deck.jpg"><img src="photos/deck.jpg" width="100%"></a><br>
+
+    <ul>
+      <li>print it yourself: <a href="unix-pipe-cards.pdf">unix-pipe-cards.pdf</a>, <a href="unix-pipe-box.pdf">unix-pipe-box.pdf</a></li>
+      <li>code: <a href="https://github.com/jackdoe/programming-for-kids/tree/master/projects/unix-pipe-game">unix-pipe-game</a></li>
+      <li>author: <a href="https://github.com/jackdoe">github.com/jackdoe</a></li>
+      <li>co author: <a href="https://punkjazz.org/jackie">Jackie (11 yo)</a></li>
+      <li>contact: <a href="mailto:b0000@fastmail.com">b0000@fastmail.com</a></li>
+      <li>price: SOLD OUT, but I have few decks left to give out to friends, if you are interested send me an email to <a href="mailto:b0000@fastmail.com">b0000@fastmail.com</a>, the price would be 20€ as I printed only 50 decks.</li>
+      <li>license: CC BY 4.0</li>
+    </ul>
+
+    If you are a parent teaching your kid, and is exploring more tools to help you, I made few other card games:<br>
+    <ul>
+      <li><a href="https://punkjazz.org/programming-time/">programming time</a>, which is a game to teach python and some more fundamental algorithms, from hash tables to RSA</li>
+      <li><a href="https://punkx.org/4917/">4917</a>, a game to teach kids machine code and how the cpu works with memory and registers</li>
+      <li><a href="https://github.com/jackdoe/programming-for-kids">programming for kids</a>, a log of my journey of teaching my 11yo daughter how to code</li>      
+    </ul>
+
+    <br>
+    Example game round:
+
+    <dl>task: <b>print the most common line from a file</b>, we need to first cat the file (in our case the file is card 03.txt), then sort it, uniq count it, then do numeric sort, then tail -1:
+      <br>
+<br>
+    <b>cat 03.txt | sort | uniq -c | sort -n | tail -1</b></dl>
+    
+
+    <a target="_blank" href="photos/example.jpg"><img src="photos/example.jpg" width="100%"></a>
+
+    <br>
+
+    <pre>
+RULES:
+
+  > 0. The youngest player decides the
+    objective:
+  
+  * Whoever has the smallest pipe chain to 
+    complete the task wins the round.
+  * Whoever has the largest pipe chain to 
+    complete the task wins the round.
+  
+  > 1. The youngest players picks a task
+    from the tasks card. You can not pick 
+    the same task twice.
+  
+  > 2. Shuffle the deck.
+  
+  > 3. Put the deck face down on the 
+    table.
+  
+  > 4. Going clockwise each player picks
+    the top card from the deck.
+  
+  > 5. The player who's at turn now tries
+    to complete the task.
+  
+  > 6. The first player who completes the
+    task gets a point.
+  
+  > GOTO 1.
+
+
+TASKS
+
+  * print the second line
+  
+  * print the second to last line
+  
+  * print the 7th line
+  
+  * print the most common line
+  
+  * print the least common line
+  
+  * count how many lines have "rises"
+  
+  * print the first line that has W in it
+  
+  * count the lines that have "in" in them
+  
+  * show two random lines
+  
+  * count the words on the last two lines
+  
+  * print the 7th and 8th line
+  
+  * count the lines with !
+  
+  * count the lines without !
+  
+  * make a command chain that does not
+    print anything
+</pre>
+
+    This is how the card decks look:
+    
+    <a target="_blank" href="photos/many-decks.jpg"><img src="photos/many-decks.jpg" width="100%"></a>
+
+
+  </body>
+</html>
+
+
+
