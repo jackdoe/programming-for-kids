@@ -18,4 +18,4 @@ While writing the book we also developed few other projects:
 
 ## license
 
-Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+Creative Commons Attribution 4.0
