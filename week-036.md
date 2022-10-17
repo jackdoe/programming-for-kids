@@ -118,7 +118,7 @@ HINTS:
   book's year
 
 
-HOW IT SHOUDL LOOK:
+HOW IT SHOULD LOOK:
 
 title> Tom de Groot 1
 author> Liz Pichon
@@ -169,7 +169,7 @@ HINTS:
   book's year
 
 
-HOW IT SHOUDL LOOK:
+HOW IT SHOULD LOOK:
 
 title> Tom de Groot 1
 author> Liz Pichon
