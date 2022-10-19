@@ -20330,7 +20330,8 @@ Now the big difference is when we do `x = [1,2]`, then first we need to put the 
 ![game-255.jpg](./screenshots/game-255.jpg "game 255 screenshot")
 
 
-As we were walking to the store, I used the pavement blocks to talk about arrays and how you get to specific index in an array, how arrays have the same type, and the difference between lists and arrays, and why lists need pointers.
+As we were walking to the store, I used the pavement blocks to talk about arrays and how you get to specific index in an array, how arrays blocks have the same size, and the difference between lists and arrays, and why lists need pointers.
 
 When we got home, I challenged her to open her computer and name all the components.
+
 
