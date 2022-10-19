@@ -761,6 +761,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-254 memory](#day-254-memory)
 
+[day-255 memory](#day-255-memory)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20321,4 +20323,14 @@ Now the big difference is when we do `x = [1,2]`, then first we need to put the 
 
 > at this point you have to listen and look at the body language and take your time, I also discussed how does it know if a value is a regular or an address, the difference between how python and C does it and other things, we also spent some time on the binary numbers and why a byte, or 8 bits, has 256 values.
 
+
+## [DAY-255] memory
+
+
+![game-255.jpg](./screenshots/game-255.jpg "game 255 screenshot")
+
+
+As we were walking to the store, I used the pavement blocks to talk about arrays and how you get to specific index in an array, how arrays have the same type, and the difference between lists and arrays, and why lists need pointers.
+
+When we got home, I challenged her to open her computer and name all the components.
 
