@@ -440,3 +440,13 @@ Now the big difference is when we do `x = [1,2]`, then first we need to put the 
 
 > at this point you have to listen and look at the body language and take your time, I also discussed how does it know if a value is a regular or an address, the difference between how python and C does it and other things, we also spent some time on the binary numbers and why a byte, or 8 bits, has 256 values.
 
+
+## [DAY-255] memory
+
+
+![game-255.jpg](./screenshots/game-255.jpg "game 255 screenshot")
+
+
+As we were walking to the store, I used the pavement blocks to talk about arrays and how you get to specific index in an array, how arrays have the same type, and the difference between lists and arrays, and why lists need pointers.
+
+When we got home, I challenged her to open her computer and name all the components.
