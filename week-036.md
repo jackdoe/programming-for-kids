@@ -451,3 +451,20 @@ As we were walking to the store, I used the pavement blocks to talk about arrays
 
 When we got home, I challenged her to open her computer and name all the components.
 
+
+
+## [DAY-256] prank
+
+Today we didnt have a lesson, but I started and minimized the following program on her computer:
+
+```
+import pyautogui
+import random
+import time
+
+while True:
+    pyautogui.write(' ')
+    time.sleep(random.randint(10,20))
+```
+
+which randomly pressess the space bar every 10-20 seconds :D
