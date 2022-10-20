@@ -645,3 +645,5 @@
 [day-254 memory](#day-254-memory)
 
 [day-255 memory](#day-255-memory)
+
+[day-256 prank](#day-256-prank)

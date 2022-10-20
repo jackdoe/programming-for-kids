@@ -763,6 +763,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-255 memory](#day-255-memory)
 
+[day-256 prank](#day-256-prank)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20334,4 +20336,21 @@ As we were walking to the store, I used the pavement blocks to talk about arrays
 
 When we got home, I challenged her to open her computer and name all the components.
 
+
+
+## [DAY-256] prank
+
+Today we didnt have a lesson, but I started and minimized the following program on her computer:
+
+```
+import pyautogui
+import random
+import time
+
+while True:
+    pyautogui.write(' ')
+    time.sleep(random.randint(10,20))
+```
+
+which randomly pressess the space bar every 10-20 seconds :D
 
