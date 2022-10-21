@@ -468,3 +468,12 @@ while True:
 ```
 
 which randomly pressess the space bar every 10-20 seconds :D
+
+
+## [DAY-257] arrays
+
+![game-257.jpg](./screenshots/game-257.jpg "game 257 screenshot")
+
+Today's lesson was only 5 minutes, going again over how you access array of shorts.
+
+
