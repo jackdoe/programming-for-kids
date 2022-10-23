@@ -428,7 +428,6 @@ for i in range(len(code)):
                 pointers.append(b)
 
         while True:
-
             offset = random.randint(0, len(mem) - len(w) - 1 - len(pointers) - 2)
             if w in seen:
                 offset = seen[w]
@@ -452,8 +451,8 @@ for i in range(len(code)):
                 v = eval(p)
 
                 while True:
-                    r = random.randint(1, len(mem)-2)
-                    if mem[r-1] == 0  and mem[r] == 0 and mem[r+1] == 0:
+                    r = random.randint(1, len(mem)-4)
+                    if mem[r-2] == 0 and mem[r-1] == 0  and mem[r] == 0 and mem[r+1] == 0 and mem[r+2] == 0:
                         mem[r] = v
                         break
 
