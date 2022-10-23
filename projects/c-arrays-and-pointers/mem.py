@@ -168,6 +168,70 @@ reaches value of 0.
 6. GOTO 3
 
 
+""",
+"""                 HISTORY
+
+C was made in the '70s, so about 50 
+years ago, by the titans Dennis Richie,
+Ken Thompson, Brian Kernighan an others.
+
+It is still one of the most used langu-
+ages today.
+
+It has extremely simple syntax:
+auto,break,case,char,const,continue,
+default,do,double,else,enum,extern,float
+for,goto,if,int,long,register,return,
+short,signed,sizeof,static,struct,switch,
+typedef,union,unsigned,void,volatile,
+while
+
+Those are [color:navy]all[/color] of its keywords.
+
+Simple syntax does not mean simple lan-
+guage. It takes extreme discipline to
+write portable, robust and resilient C
+code. And yet, most of the usable
+programs are written in C or interact
+with it somehow.
+
+C is invented language, it is not
+discovered like LISP, and it is invented
+in such a way, that makes it easy to 
+program the computers we made, and it
+does that very well.
+""",
+"""       ASCII TABLE (alphabet only)
+CODE      CHAR            CODE   CHAR
+000       NULL     |      ...
+010       \\n       |      ...
+032       SPACE    |      ...
+065       A        |      097    a
+066       B        |      098    b
+067       C        |      099    c
+068       D        |      100    d
+069       E        |      101    e
+070       F        |      102    f
+071       G        |      103    g
+072       H        |      104    h
+073       I        |      105    i
+074       J        |      106    j
+075       K        |      107    k
+076       L        |      108    l
+077       M        |      109    m
+078       N        |      110    n
+079       O        |      111    o
+080       P        |      112    p
+081       Q        |      113    q
+082       R        |      114    r
+083       S        |      115    s
+084       T        |      116    t
+085       U        |      117    u
+086       V        |      118    v
+087       W        |      119    w
+088       X        |      120    x
+089       Y        |      121    y
+090       Z        |      122    z
 """
 ]
 for c in intro:
@@ -374,14 +438,6 @@ char *pa = cow + 2; // PY: x+2
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
-
-"""
-char cow[4] = {'m','o','o',0};
-char *pa = cow; // PY: x
-printf("%s\\n",pa);
-printf("%s\\n",cow);
-""",
-
 ]
 
 
