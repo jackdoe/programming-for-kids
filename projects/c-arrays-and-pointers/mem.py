@@ -7,7 +7,7 @@ import subprocess
 import os
 
 CARD=1
-random.seed(time.time())
+random.seed(7)
 
 
 intro = [
@@ -94,8 +94,8 @@ You can get the address of x you use &
 
 char *p = &x;
 
-that means, the variable p is a pointer to
-char. The actual value of p will be 
+that means, the variable p is a pointer
+to char. The actual value of p will be 
 [color:red]17262[/color], which is the address of x.
 
 *p = 'd', will go to address [color:red]17262[/color] and 
@@ -203,9 +203,9 @@ does that very well.
 """,
 """       ASCII TABLE (alphabet only)
 CODE      CHAR            CODE   CHAR
-000       NULL     |      ...
+000       NULL     |      033    !
 010       \\n       |      ...
-032       SPACE    |      ...
+032       SPACE    |      
 065       A        |      097    a
 066       B        |      098    b
 067       C        |      099    c
