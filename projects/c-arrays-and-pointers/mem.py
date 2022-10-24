@@ -341,7 +341,7 @@ printf("%s\\n",hello);
 
 
 """
-char hello[5] = {'h', 'e', 'y', 'o',0}; // PY: x
+char hello[5] = {'h', 'e', 'y', 'o', 0}; // PY: x
 char *p = hello + 1; // PY: x + 1
 
 printf("%s\\n",p);
@@ -457,7 +457,7 @@ runCode = {}
 for i in range(len(code)):
     mem = [(0,'zero')]*256
     seen={}
-    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle)]:
+    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle)]:
 
         program = """
     #include <stdio.h>
