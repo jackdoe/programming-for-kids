@@ -75,8 +75,8 @@ CODE      CHAR            CODE   CHAR
 089       Y        |      121    y
 090       Z        |      122    z
 """,
+"""             CHARACTERS IN C
 
-"""            CHARACTERS IN C
 The character type in C needs one byte 
 of memory.
 
@@ -87,8 +87,7 @@ x = [color:teal]99[/color];
 You can use [color:brown]'a'[/color] to get the ASCII value
 of the character a (which is [color:teal]97[/color]). So
 x = [color:brown]'a'[/color] means put [color:teal]97[/color] somewhere in memory
-where we will store the value for the
-variable x.
+where the variable x will live.
 
 You can think of characters as one byte
 numbers. By default they are signed,
@@ -129,7 +128,7 @@ is actually just the memory address of
 the first element of the array.
 Lets imagine it is on address 199932.
 
-To access the elements we do:
+To access the elements we use brackets:
 [color:purple]a[0] = 48;[/color]
 [color:red]a[3] = 49;[/color]
 ...
@@ -204,33 +203,6 @@ the variable, and go forward until it
 reaches value of 0.
 
 """,
-"""
-
-
-                 RULES:
-
-
-1. Split the code cards amongst the 
-   players.
-
-2. Put the memory cards face down on
-   the table.
-
-3. Pick the top memory card, 
-   and put it face up in the middle of 
-   the table.
-
-4. Find a code card matching the memory.
-   All variables have to have the correct
-   value in the memory card.
-
-5. First player that finds a match
-   wins the round.
-
-6. GOTO 3
-
-
-""",
 """                 HISTORY
 
 C was made in the '70s, so about 50 
@@ -263,6 +235,39 @@ in such a way, that makes it easy to
 program the computers we made, and it
 does that very well.
 """,
+"""
+                 RULES:
+
+1. Split the code cards amongst the 
+   players.
+
+2. Put the memory cards face down on
+   the table.
+
+3. Pick the top memory card, 
+   and put it face up in the middle of 
+   the table.
+
+4. Find a code card matching the memory.
+   All variables have to have the 
+   correct value in the memory card.
+   EXAMPLE:
+
+     char *foo = "bar";
+     char *pa = foo + 1;
+     char *pb = pa + 2;
+
+   you need to look in the memory for
+   + 98 97 114 0 (e.g. address 172)
+   + 172 (foo pointing to "bar")
+   + 173 (pa = foo + 1)
+   + 174 (pb = foo + 2)
+
+5. First player that finds a match
+   wins the round.
+
+6. GOTO 3
+"""
 ]
 for c in intro:
     print(f"CARD:{CARD}")
