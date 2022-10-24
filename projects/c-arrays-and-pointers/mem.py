@@ -195,7 +195,7 @@ code. And yet, most of the usable
 programs are written in C or interact
 with it somehow.
 
-C is invented language, it is not
+C is an invented language, it is not
 discovered like LISP, and it is invented
 in such a way, that makes it easy to 
 program the computers we made, and it
@@ -205,7 +205,7 @@ does that very well.
 CODE      CHAR            CODE   CHAR
 000       NULL     |      033    !
 010       \\n       |      ...
-032       SPACE    |      
+032       SPACE    |      ...
 065       A        |      097    a
 066       B        |      098    b
 067       C        |      099    c
@@ -242,25 +242,25 @@ for c in intro:
 
 code = [
 """
-char name[6] = {'j','a', 0, 0, 's', 0};
+char name[6] = {'j','a', 0, 0, 's', 0}; // PY: x
 name[2] = 'c';
 name[3] = 'k';
 
 printf("%s\\n",name);
 """,
 """
-char *world = "hello world";
+char *world = "hello world"; // PY: x
 
-printf("%s",world);
+printf("%s\\n",world);
 """,
 """
-char word[] = {'h','i','!',0};
+char word[] = {'h','i','!',0}; // PY: x
 
 printf("%s\\n",word);
 """,
 
 """
-char *alphabet = malloc(10);
+char *alphabet = malloc(10); // PY: x
 
 for (int i = 0; i < 9; i++) {
     *(alphabet + i) = 65 + i;
@@ -270,7 +270,7 @@ alphabet[9] = 0;
 printf("%s\\n",alphabet);
 """,
 """
-char cow[4];
+char cow[4]; // PY: x
 
 cow[0] = 'm';
 *(cow+1) = 'o';
@@ -280,7 +280,7 @@ cow[3] = 0;
 printf("%s\\n",cow);
 """,
 """
-char foo[4];
+char foo[4]; // PY: x
 
 0[foo] = 'b';
 foo[1] = 'a';
@@ -291,13 +291,13 @@ printf("%s\\n",foo);
 """,
 
 """
-char *year = "1972";
+char year[] = {'1','9','7','2',0}; // PY: x
 
 printf("%s\\n",year);
 """,
 
 """
-char year[5];
+char year[5]; // PY: x
 
 year[0] = '1';
 year[1] = '9';
@@ -308,7 +308,7 @@ year[4] = 0;
 printf("%s\\n",year);
 """,
 """
-char year[5];
+char year[5]; // PY: x
 
 year[0] = 49;
 year[1] = 57;
@@ -320,10 +320,7 @@ printf("%s\\n",year);
 """,
 
 """
-char zeroToNine[11];
-
-// 0 1 2 3 4 5 6 7 8 9
-// and one null byte
+char zeroToNine[11]; // PY: x
 
 zeroToNine[0] = 48;
 for (int i = 1; i < 10; i++) {
@@ -335,7 +332,7 @@ printf("%s\\n",zeroToNine);
 """,
 
 """
-char *hello = "world";
+char *hello = "world"; // PY: x
 char *p = hello + 2; // PY: x + 2
 
 printf("%s\\n",p);
@@ -344,7 +341,7 @@ printf("%s\\n",hello);
 
 
 """
-char hello[5] = {'h','e','y','o',0};
+char hello[5] = {'h','e','y','o',0}; // PY: x
 char *p = hello + 1; // PY: x + 1
 
 printf("%s\\n",p);
@@ -353,88 +350,100 @@ printf("%s\\n",hello);
 
 
 """
-char *hello = "hello world";
+char *hello = "hello world"; // PY: x
 char *pa = hello + 4; // PY: x + 4
 char *pb = pa + 2; // PY: x + 6
+
 printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
     
 """
-char *hello = "hello world";
+char *hello = "hello world"; // PY: x
 char *pa = hello + 4; // PY: x + 4
 char *pb = pa - 3; // PY: x + 1
+
 printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
 
 
 """
-char *hello = "hello world";
+char *hello = "hello world"; // PY: x
 char *pa = &hello[5]; // PY: x + 5
 char *pb = pa - 5; 
 
 pb = pb + 6; // PY: x + 6
-printf("%s\\n",pb);
+
+printf("%s\\n",pb); // PY: x
 printf("%s\\n",hello);
 """,
 
 """
-char *hello = "hello world";
+char *hello = "hello world"; // PY: x
 char *pa = &hello[0]; // PY: x
 char *pb = pa + 6; // PY: x + 6
+
 printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
 
 """
-char *hello = "hello world";
+char *hello = "hello world"; // PY: x
 char *pa = &hello[0]; // PY: x
 char *pb = &pa[6]; // PY: x+6
+
 printf("%s\\n",pa);
 printf("%s\\n",hello);
 """,
 
 
 """
-char *cow = "moo";
+char *cow = "moo"; // PY: x
 char *pa = &cow[0]; // PY: x
+
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char *cow = "moo";
+char *cow = "moo"; // PY: x
 char *pa = &cow[2]; // PY: x + 2
+
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char *cow = "moo";
+char *cow = "moo"; // PY: x
 char *pa = &cow[1]; // PY: x + 1
+
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char *cow = "moo";
-char *pa = &cow[1 - 1]; // PY: x
+char *cow = "moo"; // PY: x
+char *pa = cow; // PY: x
+
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char *cow = "moo";
+char *cow = "moo"; // PY: x
 char *pa = cow + 1 - 1; // PY: x
+
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char cow[4] = {'m','o','o',0};
+char cow[4] = {'m','o','o',0}; // PY: x
 char *pa = cow + 1; // PY: x+1
+
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char cow[4] = {'m','o','o',0};
+char cow[4] = {'m','o','o',0}; // PY: x
 char *pa = cow + 2; // PY: x+2
+
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
@@ -541,12 +550,33 @@ for i in range(len(code)):
             print()
         
 
+def colorme(s, color):
+    out = []
+    for l in s.splitlines():
+        out.append(f"[color:{color}]{l}[/color]")
+    return "\n".join(out)
+
 for c in runCode:
     print(f'CARD:{CARD}')
     CARD+=1
 
     prints = runCode[c]
-    c = f"{c}\n/*\nprints:\n{prints}\n*/"
+    comment = colorme(f"/*\nprints:\n{prints}\n*/", 'green')
+    c = re.sub(r'(\[|\])','[color:teal]\\1[/color]',c)
+    c = re.sub(r'(\(|\))','[color:teal]\\1[/color]',c)
+    c = re.sub(r'(\{|\})','[color:teal]\\1[/color]',c)
+
+    c = re.sub('(char|int\s+)','[color:blue]\\1[/color]',c)
+    c = re.sub('(for)','[color:magenta]\\1[/color]',c)
+    c = re.sub(r'(\d+)','[color:teal]\\1[/color]',c)
+    c = re.sub('printf','[color:olive]printf[/color]',c)
+
+
+    c = re.sub(r'(".*?")','[color:brown]\\1[/color]',c)
+    c = re.sub(r'(\'.*?\')','[color:brown]\\1[/color]',c)
+
+
+    c = f"{c}\n{comment}"
     n = int((32/2)) - int((len(c.split('\n'))) / 2) - 1
     print('\n' * n)
     
