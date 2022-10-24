@@ -16,29 +16,29 @@ intro = [
 The character type in C needs one byte 
 of memory.
 
-char x = 'a';
-x = 'b';
-x = 99;
+[color:blue]char[/color] x = [color:brown]'a'[/color];
+x = [color:brown]'b'[/color];
+x = [color:teal]99[/color];
 
-You can use 'a' to get the ASCII value
-of the character 'a' (which is 97). So
-x = 'a' means put 97 somewhere in memory
+You can use [color:brown]'a'[/color] to get the ASCII value
+of the character a (which is [color:teal]97[/color]). So
+x = [color:brown]'a'[/color] means put [color:teal]97[/color] somewhere in memory
 where we will store the value for the
 variable x.
 
 You can think of characters as one byte
 numbers. By default they are signed,
-so it can hold values from -128 to 127.
+so it can hold values from [color:teal]-128[/color] to [color:teal]127[/color].
 
 For example:
 
-x = [color:blue]'0' + 17[/color];
+x = [color:brown]'0'[/color] + [color:teal]17[/color];
 
-Means, take the ASCII value of 0, which
-is 48 and add 17 to it, so the variable x
-will store the value [color:blue]65[/color], which is 'A'.
+Means, take the ASCII value of [color:brown]0[/color], which
+is [color:teal]48[/color] and add [color:teal]17[/color] to it, so the variable x
+will store the value [color:teal]65[/color], which is [color:brown]'A'[/color].
 So if we do printf("%c",x) it will
-print 'A'. 
+print [color:brown]'A'[/color]. 
 
 Use %c to print the character value of 
 an ASCII code.
@@ -48,7 +48,7 @@ Array is a continuous piece of memory,
 where each element has the same size.
 For example array of 4 byte integers:
 
-int a[5];
+[color:blue]int[/color] a[color:teal][5][/color];
 
 Will need 5 * 4 bytes of continuous
 memory, so 20 bytes will be needed.
@@ -57,12 +57,12 @@ Array of characters is easier to think
 about, because each character is exactly
 1 byte:
 
-char a[5];
+[color:blue]char[/color] a[color:teal][5][/color];
 
 So we will need 5 * 1 byte of continuous 
-memory. [color:navy]The value of the array variable[/color]
-[color:navy]is actually just the memory address of[/color]
-[color:navy]the first element of the array.[/color]
+memory. The value of the array variable
+is actually just the memory address of
+the first element of the array.
 Lets imagine it is on address 199932.
 
 To access the elements we do:
@@ -77,21 +77,21 @@ if it was integers we need 199932+1*4
 """,
 """            POINTERS IN C
 
-char x = 'a';
+[color:blue]char[/color] x = [color:brown]'a'[/color];
 
 There is some place in memory holding
-the value 97 (the ASCII code for 'a').
+the value [color:teal]97[/color] (the ASCII code for [color:brown]'a'[/color]).
 Lets imagine its on memory address [color:red]251[/color]
 
 To modify the value of x you can do:
 
-x = 'b';
+x = [color:brown]'b'[/color];
 
 Now on address [color:red]251[/color] we have 98, ASCII
-for 'b'. You can get the address of x
+for [color:brown]'b'[/color]. You can get the address of x
 you use & like so:
 
-char *p;
+[color:blue]char[/color] *p;
 p = &x;
 
 that means, make a variable p that will 
@@ -100,8 +100,8 @@ assign it the value of the address of x,
 so the actual value of p will be [color:red]251[/color].
 
 Now we can use p to modify x:
-[color:blue]*p = 'c'[/color], will go to address [color:red]251[/color] and 
-put [color:blue]99[/color] there, the * means: follow the 
+[color:red]*p = 'c'[/color], will go to address [color:red]251[/color] and 
+put [color:teil]99[/color] there, the [color:red]*[/color] means: follow the 
 pointer, or 'dereference' the pointer.
 
 printf("%c",x) will print 'c'
@@ -113,18 +113,18 @@ characters. C does not have a string
 type, so strings are just arrays of
 characters that end with 0.
 
-char a[3] = {'h','i', 0};
-char b[3] = {104, 105, 0};
-char *c = "hi";
+[color:blue]char[/color] a[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color],[color:brown]'i'[/color], [color:teal]0}[/color];
+[color:blue]char[/color] b[color:teal][3][/color] = [color:teal]{104, 105, 0}[/color];
+[color:blue]char[/color] *c = [color:brown]"hi"[/color];
 
-Those are the same thing.
+Those three represent the same thing.
 
 The value of the variable is actually
 a pointer to the first element of the
 string.
 
-char v = c[1]
-char v = *(c+1)
+[color:blue]char[/color] v = c[color:teal][1][/color]
+[color:blue]char[/color] v = *[color:teal]([/color]c + [color:teal]1)[/color]
 
 both do the same, means go to wherever
 address c holds, and add 1 to it.
@@ -281,12 +281,15 @@ printf("%s\\n",cow);
 """,
 """
 char foo[4]; // PY: x
+char *pa = foo;
 
-0[foo] = 'b';
+0[foo] = 'x';
 foo[1] = 'a';
 (1+1)[foo] = 'r';
 foo[3] = 0;
+*pa = 'b'; // PY: x
 
+printf("%s\\n",pa);
 printf("%s\\n",foo);
 """,
 
