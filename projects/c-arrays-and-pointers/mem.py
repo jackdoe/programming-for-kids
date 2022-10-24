@@ -51,8 +51,8 @@ For example array of 4 byte integers:
 [color:blue]int[/color] a[color:teal][5][/color];
 
 Will need 5 * 4 bytes of continuous
-memory, so 20 bytes will be needed.
-
+memory, so 20 bytes will be needed for 
+array of 5 integers.
 Array of characters is easier to think
 about, because each character is exactly
 1 byte:
@@ -66,14 +66,14 @@ the first element of the array.
 Lets imagine it is on address 199932.
 
 To access the elements we do:
-[color:red]a[0] = 48;[/color]
-[color:blue]a[1] = 49;[/color]
+[color:purple]a[0] = 48;[/color]
+[color:red]a[3] = 49;[/color]
 ...
-which means means 
-MEMORY AT ADDR [color:red]199932+0*1 = 48[/color]
-MEMORY AT ADDR [color:blue]199932+1*1 = 49[/color]
-we use *1 because each char is 1 byte,
-if it was integers we need 199932+1*4
+which you can read as:
+MEMORY AT ADDR [color:purple]199932+0*1 = 48[/color]
+MEMORY AT ADDR [color:red]199932+3*1 = 49[/color]
+we multiplty by 1 because each [color:blue]char[/color] is 1
+byte, for [color:blue]int[/color] we need to multiply by 4
 """,
 """            POINTERS IN C
 
@@ -101,8 +101,8 @@ so the actual value of p will be [color:red]251[/color].
 
 Now we can use p to modify x:
 [color:red]*p = 'c'[/color], will go to address [color:red]251[/color] and 
-put [color:teil]99[/color] there, the [color:red]*[/color] means: follow the 
-pointer, or 'dereference' the pointer.
+put [color:teil]99[/color] there, the [color:red]*p[/color] means: follow the 
+pointer of p, or 'dereference' p.
 
 printf("%c",x) will print 'c'
 Remember p is just a number!
@@ -113,7 +113,7 @@ characters. C does not have a string
 type, so strings are just arrays of
 characters that end with 0.
 
-[color:blue]char[/color] a[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color],[color:brown]'i'[/color], [color:teal]0}[/color];
+[color:blue]char[/color] a[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color], [color:teal]0}[/color];
 [color:blue]char[/color] b[color:teal][3][/color] = [color:teal]{104, 105, 0}[/color];
 [color:blue]char[/color] *c = [color:brown]"hi"[/color];
 
@@ -242,7 +242,7 @@ for c in intro:
 
 code = [
 """
-char name[6] = {'j','a', 0, 0, 's', 0}; // PY: x
+char name[6] = {'j', 'a', 0, 0, 's', 0}; // PY: x
 name[2] = 'c';
 name[3] = 'k';
 
@@ -254,7 +254,7 @@ char *world = "hello world"; // PY: x
 printf("%s\\n",world);
 """,
 """
-char word[] = {'h','i','!',0}; // PY: x
+char word[] = {'h', 'i', '!', 0}; // PY: x
 
 printf("%s\\n",word);
 """,
@@ -281,20 +281,17 @@ printf("%s\\n",cow);
 """,
 """
 char foo[4]; // PY: x
-char *pa = foo;
 
-0[foo] = 'x';
+0[foo] = 'b';
 foo[1] = 'a';
 (1+1)[foo] = 'r';
-foo[3] = 0;
-*pa = 'b'; // PY: x
+foo[1+2] = 0;
 
-printf("%s\\n",pa);
 printf("%s\\n",foo);
 """,
 
 """
-char year[] = {'1','9','7','2',0}; // PY: x
+char year[] = {'1', '9', '7', '2', 0}; // PY: x
 
 printf("%s\\n",year);
 """,
@@ -344,7 +341,7 @@ printf("%s\\n",hello);
 
 
 """
-char hello[5] = {'h','e','y','o',0}; // PY: x
+char hello[5] = {'h', 'e', 'y', 'o',0}; // PY: x
 char *p = hello + 1; // PY: x + 1
 
 printf("%s\\n",p);
@@ -437,14 +434,14 @@ printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char cow[4] = {'m','o','o',0}; // PY: x
+char cow[4] = {'m', 'o', 'o', 0}; // PY: x
 char *pa = cow + 1; // PY: x+1
 
 printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char cow[4] = {'m','o','o',0}; // PY: x
+char cow[4] = {'m', 'o', 'o', 0}; // PY: x
 char *pa = cow + 2; // PY: x+2
 
 printf("%s\\n",pa);
