@@ -11,8 +11,72 @@ random.seed(7)
 
 
 intro = [
-"""            CHARACTERS IN C
+"""                 ASCII
 
+Computers understand only numbers, but
+humans use sounds to communicate, so how
+can computers and humans understand 
+each other?
+
+Humans have the alphabet, which is just
+a way to have symbols representing a
+sound, e.g. the symbol S represents the
+sound you make that is similar to a 
+snake. When you read the symbol S you 
+know how it sounds. So now we I can
+write something and you can read it even
+though we have never met each other.
+
+In 1963 some people gathered together
+and put a number to most useful letters,
+numbers, and symbols in the English 
+alphabet, for example:
+'0' is 48
+'A' is 65
+'B' is 66
+'Z' is 90
+'a' is 95
+'z' is 122
+'!' is 33
+'?' is 63
+...
+This is called the ASCII Table. Its a 
+letter to number table.
+""",
+"""          ASCII TABLE (partial)
+CODE      CHAR            CODE   CHAR
+000       NULL     |      033    !
+010       \\n       |      ...
+032       SPACE    |      ...
+065       A        |      097    a
+066       B        |      098    b
+067       C        |      099    c
+068       D        |      100    d
+069       E        |      101    e
+070       F        |      102    f
+071       G        |      103    g
+072       H        |      104    h
+073       I        |      105    i
+074       J        |      106    j
+075       K        |      107    k
+076       L        |      108    l
+077       M        |      109    m
+078       N        |      110    n
+079       O        |      111    o
+080       P        |      112    p
+081       Q        |      113    q
+082       R        |      114    r
+083       S        |      115    s
+084       T        |      116    t
+085       U        |      117    u
+086       V        |      118    v
+087       W        |      119    w
+088       X        |      120    x
+089       Y        |      121    y
+090       Z        |      122    z
+""",
+
+"""            CHARACTERS IN C
 The character type in C needs one byte 
 of memory.
 
@@ -46,13 +110,13 @@ an ASCII code.
 """            ARRAYS IN C
 Array is a continuous piece of memory,
 where each element has the same size.
-For example array of 4 byte integers:
+For example array of 5 integers:
 
 [color:blue]int[/color] a[color:teal][5][/color];
 
-Will need 5 * 4 bytes of continuous
-memory, so 20 bytes will be needed for 
-array of 5 integers.
+Each integer is 4 bytes, so 20 bytes
+will be needed (5 elements * 4 bytes).
+
 Array of characters is easier to think
 about, because each character is exactly
 1 byte:
@@ -69,11 +133,11 @@ To access the elements we do:
 [color:purple]a[0] = 48;[/color]
 [color:red]a[3] = 49;[/color]
 ...
-which you can read as:
+Which you can read as:
 MEMORY AT ADDR [color:purple]199932+0*1 = 48[/color]
 MEMORY AT ADDR [color:red]199932+3*1 = 49[/color]
-we multiplty by 1 because each [color:blue]char[/color] is 1
-byte, for [color:blue]int[/color] we need to multiply by 4
+We multiplty by 1 because each [color:blue]char[/color] is 1
+byte, for [color:blue]int[/color] we need to multiply by 4.
 """,
 """            POINTERS IN C
 
@@ -127,7 +191,7 @@ string.
 [color:blue]char[/color] v = *[color:teal]([/color]c + [color:teal]1)[/color]
 
 both do the same, means go to wherever
-address c holds, and add 1 to it.
+address c holds, and add 1 to it and follow.
 This is called dereferencing, or 
 following a pointer.
 
@@ -156,11 +220,9 @@ reaches value of 0.
    and put it face up in the middle of 
    the table.
 
-4. Players match their code from any
-   of the code cards to the memory card.
-
-   If the code has multiple variables
-   you need to match them all.
+4. Find a code card matching the memory.
+   All variables have to have the correct
+   value in the memory card.
 
 5. First player that finds a match
    wins the round.
@@ -179,14 +241,14 @@ It is still one of the most used langu-
 ages today.
 
 It has extremely simple syntax:
-auto,break,case,char,const,continue,
-default,do,double,else,enum,extern,float
-for,goto,if,int,long,register,return,
-short,signed,sizeof,static,struct,switch,
-typedef,union,unsigned,void,volatile,
-while.
+[color:magenta]auto,break,case,char,const,continue,[/color]
+[color:magenta]default,do,double,else,enum,extern,float[/color]
+[color:magenta]for,goto,if,int,long,register,return,[/color]
+[color:magenta]short,signed,sizeof,static,struct,switch,[/color]
+[color:magenta]typedef,union,unsigned,void,volatile,[/color]
+[color:magenta]while.[/color]
 
-Those are [color:navy]all[/color] of its keywords.
+Those are all of its keywords.
 
 Simple syntax does not mean simple lan-
 guage. It takes extreme discipline to
@@ -201,38 +263,6 @@ in such a way, that makes it easy to
 program the computers we made, and it
 does that very well.
 """,
-"""       ASCII TABLE (alphabet only)
-CODE      CHAR            CODE   CHAR
-000       NULL     |      033    !
-010       \\n       |      ...
-032       SPACE    |      ...
-065       A        |      097    a
-066       B        |      098    b
-067       C        |      099    c
-068       D        |      100    d
-069       E        |      101    e
-070       F        |      102    f
-071       G        |      103    g
-072       H        |      104    h
-073       I        |      105    i
-074       J        |      106    j
-075       K        |      107    k
-076       L        |      108    l
-077       M        |      109    m
-078       N        |      110    n
-079       O        |      111    o
-080       P        |      112    p
-081       Q        |      113    q
-082       R        |      114    r
-083       S        |      115    s
-084       T        |      116    t
-085       U        |      117    u
-086       V        |      118    v
-087       W        |      119    w
-088       X        |      120    x
-089       Y        |      121    y
-090       Z        |      122    z
-"""
 ]
 for c in intro:
     print(f"CARD:{CARD}")
@@ -288,12 +318,6 @@ foo[1] = 'a';
 foo[1+2] = 0;
 
 printf("%s\\n",foo);
-""",
-
-"""
-char year[] = {'1', '9', '7', '2', 0}; // PY: x
-
-printf("%s\\n",year);
 """,
 
 """
@@ -354,6 +378,7 @@ char *hello = "hello world"; // PY: x
 char *pa = hello + 4; // PY: x + 4
 char *pb = pa + 2; // PY: x + 6
 
+printf("%s\\n",pa);
 printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
@@ -363,6 +388,7 @@ char *hello = "hello world"; // PY: x
 char *pa = hello + 4; // PY: x + 4
 char *pb = pa - 3; // PY: x + 1
 
+printf("%s\\n",pa);
 printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
@@ -375,7 +401,8 @@ char *pb = pa - 5;
 
 pb = pb + 6; // PY: x + 6
 
-printf("%s\\n",pb); // PY: x
+printf("%s\\n",pa);
+printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
 
@@ -384,6 +411,7 @@ char *hello = "hello world"; // PY: x
 char *pa = &hello[0]; // PY: x
 char *pb = pa + 6; // PY: x + 6
 
+printf("%s\\n",pa);
 printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
@@ -394,6 +422,7 @@ char *pa = &hello[0]; // PY: x
 char *pb = &pa[6]; // PY: x+6
 
 printf("%s\\n",pa);
+printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
 
@@ -454,7 +483,7 @@ random.shuffle(code)
 codeCycle = itertools.cycle(code)
 
 runCode = {}
-for i in range(len(code)):
+for i in range(len(code) + 1):
     mem = [(0,'zero')]*256
     seen={}
     for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle)]:
