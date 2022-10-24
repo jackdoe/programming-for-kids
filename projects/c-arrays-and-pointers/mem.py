@@ -457,9 +457,9 @@ random.shuffle(shuffled)
 colors = itertools.cycle(shuffled)
 runCode = {}
 for i in range(len(code)):
-    mem = [0]*256
+    mem = [(0,'zero')]*256
     seen={}
-    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle)]:
+    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle)]:
 
         program = """
     #include <stdio.h>
@@ -499,7 +499,7 @@ for i in range(len(code)):
             else:
                 busy = False
                 for j in range(len(w)+2):
-                    if mem[j + offset] !=0:
+                    if mem[j + offset][1] != 'zero':
                         busy = True
         
                 if busy:
@@ -508,8 +508,8 @@ for i in range(len(code)):
     
                 for j in range(len(w)):
                     v = ord(w[j])
-                    mem[j + offset] = v
-    
+                    mem[j + offset] = (v,'value')
+                mem[len(w) + offset] = (0,'value')                
             # used by the eval
             x = offset
             for p in pointers:
@@ -517,8 +517,8 @@ for i in range(len(code)):
 
                 while True:
                     r = random.randint(1, len(mem)-4)
-                    if mem[r-2] == 0 and mem[r-1] == 0  and mem[r] == 0 and mem[r+1] == 0 and mem[r+2] == 0:
-                        mem[r] = v
+                    if mem[r-2][1] == 'zero' and mem[r-1][1] == 'zero'  and mem[r][1] == 'zero' and mem[r+1][1] == 'zero' and mem[r+2][1] == 'zero':
+                        mem[r] = (v,'pointer')
                         break
 
             seen[w] = offset                
@@ -534,8 +534,8 @@ for i in range(len(code)):
         if c != '':
             print(f"[color:{c}]",end='')
         for j in range(8):
-            v = mem[(i * 8) + j]
-            if v != 0:
+            v,kind = mem[(i * 8) + j]
+            if kind != 'zero':
                 if c == '':
                     c = next(colors)
                     print(f"[color:{c}]",end='')
