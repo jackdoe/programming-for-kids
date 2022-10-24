@@ -452,9 +452,7 @@ printf("%s\\n",cow);
 
 random.shuffle(code)
 codeCycle = itertools.cycle(code)
-shuffled = ['red','green','blue','orange','navy']
-random.shuffle(shuffled)
-colors = itertools.cycle(shuffled)
+
 runCode = {}
 for i in range(len(code)):
     mem = [(0,'zero')]*256
@@ -537,7 +535,9 @@ for i in range(len(code)):
             v,kind = mem[(i * 8) + j]
             if kind != 'zero':
                 if c == '':
-                    c = next(colors)
+                    c = 'red'
+                    if kind == 'pointer':
+                         c = 'blue'
                     print(f"[color:{c}]",end='')
             else:
                 if c != '':
