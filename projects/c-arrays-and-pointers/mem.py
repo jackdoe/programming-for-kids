@@ -568,7 +568,7 @@ for c in runCode:
 
     c = re.sub('(char|int\s+)','[color:blue]\\1[/color]',c)
     c = re.sub('(for)','[color:magenta]\\1[/color]',c)
-    c = re.sub(r'(\d+)','[color:teal]\\1[/color]',c)
+    c = re.sub(r"(?<!')(\d+)",'[color:teal]\\1[/color]',c)
     c = re.sub('printf','[color:olive]printf[/color]',c)
 
 
