@@ -20,7 +20,7 @@ so it can hold values from -128 to 127.
 
 For example:
 
-x = [color:blue]'0' + 17;[/color]
+x = [color:blue]'0' + 17[/color];
 
 Means, take the ASCII value of 0, which
 is 48,and add 17 to it, so the variable x
@@ -71,31 +71,31 @@ char x = 'a';
 
 There is some place in memory holding
 the value 97 (the ASCII code for 'a').
-Lets imagine its on memory address [color:red]17262[/color]
+Lets imagine its on memory address [color:red]251[/color]
 
 To modify the value of x you can do:
 
 x = 'b';
 
-Now on address [color:red]17262[/color] we have 98, ASCII
-for 'b'.
+Now on address [color:red]251[/color] we have 98, ASCII
+for 'b'. You can get the address of x
+you use & like so:
 
-You can get the address of x you use &
+char *p;
+p = &x;
 
-char *p = &x;
+that means, make a variable p that will 
+be a pointer to char, and later we 
+assign it the value of the address of x, 
+so the actual value of p will be [color:red]251[/color].
 
-that means, the variable p is a pointer
-to char. The actual value of p will be 
-[color:red]17262[/color], which is the address of x.
+Now we can use p to modify x:
+[color:blue]*p = 'c'[/color], will go to address [color:red]251[/color] and 
+put [color:blue]99[/color] there, the * means: follow the 
+pointer, or 'dereference' the pointer.
 
-*p = 'd', will go to address [color:red]17262[/color] and 
-put 99 there (ASCII for 'd'). Now the 
-value of x is actually 99. Since p is 
-just a number, you can do [color:blue]*(p + 1) = 65[/color], 
-now this is power! And your program will
-likely crash, because you dont actually 
-know what is on address [color:blue]17262+1[/color] or [color:blue]17263[/color].
-The variable x is only 1 byte.
+printf("%c",x) will print 'c'
+Remember p is just a number!
 
 CARD:4
             STRINGS IN C
