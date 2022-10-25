@@ -28,10 +28,10 @@ intro = [
      char *pa = foo + 1;
      char *pb = pa + 2;
    you need to look in the memory for
-   + 98 97 114 0 (e.g. address 172)
-   + 172 (foo pointing to "bar")
-   + 173 (pa = foo + 1)
-   + 174 (pb = foo + 2)
+   + [color:red]98 97 114 0[/color] (e.g. address 172)
+   + [color:blue]172[/color] (foo pointing to "bar")
+   + [color:blue]173[/color] (pa = foo + 1)
+   + [color:blue]174[/color] (pb = foo + 2)
 
 4. First player that finds a match
    wins and puts the winning card aside.
