@@ -14,8 +14,7 @@ intro = [
 """                 RULES:
 1. Shuffle the cards. Split the code 
    cards amongst the players and put the 
-   memory cards face down on in the 
-   middle.
+   memory cards face down in the middle.
 
 2. Pick the top memory card, and put it 
    face up in the middle of the table.
@@ -27,6 +26,7 @@ intro = [
      char *foo = "bar";
      char *pa = foo + 1;
      char *pb = pa + 2;
+
    you need to look in the memory for
    + [color:red]98 97 114 0[/color] (e.g. address 172)
    + [color:blue]172[/color] (foo pointing to "bar")
