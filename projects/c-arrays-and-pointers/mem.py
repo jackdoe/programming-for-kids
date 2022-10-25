@@ -25,13 +25,13 @@ intro = [
    EXAMPLE:
      char *foo = "bar";
      char *pa = foo + 1;
-     char *pb = pa + 2;
+     char v = foo[1]
 
    you need to look in the memory for
    + [color:red]98 97 114 0[/color] (e.g. address 172)
    + [color:blue]172[/color] (foo pointing to "bar")
    + [color:blue]173[/color] (pa = foo + 1)
-   + [color:blue]174[/color] (pb = foo + 2)
+   + [color:blue]97[/color] (v = foo[1])
 
 4. First player that finds a match
    wins and puts the winning card aside.
@@ -380,7 +380,8 @@ printf("%s\\n",cow);
 """
 char foo[4]; // PY: x
 
-0[foo] = 'b';
+0[foo] = 0;
+(0[foo] + foo[0])[foo] = 'b';
 foo[1] = 'a';
 (1+1)[foo] = 'r';
 foo[1+2] = 0;
@@ -530,6 +531,10 @@ printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 ]
+def magic_first(x, y):
+    if "magic" in x:
+        return 1
+    return 0
 
 random.shuffle(code)
 codeCycle = itertools.cycle(code)
@@ -540,7 +545,7 @@ for i in range(55 - len(intro) - len(code)):
 #for i in range(len(code)):
     mem = [(0,'zero')]*256
     seen={}
-    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle)]:
+    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle)]:
 #    for c in [next(codeCycle)]:
         program = """
     #include <stdio.h>
