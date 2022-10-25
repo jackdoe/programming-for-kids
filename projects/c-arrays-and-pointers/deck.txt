@@ -1,4 +1,37 @@
 CARD:1
+                 RULES:
+1. Shuffle the cards. Split the code 
+   cards amongst the players and put the 
+   memory cards face down on in the 
+   middle.
+
+2. Pick the top memory card, and put it 
+   face up in the middle of the table.
+
+3. Find a code card matching the memory.
+   All variables have to have the 
+   correct value in the memory card.
+   EXAMPLE:
+     char *foo = "bar";
+     char *pa = foo + 1;
+     char *pb = pa + 2;
+   you need to look in the memory for
+   + 98 97 114 0 (e.g. address 172)
+   + 172 (foo pointing to "bar")
+   + 173 (pa = foo + 1)
+   + 174 (pb = foo + 2)
+
+4. First player that finds a match
+   wins and puts the winning card aside.
+
+5. [color:magenta]IF[/color] a player has zero cards [color:magenta]GOTO[/color] [color:teal]7[/color].
+
+6. [color:magenta]GOTO[/color] [color:teal]2[/color].
+
+7. Go and play outside, maybe get your
+   rollerblades and skate a bit?
+
+CARD:2
                  ASCII
 
 Computers understand only numbers, but
@@ -31,7 +64,7 @@ alphabet, for example:
 This is called the ASCII Table. Its a 
 letter to number table.
 
-CARD:2
+CARD:3
               ASCII TABLE
 CODE      CHAR            CODE   CHAR
 000       NULL     |      033    !
@@ -64,7 +97,7 @@ CODE      CHAR            CODE   CHAR
 089       Y        |      121    y
 090       Z        |      122    z
 
-CARD:3
+CARD:4
             CHARACTERS IN C
 
 The character type in C needs one byte 
@@ -96,7 +129,7 @@ print [color:brown]'A'[/color].
 Use %c to print the character value of 
 an ASCII code.
 
-CARD:4
+CARD:5
               ARRAYS IN C
 Array is a continuous piece of memory,
 where each element has the same size.
@@ -129,7 +162,7 @@ MEMORY AT ADDRESS [color:red]199932+3*1 = 49[/color]
 We multiplty by 1 because each [color:blue]char[/color] is 1
 byte, for [color:blue]int[/color] we need to multiply by 4.
 
-CARD:5
+CARD:6
              POINTERS IN C
 
 [color:blue]char[/color] x = [color:brown]'a'[/color];
@@ -162,7 +195,7 @@ pointer of p, or 'dereference' p.
 printf("%c",x) will print 'c'
 Remember p is just a number!
 
-CARD:6
+CARD:7
              STRINGS IN C
 String is a continuous sequence of 
 characters. C does not have a string
@@ -196,7 +229,7 @@ the variable, and go forward until it
 reaches value of 0.
 
 
-CARD:7
+CARD:8
                 HISTORY
 C was made in the '70s, so about 50 
 years ago, by the titans Dennis Richie,
@@ -228,40 +261,6 @@ This however is just to help you scan
 the cards faster. The computer does not
 see any difference, its all just 
 numbers.
-
-CARD:8
-                 RULES:
-1. Shuffle the cards. Split the code 
-   cards amongst the players and put the 
-   memory cards face down on in the 
-   middle.
-
-2. Pick the top memory card, 
-   and put it face up in the middle of 
-   the table.
-
-3. Find a code card matching the memory.
-   All variables have to have the 
-   correct value in the memory card.
-   EXAMPLE:
-
-     char *foo = "bar";
-     char *pa = foo + 1;
-     char *pb = pa + 2;
-
-   you need to look in the memory for
-   + 98 97 114 0 (e.g. address 172)
-   + 172 (foo pointing to "bar")
-   + 173 (pa = foo + 1)
-   + 174 (pb = foo + 2)
-
-4. First player that finds a match
-   wins and puts the winning card aside.
-
-5. [color:magenta]IF[/color] a player has zero cards [color:magenta]GOTO[/color] [color:teal]1[/color].
-
-6. [color:magenta]GOTO[/color] [color:teal]2[/color].
-
 
 CARD:9
   0 | 000 000 000 000 000 000 000 000 

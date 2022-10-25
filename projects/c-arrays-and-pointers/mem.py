@@ -11,6 +11,38 @@ random.seed(7)
 
 
 intro = [
+"""                 RULES:
+1. Shuffle the cards. Split the code 
+   cards amongst the players and put the 
+   memory cards face down on in the 
+   middle.
+
+2. Pick the top memory card, and put it 
+   face up in the middle of the table.
+
+3. Find a code card matching the memory.
+   All variables have to have the 
+   correct value in the memory card.
+   EXAMPLE:
+     char *foo = "bar";
+     char *pa = foo + 1;
+     char *pb = pa + 2;
+   you need to look in the memory for
+   + 98 97 114 0 (e.g. address 172)
+   + 172 (foo pointing to "bar")
+   + 173 (pa = foo + 1)
+   + 174 (pb = foo + 2)
+
+4. First player that finds a match
+   wins and puts the winning card aside.
+
+5. [color:magenta]IF[/color] a player has zero cards [color:magenta]GOTO[/color] [color:teal]7[/color].
+
+6. [color:magenta]GOTO[/color] [color:teal]2[/color].
+
+7. Go and play outside, maybe get your
+   rollerblades and skate a bit?
+""",
 """                 ASCII
 
 Computers understand only numbers, but
@@ -235,39 +267,6 @@ the cards faster. The computer does not
 see any difference, its all just 
 numbers.
 """,
-"""                 RULES:
-1. Shuffle the cards. Split the code 
-   cards amongst the players and put the 
-   memory cards face down on in the 
-   middle.
-
-2. Pick the top memory card, 
-   and put it face up in the middle of 
-   the table.
-
-3. Find a code card matching the memory.
-   All variables have to have the 
-   correct value in the memory card.
-   EXAMPLE:
-
-     char *foo = "bar";
-     char *pa = foo + 1;
-     char *pb = pa + 2;
-
-   you need to look in the memory for
-   + 98 97 114 0 (e.g. address 172)
-   + 172 (foo pointing to "bar")
-   + 173 (pa = foo + 1)
-   + 174 (pb = foo + 2)
-
-4. First player that finds a match
-   wins and puts the winning card aside.
-
-5. [color:magenta]IF[/color] a player has zero cards [color:magenta]GOTO[/color] [color:teal]1[/color].
-
-6. [color:magenta]GOTO[/color] [color:teal]2[/color].
-
-"""
 ]
 for c in intro:
     print(f"CARD:{CARD}")
