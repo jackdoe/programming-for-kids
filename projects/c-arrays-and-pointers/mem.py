@@ -23,27 +23,27 @@ a way to have symbols representing a
 sound, e.g. the symbol S represents the
 sound you make that is similar to a 
 snake. When you read the symbol S you 
-know how it sounds. So now we I can
+know how it sounds. So now I can
 write something and you can read it even
 though we have never met each other.
+Only because we agree what sound S
+makes.
 
 In 1963 some people gathered together
 and put a number to most useful letters,
 numbers, and symbols in the English 
 alphabet, for example:
-'0' is 48
-'A' is 65
-'B' is 66
-'Z' is 90
-'a' is 95
-'z' is 122
-'!' is 33
-'?' is 63
-...
+
+'0' is 48, '1' is 49
+'A' is 65, 'B' is 66, 'C' is 67 ...
+'a' is 95, 'b' is 96, 'c' is 97 ...
+' ' is 32, '!' is 33, '"' is 34 ...
+'>' is 62, '?' is 63, '@' is 64 ...
+
 This is called the ASCII Table. Its a 
 letter to number table.
 """,
-"""          ASCII TABLE (partial)
+"""              ASCII TABLE
 CODE      CHAR            CODE   CHAR
 000       NULL     |      033    !
 010       \\n       |      ...
@@ -75,7 +75,7 @@ CODE      CHAR            CODE   CHAR
 089       Y        |      121    y
 090       Z        |      122    z
 """,
-"""             CHARACTERS IN C
+"""            CHARACTERS IN C
 
 The character type in C needs one byte 
 of memory.
@@ -106,7 +106,7 @@ print [color:brown]'A'[/color].
 Use %c to print the character value of 
 an ASCII code.
 """,
-"""            ARRAYS IN C
+"""              ARRAYS IN C
 Array is a continuous piece of memory,
 where each element has the same size.
 For example array of 5 integers:
@@ -133,12 +133,12 @@ To access the elements we use brackets:
 [color:red]a[3] = 49;[/color]
 ...
 Which you can read as:
-MEMORY AT ADDR [color:purple]199932+0*1 = 48[/color]
-MEMORY AT ADDR [color:red]199932+3*1 = 49[/color]
+MEMORY AT ADDRESS [color:purple]199932+0*1 = 48[/color]
+MEMORY AT ADDRESS [color:red]199932+3*1 = 49[/color]
 We multiplty by 1 because each [color:blue]char[/color] is 1
 byte, for [color:blue]int[/color] we need to multiply by 4.
 """,
-"""            POINTERS IN C
+"""             POINTERS IN C
 
 [color:blue]char[/color] x = [color:brown]'a'[/color];
 
@@ -170,7 +170,7 @@ pointer of p, or 'dereference' p.
 printf("%c",x) will print 'c'
 Remember p is just a number!
 """,
-"""            STRINGS IN C
+"""             STRINGS IN C
 String is a continuous sequence of 
 characters. C does not have a string
 type, so strings are just arrays of
@@ -203,24 +203,13 @@ the variable, and go forward until it
 reaches value of 0.
 
 """,
-"""                 HISTORY
-
+"""                HISTORY
 C was made in the '70s, so about 50 
 years ago, by the titans Dennis Richie,
 Ken Thompson, Brian Kernighan an others.
-
 It is still one of the most used langu-
-ages today.
-
-It has extremely simple syntax:
-[color:magenta]auto,break,case,char,const,continue,[/color]
-[color:magenta]default,do,double,else,enum,extern,float[/color]
-[color:magenta]for,goto,if,int,long,register,return,[/color]
-[color:magenta]short,signed,sizeof,static,struct,switch,[/color]
-[color:magenta]typedef,union,unsigned,void,volatile,[/color]
-[color:magenta]while.[/color]
-
-Those are all of its keywords.
+ages today. It has extremely simple
+syntax with only 32 keywords.
 
 Simple syntax does not mean simple lan-
 guage. It takes extreme discipline to
@@ -230,25 +219,33 @@ programs are written in C or interact
 with it somehow.
 
 C is an invented language, it is not
-discovered like LISP, and it is invented
-in such a way, that makes it easy to 
+discovered like LISP, and it is designed
+in such a way to make it easy to 
 program the computers we made, and it
 does that very well.
+
+              MEMORY CARDS
+
+The red values are representing the 
+character arrays, or character values
+and the blue ones are pointers to data.
+
+This however is just to help you scan
+the cards faster. The computer does not
+see any difference, its all just 
+numbers.
 """,
-"""
-                 RULES:
+"""                 RULES:
+1. Shuffle the cards. Split the code 
+   cards amongst the players and put the 
+   memory cards face down on in the 
+   middle.
 
-1. Split the code cards amongst the 
-   players.
-
-2. Put the memory cards face down on
-   the table.
-
-3. Pick the top memory card, 
+2. Pick the top memory card, 
    and put it face up in the middle of 
    the table.
 
-4. Find a code card matching the memory.
+3. Find a code card matching the memory.
    All variables have to have the 
    correct value in the memory card.
    EXAMPLE:
@@ -263,10 +260,13 @@ does that very well.
    + 173 (pa = foo + 1)
    + 174 (pb = foo + 2)
 
-5. First player that finds a match
-   wins the round.
+4. First player that finds a match
+   wins and puts the winning card aside.
 
-6. GOTO 3
+5. [color:magenta]IF[/color] a player has zero cards [color:magenta]GOTO[/color] [color:teal]1[/color].
+
+6. [color:magenta]GOTO[/color] [color:teal]2[/color].
+
 """
 ]
 for c in intro:
@@ -276,6 +276,80 @@ for c in intro:
     
 
 code = [
+"""
+char *word = "wizard"; // PY: x
+
+printf("%s\\n",word);
+""",
+"""
+char *bottle = "of water"; // PY: x
+
+printf("%s\\n",bottle);
+""",
+"""
+char *hi = "world"; // PY: x
+
+printf("%s\\n",hi);
+""",
+"""
+char *hi = "hello"; // PY: x
+char *ph = hi + 3; // PY: x + 3
+printf("%s\\n",ph);
+printf("%s\\n",hi);
+""",
+"""
+char *foo = "baz"; // PY: x
+char letter = 'z'; // PY: (122,'value')
+
+printf("%c\\n",letter);
+printf("%s\\n",foo);
+""",
+"""
+char foo[4] = {'b', 'a', 'z', 0}; // PY: x
+char letter; // PY: (122,'value')
+letter = *(foo + 2);
+
+printf("%c\\n",letter);
+printf("%s\\n",foo);
+""",
+"""
+char *foo = "baz"; // PY: x
+char letter; // PY: (122,'value')
+letter = foo[2];
+
+printf("%c\\n",letter);
+printf("%s\\n",foo);
+""",
+
+"""
+char *foo = "baz"; // PY: x
+char letter; // PY: (122,'value')
+letter = *(foo + 2);
+
+printf("%c\\n",letter);
+printf("%s\\n",foo);
+""",
+
+"""
+char *foo = "baz"; // PY: x
+char *pb = foo + 2; // PY: x+2
+char letter; // PY: (122,'value')
+letter = *pb;
+
+printf("%c\\n",letter);
+printf("%s\\n",pb);
+printf("%s\\n",foo);
+""",
+
+"""
+char foo[4] = {'b', 'a', 'z', 0}; // PY: x
+char letter; // PY: (122,'value')
+letter = foo[2];
+
+printf("%c\\n",letter);
+printf("%s\\n",foo);
+""",
+
 """
 char name[6] = {'j', 'a', 0, 0, 's', 0}; // PY: x
 name[2] = 'c';
@@ -289,21 +363,11 @@ char *world = "hello world"; // PY: x
 printf("%s\\n",world);
 """,
 """
-char word[] = {'h', 'i', '!', 0}; // PY: x
+char word[4] = {'h', 'i', '!', 0}; // PY: x
 
 printf("%s\\n",word);
 """,
 
-"""
-char *alphabet = malloc(10); // PY: x
-
-for (int i = 0; i < 9; i++) {
-    *(alphabet + i) = 65 + i;
-}
-alphabet[9] = 0;
-
-printf("%s\\n",alphabet);
-""",
 """
 char cow[4]; // PY: x
 
@@ -347,19 +411,6 @@ year[4] = 0;
 
 printf("%s\\n",year);
 """,
-
-"""
-char zeroToNine[11]; // PY: x
-
-zeroToNine[0] = 48;
-for (int i = 1; i < 10; i++) {
-    zeroToNine[i] = zeroToNine[0] + i;
-}
-zeroToNine[10] = 0;
-
-printf("%s\\n",zeroToNine);
-""",
-
 """
 char *hello = "world"; // PY: x
 char *p = hello + 2; // PY: x + 2
@@ -430,8 +481,6 @@ printf("%s\\n",pa);
 printf("%s\\n",pb);
 printf("%s\\n",hello);
 """,
-
-
 """
 char *cow = "moo"; // PY: x
 char *pa = &cow[0]; // PY: x
@@ -483,16 +532,17 @@ printf("%s\\n",cow);
 """,
 ]
 
-
 random.shuffle(code)
 codeCycle = itertools.cycle(code)
 
 runCode = {}
-for i in range(len(code) + 1):
+
+for i in range(55 - len(intro) - len(code)):
+#for i in range(len(code)):
     mem = [(0,'zero')]*256
     seen={}
     for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle)]:
-
+#    for c in [next(codeCycle)]:
         program = """
     #include <stdio.h>
     #include <stdlib.h>
@@ -504,9 +554,10 @@ for i in range(len(code) + 1):
     """
         with open("current.c","w") as f:
             f.write(program)
-    
+        
         output = subprocess.getoutput("gcc -o current current.c")
         if output.strip() != '':
+            print(program)
             print(output);
             os.exit(1)
     
@@ -516,7 +567,7 @@ for i in range(len(code) + 1):
 
         splitted = w.split("\n")
         if len(splitted) != 1:
-            w = splitted[1] # use only the whole string
+            w = splitted[-1] # use only the whole string, which should always be last
 
         pointers = []
         for line in c.split("\n"):
@@ -524,6 +575,13 @@ for i in range(len(code) + 1):
                 a,b = line.split("PY:")
                 pointers.append(b)
 
+        if False:
+            with open(f"testing/{i:03}.txt","w") as f:
+                f.write(program)
+                f.write('\n\n')
+                f.write(w)
+                f.write('\n\n')
+        
         while True:
             offset = random.randint(0, len(mem) - len(w) - 1 - len(pointers) - 2)
             if w in seen:
@@ -541,20 +599,36 @@ for i in range(len(code) + 1):
                 for j in range(len(w)):
                     v = ord(w[j])
                     mem[j + offset] = (v,'value')
-                mem[len(w) + offset] = (0,'value')                
+
+                if w != 'z':
+                    mem[len(w) + offset] = (0,'value')
             # used by the eval
             x = offset
             for p in pointers:
                 v = eval(p)
 
+                kind = 'pointer'
+                if type(v) is tuple:
+                    kind = v[1]
+                    v = v[0]
+                    
                 while True:
                     r = random.randint(1, len(mem)-4)
                     if mem[r-2][1] == 'zero' and mem[r-1][1] == 'zero'  and mem[r][1] == 'zero' and mem[r+1][1] == 'zero' and mem[r+2][1] == 'zero':
-                        mem[r] = (v,'pointer')
+                        mem[r] = (v,kind)
                         break
 
-            seen[w] = offset                
+            seen[w] = offset
             break
+
+    if False:
+        with open(f"testing/{i:03}.txt","a") as f:
+            for i in range(32):
+                f.write(f"{(i*8):3} | ")
+                for j in range(8):
+                    v,kind = mem[(i * 8) + j]
+                    f.write(f"{v:03} ")
+                f.write("\n")
 
       
     print(f'CARD:{CARD}')
@@ -582,7 +656,7 @@ for i in range(len(code) + 1):
             print(f"[/color]")
         else:
             print()
-        
+
 
 def colorme(s, color):
     out = []
