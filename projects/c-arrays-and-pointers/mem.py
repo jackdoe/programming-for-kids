@@ -1,4 +1,7 @@
 # creepy pasta code, just late afternoon hacking and smashing
+# also mostly written at night after few glassess of wine
+# dont judge
+
 import re
 import random
 import itertools
