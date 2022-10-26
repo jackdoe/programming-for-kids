@@ -62,11 +62,11 @@ Only because we agree what sound S
 makes.
 
 In 1963 some people gathered together
-and put a number to most useful letters,
-numbers, and symbols in the English 
-alphabet, for example:
+and put a number value to most useful
+letters, digits, and symbols in the 
+English alphabet, for example:
 
-'0' is 48, '1' is 49
+'0' is 48, '1' is 49, '2' is 50 ...
 'A' is 65, 'B' is 66, 'C' is 67 ...
 'a' is 95, 'b' is 96, 'c' is 97 ...
 ' ' is 32, '!' is 33, '"' is 34 ...
@@ -138,38 +138,6 @@ print [color:brown]'A'[/color].
 Use %c to print the character value of 
 an ASCII code.
 """,
-"""              ARRAYS IN C
-Array is a continuous piece of memory,
-where each element has the same size.
-For example array of 5 integers:
-
-[color:blue]int[/color] a[color:teal][5][/color];
-
-Each integer is 4 bytes, so 20 bytes
-will be needed (5 elements * 4 bytes).
-
-Array of characters is easier to think
-about, because each character is exactly
-1 byte:
-
-[color:blue]char[/color] a[color:teal][5][/color];
-
-So we will need 5 * 1 byte of continuous 
-memory. The value of the array variable
-is actually just the memory address of
-the first element of the array.
-Lets imagine it is on address 199932.
-
-To access the elements we use brackets:
-[color:purple]a[0] = 48;[/color]
-[color:red]a[3] = 49;[/color]
-...
-Which you can read as:
-MEMORY AT ADDRESS [color:purple]199932+0*1 = 48[/color]
-MEMORY AT ADDRESS [color:red]199932+3*1 = 49[/color]
-We multiplty by 1 because each [color:blue]char[/color] is 1
-byte, for [color:blue]int[/color] we need to multiply by 4.
-""",
 """             POINTERS IN C
 
 [color:blue]char[/color] x = [color:brown]'a'[/color];
@@ -202,6 +170,38 @@ pointer of p, or 'dereference' p.
 printf("%c",x) will print 'c'
 Remember p is just a number!
 """,
+"""              ARRAYS IN C
+Array is a continuous piece of memory,
+where each element has the same size.
+For example array of 5 integers:
+
+[color:blue]int[/color] arr[color:teal][5][/color];
+
+Each integer is 4 bytes, so 20 bytes
+will be needed (5 elements * 4 bytes).
+Array of characters is easier to think
+about, because each character is exactly
+1 byte:
+
+[color:blue]char[/color] arr[color:teal][5][/color];
+
+So we will need 5 * 1 byte of continuous 
+memory. The value of the [color:blue]arr[/color] variable is 
+a reference, it is a pointer to the  
+location of first element of the 5 bytes
+in memory. Imagine they are on address 
+189. We can dereference the pointer 
+using brackets [] or star *:
+[color:magenta]Location[/color] = Base Address + (Offset * Size)
+
+[color:magenta]arr[3][/color] = [color:teal]49[/color] store 49 at memory [color:magenta]189+3*1[/color]
+[color:magenta]*(arr+3)[/color] = [color:teal]49[/color] store 49 at memory [color:magenta]189+3*1[/color]
+[color:magenta]3[arr][/color] = [color:teal]49[/color] store 49 memory [color:magenta]3*1+189[/color]
+[color:silver].. this actually works :D[/color]
+
+We multiplty by 1 because each [color:blue]char[/color] is 1
+byte, for [color:blue]int[/color] we need to multiply by 4.
+""",
 """             STRINGS IN C
 String is a continuous sequence of 
 characters. C does not have a string
@@ -213,27 +213,26 @@ characters that end with 0.
 [color:blue]char[/color] *c = [color:brown]"hi"[/color];
 
 Those three represent the same thing.
+Pointer to an array of 3 bytes.
+You dereference (follow) the pointers
+with [] or *:
 
-The value of the variable is actually
-a pointer to the first element of the
-string.
+[color:blue]char[/color] v = c[color:teal][1][/color]; // v now has value 105
+[color:blue]char[/color] v = *[color:teal]([/color]c+[color:teal]1)[/color]; // v now has value 105
 
-[color:blue]char[/color] v = c[color:teal][1][/color]
-[color:blue]char[/color] v = *[color:teal]([/color]c + [color:teal]1)[/color]
+All string functions in C read from
+the reference until first zero byte.
 
-both do the same, means go to wherever
-address c holds, and add 1 to it and follow.
-This is called dereferencing, or 
-following a pointer.
+[color:blue]char[/color] f[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:teal]0[/color], [color:brown]'i'[/color][color:teal]}[/color];
+printf("%s",f) will print just 'h'
+because it will stop at the first 0;
 
-To print strings use the %s formatting:
-printf("%s",a);
-printf("%s",b);
-printf("%s",c);
-%s will just start from the address of
-the variable, and go forward until it
-reaches value of 0.
+[color:blue]char[/color] e[color:teal][2][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color][color:teal]}[/color];
 
+printf("%s",e) will print some junk 
+after 'hi', it will actually read memory
+you did not intend to read, it will keep
+going until it reads the value 0.
 """,
 """                HISTORY
 C was made in the '70s, so about 50 
@@ -305,8 +304,9 @@ printf("%s\\n",foo);
 """,
 """
 char foo[4] = {'b', 'a', 'z', 0}; // PY: x
+char *pf = foo + 2; // PY: x + 2
 char letter; // PY: (122,'value')
-letter = *(foo + 2);
+letter = *pf;
 
 printf("%c\\n",letter);
 printf("%s\\n",foo);
@@ -322,10 +322,7 @@ printf("%s\\n",foo);
 
 """
 char *foo = "baz"; // PY: x
-char letter; // PY: (122,'value')
-letter = *(foo + 2);
 
-printf("%c\\n",letter);
 printf("%s\\n",foo);
 """,
 
@@ -341,11 +338,12 @@ printf("%s\\n",foo);
 """,
 
 """
-char foo[4] = {'b', 'a', 'z', 0}; // PY: x
-char letter; // PY: (122,'value')
-letter = foo[2];
+char foo[4];  // PY: x
+foo[0] = 'b';
+foo[1] = 'a';
+foo[2] = 'z';
+foo[3] = 0;
 
-printf("%c\\n",letter);
 printf("%s\\n",foo);
 """,
 
@@ -368,13 +366,17 @@ printf("%s\\n",word);
 """,
 
 """
-char cow[4]; // PY: x
+char cow[5]; // PY: x
 
 cow[0] = 'm';
 *(cow+1) = 'o';
 cow[2] = 'o';
-cow[3] = 0;
+cow[3] = 'z';
+cow[4] = 0;
 
+char letter = cow[3]; // PY: (122,'value')
+
+printf("%c\\n",letter);
 printf("%s\\n",cow);
 """,
 """
@@ -384,7 +386,7 @@ char foo[4]; // PY: x
 (0[foo] + foo[0])[foo] = 'b';
 foo[1] = 'a';
 (1+1)[foo] = 'r';
-foo[1+2] = 0;
+foo[1+1+1] = 0;
 
 printf("%s\\n",foo);
 """,
@@ -422,7 +424,7 @@ printf("%s\\n",hello);
 
 """
 char hello[5] = {'h', 'e', 'y', 'o', 0}; // PY: x
-char *p = hello + 1; // PY: x + 1
+char *p = hello + 2; // PY: x + 2
 
 printf("%s\\n",p);
 printf("%s\\n",hello);
@@ -431,8 +433,8 @@ printf("%s\\n",hello);
 
 """
 char *hello = "hello world"; // PY: x
-char *pa = hello + 4; // PY: x + 4
-char *pb = pa + 2; // PY: x + 6
+char *pa = hello + 1; // PY: x + 1
+char *pb = pa + 2; // PY: x + 3
 
 printf("%s\\n",pa);
 printf("%s\\n",pb);
@@ -441,8 +443,8 @@ printf("%s\\n",hello);
     
 """
 char *hello = "hello world"; // PY: x
-char *pa = hello + 4; // PY: x + 4
-char *pb = pa - 3; // PY: x + 1
+char *pa = hello + 1; // PY: x + 1
+char *pb = pa - 1; // PY: x
 
 printf("%s\\n",pa);
 printf("%s\\n",pb);
@@ -452,10 +454,16 @@ printf("%s\\n",hello);
 
 """
 char *hello = "hello world"; // PY: x
-char *pa = &hello[5]; // PY: x + 5
-char *pb = pa - 5; 
+char *pa = hello+3; // PY: x + 3
 
-pb = pb + 6; // PY: x + 6
+printf("%s\\n",pa);
+printf("%s\\n",hello);
+""",
+
+"""
+char *hello = "hello world"; // PY: x
+char *pa = hello; // PY: x
+char *pb = pa; // PY: x
 
 printf("%s\\n",pa);
 printf("%s\\n",pb);
@@ -463,27 +471,17 @@ printf("%s\\n",hello);
 """,
 
 """
-char *hello = "hello world"; // PY: x
-char *pa = &hello[0]; // PY: x
-char *pb = pa + 6; // PY: x + 6
+char *foo = "foobarbaz"; // PY: x
+char *pa = &foo[8]; // PY: x+8
+char va = *pa; // PY: (122,'value')
 
+printf("%c\\n",va);
 printf("%s\\n",pa);
-printf("%s\\n",pb);
-printf("%s\\n",hello);
-""",
-
-"""
-char *hello = "hello world"; // PY: x
-char *pa = &hello[0]; // PY: x
-char *pb = &pa[6]; // PY: x+6
-
-printf("%s\\n",pa);
-printf("%s\\n",pb);
-printf("%s\\n",hello);
+printf("%s\\n",foo);
 """,
 """
 char *cow = "moo"; // PY: x
-char *pa = &cow[0]; // PY: x
+char *pa = (cow + 2); // PY: x+2
 
 printf("%s\\n",pa);
 printf("%s\\n",cow);
@@ -510,14 +508,19 @@ printf("%s\\n",pa);
 printf("%s\\n",cow);
 """,
 """
-char *cow = "moo"; // PY: x
-char *pa = cow + 1 - 1; // PY: x
+char *cow = "mooz"; // PY: x
+char v = *(cow + 3); // PY: (122,'value')
 
-printf("%s\\n",pa);
+printf("%c\\n",v);
 printf("%s\\n",cow);
 """,
 """
-char cow[4] = {'m', 'o', 'o', 0}; // PY: x
+char cow[4]; // PY: x
+cow[0] = 'm';
+cow[1] = 'o';
+cow[2] = 'o';
+cow[3] = 0;
+
 char *pa = cow + 1; // PY: x+1
 
 printf("%s\\n",pa);
@@ -545,7 +548,7 @@ for i in range(55 - len(intro) - len(code)):
 #for i in range(len(code)):
     mem = [(0,'zero')]*256
     seen={}
-    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle)]:
+    for c in [next(codeCycle),next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle), next(codeCycle)]:
 #    for c in [next(codeCycle)]:
         program = """
     #include <stdio.h>
