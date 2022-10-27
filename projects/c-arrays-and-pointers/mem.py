@@ -189,21 +189,21 @@ about, because each character is exactly
 [color:blue]char[/color] arr[color:teal][5][/color];
 
 So we will need 5 * 1 byte of continuous 
-memory. The value of the [color:blue]arr[/color] variable is 
+memory. The value of the [color:green]arr[/color] variable is 
 a reference, it is a pointer to the  
 location of first element of the 5 bytes
 in memory. Imagine they are on address 
 189. We can dereference the pointer 
 using brackets [] or star *:
-[color:magenta]Location[/color] = Base Address + (Offset * Size)
+[color:magenta]Address[/color] = [color:green]Base Address[/color] + ([color:red]Offset[/color]*[color:blue]Size[/color])
 
-[color:magenta]arr[3][/color] = [color:teal]49[/color] store 49 at memory [color:magenta]189+3*1[/color]
-[color:magenta]*(arr+3)[/color] = [color:teal]49[/color] store 49 at memory [color:magenta]189+3*1[/color]
-[color:magenta]3[arr][/color] = [color:teal]49[/color] store 49 memory [color:magenta]3*1+189[/color]
-[color:silver].. this actually works :D[/color]
+[color:green]arr[/color][[color:red]3[/color]] = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
+*([color:green]arr[/color]+[color:red]3[/color]) = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
+[color:red]3[/color][[color:green]arr[/color]] = 49 store 49 memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
+[color:silver].. the last one actually works :D[/color]
 
-We multiplty by 1 because each [color:blue]char[/color] is 1
-byte, for [color:blue]int[/color] we need to multiply by 4.
+We multiplty by 1 because each [color:blue]char[/color] is [color:blue]1[/color]
+byte, for [color:blue]int[/color] we need to multiply by [color:blue]4[/color].
 """,
 """             STRINGS IN C
 String is a continuous sequence of 
