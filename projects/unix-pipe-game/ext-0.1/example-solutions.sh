@@ -20,7 +20,6 @@ cat 03.txt | cut -f 2 -d, | tr "[a-z]" "[A-Z]"
 
 cat <(cat 03.txt | head -2 | tail -1) <(cat 03.txt | tail -1)
 
-
 # * print the votes difference between
 #  the top and bottom voted movie
 
@@ -47,15 +46,6 @@ cat 03.txt | tr "," "\t"
 #  string Sing Interstellar ...
 cat 03.txt | cut -f 2 -d, | tr "\n" " "
 cat 03.txt | cut -f 2 -d, | paste -sd' '
-
-# remove the spaces, commas and digits (removed too easy)
-cat 03.txt | tr -d ' ,' | tr -d '[:digit:]'
-
-# (REMOVED: too much) 
-# * uppercase the titles but not
-#  the header
-cat <(cat 03.txt| head -1) <(paste -d, <(cat 03.txt | tail -30 | tr "[a-z]" "[A-Z]"))
-
 
 
 # compute average rating

@@ -1,0 +1,139 @@
+
+<html>
+  <head><title>The UNIX Pipe Card Game - Process Substitution</title>
+    <style>
+      body {
+	  font-family: monospace;
+	  max-width: 50rem;
+	  padding: 1rem;
+	  font-size: 14px;
+	  margin: auto;
+      }
+      img {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>The UNIX Pipe Card Game: Process Substitution</h1>
+
+    This is an expansion to <a href="../index.html">The Unix Pipe Game</a> with much more difficult tasks, and it adds <code>paste, tr, cut, bc</code> as commands. <br>
+
+    The expansion assumes that the parent basic unix commands: <code>cat, grep, tail, head, wc, sort, uniq, <b>paste, tr, cut, bc</b></code>. The parent should show also show those commands in action the computer as well, if you do not have any UNIX system you can use <a href='https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192'>jslinux</a> in your browser.
+
+    <a target="_blank" href="photos/deck.jpg"><img src="photos/deck.jpg" width="100%"></a><br>
+
+    <a style="background-color: #000; padding: 12px 36px; color: #fff; line-height: 1; display: inline-block; border-radius: 2px; text-decoration: none; font-weight: bold; font-size: 130%;" href="https://shop.punkx.org/products/unix-pipe-game-process-substitution">Buy now</a> 
+    <br>
+    <ul>
+      <li>print it yourself: <a href="unix-pipe-cards-ext-v01.pdf">unix-pipe-cards-v01.pdf</a>, <a href="unix-pipe-ext-v01-box.pdf">unix-pipe-ext-v01-box.pdf</a></li>
+      <li>code: <a href="https://github.com/jackdoe/programming-for-kids/tree/master/projects/unix-pipe-game/ext-01">unix-pipe-game/ext-01</a></li>
+      <li>author: <a href="https://github.com/jackdoe">github.com/jackdoe</a></li>
+      <li>co author: <a href="https://punkjazz.org/jackie">Jackie (11 yo)</a></li>
+      <li>contact: <a href="mailto:b0000@fastmail.com">b0000@fastmail.com</a></li>
+      <li>license: CC BY 4.0</li>
+    </ul>
+
+    <b>NB:</b> You can not play this expansion without having the base game, the reason is the tasks require far more
+    cards and there is just no space in one deck. I am sorry, I really tried to make the deck self contained, but in the end I decided to go with 2 decks so the game becomes more fun.<br>
+
+    The concept of process substitution is explained briefly in the deck, also the new commands are briefly explained as well, but I can only explain so much in ~1000 characters, this will surely not be enough to explain to your kids, so its better to let them play a bit in the command line to get a feeling about how <code>paste, tr, cut, bc</code> work.<br>
+
+
+    If you are a parent teaching your kid, and is exploring more tools to help you, I made few other card games:<br>
+    <ul>
+      <li><a href="https://punkjazz.org/programming-time/">programming time</a>, which is a game to teach python and some more fundamental algorithms, from hash tables to RSA</li>
+      <li><a href="https://punkx.org/4917/">4917</a>, a game to teach kids machine code and how the cpu works with memory and registers</li>
+      <li><a href="https://punkx.org/c-pointer-game/">The C Pointer Game - Pointers, Arrays and Strings</a>, a game to teach kids to look at the computer memory and understand references and values</li>
+      <li><a href="https://github.com/jackdoe/programming-for-kids/blob/master/book.md">programming for kids</a>, a log of my journey of teaching my 11yo daughter how to code</li>
+    </ul>
+
+
+    <br>
+    Example game round:
+
+    <dl>task: <b>compute the average rating: <span style="color:red">sum(rating)</span>/<span style="color:blue">(amount of movies)</span></b>, so first we will make one process to cat the file, take the ratings column, skip the header, join the lines with + and pipe it into the calculator, we also need to count the amount of movies we have in the file, then we will use <code>paste</code> to join those outputs with '/' and pipe it again into the calculator:
+      
+      <br>
+<br>
+    <b>paste -d/- &lt;(<span style="color:red">cat 03.txt  | cut -f 4 -d, |grep -v Rating| paste -sd+ | bc</span>) &lt;(<span style="color:blue">cat 03.txt  | grep -v Rating | wc -l</span>) | bc</b></dl>
+
+
+    <a target="_blank" href="photos/example.jpg"><img src="photos/example.jpg" width="100%"></a>
+
+    <br>
+
+    <pre>
+This game requires The UNIX Pipes Game
+version 0, you can get it at:
+
+    https://punkx.org/unix-pipe-game/
+
+It contains <span style="color:red">sort</span>, <span style="color:red">cat</span> and other commands
+needed in order to solve the tasks in 
+this game expansion.
+
+The rules are the same:
+> 1. The youngest players picks a task
+  from the tasks card. You can not pick
+  the same task twice.
+
+> 2. Shuffle the cards from both decks.
+
+> 3. Put the cards face down on the
+  table.
+
+> 4. Going clockwise each player picks
+  the top card from the deck and try to
+  complete the task
+
+> 5. The first player who completes the
+  task gets a point.
+
+> 6. <span style="color:magenta">IF</span> there are no more tasks, <span style="color:magenta">GOTO</span> 8
+
+> 7. <span style="color:magenta">GOTO</span> 1.
+
+> 8. GAME OVER. INSERT COIN. <span style="color:magenta">GOTO</span> 8
+
+
+                 TASKS
+
+<span style="color:red">*</span> swap the rating and title column
+
+<span style="color:green">*</span> print the last row's votes
+
+<span style="color:red">*</span> remove the Rank and Votes column
+
+<span style="color:green">*</span> print only the title column 
+  uppercased
+
+<span style="color:orange">*</span> print the first and the last movie
+
+<span style="color:red">*</span> print the votes difference between
+  the top and bottom voted movie
+
+<span style="color:orange">*</span> sum the votes
+
+<span style="color:red">*</span> sum the votes of movies from 2016
+
+<span style="color:red">*</span> show the best ranked title, only
+  title, no other columns
+
+<span style="color:green">*</span> replace commas with tabs, remove spaces
+
+<span style="color:green">*</span> print the titles but as a giant
+  string: Sing Interstellar ...
+
+<span style="color:red">*</span> compute the average rating
+  sum(rating)/(amount of movies)
+
+</pre>
+
+    This is how the card decks look:
+
+    <a target="_blank" href="photos/many-decks.jpg"><img src="photos/many-decks.jpg" width="100%"></a>
+  </body>
+</html>
