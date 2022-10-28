@@ -17,9 +17,9 @@ CARD:1
 
    you need to look in the memory for
    + [color:red]98 97 114 0[/color] (e.g. address 172)
-   + [color:blue]172[/color] (foo pointing to "bar")
-   + [color:blue]173[/color] (pa = foo + 1)
-   + [color:blue]97[/color] (v = foo[1])
+   + [color:royalblue]172[/color] (foo pointing to "bar")
+   + [color:royalblue]173[/color] (pa = foo + 1)
+   + [color:royalblue]97[/color] (v = foo[1])
 
 4. First player that finds a match
    wins and puts the winning card aside.
@@ -103,7 +103,7 @@ CARD:4
 The character type in C needs one byte 
 of memory.
 
-[color:blue]char[/color] x = [color:brown]'a'[/color];
+[color:royalblue]char[/color] x = [color:brown]'a'[/color];
 x = [color:brown]'b'[/color];
 x = [color:teal]99[/color];
 
@@ -132,7 +132,7 @@ an ASCII code.
 CARD:5
              POINTERS IN C
 
-[color:blue]char[/color] x = [color:brown]'a'[/color];
+[color:royalblue]char[/color] x = [color:brown]'a'[/color];
 
 There is some place in memory holding
 the value [color:teal]97[/color] (the ASCII code for [color:brown]'a'[/color]).
@@ -146,7 +146,7 @@ Now on address [color:red]251[/color] we have 98, ASCII
 for [color:brown]'b'[/color]. You can get the address of x
 you use & like so:
 
-[color:blue]char[/color] *p;
+[color:royalblue]char[/color] *p;
 p = &x;
 
 that means, make a variable p that will 
@@ -168,7 +168,7 @@ Array is a continuous piece of memory,
 where each element has the same size.
 For example array of 5 integers:
 
-[color:blue]int[/color] arr[color:teal][5][/color];
+[color:royalblue]int[/color] arr[color:teal][5][/color];
 
 Each integer is 4 bytes, so 20 bytes
 will be needed (5 elements * 4 bytes).
@@ -176,7 +176,7 @@ Array of characters is easier to think
 about, because each character is exactly
 1 byte:
 
-[color:blue]char[/color] arr[color:teal][5][/color];
+[color:royalblue]char[/color] arr[color:teal][5][/color];
 
 So we will need 5 * 1 byte of continuous 
 memory. The value of the [color:green]arr[/color] variable is 
@@ -185,15 +185,15 @@ location of first element of the 5 bytes
 in memory. Imagine they are on address 
 189. We can dereference the pointer 
 using brackets [] or star *:
-[color:magenta]Address[/color] = [color:green]Base Address[/color] + ([color:red]Offset[/color]*[color:blue]Size[/color])
+[color:magenta]Address[/color] = [color:green]Base Address[/color] + ([color:red]Offset[/color]*[color:royalblue]Size[/color])
 
-[color:green]arr[/color][[color:red]3[/color]] = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
-*([color:green]arr[/color]+[color:red]3[/color]) = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
-[color:red]3[/color][[color:green]arr[/color]] = 49 store 49 memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
+[color:green]arr[/color][[color:red]3[/color]] = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:royalblue]1[/color]
+*([color:green]arr[/color]+[color:red]3[/color]) = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:royalblue]1[/color]
+[color:red]3[/color][[color:green]arr[/color]] = 49 store 49 memory [color:green]189[/color]+[color:red]3[/color]*[color:royalblue]1[/color]
 [color:silver].. the last one actually works :D[/color]
 
-We multiplty by 1 because each [color:blue]char[/color] is [color:blue]1[/color]
-byte, for [color:blue]int[/color] we need to multiply by [color:blue]4[/color].
+We multiplty by 1 because each [color:royalblue]char[/color] is [color:royalblue]1[/color]
+byte, for [color:royalblue]int[/color] we need to multiply by [color:royalblue]4[/color].
 
 CARD:7
              STRINGS IN C
@@ -202,26 +202,26 @@ characters. C does not have a string
 type, so strings are just arrays of
 characters that end with 0.
 
-[color:blue]char[/color] a[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color], [color:teal]0}[/color];
-[color:blue]char[/color] b[color:teal][3][/color] = [color:teal]{104, 105, 0}[/color];
-[color:blue]char[/color] *c = [color:brown]"hi"[/color];
+[color:royalblue]char[/color] a[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color], [color:teal]0}[/color];
+[color:royalblue]char[/color] b[color:teal][3][/color] = [color:teal]{104, 105, 0}[/color];
+[color:royalblue]char[/color] *c = [color:brown]"hi"[/color];
 
 Those three represent the same thing.
 Pointer to an array of 3 bytes.
 You dereference (follow) the pointers
 with [] or *:
 
-[color:blue]char[/color] v = c[color:teal][1][/color]; // v now has value 105
-[color:blue]char[/color] v = *[color:teal]([/color]c+[color:teal]1)[/color]; // v now has value 105
+[color:royalblue]char[/color] v = c[color:teal][1][/color]; // v now has value 105
+[color:royalblue]char[/color] v = *[color:teal]([/color]c+[color:teal]1)[/color]; // v now has value 105
 
 All string functions in C read from
 the reference until first zero byte.
 
-[color:blue]char[/color] f[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:teal]0[/color], [color:brown]'i'[/color][color:teal]}[/color];
+[color:royalblue]char[/color] f[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:teal]0[/color], [color:brown]'i'[/color][color:teal]}[/color];
 printf("%s",f) will print just 'h'
 because it will stop at the first 0;
 
-[color:blue]char[/color] e[color:teal][2][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color][color:teal]}[/color];
+[color:royalblue]char[/color] e[color:teal][2][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color][color:teal]}[/color];
 
 printf("%s",e) will print some junk 
 after 'hi', it will actually read memory
@@ -262,533 +262,533 @@ see any difference, its all just
 numbers.
 
 CARD:9
-  0 | 000 000 000 000 000 000 000 000 
-  8 | 000 000 000 000 [color:red]109 111 111 122 [/color]
- 16 | [color:red]000 [/color]000 000 000 000 000 000 000 
- 24 | 000 000 000 [color:blue]146 [/color]000 000 000 000 
- 32 | 000 000 [color:red]104 101 108 108 111 032 [/color]
- 40 | [color:red]119 111 114 108 100 000 098 097 [/color]
- 48 | [color:red]114 000 [/color]000 000 000 000 000 000 
- 56 | 000 [color:red]122 [/color]000 000 000 000 000 [color:red]119 [/color]
- 64 | [color:red]105 122 097 114 100 000 [/color]000 000 
- 72 | 000 000 000 [color:blue]034 [/color]000 000 000 [color:blue]146 [/color]
- 80 | [color:blue][/color]000 000 000 000 000 000 000 000 
- 88 | 000 000 000 000 000 000 000 000 
- 96 | [color:blue]142 [/color]000 000 000 000 000 000 000 
-104 | 000 000 000 000 [color:blue]035 [/color]000 000 000 
-112 | 000 000 000 000 000 000 000 000 
-120 | [color:blue]034 [/color]000 000 000 000 000 000 000 
-128 | [color:blue]142 [/color]000 000 000 000 000 000 000 
-136 | 000 000 000 [color:blue]037 [/color]000 000 [color:red]098 097 [/color]
-144 | [color:red]122 000 109 111 111 000 [/color]000 000 
-152 | 000 000 000 000 000 000 000 [color:red]122 [/color]
-160 | [color:red][/color]000 000 000 000 [color:blue]147 [/color]000 000 000 
-168 | 000 000 000 000 000 000 000 000 
-176 | 000 000 000 [color:blue]046 [/color]000 000 000 [color:blue]144 [/color]
-184 | [color:blue][/color]000 000 000 000 000 000 000 000 
-192 | 000 000 000 000 000 000 000 [color:blue]034 [/color]
-200 | [color:blue][/color]000 000 000 000 [color:blue]063 [/color]000 000 000 
-208 | 000 [color:blue]148 [/color]000 000 000 000 000 000 
-216 | 000 000 000 000 [color:blue]142 [/color]000 000 000 
-224 | 000 000 000 000 000 000 000 000 
-232 | 000 000 000 000 000 [color:blue]034 [/color]000 000 
-240 | 000 000 000 000 000 000 000 000 
-248 | 000 000 [color:blue]012 [/color]000 000 000 000 000 
+   0 | 000 000 000 000 000 000 000 000 
+   8 | 000 000 000 000 [color:red]109 111 111 122 [/color]
+  16 | [color:red]000 [/color]000 000 000 000 000 000 000 
+  24 | 000 000 000 [color:royalblue]146 [/color]000 000 000 000 
+  32 | 000 000 [color:red]104 101 108 108 111 032 [/color]
+  40 | [color:red]119 111 114 108 100 000 098 097 [/color]
+  48 | [color:red]114 000 [/color]000 000 000 000 000 000 
+  56 | 000 [color:red]122 [/color]000 000 000 000 000 [color:red]119 [/color]
+  64 | [color:red]105 122 097 114 100 000 [/color]000 000 
+  72 | 000 000 000 [color:royalblue]034 [/color]000 000 000 [color:royalblue]146 [/color]
+  80 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+  88 | 000 000 000 000 000 000 000 000 
+  96 | [color:royalblue]142 [/color]000 000 000 000 000 000 000 
+ 104 | 000 000 000 000 [color:royalblue]035 [/color]000 000 000 
+ 112 | 000 000 000 000 000 000 000 000 
+ 120 | [color:royalblue]034 [/color]000 000 000 000 000 000 000 
+ 128 | [color:royalblue]142 [/color]000 000 000 000 000 000 000 
+ 136 | 000 000 000 [color:royalblue]037 [/color]000 000 [color:red]098 097 [/color]
+ 144 | [color:red]122 000 109 111 111 000 [/color]000 000 
+ 152 | 000 000 000 000 000 000 000 [color:red]122 [/color]
+ 160 | [color:red][/color]000 000 000 000 [color:royalblue]147 [/color]000 000 000 
+ 168 | 000 000 000 000 000 000 000 000 
+ 176 | 000 000 000 [color:royalblue]046 [/color]000 000 000 [color:royalblue]144 [/color]
+ 184 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+ 192 | 000 000 000 000 000 000 000 [color:royalblue]034 [/color]
+ 200 | [color:royalblue][/color]000 000 000 000 [color:royalblue]063 [/color]000 000 000 
+ 208 | 000 [color:royalblue]148 [/color]000 000 000 000 000 000 
+ 216 | 000 000 000 000 [color:royalblue]142 [/color]000 000 000 
+ 224 | 000 000 000 000 000 000 000 000 
+ 232 | 000 000 000 000 000 [color:royalblue]034 [/color]000 000 
+ 240 | 000 000 000 000 000 000 000 000 
+ 248 | 000 000 [color:royalblue]012 [/color]000 000 000 000 000 
 CARD:10
-  0 | 000 000 000 000 000 000 000 000 
-  8 | 000 000 000 000 000 000 000 000 
- 16 | 000 000 [color:blue]076 [/color]000 000 [color:blue]201 [/color]000 000 
- 24 | 000 000 000 000 000 000 000 [color:blue]157 [/color]
- 32 | [color:blue][/color]000 000 000 000 000 000 000 [color:blue]045 [/color]
- 40 | [color:blue][/color]000 000 [color:red]104 101 108 108 111 032 [/color]
- 48 | [color:red]119 111 114 108 100 000 [/color]000 000 
- 56 | 000 000 000 000 000 000 000 [color:blue]199 [/color]
- 64 | [color:blue][/color]000 000 000 000 000 000 000 000 
- 72 | 000 000 000 000 [color:red]049 057 055 050 [/color]
- 80 | [color:red]000 [/color]000 000 000 000 000 000 000 
- 88 | [color:blue]224 [/color]000 000 000 000 000 000 000 
- 96 | 000 000 000 000 000 000 000 000 
-104 | 000 000 000 000 [color:red]122 [/color]000 000 000 
-112 | 000 000 000 [color:red]122 [/color]000 000 000 000 
-120 | 000 000 000 000 000 000 [color:blue]238 [/color]000 
-128 | 000 000 000 000 000 000 000 [color:blue]076 [/color]
-136 | [color:blue][/color]000 000 000 000 000 000 000 [color:blue]155 [/color]
-144 | [color:blue][/color]000 000 000 000 [color:red]122 [/color]000 000 000 
-152 | 000 000 000 [color:red]109 111 111 000 [/color]000 
-160 | 000 000 000 000 000 000 000 000 
-168 | 000 000 000 000 [color:blue]157 [/color]000 000 000 
-176 | 000 000 [color:blue]199 [/color]000 000 000 000 000 
-184 | 000 000 000 [color:blue]232 [/color]000 000 000 000 
-192 | 000 000 [color:blue]042 [/color]000 000 000 000 [color:red]098 [/color]
-200 | [color:red]097 122 000 [/color]000 000 [color:red]122 [/color]000 000 
-208 | 000 000 [color:blue]155 [/color]000 000 000 000 000 
-216 | 000 000 000 000 000 000 000 000 
-224 | [color:red]102 111 111 098 097 114 098 097 [/color]
-232 | [color:red]122 000 [/color]000 000 000 000 [color:red]109 111 [/color]
-240 | [color:red]111 122 000 [/color]000 000 000 000 [color:blue]155 [/color]
-248 | [color:blue][/color]000 000 000 [color:blue]155 [/color]000 000 000 000 
+   0 | 000 000 000 000 000 000 000 000 
+   8 | 000 000 000 000 000 000 000 000 
+  16 | 000 000 [color:royalblue]076 [/color]000 000 [color:royalblue]201 [/color]000 000 
+  24 | 000 000 000 000 000 000 000 [color:royalblue]157 [/color]
+  32 | [color:royalblue][/color]000 000 000 000 000 000 000 [color:royalblue]045 [/color]
+  40 | [color:royalblue][/color]000 000 [color:red]104 101 108 108 111 032 [/color]
+  48 | [color:red]119 111 114 108 100 000 [/color]000 000 
+  56 | 000 000 000 000 000 000 000 [color:royalblue]199 [/color]
+  64 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+  72 | 000 000 000 000 [color:red]049 057 055 050 [/color]
+  80 | [color:red]000 [/color]000 000 000 000 000 000 000 
+  88 | [color:royalblue]224 [/color]000 000 000 000 000 000 000 
+  96 | 000 000 000 000 000 000 000 000 
+ 104 | 000 000 000 000 [color:red]122 [/color]000 000 000 
+ 112 | 000 000 000 [color:red]122 [/color]000 000 000 000 
+ 120 | 000 000 000 000 000 000 [color:royalblue]238 [/color]000 
+ 128 | 000 000 000 000 000 000 000 [color:royalblue]076 [/color]
+ 136 | [color:royalblue][/color]000 000 000 000 000 000 000 [color:royalblue]155 [/color]
+ 144 | [color:royalblue][/color]000 000 000 000 [color:red]122 [/color]000 000 000 
+ 152 | 000 000 000 [color:red]109 111 111 000 [/color]000 
+ 160 | 000 000 000 000 000 000 000 000 
+ 168 | 000 000 000 000 [color:royalblue]157 [/color]000 000 000 
+ 176 | 000 000 [color:royalblue]199 [/color]000 000 000 000 000 
+ 184 | 000 000 000 [color:royalblue]232 [/color]000 000 000 000 
+ 192 | 000 000 [color:royalblue]042 [/color]000 000 000 000 [color:red]098 [/color]
+ 200 | [color:red]097 122 000 [/color]000 000 [color:red]122 [/color]000 000 
+ 208 | 000 000 [color:royalblue]155 [/color]000 000 000 000 000 
+ 216 | 000 000 000 000 000 000 000 000 
+ 224 | [color:red]102 111 111 098 097 114 098 097 [/color]
+ 232 | [color:red]122 000 [/color]000 000 000 000 [color:red]109 111 [/color]
+ 240 | [color:red]111 122 000 [/color]000 000 000 000 [color:royalblue]155 [/color]
+ 248 | [color:royalblue][/color]000 000 000 [color:royalblue]155 [/color]000 000 000 000 
 CARD:11
-  0 | 000 000 000 000 000 [color:red]111 102 032 [/color]
-  8 | [color:red]119 097 116 101 114 000 [/color]000 000 
- 16 | [color:blue]187 [/color]000 000 000 000 000 000 000 
- 24 | [color:blue]215 [/color]000 000 000 000 000 [color:blue]187 [/color]000 
- 32 | 000 000 [color:blue]055 [/color]000 000 000 000 000 
- 40 | 000 000 000 000 [color:blue]005 [/color]000 000 000 
- 48 | 000 000 000 000 000 000 000 [color:red]104 [/color]
- 56 | [color:red]105 033 000 [/color]000 000 000 000 [color:red]098 [/color]
- 64 | [color:red]097 122 000 [/color]000 000 [color:red]104 101 121 [/color]
- 72 | [color:red]111 000 [/color]000 000 000 000 000 000 
- 80 | [color:blue]187 [/color]000 000 000 000 000 000 000 
- 88 | 000 [color:blue]114 [/color]000 000 000 000 000 000 
- 96 | 000 000 000 [color:blue]116 [/color]000 000 [color:blue]063 [/color]000 
-104 | 000 000 000 000 000 000 000 000 
-112 | 000 000 [color:red]119 111 114 108 100 000 [/color]
-120 | [color:red][/color]000 000 [color:blue]069 [/color]000 000 000 000 [color:blue]188 [/color]
-128 | [color:blue][/color]000 000 000 000 000 000 000 000 
-136 | 000 000 000 000 000 000 000 000 
-144 | 000 000 000 000 [color:blue]165 [/color]000 000 000 
-152 | 000 000 000 000 000 000 000 000 
-160 | 000 000 000 000 000 [color:red]104 101 108 [/color]
-168 | [color:red]108 111 000 [/color]000 000 000 000 [color:blue]168 [/color]
-176 | [color:blue][/color]000 000 000 [color:blue]071 [/color]000 000 000 000 
-184 | [color:blue]114 [/color]000 000 [color:red]104 101 108 108 111 [/color]
-192 | [color:red]032 119 111 114 108 100 000 [/color]000 
-200 | 000 000 000 000 000 000 000 000 
-208 | 000 000 000 000 000 000 000 [color:red]109 [/color]
-216 | [color:red]111 111 000 [/color]000 000 000 000 000 
-224 | 000 000 000 000 000 000 000 000 
-232 | 000 000 000 [color:red]122 [/color]000 000 000 000 
-240 | 000 000 [color:blue]216 [/color]000 000 000 000 000 
-248 | 000 000 000 000 000 000 000 000 
+   0 | 000 000 000 000 000 [color:red]111 102 032 [/color]
+   8 | [color:red]119 097 116 101 114 000 [/color]000 000 
+  16 | [color:royalblue]187 [/color]000 000 000 000 000 000 000 
+  24 | [color:royalblue]215 [/color]000 000 000 000 000 [color:royalblue]187 [/color]000 
+  32 | 000 000 [color:royalblue]055 [/color]000 000 000 000 000 
+  40 | 000 000 000 000 [color:royalblue]005 [/color]000 000 000 
+  48 | 000 000 000 000 000 000 000 [color:red]104 [/color]
+  56 | [color:red]105 033 000 [/color]000 000 000 000 [color:red]098 [/color]
+  64 | [color:red]097 122 000 [/color]000 000 [color:red]104 101 121 [/color]
+  72 | [color:red]111 000 [/color]000 000 000 000 000 000 
+  80 | [color:royalblue]187 [/color]000 000 000 000 000 000 000 
+  88 | 000 [color:royalblue]114 [/color]000 000 000 000 000 000 
+  96 | 000 000 000 [color:royalblue]116 [/color]000 000 [color:royalblue]063 [/color]000 
+ 104 | 000 000 000 000 000 000 000 000 
+ 112 | 000 000 [color:red]119 111 114 108 100 000 [/color]
+ 120 | [color:red][/color]000 000 [color:royalblue]069 [/color]000 000 000 000 [color:royalblue]188 [/color]
+ 128 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+ 136 | 000 000 000 000 000 000 000 000 
+ 144 | 000 000 000 000 [color:royalblue]165 [/color]000 000 000 
+ 152 | 000 000 000 000 000 000 000 000 
+ 160 | 000 000 000 000 000 [color:red]104 101 108 [/color]
+ 168 | [color:red]108 111 000 [/color]000 000 000 000 [color:royalblue]168 [/color]
+ 176 | [color:royalblue][/color]000 000 000 [color:royalblue]071 [/color]000 000 000 000 
+ 184 | [color:royalblue]114 [/color]000 000 [color:red]104 101 108 108 111 [/color]
+ 192 | [color:red]032 119 111 114 108 100 000 [/color]000 
+ 200 | 000 000 000 000 000 000 000 000 
+ 208 | 000 000 000 000 000 000 000 [color:red]109 [/color]
+ 216 | [color:red]111 111 000 [/color]000 000 000 000 000 
+ 224 | 000 000 000 000 000 000 000 000 
+ 232 | 000 000 000 [color:red]122 [/color]000 000 000 000 
+ 240 | 000 000 [color:royalblue]216 [/color]000 000 000 000 000 
+ 248 | 000 000 000 000 000 000 000 000 
 CARD:12
-  0 | 000 000 000 000 [color:blue]102 [/color]000 000 000 
-  8 | 000 000 000 000 000 000 000 000 
- 16 | 000 000 000 000 [color:red]109 111 111 122 [/color]
- 24 | [color:red]000 [/color]000 000 000 000 000 000 000 
- 32 | 000 000 000 000 [color:blue]071 [/color]000 000 [color:blue]102 [/color]
- 40 | [color:blue][/color]000 000 000 [color:blue]020 [/color]000 000 [color:blue]104 [/color]000 
- 48 | 000 000 000 000 000 000 000 000 
- 56 | 000 000 000 000 [color:red]122 [/color]000 000 000 
- 64 | 000 000 000 000 [color:blue]071 [/color]000 000 [color:red]104 [/color]
- 72 | [color:red]101 108 108 111 032 119 111 114 [/color]
- 80 | [color:red]108 100 000 [/color]000 000 000 000 000 
- 88 | 000 000 000 000 [color:blue]180 [/color]000 000 000 
- 96 | 000 000 [color:blue]180 [/color]000 000 000 [color:red]098 097 [/color]
-104 | [color:red]122 000 [/color]000 000 000 000 000 [color:blue]074 [/color]
-112 | [color:blue][/color]000 000 000 [color:red]122 [/color]000 000 000 000 
-120 | 000 000 000 000 000 000 000 000 
-128 | [color:blue]223 [/color]000 000 000 000 000 000 000 
-136 | 000 000 000 000 000 [color:blue]102 [/color]000 000 
-144 | 000 [color:blue]156 [/color]000 000 000 000 000 [color:blue]071 [/color]
-152 | [color:blue][/color]000 000 000 000 [color:red]119 105 122 097 [/color]
-160 | [color:red]114 100 000 [/color]000 000 000 000 000 
-168 | 000 000 000 000 000 000 000 [color:blue]182 [/color]
-176 | [color:blue][/color]000 000 000 000 [color:red]109 111 111 000 [/color]
-184 | [color:red][/color]000 000 000 000 000 000 000 000 
-192 | 000 000 000 000 000 000 000 000 
-200 | 000 000 000 000 000 000 000 000 
-208 | 000 000 [color:blue]072 [/color]000 000 [color:blue]071 [/color]000 000 
-216 | 000 000 000 000 000 000 000 [color:red]106 [/color]
-224 | [color:red]097 099 107 115 000 [/color]000 000 000 
-232 | 000 000 000 000 000 000 000 000 
-240 | 000 000 000 000 000 000 [color:blue]181 [/color]000 
-248 | 000 000 000 000 000 000 000 000 
+   0 | 000 000 000 000 [color:royalblue]102 [/color]000 000 000 
+   8 | 000 000 000 000 000 000 000 000 
+  16 | 000 000 000 000 [color:red]109 111 111 122 [/color]
+  24 | [color:red]000 [/color]000 000 000 000 000 000 000 
+  32 | 000 000 000 000 [color:royalblue]071 [/color]000 000 [color:royalblue]102 [/color]
+  40 | [color:royalblue][/color]000 000 000 [color:royalblue]020 [/color]000 000 [color:royalblue]104 [/color]000 
+  48 | 000 000 000 000 000 000 000 000 
+  56 | 000 000 000 000 [color:red]122 [/color]000 000 000 
+  64 | 000 000 000 000 [color:royalblue]071 [/color]000 000 [color:red]104 [/color]
+  72 | [color:red]101 108 108 111 032 119 111 114 [/color]
+  80 | [color:red]108 100 000 [/color]000 000 000 000 000 
+  88 | 000 000 000 000 [color:royalblue]180 [/color]000 000 000 
+  96 | 000 000 [color:royalblue]180 [/color]000 000 000 [color:red]098 097 [/color]
+ 104 | [color:red]122 000 [/color]000 000 000 000 000 [color:royalblue]074 [/color]
+ 112 | [color:royalblue][/color]000 000 000 [color:red]122 [/color]000 000 000 000 
+ 120 | 000 000 000 000 000 000 000 000 
+ 128 | [color:royalblue]223 [/color]000 000 000 000 000 000 000 
+ 136 | 000 000 000 000 000 [color:royalblue]102 [/color]000 000 
+ 144 | 000 [color:royalblue]156 [/color]000 000 000 000 000 [color:royalblue]071 [/color]
+ 152 | [color:royalblue][/color]000 000 000 000 [color:red]119 105 122 097 [/color]
+ 160 | [color:red]114 100 000 [/color]000 000 000 000 000 
+ 168 | 000 000 000 000 000 000 000 [color:royalblue]182 [/color]
+ 176 | [color:royalblue][/color]000 000 000 000 [color:red]109 111 111 000 [/color]
+ 184 | [color:red][/color]000 000 000 000 000 000 000 000 
+ 192 | 000 000 000 000 000 000 000 000 
+ 200 | 000 000 000 000 000 000 000 000 
+ 208 | 000 000 [color:royalblue]072 [/color]000 000 [color:royalblue]071 [/color]000 000 
+ 216 | 000 000 000 000 000 000 000 [color:red]106 [/color]
+ 224 | [color:red]097 099 107 115 000 [/color]000 000 000 
+ 232 | 000 000 000 000 000 000 000 000 
+ 240 | 000 000 000 000 000 000 [color:royalblue]181 [/color]000 
+ 248 | 000 000 000 000 000 000 000 000 
 CARD:13
-  0 | 000 [color:blue]222 [/color]000 000 000 000 000 [color:red]122 [/color]
-  8 | [color:red][/color]000 000 000 000 000 000 [color:blue]189 109 [/color]
- 16 | [color:blue]111 111 122 000 [/color]000 000 000 000 
- 24 | 000 000 000 [color:blue]100 [/color]000 000 000 000 
- 32 | [color:red]098 097 122 000 [/color]000 000 000 [color:blue]222 [/color]
- 40 | [color:blue][/color]000 000 [color:blue]222 [/color]000 000 000 000 000 
- 48 | 000 [color:blue]015 [/color]000 000 000 000 [color:red]122 [/color]000 
- 56 | 000 000 000 000 000 000 000 000 
- 64 | 000 000 000 000 000 000 000 000 
- 72 | 000 000 000 000 000 000 000 000 
- 80 | 000 [color:red]098 097 114 000 [/color]000 000 000 
- 88 | [color:blue]224 [/color]000 000 000 000 000 [color:blue]032 [/color]000 
- 96 | 000 000 000 000 [color:red]104 101 108 108 [/color]
-104 | [color:red]111 032 119 111 114 108 100 000 [/color]
-112 | [color:red][/color]000 000 000 000 000 [color:blue]197 [/color]000 000 
-120 | 000 000 000 000 [color:blue]103 [/color]000 000 000 
-128 | 000 000 000 000 [color:red]122 [/color]000 000 000 
-136 | 000 000 000 000 000 000 000 000 
-144 | [color:blue]224 [/color]000 000 000 000 000 000 000 
-152 | 000 000 000 000 000 000 [color:red]049 057 [/color]
-160 | [color:red]055 050 000 [/color]000 000 000 000 000 
-168 | [color:blue]158 [/color]000 000 000 000 000 000 000 
-176 | 000 [color:blue]032 [/color]000 000 000 000 000 000 
-184 | 000 000 000 000 000 [color:red]102 111 111 [/color]
-192 | [color:red]098 097 114 098 097 122 000 [/color]000 
-200 | 000 000 000 000 000 [color:blue]222 [/color]000 000 
-208 | 000 000 000 000 000 000 000 000 
-216 | 000 000 000 000 [color:blue]034 [/color]000 [color:red]109 111 [/color]
-224 | [color:red]111 000 [/color]000 000 000 000 000 [color:red]122 [/color]
-232 | [color:red][/color]000 000 000 000 000 000 000 000 
-240 | 000 000 000 000 [color:blue]081 [/color]000 000 000 
-248 | 000 000 000 000 000 000 000 000 
+   0 | 000 [color:royalblue]222 [/color]000 000 000 000 000 [color:red]122 [/color]
+   8 | [color:red][/color]000 000 000 000 000 000 [color:royalblue]189 109 [/color]
+  16 | [color:royalblue]111 111 122 000 [/color]000 000 000 000 
+  24 | 000 000 000 [color:royalblue]100 [/color]000 000 000 000 
+  32 | [color:red]098 097 122 000 [/color]000 000 000 [color:royalblue]222 [/color]
+  40 | [color:royalblue][/color]000 000 [color:royalblue]222 [/color]000 000 000 000 000 
+  48 | 000 [color:royalblue]015 [/color]000 000 000 000 [color:red]122 [/color]000 
+  56 | 000 000 000 000 000 000 000 000 
+  64 | 000 000 000 000 000 000 000 000 
+  72 | 000 000 000 000 000 000 000 000 
+  80 | 000 [color:red]098 097 114 000 [/color]000 000 000 
+  88 | [color:royalblue]224 [/color]000 000 000 000 000 [color:royalblue]032 [/color]000 
+  96 | 000 000 000 000 [color:red]104 101 108 108 [/color]
+ 104 | [color:red]111 032 119 111 114 108 100 000 [/color]
+ 112 | [color:red][/color]000 000 000 000 000 [color:royalblue]197 [/color]000 000 
+ 120 | 000 000 000 000 [color:royalblue]103 [/color]000 000 000 
+ 128 | 000 000 000 000 [color:red]122 [/color]000 000 000 
+ 136 | 000 000 000 000 000 000 000 000 
+ 144 | [color:royalblue]224 [/color]000 000 000 000 000 000 000 
+ 152 | 000 000 000 000 000 000 [color:red]049 057 [/color]
+ 160 | [color:red]055 050 000 [/color]000 000 000 000 000 
+ 168 | [color:royalblue]158 [/color]000 000 000 000 000 000 000 
+ 176 | 000 [color:royalblue]032 [/color]000 000 000 000 000 000 
+ 184 | 000 000 000 000 000 [color:red]102 111 111 [/color]
+ 192 | [color:red]098 097 114 098 097 122 000 [/color]000 
+ 200 | 000 000 000 000 000 [color:royalblue]222 [/color]000 000 
+ 208 | 000 000 000 000 000 000 000 000 
+ 216 | 000 000 000 000 [color:royalblue]034 [/color]000 [color:red]109 111 [/color]
+ 224 | [color:red]111 000 [/color]000 000 000 000 000 [color:red]122 [/color]
+ 232 | [color:red][/color]000 000 000 000 000 000 000 000 
+ 240 | 000 000 000 000 [color:royalblue]081 [/color]000 000 000 
+ 248 | 000 000 000 000 000 000 000 000 
 CARD:14
-  0 | 000 000 000 000 000 000 [color:blue]177 [/color]000 
-  8 | 000 000 000 000 000 000 000 000 
- 16 | 000 000 [color:red]049 057 055 050 000 [/color]000 
- 24 | 000 000 000 000 000 000 000 000 
- 32 | [color:blue]121 [/color]000 000 000 000 000 [color:red]104 101 [/color]
- 40 | [color:red]121 111 000 [/color]000 000 000 000 000 
- 48 | 000 000 000 000 000 [color:red]109 111 111 [/color]
- 56 | [color:red]000 [/color]000 000 000 000 000 000 000 
- 64 | 000 [color:blue]040 [/color]000 000 [color:blue]193 [/color]000 000 000 
- 72 | 000 000 000 000 000 000 000 000 
- 80 | [color:blue]220 [/color]000 000 000 000 000 000 000 
- 88 | [color:blue]191 [/color]000 000 000 000 [color:blue]121 [/color]000 000 
- 96 | 000 [color:blue]054 [/color]000 000 000 000 000 000 
-104 | 000 000 000 000 000 000 000 000 
-112 | 000 000 000 000 000 000 000 000 
-120 | 000 [color:red]104 101 108 108 111 032 119 [/color]
-128 | [color:red]111 114 108 100 000 [/color]000 000 000 
-136 | [color:blue]122 [/color]000 000 [color:red]104 105 033 000 [/color]000 
-144 | 000 000 000 000 000 000 000 000 
-152 | 000 000 000 000 000 000 [color:blue]053 [/color]000 
-160 | 000 000 000 [color:blue]038 [/color]000 000 000 000 
-168 | 000 000 000 000 000 000 000 000 
-176 | 000 [color:red]111 102 032 119 097 116 101 [/color]
-184 | [color:red]114 000 [/color]000 000 000 000 000 [color:red]119 [/color]
-192 | [color:red]111 114 108 100 000 [/color]000 000 000 
-200 | 000 000 000 000 000 000 000 000 
-208 | 000 000 000 000 000 [color:blue]191 [/color]000 000 
-216 | 000 [color:red]104 101 108 108 111 000 [/color]000 
-224 | [color:blue]018 [/color]000 000 000 000 000 000 000 
-232 | 000 000 000 [color:blue]139 [/color]000 000 000 000 
-240 | 000 000 000 000 [color:blue]121 [/color]000 000 000 
-248 | 000 000 000 [color:blue]217 [/color]000 000 000 000 
+   0 | 000 000 000 000 000 000 [color:royalblue]177 [/color]000 
+   8 | 000 000 000 000 000 000 000 000 
+  16 | 000 000 [color:red]049 057 055 050 000 [/color]000 
+  24 | 000 000 000 000 000 000 000 000 
+  32 | [color:royalblue]121 [/color]000 000 000 000 000 [color:red]104 101 [/color]
+  40 | [color:red]121 111 000 [/color]000 000 000 000 000 
+  48 | 000 000 000 000 000 [color:red]109 111 111 [/color]
+  56 | [color:red]000 [/color]000 000 000 000 000 000 000 
+  64 | 000 [color:royalblue]040 [/color]000 000 [color:royalblue]193 [/color]000 000 000 
+  72 | 000 000 000 000 000 000 000 000 
+  80 | [color:royalblue]220 [/color]000 000 000 000 000 000 000 
+  88 | [color:royalblue]191 [/color]000 000 000 000 [color:royalblue]121 [/color]000 000 
+  96 | 000 [color:royalblue]054 [/color]000 000 000 000 000 000 
+ 104 | 000 000 000 000 000 000 000 000 
+ 112 | 000 000 000 000 000 000 000 000 
+ 120 | 000 [color:red]104 101 108 108 111 032 119 [/color]
+ 128 | [color:red]111 114 108 100 000 [/color]000 000 000 
+ 136 | [color:royalblue]122 [/color]000 000 [color:red]104 105 033 000 [/color]000 
+ 144 | 000 000 000 000 000 000 000 000 
+ 152 | 000 000 000 000 000 000 [color:royalblue]053 [/color]000 
+ 160 | 000 000 000 [color:royalblue]038 [/color]000 000 000 000 
+ 168 | 000 000 000 000 000 000 000 000 
+ 176 | 000 [color:red]111 102 032 119 097 116 101 [/color]
+ 184 | [color:red]114 000 [/color]000 000 000 000 000 [color:red]119 [/color]
+ 192 | [color:red]111 114 108 100 000 [/color]000 000 000 
+ 200 | 000 000 000 000 000 000 000 000 
+ 208 | 000 000 000 000 000 [color:royalblue]191 [/color]000 000 
+ 216 | 000 [color:red]104 101 108 108 111 000 [/color]000 
+ 224 | [color:royalblue]018 [/color]000 000 000 000 000 000 000 
+ 232 | 000 000 000 [color:royalblue]139 [/color]000 000 000 000 
+ 240 | 000 000 000 000 [color:royalblue]121 [/color]000 000 000 
+ 248 | 000 000 000 [color:royalblue]217 [/color]000 000 000 000 
 CARD:15
-  0 | 000 000 000 000 000 000 [color:red]098 097 [/color]
-  8 | [color:red]122 000 [/color]000 000 000 000 000 000 
- 16 | 000 000 000 000 000 000 000 000 
- 24 | [color:red]122 [/color]000 000 000 000 000 000 000 
- 32 | 000 000 000 000 000 000 000 000 
- 40 | 000 000 000 [color:blue]094 [/color]000 000 000 000 
- 48 | 000 000 [color:blue]006 [/color]000 000 000 000 000 
- 56 | 000 [color:red]109 111 111 000 [/color]000 000 000 
- 64 | 000 000 000 [color:blue]093 [/color]000 000 000 000 
- 72 | 000 000 000 000 [color:red]106 097 099 107 [/color]
- 80 | [color:red]115 000 [/color]000 000 000 000 000 000 
- 88 | 000 000 000 000 000 [color:red]104 101 108 [/color]
- 96 | [color:red]108 111 032 119 111 114 108 100 [/color]
-104 | [color:red]000 [/color]000 000 000 000 000 000 000 
-112 | 000 000 000 000 000 000 000 000 
-120 | 000 [color:blue]093 [/color]000 000 000 000 000 000 
-128 | 000 [color:blue]059 [/color]000 000 000 [color:red]122 [/color]000 000 
-136 | [color:red]122 [/color]000 000 [color:blue]057 [/color]000 000 000 000 
-144 | 000 000 000 000 000 000 000 000 
-152 | 000 000 000 000 000 [color:blue]057 [/color]000 000 
-160 | 000 000 000 000 [color:red]109 111 111 122 [/color]
-168 | [color:red]000 [/color]000 000 000 000 000 000 000 
-176 | 000 000 [color:blue]093 [/color]000 000 000 000 000 
-184 | 000 000 000 000 000 000 [color:blue]008 [/color]000 
-192 | 000 000 000 [color:blue]006 [/color]000 000 [color:blue]096 [/color]000 
-200 | 000 000 000 [color:blue]006 [/color]000 000 000 000 
-208 | [color:blue]058 [/color]000 000 000 000 000 000 000 
-216 | 000 [color:blue]006 [/color]000 000 000 000 [color:blue]164 [/color]000 
-224 | 000 000 000 000 000 000 000 000 
-232 | 000 [color:blue]093 [/color]000 000 000 000 000 000 
-240 | 000 000 000 000 000 000 000 000 
-248 | 000 000 000 [color:blue]076 [/color]000 000 000 000 
+   0 | 000 000 000 000 000 000 [color:red]098 097 [/color]
+   8 | [color:red]122 000 [/color]000 000 000 000 000 000 
+  16 | 000 000 000 000 000 000 000 000 
+  24 | [color:red]122 [/color]000 000 000 000 000 000 000 
+  32 | 000 000 000 000 000 000 000 000 
+  40 | 000 000 000 [color:royalblue]094 [/color]000 000 000 000 
+  48 | 000 000 [color:royalblue]006 [/color]000 000 000 000 000 
+  56 | 000 [color:red]109 111 111 000 [/color]000 000 000 
+  64 | 000 000 000 [color:royalblue]093 [/color]000 000 000 000 
+  72 | 000 000 000 000 [color:red]106 097 099 107 [/color]
+  80 | [color:red]115 000 [/color]000 000 000 000 000 000 
+  88 | 000 000 000 000 000 [color:red]104 101 108 [/color]
+  96 | [color:red]108 111 032 119 111 114 108 100 [/color]
+ 104 | [color:red]000 [/color]000 000 000 000 000 000 000 
+ 112 | 000 000 000 000 000 000 000 000 
+ 120 | 000 [color:royalblue]093 [/color]000 000 000 000 000 000 
+ 128 | 000 [color:royalblue]059 [/color]000 000 000 [color:red]122 [/color]000 000 
+ 136 | [color:red]122 [/color]000 000 [color:royalblue]057 [/color]000 000 000 000 
+ 144 | 000 000 000 000 000 000 000 000 
+ 152 | 000 000 000 000 000 [color:royalblue]057 [/color]000 000 
+ 160 | 000 000 000 000 [color:red]109 111 111 122 [/color]
+ 168 | [color:red]000 [/color]000 000 000 000 000 000 000 
+ 176 | 000 000 [color:royalblue]093 [/color]000 000 000 000 000 
+ 184 | 000 000 000 000 000 000 [color:royalblue]008 [/color]000 
+ 192 | 000 000 000 [color:royalblue]006 [/color]000 000 [color:royalblue]096 [/color]000 
+ 200 | 000 000 000 [color:royalblue]006 [/color]000 000 000 000 
+ 208 | [color:royalblue]058 [/color]000 000 000 000 000 000 000 
+ 216 | 000 [color:royalblue]006 [/color]000 000 000 000 [color:royalblue]164 [/color]000 
+ 224 | 000 000 000 000 000 000 000 000 
+ 232 | 000 [color:royalblue]093 [/color]000 000 000 000 000 000 
+ 240 | 000 000 000 000 000 000 000 000 
+ 248 | 000 000 000 [color:royalblue]076 [/color]000 000 000 000 
 CARD:16
-  0 | [color:red]104 101 108 108 111 032 119 111 [/color]
-  8 | [color:red]114 108 100 000 [/color]000 000 000 000 
- 16 | 000 000 000 000 000 [color:blue]093 [/color]000 000 
- 24 | 000 000 000 [color:blue]056 [/color]000 000 000 [color:blue]169 [/color]
- 32 | [color:blue][/color]000 000 000 000 000 000 000 000 
- 40 | 000 000 000 000 000 000 [color:blue]123 [/color]000 
- 48 | 000 000 000 [color:red]122 [/color]000 000 000 000 
- 56 | [color:red]102 111 111 098 097 114 098 097 [/color]
- 64 | [color:red]122 000 [/color]000 000 000 000 000 000 
- 72 | 000 000 000 000 000 000 000 000 
- 80 | 000 000 000 000 000 000 000 000 
- 88 | [color:red]098 097 114 000 [/color]000 [color:red]049 057 055 [/color]
- 96 | [color:red]050 000 [/color]000 000 [color:red]122 [/color]000 000 000 
-104 | 000 000 000 000 000 000 000 000 
-112 | 000 000 000 [color:blue]088 [/color]000 000 000 000 
-120 | 000 [color:blue]064 [/color]000 [color:red]109 111 111 000 [/color]000 
-128 | 000 000 000 000 000 000 000 000 
-136 | 000 000 000 000 000 000 000 000 
-144 | 000 000 000 000 000 000 000 000 
-152 | 000 000 [color:red]119 105 122 097 114 100 [/color]
-160 | [color:red]000 [/color]000 000 000 000 [color:blue]003 [/color]000 000 
-168 | [color:blue]000 109 111 111 122 000 [/color]000 000 
-176 | 000 000 000 000 000 000 000 [color:blue]123 [/color]
-184 | [color:blue][/color]000 000 [color:blue]208 [/color]000 000 000 000 000 
-192 | 000 [color:blue]125 [/color]000 000 000 000 000 000 
-200 | 000 000 000 000 000 000 [color:red]098 097 [/color]
-208 | [color:red]122 000 [/color]000 000 000 000 000 000 
-216 | [color:blue]125 [/color]000 000 000 000 000 000 000 
-224 | 000 000 000 000 [color:blue]123 [/color]000 000 [color:blue]123 [/color]
-232 | [color:blue][/color]000 000 000 000 000 000 000 000 
-240 | [color:blue]206 [/color]000 000 000 000 [color:blue]154 [/color]000 000 
-248 | 000 000 [color:red]122 [/color]000 000 000 000 000 
+   0 | [color:red]104 101 108 108 111 032 119 111 [/color]
+   8 | [color:red]114 108 100 000 [/color]000 000 000 000 
+  16 | 000 000 000 000 000 [color:royalblue]093 [/color]000 000 
+  24 | 000 000 000 [color:royalblue]056 [/color]000 000 000 [color:royalblue]169 [/color]
+  32 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+  40 | 000 000 000 000 000 000 [color:royalblue]123 [/color]000 
+  48 | 000 000 000 [color:red]122 [/color]000 000 000 000 
+  56 | [color:red]102 111 111 098 097 114 098 097 [/color]
+  64 | [color:red]122 000 [/color]000 000 000 000 000 000 
+  72 | 000 000 000 000 000 000 000 000 
+  80 | 000 000 000 000 000 000 000 000 
+  88 | [color:red]098 097 114 000 [/color]000 [color:red]049 057 055 [/color]
+  96 | [color:red]050 000 [/color]000 000 [color:red]122 [/color]000 000 000 
+ 104 | 000 000 000 000 000 000 000 000 
+ 112 | 000 000 000 [color:royalblue]088 [/color]000 000 000 000 
+ 120 | 000 [color:royalblue]064 [/color]000 [color:red]109 111 111 000 [/color]000 
+ 128 | 000 000 000 000 000 000 000 000 
+ 136 | 000 000 000 000 000 000 000 000 
+ 144 | 000 000 000 000 000 000 000 000 
+ 152 | 000 000 [color:red]119 105 122 097 114 100 [/color]
+ 160 | [color:red]000 [/color]000 000 000 000 [color:royalblue]003 [/color]000 000 
+ 168 | [color:royalblue]000 109 111 111 122 000 [/color]000 000 
+ 176 | 000 000 000 000 000 000 000 [color:royalblue]123 [/color]
+ 184 | [color:royalblue][/color]000 000 [color:royalblue]208 [/color]000 000 000 000 000 
+ 192 | 000 [color:royalblue]125 [/color]000 000 000 000 000 000 
+ 200 | 000 000 000 000 000 000 [color:red]098 097 [/color]
+ 208 | [color:red]122 000 [/color]000 000 000 000 000 000 
+ 216 | [color:royalblue]125 [/color]000 000 000 000 000 000 000 
+ 224 | 000 000 000 000 [color:royalblue]123 [/color]000 000 [color:royalblue]123 [/color]
+ 232 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+ 240 | [color:royalblue]206 [/color]000 000 000 000 [color:royalblue]154 [/color]000 000 
+ 248 | 000 000 [color:red]122 [/color]000 000 000 000 000 
 CARD:17
-  0 | 000 000 000 000 [color:blue]191 [/color]000 000 000 
-  8 | [color:blue]046 [/color]000 000 000 000 000 000 000 
- 16 | 000 000 000 000 000 000 000 [color:blue]085 [/color]
- 24 | [color:blue][/color]000 000 000 [color:blue]190 [/color]000 000 000 000 
- 32 | 000 [color:blue]043 [/color]000 000 000 000 000 000 
- 40 | 000 [color:blue]190 [/color]000 [color:red]104 101 108 108 111 [/color]
- 48 | [color:red]000 [/color]000 000 000 000 000 000 000 
- 56 | 000 000 000 000 000 000 000 000 
- 64 | 000 000 000 000 000 000 000 000 
- 72 | 000 000 000 000 000 000 000 000 
- 80 | 000 000 000 000 000 [color:red]049 057 055 [/color]
- 88 | [color:red]050 000 [/color]000 000 000 000 000 000 
- 96 | 000 000 000 000 000 000 [color:blue]184 [/color]000 
-104 | 000 000 000 000 000 000 000 [color:red]098 [/color]
-112 | [color:red]097 122 000 [/color]000 000 000 000 [color:blue]186 [/color]
-120 | [color:blue][/color]000 [color:red]111 102 032 119 097 116 101 [/color]
-128 | [color:red]114 000 [/color]000 000 000 000 000 000 
-136 | 000 000 000 000 000 [color:blue]190 [/color]000 000 
-144 | 000 000 000 000 000 000 000 [color:red]119 [/color]
-152 | [color:red]111 114 108 100 000 [/color]000 000 000 
-160 | 000 000 000 [color:red]122 [/color]000 000 000 000 
-168 | [color:blue]153 [/color]000 000 000 000 000 000 000 
-176 | 000 000 000 000 000 000 000 000 
-184 | [color:red]104 101 121 111 000 [/color]000 [color:red]104 101 [/color]
-192 | [color:red]108 108 111 032 119 111 114 108 [/color]
-200 | [color:red]100 000 [/color]000 [color:blue]111 [/color]000 [color:red]109 111 111 [/color]
-208 | [color:red]000 [/color]000 000 000 [color:blue]151 [/color]000 000 000 
-216 | 000 000 000 000 000 000 000 000 
-224 | 000 000 000 000 000 000 000 000 
-232 | [color:blue]151 [/color]000 000 000 000 000 000 000 
-240 | [color:blue]121 [/color]000 000 [color:blue]205 [/color]000 000 000 000 
-248 | 000 [color:blue]206 [/color]000 000 000 000 000 000 
+   0 | 000 000 000 000 [color:royalblue]191 [/color]000 000 000 
+   8 | [color:royalblue]046 [/color]000 000 000 000 000 000 000 
+  16 | 000 000 000 000 000 000 000 [color:royalblue]085 [/color]
+  24 | [color:royalblue][/color]000 000 000 [color:royalblue]190 [/color]000 000 000 000 
+  32 | 000 [color:royalblue]043 [/color]000 000 000 000 000 000 
+  40 | 000 [color:royalblue]190 [/color]000 [color:red]104 101 108 108 111 [/color]
+  48 | [color:red]000 [/color]000 000 000 000 000 000 000 
+  56 | 000 000 000 000 000 000 000 000 
+  64 | 000 000 000 000 000 000 000 000 
+  72 | 000 000 000 000 000 000 000 000 
+  80 | 000 000 000 000 000 [color:red]049 057 055 [/color]
+  88 | [color:red]050 000 [/color]000 000 000 000 000 000 
+  96 | 000 000 000 000 000 000 [color:royalblue]184 [/color]000 
+ 104 | 000 000 000 000 000 000 000 [color:red]098 [/color]
+ 112 | [color:red]097 122 000 [/color]000 000 000 000 [color:royalblue]186 [/color]
+ 120 | [color:royalblue][/color]000 [color:red]111 102 032 119 097 116 101 [/color]
+ 128 | [color:red]114 000 [/color]000 000 000 000 000 000 
+ 136 | 000 000 000 000 000 [color:royalblue]190 [/color]000 000 
+ 144 | 000 000 000 000 000 000 000 [color:red]119 [/color]
+ 152 | [color:red]111 114 108 100 000 [/color]000 000 000 
+ 160 | 000 000 000 [color:red]122 [/color]000 000 000 000 
+ 168 | [color:royalblue]153 [/color]000 000 000 000 000 000 000 
+ 176 | 000 000 000 000 000 000 000 000 
+ 184 | [color:red]104 101 121 111 000 [/color]000 [color:red]104 101 [/color]
+ 192 | [color:red]108 108 111 032 119 111 114 108 [/color]
+ 200 | [color:red]100 000 [/color]000 [color:royalblue]111 [/color]000 [color:red]109 111 111 [/color]
+ 208 | [color:red]000 [/color]000 000 000 [color:royalblue]151 [/color]000 000 000 
+ 216 | 000 000 000 000 000 000 000 000 
+ 224 | 000 000 000 000 000 000 000 000 
+ 232 | [color:royalblue]151 [/color]000 000 000 000 000 000 000 
+ 240 | [color:royalblue]121 [/color]000 000 [color:royalblue]205 [/color]000 000 000 000 
+ 248 | 000 [color:royalblue]206 [/color]000 000 000 000 000 000 
 CARD:18
-  0 | 000 000 000 000 000 000 000 000 
-  8 | [color:red]122 [/color]000 000 000 000 000 000 000 
- 16 | [color:blue]141 [/color]000 000 000 000 000 000 000 
- 24 | 000 000 000 000 000 000 000 000 
- 32 | 000 000 000 000 [color:blue]239 [/color]000 000 [color:blue]239 [/color]
- 40 | [color:blue][/color]000 000 000 000 000 000 000 000 
- 48 | 000 000 [color:blue]223 [/color]000 000 000 000 [color:blue]211 [/color]
- 56 | [color:blue][/color]000 000 000 000 000 [color:red]104 101 108 [/color]
- 64 | [color:red]108 111 032 119 111 114 108 100 [/color]
- 72 | [color:red]000 [/color]000 000 [color:blue]239 [/color]000 000 000 000 
- 80 | 000 000 000 000 [color:blue]064 [/color]000 000 000 
- 88 | 000 000 000 [color:blue]139 [/color]000 000 000 000 
- 96 | 000 000 000 000 000 000 000 000 
-104 | 000 000 000 000 [color:blue]139 [/color]000 000 000 
-112 | [color:red]122 [/color]000 000 000 000 000 [color:blue]140 [/color]000 
-120 | 000 000 000 000 000 000 000 000 
-128 | 000 [color:red]122 [/color]000 000 000 000 [color:red]104 105 [/color]
-136 | [color:red]033 000 [/color]000 [color:red]109 111 111 000 [/color]000 
-144 | 000 000 000 000 000 000 000 [color:blue]062 [/color]
-152 | [color:blue][/color]000 000 000 000 000 000 000 000 
-160 | 000 000 000 000 000 000 000 000 
-168 | 000 000 000 000 000 000 000 000 
-176 | 000 000 000 000 000 000 000 000 
-184 | 000 000 000 000 000 000 000 000 
-192 | [color:blue]134 [/color]000 000 000 [color:blue]061 [/color]000 000 000 
-200 | 000 000 000 000 000 000 000 000 
-208 | 000 000 000 [color:red]109 111 111 122 000 [/color]
-216 | [color:red][/color]000 000 000 000 000 000 000 [color:red]106 [/color]
-224 | [color:red]097 099 107 115 000 [/color]000 000 000 
-232 | [color:blue]239 [/color]000 000 [color:blue]241 [/color]000 000 000 [color:red]098 [/color]
-240 | [color:red]097 122 000 [/color]000 000 000 000 000 
-248 | 000 000 000 000 000 000 000 000 
+   0 | 000 000 000 000 000 000 000 000 
+   8 | [color:red]122 [/color]000 000 000 000 000 000 000 
+  16 | [color:royalblue]141 [/color]000 000 000 000 000 000 000 
+  24 | 000 000 000 000 000 000 000 000 
+  32 | 000 000 000 000 [color:royalblue]239 [/color]000 000 [color:royalblue]239 [/color]
+  40 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+  48 | 000 000 [color:royalblue]223 [/color]000 000 000 000 [color:royalblue]211 [/color]
+  56 | [color:royalblue][/color]000 000 000 000 000 [color:red]104 101 108 [/color]
+  64 | [color:red]108 111 032 119 111 114 108 100 [/color]
+  72 | [color:red]000 [/color]000 000 [color:royalblue]239 [/color]000 000 000 000 
+  80 | 000 000 000 000 [color:royalblue]064 [/color]000 000 000 
+  88 | 000 000 000 [color:royalblue]139 [/color]000 000 000 000 
+  96 | 000 000 000 000 000 000 000 000 
+ 104 | 000 000 000 000 [color:royalblue]139 [/color]000 000 000 
+ 112 | [color:red]122 [/color]000 000 000 000 000 [color:royalblue]140 [/color]000 
+ 120 | 000 000 000 000 000 000 000 000 
+ 128 | 000 [color:red]122 [/color]000 000 000 000 [color:red]104 105 [/color]
+ 136 | [color:red]033 000 [/color]000 [color:red]109 111 111 000 [/color]000 
+ 144 | 000 000 000 000 000 000 000 [color:royalblue]062 [/color]
+ 152 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+ 160 | 000 000 000 000 000 000 000 000 
+ 168 | 000 000 000 000 000 000 000 000 
+ 176 | 000 000 000 000 000 000 000 000 
+ 184 | 000 000 000 000 000 000 000 000 
+ 192 | [color:royalblue]134 [/color]000 000 000 [color:royalblue]061 [/color]000 000 000 
+ 200 | 000 000 000 000 000 000 000 000 
+ 208 | 000 000 000 [color:red]109 111 111 122 000 [/color]
+ 216 | [color:red][/color]000 000 000 000 000 000 000 [color:red]106 [/color]
+ 224 | [color:red]097 099 107 115 000 [/color]000 000 000 
+ 232 | [color:royalblue]239 [/color]000 000 [color:royalblue]241 [/color]000 000 000 [color:red]098 [/color]
+ 240 | [color:red]097 122 000 [/color]000 000 000 000 000 
+ 248 | 000 000 000 000 000 000 000 000 
 CARD:19
-  0 | 000 000 000 000 000 [color:blue]134 [/color]000 000 
-  8 | [color:blue]134 [/color]000 000 000 000 000 000 [color:red]102 [/color]
- 16 | [color:red]111 111 098 097 114 098 097 122 [/color]
- 24 | [color:red]000 [/color]000 000 000 [color:red]122 [/color]000 000 [color:blue]185 [/color]
- 32 | [color:blue][/color]000 000 000 000 000 000 000 [color:blue]204 [/color]
- 40 | [color:blue][/color]000 000 000 000 000 000 [color:red]098 097 [/color]
- 48 | [color:red]114 000 [/color]000 000 [color:red]122 [/color]000 000 000 
- 56 | 000 000 000 000 000 000 000 000 
- 64 | [color:blue]226 [/color]000 000 000 000 000 000 [color:blue]228 [/color]
- 72 | [color:blue][/color]000 000 000 000 000 000 000 000 
- 80 | 000 000 000 000 [color:blue]015 [/color]000 000 000 
- 88 | 000 000 000 000 000 000 000 000 
- 96 | 000 000 000 000 000 000 000 000 
-104 | 000 000 000 000 000 000 000 000 
-112 | [color:red]119 105 122 097 114 100 000 [/color]000 
-120 | 000 000 [color:blue]206 [/color]000 000 000 000 000 
-128 | 000 000 000 [color:blue]134 [/color]000 000 [color:red]104 101 [/color]
-136 | [color:red]108 108 111 032 119 111 114 108 [/color]
-144 | [color:red]100 000 [/color]000 000 000 000 000 000 
-152 | 000 000 000 000 [color:blue]046 [/color]000 000 [color:red]122 [/color]
-160 | [color:red][/color]000 000 000 000 000 000 000 000 
-168 | 000 000 000 000 000 000 000 [color:blue]023 [/color]
-176 | [color:blue][/color]000 000 000 [color:blue]228 [/color]000 000 000 000 
-184 | 000 [color:red]049 057 055 050 000 [/color]000 000 
-192 | 000 000 000 [color:blue]137 [/color]000 000 000 [color:blue]112 [/color]
-200 | [color:blue][/color]000 000 000 000 [color:red]098 097 122 000 [/color]
-208 | [color:red][/color]000 000 000 000 000 000 000 000 
-216 | 000 000 000 000 000 000 000 000 
-224 | [color:blue]134 [/color]000 [color:red]109 111 111 000 [/color]000 000 
-232 | 000 [color:red]109 111 111 122 000 [/color]000 000 
-240 | 000 000 [color:blue]226 [/color]000 000 000 000 000 
-248 | 000 000 [color:blue]233 [/color]000 000 000 000 000 
+   0 | 000 000 000 000 000 [color:royalblue]134 [/color]000 000 
+   8 | [color:royalblue]134 [/color]000 000 000 000 000 000 [color:red]102 [/color]
+  16 | [color:red]111 111 098 097 114 098 097 122 [/color]
+  24 | [color:red]000 [/color]000 000 000 [color:red]122 [/color]000 000 [color:royalblue]185 [/color]
+  32 | [color:royalblue][/color]000 000 000 000 000 000 000 [color:royalblue]204 [/color]
+  40 | [color:royalblue][/color]000 000 000 000 000 000 [color:red]098 097 [/color]
+  48 | [color:red]114 000 [/color]000 000 [color:red]122 [/color]000 000 000 
+  56 | 000 000 000 000 000 000 000 000 
+  64 | [color:royalblue]226 [/color]000 000 000 000 000 000 [color:royalblue]228 [/color]
+  72 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+  80 | 000 000 000 000 [color:royalblue]015 [/color]000 000 000 
+  88 | 000 000 000 000 000 000 000 000 
+  96 | 000 000 000 000 000 000 000 000 
+ 104 | 000 000 000 000 000 000 000 000 
+ 112 | [color:red]119 105 122 097 114 100 000 [/color]000 
+ 120 | 000 000 [color:royalblue]206 [/color]000 000 000 000 000 
+ 128 | 000 000 000 [color:royalblue]134 [/color]000 000 [color:red]104 101 [/color]
+ 136 | [color:red]108 108 111 032 119 111 114 108 [/color]
+ 144 | [color:red]100 000 [/color]000 000 000 000 000 000 
+ 152 | 000 000 000 000 [color:royalblue]046 [/color]000 000 [color:red]122 [/color]
+ 160 | [color:red][/color]000 000 000 000 000 000 000 000 
+ 168 | 000 000 000 000 000 000 000 [color:royalblue]023 [/color]
+ 176 | [color:royalblue][/color]000 000 000 [color:royalblue]228 [/color]000 000 000 000 
+ 184 | 000 [color:red]049 057 055 050 000 [/color]000 000 
+ 192 | 000 000 000 [color:royalblue]137 [/color]000 000 000 [color:royalblue]112 [/color]
+ 200 | [color:royalblue][/color]000 000 000 000 [color:red]098 097 122 000 [/color]
+ 208 | [color:red][/color]000 000 000 000 000 000 000 000 
+ 216 | 000 000 000 000 000 000 000 000 
+ 224 | [color:royalblue]134 [/color]000 [color:red]109 111 111 000 [/color]000 000 
+ 232 | 000 [color:red]109 111 111 122 000 [/color]000 000 
+ 240 | 000 000 [color:royalblue]226 [/color]000 000 000 000 000 
+ 248 | 000 000 [color:royalblue]233 [/color]000 000 000 000 000 
 CARD:20
-  0 | 000 000 000 000 000 000 000 000 
-  8 | 000 000 000 000 000 000 000 000 
- 16 | 000 000 000 [color:blue]080 [/color]000 000 000 000 
- 24 | 000 000 000 000 000 000 000 000 
- 32 | [color:blue]106 [/color]000 000 000 [color:blue]134 [/color]000 000 000 
- 40 | [color:blue]200 [/color]000 000 000 000 000 000 000 
- 48 | 000 000 000 000 [color:blue]228 [/color]000 000 [color:blue]174 [/color]
- 56 | [color:blue][/color]000 000 000 000 000 000 [color:blue]171 [/color]000 
- 64 | 000 000 000 [color:blue]237 [/color]000 000 000 000 
- 72 | 000 000 000 000 000 000 000 000 
- 80 | [color:red]104 101 108 108 111 032 119 111 [/color]
- 88 | [color:red]114 108 100 000 [/color]000 000 [color:blue]200 [/color]000 
- 96 | 000 000 000 000 000 [color:blue]108 [/color]000 000 
-104 | 000 000 [color:red]104 101 121 111 000 [/color]000 
-112 | 000 000 000 [color:blue]133 [/color]000 000 000 [color:red]111 [/color]
-120 | [color:red]102 032 119 097 116 101 114 000 [/color]
-128 | [color:red][/color]000 000 000 000 000 [color:red]109 111 111 [/color]
-136 | [color:red]000 [/color]000 000 000 000 000 000 000 
-144 | [color:red]122 [/color]000 000 000 000 000 000 000 
-152 | 000 000 000 000 000 000 000 000 
-160 | 000 000 000 000 000 000 000 000 
-168 | 000 000 000 [color:red]104 101 108 108 111 [/color]
-176 | [color:red]000 [/color]000 000 000 000 000 000 000 
-184 | [color:blue]202 [/color]000 000 000 000 000 000 000 
-192 | [color:blue]119 [/color]000 000 000 000 000 000 000 
-200 | [color:red]119 111 114 108 100 000 [/color]000 000 
-208 | 000 000 000 000 000 000 000 000 
-216 | 000 000 000 000 000 000 000 000 
-224 | 000 [color:blue]133 [/color]000 000 [color:red]049 057 055 050 [/color]
-232 | [color:red]000 [/color]000 000 000 000 [color:red]098 097 122 [/color]
-240 | [color:red]000 [/color]000 [color:blue]133 [/color]000 000 000 000 000 
-248 | 000 000 000 000 000 000 000 000 
+   0 | 000 000 000 000 000 000 000 000 
+   8 | 000 000 000 000 000 000 000 000 
+  16 | 000 000 000 [color:royalblue]080 [/color]000 000 000 000 
+  24 | 000 000 000 000 000 000 000 000 
+  32 | [color:royalblue]106 [/color]000 000 000 [color:royalblue]134 [/color]000 000 000 
+  40 | [color:royalblue]200 [/color]000 000 000 000 000 000 000 
+  48 | 000 000 000 000 [color:royalblue]228 [/color]000 000 [color:royalblue]174 [/color]
+  56 | [color:royalblue][/color]000 000 000 000 000 000 [color:royalblue]171 [/color]000 
+  64 | 000 000 000 [color:royalblue]237 [/color]000 000 000 000 
+  72 | 000 000 000 000 000 000 000 000 
+  80 | [color:red]104 101 108 108 111 032 119 111 [/color]
+  88 | [color:red]114 108 100 000 [/color]000 000 [color:royalblue]200 [/color]000 
+  96 | 000 000 000 000 000 [color:royalblue]108 [/color]000 000 
+ 104 | 000 000 [color:red]104 101 121 111 000 [/color]000 
+ 112 | 000 000 000 [color:royalblue]133 [/color]000 000 000 [color:red]111 [/color]
+ 120 | [color:red]102 032 119 097 116 101 114 000 [/color]
+ 128 | [color:red][/color]000 000 000 000 000 [color:red]109 111 111 [/color]
+ 136 | [color:red]000 [/color]000 000 000 000 000 000 000 
+ 144 | [color:red]122 [/color]000 000 000 000 000 000 000 
+ 152 | 000 000 000 000 000 000 000 000 
+ 160 | 000 000 000 000 000 000 000 000 
+ 168 | 000 000 000 [color:red]104 101 108 108 111 [/color]
+ 176 | [color:red]000 [/color]000 000 000 000 000 000 000 
+ 184 | [color:royalblue]202 [/color]000 000 000 000 000 000 000 
+ 192 | [color:royalblue]119 [/color]000 000 000 000 000 000 000 
+ 200 | [color:red]119 111 114 108 100 000 [/color]000 000 
+ 208 | 000 000 000 000 000 000 000 000 
+ 216 | 000 000 000 000 000 000 000 000 
+ 224 | 000 [color:royalblue]133 [/color]000 000 [color:red]049 057 055 050 [/color]
+ 232 | [color:red]000 [/color]000 000 000 000 [color:red]098 097 122 [/color]
+ 240 | [color:red]000 [/color]000 [color:royalblue]133 [/color]000 000 000 000 000 
+ 248 | 000 000 000 000 000 000 000 000 
 CARD:21
-  0 | 000 000 000 000 000 [color:blue]027 [/color]000 000 
-  8 | 000 000 000 000 000 000 000 000 
- 16 | 000 [color:blue]215 [/color]000 000 000 000 000 000 
- 24 | [color:red]104 101 108 108 111 032 119 111 [/color]
- 32 | [color:red]114 108 100 000 [/color]000 000 000 000 
- 40 | 000 [color:red]104 105 033 000 [/color]000 000 000 
- 48 | 000 000 000 [color:red]122 [/color]000 000 000 000 
- 56 | 000 000 [color:blue]213 [/color]000 000 000 000 000 
- 64 | 000 000 000 000 000 000 000 000 
- 72 | 000 000 000 000 [color:blue]142 [/color]000 000 000 
- 80 | 000 000 [color:blue]213 [/color]000 000 000 000 [color:blue]103 [/color]
- 88 | [color:blue][/color]000 000 000 000 000 000 [color:blue]025 [/color]000 
- 96 | 000 000 000 [color:blue]143 [/color]000 000 [color:blue]024 109 [/color]
-104 | [color:blue]111 111 122 000 [/color]000 000 [color:red]106 097 [/color]
-112 | [color:red]099 107 115 000 [/color]000 000 [color:blue]141 [/color]000 
-120 | 000 000 000 000 000 [color:blue]024 [/color]000 000 
-128 | 000 000 000 000 [color:blue]110 [/color]000 000 000 
-136 | 000 000 000 000 000 [color:red]109 111 111 [/color]
-144 | [color:red]000 [/color]000 000 000 000 000 000 000 
-152 | 000 000 000 000 000 000 000 000 
-160 | [color:blue]141 [/color]000 000 000 000 000 000 000 
-168 | 000 000 000 [color:blue]041 [/color]000 000 000 000 
-176 | 000 000 000 000 000 [color:red]122 [/color]000 000 
-184 | 000 [color:blue]024 [/color]000 000 000 000 000 000 
-192 | 000 000 000 000 000 000 000 000 
-200 | 000 000 000 000 000 000 000 000 
-208 | 000 000 000 000 000 [color:red]098 097 122 [/color]
-216 | [color:red]000 [/color]000 000 000 000 000 000 000 
-224 | 000 000 000 [color:blue]025 [/color]000 000 000 000 
-232 | 000 000 000 000 [color:red]122 [/color]000 000 000 
-240 | 000 000 000 000 000 000 [color:blue]213 [/color]000 
-248 | 000 000 000 000 000 000 000 000 
+   0 | 000 000 000 000 000 [color:royalblue]027 [/color]000 000 
+   8 | 000 000 000 000 000 000 000 000 
+  16 | 000 [color:royalblue]215 [/color]000 000 000 000 000 000 
+  24 | [color:red]104 101 108 108 111 032 119 111 [/color]
+  32 | [color:red]114 108 100 000 [/color]000 000 000 000 
+  40 | 000 [color:red]104 105 033 000 [/color]000 000 000 
+  48 | 000 000 000 [color:red]122 [/color]000 000 000 000 
+  56 | 000 000 [color:royalblue]213 [/color]000 000 000 000 000 
+  64 | 000 000 000 000 000 000 000 000 
+  72 | 000 000 000 000 [color:royalblue]142 [/color]000 000 000 
+  80 | 000 000 [color:royalblue]213 [/color]000 000 000 000 [color:royalblue]103 [/color]
+  88 | [color:royalblue][/color]000 000 000 000 000 000 [color:royalblue]025 [/color]000 
+  96 | 000 000 000 [color:royalblue]143 [/color]000 000 [color:royalblue]024 109 [/color]
+ 104 | [color:royalblue]111 111 122 000 [/color]000 000 [color:red]106 097 [/color]
+ 112 | [color:red]099 107 115 000 [/color]000 000 [color:royalblue]141 [/color]000 
+ 120 | 000 000 000 000 000 [color:royalblue]024 [/color]000 000 
+ 128 | 000 000 000 000 [color:royalblue]110 [/color]000 000 000 
+ 136 | 000 000 000 000 000 [color:red]109 111 111 [/color]
+ 144 | [color:red]000 [/color]000 000 000 000 000 000 000 
+ 152 | 000 000 000 000 000 000 000 000 
+ 160 | [color:royalblue]141 [/color]000 000 000 000 000 000 000 
+ 168 | 000 000 000 [color:royalblue]041 [/color]000 000 000 000 
+ 176 | 000 000 000 000 000 [color:red]122 [/color]000 000 
+ 184 | 000 [color:royalblue]024 [/color]000 000 000 000 000 000 
+ 192 | 000 000 000 000 000 000 000 000 
+ 200 | 000 000 000 000 000 000 000 000 
+ 208 | 000 000 000 000 000 [color:red]098 097 122 [/color]
+ 216 | [color:red]000 [/color]000 000 000 000 000 000 000 
+ 224 | 000 000 000 [color:royalblue]025 [/color]000 000 000 000 
+ 232 | 000 000 000 000 [color:red]122 [/color]000 000 000 
+ 240 | 000 000 000 000 000 000 [color:royalblue]213 [/color]000 
+ 248 | 000 000 000 000 000 000 000 000 
 CARD:22
-  0 | 000 000 000 000 000 [color:blue]224 [/color]000 000 
-  8 | 000 000 000 [color:blue]069 [/color]000 000 000 [color:blue]083 [/color]
- 16 | [color:blue][/color]000 000 000 [color:blue]085 [/color]000 000 [color:blue]224 [/color]000 
- 24 | 000 000 000 [color:blue]224 [/color]000 000 000 000 
- 32 | [color:red]122 [/color]000 000 000 000 000 000 000 
- 40 | 000 000 000 000 000 000 [color:red]098 097 [/color]
- 48 | [color:red]114 000 [/color]000 000 000 000 000 000 
- 56 | 000 000 000 [color:blue]201 [/color]000 000 000 000 
- 64 | 000 000 000 000 [color:blue]224 119 105 122 [/color]
- 72 | [color:blue]097 114 100 000 [/color]000 000 000 000 
- 80 | 000 000 000 [color:red]109 111 111 000 [/color]000 
- 88 | 000 000 000 000 000 000 000 000 
- 96 | 000 000 000 000 000 000 000 000 
-104 | 000 000 000 000 000 [color:blue]203 [/color]000 000 
-112 | 000 000 000 000 000 000 000 000 
-120 | 000 000 000 000 000 000 000 [color:blue]145 [/color]
-128 | [color:blue][/color]000 000 000 000 [color:blue]137 [/color]000 000 000 
-136 | 000 [color:red]102 111 111 098 097 114 098 [/color]
-144 | [color:red]097 122 000 [/color]000 000 000 000 000 
-152 | 000 000 000 [color:red]109 111 111 122 000 [/color]
-160 | [color:red][/color]000 000 000 [color:blue]227 [/color]000 000 000 000 
-168 | 000 000 000 000 000 [color:red]049 057 055 [/color]
-176 | [color:red]050 000 [/color]000 000 [color:red]122 [/color]000 000 000 
-184 | 000 000 000 000 000 000 000 000 
-192 | 000 000 [color:blue]046 [/color]000 000 000 000 000 
-200 | 000 [color:red]098 097 122 000 [/color]000 000 000 
-208 | 000 000 [color:blue]201 [/color]000 000 000 000 000 
-216 | 000 000 [color:red]122 [/color]000 000 [color:blue]155 [/color]000 000 
-224 | [color:red]104 101 108 108 111 032 119 111 [/color]
-232 | [color:red]114 108 100 000 [/color]000 000 000 000 
-240 | 000 000 000 [color:blue]173 [/color]000 000 000 000 
-248 | 000 000 000 000 000 000 000 000 
+   0 | 000 000 000 000 000 [color:royalblue]224 [/color]000 000 
+   8 | 000 000 000 [color:royalblue]069 [/color]000 000 000 [color:royalblue]083 [/color]
+  16 | [color:royalblue][/color]000 000 000 [color:royalblue]085 [/color]000 000 [color:royalblue]224 [/color]000 
+  24 | 000 000 000 [color:royalblue]224 [/color]000 000 000 000 
+  32 | [color:red]122 [/color]000 000 000 000 000 000 000 
+  40 | 000 000 000 000 000 000 [color:red]098 097 [/color]
+  48 | [color:red]114 000 [/color]000 000 000 000 000 000 
+  56 | 000 000 000 [color:royalblue]201 [/color]000 000 000 000 
+  64 | 000 000 000 000 [color:royalblue]224 119 105 122 [/color]
+  72 | [color:royalblue]097 114 100 000 [/color]000 000 000 000 
+  80 | 000 000 000 [color:red]109 111 111 000 [/color]000 
+  88 | 000 000 000 000 000 000 000 000 
+  96 | 000 000 000 000 000 000 000 000 
+ 104 | 000 000 000 000 000 [color:royalblue]203 [/color]000 000 
+ 112 | 000 000 000 000 000 000 000 000 
+ 120 | 000 000 000 000 000 000 000 [color:royalblue]145 [/color]
+ 128 | [color:royalblue][/color]000 000 000 000 [color:royalblue]137 [/color]000 000 000 
+ 136 | 000 [color:red]102 111 111 098 097 114 098 [/color]
+ 144 | [color:red]097 122 000 [/color]000 000 000 000 000 
+ 152 | 000 000 000 [color:red]109 111 111 122 000 [/color]
+ 160 | [color:red][/color]000 000 000 [color:royalblue]227 [/color]000 000 000 000 
+ 168 | 000 000 000 000 000 [color:red]049 057 055 [/color]
+ 176 | [color:red]050 000 [/color]000 000 [color:red]122 [/color]000 000 000 
+ 184 | 000 000 000 000 000 000 000 000 
+ 192 | 000 000 [color:royalblue]046 [/color]000 000 000 000 000 
+ 200 | 000 [color:red]098 097 122 000 [/color]000 000 000 
+ 208 | 000 000 [color:royalblue]201 [/color]000 000 000 000 000 
+ 216 | 000 000 [color:red]122 [/color]000 000 [color:royalblue]155 [/color]000 000 
+ 224 | [color:red]104 101 108 108 111 032 119 111 [/color]
+ 232 | [color:red]114 108 100 000 [/color]000 000 000 000 
+ 240 | 000 000 000 [color:royalblue]173 [/color]000 000 000 000 
+ 248 | 000 000 000 000 000 000 000 000 
 CARD:23
-  0 | 000 000 000 [color:blue]116 [/color]000 000 000 000 
-  8 | 000 000 000 [color:red]049 057 055 050 000 [/color]
- 16 | [color:red][/color]000 000 000 000 000 000 000 000 
- 24 | 000 000 000 000 [color:red]104 101 121 111 [/color]
- 32 | [color:red]000 [/color]000 [color:red]122 [/color]000 000 000 000 000 
- 40 | 000 000 [color:blue]030 [/color]000 000 000 [color:red]104 101 [/color]
- 48 | [color:red]108 108 111 032 119 111 114 108 [/color]
- 56 | [color:red]100 000 [/color]000 000 000 000 [color:blue]116 [/color]000 
- 64 | 000 [color:blue]174 [/color]000 000 [color:red]098 097 122 000 [/color]
- 72 | [color:red][/color]000 000 000 [color:blue]194 [/color]000 000 000 000 
- 80 | [color:blue]046 [/color]000 000 000 000 000 000 [color:blue]118 [/color]
- 88 | [color:blue][/color]000 000 000 000 000 000 000 000 
- 96 | 000 000 000 000 000 000 000 000 
-104 | 000 000 000 [color:blue]116 [/color]000 000 000 000 
-112 | 000 000 000 000 [color:red]109 111 111 000 [/color]
-120 | [color:red][/color]000 000 000 000 000 000 000 000 
-128 | 000 [color:blue]197 [/color]000 000 000 000 000 [color:blue]011 [/color]
-136 | [color:blue][/color]000 000 000 000 000 000 000 000 
-144 | 000 000 000 000 000 000 000 000 
-152 | 000 000 000 000 000 000 000 000 
-160 | [color:blue]068 [/color]000 000 000 000 000 000 000 
-168 | 000 000 000 000 [color:red]119 111 114 108 [/color]
-176 | [color:red]100 000 [/color]000 000 000 000 000 000 
-184 | 000 000 000 000 [color:blue]172 [/color]000 000 000 
-192 | 000 000 [color:red]104 101 108 108 111 000 [/color]
-200 | [color:red][/color]000 000 000 000 000 000 [color:blue]172 [/color]000 
-208 | 000 000 000 000 000 000 000 000 
-216 | 000 000 000 000 000 000 000 000 
-224 | 000 000 000 000 000 000 000 000 
-232 | 000 000 000 000 000 000 [color:blue]116 [/color]000 
-240 | 000 [color:blue]117 [/color]000 000 000 000 000 000 
-248 | 000 [color:blue]028 [/color]000 000 000 000 000 000 
+   0 | 000 000 000 [color:royalblue]116 [/color]000 000 000 000 
+   8 | 000 000 000 [color:red]049 057 055 050 000 [/color]
+  16 | [color:red][/color]000 000 000 000 000 000 000 000 
+  24 | 000 000 000 000 [color:red]104 101 121 111 [/color]
+  32 | [color:red]000 [/color]000 [color:red]122 [/color]000 000 000 000 000 
+  40 | 000 000 [color:royalblue]030 [/color]000 000 000 [color:red]104 101 [/color]
+  48 | [color:red]108 108 111 032 119 111 114 108 [/color]
+  56 | [color:red]100 000 [/color]000 000 000 000 [color:royalblue]116 [/color]000 
+  64 | 000 [color:royalblue]174 [/color]000 000 [color:red]098 097 122 000 [/color]
+  72 | [color:red][/color]000 000 000 [color:royalblue]194 [/color]000 000 000 000 
+  80 | [color:royalblue]046 [/color]000 000 000 000 000 000 [color:royalblue]118 [/color]
+  88 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+  96 | 000 000 000 000 000 000 000 000 
+ 104 | 000 000 000 [color:royalblue]116 [/color]000 000 000 000 
+ 112 | 000 000 000 000 [color:red]109 111 111 000 [/color]
+ 120 | [color:red][/color]000 000 000 000 000 000 000 000 
+ 128 | 000 [color:royalblue]197 [/color]000 000 000 000 000 [color:royalblue]011 [/color]
+ 136 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+ 144 | 000 000 000 000 000 000 000 000 
+ 152 | 000 000 000 000 000 000 000 000 
+ 160 | [color:royalblue]068 [/color]000 000 000 000 000 000 000 
+ 168 | 000 000 000 000 [color:red]119 111 114 108 [/color]
+ 176 | [color:red]100 000 [/color]000 000 000 000 000 000 
+ 184 | 000 000 000 000 [color:royalblue]172 [/color]000 000 000 
+ 192 | 000 000 [color:red]104 101 108 108 111 000 [/color]
+ 200 | [color:red][/color]000 000 000 000 000 000 [color:royalblue]172 [/color]000 
+ 208 | 000 000 000 000 000 000 000 000 
+ 216 | 000 000 000 000 000 000 000 000 
+ 224 | 000 000 000 000 000 000 000 000 
+ 232 | 000 000 000 000 000 000 [color:royalblue]116 [/color]000 
+ 240 | 000 [color:royalblue]117 [/color]000 000 000 000 000 000 
+ 248 | 000 [color:royalblue]028 [/color]000 000 000 000 000 000 
 CARD:24
-  0 | 000 000 000 000 [color:blue]162 [/color]000 000 000 
-  8 | 000 000 000 000 000 000 [color:blue]164 [/color]000 
- 16 | 000 000 000 [color:blue]163 [/color]000 000 000 000 
- 24 | 000 000 000 000 [color:blue]114 [/color]000 000 000 
- 32 | 000 000 000 000 [color:blue]162 [/color]000 000 000 
- 40 | 000 000 000 000 000 000 000 000 
- 48 | [color:red]104 101 108 108 111 032 119 111 [/color]
- 56 | [color:red]114 108 100 000 [/color]000 000 000 [color:blue]049 [/color]
- 64 | [color:blue][/color]000 000 000 000 000 000 000 000 
- 72 | 000 000 000 000 000 000 000 [color:red]122 [/color]
- 80 | [color:red][/color]000 000 000 000 000 000 000 000 
- 88 | [color:blue]048 [/color]000 000 000 000 000 000 000 
- 96 | 000 000 000 000 [color:red]109 111 111 122 [/color]
-104 | [color:red]000 [/color]000 000 000 000 000 000 [color:red]122 [/color]
-112 | [color:red][/color]000 000 [color:red]104 105 033 000 [/color]000 000 
-120 | 000 000 [color:blue]048 [/color]000 000 000 000 000 
-128 | 000 [color:red]111 102 032 119 097 116 101 [/color]
-136 | [color:red]114 000 [/color]000 000 000 000 [color:blue]129 [/color]000 
-144 | 000 000 000 000 000 000 000 000 
-152 | 000 000 000 000 000 000 000 000 
-160 | 000 000 [color:red]109 111 111 000 [/color]000 000 
-168 | [color:red]098 097 122 000 [/color]000 000 000 000 
-176 | 000 000 000 000 000 [color:blue]049 [/color]000 000 
-184 | 000 000 000 [color:blue]051 [/color]000 000 000 000 
-192 | 000 000 000 000 000 000 000 000 
-200 | 000 000 000 000 000 000 000 000 
-208 | 000 000 [color:blue]168 [/color]000 000 [color:red]106 097 099 [/color]
-216 | [color:red]107 115 000 [/color]000 000 000 000 000 
-224 | 000 000 000 000 [color:blue]213 [/color]000 000 000 
-232 | 000 000 000 000 000 000 000 000 
-240 | [color:blue]048 [/color]000 000 000 000 000 000 000 
-248 | 000 [color:blue]100 [/color]000 000 [color:blue]168 [/color]000 000 000 
+   0 | 000 000 000 000 [color:royalblue]162 [/color]000 000 000 
+   8 | 000 000 000 000 000 000 [color:royalblue]164 [/color]000 
+  16 | 000 000 000 [color:royalblue]163 [/color]000 000 000 000 
+  24 | 000 000 000 000 [color:royalblue]114 [/color]000 000 000 
+  32 | 000 000 000 000 [color:royalblue]162 [/color]000 000 000 
+  40 | 000 000 000 000 000 000 000 000 
+  48 | [color:red]104 101 108 108 111 032 119 111 [/color]
+  56 | [color:red]114 108 100 000 [/color]000 000 000 [color:royalblue]049 [/color]
+  64 | [color:royalblue][/color]000 000 000 000 000 000 000 000 
+  72 | 000 000 000 000 000 000 000 [color:red]122 [/color]
+  80 | [color:red][/color]000 000 000 000 000 000 000 000 
+  88 | [color:royalblue]048 [/color]000 000 000 000 000 000 000 
+  96 | 000 000 000 000 [color:red]109 111 111 122 [/color]
+ 104 | [color:red]000 [/color]000 000 000 000 000 000 [color:red]122 [/color]
+ 112 | [color:red][/color]000 000 [color:red]104 105 033 000 [/color]000 000 
+ 120 | 000 000 [color:royalblue]048 [/color]000 000 000 000 000 
+ 128 | 000 [color:red]111 102 032 119 097 116 101 [/color]
+ 136 | [color:red]114 000 [/color]000 000 000 000 [color:royalblue]129 [/color]000 
+ 144 | 000 000 000 000 000 000 000 000 
+ 152 | 000 000 000 000 000 000 000 000 
+ 160 | 000 000 [color:red]109 111 111 000 [/color]000 000 
+ 168 | [color:red]098 097 122 000 [/color]000 000 000 000 
+ 176 | 000 000 000 000 000 [color:royalblue]049 [/color]000 000 
+ 184 | 000 000 000 [color:royalblue]051 [/color]000 000 000 000 
+ 192 | 000 000 000 000 000 000 000 000 
+ 200 | 000 000 000 000 000 000 000 000 
+ 208 | 000 000 [color:royalblue]168 [/color]000 000 [color:red]106 097 099 [/color]
+ 216 | [color:red]107 115 000 [/color]000 000 000 000 000 
+ 224 | 000 000 000 000 [color:royalblue]213 [/color]000 000 000 
+ 232 | 000 000 000 000 000 000 000 000 
+ 240 | [color:royalblue]048 [/color]000 000 000 000 000 000 000 
+ 248 | 000 [color:royalblue]100 [/color]000 000 [color:royalblue]168 [/color]000 000 000 
 CARD:25
 
 
@@ -801,8 +801,8 @@ CARD:25
 
 
 
-[color:blue]char[/color] *cow = [color:brown]"mooz"[/color]; 
-[color:blue]char[/color] v = *[color:teal]([/color]cow + [color:teal]3[/color][color:teal])[/color]; 
+[color:royalblue]char[/color] *cow = [color:brown]"mooz"[/color]; 
+[color:royalblue]char[/color] v = *[color:teal]([/color]cow + [color:teal]3[/color][color:teal])[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%c\n"[/color],v[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -825,7 +825,7 @@ CARD:26
 
 
 
-[color:blue]char[/color] foo[color:teal][[/color][color:teal]4[/color][color:teal]][/color];  
+[color:royalblue]char[/color] foo[color:teal][[/color][color:teal]4[/color][color:teal]][/color];  
 foo[color:teal][[/color][color:teal]0[/color][color:teal]][/color] = [color:brown]'b'[/color];
 foo[color:teal][[/color][color:teal]1[/color][color:teal]][/color] = [color:brown]'a'[/color];
 foo[color:teal][[/color][color:teal]2[/color][color:teal]][/color] = [color:brown]'z'[/color];
@@ -849,9 +849,9 @@ CARD:27
 
 
 
-[color:blue]char[/color] *hello = [color:brown]"hello world"[/color]; 
-[color:blue]char[/color] *pa = hello + [color:teal]1[/color]; 
-[color:blue]char[/color] *pb = pa + [color:teal]2[/color]; 
+[color:royalblue]char[/color] *hello = [color:brown]"hello world"[/color]; 
+[color:royalblue]char[/color] *pa = hello + [color:teal]1[/color]; 
+[color:royalblue]char[/color] *pb = pa + [color:teal]2[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pb[color:teal])[/color];
@@ -876,8 +876,8 @@ CARD:28
 
 
 
-[color:blue]char[/color] cow[color:teal][[/color][color:teal]4[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'m'[/color], [color:brown]'o'[/color], [color:brown]'o'[/color], [color:teal]0[/color][color:teal]}[/color]; 
-[color:blue]char[/color] *pa = cow + [color:teal]2[/color]; 
+[color:royalblue]char[/color] cow[color:teal][[/color][color:teal]4[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'m'[/color], [color:brown]'o'[/color], [color:brown]'o'[/color], [color:teal]0[/color][color:teal]}[/color]; 
+[color:royalblue]char[/color] *pa = cow + [color:teal]2[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -898,13 +898,13 @@ CARD:29
 
 
 
-[color:blue]char[/color] cow[color:teal][[/color][color:teal]4[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] cow[color:teal][[/color][color:teal]4[/color][color:teal]][/color]; 
 cow[color:teal][[/color][color:teal]0[/color][color:teal]][/color] = [color:brown]'m'[/color];
 cow[color:teal][[/color][color:teal]1[/color][color:teal]][/color] = [color:brown]'o'[/color];
 cow[color:teal][[/color][color:teal]2[/color][color:teal]][/color] = [color:brown]'o'[/color];
 cow[color:teal][[/color][color:teal]3[/color][color:teal]][/color] = [color:teal]0[/color];
 
-[color:blue]char[/color] *pa = cow + [color:teal]1[/color]; 
+[color:royalblue]char[/color] *pa = cow + [color:teal]1[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -926,9 +926,9 @@ CARD:30
 
 
 
-[color:blue]char[/color] foo[color:teal][[/color][color:teal]4[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'b'[/color], [color:brown]'a'[/color], [color:brown]'z'[/color], [color:teal]0[/color][color:teal]}[/color]; 
-[color:blue]char[/color] *pf = foo + [color:teal]2[/color]; 
-[color:blue]char[/color] letter; 
+[color:royalblue]char[/color] foo[color:teal][[/color][color:teal]4[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'b'[/color], [color:brown]'a'[/color], [color:brown]'z'[/color], [color:teal]0[/color][color:teal]}[/color]; 
+[color:royalblue]char[/color] *pf = foo + [color:teal]2[/color]; 
+[color:royalblue]char[/color] letter; 
 letter = *pf;
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%c\n"[/color],letter[color:teal])[/color];
@@ -954,7 +954,7 @@ CARD:31
 
 
 
-[color:blue]char[/color] *foo = [color:brown]"baz"[/color]; 
+[color:royalblue]char[/color] *foo = [color:brown]"baz"[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],foo[color:teal])[/color];
 
@@ -974,9 +974,9 @@ CARD:32
 
 
 
-[color:blue]char[/color] *hello = [color:brown]"hello world"[/color]; 
-[color:blue]char[/color] *pa = hello; 
-[color:blue]char[/color] *pb = pa; 
+[color:royalblue]char[/color] *hello = [color:brown]"hello world"[/color]; 
+[color:royalblue]char[/color] *pa = hello; 
+[color:royalblue]char[/color] *pb = pa; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pb[color:teal])[/color];
@@ -1003,7 +1003,7 @@ CARD:33
 
 
 
-[color:blue]char[/color] *word = [color:brown]"wizard"[/color]; 
+[color:royalblue]char[/color] *word = [color:brown]"wizard"[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],word[color:teal])[/color];
 
@@ -1023,7 +1023,7 @@ CARD:34
 
 
 
-[color:blue]char[/color] foo[color:teal][[/color][color:teal]4[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] foo[color:teal][[/color][color:teal]4[/color][color:teal]][/color]; 
 
 [color:teal]0[/color][color:teal][[/color]foo[color:teal]][/color] = [color:teal]0[/color];
 [color:teal]([/color][color:teal]0[/color][color:teal][[/color]foo[color:teal]][/color] + foo[color:teal][[/color][color:teal]0[/color][color:teal]][/color][color:teal])[/color][color:teal][[/color]foo[color:teal]][/color] = [color:brown]'b'[/color];
@@ -1048,9 +1048,9 @@ CARD:35
 
 
 
-[color:blue]char[/color] *foo = [color:brown]"baz"[/color]; 
-[color:blue]char[/color] *pb = foo + [color:teal]2[/color]; 
-[color:blue]char[/color] letter; 
+[color:royalblue]char[/color] *foo = [color:brown]"baz"[/color]; 
+[color:royalblue]char[/color] *pb = foo + [color:teal]2[/color]; 
+[color:royalblue]char[/color] letter; 
 letter = *pb;
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%c\n"[/color],letter[color:teal])[/color];
@@ -1075,7 +1075,7 @@ CARD:36
 
 
 
-[color:blue]char[/color] year[color:teal][[/color][color:teal]5[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] year[color:teal][[/color][color:teal]5[/color][color:teal]][/color]; 
 
 year[color:teal][[/color][color:teal]0[/color][color:teal]][/color] = [color:brown]'1'[/color];
 year[color:teal][[/color][color:teal]1[/color][color:teal]][/color] = [color:brown]'9'[/color];
@@ -1101,9 +1101,9 @@ CARD:37
 
 
 
-[color:blue]char[/color] *foo = [color:brown]"foobarbaz"[/color]; 
-[color:blue]char[/color] *pa = &foo[color:teal][[/color][color:teal]8[/color][color:teal]][/color]; 
-[color:blue]char[/color] va = *pa; 
+[color:royalblue]char[/color] *foo = [color:brown]"foobarbaz"[/color]; 
+[color:royalblue]char[/color] *pa = &foo[color:teal][[/color][color:teal]8[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] va = *pa; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%c\n"[/color],va[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
@@ -1128,8 +1128,8 @@ CARD:38
 
 
 
-[color:blue]char[/color] *cow = [color:brown]"moo"[/color]; 
-[color:blue]char[/color] *pa = [color:teal]([/color]cow + [color:teal]2[/color][color:teal])[/color]; 
+[color:royalblue]char[/color] *cow = [color:brown]"moo"[/color]; 
+[color:royalblue]char[/color] *pa = [color:teal]([/color]cow + [color:teal]2[/color][color:teal])[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -1152,8 +1152,8 @@ CARD:39
 
 
 
-[color:blue]char[/color] *hello = [color:brown]"hello world"[/color]; 
-[color:blue]char[/color] *pa = hello+[color:teal]3[/color]; 
+[color:royalblue]char[/color] *hello = [color:brown]"hello world"[/color]; 
+[color:royalblue]char[/color] *pa = hello+[color:teal]3[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],hello[color:teal])[/color];
@@ -1173,7 +1173,7 @@ CARD:40
 
 
 
-[color:blue]char[/color] cow[color:teal][[/color][color:teal]5[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] cow[color:teal][[/color][color:teal]5[/color][color:teal]][/color]; 
 
 cow[color:teal][[/color][color:teal]0[/color][color:teal]][/color] = [color:brown]'m'[/color];
 *[color:teal]([/color]cow+[color:teal]1[/color][color:teal])[/color] = [color:brown]'o'[/color];
@@ -1181,7 +1181,7 @@ cow[color:teal][[/color][color:teal]2[/color][color:teal]][/color] = [color:brow
 cow[color:teal][[/color][color:teal]3[/color][color:teal]][/color] = [color:brown]'z'[/color];
 cow[color:teal][[/color][color:teal]4[/color][color:teal]][/color] = [color:teal]0[/color];
 
-[color:blue]char[/color] letter = cow[color:teal][[/color][color:teal]3[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] letter = cow[color:teal][[/color][color:teal]3[/color][color:teal]][/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%c\n"[/color],letter[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -1204,8 +1204,8 @@ CARD:41
 
 
 
-[color:blue]char[/color] *cow = [color:brown]"moo"[/color]; 
-[color:blue]char[/color] *pa = &cow[color:teal][[/color][color:teal]2[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] *cow = [color:brown]"moo"[/color]; 
+[color:royalblue]char[/color] *pa = &cow[color:teal][[/color][color:teal]2[/color][color:teal]][/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -1228,8 +1228,8 @@ CARD:42
 
 
 
-[color:blue]char[/color] *cow = [color:brown]"moo"[/color]; 
-[color:blue]char[/color] *pa = cow; 
+[color:royalblue]char[/color] *cow = [color:brown]"moo"[/color]; 
+[color:royalblue]char[/color] *pa = cow; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -1252,8 +1252,8 @@ CARD:43
 
 
 
-[color:blue]char[/color] *foo = [color:brown]"baz"[/color]; 
-[color:blue]char[/color] letter; 
+[color:royalblue]char[/color] *foo = [color:brown]"baz"[/color]; 
+[color:royalblue]char[/color] letter; 
 letter = foo[color:teal][[/color][color:teal]2[/color][color:teal]][/color];
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%c\n"[/color],letter[color:teal])[/color];
@@ -1276,7 +1276,7 @@ CARD:44
 
 
 
-[color:blue]char[/color] year[color:teal][[/color][color:teal]5[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] year[color:teal][[/color][color:teal]5[/color][color:teal]][/color]; 
 
 year[color:teal][[/color][color:teal]0[/color][color:teal]][/color] = [color:teal]49[/color];
 year[color:teal][[/color][color:teal]1[/color][color:teal]][/color] = [color:teal]57[/color];
@@ -1303,8 +1303,8 @@ CARD:45
 
 
 
-[color:blue]char[/color] *cow = [color:brown]"moo"[/color]; 
-[color:blue]char[/color] *pa = &cow[color:teal][[/color][color:teal]1[/color][color:teal]][/color]; 
+[color:royalblue]char[/color] *cow = [color:brown]"moo"[/color]; 
+[color:royalblue]char[/color] *pa = &cow[color:teal][[/color][color:teal]1[/color][color:teal]][/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],cow[color:teal])[/color];
@@ -1327,8 +1327,8 @@ CARD:46
 
 
 
-[color:blue]char[/color] hello[color:teal][[/color][color:teal]5[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'e'[/color], [color:brown]'y'[/color], [color:brown]'o'[/color], [color:teal]0[/color][color:teal]}[/color]; 
-[color:blue]char[/color] *p = hello + [color:teal]2[/color]; 
+[color:royalblue]char[/color] hello[color:teal][[/color][color:teal]5[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'e'[/color], [color:brown]'y'[/color], [color:brown]'o'[/color], [color:teal]0[/color][color:teal]}[/color]; 
+[color:royalblue]char[/color] *p = hello + [color:teal]2[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],p[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],hello[color:teal])[/color];
@@ -1353,7 +1353,7 @@ CARD:47
 
 
 
-[color:blue]char[/color] *world = [color:brown]"hello world"[/color]; 
+[color:royalblue]char[/color] *world = [color:brown]"hello world"[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],world[color:teal])[/color];
 
@@ -1375,8 +1375,8 @@ CARD:48
 
 
 
-[color:blue]char[/color] *hi = [color:brown]"hello"[/color]; 
-[color:blue]char[/color] *ph = hi + [color:teal]3[/color]; 
+[color:royalblue]char[/color] *hi = [color:brown]"hello"[/color]; 
+[color:royalblue]char[/color] *ph = hi + [color:teal]3[/color]; 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],ph[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],hi[color:teal])[/color];
 
@@ -1398,8 +1398,8 @@ CARD:49
 
 
 
-[color:blue]char[/color] *hello = [color:brown]"world"[/color]; 
-[color:blue]char[/color] *p = hello + [color:teal]2[/color]; 
+[color:royalblue]char[/color] *hello = [color:brown]"world"[/color]; 
+[color:royalblue]char[/color] *p = hello + [color:teal]2[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],p[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],hello[color:teal])[/color];
@@ -1424,7 +1424,7 @@ CARD:50
 
 
 
-[color:blue]char[/color] *hi = [color:brown]"world"[/color]; 
+[color:royalblue]char[/color] *hi = [color:brown]"world"[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],hi[color:teal])[/color];
 
@@ -1447,7 +1447,7 @@ CARD:51
 
 
 
-[color:blue]char[/color] *bottle = [color:brown]"of water"[/color]; 
+[color:royalblue]char[/color] *bottle = [color:brown]"of water"[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],bottle[color:teal])[/color];
 
@@ -1467,9 +1467,9 @@ CARD:52
 
 
 
-[color:blue]char[/color] *hello = [color:brown]"hello world"[/color]; 
-[color:blue]char[/color] *pa = hello + [color:teal]1[/color]; 
-[color:blue]char[/color] *pb = pa - [color:teal]1[/color]; 
+[color:royalblue]char[/color] *hello = [color:brown]"hello world"[/color]; 
+[color:royalblue]char[/color] *pa = hello + [color:teal]1[/color]; 
+[color:royalblue]char[/color] *pb = pa - [color:teal]1[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pa[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],pb[color:teal])[/color];
@@ -1496,7 +1496,7 @@ CARD:53
 
 
 
-[color:blue]char[/color] word[color:teal][[/color][color:teal]4[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color], [color:brown]'!'[/color], [color:teal]0[/color][color:teal]}[/color]; 
+[color:royalblue]char[/color] word[color:teal][[/color][color:teal]4[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color], [color:brown]'!'[/color], [color:teal]0[/color][color:teal]}[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],word[color:teal])[/color];
 
@@ -1517,8 +1517,8 @@ CARD:54
 
 
 
-[color:blue]char[/color] *foo = [color:brown]"baz"[/color]; 
-[color:blue]char[/color] letter = [color:brown]'z'[/color]; 
+[color:royalblue]char[/color] *foo = [color:brown]"baz"[/color]; 
+[color:royalblue]char[/color] letter = [color:brown]'z'[/color]; 
 
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%c\n"[/color],letter[color:teal])[/color];
 [color:olive]printf[/color][color:teal]([/color][color:brown]"%s\n"[/color],foo[color:teal])[/color];
@@ -1542,7 +1542,7 @@ CARD:55
 
 
 
-[color:blue]char[/color] name[color:teal][[/color][color:teal]6[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'j'[/color], [color:brown]'a'[/color], [color:teal]0[/color], [color:teal]0[/color], [color:brown]'s'[/color], [color:teal]0[/color][color:teal]}[/color]; 
+[color:royalblue]char[/color] name[color:teal][[/color][color:teal]6[/color][color:teal]][/color] = [color:teal]{[/color][color:brown]'j'[/color], [color:brown]'a'[/color], [color:teal]0[/color], [color:teal]0[/color], [color:brown]'s'[/color], [color:teal]0[/color][color:teal]}[/color]; 
 name[color:teal][[/color][color:teal]2[/color][color:teal]][/color] = [color:brown]'c'[/color];
 name[color:teal][[/color][color:teal]3[/color][color:teal]][/color] = [color:brown]'k'[/color];
 

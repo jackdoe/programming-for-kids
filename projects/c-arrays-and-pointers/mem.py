@@ -32,9 +32,9 @@ intro = [
 
    you need to look in the memory for
    + [color:red]98 97 114 0[/color] (e.g. address 172)
-   + [color:blue]172[/color] (foo pointing to "bar")
-   + [color:blue]173[/color] (pa = foo + 1)
-   + [color:blue]97[/color] (v = foo[1])
+   + [color:royalblue]172[/color] (foo pointing to "bar")
+   + [color:royalblue]173[/color] (pa = foo + 1)
+   + [color:royalblue]97[/color] (v = foo[1])
 
 4. First player that finds a match
    wins and puts the winning card aside.
@@ -115,7 +115,7 @@ CODE      CHAR            CODE   CHAR
 The character type in C needs one byte 
 of memory.
 
-[color:blue]char[/color] x = [color:brown]'a'[/color];
+[color:royalblue]char[/color] x = [color:brown]'a'[/color];
 x = [color:brown]'b'[/color];
 x = [color:teal]99[/color];
 
@@ -143,7 +143,7 @@ an ASCII code.
 """,
 """             POINTERS IN C
 
-[color:blue]char[/color] x = [color:brown]'a'[/color];
+[color:royalblue]char[/color] x = [color:brown]'a'[/color];
 
 There is some place in memory holding
 the value [color:teal]97[/color] (the ASCII code for [color:brown]'a'[/color]).
@@ -157,7 +157,7 @@ Now on address [color:red]251[/color] we have 98, ASCII
 for [color:brown]'b'[/color]. You can get the address of x
 you use & like so:
 
-[color:blue]char[/color] *p;
+[color:royalblue]char[/color] *p;
 p = &x;
 
 that means, make a variable p that will 
@@ -178,7 +178,7 @@ Array is a continuous piece of memory,
 where each element has the same size.
 For example array of 5 integers:
 
-[color:blue]int[/color] arr[color:teal][5][/color];
+[color:royalblue]int[/color] arr[color:teal][5][/color];
 
 Each integer is 4 bytes, so 20 bytes
 will be needed (5 elements * 4 bytes).
@@ -186,7 +186,7 @@ Array of characters is easier to think
 about, because each character is exactly
 1 byte:
 
-[color:blue]char[/color] arr[color:teal][5][/color];
+[color:royalblue]char[/color] arr[color:teal][5][/color];
 
 So we will need 5 * 1 byte of continuous 
 memory. The value of the [color:green]arr[/color] variable is 
@@ -195,15 +195,15 @@ location of first element of the 5 bytes
 in memory. Imagine they are on address 
 189. We can dereference the pointer 
 using brackets [] or star *:
-[color:magenta]Address[/color] = [color:green]Base Address[/color] + ([color:red]Offset[/color]*[color:blue]Size[/color])
+[color:magenta]Address[/color] = [color:green]Base Address[/color] + ([color:red]Offset[/color]*[color:royalblue]Size[/color])
 
-[color:green]arr[/color][[color:red]3[/color]] = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
-*([color:green]arr[/color]+[color:red]3[/color]) = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
-[color:red]3[/color][[color:green]arr[/color]] = 49 store 49 memory [color:green]189[/color]+[color:red]3[/color]*[color:blue]1[/color]
+[color:green]arr[/color][[color:red]3[/color]] = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:royalblue]1[/color]
+*([color:green]arr[/color]+[color:red]3[/color]) = 49 store 49 at memory [color:green]189[/color]+[color:red]3[/color]*[color:royalblue]1[/color]
+[color:red]3[/color][[color:green]arr[/color]] = 49 store 49 memory [color:green]189[/color]+[color:red]3[/color]*[color:royalblue]1[/color]
 [color:silver].. the last one actually works :D[/color]
 
-We multiplty by 1 because each [color:blue]char[/color] is [color:blue]1[/color]
-byte, for [color:blue]int[/color] we need to multiply by [color:blue]4[/color].
+We multiplty by 1 because each [color:royalblue]char[/color] is [color:royalblue]1[/color]
+byte, for [color:royalblue]int[/color] we need to multiply by [color:royalblue]4[/color].
 """,
 """             STRINGS IN C
 String is a continuous sequence of 
@@ -211,26 +211,26 @@ characters. C does not have a string
 type, so strings are just arrays of
 characters that end with 0.
 
-[color:blue]char[/color] a[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color], [color:teal]0}[/color];
-[color:blue]char[/color] b[color:teal][3][/color] = [color:teal]{104, 105, 0}[/color];
-[color:blue]char[/color] *c = [color:brown]"hi"[/color];
+[color:royalblue]char[/color] a[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color], [color:teal]0}[/color];
+[color:royalblue]char[/color] b[color:teal][3][/color] = [color:teal]{104, 105, 0}[/color];
+[color:royalblue]char[/color] *c = [color:brown]"hi"[/color];
 
 Those three represent the same thing.
 Pointer to an array of 3 bytes.
 You dereference (follow) the pointers
 with [] or *:
 
-[color:blue]char[/color] v = c[color:teal][1][/color]; // v now has value 105
-[color:blue]char[/color] v = *[color:teal]([/color]c+[color:teal]1)[/color]; // v now has value 105
+[color:royalblue]char[/color] v = c[color:teal][1][/color]; // v now has value 105
+[color:royalblue]char[/color] v = *[color:teal]([/color]c+[color:teal]1)[/color]; // v now has value 105
 
 All string functions in C read from
 the reference until first zero byte.
 
-[color:blue]char[/color] f[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:teal]0[/color], [color:brown]'i'[/color][color:teal]}[/color];
+[color:royalblue]char[/color] f[color:teal][3][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:teal]0[/color], [color:brown]'i'[/color][color:teal]}[/color];
 printf("%s",f) will print just 'h'
 because it will stop at the first 0;
 
-[color:blue]char[/color] e[color:teal][2][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color][color:teal]}[/color];
+[color:royalblue]char[/color] e[color:teal][2][/color] = [color:teal]{[/color][color:brown]'h'[/color], [color:brown]'i'[/color][color:teal]}[/color];
 
 printf("%s",e) will print some junk 
 after 'hi', it will actually read memory
@@ -645,7 +645,7 @@ for i in range(55 - len(intro) - len(code)):
     CARD+=1
     c = ''
     for i in range(32):
-        print(f"{(i*8):3} | ", end='')
+        print(f" {(i*8):3} | ", end='')
         
         if c != '':
             print(f"[color:{c}]",end='')
@@ -655,12 +655,12 @@ for i in range(55 - len(intro) - len(code)):
                 if c == '':
                     c = 'red'
                     if kind == 'pointer':
-                         c = 'blue'
+                         c = 'royalblue'
                     print(f"[color:{c}]",end='')
             else:
                 if c != '':
                     c = ''
-                    print(f"[/color]", end='')                
+                    print(f"[/color]", end='')
             print(f"{v:03} ",end='')
         if c != '':
             print(f"[/color]")
@@ -684,7 +684,7 @@ for c in runCode:
     c = re.sub(r'(\(|\))','[color:teal]\\1[/color]',c)
     c = re.sub(r'(\{|\})','[color:teal]\\1[/color]',c)
 
-    c = re.sub('(char|int\s+)','[color:blue]\\1[/color]',c)
+    c = re.sub('(char|int\s+)','[color:royalblue]\\1[/color]',c)
     c = re.sub('(for)','[color:magenta]\\1[/color]',c)
     c = re.sub(r"(?<!')(\d+)",'[color:teal]\\1[/color]',c)
     c = re.sub('printf','[color:olive]printf[/color]',c)
