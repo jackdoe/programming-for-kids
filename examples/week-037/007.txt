@@ -1,0 +1,8 @@
+def numbers(a,b):
+	x = []
+	for i in range(a,b):
+		x.append(i)
+	return x
+ 	
+a = numbers(300,1000)
+print(a)
