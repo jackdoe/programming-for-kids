@@ -464,6 +464,39 @@ card_str(f"""{'REDUCE INFORMATION'.center(40)}
 """)
 
 
+card_str(f"""{'FILTERS'.center(40)}
+
+You can do all kinds of manpulations
+of the image data. 
+
+An example is Black And White filter:
+
+  for every pixel
+     if the pixel is not zero
+       set the pixel to WHITE
+     else
+       set the pixel to BLACK
+
+Simple Blur filter:
+  
+  for every block of 8x8 pixels
+    replace them with their
+    average
+     
+Invert filter:
+  for each pixel:
+    set it to the opposite
+    e.g. ORANGE <-> BLUE
+         RED <-> GREEN
+         WHITE <-> BLACK
+
+In our example we use simplified
+versions of those filters, but the
+fundamental idea is the same.
+
+Take the pixels and manipulate them.
+""")
+
 
 card_str(f"""{'FILTERS'.center(40)}
 
@@ -472,11 +505,6 @@ card_str(f"""{'FILTERS'.center(40)}
 {inspect.getsource(bw)}
 """)
 
-card_str(f"""
-{'FILTERS'.center(40)}
-
-EXPLAIN
-""")
 
 
 encoded, sym = encode(image)
