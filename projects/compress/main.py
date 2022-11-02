@@ -203,8 +203,7 @@ Akatsiku when we see the image?
 
 """)
 
-card_str(f"""
-{'GAME RULES'.center(40)}
+card_str(f"""{'GAME RULES'.center(40)}
 
 This game is more of a puzzle, you can
 play it alone, or with friends, but
@@ -511,7 +510,7 @@ encoded, sym = encode(image)
 
 card(image)
 card(encoded)
-card_json(sym, "symbol table")
+card_json(sym, "SYMBOL TABLE")
 card_list(rle(encoded), 'rle(encoded)')
 
 blurred = blur(encoded)
@@ -526,7 +525,7 @@ card_list(rle(blurred), 'rle(blur(encoded))')
 for s in [5, 20, 40]:
     card_list(squeeze(encoded, s),f"squeeze(encoded,{s})")
     card_list(rle(squeeze(encoded, s)),f"rle(squeeze(encoded,{s}))")
-    card_list(rle(squeeze(encoded, s)),f"rle(bw(encoded,{s}))")
+    card_list(rle(bw(squeeze(encoded, s))),f"rle(bw(squeeze(encoded,{s})))")
     card(decode(unsqueeze(squeeze(encoded, s),s), sym))
 
 for s in [5, 20, 40]:
