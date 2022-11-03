@@ -81,6 +81,24 @@ def decode(x, sym):
 
   return r
 
+def lzw(x):
+  dictionary = {}
+  for v in x:
+    dictionary[(v,)] = len(dictionary)
+
+  w = ()
+  r = []
+  for v in x:
+    wc = w + (v,)
+    if wc in dictionary:
+      w = wc
+    else:
+      r.append(dictionary[w])
+      dictionary[wc] = len(dictionary)
+      w = (v,)
+  r.append(dictionary[w])
+  return r
+
 def rle(x):
   r = []
   for v in x:
@@ -509,6 +527,11 @@ encoded, sym = encode(image)
 
 card(image)
 card(encoded)
+
+#print(lzw(encoded))
+#print(len(lzw(encoded)))
+
+
 card_json(sym, "SYMBOL TABLE")
 card_list(rle(encoded), 'rle(encoded)')
 
