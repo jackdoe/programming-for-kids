@@ -121,9 +121,8 @@ def unsqueeze(x, n):
 
 
 def invert(x):
-  # [1,1,3,0,0]
-  # becomes
-  # [2,2,0,3,3]
+  # invert the values
+  # [1,1,3,0,0] -> [2,2,0,3,3]
   r = []
 
   m = max(x)
@@ -147,6 +146,7 @@ def bw(x):
 
 
 def blur(x):
+  # fake blur, averaging every 3 elements
   s = squeeze(x, 3)
   return unsqueeze(s,3)
 
@@ -358,7 +358,7 @@ card_str(f"""{'RUNLENGTH ENCODING'.center(40)}
 card_str(f"""{'DELTA ENCODING'.center(40)}
 Lets look at a list of numbers:
 
-[1, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[[color:red]1[/color], [color:blue]3[/color], [color:magenta]3[/color], [color:green]4[/color], 5, 6, 7, 8, 9, 10, 11, 12]
 
 If we runlength encode this list it will
 blow up, most elements appears only once
@@ -369,17 +369,17 @@ blow up, most elements appears only once
 However we can encode the difference
 between each element, so 
 [
-  1, # first element is 1
-  2, # 3 - 1
-  0, # 3 - 3
-  1, # 4 - 3
+  [color:red]1[/color], # first element is 1
+  [color:blue]2[/color], # 3 - 1
+  [color:magenta]0[/color], # 3 - 3
+  [color:green]1[/color], # 4 - 3
   ...
 ]
 This is called delta encoding, we encode
 the the difference (the delta).
 
 So the list becomes very repetitive:
-[1, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[[color:red]1[/color], [color:blue]2[/color], [color:magenta]0[/color], [color:green]1[/color], 1, 1, 1, 1, 1, 1, 1, 1]
 
 Now we can runlength encode it:
 [1, 1, 2, 1, 0, 1, 1, 9]
