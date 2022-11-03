@@ -277,7 +277,7 @@ In this game we will use text symbols to
 represent pixels, but the idea is the
 same. Each card has 40 columns and 31
 rows, so it has 1240 pixels. This tree
-has 65 pixels:
+has 42 pixels:
                 .......
                 ...*...
                 ..***..
@@ -296,7 +296,7 @@ of numbers. We will encode each symbol
 from the image with a number, and we
 will create a symbol table so we can use
 it to decode the image later. 
-For example, having this 7x8 image:
+For example, having this 6x7 image:
                 .......
                 ...*...
                 ..***..
