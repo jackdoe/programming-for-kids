@@ -225,7 +225,7 @@ card_str(f"""{'GAME RULES'.center(40)}
 
 This game is more of a puzzle, you can
 play it alone, or with friends, but
-remember to start with the easy and
+try to start with the easy and
 obvious cards.
 
 Remember that it is actually very
@@ -242,7 +242,14 @@ do, so do not get discouraged.
 
 > 4. IF YOU ARE HAVING FUN GOTO 2
 
-> 5. WATCH Hunter x Hunter or One Piece
+> 5. WATCH:
+
+     Hunter x Hunter
+     One Piece
+     Bleach
+     Kuroko no Baske
+     Haikyuu
+     Hajime no Ippo 
 
 """)
 
@@ -253,31 +260,30 @@ pixel is just a dot of color, your
 monitor probably has more than 2,073,600
 pixels.
 
-Each pixel has 3 one byte numbers:
+Each pixel has 3 one byte values:
 
     red: from 0 to 255
     green: from 0 to 255
     blue: from 0 to 255
 
-For example, we could have 2 pixel image
+So the image is list of pixels, and each
+pixel has the 3 colors.For example, we
+could have one red and one magenta pixel
+next to each other:
 
-[
-   [255,0,0],
-   [0,0,255]
-]
+[...,[color:red](255,0,0)[/color],[color:magenta](255,0,255)[/color],...]
 
 In this game we will use text symbols to
 represent pixels, but the idea is the
 same. Each card has 40 columns and 31
-rows, so we can use symbols to represent
-1240 pixels.
-
-Like this tree:
-  *
- ***
-*****
-  |
-
+rows, so it has 1240 pixels. This tree
+has 65 pixels:
+                .......
+                ...*...
+                ..***..
+                .*****.
+                ...|...
+                .......
 """)
 
 
@@ -439,10 +445,10 @@ How would it look if we try to squeeze
 it in fewer pixels? For example take
 every 2 pixels and average them together
 and then explode it back:
-
+ original     squeeze     exploded
 00 00 00 0    0 0 0 0    00 00 00 0
 00 01 00 0    0 0 0 0    00 00 00 0
-00 11 10 0    0 1 0 0    00 11 00 0
+00 11 10 0 -> 0 1 0 0 -> 00 11 00 0
 01 11 11 0    0 1 1 0    00 11 11 0
 00 02 00 0    0 1 0 0    00 11 00 0
 00 00 00 0    0 0 0 0    00 00 00 0
@@ -455,8 +461,7 @@ Then if we draw it again:
                 ..**...
                 .......
 Its ugly, but it .. kind of looks like
-the original tree :) if you squint
-really hard.
+the tree :) if you squint .. a lot
 """)
 
 
