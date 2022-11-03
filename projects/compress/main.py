@@ -84,19 +84,19 @@ def decode(x, sym):
 def rle(x):
   r = []
   for v in x:
-    if len(r) == 0 or r[-2] != v:
-      r.append(v)
+    if len(r) == 0 or r[-1] != v:
       r.append(0)
-    if v == r[-2]:
-      r[-1] += 1
+      r.append(v)
+    if v == r[-1]:
+      r[-2] += 1
   return r
 
 def rld(x):
   r = []
 
   for i in range(0, len(x), 2):
-    for k in range(x[i+1]):
-      r.append(x[i])
+    for k in range(x[i]):
+      r.append(x[i+1])
 
   return r
 
@@ -326,12 +326,11 @@ times each number appears in the
 sequence:
 
 [
-  [color:red]0,10[/color],[color:blue]1,1[/color],[color:magenta]0,5[/color],[color:green]1,3[/color],[color:maroon]0,3[/color],[color:purple]1,5[/color],[color:pink]0,4[/color],[color:orange]2,1[/color],[color:royalblue]0,10[/color]
+  [color:red]10,0[/color],[color:blue]1,1[/color],[color:magenta]5,0[/color],[color:green]3,1[/color],[color:maroon]3,0[/color],[color:purple]5,1[/color],[color:pink]4,0[/color],[color:orange]1,2[/color],[color:royalblue]10,0[/color]
 ]
 
-meaning, [color:red]0 repeats 10 times[/color], [color:blue]then 1 [/color]
-[color:blue]repeats 1 time[/color], and again [color:magenta]0 repeating[/color]
-[color:magenta]5 times[/color].. etc
+meaning, [color:red]10 zeroes[/color], [color:blue]1 time one[/color], 
+and again [color:magenta]5 zeroes[/color], [color:green]3 ones[/color] etc..
 
 This is called RunLength Encoding. To
 decode simply do the reverse operation.
@@ -344,12 +343,12 @@ card_str(f"""{'RUNLENGTH ENCODING'.center(40)}
 # from:
 #   [1,1,1,1,1,1,1,2] 
 # to:
-#   [1,7,2,1]
+#   [7,1,1,2]
 
 {inspect.getsource(rle)}
 # run length decode
 # from:
-#   [1,7,2,1]
+#   [7,1,1,2]
 # to:
 #   [1,1,1,1,1,1,1,2]
 {inspect.getsource(rld)}
@@ -382,7 +381,7 @@ So the list becomes very repetitive:
 [[color:red]1[/color], [color:blue]2[/color], [color:magenta]0[/color], [color:green]1[/color], 1, 1, 1, 1, 1, 1, 1, 1]
 
 Now we can runlength encode it:
-[1, 1, 2, 1, 0, 1, 1, 9]
+[1, 1, 1, 2, 1, 0, 9, 1]
 To go back to the original list first we
 need to delta decode, and then to
 runlength decode.
