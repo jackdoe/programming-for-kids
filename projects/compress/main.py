@@ -50,7 +50,6 @@ def card_json(x, title):
   print('')
   print(json.dumps(x, sort_keys=False, indent=4))
 
-    
 def encode(x):
   sym = {}
   r = []
@@ -77,7 +76,7 @@ def decode(x, sym):
 
   for v in x:
     # lookup symbol from number
-    r += rs[v] 
+    r += rs[v]
 
   return r
 
@@ -148,7 +147,7 @@ def invert(x):
     r.append(m - v)
 
   return r
-    
+
 def bw(x):
   # make everything "black and white"
   # [2,7,0,0] -> [1,1,0,0]
@@ -191,7 +190,7 @@ def undelta(x):
 import inspect
 
 card_str(f"""{'COMPRESSION AND INFORMATION'.center(40)}
-                                        
+
 [color:red]                     &@%(*/%@#*         [/color]
 [color:red]             .#.,(,@,,,,,,,,,,/&*(.     [/color]
 [color:red]           (,&,*,,@,,,,,*&,,,,,,,,*%&(  [/color]
@@ -203,7 +202,7 @@ card_str(f"""{'COMPRESSION AND INFORMATION'.center(40)}
 [color:red]   &&&,,,,@,,,,,,,,,,,,,,,,,,,/@@@&,#   [/color]
 [color:red]      /&&&*@*,,,,,,,@#*,,,,,,/&/        [/color]
 [color:red]           *,(&@@#*# #,*##( **          [/color]
-                                        
+
 
 The original Akatsuki cloud represented
 justice and fairness. Later however it
@@ -230,7 +229,7 @@ obvious cards.
 
 Remember that it is actually very
 difficult to do what you are about to
-do, so do not get discouraged. 
+do, so do not get discouraged.
 
 
 > 1. WATCH NARUTO IF YOU HAVENT
@@ -247,10 +246,11 @@ do, so do not get discouraged.
      Hunter x Hunter
      One Piece
      Bleach
-     Kuroko no Baske
+     One Punch Man
      Haikyuu
-     Hajime no Ippo 
-
+     Hajime no Ippo
+     My Hero Academia
+     Sword art Online
 """)
 
 card_str(f"""{'WHAT IS AN IMAGE'.center(40)}
@@ -295,7 +295,7 @@ into something we can use, like a list
 of numbers. We will encode each symbol
 from the image with a number, and we
 will create a symbol table so we can use
-it to decode the image later. 
+it to decode the image later.
 For example, having this 6x7 image:
                 .......
                 ...*...
@@ -303,7 +303,7 @@ For example, having this 6x7 image:
                 .*****.
                 ...|...
                 .......
-The first symbol we see is [color:red].[/color], we 
+The first symbol we see is [color:red].[/color], we
 will give it the number 0, next is
 [color:red]*[/color], so this will be number 1, and then
 last we see [color:red]|[/color], which will be number 2
@@ -353,7 +353,7 @@ sequence:
   [color:red]10,0[/color],[color:blue]1,1[/color],[color:magenta]5,0[/color],[color:green]3,1[/color],[color:maroon]3,0[/color],[color:purple]5,1[/color],[color:pink]4,0[/color],[color:orange]1,2[/color],[color:royalblue]10,0[/color]
 ]
 
-meaning, [color:red]10 zeroes[/color], [color:blue]1 time one[/color], 
+meaning, [color:red]10 zeroes[/color], [color:blue]1 time one[/color],
 and again [color:magenta]5 zeroes[/color], [color:green]3 ones[/color] etc..
 
 This is called RunLength Encoding. To
@@ -365,7 +365,7 @@ card_str(f"""{'RUNLENGTH ENCODING'.center(40)}
 
 # run length encode a list of numbers
 # from:
-#   [1,1,1,1,1,1,1,2] 
+#   [1,1,1,1,1,1,1,2]
 # to:
 #   [7,1,1,2]
 
@@ -390,7 +390,7 @@ blow up, most elements appears only once
   10,1,11,1,12,1
 ]
 However we can encode the difference
-between each element, so 
+between each element, so
 [
   [color:red]1[/color], # first element is 1
   [color:blue]2[/color], # 3 - 1
@@ -446,12 +446,13 @@ it in fewer pixels? For example take
 every 2 pixels and average them together
 and then explode it back:
  original     squeeze     exploded
-00 00 00 0    0 0 0 0    00 00 00 0
-00 01 00 0    0 0 0 0    00 00 00 0
-00 11 10 0 -> 0 1 0 0 -> 00 11 00 0
-01 11 11 0    0 1 1 0    00 11 11 0
-00 02 00 0    0 1 0 0    00 11 00 0
-00 00 00 0    0 0 0 0    00 00 00 0
+0000000    0 0 0 0    0000000
+0001000    0 0 0 0    0000000
+[color:red]00[/color][color:green]11[/color][color:blue]10[/color]0 -> [color:red]0[/color] [color:green]1[/color] [color:blue]0[/color] 0 -> [color:red]00[/color][color:green]11[/color][color:blue]00[/color]0
+0111110    0 1 1 0    0011110
+0002000    0 1 0 0    0011000
+0000000    0 0 0 0    0000000
+
 
 Then if we draw it again:
                 .......
@@ -488,7 +489,7 @@ card_str(f"""{'REDUCE INFORMATION'.center(40)}
 card_str(f"""{'FILTERS'.center(40)}
 
 You can do all kinds of manpulations
-of the image data. 
+of the image data.
 
 An example is Black And White filter:
 
@@ -499,11 +500,11 @@ An example is Black And White filter:
        set the pixel to BLACK
 
 Simple Blur filter:
-  
+
   for every block of 8x8 pixels
     replace them with their
     average
-     
+
 Invert filter:
   for each pixel:
     set it to the opposite
