@@ -250,7 +250,7 @@ do, so do not get discouraged.
      Haikyuu
      Hajime no Ippo
      My Hero Academia
-     Sword art Online
+     Sword Art Online
 """)
 
 card_str(f"""{'WHAT IS AN IMAGE'.center(40)}
