@@ -436,7 +436,7 @@ Going back to our tree:
 
                 .......
                 ...*...
-                [color:red]..[/color][color:green]**[/color][color:blue]*.[/color].
+                [color:green]..[/color][color:red]**[/color][color:blue]*.[/color].
                 .*****.
                 ...|...
                 .......
@@ -448,7 +448,7 @@ and then explode it back:
  original     squeeze     exploded
 0000000    0 0 0 0    0000000
 0001000    0 0 0 0    0000000
-[color:red]00[/color][color:green]11[/color][color:blue]10[/color]0 -> [color:red]0[/color] [color:green]1[/color] [color:blue]0[/color] 0 -> [color:red]00[/color][color:green]11[/color][color:blue]00[/color]0
+[color:green]00[/color][color:red]11[/color][color:blue]10[/color]0 -> [color:green]0[/color] [color:red]1[/color] [color:blue]0[/color] 0 -> [color:green]00[/color][color:red]11[/color][color:blue]00[/color]0
 0111110    0 1 1 0    0011110
 0002000    0 1 0 0    0011000
 0000000    0 0 0 0    0000000
@@ -457,7 +457,7 @@ and then explode it back:
 Then if we draw it again:
                 .......
                 .......
-                [color:red]..[/color][color:green]**[/color][color:blue]..[/color].
+                [color:green]..[/color][color:red]**[/color][color:blue]..[/color].
                 ..****.
                 ..**...
                 .......
