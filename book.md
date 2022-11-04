@@ -772,6 +772,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-258 lists](#day-258-lists)
 
+[day-259 lists](#day-259-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20388,4 +20390,18 @@ print(a)
 Write the code only in notepad, then run the python program from your command prompt.
 
 > we also discussed scope, how the `a` in the parameters is not the same `a` used to print.
+
+
+## [DAY-259] lists
+
+Using only Notepad and CMD write a program to make a list of the even numbers from 0 to 100 and then print the list
+
+
+```
+a = []
+for i in range(100):
+    if i % 2 == 0:
+        a.append(i)
+print(a)
+```
 

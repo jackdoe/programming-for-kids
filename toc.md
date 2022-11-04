@@ -654,3 +654,5 @@
 [day-257 arrays](#day-257-arrays)
 
 [day-258 lists](#day-258-lists)
+
+[day-259 lists](#day-259-lists)
