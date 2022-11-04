@@ -144,3 +144,17 @@ print(a)
 Write the code only in notepad, then run the python program from your command prompt.
 
 > we also discussed scope, how the `a` in the parameters is not the same `a` used to print.
+
+
+## [DAY-259] lists
+
+Using only Notepad and CMD write a program to make a list of the even numbers from 0 to 100 and then print the list
+
+
+```
+a = []
+for i in range(100):
+    if i % 2 == 0:
+        a.append(i)
+print(a)
+```
