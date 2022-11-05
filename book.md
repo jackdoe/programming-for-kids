@@ -756,6 +756,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-251 dictionaries](#day-251-dictionaries)
 
 [day-252 dictionaries](#day-252-dictionaries)
+## week - 037
+
+
 
 [day-253 dictionaries](#day-253-dictionaries)
 
@@ -764,6 +767,12 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-255 memory](#day-255-memory)
 
 [day-256 prank](#day-256-prank)
+
+[day-257 arrays](#day-257-arrays)
+
+[day-258 lists](#day-258-lists)
+
+[day-259 lists](#day-259-lists)
 
 ## [DAY-0] The Computer
 
@@ -20234,6 +20243,7 @@ a[b] = 5
 print(a[b])
 ```
 
+
 ## [DAY-253] dictionaries
 
 ```
@@ -20353,4 +20363,45 @@ while True:
 ```
 
 which randomly pressess the space bar every 10-20 seconds :D
+
+
+## [DAY-257] arrays
+
+![game-257.jpg](./screenshots/game-257.jpg "game 257 screenshot")
+
+Today's lesson was only 5 minutes, going again over how you access array of shorts.
+
+
+## [DAY-258] lists
+
+Using only Notepad and CMD, write a small program that prints a list with the numbers from 300 to 999. Make a function that takes a range and returns a list with the numbers from A to B.
+
+```
+def numbers(a,b):
+	x = []
+	for i in range(a,b):
+		x.append(i)
+	return x
+ 	
+a = numbers(300,1000)
+print(a)
+```
+
+Write the code only in notepad, then run the python program from your command prompt.
+
+> we also discussed scope, how the `a` in the parameters is not the same `a` used to print.
+
+
+## [DAY-259] lists
+
+Using only Notepad and CMD write a program to make a list of the even numbers from 0 to 100 and then print the list
+
+
+```
+a = []
+for i in range(100):
+    if i % 2 == 0:
+        a.append(i)
+print(a)
+```
 
