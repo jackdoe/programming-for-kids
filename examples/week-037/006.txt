@@ -1,7 +1,0 @@
-import pyautogui
-import random
-import time
-
-while True:
-    pyautogui.write(' ')
-    time.sleep(random.randint(10,20))

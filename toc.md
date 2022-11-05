@@ -639,9 +639,6 @@
 [day-251 dictionaries](#day-251-dictionaries)
 
 [day-252 dictionaries](#day-252-dictionaries)
-## week - 037
-
-
 
 [day-253 dictionaries](#day-253-dictionaries)
 
@@ -650,9 +647,3 @@
 [day-255 memory](#day-255-memory)
 
 [day-256 prank](#day-256-prank)
-
-[day-257 arrays](#day-257-arrays)
-
-[day-258 lists](#day-258-lists)
-
-[day-259 lists](#day-259-lists)
