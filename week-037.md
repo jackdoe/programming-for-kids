@@ -158,3 +158,44 @@ for i in range(100):
         a.append(i)
 print(a)
 ```
+
+
+## [DAY-260] strings
+
+Write (in notepad), run (from cmd) and explain(on paper) the following code:
+```
+def encrypt(s):
+    r = ''
+
+    for character in s:
+        ascii = ord(character)
+        r += 'z' * ascii
+        r += ' '
+
+    return r
+
+
+def decrypt(s):
+    r = ''
+    ascii = 0
+
+    for character in s:
+        if character == 'z':
+            ascii += 1
+        else:
+            r += chr(ascii)
+            ascii = 0
+
+    return r
+
+        
+
+encrypted = encrypt('hello world')
+print(encrypted)
+print(decrypt(encrypted))
+```
+
+![game-260.jpg](./screenshots/game-260.jpg "game 260 screenshot")
+
+
+> walk through the code, explaining each line, and trying it with sample values
