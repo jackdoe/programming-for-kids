@@ -260,47 +260,47 @@ represent pixels, but the idea is the
 same. Each card has 40 columns and 31
 rows, so it has 1240 pixels. This tree
 has 42 pixels:
-                .......
-                ...*...
-                ..***..
-                .*****.
-                ...|...
-                .......
+ .......    
+ ...*...   6 rows
+ ..***..   7 columns
+ .*****.   6x7 = 42 pixels
+ ...|...   your monitor has at least
+ .......   1080 rows x 1920 columns
 """)
 
 
 
 card_str(f"""{'ENCODE AND DECODE'.center(40)}
-
 First we will transform our text image
-into something we can use, like a list
-of numbers. We will encode each symbol
-from the image with a number, and we
-will create a symbol table so we can use
-it to decode the image later.
-For example, having this 6x7 image:
-                .......
-                ...*...
-                ..***..
-                .*****.
-                ...|...
-                .......
-The first symbol we see is [color:red].[/color], we
-will give it the number 0, next is
-[color:red]*[/color], so this will be number 1, and then
-last we see [color:red]|[/color], which will be number 2
+into something easier to use, like a
+list of numbers. We will encode each
+symbol from the image with a number, and
+we will create a symbol table so we can
+use it to decode the image later. For
+example, having this 6x7 image:
+ .......
+ ...*...  
+ ..***.. 
+ .*****.  
+ ...|...
+ .......
+The first unique symbol we see is [color:blue].[/color], we
+will give it the number [color:blue]0[/color], next is
+[color:red]*[/color], so it will be number [color:red]1[/color], and then the
+last symbol we see [color:green]|[/color], which will be 
+number [color:green]2[/color].
 
 Our symbol table will look like this:
 
-        {"{'[color:red].[/color]': 0, '[color:red]*[/color]': 1, '[color:red]|[/color]': 2}"}
+        {{'[color:blue].[/color]': [color:blue]0[/color], '[color:red]*[/color]': [color:red]1[/color], '[color:green]|[/color]': [color:green]2[/color]}}
 
-and our encoded image would look like:
-                0000000
-                0001000
-                0011100
-                0111110
-                0002000
-                0000000
+Our encoding process works like this:
+ [color:blue].......[/color] every '[color:blue].[/color]' becomes [color:blue]0[/color] ->  [color:blue]0000000[/color]
+ [color:blue]...[/color][color:red]*[/color][color:blue]...[/color] every '[color:red]*[/color]' becomes 1 ->  [color:blue]000[/color][color:red]1[/color][color:blue]000[/color]
+ [color:blue]..[/color][color:red]***[/color][color:blue]..[/color]                     ->  [color:blue]00[/color][color:red]111[/color][color:blue]00[/color]
+ [color:blue].[/color][color:red]*****[/color][color:blue].[/color]                     ->  [color:blue]0[/color][color:red]11111[/color][color:blue]0[/color]
+ [color:blue]...[/color][color:green]|[/color][color:blue]...[/color] every '[color:green]|[/color]' becomes 2 ->  [color:blue]000[/color][color:green]2[/color][color:blue]000[/color]
+ [color:blue].......[/color]                     ->  [color:blue]0000000[/color]
 """)
 
 card_str(f"""{'ENCODE AND DECODE'.center(40)}
@@ -311,14 +311,15 @@ card_str(f"""{'ENCODE AND DECODE'.center(40)}
 
 
 card_str(f"""{'RUNLENGTH ENCODING'.center(40)}
-Lets flatten this image to how it
-actually looks as a list of numbers:
-                0000000
-                0001000
-                0011100
-                0111110
-                0002000
-                0000000
+If we know the height and width of an
+image, we can just flatten it into a 
+giant list of numbers:
+ [color:red]0000000[/color]
+ [color:red]000[/color]1000 Later when we decode the list
+ 0011100 to draw it on screen, we can 
+ 0111110 draw new row every 'width'
+ 0002000 pixels.
+ 0000000
 becomes:
 [
   [color:red]0,0,0,0,0,0,0,0,0,0[/color],[color:blue]1[/color],[color:magenta]0,0,0,0,0[/color],[color:green]1,1,1[/color],
@@ -363,19 +364,17 @@ card_str(f"""{'RUNLENGTH ENCODING'.center(40)}
 
 card_str(f"""{'REDUCE INFORMATION'.center(40)}
 Going back to our tree:
-
-                .......
-                ...*...
-                [color:green]..[/color][color:red]**[/color][color:blue]*.[/color].
-                .*****.
-                ...|...
-                .......
-
+ .......
+ ...*...
+ [color:green]..[/color][color:red]**[/color][color:blue]*.[/color].
+ .*****.
+ ...|...
+ .......
 How would it look if we try to squeeze
 it in fewer pixels? For example take
 every 2 pixels and average them together
 and then explode it back:
- original     squeeze     exploded
+original   squeeze    exploded
 0000000    0 0 0 0    0000000
 0001000    0 0 0 0    0000000
 [color:green]00[/color][color:red]11[/color][color:blue]10[/color]0 -> [color:green]0[/color] [color:red]1[/color] [color:blue]0[/color] 0 -> [color:green]00[/color][color:red]11[/color][color:blue]00[/color]0
@@ -383,16 +382,17 @@ and then explode it back:
 0002000    0 1 0 0    0011000
 0000000    0 0 0 0    0000000
 
-
 Then if we draw it again:
-                .......
-                .......
-                [color:green]..[/color][color:red]**[/color][color:blue]..[/color].
-                ..****.
-                ..**...
-                .......
-Its ugly, but it .. kind of looks like
-the tree :) if you squint .. a lot
+ .......
+ ....... its ugly, but
+ [color:green]..[/color][color:red]**[/color][color:blue]..[/color]. it still looks
+ ..****. like a tree, if you
+ ..**... squint a lot :)
+ .......
+This approach of grouping a bunch of
+pixels into some average value, is a
+common way to compress with losing data
+and it is called 'lossy compression'.
 """)
 
 
@@ -460,9 +460,9 @@ card_str(f"""{'FILTERS'.center(40)}
 
 
 images = [
-  """.....................................................................................................................................................................................................................@@+++++++++@@........................@++++++++++++++++@.....................@+++++++++++++++++++@..................(+++++++++++*++++++++@...............@@++++++++++++@++++++++@++&@..........@/+++++++++++++++++@@@@%+++++++@........@+++++++++++++++++++++++++++++++@.......@+++++++++++@+++++++++++++++++++@.......@+++++++++++@++++++++++++++++++@..........@++++++++@@++++++++++++++++@..............@@@@@@%++++++++++++++++++++@............@++++++++++++++++++@&+++++++@............@+++++++++++++++@++++++++++@..............@@++++++++++++@+++++++++@.....................%+++++++++@/++@@@........................@+++++++++++++(...........................@++++++++++@..............................@+++++++@...............................@++++@@................................@@/.................................................................................................................................................................................................................................................................""",
-  """..............................................................................................................................................................................................................................................................................................................................................@@@@@@@@@@@@@......................&@@@+++++++++++++++@@@/...............@@+++++++++++++++++++++++@@...........@@++++++@@@@@##&@@@@+++++++++@@.......%@+++++@@#+++++++++++++@@+++++++#@......@+++++@#+++++&@@@@@@@++++@@+++++++@....@@++++@#++++&@++++++++@@+++@+++++++@@...@@+++#@+++++@@+++++++++@@++@@++++++@@...@@++++@%++++@@+++++++++++++@+++++++@@....@++++@@+++++@@#+++++++++@@++++++++@*....+@++++#@@++++++@@@@@@@@@++++++++#@*.......@@++++@@@++++++++++++++++++++@@...........@@+++++@@@++++++++++++++@@@.............../@@@+++++&@@@@@@@@@@@@*....................**@@@@@@@@@@@@&*............................................................................................................................................................................................................................................................................................................................................""",
-  """.............................................................................................................................................................................................................................................................................................................................................,////////////*.......................////////////////////..................////////////////////////...............//////////////////////////.............*///////////////////////////............//////////........//////////............,////..@@@@@@@@@@@@@@../////.............//.@@@@@@@@@@@@@@@@@@@@../................@@@@@@@@@@@@@@@@@@@@@@(...................@@@@@@@@@@@@@@@@@@..........................@@@@@@@@@@&...............................@@@@@&..................................@@@@@&..................................@@@@@&..................................@@@@@&................................................................................................................................................................................................................................................................................................................................................."""
+  """                                                                                                                                                                                                                     @@+++++++++@@                        @++++++++++++++++@                     @+++++++++++++++++++@                  (+++++++++++*++++++++@               @@++++++++++++@++++++++@++&@          @/+++++++++++++++++@@@@%+++++++@        @+++++++++++++++++++++++++++++++@       @+++++++++++@+++++++++++++++++++@       @+++++++++++@++++++++++++++++++@          @++++++++@@++++++++++++++++@              @@@@@@%++++++++++++++++++++@            @++++++++++++++++++@&+++++++@            @+++++++++++++++@++++++++++@              @@++++++++++++@+++++++++@                     %+++++++++@/++@@@                        @+++++++++++++(                           @++++++++++@                              @+++++++@                               @++++@@                                @@/                                                                                                                                                                                                                                                                 """,
+  """                                                                                                                                                                                                                                                                                                                                              @@@@@@@@@@@@@                      &@@@+++++++++++++++@@@/               @@+++++++++++++++++++++++@@           @@++++++@@@@@##&@@@@+++++++++@@       %@+++++@@#+++++++++++++@@+++++++#@      @+++++@#+++++&@@@@@@@++++@@+++++++@    @@++++@#++++&@++++++++@@+++@+++++++@@   @@+++#@+++++@@+++++++++@@++@@++++++@@   @@++++@%++++@@+++++++++++++@+++++++@@    @++++@@+++++@@#+++++++++@@++++++++@*    +@++++#@@++++++@@@@@@@@@++++++++#@*       @@++++@@@++++++++++++++++++++@@           @@+++++@@@++++++++++++++@@@               /@@@+++++&@@@@@@@@@@@@*                    **@@@@@@@@@@@@&*                                                                                                                                                                                                                                                                                                                                            """,
+  """                                                                                                                                                                                                                                                                                                                                             ,////////////*                       ////////////////////                  ////////////////////////               //////////////////////////             *///////////////////////////            //////////        //////////            ,////  @@@@@@@@@@@@@@  /////             // @@@@@@@@@@@@@@@@@@@@  /                @@@@@@@@@@@@@@@@@@@@@@(                   @@@@@@@@@@@@@@@@@@                          @@@@@@@@@@&                               @@@@@&                                  @@@@@&                                  @@@@@&                                  @@@@@&                                                                                                                                                                                                                                                                                                                                                 """
 ]
 sym = encode(images[0])[1]
 card_json(sym, "SYMBOL TABLE")
