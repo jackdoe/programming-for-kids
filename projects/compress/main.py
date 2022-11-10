@@ -366,31 +366,31 @@ card_str(f"""{'REDUCE INFORMATION'.center(40)}
 Going back to our tree:
  .......
  ...*...
- [color:green]..[/color][color:red]**[/color][color:blue]*.[/color].
- .*****.
+ [color:green]..[/color][color:red]**[/color][color:blue]*.[/color]. [color:gray]<- we will inspect this row[/color]
+ .*****. [color:gray]how it changes with compression[/color]
  ...|...
  .......
 How would it look if we try to squeeze
 it in fewer pixels? For example take
 every 2 pixels and average them together
-and then explode it back:
+and round down and then explode it back:
 original   squeeze    exploded
-0000000    0 0 0 0    0000000
-0001000    0 0 0 0    0000000
-[color:green]00[/color][color:red]11[/color][color:blue]10[/color]0 -> [color:green]0[/color] [color:red]1[/color] [color:blue]0[/color] 0 -> [color:green]00[/color][color:red]11[/color][color:blue]00[/color]0
+0000000    0 0 0 0    0000000 [color:gray](0+0)/2=0[/color]
+0001000    0 0 0 0    0000000 [color:gray](1+1)/2=1[/color]
+[color:green]00[/color][color:red]11[/color][color:blue]10[/color]0 -> [color:green]0[/color] [color:red]1[/color] [color:blue]0[/color] 0 -> [color:green]00[/color][color:red]11[/color][color:blue]00[/color]0 [color:gray](1+0)/2=1[/color]
 0111110    0 1 1 0    0011110
-0002000    0 1 0 0    0011000
+0002000    0 1 0 0    0011000 [color:gray](0+2)/2=1[/color]
 0000000    0 0 0 0    0000000
 
 Then if we draw it again:
  .......
  ....... its ugly, but
- [color:green]..[/color][color:red]**[/color][color:blue]..[/color]. it still looks
- ..****. like a tree, if you
- ..**... squint a lot :)
+ [color:green]..[/color][color:red]**[/color][color:blue]..[/color]. it kind of looks
+ ..****. like a tree...
+ ..**... kind of..
  .......
-This approach of grouping a bunch of
-pixels into some average value, is a
+This approach of grouping a block of
+pixels into some compressed value, is a
 common way to compress with losing data
 and it is called 'lossy compression'.
 """)
