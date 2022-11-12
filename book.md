@@ -776,6 +776,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-260 strings](#day-260-strings)
 
+[day-261 lists](#day-261-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20447,4 +20449,43 @@ print(decrypt(encrypted))
 
 
 > walk through the code, explaining each line, and trying it with sample values
+
+
+## [DAY-261] lists
+
+Find and fix the bug in the following program:
+
+```
+# [2,2,2,2,2,2,2,2,3] should become [8, 2, 1, 3]
+def rle(x):
+  r = []
+  for v in x:
+    if len(r) == 0 or r[-1] != v:
+      r.append(0)
+      r.append(v)
+    if v == r[-1]:
+      r[-2] += 1
+  return r
+
+# [8, 2, 1, 3] should become [2,2,2,2,2,2,2,2,3]
+def rld(x):
+  r = []
+
+  for i in range(0, len(x), 2):
+    for k in range(x[i]):
+      r.append(x[i+1])
+
+  return r
+
+
+a = rle([1,1,1,1,1,1,1])
+print(a)
+b = rld(a)
+print(b)
+```
+
+> Spend some time stepping through or print debugging, I chose to use print debugging to emphasize on "what should this code do, and how do you make sure it does what it says", but I think proper debugging can be introduced at this point, in the same time I dont want to introduce new concepts yet. Learning programming takes time, you can not rush it.
+
+
+
 
