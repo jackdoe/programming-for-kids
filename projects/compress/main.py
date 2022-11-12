@@ -351,7 +351,6 @@ card_str(f"""{'RUNLENGTH ENCODING'.center(40)}
 #   [1,1,1,1,1,1,1,2]
 # to:
 #   [7,1,1,2]
-
 {inspect.getsource(rle)}
 # run length decode
 # from:
@@ -377,7 +376,7 @@ and round down and then explode it back:
 original   squeeze    exploded
 0000000    0 0 0 0    0000000 [color:gray](0+0)/2=0[/color]
 0001000    0 0 0 0    0000000 [color:gray](1+1)/2=1[/color]
-[color:green]00[/color][color:red]11[/color][color:blue]10[/color]0 -> [color:green]0[/color] [color:red]1[/color] [color:blue]0[/color] 0 -> [color:green]00[/color][color:red]11[/color][color:blue]00[/color]0 [color:gray](1+0)/2=1[/color]
+[color:green]00[/color][color:red]11[/color][color:blue]10[/color]0 -> [color:green]0[/color] [color:red]1[/color] [color:blue]0[/color] 0 -> [color:green]00[/color][color:red]11[/color][color:blue]00[/color]0 [color:gray](1+0)/2=0[/color]
 0111110    0 1 1 0    0011110
 0002000    0 1 0 0    0011000 [color:gray](0+2)/2=1[/color]
 0000000    0 0 0 0    0000000
