@@ -42,14 +42,6 @@ def card_list(x, title):
 
   print()
 
-def card_json(x, title):
-  global CARD
-  print(f"CARD:{CARD}")
-  CARD+=1
-  print(title.center(39))
-  print('')
-  print(json.dumps(x, sort_keys=False, indent=4))
-
 def encode(x, sym={}):
   r = []
 
@@ -238,8 +230,7 @@ card_str(f"""{'WHAT IS AN IMAGE'.center(40)}
 
 Images are just an array of pixels, a
 pixel is just a dot of color, your
-monitor probably has more than 2,073,600
-pixels.
+monitor has more than 2,073,600 pixels.
 
 Each pixel has 3 one byte values:
 
@@ -248,35 +239,36 @@ Each pixel has 3 one byte values:
     blue: from 0 to 255
 
 So the image is list of pixels, and each
-pixel has the 3 colors.For example, we
-could have one red and one magenta pixel
-next to each other:
-
+pixel has a value for each of the 3
+colors. For example, we could have one
+red and one magenta pixel next to each
+other:
 [...,[color:red](255,0,0)[/color],[color:magenta](255,0,255)[/color],...]
 
 In this game we will use text symbols to
 represent pixels, but the idea is the
-same. Each card has 40 columns and 31
-rows, so it has 1240 pixels. This tree
-has 42 pixels:
+same. A pixel is just a piece of display
+information. Each card has 40 columns
+and 31 rows, so it has 1240 pixels. 
+This tree has 42 pixels:
  .......    
- ...*...   6 rows
- ..***..   7 columns
- .*****.   6x7 = 42 pixels
+ ...*...   6 rows (height)
+ ..***..   7 columns (width)
+ .*****.   6*7 = 42 pixels
  ...|...   your monitor has at least
- .......   1080 rows x 1920 columns
+ .......   1080 * 1920 pixels
 """)
 
 
 
 card_str(f"""{'ENCODE AND DECODE'.center(40)}
-First we will transform our text image
+First we will convert our text image
 into something easier to use, like a
-list of numbers. We will encode each
-symbol from the image with a number and
-create a table of symbols so we can use
-it to decode the image later. For
-example, having this 6x7 image:
+list of numbers. We will convert each
+symbol to a number by creating a table
+of symbols and we can also use it to
+convert back. For example, having this
+6x7 image:
  .......
  ...*...  "encoding" is the process
  ..***..  of converting information
@@ -463,7 +455,31 @@ images = [
   """                                                                                                                                                                                                                                                                                                                                             ,////////////*                       ////////////////////                  ////////////////////////               //////////////////////////             *///////////////////////////            //////////        //////////            ,////  @@@@@@@@@@@@@@  /////             // @@@@@@@@@@@@@@@@@@@@  /                @@@@@@@@@@@@@@@@@@@@@@(                   @@@@@@@@@@@@@@@@@@                          @@@@@@@@@@&                               @@@@@&                                  @@@@@&                                  @@@@@&                                  @@@@@&                                                                                                                                                                                                                                                                                                                                                 """
 ]
 sym = encode(images[0])[1]
-card_json(sym, "SYMBOL TABLE")
+
+card_str(f"""{'SYMBOL TABLE'.center(40)}
+
+{json.dumps(sym, sort_keys=False, indent=4)}
+
+
+
+
+
+
+
+
+
+
+
+---
+A symbol table is a table used to encode
+and decode from one symbol to another.
+In our case it is from a character to a
+number.
+
+Use this card to decode the encoded
+cards.
+""")
+
 
 for (n, image) in enumerate(images):
   encoded = encode(image, sym)[0]
