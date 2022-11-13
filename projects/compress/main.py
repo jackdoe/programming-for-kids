@@ -50,8 +50,7 @@ def card_json(x, title):
   print('')
   print(json.dumps(x, sort_keys=False, indent=4))
 
-def encode(x):
-  sym = {}
+def encode(x, sym={}):
   r = []
 
   for v in x:
@@ -274,16 +273,16 @@ card_str(f"""{'ENCODE AND DECODE'.center(40)}
 First we will transform our text image
 into something easier to use, like a
 list of numbers. We will encode each
-symbol from the image with a number, and
-we will create a symbol table so we can
-use it to decode the image later. For
+symbol from the image with a number and
+create a table of symbols so we can use
+it to decode the image later. For
 example, having this 6x7 image:
  .......
- ...*...  
- ..***.. 
- .*****.  
- ...|...
- .......
+ ...*...  "encoding" is the process
+ ..***..  of converting information
+ .*****.  from one form to another.
+ ...|...  "decoding" is converting
+ .......  it back.
 The first unique symbol we see is [color:blue].[/color], we
 will give it the number [color:blue]0[/color], next is
 [color:red]*[/color], so it will be number [color:red]1[/color], and then the
@@ -467,7 +466,7 @@ sym = encode(images[0])[1]
 card_json(sym, "SYMBOL TABLE")
 
 for (n, image) in enumerate(images):
-  encoded = encode(image)[0]
+  encoded = encode(image, sym)[0]
   card(image)
   card(encoded)
   card_list(rle(encoded), 'rle(encoded)')
