@@ -201,9 +201,9 @@ try to start with the easy and
 obvious cards.
 
 Remember that it is actually very
-difficult to do what you are about to
-do, so do not get discouraged.
-
+difficult to read the encoded images, so
+do not get discouraged, and just try it,
+one card at a time.
 
 > 1. WATCH NARUTO IF YOU HAVENT
 
@@ -212,7 +212,7 @@ do, so do not get discouraged.
 > 3. FIND THE ENCODING CARD
      MATCHING THE OUTPUT IMAGE
 
-> 4. IF YOU ARE HAVING FUN GOTO 2
+> 4. [color:magenta]IF[/color] YOU ARE HAVING FUN [color:magenta]GOTO[/color] 2
 
 > 5. WATCH:
 
@@ -220,24 +220,24 @@ do, so do not get discouraged.
      One Piece
      Bleach
      One Punch Man
-     Haikyuu
+     Dragonball Z
      Hajime no Ippo
      My Hero Academia
      Sword Art Online
 """)
 
 card_str(f"""{'WHAT IS AN IMAGE'.center(40)}
-
 Images are just an array of pixels, a
-pixel is just a dot of color, your
-monitor has more than 2,073,600 pixels.
-
+pixel is just a dot of color. Our eyes
+can see any color as a combination
+of red, green and blue.
 Each pixel has 3 one byte values:
-
-    red: from 0 to 255
-    green: from 0 to 255
-    blue: from 0 to 255
-
+    [color:red]red[/color]: from 0 to 255
+    [color:green]green[/color]: from 0 to 255
+    [color:blue]blue[/color]: from 0 to 255
+When we blend those primitive color 
+values we can create 16777216 colors,
+(0,0,0) is black, (255,255,255) is white.
 So the image is list of pixels, and each
 pixel has a value for each of the 3
 colors. For example, we could have one
@@ -256,7 +256,7 @@ This tree has 42 pixels:
  ..***..   7 columns (width)
  .*****.   6*7 = 42 pixels
  ...|...   your monitor has at least
- .......   1080 * 1920 pixels
+ .......   2 million pixels (1080*1920)
 """)
 
 
