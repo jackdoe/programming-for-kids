@@ -237,4 +237,20 @@ print(b)
 > Spend some time stepping through or print debugging, I chose to use print debugging to emphasize on "what should this code do, and how do you make sure it does what it says", but I think proper debugging can be introduced at this point, in the same time I dont want to introduce new concepts yet. Learning programming takes time, you can not rush it.
 
 
+## [DAY-262] lists
 
+Find and fix the bug in the following program (using only notepad and cmd):
+
+```
+def avg(x):
+    n = 0
+    sum = 0
+    for i in range(1, len(x)):
+        sum += x[i]
+        n += 1
+
+    return sum / n
+
+
+print(avg([7,3,5]))
+```

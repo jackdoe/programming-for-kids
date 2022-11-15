@@ -95,8 +95,8 @@ def rle(x):
     if len(r) == 0 or r[-1] != v:
       r.append(0)
       r.append(v)
-    if v == r[-1]:
-      r[-2] += 1
+    r[-2] += 1
+
   return r
 
 def rld(x):
