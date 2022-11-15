@@ -660,3 +660,5 @@
 [day-260 strings](#day-260-strings)
 
 [day-261 lists](#day-261-lists)
+
+[day-262 lists](#day-262-lists)

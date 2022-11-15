@@ -778,6 +778,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-261 lists](#day-261-lists)
 
+[day-262 lists](#day-262-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20487,5 +20489,21 @@ print(b)
 > Spend some time stepping through or print debugging, I chose to use print debugging to emphasize on "what should this code do, and how do you make sure it does what it says", but I think proper debugging can be introduced at this point, in the same time I dont want to introduce new concepts yet. Learning programming takes time, you can not rush it.
 
 
+## [DAY-262] lists
 
+Find and fix the bug in the following program (using only notepad and cmd):
+
+```
+def avg(x):
+    n = 0
+    sum = 0
+    for i in range(1, len(x)):
+        sum += x[i]
+        n += 1
+
+    return sum / n
+
+
+print(avg([7,3,5]))
+```
 
