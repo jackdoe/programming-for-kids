@@ -164,6 +164,7 @@ import inspect
 
 card_str(f"""{'COMPRESSION AND INFORMATION'.center(40)}
 
+
 [color:red]                     &@%(*/%@#*         [/color]
 [color:red]             .#.,(,@,,,,,,,,,,/&*(.     [/color]
 [color:red]           (,&,*,,@,,,,,*&,,,,,,,,*%&(  [/color]
@@ -182,7 +183,7 @@ justice and fairness. Later however it
 began to represent the rain of blood
 that fell in Amegakure during its wars.
 
-This game is a game of information.
+This is a game of information.
 
 How can we represent information as
 compact as possible.
@@ -190,15 +191,14 @@ compact as possible.
 What is the smallest amount of symbols
 we need in order to still think of
 Akatsiku when we see the image?
-
 """)
 
 card_str(f"""{'GAME RULES'.center(40)}
 
-This game is more of a puzzle, you can
-play it alone, or with friends, but
-try to start with the easy and
-obvious cards.
+This game is more of a puzzle than a
+game. You can play it alone, or with
+friends, but try to start with the easy
+and obvious cards.
 
 Remember that it is actually very
 difficult to read the encoded images, so
@@ -221,7 +221,7 @@ one card at a time.
      Bleach
      One Punch Man
      Dragonball Z
-     Hajime no Ippo
+     Fairy Tail
      My Hero Academia
      Sword Art Online
 """)
@@ -287,10 +287,10 @@ Our symbol table will look like this:
 
 Our encoding process works like this:
  [color:blue].......[/color] every '[color:blue].[/color]' becomes [color:blue]0[/color] ->  [color:blue]0000000[/color]
- [color:blue]...[/color][color:red]*[/color][color:blue]...[/color] every '[color:red]*[/color]' becomes 1 ->  [color:blue]000[/color][color:red]1[/color][color:blue]000[/color]
+ [color:blue]...[/color][color:red]*[/color][color:blue]...[/color] every '[color:red]*[/color]' becomes [color:red]1[/color] ->  [color:blue]000[/color][color:red]1[/color][color:blue]000[/color]
  [color:blue]..[/color][color:red]***[/color][color:blue]..[/color]                     ->  [color:blue]00[/color][color:red]111[/color][color:blue]00[/color]
  [color:blue].[/color][color:red]*****[/color][color:blue].[/color]                     ->  [color:blue]0[/color][color:red]11111[/color][color:blue]0[/color]
- [color:blue]...[/color][color:green]|[/color][color:blue]...[/color] every '[color:green]|[/color]' becomes 2 ->  [color:blue]000[/color][color:green]2[/color][color:blue]000[/color]
+ [color:blue]...[/color][color:green]|[/color][color:blue]...[/color] every '[color:green]|[/color]' becomes [color:green]2[/color] ->  [color:blue]000[/color][color:green]2[/color][color:blue]000[/color]
  [color:blue].......[/color]                     ->  [color:blue]0000000[/color]
 """)
 
@@ -314,7 +314,7 @@ giant list of numbers:
 becomes:
 [
   [color:red]0,0,0,0,0,0,0,0,0,0[/color],[color:blue]1[/color],[color:magenta]0,0,0,0,0[/color],[color:green]1,1,1[/color],
-  [color:maroon]0,0,0[/color],[color:purple]1,1,1,1,1[/color],[color:pink]0,0,0,0[/color],[color:orange]2[/color],[color:royalblue]0,0,0,0,0,0,[/color]
+  [color:hotpink]0,0,0[/color],[color:purple]1,1,1,1,1[/color],[color:pink]0,0,0,0[/color],[color:orange]2[/color],[color:royalblue]0,0,0,0,0,0,[/color]
   [color:royalblue]0,0,0,0[/color]
 ]
 
@@ -324,7 +324,7 @@ times each number appears in the
 sequence:
 
 [
-  [color:red]10,0[/color],[color:blue]1,1[/color],[color:magenta]5,0[/color],[color:green]3,1[/color],[color:maroon]3,0[/color],[color:purple]5,1[/color],[color:pink]4,0[/color],[color:orange]1,2[/color],[color:royalblue]10,0[/color]
+  [color:red]10,0[/color],[color:blue]1,1[/color],[color:magenta]5,0[/color],[color:green]3,1[/color],[color:hotpink]3,0[/color],[color:purple]5,1[/color],[color:pink]4,0[/color],[color:orange]1,2[/color],[color:royalblue]10,0[/color]
 ]
 
 meaning, [color:red]10 zeroes[/color], [color:blue]1 time one[/color],
