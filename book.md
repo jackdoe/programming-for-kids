@@ -773,12 +773,17 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-258 lists](#day-258-lists)
 
 [day-259 lists](#day-259-lists)
+## week - 038
+
+
 
 [day-260 strings](#day-260-strings)
 
 [day-261 lists](#day-261-lists)
 
 [day-262 lists](#day-262-lists)
+
+[day-263 lists](#day-263-lists)
 
 ## [DAY-0] The Computer
 
@@ -20412,6 +20417,7 @@ print(a)
 ```
 
 
+
 ## [DAY-260] strings
 
 Write (in notepad), run (from cmd) and explain(on paper) the following code:
@@ -20505,5 +20511,28 @@ def avg(x):
 
 
 print(avg([7,3,5]))
+```
+
+
+## [DAY-263] lists
+
+find the bug in the following code (using notepad and cmd):
+
+
+```
+def uniq(data):
+    result = []
+    for inputNumber in data:
+        seen = False
+        for resultNumber in result:
+            if inputNumber != resultNumber:
+                seen = True
+        if not seen:
+            result.append(inputNumber)
+
+    return result
+
+# should print [1,2,3]
+print(uniq([1, 2, 1, 1, 1, 3, 1]))
 ```
 

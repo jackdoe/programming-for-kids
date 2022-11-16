@@ -1,0 +1,11 @@
+def avg(x):
+    n = 0
+    sum = 0
+    for i in range(1, len(x)):
+        sum += x[i]
+        n += 1
+
+    return sum / n
+
+
+print(avg([7,3,5]))

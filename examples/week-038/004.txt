@@ -1,0 +1,14 @@
+def uniq(data):
+    result = []
+    for inputNumber in data:
+        seen = False
+        for resultNumber in result:
+            if inputNumber != resultNumber:
+                seen = True
+        if not seen:
+            result.append(inputNumber)
+
+    return result
+
+# should print [1,2,3]
+print(uniq([1, 2, 1, 1, 1, 3, 1]))
