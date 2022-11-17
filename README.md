@@ -13,6 +13,8 @@ While writing the book we also developed few other projects:
 
 * [4917](https://punkx.org/4917/) - card game to teach kids machine code
 * [unix pipe game](https://punkx.org/unix-pipe-game/) - card game to teach kids basic unix commands
+* [unix pipe game expansion: process-substitution](https://punkx.org/unix-pipe-game/ext-0.1) - card game to teach kids about process substitution
+* [c-pointer-game](https://punkx.org/c-pointer-game) - card game to teach about pointers and values
 * [programming-time](https://punkjazz.org/programming-time/) - card game to teach kids about reading code
 * [punk](https://punkjazz.org/punk/) - online game turn based python to move pieces on the board
 
