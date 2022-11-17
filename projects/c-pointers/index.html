@@ -52,6 +52,40 @@
 
     I would recommend to get also the Machine Code game, because it might help you as well.<br>
 
+    <pre>
+                 RULES:
+1. Shuffle the cards. Split the code 
+   cards amongst the players and put the 
+   memory cards face down in the middle.
+
+2. Pick the top memory card, and put it 
+   face up in the middle of the table.
+
+3. Find a code card matching the memory.
+   All variables have to have the 
+   correct value in the memory card.
+   EXAMPLE:
+     char *foo = "bar";
+     char *pa = foo + 1;
+     char v = foo[1]
+
+   you need to look in the memory for
+   + <span style="color:red">98 97 114 0</span> (e.g. address 172)
+   + <span style="color:royalblue">172</span> (foo pointing to "bar")
+   + <span style="color:royalblue">173</span> (pa = foo + 1)
+   + <span style="color:royalblue">97</span> (v = foo[1])
+
+4. First player that finds a match
+   wins and puts the winning card aside.
+
+5. <span style="color:magenta">IF</span> a player has zero cards <span style="color:magenta">GOTO</span> <span style="color:teal">7</span>.
+
+6. <span style="color:magenta">GOTO</span> <span style="color:teal">2</span>.
+
+7. Go and play outside, maybe get your
+   rollerblades and skate a bit?
+    </pre>
+
     This is how example round looks:
 
     <a target="_blank" href="photos/example1.jpg"><img src="photos/example1.jpg" width="100%"></a>
