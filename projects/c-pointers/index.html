@@ -40,7 +40,25 @@
       <li>license: CC BY 4.0</li>
     </ul>
 
-    The parent has to know a bit of C to play, the game has 6 cards explaining the concepts of character, arrays, pointers and strings, but it won't be enough particularly because of the overloaded and confusing &*()[] usage in the language. So you will have to help a bit reading the code. Some of the cards are harder than others, and there is one that is just bizarre. All the code on the cards was compiled, and the output was used to create the string value in memory and the pointers to it.<br>
+    The parent has to know a bit of C to play, the game has 6 cards explaining the concepts of character, arrays, pointers and strings, but it won't be enough particularly because of the overloaded and confusing &*()[] usage in the language. So you will have to help a bit reading the code. Some of the cards are harder than others, and there is one that is just bizarre. All the code on the cards was compiled, and the output was used to create the string value in memory and the pointers to it.<br><br>
+
+    Most languages we use today are invented and not discovered (like LISP), and they are basically glorified assemblers, almost all of them leak the pointer abstraction and pretend that its ok to not know how the program's memory is layed out, which I think leads to quite some confusion especially around the <b>=</b> equal sign. A lot of people struggle to understand what it means in code:
+    
+<pre>
+x=5 
+<span style="color:red">y=x</span>
+x=6 
+print(y)
+
+and
+
+a=[] 
+<span style="color:red">b=a</span>
+a.push(1)
+print(b)
+</pre>
+
+I think deeply understanding pointers will help kids to see through the syntactic sugar and be able to build something cool when they grows up.<br><br>
 
     If you are a parent teaching your kid, and is exploring more tools to help you, I made few other card games:<br>
     <ul>
