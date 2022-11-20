@@ -117,3 +117,12 @@ def uniq(data):
 # should print [1,2,3]
 print(uniq([1, 2, 1, 1, 1, 3, 1]))
 ```
+
+
+## [DAY-264] design
+
+Today we will do a basic design and 3d print it, first make an account on https://www.tinkercad.com/ and then build something there (use W to attach workarea to a surface so you can easilly put one thing on top or on the side of another). 
+
+Grab a masuring tool and get any object that you see and measure it and build it inside tinkercad.
+
+> She did some great designs, but they are somewhat personal and I wont show them in the book.
