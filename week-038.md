@@ -125,4 +125,4 @@ Today we will do a basic design and 3d print it, first make an account on https:
 
 Grab a masuring tool and get any object that you see and measure it and build it inside tinkercad.
 
-> She did some great designs, but they are somewhat personal and I wont show them in the book.
+> She did some great designs, but they are somewhat personal and I wont show them in the book. Also she was the one who found out about the W key doing temporary workarea, which makes the whole tinkercad propgram 10000 times better, and before this I was doing designs super slow and was very annoyed :)
