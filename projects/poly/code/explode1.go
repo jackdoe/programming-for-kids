@@ -1,13 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
-func explode(nf float32) []int32 {
-	n := int32(nf)
-	r := []int32{}
-	for i := int32(1); i <= n; i++ {
-		r = append(r, i)
-		r = append(r, i)
+func explode(n int) []int {
+	r := []int{}
+	for i := 0; i < n; i++ {
+		r = append(r, rand.Int()%20)
 	}
 	return r
 }

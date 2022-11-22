@@ -1,9 +1,43 @@
 from os import listdir
-CARD = 5
+CARD = 1
 listed = listdir('./code')
 listed.sort()
+def card_str(x):
+  global CARD
+  print(f"CARD:{CARD}")
+  CARD+=1
+  print(x)
+  print()
+
+card_str(f"""{'INTRO'.center(40)}
+
+
+""")
+
+card_str(f"""{'RULES'.center(40)}
+
+
+""")
+
+
+card_str(f"""{'COMPLEXITY'.center(40)}
+
+
+""")
+
+# double the explode and avg cards
+
+filtered = [f for f in listed if 'avg1' in f or 'explode1' in f]
+
+listed += filtered
+listed += filtered
+listed += filtered
+
 for fn in listed:
     if not '.' in fn:
+        continue
+
+    if 'rld' in fn or '#' in fn:
         continue
     
     lang = ''
@@ -44,7 +78,7 @@ for fn in listed:
             if 'print' in line:
                 break
 
-            if not line.startswith('#include') and (not skip or len(line) > 0):
+            if 'import' not in line and not line.startswith('#include') and (not skip or len(line) > 0):
                 line = line.replace("\t","  ")
                 card.append(line)
 

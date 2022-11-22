@@ -1,10 +1,15 @@
+function rand(max) {
+    let r = Math.random() * (max-1)
+    return Math.floor(r);
+}
+
 function explode(n) {
-    n = parseInt(n)
     r = []
-    for (let i = 1; i < n+1; i++) {
-        r.push(i)
-        r.push(i)
+
+    for (let i = 0; i < n; i++) {
+        r.push(rand(20))
     }
+
     return r
 }
 

@@ -1,9 +1,11 @@
+import random
+
 def explode(n):
-    n = int(n)
     r = []
-    for i in range(1,n+1):
-        r.append(i)
-        r.append(i)
+
+    for i in range(n):
+        v = random.randint(0,20)
+        r.append(v)
 
     return r
 

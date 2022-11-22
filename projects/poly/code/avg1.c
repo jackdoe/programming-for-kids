@@ -7,11 +7,10 @@ typedef struct list {
 //
 // take a list of numbers
 // and return an average
-// it will return NaN if
-// the list length is 0
-//
-float avg(list x) {
-  float sum = 0;
+// floored
+// 
+int avg(list x) {
+  int sum = 0;
   for (int i = 0; i < x.len; i++) {
     sum += x.data[i];
   }
@@ -30,7 +29,7 @@ int main(void) {
   x.data[3] = 5;
   x.data[4] = 7;
 
-  printf("%f\n",avg(x));
+  printf("%d\n",avg(x));
 
     
 }

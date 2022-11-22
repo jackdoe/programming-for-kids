@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-func avg(x []int) float32 {
-	sum := float32(0)
+func avg(x []int) int {
+	sum := 0
 
 	for _, v := range x {
-		sum += float32(v)
+		sum += v
 	}
 
-	return sum / float32(len(x))
+	return sum / len(x)
 }
 
 func main() {
