@@ -787,6 +787,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-264 design](#day-264-design)
 
+[day-265 c; if](#day-265-c-if)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20546,4 +20548,51 @@ Today we will do a basic design and 3d print it, first make an account on https:
 Grab a masuring tool and get any object that you see and measure it and build it inside tinkercad.
 
 > She did some great designs, but they are somewhat personal and I wont show them in the book. Also she was the one who found out about the W key doing temporary workarea, which makes the whole tinkercad propgram 10000 times better, and before this I was doing designs super slow and was very annoyed :)
+
+## [DAY-265] c; if
+
+Examine the following program, type it in notepad and compile it with gcc, then examine the output binary.
+
+```
+// comments in C
+// save the file as hello.c
+// use gcc -o hello hello.c to compile the program
+#include <stdio.h>
+
+int fizzbuzz(int n) {
+	int fizbuzzes = 0;
+	for (int i = 1; i < n; i++) {
+		if (i % 3 == 0 && i % 5 == 0) {
+			printf("fizzbuzz\n");
+			fizbuzzes += 1;
+		} else if (i % 3 == 0) {
+			printf("fizz\n");
+		} else if (i % 5 == 0) {
+			printf("buzz\n");
+		} else {
+			printf("%d\n", i);
+		}
+	}
+	return fizbuzzes;
+}
+
+int main(void) {
+	while(1) {
+		printf("hello, press q to stop\n");
+		char c = getchar();
+		getchar();
+		if (c == 81 || c == 113) {
+			break;
+		} else if (c == 97) {
+			int n = fizzbuzz(20);
+			printf("amount of fizbuzzes: %d\n",n);
+		} else if (c == 'A') {
+			int n = fizzbuzz(50);
+			printf("amount of fizbuzzes: %d\n",n);
+		}
+	}
+	return 0;
+}
+```
+
 
