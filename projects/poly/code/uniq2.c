@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 typedef struct list {
-  size_t len; int *data;
+  int len; int *data;
 } list;
 int hash_find(list set, int k) {
   int bucket = (k * 31) % set.len;
@@ -35,16 +35,31 @@ list uniq(list x) {
 
 int main(void) {
   list x = {
-    .len = 4,
-    .data = malloc(3*4),
+    .len = 10,
+    .data = malloc(x.len*4),
   };
-  x.data[0] = 1;
-  x.data[1] = 3;
-  x.data[2] = 2;
-  x.data[3] = 1;
 
+  int n = 0;
+  x.data[n++] = 1;
+  x.data[n++] = 1;
+  x.data[n++] = 2;
+  x.data[n++] = 3;
+  x.data[n++] = 3;
+  x.data[n++] = 4;
+  x.data[n++] = 1;
+  x.data[n++] = 2;
+  x.data[n++] = 7;
+  x.data[n++] = 1;
+
+  
   list r = uniq(x);
-  for (int i = 0; i < r.len; i++)
-    printf("%d\n",r.data[i]);
+  printf("[");
+  for (int i = 0; i < r.len; i++) {
+    printf("%d",r.data[i]);
+    if (i != r.len - 1) {
+      printf(" ");
+    }
+  }
+  printf("]\n");    
 
 }

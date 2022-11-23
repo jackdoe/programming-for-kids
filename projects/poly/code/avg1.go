@@ -2,9 +2,14 @@ package main
 
 import "fmt"
 
+// take a list of numbers
+// and return an average
+// floored, e.g:
+//   [1,2]
+// returns:
+//   1
 func avg(x []int) int {
 	sum := 0
-
 	for _, v := range x {
 		sum += v
 	}
@@ -13,5 +18,5 @@ func avg(x []int) int {
 }
 
 func main() {
-	fmt.Printf("%v", avg([]int{1, 2, 1, 1, 1, 3, 1}))
+	fmt.Printf("%v\n", avg([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 1}))
 }

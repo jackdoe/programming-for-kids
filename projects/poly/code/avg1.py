@@ -1,8 +1,14 @@
+# take a list of numbers
+# and return an average
+# floored, e.g:
+#   [1,2]
+# returns:
+#   1
 def avg(x):
     s = sum(x)
     l = len(x)
 
     return int(s/l)
 
-print(avg([1, 2, 1, 1, 1, 3, 1]))
+print(avg([1,1,2,3,3,4,1,2,7,1]))
 

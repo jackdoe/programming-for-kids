@@ -5,19 +5,21 @@ typedef struct list {
   int *data;
 } list;
 
-// take a list of numbers
-// and return an average
-// floored, e.g:
-//   [1,2]
+// returns the biggest integer from a
+// list, e.g.:
+//   [1,2,3,2]
 // returns:
-//   1
-int avg(list x) {
-  int sum = 0;
+//   3
+int max(list x) {
+  int m = 0;
   for (int i = 0; i < x.len; i++) {
-    sum += x.data[i];
+    int v = x.data[i];
+    if (v > m) {
+      m = v;
+    }
   }
 
-  return sum/x.len;
+  return m;
 }
 
 int main(void) {
@@ -39,5 +41,6 @@ int main(void) {
   x.data[n++] = 1;
 
   
-  printf("%d\n", avg(x));
+  printf("%d\n", max(x));
+
 }

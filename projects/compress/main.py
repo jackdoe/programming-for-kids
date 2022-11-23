@@ -17,9 +17,12 @@ def card(x):
       print(x[i],end='')
   print()
 
-def card_str(x):
+def card_str(x,language=""):
   global CARD
-  print(f"CARD:{CARD}")
+  if len(language) != 0:
+    print(f"CARD:{CARD}:{language}")
+  else:
+    print(f"CARD:{CARD}")
   CARD+=1
   print(x)
   print()
@@ -349,7 +352,7 @@ card_str(f"""{'RUNLENGTH ENCODING'.center(40)}
 # to:
 #   [1,1,1,1,1,1,1,2]
 {inspect.getsource(rld)}
-""")
+""", "python")
 
 
 card_str(f"""{'REDUCE INFORMATION'.center(40)}
@@ -403,7 +406,7 @@ card_str(f"""{'REDUCE INFORMATION'.center(40)}
 #   [1,1,4,4,7,7]
 {inspect.getsource(unsqueeze)}
 
-""")
+""","python")
 
 
 card_str(f"""{'FILTERS'.center(40)}
@@ -445,7 +448,7 @@ card_str(f"""{'FILTERS'.center(40)}
 {inspect.getsource(blur)}
 {inspect.getsource(invert)}
 {inspect.getsource(bw)}
-""")
+""","python")
 
 
 

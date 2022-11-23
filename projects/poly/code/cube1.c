@@ -5,19 +5,18 @@ typedef struct list {
   int *data;
 } list;
 
-// take a list of numbers
-// and return an average
-// floored, e.g:
-//   [1,2]
+// cube each number in the list
+//   [1,2,3]
 // returns:
-//   1
-int avg(list x) {
-  int sum = 0;
+//   [1,8,27]
+list cube(list x) {
+  list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
-    sum += x.data[i];
+    int v = x.data[i];
+    r.data[r.len++] = v * v * v;
   }
 
-  return sum/x.len;
+  return r;
 }
 
 int main(void) {
@@ -39,5 +38,14 @@ int main(void) {
   x.data[n++] = 1;
 
   
-  printf("%d\n", avg(x));
+  list r = cube(x);
+  printf("[");
+  for (int i = 0; i < r.len; i++) {
+    printf("%d",r.data[i]);
+    if (i != r.len - 1) {
+      printf(" ");
+    }
+  }
+  printf("]\n");
+
 }

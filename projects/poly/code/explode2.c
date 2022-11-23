@@ -8,15 +8,15 @@ typedef struct list {
 } list;
 
 // return a list of N numbers
-// with values from 1 to n/2
+// with values from 1 to n
 // e.g
 //   explode(10)
 // returns:
-//   [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+//   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 list explode(int n) {
   list r = {0, malloc(n * 4)};
   for (int i = 1; i <= n; i++) {
-    r.data[r.len++] = (i + 1) /2;
+    r.data[r.len++] = i;
   }
 
   return r;

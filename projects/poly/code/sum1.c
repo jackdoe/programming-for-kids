@@ -1,23 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct list {
   int len;
   int *data;
 } list;
 
-// take a list of numbers
-// and return an average
-// floored, e.g:
-//   [1,2]
+// sum all the integers from a list
+//   [1,2,3]
 // returns:
-//   1
-int avg(list x) {
-  int sum = 0;
+//   6
+int sum(list x) {
+  int s = 0;
   for (int i = 0; i < x.len; i++) {
-    sum += x.data[i];
+    s += x.data[i];
   }
 
-  return sum/x.len;
+  return s;
 }
 
 int main(void) {
@@ -37,7 +36,6 @@ int main(void) {
   x.data[n++] = 2;
   x.data[n++] = 7;
   x.data[n++] = 1;
-
   
-  printf("%d\n", avg(x));
+  printf("%d\n", sum(x));
 }
