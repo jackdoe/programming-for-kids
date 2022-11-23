@@ -5,6 +5,7 @@ typedef struct list {
   int *data;
 } list;
 
+// passed to qsort
 int cmp(const void *a, const void *b) {
     int av = *((int *)a);
     int bv = *((int *)b);
