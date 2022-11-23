@@ -2,14 +2,14 @@ from os import listdir
 CARD = 1
 listed = listdir('./code')
 listed.sort()
-
-#color = '#33ff33' # green
-#color = '#ffcc00' # amber apple2
 #color = '#ffb000' # amber
-#theme='doom-one2'
-color = 'black'
-bgcolor = 'white'
-theme = 'friendly'
+#color = '#33ff33' # green
+color = '#ffcc00' # amber apple2
+bgcolor = 'black'
+theme='doom-one2'
+#color = 'black'
+#bgcolor = 'white'
+#theme = 'friendly'
 def card_str(x):
   global CARD
   print(f"CARD:{CARD}::doom-one2:{bgcolor}:{color}:{color}")
@@ -26,9 +26,9 @@ another card's input.
 There are three types of cards in this
 version:
 
- * Takes a list and returns a list
- * Takes a list and returns an integer
- * Takes an integer and returns a list
+ * takes a LIST and returns a LIST
+ * takes a LIST and returns an INTEGER
+ * takes an INTEGER and returns a LIST
 
 Cards are implemented in multiple
 languages and some are also implemented
