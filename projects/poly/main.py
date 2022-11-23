@@ -175,6 +175,13 @@ for fn in listed:
 #        card.append(p)
         for line in f.read().splitlines():
             line = line.rstrip()
+            if fn.endswith('go'):
+              line = line.replace("\t", "  ")
+            if fn.endswith('py'):
+              line = line.replace("    ", "  ")
+
+            if fn.endswith('js'):
+              line = line.replace("    ", "  ")
 
             if 'package' in line:
                 continue
