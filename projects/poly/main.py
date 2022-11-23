@@ -4,11 +4,15 @@ listed = listdir('./code')
 listed.sort()
 
 #color = '#33ff33' # green
-color = '#ffcc00' # amber
+#color = '#ffcc00' # amber apple2
 #color = '#ffb000' # amber
+#theme='doom-one2'
+color = 'black'
+bgcolor = 'white'
+theme = 'friendly'
 def card_str(x):
   global CARD
-  print(f"CARD:{CARD}::doom-one2:black:{color}:{color}")
+  print(f"CARD:{CARD}::doom-one2:{bgcolor}:{color}:{color}")
   CARD+=1
   print(x)
   print()
@@ -112,9 +116,8 @@ There are tasks you can try to do:
 
 # double the explode and avg cards
 
-filtered = [f for f in listed if 'explode1' in f or f.startswith('max1')]
-
-listed += filtered
+#filtered = [f for f in listed if 'explode1' in f or f.startswith('max1')]
+#listed += filtered
 
 from itertools import cycle
 possible = cycle([
@@ -163,9 +166,8 @@ for fn in listed:
       continue
 
     #p = next(possible)
-    p = 'doom-one2'
 
-    print(f"CARD:{CARD}:{lang}:{p}:black:{color}:{color}")
+    print(f"CARD:{CARD}:{lang}:{theme}:{bgcolor}:{color}:{color}")
     skip = True
     with open(f"./code/{fn}","r") as f:
         CARD+=1

@@ -10,8 +10,7 @@ func uniq(x []int) []int {
 	r := []int{}
 	seen := map[int]bool{}
 	for _, v := range x {
-		s := seen[v]
-		if !s {
+		if !seen[v] {
 			r = append(r, v)
 			seen[v] = true
 		}
