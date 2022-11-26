@@ -6,7 +6,7 @@
 function halve(x) {
   let v = parseInt(x / 2);
   if (v < 1) {
-    v = 1
+    v = 1;
   }
 
   return v;

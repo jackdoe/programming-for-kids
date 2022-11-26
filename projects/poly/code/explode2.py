@@ -1,12 +1,12 @@
 # return a list of n numbers
-# with values from 1 to n
+# with values from 2 to n+1
 # e.g
 #   explode(10)
 # returns:
-#   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#   [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 def explode(n):
     r = []
-    for i in range(1, n + 1):
+    for i in range(2, n + 2):
         r.append(i)
 
     return r

@@ -8,14 +8,14 @@ typedef struct list {
 } list;
 
 // return a list of n numbers
-// with values from 1 to n
+// with values from 2 to n+1
 // e.g
 //   explode(10)
 // returns:
-//   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+//   [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 list explode(int n) {
   list r = {0, malloc(n * 4)};
-  for (int i = 1; i <= n; i++) {
+  for (int i = 2; i <= n+1; i++) {
     r.data[r.len++] = i;
   }
 

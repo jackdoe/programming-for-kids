@@ -7,9 +7,9 @@ typedef struct list {
 
 // returns the smallest integer from a
 // list, or 1 if the list is empty, e.g.:
-//   [2,3,2,4]  
-// returns:     
-//   2          
+//   [2,3,2,4]
+// returns:
+//   2
 int min(list x) {
   if (x.len == 0) {
     return 1;

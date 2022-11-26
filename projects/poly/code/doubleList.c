@@ -5,7 +5,6 @@ typedef struct list {
   int *data;
 } list;
 
-
 // returns new list, doubling each
 // item, e.g.:
 //   [1,2,3,4,5]

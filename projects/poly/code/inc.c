@@ -10,6 +10,4 @@ int increment(int x) {
   return v;
 }
 
-int main(void) {
-  printf("%d\n",increment(5));
-}
+int main(void) { printf("%d\n", increment(5)); }

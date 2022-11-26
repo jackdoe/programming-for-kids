@@ -6,7 +6,7 @@
 function first(x) {
   let f = 1;
   if (x.length > 0) {
-      f = x[0]
+    f = x[0];
   }
 
   return f;

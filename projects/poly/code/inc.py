@@ -6,5 +6,5 @@ def increment(x):
     v = x + 1
     return v
 
-print(increment(5))
 
+print(increment(5))

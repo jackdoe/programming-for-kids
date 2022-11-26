@@ -6,7 +6,7 @@
 def increment(x):
     r = []
     for v in x:
-        r.append(v+1)
+        r.append(v + 1)
 
     return r
 

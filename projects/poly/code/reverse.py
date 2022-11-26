@@ -12,4 +12,5 @@ def reverse(x):
 
     return r
 
-print(reverse([1,1,2,3,3,4,1,2,7,1]))
+
+print(reverse([1, 1, 2, 3, 3, 4, 1, 2, 7, 1]))

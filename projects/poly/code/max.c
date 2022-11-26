@@ -7,9 +7,9 @@ typedef struct list {
 
 // returns the biggest integer from a
 // list, or 1 if the list is empty,e.g.:
-//   [1,2,3,2]  
-// returns:     
-//   3          
+//   [1,2,3,2]
+// returns:
+//   3
 int max(list x) {
   int m = 1;
   for (int i = 0; i < x.len; i++) {

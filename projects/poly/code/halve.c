@@ -15,6 +15,4 @@ int halve(int x) {
   return v;
 }
 
-int main(void) {
-  printf("%d\n",halve(5));
-}
+int main(void) { printf("%d\n", halve(5)); }

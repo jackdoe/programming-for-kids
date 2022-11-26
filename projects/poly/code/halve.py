@@ -10,5 +10,5 @@ def halve(x):
 
     return v
 
-print(halve(5))
 
+print(halve(5))

@@ -6,7 +6,7 @@
 def doubleList(x):
     r = []
     for v in x:
-        r.append(v*2)
+        r.append(v * 2)
 
     return r
 

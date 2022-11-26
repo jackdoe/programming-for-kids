@@ -1,5 +1,5 @@
 # return a list of n numbers
-# with decreasing values from n to 1
+# with decreasing values from 2 + n down
 # e.g:
 #   explode(10)
 # returns:
@@ -7,7 +7,7 @@
 def explode(n):
     r = []
     for i in range(n):
-        r.append(n - i)
+        r.append(2 + n - i)
 
     return r
 

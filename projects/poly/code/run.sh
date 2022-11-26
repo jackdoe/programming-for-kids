@@ -18,7 +18,7 @@ for kind in $(ls -1 | grep .go| cut -f 1 -d '.' | paste -sd' '  -); do
     /tmp/z| sed -e 's/, /,/g'| sed -e 's/ /,/g' >> /tmp/a
 
     echo 'counted uniq:'
-    cat /tmp/a | sort | uniq -c
+    cat /tmp/a
 
     lines=$(cat /tmp/a | sort | uniq -c | wc -l)
     if [ "$lines" -ne "1" ]; then

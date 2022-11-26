@@ -1,8 +1,8 @@
 # returns the smallest integer from a
 # list, or 1 if the list is empty, e.g.:
-#   [2,3,2,4]  
-# returns:     
-#   2          
+#   [2,3,2,4]
+# returns:
+#   2
 def min(x):
     if len(x) == 0:
         return 1
