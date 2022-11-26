@@ -87,10 +87,11 @@ specific value, the number 7
 
 1. Shuffle the cards
 
-2. Each player gets 10 cards
+2. Each player gets 3 cards
    (you can decide to play open, so
    cards are face up on the table, so
    the other players can sabotage you)
+
 3. The player who has traveled the most
    starts.
 
@@ -175,6 +176,13 @@ for fn in listed:
                 card.append(line)
 
         n = int((32/2)) - int((len(card)) / 2)
-        print('\n' * n, end='')
+        title = f"filename: {fn}"
+        if fn.endswith('py'):
+          print(f"# {title}")
+        else:
+          print(f"// {title}")          
+
+        print('\n' * (n-1), end='')
+
         for line in card:
                 print(line)

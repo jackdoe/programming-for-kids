@@ -5,26 +5,15 @@ typedef struct list {
   int *data;
 } list;
 
-// remove the all occurences of the
-// smallest integer in the list
-//   [1,2,3,2,3,1]
+// reverse the input list
+//   [1,2,3,4,5]
 // returns:
-//   [2,3,2,3]
-list unmax(list x) {
-  int min = 2147483647;
-  for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
-    if (v < min) {
-      min = v;
-    }
-  }
-
+//   [5,4,3,2,1]
+list reverse(list x) {
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
-    if (v != min) {
-      r.data[r.len++] = v;
-    }
+    int v = x.data[x.len - 1 - i];
+    r.data[r.len++] = v;
   }
   return r;
 }
@@ -47,7 +36,7 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 1;
 
-  list r = unmax(x);
+  list r = reverse(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);

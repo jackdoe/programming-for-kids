@@ -3,7 +3,7 @@
 
 set -e
 
-for kind in $(ls -1 | grep .c| cut -f 1 -d '.' | paste -sd' '  -); do
+for kind in $(ls -1 | grep .go| cut -f 1 -d '.' | paste -sd' '  -); do
     echo
     echo $kind
     echo '> go'
