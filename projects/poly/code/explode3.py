@@ -1,13 +1,13 @@
-# return a list of N numbers
-# with values from 2 to n*2
+# return a list of n times
+# the number n + 1
 # e.g
-#   explode(10)
+#   explode(5)
 # returns:
-#   [2,4,6,8,10,12,14,16,18,20]
+#   [6, 6, 6, 6, 6]
 def explode(n):
     r = []
-    for i in range(1,n+1):
-        r.append(i*2)
+    for i in range(n):
+        r.append(n + 1)
 
     return r
 

@@ -1,10 +1,10 @@
 # remove the all occurences of the
-# largest integer in the list
+# smallest integer in the list
 #   [1,2,3,2,3,1]
 # returns:
-#   [1,2,2,1]
-def unmax(x):
-    m = max(x)
+#   [2,3,2,3]
+def unmin(x):
+    m = min(x)
 
     r = []
     for v in x:
@@ -14,4 +14,4 @@ def unmax(x):
     return r
 
 
-print(unmax([1, 1, 2, 3, 3, 4, 1, 2, 7, 1]))
+print(unmin([1, 1, 2, 3, 3, 4, 1, 2, 7, 1]))

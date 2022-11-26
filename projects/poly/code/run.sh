@@ -3,7 +3,7 @@
 
 set -e
 
-for kind in avg1 cube1 explode1 explode2 explode3 max1 rle1 sum1 uniq1 uniq2 uniq3 unmax1; do
+for kind in $(ls -1 | grep .c| cut -f 1 -d '.' | paste -sd' '  -); do
     echo
     echo $kind
     echo '> go'

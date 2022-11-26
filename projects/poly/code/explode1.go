@@ -4,16 +4,17 @@ import (
 	"fmt"
 )
 
-// return a list of N numbers
-// with values from 1 to n/2
-// e.g
+// return a list of n numbers
+// with decreasing values from n to 1
+// e.g:
 //   explode(10)
 // returns:
-//   [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+//   [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 func explode(n int) []int {
 	r := []int{}
-	for i := 1; i <= n; i++ {
-		r = append(r, (i+1)/2)
+	for i := 0; i < n; i++ {
+		v := n - i
+		r = append(r, v)
 	}
 
 	return r

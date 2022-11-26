@@ -5,25 +5,23 @@ typedef struct list {
   int *data;
 } list;
 
-// take a list of numbers
-// and return an average
-// floored, e.g:
-//   [1,2]
+// returns the first element from a list
+// or 1 if the list is empty, e.g.:
+//   [2,3,2]
 // returns:
-//   1
-int avg(list x) {
-  int sum = 0;
-  for (int i = 0; i < x.len; i++) {
-    sum += x.data[i];
+//   2
+int first(list x) {
+  int f = 1;
+  if (x.len > 0) {
+    f = x.data[0];
   }
-
-  return sum/x.len;
+  return f;
 }
 
 int main(void) {
   list x = {
-    .len = 10,
-    .data = malloc(x.len*4),
+      .len = 10,
+      .data = malloc(x.len * 4),
   };
 
   int n = 0;
@@ -38,6 +36,5 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 1;
 
-  
-  printf("%d\n", avg(x));
+  printf("%d\n", first(x));
 }

@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 // returns the biggest integer from a
-// list, e.g.:
+// list, or 1 if the list is empty,e.g.:
 //   [1,2,3,2]
 // returns:
 //   3
 func max(x []int) int {
-	m := 0
+	m := 1
 	for _, v := range x {
 		if v > m {
 			m = v

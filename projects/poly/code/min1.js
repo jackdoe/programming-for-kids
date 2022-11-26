@@ -1,17 +1,21 @@
 // returns the smallest integer from a
-// list, e.g.:
-//   [1,2,3,2]
-// returns:
-//   1
-function max(x) {
-    m = 2147483647;
-    for (let v of x) {
-        if (v < m) {
-            m = v;
-        }
-    }
+// list, or 1 if the list is empty, e.g.:
+//   [2,3,2,4]  
+// returns:     
+//   2          
+function min(x) {
+  if (x.length == 0) {
+    return 1;
+  }
 
-    return m;
+  m = 2147483647;
+  for (let v of x) {
+    if (v < m) {
+      m = v;
+    }
+  }
+
+  return m;
 }
 
-console.log(JSON.stringify(max([1,1,2,3,3,4,1,2,7,1])))
+console.log(JSON.stringify(min([1, 1, 2, 3, 3, 4, 1, 2, 7, 1])));

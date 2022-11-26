@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// return a list of N numbers
+// return a list of n numbers
 // with values from 1 to n
 // e.g
 //   explode(10)

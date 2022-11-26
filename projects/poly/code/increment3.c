@@ -5,27 +5,18 @@ typedef struct list {
   int *data;
 } list;
 
-// remove the all occurences of the
-// largest integer in the list
-//   [1,2,3,2,3,1]
+// returns new list, incrementing each
+// item, e.g.:
+//   [1,1,3,2,1]
 // returns:
-//   [1,2,2,1]
-list unmax(list x) {
-  int max = 0;
-  for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
-    if (v > max) {
-      max = v;
-    }
-  }
-
+//   [2,2,4,3,2]
+list increment(list x) {
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
-    if (v != max) {
-      r.data[r.len++] = v;
-    }
+    int v = x.data[i] + 1;
+    r.data[r.len++] = v;
   }
+
   return r;
 }
 
@@ -47,7 +38,7 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 1;
 
-  list r = unmax(x);
+  list r = increment(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);

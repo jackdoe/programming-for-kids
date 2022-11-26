@@ -3,11 +3,15 @@ package main
 import "fmt"
 
 // returns the smallest integer from a
-// list, e.g.:
-//   [1,2,3,2]
+// list, or 1 if the list is empty, e.g.:
+//   [2,3,2,4]
 // returns:
-//   1
+//   2
 func min(x []int) int {
+	if len(x) == 0 {
+		return 1
+	}
+
 	m := 2147483647
 	for _, v := range x {
 		if v < m {

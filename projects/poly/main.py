@@ -1,15 +1,15 @@
 from os import listdir
 CARD = 1
-listed = listdir('./code')
-listed.sort()
 #color = '#ffb000' # amber
 #color = '#33ff33' # green
-color = '#ffcc00' # amber apple2
-bgcolor = 'black'
-theme='doom-one2'
-#color = 'black'
-#bgcolor = 'white'
-#theme = 'friendly'
+
+#color = '#ffcc00' # amber apple2
+#bgcolor = 'black'
+#theme='doom-one2'
+#
+color = 'black'
+bgcolor = 'white'
+theme = 'friendly'
 def card_str(x):
   global CARD
   print(f"CARD:{CARD}::doom-one2:{bgcolor}:{color}:{color}")
@@ -23,38 +23,34 @@ The game PUNKO is a game of function
 composition, each card's output is
 another card's input.
 
-There are three types of cards in this
+There are four types of cards in this
 version:
 
  * takes a LIST and returns a LIST
- * takes a LIST and returns an INTEGER
- * takes an INTEGER and returns a LIST
+ * takes a LIST and returns an INT
+ * takes an INT and returns a LIST
+ * takes an INT and returns an INT
 
-Cards are implemented in multiple
-languages and some are also implemented
-with different space or time complexity.
+Cards are implemented in c, go, python
+and js and some are also implemented
+with different time complexity.
 
 The cards, especially the C cards, have
 a lot of bugs in them, they dont check
 for integer overflows and underflows,
 break down with negative integers, or
-for example the hash set can get into
-infinite loop and also can't have keys
-with value zero, or malloc failing if
-there is no memory and etc, but the idea
-of the card is clear.
-
-Some code is made more explicit, like
-redefining python's sum and max or not
-using them, but this way it is easier to
-onboard beginners.
+malloc failing if there is no memory and
+etc, but the idea of the card is
+clear. Some code is made more explicit,
+like redefining python's sum and max or
+not using slice operators, but this way
+it is easier to onboard beginners.
 """)
 
-card_str(f"""{'RULES'.center(40)}
-
+card_str(f"""{'SIMPLE RULES'.center(40)}
 1. Shuffle the cards.
 
-2. Each player gets 6 cards.
+2. Each player gets 6 cards
 
 3. Youngest player plays a card that
    takes a list.
@@ -62,56 +58,52 @@ card_str(f"""{'RULES'.center(40)}
    This is the starting list:
    [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
 
-4. The next player (clockwise) needs to
-   play a card that takes the previous
-   card's output as input. 
+4. You can play a card in any language
+   if it changes the type of the output,
+   e.g. LIST -> INT or INT -> LIST, but
+   if you do not change it, you have to
+   play in the same language as in the
+   previous card, or draw from the deck.
 
-   For example if they played uniq(x),
-   which takes a list and returns a
-   list, you must play a card that takes
-   a list. If they played avg(x) which
-   takes a list and returns an integer,
-   then you must play a card that takes
-   an integer.
+   If the player plays a card that
+   returns an INT, and they can say the
+   actual value, the next player, before
+   playing, has to draw min(4, V) cards
+   from the deck where V is the actual
+   value returned, if they cant say the
+   value, the game continues as normal.
+   You can challlenge them, and if the
+   value is wrong, they have to draw
+   min(4,V).
 
-   If you dont have an appropriate card
-   draw from the deck until you get one.
-
-5. Whoever finishes their cards first
-   is the winner.
+5. The player who reaches zero cards
+   wins.
 """)
 
 card_str(f"""{'ADVANCED RULES'.center(40)}
 
-The advanced version of the game is much
-more open, the only rule is: 
+The goal of the game is to produce a
+specific value, the number 7
 
-  the next card's input is the previous
-  card's output
+1. Shuffle the cards
+
+2. Each player gets 10 cards
+   (you can decide to play open, so
+   cards are face up on the table, so
+   the other players can sabotage you)
+3. The player who has traveled the most
+   starts.
+
+4. You can play multiple cards in the
+   same language in the same time. Each
+   turn you can decide to pull from the
+   deck or play your hand.
+
+5. The first one that produces the
+   numner 7 wins
 
 The starting list is:
   [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
-
-You will have to interpret the code in
-your head, and keep evaluating the
-result, maybe use pen and paper to write
-the actual output of the last card.
-
-There are tasks you can try to do:
-
-* make last card return an empty list
-* make the last card consume at least
-  4GB of memory
-* compete with another player who can
-  make the biggest list
-* come up with your own ridiculous
-  task, e.g. avg should be 5
-* start with [1] and get to [1,2,3,4,5]
-* you can only use either different
-  function or higher complexity of
-  the same function
-* you can only use function in different
-  language
 """)
 
 # double the explode and avg cards
@@ -119,29 +111,8 @@ There are tasks you can try to do:
 #filtered = [f for f in listed if 'explode1' in f or f.startswith('max1')]
 #listed += filtered
 
-from itertools import cycle
-possible = cycle([
-"abap", "algol", "algol_nu", "arduino",
- "autumn", "average", "base16-snazzy",
- "borland", "catppuccin-frappe",
- "catppuccin-latte", "catppuccin-mocha",
- "colorful", "doom-one", "doom-one2",
- "dracula", "emacs", "friendly",
- "fruity", "github-dark", "github",
- "gruvbox-light", "gruvbox",
- "hr_high_contrast", "hrdark", "igor",
- "lovelace", "manni", "modus-operandi",
- "modus-vivendi", "monokai",
- "monokailight", "murphy", "native",
- "nord", "onedark", "onesenterprise",
- "paraiso-dark", "paraiso-light",
- "pastie", "perldoc", "pygments",
- "rainbow_dash", "rose-pine-dawn",
- "rose-pine-moon", "rose-pine", "rrt",
- "solarized-dark", "solarized-dark256",
- "solarized-light", "swapoff", "tango",
- "trac", "vim", "witchhazel",
- "xcode-dark", "xcode"])
+listed = listdir('./code')
+listed.sort()
 
 for fn in listed:
     if not '.' in fn:
@@ -172,15 +143,11 @@ for fn in listed:
     with open(f"./code/{fn}","r") as f:
         CARD+=1
         card = []
-#        card.append(p)
         for line in f.read().splitlines():
             line = line.rstrip()
             if fn.endswith('go'):
               line = line.replace("\t", "  ")
             if fn.endswith('py'):
-              line = line.replace("    ", "  ")
-
-            if fn.endswith('js'):
               line = line.replace("    ", "  ")
 
             if 'package' in line:
@@ -189,6 +156,8 @@ for fn in listed:
             if 'main' in line:
                 break
 
+            if line.strip() == '"fmt"' or line.strip() == '"sort"':
+                continue
             if 'console' in line or line.startswith("\t\"") or line == ')' or line == 'import (':
                 continue
 

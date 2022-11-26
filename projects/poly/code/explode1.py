@@ -1,14 +1,13 @@
-# return a list of N numbers
-# with values from 1 to n/2
-# e.g
+# return a list of n numbers
+# with decreasing values from n to 1
+# e.g:
 #   explode(10)
 # returns:
-#   [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+#   [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 def explode(n):
     r = []
-    for i in range(1,n+1):
-        v = int((i+1)/2)
-        r.append(v)
+    for i in range(n):
+        r.append(n - i)
 
     return r
 

@@ -5,37 +5,34 @@ typedef struct list {
   int *data;
 } list;
 
-// passed to qsort
-int cmp(const void *a, const void *b) {
-    int av = *((int *)a);
-    int bv = *((int *)b);
-    return av - bv;
-}
-
-// deduplicate a list of integers
-//   [1,1,3,2,1]
+// remove the all occurences of the
+// smallest integer in the list
+//   [1,2,3,2,3,1]
 // returns:
-//   [1,3,2]
-list uniq(list x) {
-  // WARNING: modifies the original list
-  qsort(x.data, x.len, 4, cmp);
-  
-  list r = {0, malloc(x.len * 4)};
-  for (int i=0; i<x.len;i++) {
+//   [2,3,2,3]
+list unmax(list x) {
+  int min = 2147483647;
+  for (int i = 0; i < x.len; i++) {
     int v = x.data[i];
-    int l = r.len;
-    if (l == 0 || r.data[l-1] != v) {
-      r.data[r.len++] = v;
+    if (v < min) {
+      min = v;
     }
   }
 
+  list r = {0, malloc(x.len * 4)};
+  for (int i = 0; i < x.len; i++) {
+    int v = x.data[i];
+    if (v != min) {
+      r.data[r.len++] = v;
+    }
+  }
   return r;
 }
 
 int main(void) {
   list x = {
-    .len = 10,
-    .data = malloc(x.len*4),
+      .len = 10,
+      .data = malloc(x.len * 4),
   };
 
   int n = 0;
@@ -50,14 +47,13 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 1;
 
-  
-  list r = uniq(x);
+  list r = unmax(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
-    printf("%d",r.data[i]);
+    printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");
     }
   }
-  printf("]\n");    
+  printf("]\n");
 }

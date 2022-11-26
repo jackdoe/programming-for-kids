@@ -6,11 +6,14 @@ typedef struct list {
 } list;
 
 // returns the smallest integer from a
-// list, e.g.:
-//   [1,2,3,2]
-// returns:
-//   1
+// list, or 1 if the list is empty, e.g.:
+//   [2,3,2,4]  
+// returns:     
+//   2          
 int min(list x) {
+  if (x.len == 0) {
+    return 1;
+  }
   int m = 2147483647;
   for (int i = 0; i < x.len; i++) {
     int v = x.data[i];
@@ -24,8 +27,8 @@ int min(list x) {
 
 int main(void) {
   list x = {
-    .len = 10,
-    .data = malloc(x.len*4),
+      .len = 10,
+      .data = malloc(x.len * 4),
   };
 
   int n = 0;
@@ -40,7 +43,5 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 1;
 
-  
   printf("%d\n", min(x));
-
 }

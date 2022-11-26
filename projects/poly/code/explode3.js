@@ -1,16 +1,16 @@
-// return a list of N numbers
-// with values from 2 to n*2
+// return a list of n times
+// the number n+1
 // e.g
-//   explode(10)
+//   explode(5)
 // returns:
-//   [2,4,6,8,10,12,14,16,18,20]
+//   [6, 6, 6, 6, 6]
 function explode(n) {
-    r = []
-    for (let i = 1; i <= n; i++) {
-        r.push(i*2)
-    }
+  r = [];
+  for (let i = 0; i < n; i++) {
+    r.push(n + 1);
+  }
 
-    return r
+  return r;
 }
 
-console.log(JSON.stringify(explode(11)))
+console.log(JSON.stringify(explode(11)));

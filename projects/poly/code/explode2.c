@@ -1,13 +1,13 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 
 typedef struct list {
   int len;
   int *data;
 } list;
 
-// return a list of N numbers
+// return a list of n numbers
 // with values from 1 to n
 // e.g
 //   explode(10)
@@ -26,7 +26,7 @@ int main(void) {
   list r = explode(11);
   printf("[");
   for (int i = 0; i < r.len; i++) {
-    printf("%d",r.data[i]);
+    printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");
     }

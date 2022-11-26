@@ -2,16 +2,16 @@ package main
 
 import "fmt"
 
-// return a list of N numbers
-// with values from 2 to n*2
+// return a list of n times
+// the number n + 1
 // e.g
-//   explode(10)
+//   explode(5)
 // returns:
-//   [2,4,6,8,10,12,14,16,18,20]
+//   [6, 6, 6, 6, 6]
 func explode(n int) []int {
 	r := []int{}
-	for i := 1; i <= n; i++ {
-		r = append(r, i*2)
+	for i := 0; i < n; i++ {
+		r = append(r, n+1)
 	}
 
 	return r

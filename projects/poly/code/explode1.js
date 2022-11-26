@@ -1,17 +1,17 @@
-// return a list of N numbers
-// with values from 1 to n/2
-// e.g
+// return a list of n numbers
+// with decreasing values from n to 1
+// e.g:
 //   explode(10)
 // returns:
-//   [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+//   [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 function explode(n) {
-    r = []
-    for (let i = 1; i <= n; i++) {
-        let v = parseInt((i+1)/2)
-        r.push(v)
-    }
+  r = [];
+  for (let i = 0; i < n; i++) {
+    let v = n - i;
+    r.push(v);
+  }
 
-    return r
+  return r;
 }
 
-console.log(JSON.stringify(explode(11)))
+console.log(JSON.stringify(explode(11)));

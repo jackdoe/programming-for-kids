@@ -6,12 +6,12 @@ typedef struct list {
 } list;
 
 // returns the biggest integer from a
-// list, e.g.:
-//   [1,2,3,2]
-// returns:
-//   3
+// list, or 1 if the list is empty,e.g.:
+//   [1,2,3,2]  
+// returns:     
+//   3          
 int max(list x) {
-  int m = 0;
+  int m = 1;
   for (int i = 0; i < x.len; i++) {
     int v = x.data[i];
     if (v > m) {
@@ -24,8 +24,8 @@ int max(list x) {
 
 int main(void) {
   list x = {
-    .len = 10,
-    .data = malloc(x.len*4),
+      .len = 10,
+      .data = malloc(x.len * 4),
   };
 
   int n = 0;
@@ -40,7 +40,5 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 1;
 
-  
   printf("%d\n", max(x));
-
 }
