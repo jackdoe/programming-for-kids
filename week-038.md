@@ -173,3 +173,25 @@ int main(void) {
 }
 ```
 
+
+## [DAY-266] lists
+
+Maka e program to add a bunch of inputs to a list and pick a random item from it:
+
+> thats what she wrote, I explained about the random.seed
+
+```
+import random
+import time
+random.seed(time.time())
+a = ["Rumble","Fortnite","Call of Duty","Bedwars"]
+print(a)
+while True:
+    b= input('add anything you want: ')
+    if b == "quit":
+        break
+    a.append(b)
+    
+print("this is what you got in here: ",a)
+print(random.choice(a))
+```
