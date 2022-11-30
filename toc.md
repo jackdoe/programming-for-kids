@@ -671,3 +671,5 @@
 [day-264 design](#day-264-design)
 
 [day-265 c; if](#day-265-c-if)
+
+[day-266 lists](#day-266-lists)

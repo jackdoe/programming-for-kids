@@ -789,6 +789,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-265 c; if](#day-265-c-if)
 
+[day-266 lists](#day-266-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20595,4 +20597,26 @@ int main(void) {
 }
 ```
 
+
+## [DAY-266] lists
+
+Maka e program to add a bunch of inputs to a list and pick a random item from it:
+
+> thats what she wrote, I explained about the random.seed
+
+```
+import random
+import time
+random.seed(time.time())
+a = ["Rumble","Fortnite","Call of Duty","Bedwars"]
+print(a)
+while True:
+    b= input('add anything you want: ')
+    if b == "quit":
+        break
+    a.append(b)
+    
+print("this is what you got in here: ",a)
+print(random.choice(a))
+```
 
