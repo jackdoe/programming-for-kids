@@ -45,7 +45,7 @@ Sometimes my daughter doesn't like to code, or to read for that matter, of cours
 
 Maybe she will grow hating it, or even hating me. Parenting is difficult.
 
-We are 7 months in, and so far she doesn't hate me.
+We are more than year and a half in, and so far she doesn't hate me.
 
 ## About the book
 
