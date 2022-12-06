@@ -224,3 +224,36 @@ def middle(x):
     return e
 ```
 
+
+## [DAY-268] lists
+
+make fizbuzz
+
+```
+for i in range(50):
+	if i%5==0 and i%3 ==0:
+		print("fizzzz buzz")
+	elif i%3==0:
+		print("buxx")
+	elif i %5==0:
+		print("fizzzz")
+	else:
+		print(i)
+```
+
+add all the non fizz,buzz,fizbuzz numbers to a list and print it
+
+```
+a=[]
+for i in range(50):
+	if i%5==0 and i%3 ==0:
+		print("fizzzz buzz")
+	elif i%3==0:
+		print("buxx")
+	elif i %5==0:
+		print("fizzzz")
+	else:
+		print(i)
+		a.append(i)
+print(a)
+```
