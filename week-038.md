@@ -195,3 +195,32 @@ while True:
 print("this is what you got in here: ",a)
 print(random.choice(a))
 ```
+
+## [DAY-267] lists
+
+Make a program to sum a list of lists of numbers `x = [[1,2,3],[1,4],[6]]`
+
+```
+def sum(list_of_lists):
+    s = 0
+    for l in list_of_lists:
+        for element in l:
+            s += element
+    return s
+```
+
+make a program to return a copy of the list without the first and last element (using `pop()`)
+
+```
+def middle(x):
+    copy = []
+    for e in x:
+        copy.append(e)
+        
+    copy.pop(len(x)-1)
+    if len(copy) > 0:
+        copy.pop(0)
+
+    return e
+```
+
