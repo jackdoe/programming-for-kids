@@ -793,6 +793,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-267 lists](#day-267-lists)
 
+[day-268 lists](#day-268-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20650,4 +20652,37 @@ def middle(x):
     return e
 ```
 
+
+## [DAY-268] lists
+
+make fizbuzz
+
+```
+for i in range(50):
+	if i%5==0 and i%3 ==0:
+		print("fizzzz buzz")
+	elif i%3==0:
+		print("buxx")
+	elif i %5==0:
+		print("fizzzz")
+	else:
+		print(i)
+```
+
+add all the non fizz,buzz,fizbuzz numbers to a list and print it
+
+```
+a=[]
+for i in range(50):
+	if i%5==0 and i%3 ==0:
+		print("fizzzz buzz")
+	elif i%3==0:
+		print("buxx")
+	elif i %5==0:
+		print("fizzzz")
+	else:
+		print(i)
+		a.append(i)
+print(a)
+```
 
