@@ -673,3 +673,5 @@
 [day-265 c; if](#day-265-c-if)
 
 [day-266 lists](#day-266-lists)
+
+[day-267 lists](#day-267-lists)
