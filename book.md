@@ -20711,6 +20711,25 @@ int main(void) {
     }
   }
 
+
+  i = 0;
+  while(i < 99) {
+    if (i % 5 == 0 && i % 3 == 0) {
+      printf("fizzbuzz\n");
+    } else if (i % 3 == 0) {
+      printf("fizz\n");
+
+    } else if (i%5==0){
+      printf("buzz\n");
+    } else {
+      printf("the number is: %d\n", i);
+    }
+
+
+    i++;
+  }
+
+
   i = 0;
   while(1) {
     if (i >= 99) {
