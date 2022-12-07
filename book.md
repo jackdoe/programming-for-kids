@@ -20698,6 +20698,7 @@ write fizzbuzz in C
 int main(void) {
   int i;
 
+  // init; condition; increment
   for (i = 0; i < 99; i++) {
     if (i % 5 == 0 && i % 3 == 0) {
       printf("fizzbuzz\n");
@@ -20712,7 +20713,9 @@ int main(void) {
   }
 
 
+  // init
   i = 0;
+  // condition
   while(i < 99) {
     if (i % 5 == 0 && i % 3 == 0) {
       printf("fizzbuzz\n");
@@ -20725,13 +20728,16 @@ int main(void) {
       printf("the number is: %d\n", i);
     }
 
-
+    // increment
     i++;
   }
 
 
+
+  // init
   i = 0;
   while(1) {
+    // condition
     if (i >= 99) {
       break;
     }
@@ -20747,13 +20753,14 @@ int main(void) {
       printf("the number is: %d\n", i);
     }
 
-
+    // increment
     i++;
   }
 
-
+  // init
   i = 0;
  START:
+  // condition
   if (i >= 99) {
     goto END;
   }
@@ -20769,7 +20776,7 @@ int main(void) {
     printf("the number is: %d\n", i);
   }
 
-
+  // increment
   i++;
   goto START;
  END:
