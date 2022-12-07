@@ -20787,5 +20787,8 @@ int main(void) {
 }
 ```
 
+
+![game-269.jpg](./screenshots/game-269.jpg "game 269 screenshot")
+
 > using a for loop, a while loop and goto, explain how each of them actually works
 
