@@ -8,6 +8,6 @@ while True:
     if b == "quit":
         break
     a.append(b)
-    
+
 print("this is what you got in here: ",a)
 print(random.choice(a))

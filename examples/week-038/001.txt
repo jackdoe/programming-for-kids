@@ -22,7 +22,7 @@ def decrypt(s):
 
     return r
 
-        
+
 
 encrypted = encrypt('hello world')
 print(encrypted)

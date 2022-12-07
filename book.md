@@ -795,6 +795,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-268 lists](#day-268-lists)
 
+[day-269 fizzbuzz; c; goto](#day-269-fizzbuzz-c-goto)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20456,7 +20458,7 @@ def decrypt(s):
 
     return r
 
-        
+
 
 encrypted = encrypt('hello world')
 print(encrypted)
@@ -20549,7 +20551,7 @@ print(uniq([1, 2, 1, 1, 1, 3, 1]))
 
 ## [DAY-264] design
 
-Today we will do a basic design and 3d print it, first make an account on https://www.tinkercad.com/ and then build something there (use W to attach workarea to a surface so you can easilly put one thing on top or on the side of another). 
+Today we will do a basic design and 3d print it, first make an account on https://www.tinkercad.com/ and then build something there (use W to attach workarea to a surface so you can easilly put one thing on top or on the side of another).
 
 Grab a masuring tool and get any object that you see and measure it and build it inside tinkercad.
 
@@ -20619,7 +20621,7 @@ while True:
     if b == "quit":
         break
     a.append(b)
-    
+
 print("this is what you got in here: ",a)
 print(random.choice(a))
 ```
@@ -20644,7 +20646,7 @@ def middle(x):
     copy = []
     for e in x:
         copy.append(e)
-        
+
     copy.pop(len(x)-1)
     if len(copy) > 0:
         copy.pop(0)
@@ -20685,4 +20687,74 @@ for i in range(50):
 		a.append(i)
 print(a)
 ```
+
+
+## [DAY-269] fizzbuzz; c; goto
+
+write fizzbuzz in C
+
+```
+#include <stdio.h>
+int main(void) {
+	int i;
+
+	for (i = 0; i < 99; i++) {
+		if (i % 5 == 0 && i % 3 == 0) {
+			printf("fizzbuzz\n");
+		} else if (i % 3 == 0) {
+			printf("fizz\n");
+		} else if (i % 5 == 0){
+			printf("buzz\n");
+		} else {
+			printf("the number is: %d\n", i);
+		}
+	}
+
+	i = 0;
+	while(1) {
+		if (i >= 99) {
+			break;
+		}
+
+		if (i % 5 == 0 && i % 3 == 0) {
+			printf("fizzbuzz\n");
+		} else if (i % 3 == 0) {
+			printf("fizz\n");
+		} else if (i % 5 == 0){
+			printf("buzz\n");
+		} else {
+			printf("the number is: %d\n", i);
+		}
+
+
+		i++;
+	}
+
+	i = 0;
+ START:
+        if (i >= 99) {
+          goto END;
+        }
+
+        if (i % 5 == 0 && i % 3 == 0) {
+          printf("fizzbuzz\n");
+        } else if (i % 3 == 0) {
+          printf("fizz\n");
+		} else if (i % 5 == 0){
+          printf("buzz\n");
+        } else {
+          printf("the number is: %d\n", i);
+        }
+
+
+        i++;
+        goto START;
+ END:
+
+
+	return 0;
+}
+```
+
+> using a for loop, a while loop and goto, explain how each of them actually works
 

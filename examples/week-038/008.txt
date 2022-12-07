@@ -2,7 +2,7 @@ def middle(x):
     copy = []
     for e in x:
         copy.append(e)
-        
+
     copy.pop(len(x)-1)
     if len(copy) > 0:
         copy.pop(0)
