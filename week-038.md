@@ -361,3 +361,81 @@ int main(void) {
 ![game-269.jpg](./screenshots/game-269.jpg "game 269 screenshot")
 
 > using a for loop, a while loop and goto, explain how each of them actually works
+
+
+
+
+## [DAY-270] fizzbuzz; c
+
+Count the amount of fizzes, buzzes, numbers and fizzbuzzes, and also ask the user to enter the number for how many numbers to check.
+
+```
+#include <stdio.h>
+
+int main(void) {
+  int i;
+
+  int fizzbuzzes;
+  int fizzes;
+  int buzzes;
+  int numbers;
+  int how_many;
+
+  fizzbuzzes = 0;
+  fizzes = 0;
+  buzzes = 0;
+  numbers = 0;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  for (i = 0; i < how_many; i++) {
+    if (i % 5 == 0 && i % 3 == 0) {
+      fizzbuzzes++;
+    } else if (i % 3 == 0) {
+      fizzes++;
+    } else if (i % 5==0){
+      buzzes++;
+    } else {
+      numbers++;
+    }
+  }
+
+  printf("total: %d, fizzes: %d, buzzes: %d, fizzbuzzes: %d, numbers: %d\n", how_many, fizzes, buzzes,fizzbuzzes, numbers);
+
+  return 0;
+}
+
+int main(void) {
+  int fizzbuzzes = 0;
+  int fizzes = 0;
+  int buzzes = 0;
+  int numbers = 0;
+  int how_many = 0;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  for (int i = 0; i < 99; i++) {
+    if (i % 5 == 0 && i % 3 == 0) {
+      fizzbuzzes++;
+    } else if (i % 3 == 0) {
+      fizzes++;
+    } else if (i % 5==0){
+      buzzes++;
+    } else {
+      numbers++;
+    }
+  }
+
+  printf("total: %d, fizzes: %d, buzzes: %d, fizzbuzzes: %d, numbers: %d\n", how_many, fizzes, buzzes,fizzbuzzes, numbers);
+
+  return 0;
+}
+
+```
+
+![game-270.jpg](./screenshots/game-270.jpg "game 270 screenshot")
+
+> explain initialization of variables, and printf parameters, also focus on how scanf gets a pointer to the how_many variable
+
