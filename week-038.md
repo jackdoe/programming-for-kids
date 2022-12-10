@@ -439,3 +439,28 @@ int main(void) {
 
 > explain initialization of variables, and printf parameters, also focus on how scanf gets a pointer to the how_many variable
 
+
+
+## [DAY-271] fizzbuzz; c
+
+Write fizbuzz on your own starting with the following code:
+
+```
+#include <stdio.h>
+
+
+int main(void) {
+  int how_many;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  ....
+  ....
+  ....
+  ....
+
+
+  return 0;
+}
+```
