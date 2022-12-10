@@ -681,3 +681,5 @@
 [day-269 fizzbuzz; c; goto](#day-269-fizzbuzz-c-goto)
 
 [day-270 fizzbuzz; c](#day-270-fizzbuzz-c)
+
+[day-271 fizzbuzz; c](#day-271-fizzbuzz-c)

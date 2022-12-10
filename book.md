@@ -799,6 +799,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-270 fizzbuzz; c](#day-270-fizzbuzz-c)
 
+[day-271 fizzbuzz; c](#day-271-fizzbuzz-c)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20871,4 +20873,29 @@ int main(void) {
 
 > explain initialization of variables, and printf parameters, also focus on how scanf gets a pointer to the how_many variable
 
+
+
+## [DAY-271] fizzbuzz; c
+
+Write fizbuzz on your own starting with the following code:
+
+```
+#include <stdio.h>
+
+
+int main(void) {
+  int how_many;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  ....
+  ....
+  ....
+  ....
+
+
+  return 0;
+}
+```
 

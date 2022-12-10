@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+
+int main(void) {
+  int how_many;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  ....
+  ....
+  ....
+  ....
+
+
+  return 0;
+}
