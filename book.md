@@ -1312,11 +1312,11 @@ Here are few examples:
 
 Or something you have probably seen, a multiplication table:
 
-| a | x | b | =  |
-|---|---|---|----|
-| 5 | * | 5 | 25 |
-| 5 | * | 6 | 30 |
-| 5 | * | 7 | 37 |
+| a | x | b | =   |
+|---|---|---|-----|
+| 5 | * | 5 | 25  |
+| 5 | * | 6 | 30  |
+| 5 | * | 7 | 35  |
 
 
 Make new file (or open the some old html page) and type this:
