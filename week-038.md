@@ -464,3 +464,45 @@ int main(void) {
   return 0;
 }
 ```
+
+
+## [DAY-272] fizzbuzz; c
+
+Print how many fuzzes, buzzes, fizbuzzes and numbers you are printing.
+
+> thats what she wrote:
+
+```
+#include <stdio.h>
+
+int main(void) {
+  int how_many;
+  int counternum = 0;
+  int fizzbuzz = 0;
+  int buzz = 0;
+  int fizzz = 0;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  for (int a = 0; a < how_many; a++) {
+    if (a % 15 == 0) {
+      printf("FIZZBUZZZZZZZZZZZZZ\n");
+      fizzbuzz++;
+    } else if (a % 5 == 0) {
+      printf("FIZZzzz\n");
+      fizzz++;
+    } else if (a % 3 == 0) {
+      printf("BUZZZZZZZZZZZZZ\n");
+      buzz++;
+    } else {
+      printf("%d\n", a);
+      counternum++;
+    }
+  }
+  printf("%d %d %d %d\n", counternum, fizzbuzz, buzz, fizzz);
+  return 0;
+}
+```
+
+> change the ints to `unsigned char` and then to `unsigned short` and discuss integer overflow
