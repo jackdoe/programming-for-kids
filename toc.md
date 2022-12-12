@@ -683,3 +683,5 @@
 [day-270 fizzbuzz; c](#day-270-fizzbuzz-c)
 
 [day-271 fizzbuzz; c](#day-271-fizzbuzz-c)
+
+[day-272 fizzbuzz; c](#day-272-fizzbuzz-c)

@@ -801,6 +801,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-271 fizzbuzz; c](#day-271-fizzbuzz-c)
 
+[day-272 fizzbuzz; c](#day-272-fizzbuzz-c)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -20898,4 +20900,46 @@ int main(void) {
   return 0;
 }
 ```
+
+
+## [DAY-272] fizzbuzz; c
+
+Print how many fuzzes, buzzes, fizbuzzes and numbers you are printing.
+
+> thats what she wrote:
+
+```
+#include <stdio.h>
+
+int main(void) {
+  int how_many;
+  int counternum = 0;
+  int fizzbuzz = 0;
+  int buzz = 0;
+  int fizzz = 0;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  for (int a = 0; a < how_many; a++) {
+    if (a % 15 == 0) {
+      printf("FIZZBUZZZZZZZZZZZZZ\n");
+      fizzbuzz++;
+    } else if (a % 5 == 0) {
+      printf("FIZZzzz\n");
+      fizzz++;
+    } else if (a % 3 == 0) {
+      printf("BUZZZZZZZZZZZZZ\n");
+      buzz++;
+    } else {
+      printf("%d\n", a);
+      counternum++;
+    }
+  }
+  printf("%d %d %d %d\n", counternum, fizzbuzz, buzz, fizzz);
+  return 0;
+}
+```
+
+> change the ints to `unsigned char` and then to `unsigned short` and discuss integer overflow
 
