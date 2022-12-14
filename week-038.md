@@ -506,3 +506,105 @@ int main(void) {
 ```
 
 > change the ints to `unsigned char` and then to `unsigned short` and discuss integer overflow
+
+
+## [DAY-273] fizzbuzz; c; struct
+
+You can group a bunch of variables together in a custom type. In the fizzbuzz case, you might want to group all the counters together:
+
+```
+struct counter {
+  int numbers;
+  int fizzbuzz;
+  int fizz;
+  int buzz;
+};
+
+```
+
+This is how we would use it, we would define the struct type `counter`, and then we will make a function that counts them and returns a counter value:
+
+```
+#include <stdio.h>
+
+struct counter {
+  int numbers;
+  int fizzbuzz;
+  int fizz;
+  int buzz;
+};
+
+struct counter fizzy(int n) {
+  struct counter ret = {0};
+
+  for (int a = 0; a < n; a++) {
+    if (a % 15 == 0) {
+      ret.fizzbuzz++;
+    } else if (a % 5 == 0) {
+      ret.fizz++;
+    } else if (a % 3 == 0) {
+      ret.buzz++;
+    } else {
+      ret.numbers++;
+    }
+  }
+
+  return ret;
+}
+
+int main(void) {
+  int how_many;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  struct counter f = fizzy(how_many);
+  printf("%d %d %d %d\n", f.numbers, f.fizzbuzz, f.buzz, f.fizz);
+
+  return 0;
+}
+
+```
+
+You can see that you can access the inner methods of the struct using `.` (dot), by saying `ret.fizzbuzz = 6' it gets translated to put 6 where the member fizzbuzz is in the block of memory used by the `ret` structure.
+
+
+Lets say you want to build a chess game, you might want to have a struct for the piece, for example:
+
+```
+struct chess_piece {
+    uint8_t kind; // what kind of piece it is, 0: pawn, 1: bishop ...
+    uint8_t x;    // board column
+    uint8_t y;    // board row
+    int used;     // how many time the piece was used
+};
+
+```
+
+Or you are making a platformer game, you might want to have a struct for the player:
+
+```
+struct player {
+    unsigned short health;
+    int x;
+    int y;
+};
+```
+
+You can also embed structs in structs:
+
+```
+struct point {
+    int x;
+    int y;
+};
+
+struct player {
+    unsigned short health; // health points left, 0 means game over
+    struct point pos; // player's position
+};
+```
+
+
+For now we will just do basics with structs to get used with them. How to pass them around in our program, giving them as parameters to functions, or returning them, or having poitners to them.
+
