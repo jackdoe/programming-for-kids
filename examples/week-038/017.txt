@@ -1,0 +1,7 @@
+struct chess_piece {
+    uint8_t kind; // what kind of piece it is, 0: pawn, 1: bishop ...
+    uint8_t x;    // board column
+    uint8_t y;    // board row
+    int used;     // how many time the piece was used
+};
+

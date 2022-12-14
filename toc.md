@@ -685,3 +685,5 @@
 [day-271 fizzbuzz; c](#day-271-fizzbuzz-c)
 
 [day-272 fizzbuzz; c](#day-272-fizzbuzz-c)
+
+[day-273 fizzbuzz; c; struct](#day-273-fizzbuzz-c-struct)

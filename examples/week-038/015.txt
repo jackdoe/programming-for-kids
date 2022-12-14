@@ -1,0 +1,7 @@
+struct counter {
+  int numbers;
+  int fizzbuzz;
+  int fizz;
+  int buzz;
+};
+
