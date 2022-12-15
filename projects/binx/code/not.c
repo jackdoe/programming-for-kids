@@ -1,3 +1,5 @@
+// not x: return NOT x
+//
 // binary NOT operation
 //
 // NOT 0 -> 1
@@ -5,10 +7,12 @@
 //
 // for example:
 //
-// NOT 11000011 
-//    ----------
+// NOT 11000011  
+//     --------
 //     00111100
+//
 uint8_t not(uint8_t x) {
+  
   x = ~x;
 
   return x;

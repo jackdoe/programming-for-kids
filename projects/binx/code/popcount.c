@@ -1,13 +1,14 @@
-// Returns the number of 1 bits in the
-// value of x.
+// popcount x: return the number of 1
+// bits in the value of x.
 //
 // for example:
-// 11110000 -> 4    240 -> 4
-// 10101010 -> 4    170 -> 4
-// 00000011 -> 2      3 -> 2
-// 10000000 -> 1    128 -> 1
-// 01111111 -> 7    127 -> 7
-// 11111111 -> 8    255 -> 8
+//
+// 11110000 -> 4
+// 10101010 -> 4
+// 00000011 -> 2
+// 10000000 -> 1
+// 01111111 -> 7
+// 11111111 -> 8
 uint8_t popcount(uint8_t x) {
     uint8_t c = 0;
     while(x != 0) {
@@ -16,6 +17,7 @@ uint8_t popcount(uint8_t x) {
       }
       x >>= 1;
     }
+
     /*
     same as:
       for (c = 0; x != 0; x >>= 1)
@@ -23,5 +25,5 @@ uint8_t popcount(uint8_t x) {
               c++;
     */
 
-    return c;  
+    return c;
 }

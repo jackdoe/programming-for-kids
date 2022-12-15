@@ -1,4 +1,8 @@
-// binary XOR with 0b10101010
+// xor x: return x XOR 0b10101010
+//
+// binary XOR operation
+// (exclusive OR)
+//
 // 0 XOR 0 -> 0
 // 0 XOR 1 -> 1
 // 1 XOR 0 -> 1
@@ -6,15 +10,11 @@
 //
 // for example:
 //
-//     10000111 
+//     10000111
 // XOR 10101010
 //    ----------
 //     00101101
 uint8_t xor(uint8_t x) {
-  // same as: x = x ^ 170
-  // same as: x = x ^ 0b10101010
-  // same as: x ^= 170
-  // same as: x ^= 0b10101010
 
   x = x ^ 0b10101010;
 
