@@ -15,8 +15,11 @@ def draw(x):
     print(f'draw {n} cards')
 
     r = []
+    i = 0
     for v in x:
-        r.append(v + 1)
+        v = x[len(x) - 1 - i]
+        r.append(v)
+        i += 1
 
     return r
 
