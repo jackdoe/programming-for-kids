@@ -2,8 +2,7 @@ package main
 
 import "fmt"
 
-// rotate the input list
-// to the right, e.g.:
+// rotate the input list to the right
 //   [1,2,3,4,5]
 // returns:
 //   [5,1,2,3,4]

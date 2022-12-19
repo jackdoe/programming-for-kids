@@ -5,9 +5,8 @@ typedef struct list {
   int *data;
 } list;
 
-// shift to the input list
-// to the left, adding 0
-// at the end
+// shift to the input list to the left,
+// adding 0 at the end:
 //   [1,2,3,4,5]
 // returns:
 //   [2,3,4,5,0]
