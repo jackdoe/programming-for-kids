@@ -1,11 +1,11 @@
-# the next player draws n % 5 cards
-# where n is the first value from the
+# the next player draws N % 5 cards
+# where N is the first value from the
 # list, and returns a reversed copy:
-#   [7,2,3,4,5]
+#   [1,2,3,4,5]
 # returns
-#   [5,4,3,2,7]
+#   [5,4,3,2,1]
 # prints:
-#   draw 2 cards
+#   draw 1 cards
 def draw(x):
     n = 0
 

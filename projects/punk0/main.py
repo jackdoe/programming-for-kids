@@ -56,12 +56,16 @@ cards you find difficult to follow.
 card_str(f"""{'RULES'.center(40)}
 
 The starting list is:
+
 {'[1, 2, 3, 4, 5]'.center(40)}
 
 You can either play the same fuction in
-a different language, or play a
-different function. The first player who
-finishes their cards wins.
+a different language or a different
+function in the same language as the
+previous card.
+
+The first player who finishes their
+cards wins.
 
 When the draw() function is played, the
 player has to draw whatever the first
@@ -70,15 +74,10 @@ e.g. if the list is [7,2,1,0,5] the next
 player has to draw 2 cards from the deck.
 
 You can respond to a draw() card with
-another draw () card in a different
+another draw() card in a different
 language to make the next player draw
-even more cards!
-
-If you draw with the first element is
-zero then the game will crash, because
-of division by zero, and the player who
-played the draw() card instantly loses
-and all the other players win. 
+even more cards, and of course, they can
+respond to your draw again.
 
 Don't make an angry face when you get to
 draw many cards (๑•̀д•́๑).

@@ -1,7 +1,7 @@
-// return a sorted copy of the list
-//   [1,1,3,2,1]
+// sort the list in ascending order
+//   [5,1,4,2,3]
 // returns:
-//   [1,1,1,2,3]
+//   [1,2,3,4,5]
 function sort(x) {
   let r = [];
   for (let v of x) {

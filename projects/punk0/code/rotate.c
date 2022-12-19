@@ -9,7 +9,7 @@ typedef struct list {
 // to the right, e.g.:
 //   [1,2,3,4,5]
 // returns:
-//   [5,4,3,2,1]
+//   [5,1,2,3,4]
 list rotate(list x) {
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
