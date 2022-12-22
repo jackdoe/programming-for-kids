@@ -807,6 +807,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-274 c; struct](#day-274-c-struct)
 
+[day-274 waldo](#day-274-waldo)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21116,4 +21118,92 @@ int main(void) {
 }
 
 ```
+
+## [DAY-274] waldo
+
+Using pygame make where is waldo jumpscare game, print a bunch of actors and one of them is waldo, when you find him show some scary image and play a scary sound.
+
+Look for inspiration in your previous code, you have done both where is waldo and jumpscare games.
+
+![game-274.png](./screenshots/game-274.png "game 274 screenshot")
+
+
+I used an example from [Casey Muratori's Handmade Hero series](https://handmadehero.org/) where in the beginning he shows how to draw pixels on the screen on windows, and I modified the example to make it more like pygame so it is more familiar. We will be using this base to build more games in the future. You can check out the actual code [projects/zerod/pygame.cpp](projects/zerod/pygame.cpp)
+
+This is the example jumpscare game in C, dont read too much into it, just check chill and check it out, try to read it on your own.
+
+```
+
+#include "pygame.cpp"
+
+struct bitmap_image elf = bitmap_read_file("c1.bmp");
+struct bitmap_image kings[30];
+struct bitmap_image waldo = bitmap_read_file("c2-back.bmp");
+struct bitmap_image naruto = bitmap_read_file("naruto.bmp");
+int game_over = 0;
+
+void update(struct keyboard* kbd) {
+    int diff = 10;
+    if (kbd->A)
+        elf.r.x += diff;
+    if (kbd->D)
+        elf.r.x -= diff;
+    if (kbd->S)
+        elf.r.y += diff;
+    if (kbd->W)
+        elf.r.y -= diff;
+
+    for (int i = 0; i < 30; i++) {
+        if (collide(elf.r, kings[i].r)) {
+            play("a.wav");
+        }
+    }
+
+    if (collide(waldo.r, elf.r)) {
+        game_over = 1;
+        play("b.wav");
+    }
+}
+
+void draw(struct screen_buffer* screen) {
+    screen_clear(screen, 255 << 16 | 255 << 8 | 255);
+
+    for (int i = 0; i < 30; i++) {
+        bitmap_draw(kings[i], screen);
+    }
+
+    bitmap_draw(waldo, screen);
+    bitmap_draw(elf, screen);
+
+    if (game_over) {
+        screen_clear(screen, 0);
+        bitmap_draw(naruto, screen);
+    }
+}
+
+int CALLBACK WinMain(HINSTANCE Instance,
+                     HINSTANCE PrevInstance,
+                     LPSTR CmdLine,
+                     int ShowCmd) {
+    srand(time(NULL));
+
+    for (int i = 0; i < 30; i++) {
+        kings[i] = bitmap_read_file("c2.bmp");
+        kings[i].r.x = 100 + rand() % 600;
+        kings[i].r.y = 100 + rand() % 600;
+    }
+    waldo.r.x = 100 + rand() % 600;
+    waldo.r.y = 100 + rand() % 600;
+
+    initialize(Instance, "zero", update, draw);
+
+    return 0;
+}
+
+```
+
+In the future we will improve the base to be better at audio playback and support PNG images and etc, but for now it is good enough.
+
+PS: On windows you can use build.bat to build it or just `gcc -o game game.cpp -lgdi32 -lwinmm` (display library and sound library)
+
 

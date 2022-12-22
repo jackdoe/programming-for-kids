@@ -689,3 +689,5 @@
 [day-273 fizzbuzz; c; struct](#day-273-fizzbuzz-c-struct)
 
 [day-274 c; struct](#day-274-c-struct)
+
+[day-274 waldo](#day-274-waldo)
