@@ -1,6 +1,45 @@
 from os import listdir
 from itertools import cycle
 CARD = 1
+
+def card_meta(id, lang):
+#  color = 'black'
+#  bgcolor = 'white'
+#  theme = 'friendly'
+  color = '#ffcc00' # amber apple2
+  bgcolor = 'black'
+  theme='doom-one2'
+  font='BlockZone'
+  fontSize='25px'
+
+  if lang == "c":
+    color = '#ffcc00' # amber apple2
+    bgcolor = 'black'
+    theme='doom-one2'
+
+
+  if lang == "go":
+    color = '#33ff33' # green apple2
+    bgcolor = 'black'
+    theme='doom-one2'
+
+
+  if lang == "python":
+    color = 'skyblue' 
+    bgcolor = 'black'
+    theme='doom-one2'
+
+
+  if lang == "javascript":
+    color = 'red'
+    bgcolor = 'black'
+    theme='doom-one2'
+
+    
+  return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}"
+  
+  
+  
 #color = '#ffb000' # amber
 #color = '#33ff33' # green
 
@@ -8,15 +47,16 @@ CARD = 1
 #bgcolor = 'black'
 #theme='doom-one2'
 #
-color = 'black'
-bgcolor = 'white'
-theme = 'friendly'
-font='BlockZone'
-fontSize='25px'
 
+  
+#color = '#ffcc00' # amber apple2
+#bgcolor = 'black'
+#theme='doom-one2'
+  
 def card_str(x):
   global CARD
-  print(f"CARD:{CARD}::{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}")
+  print(card_meta(CARD,""))
+
   CARD+=1
   print(x)
   print()
@@ -99,6 +139,10 @@ while CARD <= 55:
 
     lang = ''
     if fn.endswith('.c'):
+        color = 'black'
+        bgcolor = 'white'
+        theme = 'friendly'
+
         lang = 'c'
     if fn.endswith('.js'):
         lang = "javascript"
@@ -110,8 +154,8 @@ while CARD <= 55:
         lang = 'python'
     
     #p = next(possible)
-
-    print(f"CARD:{CARD}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}")
+        
+    print(card_meta(CARD,lang))
     skip = True
     with open(f"./code/{fn}","r") as f:
         CARD+=1

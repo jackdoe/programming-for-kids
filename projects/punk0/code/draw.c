@@ -6,7 +6,6 @@ typedef struct list {
   int len;
   int *data;
 } list;
-
 // the next player draws N % 5 cards
 // where N is the first value from the
 // list, and returns a reversed copy:
