@@ -809,6 +809,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-274 waldo](#day-274-waldo)
 
+[day-275 for](#day-275-for)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21206,4 +21208,62 @@ In the future we will improve the base to be better at audio playback and suppor
 
 PS: On windows you can use build.bat to build it or just `gcc -o game game.cpp -lgdi32 -lwinmm` (display library and sound library)
 
+
+
+## [DAY-275] for
+
+
+Make fizzbuzz in python and then in C,
+
+```
+#include <stdio.h>
+
+
+void fizz(int n) {
+    for (int i = 0; i < n; i++) {
+        if (i % 15 == 0) {
+            printf("fizzbuzz");
+        } else if (i%5 == 0) {
+            printf("fizzz");
+        } else if (i%3 == 0) {
+            printf("fizzz");
+        } else{
+            printf("%d",i);
+        }
+    }
+}
+
+int main(void) {
+    for i in range(100):
+        fiz(i)
+     for (int i = 0; i < 100; i++) {
+        fizz(i);
+     }
+}
+```
+
+make a function that prints n stars and use it to print a triangle
+
+```
+#include <stdio.h>
+void line(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("*");
+    }
+    printf("\n");
+}
+
+int main(void) {
+   for (;;) {
+        for (int i=0; i<5; i++){
+            line(i);
+        }
+        for (int i=5; i>0; i--){
+            line(i);
+        }
+    }
+    return 0;
+}
+
+```
 
