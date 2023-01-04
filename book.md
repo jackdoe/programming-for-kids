@@ -811,6 +811,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-275 for](#day-275-for)
 
+[day-276 pygame](#day-276-pygame)
+
+[day-277 variables](#day-277-variables)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21264,6 +21268,131 @@ int main(void) {
     }
     return 0;
 }
+
+```
+
+
+## [DAY-276] pygame
+
+
+Make a game of an elf and king that when they hit each other they get teleported to random direction
+
+![game-276.png](./screenshots/game-276.png "game 276 screenshot")
+
+```
+import pgzrun
+import random
+
+elf = Actor("c1")
+king = Actor("c2")
+WIDTH = 800
+HEIGHT = 800
+
+
+def update():
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.D:
+        elf.x += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.UP:
+        king.y -= 5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.RIGHT:
+        king.x += 5
+    if keyboard.LEFT:
+        king.x -= 5
+
+    if elf.colliderect(king):
+        elf.x = random.randint(10, 780)
+        elf.y = random.randint(10, 780)
+        king.x = random.randint(10, 780)
+        king.y = random.randint(10, 780)
+
+
+def draw():
+    screen.clear()
+    elf.draw()
+    king.draw()
+
+
+pgzrun.go()
+
+```
+
+
+
+
+
+
+## [DAY-277] variables
+
+Add a fox to the game, but the king and elf cant walk through it (use the corgi image for the fox)
+
+![game-277.png](./screenshots/game-277.png "game 277 screenshot")
+
+
+> thats what she wrote, using a,b,c,d as variables to remember the old x and y
+
+```
+import pgzrun
+import random
+
+elf = Actor("c1")
+king = Actor("c2")
+fox = Actor("corgi-256")
+
+WIDTH = 800
+HEIGHT = 800
+
+
+def update():
+    a = elf.x
+    b = elf.y
+    c = king.x
+    d = king.y
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.D:
+        elf.x += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.UP:
+        king.y -= 5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.RIGHT:
+        king.x += 5
+    if keyboard.LEFT:
+        king.x -= 5
+
+    if elf.colliderect(fox):
+        elf.x = a
+        elf.y = b
+
+    if king.colliderect(fox):
+        king.x = c
+        king.y = d
+        
+    if elf.colliderect(king):
+        elf.x = random.randint(10, 780)
+        elf.y = random.randint(10, 780)
+        king.x = random.randint(10, 780)
+        king.y = random.randint(10, 780)
+
+def draw():
+    screen.clear()
+    elf.draw()
+    king.draw()
+    fox.draw()
+
+pgzrun.go()
 
 ```
 

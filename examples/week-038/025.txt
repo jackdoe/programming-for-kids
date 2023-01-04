@@ -1,0 +1,55 @@
+import pgzrun
+import random
+
+elf = Actor("c1")
+king = Actor("c2")
+fox = Actor("corgi-256")
+
+WIDTH = 800
+HEIGHT = 800
+
+
+def update():
+    a = elf.x
+    b = elf.y
+    c = king.x
+    d = king.y
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.D:
+        elf.x += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.UP:
+        king.y -= 5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.RIGHT:
+        king.x += 5
+    if keyboard.LEFT:
+        king.x -= 5
+
+    if elf.colliderect(fox):
+        elf.x = a
+        elf.y = b
+
+    if king.colliderect(fox):
+        king.x = c
+        king.y = d
+        
+    if elf.colliderect(king):
+        elf.x = random.randint(10, 780)
+        elf.y = random.randint(10, 780)
+        king.x = random.randint(10, 780)
+        king.y = random.randint(10, 780)
+
+def draw():
+    screen.clear()
+    elf.draw()
+    king.draw()
+    fox.draw()
+
+pgzrun.go()
+

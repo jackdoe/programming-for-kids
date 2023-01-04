@@ -693,3 +693,7 @@
 [day-274 waldo](#day-274-waldo)
 
 [day-275 for](#day-275-for)
+
+[day-276 pygame](#day-276-pygame)
+
+[day-277 variables](#day-277-variables)
