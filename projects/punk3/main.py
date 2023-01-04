@@ -2,21 +2,43 @@ import itertools
 import inspect
 
 
-def sort(x):
+def sort_asc(x):
     """
     return a sorted copy of the list
+    in ascending order
     [2,1,4,3]
     [1,2,3,4]
     """
 
     r = []
 
-    # sort mutates the list
-    # so first we need to copy it
+    # x.sort method mutates the list so
+    # first we need to copy it or we can
+    # use sorted() to make a sorted copy
     for v in x:
         r.append(v)
 
     r.sort()
+
+    return r
+
+def sort_desc(x):
+    """
+    return a sorted copy of the list
+    in descending order
+    [2,1,4,3]
+    [4,3,2,1]
+    """
+
+    r = []
+
+    # x.sort method mutates the list so
+    # first we need to copy it or we can
+    # use sorted() to make a sorted copy
+    for v in x:
+        r.append(v)
+
+    r.sort(reverse=True)
 
     return r
 
@@ -55,7 +77,7 @@ def rotate(x):
 
     return r
 
-def swap(x):
+def swap_pairs(x):
     """
     return a copy of the list
     where each 2 elements are swapped
@@ -64,14 +86,16 @@ def swap(x):
     """
 
     r = []
-    # FIXME: bug if len is odd
-    for i in range(0, len(x), 2):
+    # FIXME: it ignores the last element
+    # if the list has odd number of
+    # elements, so [1,2,3] -> [2,1]
+    for i in range(0, len(x)-1, 2):
         r.append(x[i+1])
         r.append(x[i])
     return r
 
 
-def first_to_last(x):
+def swap_first_and_last(x):
     """
     return a copy of the list
     where the first and last
@@ -160,84 +184,122 @@ def card_str(title, x, lang):
 
 
 
-fn = ['sort','reverse','rotate','swap', 'first_to_last']
+fn = ['sort_asc','sort_desc','reverse','rotate','swap_pairs', 'swap_first_and_last']
 
 possible = {}
 for r in range(1,len(fn)+1):
   for perm in itertools.permutations(fn,r):
-      for inp in itertools.permutations([1,2,3,4]):
-          x = list(inp)
-          for f in perm:
-              x = eval(f + '(x)')
-          k = f'{x}'
-          if k in possible:
-              possible[k] += 1
-          else:
-              possible[k] = 1
+      for rr in range(4,5):
+          for inp in itertools.permutations([1,2,3,4],rr):
+              x = list(inp)
+              for f in perm:
+                  x = eval(f + '(x)')
+              k = f'{x}'
+              if k in possible:
+                  possible[k] += 1
+              else:
+                  possible[k] = 1
     
 #          print(f"{list(inp)} -> {x}\t\t{perm}")
 
 
 
 found = {}
-for p in itertools.permutations([1,2,3,4]):
-    x = f'{list(p)}'
-    if x not in possible:
-#        print(f"{x} missing")
-        pass
-    else:
-        found[x] = True
+for r in range(4,5):
+  for p in itertools.permutations([1,2,3,4],r):
+      x = f'{list(p)}'
+      if x not in possible:
+          print(f"{x} missing")
+          pass
+      else:
+          found[x] = True
+  
 
+card_str('PUNK0',f"""
 
-card_str('PUNK0 RULES',f"""
-
-* Place at least 3 function cards in the
-  middle face up (more cards for more
-  difficulty, or use the sort card for
-  deterministic output and easier
-  gameplay). 
-
-* Place the list cards deck face down
-
-* Place the comment cards deck face up
-
-* Each player starts with 2 list cards,
-  and one comment card.
-
-* Each turn you can try to arrange or
-  comment the function cards in the
-  middle to match your some input and
-  output list cards you have, use the
-  comment cards if you want to comment a
-  function.
-
-  You can decide to draw from the deck
-  and get another list card, or a
-  comment card or to RUN the program if
-  you have the proper input and output
-  cards.
-
-* Whoever can run the program
-  successfully wins the round.
+INTRO
 
 """, '')
 
-card_str('sort',inspect.getsource(sort), 'python')
-card_str('reverse',inspect.getsource(reverse), 'python')
-card_str('rotate',inspect.getsource(rotate), 'python')
-card_str('swap',inspect.getsource(swap), 'python')
-card_str('first_to_last',inspect.getsource(swap), 'python')
-card_str('sort',inspect.getsource(sort), 'python')
-card_str('reverse',inspect.getsource(reverse), 'python')
-card_str('rotate',inspect.getsource(rotate), 'python')
-card_str('swap',inspect.getsource(swap), 'python')
-card_str('first_to_last',inspect.getsource(swap), 'python')
+
+card_str('PUNK0 GAME_MODE_0',f"""
+
+function cards in the middle
+
+players play input and output cards so
+program runs correctly
+
+""", '')
+
+card_str('PUNK0 GAME_MODE_1',f"""
+
+input, output in the middle
+
+players are building a program to
+produce this output given the input
+
+""", '')
+
+card_str('PUNK0 GAME_MODE_2',f"""
+
+input, output in the middle
+
+players are building a program to
+produce this output given the input
+
+""", '')
+
+card_str('PUNK0 GAME_MODE_3',f"""
+
+input, output in the middle
+
+players are building a program to
+produce this output given the input
+
+""", '')
+
+card_str('PUNK0 GAME_MODE_4',f"""
+
+input, output in the middle
+
+players are building a program to
+produce this output given the input
+
+""", '')
+
+card_str('PUNK0 GAME_MODE_5',f"""
+
+input, output in the middle
+
+players are building a program to
+produce this output given the input
+
+""", '')
+
+
+for i in range(4):
+    card_str('sort_asc',inspect.getsource(sort_asc), 'python')
+    card_str('sort_desc',inspect.getsource(sort_desc), 'python')
+    card_str('reverse',inspect.getsource(reverse), 'python')
+    card_str('rotate',inspect.getsource(rotate), 'python')
+    card_str('swap_pairs',inspect.getsource(swap_pairs), 'python')
+    card_str('swap_first_and_last',inspect.getsource(swap_first_and_last), 'python')
+
 
 keys = []
 for k in found:
-    print(f'CARD: {k} count: {possible[k]}')
     keys.append(eval(k))
+
+keys.sort()
+for k in keys:
     card_str('INPUT/OUTPUT',f"{k}".center(40),'')
 
-while CARD <= 55:
-    card_str('COMMENT',f"#\n"*30,'')
+
+#cyc = itertools.cycle(fn)
+#while CARD <=55:
+#    v = next(cyc)
+#    card_str(v,inspect.getsource(eval(v)), 'python')
+
+
+print(CARD)
+

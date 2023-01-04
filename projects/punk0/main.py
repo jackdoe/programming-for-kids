@@ -8,33 +8,32 @@ def card_meta(id, lang):
 #  theme = 'friendly'
   color = '#ffcc00' # amber apple2
   bgcolor = 'black'
-  theme='doom-one2'
+  theme='punk0'
   font='BlockZone'
   fontSize='25px'
 
   if lang == "c":
     color = '#ffcc00' # amber apple2
-    bgcolor = 'black'
-    theme='doom-one2'
+    bgcolor = '#000000'
+    theme='gptamber'
 
 
   if lang == "go":
-    color = '#33ff33' # green apple2
-    bgcolor = 'black'
-    theme='doom-one2'
+    color = '#0f0200' # green apple2
+    bgcolor = '#ffffff'
+    theme='gptwhite'
 
 
   if lang == "python":
-    color = 'skyblue' 
-    bgcolor = 'black'
-    theme='doom-one2'
+    color = '#ffd808' 
+    bgcolor = '#006ab3'
+    theme="gptbluez" #next(possible["python"])
 
 
   if lang == "javascript":
-    color = 'red'
-    bgcolor = 'black'
-    theme='doom-one2'
-
+    color = '#fffdff'
+    bgcolor = '#c40f42'
+    theme="gptredzz" #next(possible["javascript"])
     
   return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}"
   
