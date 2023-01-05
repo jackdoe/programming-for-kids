@@ -949,7 +949,7 @@ pgzrun.go()
 ## [DAY-278] ast
 
 
-![game-278.png](./screenshots/game-278.png "game 278 screenshot")
+![game-278.jpg](./screenshots/game-278.jpg "game 278 screenshot")
 
 
 The way python (or almost any language) reads a program is left to right word by word, symbol by symbol, and it builds a tree, similar to the HTML tree we discussed a year ago, each operation is a tree and its parameters are its children, for example `a = b or c + 4` will build the following tree:
