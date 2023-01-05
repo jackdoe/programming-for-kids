@@ -878,9 +878,6 @@ pgzrun.go()
 
 
 
-
-
-
 ## [DAY-277] variables
 
 Add a fox to the game, but the king and elf cant walk through it (use the corgi image for the fox)
@@ -947,3 +944,27 @@ def draw():
 pgzrun.go()
 
 ```
+
+
+## [DAY-278] ast
+
+
+![game-278.png](./screenshots/game-278.png "game 278 screenshot")
+
+
+The way python (or almost any language) reads a program is left to right word by word, symbol by symbol, and it builds a tree, similar to the HTML tree we discussed a year ago, each operation is a tree and its parameters are its children, for example `a = b or c + 4` will build the following tree:
+
+```
+    =
+   / \
+  a  or
+    /  \
+   b   +
+      /  \
+     c    4
+```
+
+So the value of `a` will be the result of the `or` operation, which has left and right branches, it will evaluate the left one first, if it is not false it will use it, otherwise it will evaluate the right branch, so in this case a will be equal to b, and c+4 will **never** be executed, in contrast `and` has to evaluate both the left and the right branch.
+
+
+Practice looking ad your old programs and try to make out how the tree looks, use https://astexplorer.net/ or https://python-ast-explorer.com/ to browse the tree.

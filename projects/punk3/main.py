@@ -120,12 +120,12 @@ def swap_first_and_last(x):
 CARD = 1
 
 def card_meta(id, lang):
-#  color = 'black'
-#  bgcolor = 'white'
-#  theme = 'friendly'
-  color = '#ffcc00' # amber apple2
-  bgcolor = 'black'
-  theme='punk0'
+  color = 'black'
+  bgcolor = 'white'
+  theme = 'friendly'
+#  color = '#ffcc00' # amber apple2
+#  bgcolor = 'black'
+#  theme='punk0'
   font='BlockZone'
   fontSize='25px'
 
@@ -242,7 +242,9 @@ produce this output given the input
 
 card_str('PUNK0 GAME_MODE_2',f"""
 
-input, output in the middle
+one card at a time,
+start with input list
+then each player plays a function and then 
 
 players are building a program to
 produce this output given the input
@@ -251,28 +253,17 @@ produce this output given the input
 
 card_str('PUNK0 GAME_MODE_3',f"""
 
-input, output in the middle
-
-players are building a program to
-produce this output given the input
 
 """, '')
 
 card_str('PUNK0 GAME_MODE_4',f"""
 
-input, output in the middle
 
-players are building a program to
-produce this output given the input
 
 """, '')
 
 card_str('PUNK0 GAME_MODE_5',f"""
 
-input, output in the middle
-
-players are building a program to
-produce this output given the input
 
 """, '')
 
@@ -301,5 +292,6 @@ for k in keys:
 #    card_str(v,inspect.getsource(eval(v)), 'python')
 
 
-print(CARD)
+#print(CARD)
+
 
