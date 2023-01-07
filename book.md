@@ -817,6 +817,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-278 ast](#day-278-ast)
 
+[day-279 ast](#day-279-ast)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21418,4 +21420,11 @@ So the value of `a` will be the result of the `or` operation, which has left and
 
 
 Practice looking ad your old programs and try to make out how the tree looks, use https://astexplorer.net/ or https://python-ast-explorer.com/ to browse the tree.
+
+## [DAY-279] ast
+
+![game-279.jpg](./screenshots/game-279.jpg "game 279 screenshot")
+
+
+> we spent today exercising more AST examples and talking about how evaulation actually happens
 
