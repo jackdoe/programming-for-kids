@@ -216,54 +216,15 @@ for r in range(4,5):
   
 
 card_str('PUNK0',f"""
-
-INTRO
-
-""", '')
-
-
-card_str('PUNK0 GAME_MODE_0',f"""
-
 function cards in the middle
 
 players play input and output cards so
 program runs correctly
 
-""", '')
-
-card_str('PUNK0 GAME_MODE_1',f"""
-
 input, output in the middle
 
 players are building a program to
 produce this output given the input
-
-""", '')
-
-card_str('PUNK0 GAME_MODE_2',f"""
-
-one card at a time,
-start with input list
-then each player plays a function and then 
-
-players are building a program to
-produce this output given the input
-
-""", '')
-
-card_str('PUNK0 GAME_MODE_3',f"""
-
-
-""", '')
-
-card_str('PUNK0 GAME_MODE_4',f"""
-
-
-
-""", '')
-
-card_str('PUNK0 GAME_MODE_5',f"""
-
 
 """, '')
 
@@ -286,11 +247,8 @@ for k in keys:
     card_str('INPUT/OUTPUT',f"{k}".center(40),'')
 
 
-#cyc = itertools.cycle(fn)
-#while CARD <=55:
-#    v = next(cyc)
-#    card_str(v,inspect.getsource(eval(v)), 'python')
-
+while CARD <=55:
+    card_str('INPUT/OUTPUT',f"[1, 2, 3, 4]".center(40),'')
 
 #print(CARD)
 

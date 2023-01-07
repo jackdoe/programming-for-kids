@@ -968,3 +968,10 @@ So the value of `a` will be the result of the `or` operation, which has left and
 
 
 Practice looking ad your old programs and try to make out how the tree looks, use https://astexplorer.net/ or https://python-ast-explorer.com/ to browse the tree.
+
+## [DAY-279] ast
+
+![game-279.jpg](./screenshots/game-279.jpg "game 279 screenshot")
+
+
+> we spent today exercising more AST examples and talking about how evaulation actually happens
