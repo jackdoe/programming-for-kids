@@ -975,3 +975,12 @@ Practice looking ad your old programs and try to make out how the tree looks, us
 
 
 > we spent today exercising more AST examples and talking about how evaulation actually happens
+
+
+## [DAY-280] ast
+
+
+![game-280.jpg](./screenshots/game-280.jpg "game 280 screenshot")
+
+> again we spent the day with AST examples, this time we did FROM ast TO python program, and particularly discussing AST that makes a program that looks valid, but errors at runtime
+
