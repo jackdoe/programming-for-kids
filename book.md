@@ -819,6 +819,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-279 ast](#day-279-ast)
 
+[day-280 ast](#day-280-ast)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21427,4 +21429,13 @@ Practice looking ad your old programs and try to make out how the tree looks, us
 
 
 > we spent today exercising more AST examples and talking about how evaulation actually happens
+
+
+## [DAY-280] ast
+
+
+![game-280.jpg](./screenshots/game-280.jpg "game 280 screenshot")
+
+> again we spent the day with AST examples, this time we did FROM ast TO python program, and particularly discussing AST that makes a program that looks valid, but errors at runtime
+
 
