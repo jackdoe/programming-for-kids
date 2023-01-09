@@ -10,11 +10,15 @@ def sort_asc(x):
     [1,2,3,4]
     """
 
+    # we can use the sorted() function
+    # make a sorted copy or copy the
+    # list and use the sort method on
+    # the copy
+
     r = []
 
     # x.sort method mutates the list so
-    # first we need to copy it or we can
-    # use sorted() to make a sorted copy
+    # first we need to copy it
     for v in x:
         r.append(v)
 
@@ -30,11 +34,14 @@ def sort_desc(x):
     [4,3,2,1]
     """
 
-    r = []
+    # we can use the sorted() function
+    # make a sorted copy or copy the
+    # list and use the sort method on
+    # the copy
 
+    r = []
     # x.sort method mutates the list so
-    # first we need to copy it or we can
-    # use sorted() to make a sorted copy
+    # first we need to copy it
     for v in x:
         r.append(v)
 

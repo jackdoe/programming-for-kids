@@ -16,6 +16,9 @@ int cmp(const void *a, const void *b) {
 // returns:
 //   [1,2,3,4,5]
 list sort(list x) {
+  // qsort will modify the array itself
+  // so we will copy it and sort it
+  // after that
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
     int v = x.data[i];

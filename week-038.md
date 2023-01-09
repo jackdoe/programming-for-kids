@@ -984,3 +984,30 @@ Practice looking ad your old programs and try to make out how the tree looks, us
 
 > again we spent the day with AST examples, this time we did FROM ast TO python program, and particularly discussing AST that makes a program that looks valid, but errors at runtime
 
+
+## [DAY-281] ast
+
+![game-281-a.jpg](./screenshots/game-281-a.jpg "game 281 a screenshot")
+
+![game-281-b.jpg](./screenshots/game-281-b.jpg "game 281 b screenshot")
+
+
+Using `()` you can force python to build certain kind of AST, for example:
+
+```
+a = 1
+b = 2
+c = 3
+
+if a > b or c > a and b > c:
+    print('zz')
+```
+
+python reads it right to left as: 'if (a is bigger than b) **OR** (c is bigger than a and b is bigger than c)', but if we write:
+
+```
+if (a > b or c > a) and b > c:
+    print('zz')
+```
+
+python will read 'if (a is bigger than b or c is bigger than a) **AND** (b is bigger than c)',
