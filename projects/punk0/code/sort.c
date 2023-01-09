@@ -12,9 +12,9 @@ int cmp(const void *a, const void *b) {
 }
 
 // sort the list in ascending order
-//   [5,1,4,2,3]
+//   [1,4,2,3]
 // returns:
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 list sort(list x) {
   // qsort will modify the array itself
   // so we will copy it and sort it

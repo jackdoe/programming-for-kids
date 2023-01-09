@@ -5,7 +5,7 @@ import "fmt"
 // rotate the input list to the right
 //   [1,2,3,4,5]
 // returns:
-//   [5,1,2,3,4]
+//   [4,1,2,3]
 func rotate(x []int) []int {
 	r := []int{}
 	for i := 0; i < len(x); i++ {

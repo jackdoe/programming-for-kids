@@ -1,11 +1,11 @@
 // sort the list in ascending order
-//   [5,1,4,2,3]
+//   [1,4,2,3]
 // returns:
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 function sort(x) {
-    // x.sort() mutates the array itsef
-    // so we will copy it and sort it
-    // after that
+  // x.sort() mutates the array itsef
+  // so we will copy it and sort it
+  // after that
   let r = [];
   for (let v of x) {
     r.push(v);

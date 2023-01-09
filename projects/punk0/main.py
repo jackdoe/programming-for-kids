@@ -25,14 +25,14 @@ def card_meta(id, lang):
 
 
   if lang == "python":
-    color = '#ffd808' 
-    bgcolor = '#006ab3'
+    color = '#464646' 
+    bgcolor = '#f7d38a'
     theme="gptbluez" #next(possible["python"])
 
 
   if lang == "javascript":
-    color = '#fffdff'
-    bgcolor = '#c40f42'
+    color = '#c366f0'
+    bgcolor = '#2e0d3e'
     theme="gptredzz" #next(possible["javascript"])
     
   return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}"
@@ -96,7 +96,7 @@ card_str(f"""{'RULES'.center(40)}
 
 The starting list is:
 
-{'[1, 2, 3, 4, 5]'.center(40)}
+{'[1, 2, 3, 4]'.center(40)}
 
 You can either play the same fuction in
 a different language or a different
@@ -107,10 +107,8 @@ The first player who finishes their
 cards wins.
 
 When the draw() function is played, the
-player has to draw whatever the first
-element of the list is modulo 5, so
-e.g. if the list is [7,2,1,0,5] the next
-player has to draw 2 cards from the deck.
+player has to draw whatever the output
+of the function is.
 
 You can respond to a draw() card with
 another draw() card in a different
@@ -174,7 +172,7 @@ while CARD <= 55:
 
             if line.strip() == '"fmt"' or line.strip() == '"sort"':
                 continue
-            if 'console' in line or line.startswith("\t\"") or line == ')' or line == 'import (':
+            if line.startswith('console') or line.startswith("\t\"") or line == ')' or line == 'import (':
                 continue
 
             if 'function' in line or 'func' in line or 'def' in line or '(' in line and not 'import' in line:

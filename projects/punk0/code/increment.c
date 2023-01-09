@@ -6,9 +6,9 @@ typedef struct list {
 } list;
 
 // increment the elements of a list
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 // returns:
-//   [2,3,4,5,6]
+//   [2,3,4,5]
 list increment(list x) {
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {

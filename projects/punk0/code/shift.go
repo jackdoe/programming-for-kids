@@ -4,9 +4,9 @@ import "fmt"
 
 // shift to the input list to the left,
 // adding 0 at the end:
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 // returns:
-//   [2,3,4,5,0]
+//   [2,3,4,0]
 func shift(x []int) []int {
 	r := []int{}
 	for i := 1; i < len(x); i++ {

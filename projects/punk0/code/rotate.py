@@ -1,7 +1,7 @@
 # rotate the input list to the right
-#   [1,2,3,4,5]
+#   [1,2,3,4]
 # returns:
-#   [5,1,2,3,4]
+#   [4,3,2,1]
 def rotate(x):
     r = []
     i = 0

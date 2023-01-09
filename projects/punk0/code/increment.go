@@ -5,9 +5,9 @@ import (
 )
 
 // increment the elements of a list
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 // returns:
-//   [2,3,4,5,6]
+//   [2,3,4,5]
 func increment(x []int) []int {
 	r := []int{}
 	for _, v := range x {

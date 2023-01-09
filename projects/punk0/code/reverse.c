@@ -6,9 +6,9 @@ typedef struct list {
 } list;
 
 // reverse the input list
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 // returns:
-//   [5,4,3,2,1]
+//   [4,3,2,1]
 list reverse(list x) {
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {

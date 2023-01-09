@@ -1,24 +1,25 @@
-// the next player draws N % 5 cards
-// where N is the first value from the
-// list, and returns a reversed copy:
-//   [1,2,3,4,5]
+// the next player draws list[0] cards
+// and returns a copy of the list:
+//   [1,2,3,4]
 // returns
-//   [5,4,3,2,1]
+//   [1,2,3,4]
 // prints:
 //   draw 1 cards
 function draw(x) {
   let n = 0;
 
   if (x.length > 0) {
-    n = x[0] % 5;
+    n = x[0];
+    if (n == 0) {
+      console.log("next player skips");
+    } else {
+      console.log(`draw ${n} cards`);
+    }
   }
-
-  console.log("draw " + n + " cards");
 
   let r = [];
 
-  for (let i = 0; i < x.length; i++) {
-    let v = x[x.length - 1 - i];
+  for (let v of x) {
     r.push(v);
   }
 

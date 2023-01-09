@@ -1,7 +1,7 @@
 // increment the elements of a list
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 // returns:
-//   [2,3,4,5,6]
+//   [2,3,4,5]
 function increment(x) {
   let r = [];
   for (let v of x) {

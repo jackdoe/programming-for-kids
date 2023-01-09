@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 // reverse the input list
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 // returns:
-//   [5,4,3,2,1]
+//   [4,3,2,1]
 func reverse(x []int) []int {
 	r := []int{}
 	for i := 0; i < len(x); i++ {

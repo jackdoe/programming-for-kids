@@ -6,9 +6,9 @@ import (
 )
 
 // sort the list in ascending order
-//   [5,1,4,2,3]
+//   [1,4,2,3]
 // returns:
-//   [1,2,3,4,5]
+//   [1,2,3,4]
 func sortL(x []int) []int {
 	r := []int{}
 	for _, v := range x {

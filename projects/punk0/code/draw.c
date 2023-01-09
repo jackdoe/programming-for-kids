@@ -6,27 +6,30 @@ typedef struct list {
   int len;
   int *data;
 } list;
-// the next player draws N % 5 cards
-// where N is the first value from the
-// list, and returns a reversed copy:
-//   [1,2,3,4,5]
+
+// the next player draws list[0] cards
+// and returns a copy of the list:
+//   [1,2,3,4]
 // returns
-//   [5,4,3,2,1]
+//   [1,2,3,4]
 // prints:
 //   draw 1 cards
 list draw(list x) {
   int n = 0;
 
   if (x.len > 0) {
-    n = x.data[0] % 5;
+    n = x.data[0];
+    if (n == 0) {
+      printf("next player skips\n");
+    } else {
+      printf("draw %d cards\n", n);
+    }
   }
-
-  printf("draw %d cards\n", n);
 
   list r = {0, malloc(x.len * 4)};
 
   for (int i = 0; i < x.len; i++) {
-    int v = x.data[x.len - 1 - i];
+    int v = x.data[i];
     r.data[r.len++] = v;
   }
 
