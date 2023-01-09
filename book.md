@@ -821,6 +821,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-280 ast](#day-280-ast)
 
+[day-281 ast](#day-281-ast)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21438,4 +21440,31 @@ Practice looking ad your old programs and try to make out how the tree looks, us
 
 > again we spent the day with AST examples, this time we did FROM ast TO python program, and particularly discussing AST that makes a program that looks valid, but errors at runtime
 
+
+## [DAY-281] ast
+
+![game-281-a.jpg](./screenshots/game-281-a.jpg "game 281 a screenshot")
+
+![game-281-b.jpg](./screenshots/game-281-b.jpg "game 281 b screenshot")
+
+
+Using `()` you can force python to build certain kind of AST, for example:
+
+```
+a = 1
+b = 2
+c = 3
+
+if a > b or c > a and b > c:
+    print('zz')
+```
+
+python reads it right to left as: 'if (a is bigger than b) **OR** (c is bigger than a and b is bigger than c)', but if we write:
+
+```
+if (a > b or c > a) and b > c:
+    print('zz')
+```
+
+python will read 'if (a is bigger than b or c is bigger than a) **AND** (b is bigger than c)',
 
