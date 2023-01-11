@@ -14,6 +14,11 @@ list rotate(list x) {
   for (int i = 0; i < x.len; i++) {
     // go to the last element and
     // then wrap around
+    // example if len is 4:
+    // (0 + 4 - 1) % 4 = 3
+    // (1 + 4 - 1) % 4 = 0
+    // (2 + 4 - 1) % 4 = 1
+    // (3 + 4 - 1) % 4 = 2
     int idx = (i + x.len - 1) % x.len;
     int v = x.data[idx];
     r.data[r.len++] = v;

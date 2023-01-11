@@ -8,6 +8,11 @@ def rotate(x):
     for v in x:
         # go to the last element and
         # then wrap around
+        # example if len is 4:
+        # (0 + 4 - 1) % 4 = 3
+        # (1 + 4 - 1) % 4 = 0
+        # (2 + 4 - 1) % 4 = 1
+        # (3 + 4 - 1) % 4 = 2
         idx = (i + len(x) - 1) % len(x)
         v = x[idx]
         r.append(v)

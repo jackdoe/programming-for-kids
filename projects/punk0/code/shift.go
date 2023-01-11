@@ -9,11 +9,15 @@ import "fmt"
 //   [2,3,4,0]
 func shift(x []int) []int {
 	r := []int{}
+
+	// copy everything after the first
+	// element
 	for i := 1; i < len(x); i++ {
 		v := x[i]
 		r = append(r, v)
 	}
 
+	// append 0 to the end
 	r = append(r, 0)
 
 	return r

@@ -113,11 +113,9 @@ player has to do whatever the output
 of the function is.
 
 You can respond to a draw() card with
-another draw() card in a different
-language to make the next player draw
-even more cards, and of course, they can
-respond to your draw again (unless
-draw() tells you to skip).
+another draw() card and move the penalty
+forward, unless draw() tells you to
+skip.
 
 Don't make an angry face when you get to
 draw many cards (๑•̀д•́๑).

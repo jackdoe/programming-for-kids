@@ -10,6 +10,8 @@ typedef struct list {
 // returns:
 //   [2,3,4,5]
 list increment(list x) {
+  // allocate space for x.len elements,
+  // 4 bytes each
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
     int v = x.data[i] + 1;

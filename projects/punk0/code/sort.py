@@ -8,8 +8,6 @@ def sort(x):
     # list and use the sort method on
     # the copy
 
-    r = []
-
     # x.sort method mutates the list so
     # first we need to copy it
     r = []

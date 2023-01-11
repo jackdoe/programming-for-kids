@@ -8,6 +8,11 @@ function rotate(x) {
   for (let i = 0; i < x.length; i++) {
     // go to the last element and
     // then wrap around
+    // example if len is 4:
+    // (0 + 4 - 1) % 4 = 3
+    // (1 + 4 - 1) % 4 = 0
+    // (2 + 4 - 1) % 4 = 1
+    // (3 + 4 - 1) % 4 = 2
     let len = x.length;
     let idx = (i + len - 1) % len;
     let v = x[idx];

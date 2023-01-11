@@ -9,6 +9,12 @@ import "fmt"
 func reverse(x []int) []int {
 	r := []int{}
 	for i := 0; i < len(x); i++ {
+		// example if len is 4:
+		// 4-1-0 = 3
+		// 4-1-1 = 2
+		// 4-1-2 = 1
+		// 4-1-3 = 0
+
 		v := x[len(x)-1-i]
 		r = append(r, v)
 	}

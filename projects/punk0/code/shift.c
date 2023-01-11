@@ -11,13 +11,18 @@ typedef struct list {
 // returns:
 //   [2,3,4,0]
 list shift(list x) {
+  // allocate space for x.len elements
+  // 4 bytes each  
   list r = {0, malloc(x.len * 4)};
 
+  // copy everything after the first
+  // element
   for (int i = 1; i < x.len; i++) {
     int v = x.data[i];
     r.data[r.len++] = v;
   }
 
+  // append 0 to the end
   r.data[r.len++] = 0;
   return r;
 }
