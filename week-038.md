@@ -1017,3 +1017,9 @@ python will read 'if (a is bigger than b or c is bigger than a) **AND** (b is bi
 ![game-282.jpg](./screenshots/game-282.jpg "game 282 screenshot")
 
 > just 5 minutes while waiting for dinner do a quick ast parse
+
+## [DAY-283] ast
+
+![game-283.jpg](./screenshots/game-283.jpg "game 283 screenshot")
+
+> 5 minutes after dinner (as visible by the pizza oil stains on the paper..), focused a bit on the implicit 'self' argument when calling a method
