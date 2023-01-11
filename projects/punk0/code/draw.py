@@ -6,8 +6,6 @@
 # prints:
 #   draw 1 cards
 def draw(x):
-    n = 0
-
     if len(x) > 0:
         n = x[0]
         if n == 0:
@@ -16,7 +14,6 @@ def draw(x):
             print(f'draw {n} cards')
 
     r = []
-
     for v in x:
         r.append(v)
 

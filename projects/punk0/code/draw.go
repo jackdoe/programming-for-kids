@@ -12,12 +12,10 @@ import (
 // prints:
 //   draw 1 cards
 func draw(x []int) []int {
-	n := 0
-
 	if len(x) > 0 {
-		n = x[0]
+		n := x[0]
 		if n == 0 {
-			fmt.Printf("next player skips\n", n)
+			fmt.Printf("next player skips\n")
 		} else {
 			fmt.Printf("draw %d cards\n", n)
 		}
@@ -25,7 +23,6 @@ func draw(x []int) []int {
 	}
 
 	r := []int{}
-
 	for i := range x {
 		r = append(r, x[i])
 	}

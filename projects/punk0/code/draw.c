@@ -15,10 +15,8 @@ typedef struct list {
 // prints:
 //   draw 1 cards
 list draw(list x) {
-  int n = 0;
-
   if (x.len > 0) {
-    n = x.data[0];
+    int n = x.data[0];
     if (n == 0) {
       printf("next player skips\n");
     } else {
@@ -27,7 +25,6 @@ list draw(list x) {
   }
 
   list r = {0, malloc(x.len * 4)};
-
   for (int i = 0; i < x.len; i++) {
     int v = x.data[i];
     r.data[r.len++] = v;

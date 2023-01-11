@@ -6,35 +6,37 @@ def card_meta(id, lang):
 #  color = 'black'
 #  bgcolor = 'white'
 #  theme = 'friendly'
-  color = '#ffcc00' # amber apple2
-  bgcolor = 'black'
+  color = '#39FF14' 
+  bgcolor = '#000000'
   theme='punk0'
   font='BlockZone'
   fontSize='25px'
 
   if lang == "c":
-    color = '#ffcc00' # amber apple2
-    bgcolor = '#000000'
+    color = '#A9A2D7' # amber apple2
+    bgcolor = '#0000AF'
     theme='gptamber'
 
 
   if lang == "go":
-    color = '#0f0200' # green apple2
-    bgcolor = '#ffffff'
+    color = '#000000' # green apple2
+    bgcolor = '#FFFFE8'
     theme='gptwhite'
 
 
-  if lang == "python":
-    color = '#464646' 
-    bgcolor = '#f7d38a'
-    theme="gptbluez" #next(possible["python"])
-
-
   if lang == "javascript":
-    color = '#c366f0'
-    bgcolor = '#2e0d3e'
+    color = '#c0c5ca' 
+    bgcolor = '#1d2432'
+    theme="gptblack" #next(possible["python"])
+
+
+  if lang == "python":
+    color = '#6e7781'
+    bgcolor = '#ffffff'
     theme="gptredzz" #next(possible["javascript"])
-    
+
+  #bgcolor = '#ffffff'
+  #color = '#ff5544'
   return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}"
   
   
@@ -107,14 +109,15 @@ The first player who finishes their
 cards wins.
 
 When the draw() function is played, the
-player has to draw whatever the output
+player has to do whatever the output
 of the function is.
 
 You can respond to a draw() card with
 another draw() card in a different
 language to make the next player draw
 even more cards, and of course, they can
-respond to your draw again.
+respond to your draw again (unless
+draw() tells you to skip).
 
 Don't make an angry face when you get to
 draw many cards (๑•̀д•́๑).

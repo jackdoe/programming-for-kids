@@ -6,10 +6,8 @@
 // prints:
 //   draw 1 cards
 function draw(x) {
-  let n = 0;
-
   if (x.length > 0) {
-    n = x[0];
+    let n = x[0];
     if (n == 0) {
       console.log("next player skips");
     } else {
@@ -18,7 +16,6 @@ function draw(x) {
   }
 
   let r = [];
-
   for (let v of x) {
     r.push(v);
   }
