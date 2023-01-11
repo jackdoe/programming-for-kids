@@ -19,8 +19,8 @@ def card_meta(id, lang):
 
 
   if lang == "go":
-    color = '#000000' # green apple2
-    bgcolor = '#FFFFE8'
+    color = '#202224' # green apple2
+    bgcolor = '#ffd'
     theme='gptwhite'
 
 
