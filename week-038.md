@@ -1011,3 +1011,9 @@ if (a > b or c > a) and b > c:
 ```
 
 python will read 'if (a is bigger than b or c is bigger than a) **AND** (b is bigger than c)',
+
+## [DAY-282] ast
+
+![game-282.jpg](./screenshots/game-282.jpg "game 282 screenshot")
+
+> just 5 minutes while waiting for dinner do a quick ast parse
