@@ -705,3 +705,5 @@
 [day-280 ast](#day-280-ast)
 
 [day-281 ast](#day-281-ast)
+
+[day-282 ast](#day-282-ast)

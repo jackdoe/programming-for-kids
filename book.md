@@ -823,6 +823,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-281 ast](#day-281-ast)
 
+[day-282 ast](#day-282-ast)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21467,4 +21469,10 @@ if (a > b or c > a) and b > c:
 ```
 
 python will read 'if (a is bigger than b or c is bigger than a) **AND** (b is bigger than c)',
+
+## [DAY-282] ast
+
+![game-282.jpg](./screenshots/game-282.jpg "game 282 screenshot")
+
+> just 5 minutes while waiting for dinner do a quick ast parse
 
