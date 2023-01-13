@@ -83,10 +83,10 @@ break down in various ways like malloc
 failing if there is no memory and etc,
 but the idea of the card is clear.
 
-Some code is made more explicit, like
-not using slice operators, or using
-extra variables, but this way it is
-easier to onboard beginners.
+The code is made more explicit, like not
+using slice operators , or using extra
+variables, but this way it is easier to
+onboard beginners.
 
 We hope you enjoy the game, and don't
 get discouraged if you lose track of the
@@ -100,10 +100,14 @@ The starting list is:
 
 {'[1, 2, 3, 4]'.center(40)}
 
+Start with 5 cards each.
+
 You can either play the same fuction in
 a different language or a different
 function in the same language as the
-previous card.
+previous card. If you dont have a
+matching card you have to draw one card
+from the deck and skip your turn.
 
 The first player who finishes their
 cards wins.
