@@ -10,11 +10,18 @@ typedef struct list {
 // returns:
 //   [2,3,4,5]
 list increment(list x) {
-  // allocate space for x.len elements,
-  // 4 bytes each
+  // start with len=0 and allocate space
+  // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
+  // algorithm:
+  //   walk over each value of the input
+  //   and add value+1 in the new list
   for (int i = 0; i < x.len; i++) {
+    // get the i-th element from the
+    // input and add 1 to it
     int v = x.data[i] + 1;
+    // store it as the next element in
+    // the output list
     r.data[r.len++] = v;
   }
 

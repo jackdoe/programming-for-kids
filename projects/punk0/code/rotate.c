@@ -10,11 +10,13 @@ typedef struct list {
 // returns:
 //   [4,1,2,3]
 list rotate(list x) {
+  // start with len=0 and allocate space
+  // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
     // go to the last element and
     // then wrap around
-    // example if len is 4:
+    // example if x.len is 4:
     // (0 + 4 - 1) % 4 = 3
     // (1 + 4 - 1) % 4 = 0
     // (2 + 4 - 1) % 4 = 1

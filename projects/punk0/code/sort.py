@@ -4,12 +4,11 @@
 #   [1,2,3,4]
 def sort(x):
     # we can use the sorted() function
-    # make a sorted copy or copy the
-    # list and use the sort method on
-    # the copy
+    # make a sorted copy
 
     # x.sort method mutates the list so
-    # first we need to copy it
+    # first we need to copy it and then
+    # sort the copy
     r = []
     for v in x:
         r.append(v)

@@ -16,15 +16,16 @@ int cmp(const void *a, const void *b) {
 // returns:
 //   [1,2,3,4]
 list sort(list x) {
-  // qsort will modify the array itself
-  // so we will copy it and sort it
-  // after that
+  // qsort will mutate the array itself
+  // so first we will copy it, and
+  // then sort the copy
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
     int v = x.data[i];
     r.data[r.len++] = v;
   }
-
+  // sort r.data, with r.len elements
+  // 4 bytes each using the cmp function
   qsort(r.data, r.len, 4, cmp);
 
   return r;

@@ -1,4 +1,4 @@
-# shift to the input list to the left,
+# shift the input list to the left,
 # adding 0 at the end:
 #   [1,2,3,4]
 # returns:

@@ -10,6 +10,10 @@ import (
 //   [2,3,4,5]
 func increment(x []int) []int {
 	r := []int{}
+
+	// algorithm:
+	//   walk over each value of the input
+	//   and add value+1 in the new list
 	for _, v := range x {
 		r = append(r, v+1)
 	}

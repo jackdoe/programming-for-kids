@@ -80,16 +80,16 @@ The cards, especially the C cards, have
 a lot of bugs in them, they dont check
 for integer overflows and underflows,
 break down in various ways like malloc
-failing if there is no memory and etc,
+failing or using int instead of size_t,
 but the idea of the card is clear.
 
 The code is made more explicit, like not
 using slice operators , or using extra
-variables, but this way it is easier to
-onboard beginners.
+variables, or calling slices lists, but
+this way might be easier for beginners.
 
-We hope you enjoy the game, and don't
-get discouraged if you lose track of the
+I hope you enjoy the game, and don't get
+discouraged if you lose track of the
 lists, before the game simply remove the
 cards you find difficult to follow.
 """)

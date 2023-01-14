@@ -11,8 +11,8 @@ typedef struct list {
 // returns:
 //   [2,3,4,0]
 list shift(list x) {
-  // allocate space for x.len elements
-  // 4 bytes each  
+  // start with len=0 and allocate space
+  // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
 
   // copy everything after the first

@@ -10,11 +10,11 @@ typedef struct list {
 // returns:
 //   [4,3,2,1]
 list reverse(list x) {
-  // allocate space for x.len elements
-  // 4 bytes each
+  // start with len=0 and allocate space
+  // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
-    // example if len is 4:
+    // example if x.len is 4:
     // 4 - 1 - 0 = 3
     // 4 - 1 - 1 = 2
     // 4 - 1 - 2 = 1

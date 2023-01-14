@@ -23,13 +23,13 @@ list draw(list x) {
       printf("draw %d cards\n", n);
     }
   }
-
+  // start with len=0 and allocate space
+  // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
     int v = x.data[i];
     r.data[r.len++] = v;
   }
-
   return r;
 }
 
