@@ -7,8 +7,9 @@ def increment(x):
     r = []
 
     # algorithm:
-    #   walk over each value of the input
-    #   and add value+1 in the new list
+    #   for each value of the input list
+    #   add value+1 to the output list
+
     for v in x:
         r.append(v + 1)
 

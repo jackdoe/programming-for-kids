@@ -14,8 +14,8 @@ list increment(list x) {
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
   // algorithm:
-  //   walk over each value of the input
-  //   and add value+1 in the new list
+  //   for each value of the input list
+  //   add value+1 to the output list
   for (int i = 0; i < x.len; i++) {
     // get the i-th element from the
     // input and add 1 to it

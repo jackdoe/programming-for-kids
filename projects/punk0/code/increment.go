@@ -12,8 +12,8 @@ func increment(x []int) []int {
 	r := []int{}
 
 	// algorithm:
-	//   walk over each value of the input
-	//   and add value+1 in the new list
+	//   for each value of the input list
+	//   add value+1 to the output list
 	for _, v := range x {
 		r = append(r, v+1)
 	}
