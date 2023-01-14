@@ -827,6 +827,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-283 ast](#day-283-ast)
 
+[day-284 ast](#day-284-ast)
+
+[day-285 for](#day-285-for)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21483,4 +21487,86 @@ python will read 'if (a is bigger than b or c is bigger than a) **AND** (b is bi
 ![game-283.jpg](./screenshots/game-283.jpg "game 283 screenshot")
 
 > 5 minutes after dinner (as visible by the pizza oil stains on the paper..), focused a bit on the implicit 'self' argument when calling a method
+
+
+## [DAY-284] ast
+
+![game-284.jpg](./screenshots/game-284.jpg "game 284 screenshot")
+
+> before going to bed we did a quick ast discussion, what happens if you dont know the precedence and how to overpower the ast using brackets
+
+
+## [DAY-285] for
+
+![game-285.jpg](./screenshots/game-285.jpg "game 285 screenshot")
+
+Make a game where you have a wall of foxes you cant pass through, and make it so that the elf cant pass through them, but the king can, and the king can pass through the foxes but but not through the elf.
+
+![game-285-b.jpg](./screenshots/game-285-b.jpg "game 285 b screenshot")
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+foxes=[]
+elf = Actor('c1')
+king = Actor("c2")
+elf.x = 500
+elf.y = 500
+king.x = 400
+king.y = 400
+
+for i in range(38,250,62):
+    foxes.append(Actor("fox",[i,38]))
+for i in range(0,250,62):
+    foxes.append(Actor("fox",[i,250]))
+for i in range(250,700,83):
+    foxes.append(Actor("fox",[250,i]))
+
+
+def update():
+    old_elf_x = elf.x
+    old_elf_y = elf.y
+    old_king_x = king.x
+    old_king_y = king.y
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5
+    if keyboard.UP:
+        king.y-=5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.RIGHT:
+        king.x+=5
+    if keyboard.LEFT:
+        king.x-=5
+
+    elf.y += 1
+    for i in foxes:
+        if elf.colliderect(i):
+            elf.y=old_elf_y
+            elf.x=old_elf_x
+    if king.colliderect(elf):
+        king.y=old_king_y
+        king.x=old_king_x
+
+
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    king.draw()
+    for i in foxes:
+        i.draw()
+
+pgzrun.go()
+```
 
