@@ -28,6 +28,7 @@ func draw(x []int) []int {
 	for i := range x {
 		r[i] = x[i]
 	}
+
 	return r
 }
 

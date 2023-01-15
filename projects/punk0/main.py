@@ -142,8 +142,8 @@ listed = [
  'draw1.py',
  'draw2.py',
 
- 'draw.c',
- 'draw.py',
+ 'draw3.c',
+ 'draw3.py',
  'draw.js',
  'draw.go',
 
@@ -184,7 +184,7 @@ listed = [
  'shift.c',
  'shift1.c',
  'shift.go',
- 'shift.go',
+ 'shift1.go',
  'shift.js',
  'shift1.js',
  'shift.py',
