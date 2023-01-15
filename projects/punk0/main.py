@@ -127,18 +127,72 @@ Silently plan your revenge with the new
 cards you just got ꉂ (´∀｀)ʱª.
 """)
 
-# double the explode and avg cards
 
-#filtered = [f for f in listed if 'explode1' in f or f.startswith('max1')]
-#listed += filtered
+listed = [
+ 'draw.c',
+ 'draw1.c',
+ 'draw2.c',
+ 'draw.go',
+ 'draw1.go',
+ 'draw2.go',
+ 'draw.js',
+ 'draw1.js',
+ 'draw2.js',
+ 'draw.py',
+ 'draw1.py',
+ 'draw2.py',
 
-listed = [x for x in listdir('./code') if '#' not in x and (x.endswith('.c') or x.endswith('.go') or x.endswith('.js') or x.endswith('.py'))]
-listed.sort()
-iter = cycle(listed)
+ 'draw.c',
+ 'draw.py',
+ 'draw.js',
 
-while CARD <= 55:
-    fn = next(iter)
+ 'increment.c',
+ 'increment.go',
+ 'increment.js',
+ 'increment.py',
 
+
+ 'reset.c',
+ 'reset.go',
+ 'reset.js',
+ 'reset.py',
+
+ 'sort.c',
+ 'sort.go',
+ 'sort.js',
+ 'sort.py',
+
+ 'reverse.c',
+ 'reverse.c',
+ 'reverse.go',
+ 'reverse.go',
+ 'reverse.js',
+ 'reverse.js',
+ 'reverse.py',
+ 'reverse.py',
+
+ 'rotate.c',
+ 'rotate.c',
+ 'rotate.go',
+ 'rotate.go',
+ 'rotate.js',
+ 'rotate.js',
+ 'rotate.py',
+ 'rotate.py',
+
+ 'shift.c',
+ 'shift.c',
+ 'shift.go',
+ 'shift.go',
+ 'shift.go',
+ 'shift.js',
+ 'shift.js',
+ 'shift.js',
+ 'shift.py',
+ 'shift.py',
+]
+
+for fn in listed:
     lang = ''
     if fn.endswith('.c'):
         color = 'black'
@@ -204,3 +258,6 @@ while CARD <= 55:
 
         for line in card:
                 print(line)
+
+if CARD != 56:
+  raise Exception("AAAAAAAAAAAAAAAAA" + str(CARD))
