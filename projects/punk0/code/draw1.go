@@ -22,6 +22,7 @@ func draw(x []int) []int {
 
 	}
 
+	// preallocate with len(x) space
 	r := make([]int, len(x))
 
 	// copy the data from x into r

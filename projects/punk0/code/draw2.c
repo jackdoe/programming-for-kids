@@ -27,7 +27,7 @@ list draw(list x) {
   for (int i = 0; i < x.len; i++) {
     // reallocate a new buffer with
     // 4 extra bytes in the end
-    r.data = realloc(r.data, r.len * 4 + 4);
+    r.data = realloc(r.data, r.len*4+4);
     r.data[r.len++] = x.data[i];
   }
   return r;

@@ -4,7 +4,6 @@
 //   [4,1,2,3]
 function rotate(x) {
   let r = [];
-
   for (let i = 0; i < x.length; i++) {
     // go to the last element and
     // then wrap around

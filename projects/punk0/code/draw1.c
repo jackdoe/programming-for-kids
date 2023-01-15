@@ -27,7 +27,7 @@ list draw(list x) {
   r.len = x.len;
   r.data = malloc(x.len * 4);
   // copy len*4 bytes from memory
-  // addr x.data into r.data addr
+  // addr x.data into addr r.data
   memcpy(r.data, x.data, x.len * 4);
 
   return r;

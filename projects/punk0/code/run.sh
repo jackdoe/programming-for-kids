@@ -3,7 +3,7 @@
 
 set -e
 
-for kind in $(ls -1 | grep .go| cut -f 1 -d '.' | paste -sd' '  -); do
+for kind in draw increment reset reverse rotate shift sort; do
     echo
     echo $kind
     echo '> go'
@@ -28,6 +28,14 @@ for kind in $(ls -1 | grep .go| cut -f 1 -d '.' | paste -sd' '  -); do
         go run draw1.go | paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
         go run draw2.go | paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
     fi
+
+    if [ $kind = "shift" ]; then
+        gcc -Wall -Wextra -o /tmp/z shift1.c >/dev/null
+        /tmp/z | paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
+        node shift1.js| paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
+        python3 shift1.py| paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
+    fi
+    
     
     gcc -Wall -Wextra -o /tmp/z $kind.c >/dev/null
     /tmp/z | paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a

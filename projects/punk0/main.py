@@ -145,6 +145,7 @@ listed = [
  'draw.c',
  'draw.py',
  'draw.js',
+ 'draw.go',
 
  'increment.c',
  'increment.go',
@@ -181,15 +182,15 @@ listed = [
  'rotate.py',
 
  'shift.c',
+ 'shift1.c',
+ 'shift.go',
+ 'shift.go',
+ 'shift.js',
+ 'shift1.js',
+ 'shift.py',
+ 'shift1.py',
+
  'shift.c',
- 'shift.go',
- 'shift.go',
- 'shift.go',
- 'shift.js',
- 'shift.js',
- 'shift.js',
- 'shift.py',
- 'shift.py',
 ]
 
 for fn in listed:
