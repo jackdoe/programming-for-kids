@@ -105,21 +105,23 @@ Start with 5 cards each.
 You can either play the same fuction in
 a different language or a different
 function in the same language as the
-previous card. If you dont have a
-matching card you have to draw one card
-from the deck and skip your turn.
+previous card. You must play a matching
+card or draw one and skip your turn.
 
 The first player who finishes their
 cards wins.
 
 When the draw() function is played, the
-player has to do whatever the output
-of the function is.
-
-You can respond to a draw() card with
-another draw() card and move the penalty
+player has to do whatever the output of
+the function is. You can respond to a
+draw() card with another draw() in the
+same language and move the penalty
 forward, unless draw() tells you to
 skip.
+
+You can play the reset() card on
+any language, as it does not depend
+on the input list.
 
 Don't make an angry face when you get to
 draw many cards (๑•̀д•́๑).
@@ -141,27 +143,31 @@ listed = [
  'draw.py',
  'draw1.py',
  'draw2.py',
-
  'draw3.c',
+ 'draw3.go',
  'draw3.py',
- 'draw.js',
- 'draw.go',
+ 'draw3.js',
 
  'increment.c',
  'increment.go',
  'increment.js',
  'increment.py',
 
-
  'reset.c',
  'reset.go',
  'reset.js',
  'reset.py',
+ 'reset.c',
 
- 'sort.c',
- 'sort.go',
- 'sort.js',
- 'sort.py',
+ 'sort_asc.c',
+ 'sort_asc.go',
+ 'sort_asc.js',
+ 'sort_asc.py',
+
+ 'sort_desc.c',
+ 'sort_desc.go',
+ 'sort_desc.js',
+ 'sort_desc.py',
 
  'reverse.c',
  'reverse.c',
@@ -173,12 +179,8 @@ listed = [
  'reverse.py',
 
  'rotate.c',
- 'rotate.c',
- 'rotate.go',
  'rotate.go',
  'rotate.js',
- 'rotate.js',
- 'rotate.py',
  'rotate.py',
 
  'shift.c',
@@ -189,8 +191,6 @@ listed = [
  'shift1.js',
  'shift.py',
  'shift1.py',
-
- 'shift.c',
 ]
 
 for fn in listed:

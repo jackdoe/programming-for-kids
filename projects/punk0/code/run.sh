@@ -3,7 +3,7 @@
 
 set -e
 
-for kind in draw increment reset reverse rotate shift sort; do
+for kind in draw increment reset reverse rotate shift sort_asc sort_desc; do
     echo
     echo $kind
     echo '> go'
@@ -28,8 +28,10 @@ for kind in draw increment reset reverse rotate shift sort; do
         python3 draw3.py| paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
         node draw1.js| paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
         node draw2.js| paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
+        node draw3.js| paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
         go run draw1.go | paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
         go run draw2.go | paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
+        go run draw3.go | paste -sd ' ' - | sed -e 's/, /,/g' | sed -e 's/ /,/g' >> /tmp/a
     fi
 
     if [ $kind = "shift" ]; then
