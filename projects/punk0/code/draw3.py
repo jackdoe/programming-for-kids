@@ -13,11 +13,11 @@ def draw(x):
         else:
             print(f'draw {n} cards')
 
-    # List comprehension is a concise way to
-    # create a new list by applying an
-    # expression to each item in an existing
-    # list or other iterable in a single line
-    # of code.
+    # List comprehension is a concise
+    # way to create a new list by
+    # applying an expression to each
+    # item in an existing list or other
+    # iterable in a single line of code.
     r = [v for v in x]
 
     return r

@@ -25,14 +25,11 @@ list draw(list x) {
   }
   // copy the bytes from x
   list r = x;
-
   // allocate len * 4 bytes
   r.data = malloc(x.len * 4);
-
   // copy len*4 bytes starting from
   // address x.data into address r.data
   memcpy(r.data, x.data, x.len * 4);
-
   return r;
 }
 
