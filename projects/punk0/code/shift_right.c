@@ -5,21 +5,21 @@ typedef struct list {
   int *data;
 } list;
 
-// increment the first of a list
+// shift to the input list to the right,
+// adding 0 at the end:
 //   [1,2,3,4]
 // returns:
-//   [2,2,3,4]
-list increment(list x) {
+//   [0,1,2,3]
+list shift_right(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
-
-  for (int i = 0; i < x.len; i++) {
+  // start with a zero
+  r.data[r.len++] = 0;
+  // copy everything except the last
+  // element
+  for (int i = 0; i < x.len-1; i++) {
     int v = x.data[i];
-    if (i == 0) {
-      v++;
-    }
-
     r.data[r.len++] = v;
   }
 
@@ -42,9 +42,9 @@ int main(void) {
   x.data[n++] = 1;
   x.data[n++] = 2;
   x.data[n++] = 7;
-  x.data[n++] = 1;
+  x.data[n++] = 9;
 
-  list r = increment(x);
+  list r = shift_right(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);

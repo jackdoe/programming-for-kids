@@ -7,18 +7,18 @@ typedef struct list {
   int *data;
 } list;
 
-// the next player draws list[0] cards
-// and returns a copy of the list:
+// returns a copy of the list and print
+// what happens next:
 //   [1,2,3,4]
 // returns
 //   [1,2,3,4]
-// prints:
-//   draw 1 cards
 list draw(list x) {
   if (x.len > 0) {
     int n = x.data[0];
     if (n == 0) {
       printf("next player skips\n");
+    } else if (n < 0) {
+      printf("play %d cards\n",-n);
     } else {
       printf("draw %d cards\n", n);
     }
@@ -27,8 +27,7 @@ list draw(list x) {
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
   for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
-    r.data[r.len++] = v;
+    r.data[r.len++] = x.data[i];
   }
   return r;
 }

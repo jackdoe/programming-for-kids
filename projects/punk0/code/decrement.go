@@ -4,16 +4,16 @@ import (
 	"fmt"
 )
 
-// increment the first of a list
+// decrement the first of a list
 //   [1,2,3,4]
 // returns:
-//   [2,2,3,4]
-func increment(x []int) []int {
+//   [0,2,3,4]
+func decrement(x []int) []int {
 	r := []int{}
 
 	for i, v := range x {
 		if i == 0 {
-			v++
+			v--
 		}
 		r = append(r, v)
 	}
@@ -22,5 +22,5 @@ func increment(x []int) []int {
 }
 
 func main() {
-	fmt.Printf("%v\n", increment([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 1}))
+	fmt.Printf("%v\n", decrement([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 1}))
 }

@@ -7,7 +7,7 @@ import "fmt"
 //   [1,2,3,4]
 // returns:
 //   [2,3,4,0]
-func shift(x []int) []int {
+func shift_left(x []int) []int {
 	r := []int{}
 
 	// copy everything after the first
@@ -24,5 +24,5 @@ func shift(x []int) []int {
 }
 
 func main() {
-	fmt.Printf("%v\n", shift([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 9}))
+	fmt.Printf("%v\n", shift_left([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 9}))
 }

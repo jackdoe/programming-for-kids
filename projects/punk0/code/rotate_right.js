@@ -2,7 +2,7 @@
 //   [1,2,3,4]
 // returns:
 //   [4,1,2,3]
-function rotate(x) {
+function rotate_right(x) {
   let r = [];
   for (let i = 0; i < x.length; i++) {
     // go to the last element and
@@ -21,4 +21,4 @@ function rotate(x) {
   return r;
 }
 
-console.log(JSON.stringify(rotate([1, 1, 2, 3, 3, 4, 1, 2, 7, 9])));
+console.log(JSON.stringify(rotate_right([1, 1, 2, 3, 3, 4, 1, 2, 7, 9])));

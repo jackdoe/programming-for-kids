@@ -4,18 +4,18 @@ import (
 	"fmt"
 )
 
-// the next player draws list[0] cards
-// and returns a copy of the list:
+// returns a copy of the list and print
+// what happens next:
 //   [1,2,3,4]
 // returns
 //   [1,2,3,4]
-// prints:
-//   draw 1 cards
 func draw(x []int) []int {
 	if len(x) > 0 {
 		n := x[0]
 		if n == 0 {
 			fmt.Printf("next player skips\n")
+		} else if n < 0 {
+			fmt.Printf("play %d cards\n", -n)
 		} else {
 			fmt.Printf("draw %d cards\n", n)
 		}

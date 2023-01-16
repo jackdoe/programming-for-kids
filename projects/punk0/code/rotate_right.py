@@ -2,7 +2,7 @@
 #   [1,2,3,4]
 # returns:
 #   [4,3,2,1]
-def rotate(x):
+def rotate_right(x):
     r = []
     i = 0
     for v in x:
@@ -21,4 +21,4 @@ def rotate(x):
     return r
 
 
-print(rotate([1, 1, 2, 3, 3, 4, 1, 2, 7, 9]))
+print(rotate_right([1, 1, 2, 3, 3, 4, 1, 2, 7, 9]))

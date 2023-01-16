@@ -1,14 +1,14 @@
-// increment the elements of a list
+// decrement the elements of a list
 //   [1,2,3,4]
 // returns:
-//   [2,1,2,3]
-function increment(x) {
+//   [0,1,2,3]
+function decrement(x) {
   let r = [];
 
   for (let i = 0; i < x.length; i++) {
     let v = x[i]
     if (i == 0) {
-      v++;
+      v--;
     }
     r.push(v);        
   }
@@ -16,4 +16,4 @@ function increment(x) {
   return r;
 }
 
-console.log(JSON.stringify(increment([1, 1, 2, 3, 3, 4, 1, 2, 7, 1])));
+console.log(JSON.stringify(decrement([1, 1, 2, 3, 3, 4, 1, 2, 7, 1])));

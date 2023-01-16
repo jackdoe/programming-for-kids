@@ -6,7 +6,7 @@ import "fmt"
 //   [1,2,3,4]
 // returns:
 //   [4,1,2,3]
-func rotate(x []int) []int {
+func rotate_right(x []int) []int {
 	r := []int{}
 	for i := 0; i < len(x); i++ {
 		// go to the last element and
@@ -25,5 +25,5 @@ func rotate(x []int) []int {
 }
 
 func main() {
-	fmt.Printf("%v\n", rotate([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 9}))
+	fmt.Printf("%v\n", rotate_right([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 9}))
 }

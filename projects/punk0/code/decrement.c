@@ -5,25 +5,24 @@ typedef struct list {
   int *data;
 } list;
 
-// shift to the input list to the left,
-// adding 0 at the end:
+// decrement the first of a list
 //   [1,2,3,4]
 // returns:
-//   [2,3,4,0]
-list shift(list x) {
+//   [0,2,3,4]
+list decrement(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
 
-  // copy everything after the first
-  // element
-  for (int i = 1; i < x.len; i++) {
+  for (int i = 0; i < x.len; i++) {
     int v = x.data[i];
+    if (i == 0) {
+      v--;
+    }
+
     r.data[r.len++] = v;
   }
 
-  // append 0 to the end
-  r.data[r.len++] = 0;
   return r;
 }
 
@@ -43,9 +42,9 @@ int main(void) {
   x.data[n++] = 1;
   x.data[n++] = 2;
   x.data[n++] = 7;
-  x.data[n++] = 9;
+  x.data[n++] = 1;
 
-  list r = shift(x);
+  list r = decrement(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);

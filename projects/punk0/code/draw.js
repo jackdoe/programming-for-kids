@@ -1,15 +1,15 @@
-// the next player draws list[0] cards
-// and returns a copy of the list:
+// returns a copy of the list and print
+// what happens next:
 //   [1,2,3,4]
 // returns
 //   [1,2,3,4]
-// prints:
-//   draw 1 cards
 function draw(x) {
   if (x.length > 0) {
     let n = x[0];
     if (n == 0) {
       console.log("next player skips");
+    } else if (n < 0) {
+      console.log(`play ${-n} cards`);
     } else {
       console.log(`draw ${n} cards`);
     }

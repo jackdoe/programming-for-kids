@@ -3,7 +3,7 @@
 #   [1,2,3,4]
 # returns:
 #   [2,3,4,0]
-def shift(x):
+def shift_left(x):
     r = []
 
     # copy everything after the first
@@ -17,4 +17,4 @@ def shift(x):
     return r
 
 
-print(shift([1, 1, 2, 3, 3, 4, 1, 2, 7, 9]))
+print(shift_left([1, 1, 2, 3, 3, 4, 1, 2, 7, 9]))

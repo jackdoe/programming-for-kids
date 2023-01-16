@@ -94,6 +94,28 @@ lists, before the game simply remove the
 cards you find difficult to follow.
 """)
 
+card_str(f"""{'CARD TYPES'.center(40)}
+
+Special cards:
+
+* reset()
+
+The reset function ignores its input, so
+you can play it regardless of the
+previous card's language
+
+* draw()
+
+the draw card makes the next peerson
+draw cards equal to the first element of
+the list, if the list is [1,2,3,4] then
+the next player has to draw 1 card, but
+if the list is -1 then you have to play
+one more card
+
+""")
+
+
 card_str(f"""{'RULES'.center(40)}
 
 The starting list is:
@@ -130,34 +152,34 @@ cards you just got ꉂ (´∀｀)ʱª.
 """)
 
 
+
 listed = [
  'draw.c',
- 'draw1.c',
- 'draw2.c',
  'draw.go',
- 'draw1.go',
- 'draw2.go',
- 'draw.js',
- 'draw1.js',
- 'draw2.js',
  'draw.py',
+ 'draw.js',
+
+ 'draw1.c',
+ 'draw1.go',
  'draw1.py',
- 'draw2.py',
- 'draw3.c',
- 'draw3.go',
- 'draw3.py',
- 'draw3.js',
+ 'draw1.js',
+
 
  'increment.c',
  'increment.go',
  'increment.js',
  'increment.py',
 
+
+ 'decrement.c',
+ 'decrement.go',
+ 'decrement.js',
+ 'decrement.py',
+
  'reset.c',
  'reset.go',
  'reset.js',
  'reset.py',
- 'reset.c',
 
  'sort_asc.c',
  'sort_asc.go',
@@ -170,27 +192,35 @@ listed = [
  'sort_desc.py',
 
  'reverse.c',
+ 'reverse.go',
+ 'reverse.js',
+ 'reverse.py',
+
  'reverse.c',
  'reverse.go',
- 'reverse.go',
- 'reverse.js',
  'reverse.js',
  'reverse.py',
- 'reverse.py',
 
- 'rotate.c',
- 'rotate.go',
- 'rotate.js',
- 'rotate.py',
 
- 'shift.c',
- 'shift1.c',
- 'shift.go',
- 'shift1.go',
- 'shift.js',
- 'shift1.js',
- 'shift.py',
- 'shift1.py',
+ 'rotate_left.c',
+ 'rotate_left.go',
+ 'rotate_left.js',
+ 'rotate_left.py',
+
+ 'rotate_right.c',
+ 'rotate_right.go',
+ 'rotate_right.js',
+ 'rotate_right.py',
+
+ 'shift_left.c',
+ 'shift_left.go',
+ 'shift_left.js',
+ 'shift_left.py',
+
+ 'shift_right.c',
+ 'shift_right.go',
+ 'shift_right.js',
+ 'shift_right.py',
 ]
 
 for fn in listed:

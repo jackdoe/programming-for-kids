@@ -10,6 +10,8 @@ def draw(x):
         n = x[0]
         if n == 0:
             print('next player skips')
+        elif n < 0:
+            print(f'play {-n} cards')
         else:
             print(f'draw {n} cards')
 

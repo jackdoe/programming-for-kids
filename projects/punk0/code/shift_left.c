@@ -5,26 +5,25 @@ typedef struct list {
   int *data;
 } list;
 
-// rotate the input list to the right
+// shift to the input list to the left,
+// adding 0 at the end:
 //   [1,2,3,4]
 // returns:
-//   [4,1,2,3]
-list rotate(list x) {
+//   [2,3,4,0]
+list shift_left(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
-  for (int i = 0; i < x.len; i++) {
-    // go to the last element and
-    // then wrap around
-    // example if x.len is 4:
-    // (0 + 4 - 1) % 4 = 3
-    // (1 + 4 - 1) % 4 = 0
-    // (2 + 4 - 1) % 4 = 1
-    // (3 + 4 - 1) % 4 = 2
-    int idx = (i + x.len - 1) % x.len;
-    int v = x.data[idx];
+
+  // copy everything after the first
+  // element
+  for (int i = 1; i < x.len; i++) {
+    int v = x.data[i];
     r.data[r.len++] = v;
   }
+
+  // append 0 to the end
+  r.data[r.len++] = 0;
   return r;
 }
 
@@ -46,7 +45,7 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 9;
 
-  list r = rotate(x);
+  list r = shift_left(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);

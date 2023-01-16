@@ -6,15 +6,15 @@
 function shift(x) {
   let r = [];
 
-  // copy everything after the first
+  // start with a zero
+  r.push(0);
+
+  // copy everything except the last
   // element
-  for (let i = 1; i < x.length; i++) {
+  for (let i = 0; i < x.length-1; i++) {
     let v = x[i];
     r.push(v);
   }
-
-  // append 0 to the end
-  r.push(0);
 
   return r;
 }

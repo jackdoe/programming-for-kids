@@ -5,24 +5,26 @@ typedef struct list {
   int *data;
 } list;
 
-// increment the first of a list
+// rotate the input list to the left
 //   [1,2,3,4]
 // returns:
-//   [2,2,3,4]
-list increment(list x) {
+//   [2,3,4,1]
+list rotate_left(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
-
   for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
-    if (i == 0) {
-      v++;
-    }
-
+    // go to the second element
+    // then wrap around
+    // example if x.len is 4:
+    // (0 + 1) % 4 = 1
+    // (1 + 1) % 4 = 2
+    // (2 + 1) % 4 = 3
+    // (3 + 1) % 4 = 0
+    int idx = (i + 1) % x.len;
+    int v = x.data[idx];
     r.data[r.len++] = v;
   }
-
   return r;
 }
 
@@ -42,9 +44,9 @@ int main(void) {
   x.data[n++] = 1;
   x.data[n++] = 2;
   x.data[n++] = 7;
-  x.data[n++] = 1;
+  x.data[n++] = 9;
 
-  list r = increment(x);
+  list r = rotate_left(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);
