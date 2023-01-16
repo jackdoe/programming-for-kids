@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdint.h>
+
 #include <stdlib.h>
 typedef struct list {
-  int len;
-  int *data;
+  size_t len;
+  int32_t *data;
 } list;
 // passed to qsort
 int cmp(const void *a, const void *b) {
@@ -20,8 +22,8 @@ list sort_asc(list x) {
   // so first we will copy it, and
   // then sort the copy
   list r = {0, malloc(x.len * 4)};
-  for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
+  for (size_t i = 0; i < x.len; i++) {
+    int32_t v = x.data[i];
     r.data[r.len++] = v;
   }
   // sort r.data, with r.len elements
@@ -51,7 +53,7 @@ int main(void) {
 
   list r = sort_asc(x);
   printf("[");
-  for (int i = 0; i < r.len; i++) {
+  for (size_t i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");

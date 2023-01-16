@@ -1,4 +1,10 @@
-# decrement the first of a list
+# the player can specify
+# which index to decrement
+DEC_INDEX = 0
+
+
+# decrement the DEC_INDEX of a list,
+# e.g. if DEC_INDEX is defined as 0:
 #   [1,2,3,4]
 # returns:
 #   [0,2,3,4]

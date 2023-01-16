@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdint.h>
+
 #include <stdlib.h>
 typedef struct list {
-  int len;
-  int *data;
+  size_t len;
+  int32_t *data;
 } list;
 
 // reverse the input list
@@ -13,13 +15,13 @@ list reverse(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
-  for (int i = 0; i < x.len; i++) {
+  for (size_t i = 0; i < x.len; i++) {
     // example if x.len is 4:
     // 4 - 1 - 0 = 3
     // 4 - 1 - 1 = 2
     // 4 - 1 - 2 = 1
     // 4 - 1 - 3 = 0
-    int v = x.data[x.len - 1 - i];
+    int32_t v = x.data[x.len - 1 - i];
     r.data[r.len++] = v;
   }
   return r;
@@ -45,7 +47,7 @@ int main(void) {
 
   list r = reverse(x);
   printf("[");
-  for (int i = 0; i < r.len; i++) {
+  for (size_t i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");

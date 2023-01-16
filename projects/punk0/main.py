@@ -165,7 +165,6 @@ listed = [
  'draw.go',
  'draw.py',
  'draw.js',
-
  'draw.c',
  'draw.go',
  'draw.py',
@@ -175,7 +174,6 @@ listed = [
  'increment.go',
  'increment.js',
  'increment.py',
-
  'increment.c',
  'increment.go',
  'increment.js',
@@ -185,12 +183,19 @@ listed = [
  'decrement.go',
  'decrement.js',
  'decrement.py',
-
  'decrement.c',
  'decrement.go',
  'decrement.js',
  'decrement.py',
 
+ 'rotate_left.c',
+ 'rotate_left.go',
+ 'rotate_left.js',
+ 'rotate_left.py',
+ 'rotate_left.c',
+ 'rotate_left.go',
+ 'rotate_left.js',
+ 'rotate_left.py',
 
  'reset.c',
  'reset.go',
@@ -202,35 +207,19 @@ listed = [
  'sort_asc.js',
  'sort_asc.py',
 
- 'sort_desc.c',
- 'sort_desc.go',
- 'sort_desc.js',
- 'sort_desc.py',
-
  'reverse.c',
  'reverse.go',
  'reverse.js',
  'reverse.py', 
 
-# 'rotate_left.c',
-# 'rotate_left.go',
-# 'rotate_left.js',
-# 'rotate_left.py',
-
- 'rotate_right.c',
- 'rotate_right.go',
- 'rotate_right.js',
- 'rotate_right.py',
-
- 'shift_left.c',
- 'shift_left.go',
- 'shift_left.js',
- 'shift_left.py',
-
- 'shift_right.c',
- 'shift_right.go',
- 'shift_right.js',
- 'shift_right.py',
+ 'shift.c',
+ 'shift.go',
+ 'shift.js',
+ 'shift.py',
+ 'shift.c',
+ 'shift.go',
+ 'shift.js',
+ 'shift.py',
 ]
 
 for fn in listed:

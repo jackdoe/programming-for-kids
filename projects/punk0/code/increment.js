@@ -1,13 +1,18 @@
-// increment the elements of a list
+// the player can specify
+// which index to decrement
+const INC_INDEX = 0
+
+// increment the INC_INDEX of a list,
+// e.g. if INC_INDEX is defined as 0:
 //   [1,2,3,4]
 // returns:
-//   [2,1,2,3]
+//   [2,2,3,4]
 function increment(x) {
   let r = [];
 
   for (let i = 0; i < x.length; i++) {
     let v = x[i]
-    if (i == 0) {
+    if (i == INC_INDEX) {
       v++;
     }
     r.push(v);        

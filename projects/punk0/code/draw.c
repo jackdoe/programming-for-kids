@@ -1,10 +1,11 @@
 #include <stdint.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 
 typedef struct list {
-  int len;
-  int *data;
+  size_t len;
+  int32_t *data;
 } list;
 
 // returns a copy of the list and print
@@ -26,7 +27,7 @@ list draw(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
-  for (int i = 0; i < x.len; i++) {
+  for (size_t i = 0; i < x.len; i++) {
     r.data[r.len++] = x.data[i];
   }
   return r;
@@ -52,7 +53,7 @@ int main(void) {
 
   list r = draw(x);
   printf("[");
-  for (int i = 0; i < r.len; i++) {
+  for (size_t i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");

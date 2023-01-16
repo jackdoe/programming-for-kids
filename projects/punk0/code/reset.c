@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 typedef struct list {
-  int len;
-  int *data;
+  size_t len;
+  int32_t *data;
 } list;
 
 // create a new list
@@ -15,7 +16,7 @@ list reset(list x) {
   // for 4 elements, 4 bytes each
   list r = {0, malloc(4 * 4)};
 
-  for (int i = 1; i <= 4; i++) {
+  for (uint32_t i = 1; i <= 4; i++) {
     r.data[r.len++] = i;
     // same as:
     //   r.data[r.len] = i
@@ -51,7 +52,7 @@ int main(void) {
 
   list r = reset(x);
   printf("[");
-  for (int i = 0; i < r.len; i++) {
+  for (size_t i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");

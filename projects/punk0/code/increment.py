@@ -1,4 +1,9 @@
-# increment the first of a list
+# the player can specify
+# which index to decrement
+INC_INDEX = 0
+
+# increment the INC_INDEX of a list,
+# e.g. if INC_INDEX is defined as 0:
 #   [1,2,3,4]
 # returns:
 #   [2,2,3,4]
@@ -7,7 +12,7 @@ def increment(x):
 
     for i in range(len(x)):
         v = x[i]
-        if i == 0:
+        if i == INC_INDEX:
             v += 1
         r.append(v)
 

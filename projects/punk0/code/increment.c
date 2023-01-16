@@ -1,11 +1,17 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 typedef struct list {
-  int len;
-  int *data;
+  size_t len;
+  int32_t *data;
 } list;
 
-// increment the first of a list
+// the player can specify
+// which index to decrement
+#define INC_INDEX 0
+
+// increment the INC_INDEX of a list,
+// e.g. if INC_INDEX is defined as 0:
 //   [1,2,3,4]
 // returns:
 //   [2,2,3,4]
@@ -14,9 +20,9 @@ list increment(list x) {
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
 
-  for (int i = 0; i < x.len; i++) {
-    int v = x.data[i];
-    if (i == 0) {
+  for (size_t i = 0; i < x.len; i++) {
+    int32_t v = x.data[i];
+    if (i == INC_INDEX) {
       v++;
     }
 
@@ -46,7 +52,7 @@ int main(void) {
 
   list r = increment(x);
   printf("[");
-  for (int i = 0; i < r.len; i++) {
+  for (size_t i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");

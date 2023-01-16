@@ -1105,3 +1105,9 @@ def draw():
 
 pgzrun.go()
 ```
+
+## [DAY-286] ast
+
+![game-286.jpg](./screenshots/game-286.jpg "game 286 screenshot")
+
+> just 5 minutes before going to bed
