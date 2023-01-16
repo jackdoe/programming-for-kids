@@ -2,7 +2,7 @@
 #   [1,4,2,3]
 # returns:
 #   [1,2,3,4]
-def sort(x):
+def sort_asc(x):
     # we can use the sorted() function
     # make a sorted copy
 
@@ -18,4 +18,4 @@ def sort(x):
     return r
 
 
-print(sort([1, 1, 2, 3, 3, 4, 1, 2, 7, 9]))
+print(sort_asc([1, 1, 2, 3, 3, 4, 1, 2, 7, 9]))

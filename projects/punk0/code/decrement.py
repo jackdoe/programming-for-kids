@@ -8,7 +8,7 @@ def decrement(x):
     for i in range(len(x)):
         v = x[i]
         if i == 0:
-            v--
+            v -= 1
         r.append(v)
 
     return r

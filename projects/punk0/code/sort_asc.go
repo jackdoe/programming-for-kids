@@ -9,7 +9,7 @@ import (
 //   [1,4,2,3]
 // returns:
 //   [1,2,3,4]
-func sortL(x []int) []int {
+func sort_asc(x []int) []int {
 	r := []int{}
 	for _, v := range x {
 		r = append(r, v)
@@ -24,5 +24,5 @@ func sortL(x []int) []int {
 
 func main() {
 
-	fmt.Printf("%v\n", sortL([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 9}))
+	fmt.Printf("%v\n", sort_asc([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 9}))
 }

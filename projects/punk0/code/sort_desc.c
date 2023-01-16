@@ -15,7 +15,7 @@ int cmp(const void *a, const void *b) {
 //   [1,4,2,3]
 // returns:
 //   [4,3,2,1]
-list sort(list x) {
+list sort_desc(list x) {
   // qsort will mutate the array itself
   // so first we will copy it, and
   // then sort the copy
@@ -49,7 +49,7 @@ int main(void) {
   x.data[n++] = 7;
   x.data[n++] = 9;
 
-  list r = sort(x);
+  list r = sort_desc(x);
   printf("[");
   for (int i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);

@@ -2,7 +2,7 @@
 //   [1,4,2,3]
 // returns:
 //   [1,2,3,4]
-function sort(x) {
+function sort_asc(x) {
   // x.sort() mutates the array itsef
   // so we will copy it and sort the
   // copy
@@ -16,4 +16,4 @@ function sort(x) {
   return r;
 }
 
-console.log(JSON.stringify(sort([1, 1, 2, 3, 3, 4, 1, 2, 7, 9])));
+console.log(JSON.stringify(sort_asc([1, 1, 2, 3, 3, 4, 1, 2, 7, 9])));

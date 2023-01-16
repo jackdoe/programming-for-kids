@@ -94,27 +94,6 @@ lists, before the game simply remove the
 cards you find difficult to follow.
 """)
 
-card_str(f"""{'CARD TYPES'.center(40)}
-
-Special cards:
-
-* reset()
-
-The reset function ignores its input, so
-you can play it regardless of the
-previous card's language
-
-* draw()
-
-the draw card makes the next peerson
-draw cards equal to the first element of
-the list, if the list is [1,2,3,4] then
-the next player has to draw 1 card, but
-if the list is -1 then you have to play
-one more card
-
-""")
-
 
 card_str(f"""{'RULES'.center(40)}
 
@@ -122,35 +101,63 @@ The starting list is:
 
 {'[1, 2, 3, 4]'.center(40)}
 
-Start with 5 cards each.
+* Start with 5 cards each.
 
-You can either play the same fuction in
-a different language or a different
-function in the same language as the
-previous card. You must play a matching
-card or draw one and skip your turn.
+* You can either play the same fuction
+  in a different language or a different
+  function in the same language as the
+  previous card.
 
-The first player who finishes their
-cards wins.
+* You must play a matching card or draw
+  one and skip your turn.
 
-When the draw() function is played, the
-player has to do whatever the output of
-the function is. You can respond to a
-draw() card with another draw() in the
-same language and move the penalty
-forward, unless draw() tells you to
-skip.
+* If a draw() card is played, you must
+  do what it says
 
-You can play the reset() card on
-any language, as it does not depend
-on the input list.
+* The first player who finishes their
+  cards wins.
+
 
 Don't make an angry face when you get to
 draw many cards (๑•̀д•́๑).
+
 Silently plan your revenge with the new
 cards you just got ꉂ (´∀｀)ʱª.
 """)
 
+
+card_str(f"""{'CARD TYPES'.center(40)}
+
+Basic cards:
+
+* increment, decrement
+* reverse, rotate_right
+* shift_left, shift_right
+* sort_asc, sort_desc
+
+Special cards:
+
+* [color:cyan]reset()[/color]
+  The reset function ignores its input,
+  so you can play it regardless of the
+  previous card's language. You can use
+  this card to force another language to
+  be played.
+
+* [color:cyan]draw()[/color]
+  Depending on the first value of the
+  list the card prints what to do next:
+
+  N = list[0]
+  if N == 0:
+    the next player skips their turn
+  else if N < 0:
+    YOU have to play -N more cards, or
+    draw if you cant
+  else:
+    the next player has to draw N cards
+
+""")
 
 
 listed = [
@@ -159,22 +166,31 @@ listed = [
  'draw.py',
  'draw.js',
 
- 'draw1.c',
- 'draw1.go',
- 'draw1.py',
- 'draw1.js',
-
+ 'draw.c',
+ 'draw.go',
+ 'draw.py',
+ 'draw.js',
 
  'increment.c',
  'increment.go',
  'increment.js',
  'increment.py',
 
+ 'increment.c',
+ 'increment.go',
+ 'increment.js',
+ 'increment.py',
 
  'decrement.c',
  'decrement.go',
  'decrement.js',
  'decrement.py',
+
+ 'decrement.c',
+ 'decrement.go',
+ 'decrement.js',
+ 'decrement.py',
+
 
  'reset.c',
  'reset.go',
@@ -194,18 +210,12 @@ listed = [
  'reverse.c',
  'reverse.go',
  'reverse.js',
- 'reverse.py',
+ 'reverse.py', 
 
- 'reverse.c',
- 'reverse.go',
- 'reverse.js',
- 'reverse.py',
-
-
- 'rotate_left.c',
- 'rotate_left.go',
- 'rotate_left.js',
- 'rotate_left.py',
+# 'rotate_left.c',
+# 'rotate_left.go',
+# 'rotate_left.js',
+# 'rotate_left.py',
 
  'rotate_right.c',
  'rotate_right.go',

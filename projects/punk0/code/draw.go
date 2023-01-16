@@ -19,7 +19,6 @@ func draw(x []int) []int {
 		} else {
 			fmt.Printf("draw %d cards\n", n)
 		}
-
 	}
 
 	r := []int{}
