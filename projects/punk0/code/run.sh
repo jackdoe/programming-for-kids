@@ -3,7 +3,7 @@
 
 set -e
 
-for kind in draw increment decrement reset reverse rotate shift sort; do
+for kind in draw increment decrement reset reverse rotate_left shift sort_asc; do
     echo
     echo $kind
     echo '> go'

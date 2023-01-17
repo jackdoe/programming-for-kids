@@ -169,6 +169,9 @@ listed = [
  'draw.go',
  'draw.py',
  'draw.js',
+ 'reverse.js',
+ 'reverse.py', 
+
 
  'increment.c',
  'increment.go',
@@ -201,9 +204,13 @@ listed = [
  'reset.go',
  'reset.js',
  'reset.py',
+ 'reset.js',
+ 'reset.py',
 
  'sort_asc.c',
  'sort_asc.go',
+ 'sort_asc.js',
+ 'sort_asc.py',
  'sort_asc.js',
  'sort_asc.py',
 
@@ -211,15 +218,8 @@ listed = [
  'reverse.go',
  'reverse.js',
  'reverse.py', 
-
- 'shift.c',
- 'shift.go',
- 'shift.js',
- 'shift.py',
- 'shift.c',
- 'shift.go',
- 'shift.js',
- 'shift.py',
+ 'reverse.js',
+ 'reverse.py', 
 ]
 
 for fn in listed:
