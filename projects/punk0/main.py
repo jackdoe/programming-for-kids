@@ -114,7 +114,7 @@ The starting list is:
 * You can choose to draw one card and
   skip your turn.
 
-* If a punk0() card is played, you must
+* If a punk() card is played, you must
   do what it says.
   
 * The first player who finishes their
@@ -129,11 +129,6 @@ cards you just got ꉂ (´∀｀)ʱª.
 
 
 card_str(f"""{'CARD TYPES'.center(40)}
-
-Basic cards:
-
-* increment, decrement
-* reverse, rotate_left, sort_asc
 
 Special cards:
 
@@ -156,9 +151,12 @@ Special cards:
     draw if you cant
   else:
     the next player has to draw N cards
-    unless they have a draw card in
+    unless they have a punk0 card in
     which case they can forward the
     pendalty
+* [color:cyan]punk1()[/color]
+  Same as punk0, but uses the second
+  element of the list.
 """)
 
 
@@ -167,10 +165,10 @@ listed = [
  'punk0.go',
  'punk0.py',
  'punk0.js',
- 'punk0.c',
- 'punk0.go',
- 'punk0.py',
- 'punk0.js',
+ 'punk1.c',
+ 'punk1.go',
+ 'punk1.py',
+ 'punk1.js',
 
  'increment.c',
  'increment.go',
@@ -189,10 +187,7 @@ listed = [
  'decrement.go',
  'decrement.js',
  'decrement.py',
- 'rotate_left.c',
- 'rotate_left.go',
- 'rotate_left.js',
- 'rotate_left.py',
+
  'rotate_left.c',
  'rotate_left.go',
  'rotate_left.js',
@@ -203,22 +198,26 @@ listed = [
  'reset.js',
  'reset.py',
 
- 'increment.c',
- 'increment.go',
- 'increment.js',
- 'increment.py',
- 'decrement.c',
- 'decrement.go',
- 'decrement.js',
- 'decrement.py',
- 'rotate_left.c',
- 'rotate_left.go',
- 'rotate_left.js',
- 'rotate_left.py',
- 'increment.c',
- 'decrement.go',
- 'rotate_left.py',
- 'punk0.js'
+ 'reverse.c',
+ 'reverse.go',
+ 'reverse.js',
+ 'reverse.py',
+
+ 'shift_left.c',
+ 'shift_left.go',
+ 'shift_left.js',
+ 'shift_left.py',
+
+ 'shift_right.c',
+ 'shift_right.go',
+ 'shift_right.js',
+ 'shift_right.py',
+
+
+ 'sort_asc.c',
+ 'sort_asc.go',
+ 'sort_asc.js',
+ 'sort_asc.py',
 ]
 
 for fn in listed:
