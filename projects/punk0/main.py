@@ -101,7 +101,7 @@ The starting list is:
 
 {'[1, 2, 3, 4]'.center(40)}
 
-* Start with 5 cards each.
+* Start with 8 cards each.
 
 * Youngest player starts first, and they
   can play any card.
@@ -114,8 +114,8 @@ The starting list is:
 * You can choose to draw one card and
   skip your turn.
 
-* If a punk() card is played, you must
-  do what it says.
+* If a punk0() or punk1() card is
+  played, you must do what it says.
   
 * The first player who finishes their
   cards wins.
@@ -136,8 +136,8 @@ Special cards:
   The reset function ignores its input,
   so you can play it regardless of the
   previous card's language. You can use
-  this card to force another language to
-  be played.
+  this card to change the language being
+  played.
 
 * [color:cyan]punk0()[/color]
   Depending on the first value of the
@@ -156,7 +156,9 @@ Special cards:
     pendalty
 * [color:cyan]punk1()[/color]
   Same as punk0, but uses the second
-  element of the list.
+  element of the list. You can not play
+  punk0 card on punk1 card or vice
+  versa.
 """)
 
 
@@ -179,6 +181,7 @@ listed = [
  'increment.js',
  'increment.py',
 
+
  'decrement.c',
  'decrement.go',
  'decrement.js',
@@ -192,6 +195,20 @@ listed = [
  'rotate_left.go',
  'rotate_left.js',
  'rotate_left.py',
+ 'rotate_left.c',
+ 'rotate_left.go',
+ 'rotate_left.js',
+ 'rotate_left.py',
+
+ 'rotate_right.c',
+ 'rotate_right.go',
+ 'rotate_right.js',
+ 'rotate_right.py',
+ 'rotate_right.c',
+ 'rotate_right.go',
+ 'rotate_right.js',
+ 'rotate_right.py',
+
 
  'reset.c',
  'reset.go',
@@ -203,21 +220,10 @@ listed = [
  'reverse.js',
  'reverse.py',
 
- 'shift_left.c',
- 'shift_left.go',
- 'shift_left.js',
- 'shift_left.py',
-
- 'shift_right.c',
- 'shift_right.go',
- 'shift_right.js',
- 'shift_right.py',
-
-
- 'sort_asc.c',
- 'sort_asc.go',
- 'sort_asc.js',
- 'sort_asc.py',
+ 'increment.js',
+ 'increment.py',
+ 'decrement.c',
+ 'decrement.go',
 ]
 
 for fn in listed:
