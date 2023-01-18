@@ -1,12 +1,12 @@
 // create a new list
-// with the value 1,2,3,4
+// with the value 0,0,0,0
 // (ignores the input)
 // returns:
-//   [1,2,3,4]
+//   [0,0,0,0]
 function reset(x) {
   let r = [];
   for (let i = 1; i <= 4; i++) {
-    r.push(i);
+    r.push(0);
   }
 
   return r;

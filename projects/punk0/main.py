@@ -99,7 +99,7 @@ card_str(f"""{'RULES'.center(40)}
 
 The starting list is:
 
-{'[1, 2, 3, 4]'.center(40)}
+{'[0, 0, 0, 0]'.center(40)}
 
 * Start with 8 cards each.
 
@@ -145,15 +145,15 @@ Special cards:
 
   N = list[0]
   if N == 0:
-    the next player skips their turn
+    the NEXT player skips their turn
   else if N < 0:
     YOU have to play -N more cards, or
-    draw if you cant
+    draw if you can't.
   else:
-    the next player has to draw N cards
-    unless they have a punk0 card in
-    which case they can forward the
-    pendalty
+    the NEXT player has to draw N cards
+    from the deck unless they have a
+    punk0 card, in which case they can
+    forward the pendalty.
 * [color:cyan]punk1()[/color]
   Same as punk0, but uses the second
   element of the list. You can not play
@@ -190,13 +190,15 @@ listed = [
  'decrement.go',
  'decrement.js',
  'decrement.py',
+ 'decrement.c',
+ 'decrement.go',
+ 'decrement.js',
+ 'decrement.py',
 
  'rotate_left.c',
  'rotate_left.go',
  'rotate_left.js',
  'rotate_left.py',
- 'rotate_left.c',
- 'rotate_left.go',
  'rotate_left.js',
  'rotate_left.py',
 
@@ -206,8 +208,6 @@ listed = [
  'rotate_right.py',
  'rotate_right.c',
  'rotate_right.go',
- 'rotate_right.js',
- 'rotate_right.py',
 
 
  'reset.c',

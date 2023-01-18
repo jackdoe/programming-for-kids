@@ -5,14 +5,14 @@ import (
 )
 
 // create a new list
-// with the value 1,2,3,4
+// with the value 0,0,0,0
 // (ignores the input)
 // returns:
-//   [1,2,3,4]
+//   [0,0,0,0]
 func reset(x []int) []int {
 	r := []int{}
 	for i := 1; i <= 4; i++ {
-		r = append(r, i)
+		r = append(r, 0)
 	}
 	return r
 }
