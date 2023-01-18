@@ -133,11 +133,11 @@ card_str(f"""{'CARD TYPES'.center(40)}
 Special cards:
 
 * [color:cyan]reset()[/color]
-  The reset function ignores its input,
-  so you can play it regardless of the
-  previous card's language. You can use
-  this card to change the language being
-  played.
+  The reset function does not have an
+  input, so you can play it regardless
+  of the previous card's language. You
+  can use this card to change the
+  language being played.
 
 * [color:cyan]punk0()[/color]
   Depending on the first value of the
@@ -181,7 +181,6 @@ listed = [
  'increment.js',
  'increment.py',
 
-
  'decrement.c',
  'decrement.go',
  'decrement.js',
@@ -202,6 +201,7 @@ listed = [
  'rotate_left.js',
  'rotate_left.py',
 
+
  'rotate_right.c',
  'rotate_right.go',
  'rotate_right.js',
@@ -212,18 +212,23 @@ listed = [
  'reset.js',
  'reset.py',
 
- 'reverse.c',
- 'reverse.go',
- 'reverse.js',
- 'reverse.py',
 
- 'punk0.c',
- 'punk1.go',
- 'increment.js',
- 'increment.py',
+ 'decrement.js',
+ 'decrement.py',
  'decrement.c',
  'decrement.go',
+
+
+ 'increment.js',
+ 'increment.py',
+ 'punk0.c',
+ 'punk1.go',
+
+ 'reset.c',
+ 'reset.go',
 ]
+
+
 
 for fn in listed:
     lang = ''

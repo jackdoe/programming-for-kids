@@ -1,6 +1,5 @@
 // create a new list
 // with the value 0,0,0,0
-// (ignores the input)
 // returns:
 //   [0,0,0,0]
 function reset(x) {
@@ -12,4 +11,4 @@ function reset(x) {
   return r;
 }
 
-console.log(JSON.stringify(reset([1, 1, 2, 3, 3, 4, 1, 2, 7, 9])));
+console.log(JSON.stringify(reset()));

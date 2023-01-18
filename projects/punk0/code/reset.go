@@ -6,10 +6,9 @@ import (
 
 // create a new list
 // with the value 0,0,0,0
-// (ignores the input)
 // returns:
 //   [0,0,0,0]
-func reset(x []int) []int {
+func reset() []int {
 	r := []int{}
 	for i := 1; i <= 4; i++ {
 		r = append(r, 0)
@@ -18,6 +17,5 @@ func reset(x []int) []int {
 }
 
 func main() {
-
-	fmt.Printf("%v\n", reset([]int{1, 1, 2, 3, 3, 4, 1, 2, 7, 9}))
+	fmt.Printf("%v\n", reset())
 }
