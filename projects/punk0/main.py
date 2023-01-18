@@ -206,9 +206,6 @@ listed = [
  'rotate_right.go',
  'rotate_right.js',
  'rotate_right.py',
- 'rotate_right.c',
- 'rotate_right.go',
-
 
  'reset.c',
  'reset.go',
@@ -220,6 +217,8 @@ listed = [
  'reverse.js',
  'reverse.py',
 
+ 'punk0.c',
+ 'punk1.go',
  'increment.js',
  'increment.py',
  'decrement.c',
