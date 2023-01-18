@@ -9,7 +9,7 @@ import (
 const DEC_INDEX = 0
 
 // decrement the DEC_INDEX of a list,
-// e.g. if DEC_INDEX is defined as 0:
+// e.g. if DEC_INDEX is 0:
 //   [1,2,3,4]
 // returns:
 //   [0,2,3,4]

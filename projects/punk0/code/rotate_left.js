@@ -10,6 +10,7 @@ const ROT = 1
 //   [2,3,4,1]
 function rotate_left(x) {
   let r = [];
+
   for (let i = 0; i < x.length; i++) {
     // go to the ROT element then wrap
     // around example if x.len is 4 and
@@ -18,8 +19,7 @@ function rotate_left(x) {
     // (1 + 1) % 4 = 2
     // (2 + 1) % 4 = 3
     // (3 + 1) % 4 = 0
-    let len = x.length;
-    let idx = (i + ROT) % len;
+    let idx = (i + ROT) % x.length;
     let v = x[idx];
     r.push(v);
   }

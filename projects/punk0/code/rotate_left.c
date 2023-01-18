@@ -6,18 +6,17 @@ typedef struct list {
   size_t len;
   int32_t *data;
 } list;
+
 // the player can specify a different
 // value when they play the card, can be
 // zero, it must not be negative
-#define ROT 1
+size_t ROT = 1;
 // rotate the input list to the left ROT
 // steps, e.g. if ROT = 1
 //   [1,2,3,4]
 // returns:
 //   [2,3,4,1]
 list rotate_left(list x) {
-  // start with len=0 and allocate space
-  // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
   for (size_t i = 0; i < x.len; i++) {
     // go to the ROT element then wrap

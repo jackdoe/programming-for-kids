@@ -8,8 +8,8 @@ typedef struct list {
 } list;
 // passed to qsort
 int cmp(const void *a, const void *b) {
-  int av = *((int *)a);
-  int bv = *((int *)b);
+  int32_t av = *((int32_t *)a);
+  int32_t bv = *((int32_t *)b);
   return av - bv;
 }
 

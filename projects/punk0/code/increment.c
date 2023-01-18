@@ -8,10 +8,10 @@ typedef struct list {
 
 // the player can specify
 // which index to decrement
-#define INC_INDEX 0
+size_t INC_INDEX = 0;
 
 // increment the INC_INDEX of a list,
-// e.g. if INC_INDEX is defined as 0:
+// e.g. if INC_INDEX is set to 0:
 //   [1,2,3,4]
 // returns:
 //   [2,2,3,4]

@@ -103,20 +103,22 @@ The starting list is:
 
 * Start with 5 cards each.
 
+* Youngest player starts first, and they
+  can play any card.
+
 * You can either play the same fuction
   in a different language or a different
   function in the same language as the
   previous card.
 
-* You must play a matching card or draw
-  one and skip your turn.
+* You can choose to draw one card and
+  skip your turn.
 
-* If a draw() card is played, you must
-  do what it says
-
+* If a punk0() card is played, you must
+  do what it says.
+  
 * The first player who finishes their
   cards wins.
-
 
 Don't make an angry face when you get to
 draw many cards (๑•̀д•́๑).
@@ -131,9 +133,7 @@ card_str(f"""{'CARD TYPES'.center(40)}
 Basic cards:
 
 * increment, decrement
-* reverse, rotate_right
-* shift_left, shift_right
-* sort_asc, sort_desc
+* reverse, rotate_left, sort_asc
 
 Special cards:
 
@@ -144,7 +144,7 @@ Special cards:
   this card to force another language to
   be played.
 
-* [color:cyan]draw()[/color]
+* [color:cyan]punk0()[/color]
   Depending on the first value of the
   list the card prints what to do next:
 
@@ -156,22 +156,21 @@ Special cards:
     draw if you cant
   else:
     the next player has to draw N cards
-
+    unless they have a draw card in
+    which case they can forward the
+    pendalty
 """)
 
 
 listed = [
- 'draw.c',
- 'draw.go',
- 'draw.py',
- 'draw.js',
- 'draw.c',
- 'draw.go',
- 'draw.py',
- 'draw.js',
- 'reverse.js',
- 'reverse.py', 
-
+ 'punk0.c',
+ 'punk0.go',
+ 'punk0.py',
+ 'punk0.js',
+ 'punk0.c',
+ 'punk0.go',
+ 'punk0.py',
+ 'punk0.js',
 
  'increment.c',
  'increment.go',
@@ -190,7 +189,6 @@ listed = [
  'decrement.go',
  'decrement.js',
  'decrement.py',
-
  'rotate_left.c',
  'rotate_left.go',
  'rotate_left.js',
@@ -204,22 +202,23 @@ listed = [
  'reset.go',
  'reset.js',
  'reset.py',
- 'reset.js',
- 'reset.py',
 
- 'sort_asc.c',
- 'sort_asc.go',
- 'sort_asc.js',
- 'sort_asc.py',
- 'sort_asc.js',
- 'sort_asc.py',
-
- 'reverse.c',
- 'reverse.go',
- 'reverse.js',
- 'reverse.py', 
- 'reverse.js',
- 'reverse.py', 
+ 'increment.c',
+ 'increment.go',
+ 'increment.js',
+ 'increment.py',
+ 'decrement.c',
+ 'decrement.go',
+ 'decrement.js',
+ 'decrement.py',
+ 'rotate_left.c',
+ 'rotate_left.go',
+ 'rotate_left.js',
+ 'rotate_left.py',
+ 'increment.c',
+ 'decrement.go',
+ 'rotate_left.py',
+ 'punk0.js'
 ]
 
 for fn in listed:
