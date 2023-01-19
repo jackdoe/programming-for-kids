@@ -4,6 +4,7 @@
 #   [4,3,2,1]
 def rotate_right(x):
     r = []
+
     i = 0
     for v in x:
         # go to the last element and

@@ -4,6 +4,7 @@
 #   [2,3,4,1]
 def rotate_left(x):
     r = []
+
     i = 0
     for v in x:
         # go to the second element

@@ -13,6 +13,7 @@ list rotate_left(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
+
   for (int i = 0; i < x.len; i++) {
     // go to the second element
     // then wrap around
@@ -25,6 +26,7 @@ list rotate_left(list x) {
     int v = x.data[idx];
     r.data[r.len++] = v;
   }
+
   return r;
 }
 

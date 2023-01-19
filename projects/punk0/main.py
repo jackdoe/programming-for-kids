@@ -166,7 +166,15 @@ listed = [
  'punk0.go',
  'punk0.py',
  'punk0.js',
+ 'punk0.c',
+ 'punk0.go',
+ 'punk0.py',
+ 'punk0.js',
 
+ 'punk1.c',
+ 'punk1.go',
+ 'punk1.py',
+ 'punk1.js',
  'punk1.c',
  'punk1.go',
  'punk1.py',
@@ -195,16 +203,6 @@ listed = [
  'rotate_left.go',
  'rotate_left.js',
  'rotate_left.py',
- 'rotate_left.c',
- 'rotate_left.go',
- 'rotate_left.js',
- 'rotate_left.py',
-
-
- 'rotate_right.c',
- 'rotate_right.go',
- 'rotate_right.js',
- 'rotate_right.py',
 
  'rotate_right.c',
  'rotate_right.go',

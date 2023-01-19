@@ -8,6 +8,7 @@ import "fmt"
 //   [4,1,2,3]
 func rotate_right(x []int) []int {
 	r := []int{}
+
 	for i := 0; i < len(x); i++ {
 		// go to the last element and
 		// then wrap around

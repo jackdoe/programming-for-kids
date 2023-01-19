@@ -8,6 +8,7 @@ import "fmt"
 //   [4,3,2,1]
 func reverse(x []int) []int {
 	r := []int{}
+
 	for i := 0; i < len(x); i++ {
 		// example if len is 4:
 		// 4-1-0 = 3

@@ -8,6 +8,7 @@ import "fmt"
 //   [2,3,4,1]
 func rotate_left(x []int) []int {
 	r := []int{}
+
 	for i := 0; i < len(x); i++ {
 		// go to the second element
 		// then wrap around

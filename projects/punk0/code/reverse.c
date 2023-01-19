@@ -15,6 +15,7 @@ list reverse(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
+
   for (size_t i = 0; i < x.len; i++) {
     // example if x.len is 4:
     // 4 - 1 - 0 = 3
@@ -24,6 +25,7 @@ list reverse(list x) {
     int32_t v = x.data[x.len - 1 - i];
     r.data[r.len++] = v;
   }
+
   return r;
 }
 

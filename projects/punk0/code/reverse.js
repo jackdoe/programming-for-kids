@@ -4,6 +4,7 @@
 //   [4,3,2,1]
 function reverse(x) {
   let r = [];
+
   for (let i = 0; i < x.length; i++) {
     // example if len is 4:
     // 4 - 1 - 0 = 3

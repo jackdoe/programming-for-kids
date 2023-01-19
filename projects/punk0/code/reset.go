@@ -10,6 +10,7 @@ import (
 //   [0,0,0,1]
 func reset() []int {
 	r := []int{}
+
 	for i := 1; i <= 4; i++ {
 		v := 0
 		if i == 3 {
@@ -17,6 +18,7 @@ func reset() []int {
 		}
 		r = append(r, v)
 	}
+
 	return r
 }
 
