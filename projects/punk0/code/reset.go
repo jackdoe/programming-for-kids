@@ -5,13 +5,17 @@ import (
 )
 
 // create a new list
-// with the value 0,0,0,0
+// with the value 0,0,0,1
 // returns:
-//   [0,0,0,0]
+//   [0,0,0,1]
 func reset() []int {
 	r := []int{}
 	for i := 1; i <= 4; i++ {
-		r = append(r, 0)
+		v := 0
+		if i == 3 {
+			v = 1
+		}
+		r = append(r, v)
 	}
 	return r
 }

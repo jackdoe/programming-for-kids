@@ -2,7 +2,7 @@ from os import listdir
 from itertools import cycle
 CARD = 1
 
-def card_meta(id, lang):
+def card_meta(id, lang, symbol, symbol_style):
 #  color = 'black'
 #  bgcolor = 'white'
 #  theme = 'friendly'
@@ -37,7 +37,7 @@ def card_meta(id, lang):
 
   #bgcolor = '#ffffff'
   #color = '#ff5544'
-  return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}"
+  return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol_style}"
   
   
   
@@ -56,7 +56,7 @@ def card_meta(id, lang):
   
 def card_str(x):
   global CARD
-  print(card_meta(CARD,""))
+  print(card_meta(CARD,"","",""))
 
   CARD+=1
   print(x)
@@ -99,15 +99,14 @@ card_str(f"""{'RULES'.center(40)}
 
 The starting list is:
 
-{'[0, 0, 0, 0]'.center(40)}
+{'[0, 0, 0, 1]'.center(40)}
 
-* Start with 8 cards each.
-
-* Youngest player starts first, and they
-  can play any card.
+* Start with 8 cards each, youngest
+  player starts first, and they can play
+  any card.
 
 * You can either play the same fuction
-  in a different language or a different
+  in a different language or a any
   function in the same language as the
   previous card.
 
@@ -167,11 +166,13 @@ listed = [
  'punk0.go',
  'punk0.py',
  'punk0.js',
+
  'punk1.c',
  'punk1.go',
  'punk1.py',
  'punk1.js',
 
+
  'increment.c',
  'increment.go',
  'increment.js',
@@ -181,10 +182,6 @@ listed = [
  'increment.js',
  'increment.py',
 
- 'decrement.c',
- 'decrement.go',
- 'decrement.js',
- 'decrement.py',
  'decrement.c',
  'decrement.go',
  'decrement.js',
@@ -198,9 +195,16 @@ listed = [
  'rotate_left.go',
  'rotate_left.js',
  'rotate_left.py',
+ 'rotate_left.c',
+ 'rotate_left.go',
  'rotate_left.js',
  'rotate_left.py',
 
+
+ 'rotate_right.c',
+ 'rotate_right.go',
+ 'rotate_right.js',
+ 'rotate_right.py',
 
  'rotate_right.c',
  'rotate_right.go',
@@ -212,20 +216,32 @@ listed = [
  'reset.js',
  'reset.py',
 
+# 'reverse.c',
+# 'reverse.go',
+# 'reverse.js',
+# 'reverse.py',
 
- 'decrement.js',
- 'decrement.py',
- 'decrement.c',
- 'decrement.go',
-
-
+ 'increment.c',
+ 'increment.go',
  'increment.js',
  'increment.py',
- 'punk0.c',
- 'punk1.go',
 
- 'reset.c',
- 'reset.go',
+ 'decrement.c',
+ 'decrement.go',
+ 'decrement.js',
+ 'decrement.py',
+
+
+
+# 'shift_left.js',
+# 'shift_left.py',
+# 'shift_left.c',
+# 'shift_left.go',
+#
+# 'shift_right.js',
+# 'shift_right.py',
+# 'shift_right.c',
+# 'shift_right.go',
 ]
 
 
@@ -248,8 +264,33 @@ for fn in listed:
         lang = 'python'
     
     #p = next(possible)
+    typ = 'INC'
+    color = ''
+    name, ext = fn.split('.')
+    if fn.startswith('punk0'):
+      typ = 'PK0'
+    elif fn.startswith('punk1'):
+      typ = 'PK1'
+    elif fn.startswith('decrement'):
+      typ = 'DEC'
+    elif fn.startswith('rotate_left'):
+      typ = 'RTL'
+    elif fn.startswith('rotate_right'):
+      typ = 'RTR'
+    elif fn.startswith('reset'):
+      typ = 'RST'
+
+    color=''
+    if ext == 'js':
+      color='#ff636f'
+    if ext == 'c':
+      color='white'
+    if ext == 'py':
+      color='#cf222e'
+    if ext == 'go':
+      color='#1054af'
         
-    print(card_meta(CARD,lang))
+    print(card_meta(CARD,lang,typ, f'fill="{color}"'))
     skip = True
     with open(f"./code/{fn}","r") as f:
         CARD+=1
@@ -288,10 +329,11 @@ for fn in listed:
         n = int((32/2)) - int((len(card)) / 2)
         title = f"filename: {fn}"
         if fn.endswith('py'):
-          print(f"# {title}")
+          title = f"# {title}"
         else:
-          print(f"// {title}")          
+          title = f"// {title}"
 
+        print(title)
         print('\n' * (n-1), end='')
 
         for line in card:

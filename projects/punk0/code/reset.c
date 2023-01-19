@@ -7,27 +7,27 @@ typedef struct list {
 } list;
 
 // create a new list
-// with the value 0,0,0,0
+// with the value 0,0,0,1
 // returns:
-//   [0,0,0,0]
+//   [0,0,0,1]
 list reset() {
   // start with len=0 and allocate space
   // for 4 elements, 4 bytes each
   list r = {0, malloc(4 * 4)};
+
   for (uint32_t i = 1; i <= 4; i++) {
-    r.data[r.len++] = 0;
+    uint32_t v = 0;
+    if (i == 3) {
+      v = 1;
+    }
+    r.data[r.len++] = v;
     // same as:
     //   r.data[r.len] = 0
     //   r.len = r.len + 1
     // z++ means, use the value of z
     // and then add 1 to it
   }
-  // Note: The first element of an array
-  // is at index 0, but length counts
-  // from 1. For example, list with 1
-  // element has length 1 and you access
-  // it at index 0. When the for loop
-  // finishes, r.len is equal to 4.
+
   return r;
 }
 
