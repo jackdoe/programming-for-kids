@@ -1,16 +1,14 @@
-// create a new list
-// with the value 0,0,0,1
+// Note: the reset() card can always be
+// played, on top of any language.
+
+// create a new list with the value
+// 0,0,0,0
 // returns:
-//   [0,0,0,1]
 function reset(x) {
   let r = [];
 
   for (let i = 1; i <= 4; i++) {
-    let v = 0;
-    if (i == 3) {
-      v = 1;
-    }
-    r.push(v);
+    r.push(0);
   }
 
   return r;

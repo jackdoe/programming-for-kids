@@ -4,19 +4,18 @@ import (
 	"fmt"
 )
 
-// create a new list
-// with the value 0,0,0,1
+// Note: the reset() card can always be
+// played, on top of any language.
+
+// create a new list with the value
+// 0,0,0,0
 // returns:
-//   [0,0,0,1]
+//   [0,0,0,0]
 func reset() []int {
 	r := []int{}
 
 	for i := 1; i <= 4; i++ {
-		v := 0
-		if i == 3 {
-			v = 1
-		}
-		r = append(r, v)
+		r = append(r, 0)
 	}
 
 	return r

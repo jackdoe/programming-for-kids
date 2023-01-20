@@ -80,18 +80,18 @@ The cards, especially the C cards, have
 a lot of bugs in them, they dont check
 for integer overflows and underflows,
 break down in various ways like malloc
-failing or using int instead of size_t,
-but the idea of the card is clear.
+failing, but the idea of the card is
+clear.
 
 The code is made more explicit, like not
-using slice operators , or using extra
+using slice operators, or using extra
 variables, or calling slices lists, but
-this way might be easier for beginners.
+this way should be easier for beginners.
 
 I hope you enjoy the game, and don't get
 discouraged if you lose track of the
-lists, before the game simply remove the
-cards you find difficult to follow.
+lists, just use a pen and paper to write
+it down on every step, thats what I do.
 """)
 
 
@@ -99,65 +99,68 @@ card_str(f"""{'RULES'.center(40)}
 
 The starting list is:
 
-{'[0, 0, 0, 1]'.center(40)}
+{'[0, 0, 0, 0]'.center(40)}
 
-* Start with 8 cards each, youngest
-  player starts first, and they can play
-  any card.
+* Each player starts with 8 cards, the
+  youngest player goes first and they
+  can play any card they choose.
 
-* You can either play the same fuction
-  in a different language or a any
-  function in the same language as the
-  previous card.
+* Players can either play the same
+  function in a different language or
+  any function in the same language as
+  the previous card.
 
-* You can choose to draw one card and
-  skip your turn.
+* Players must play a matching card if
+  they have one, otherwise they must
+  draw a card and play it if possible,
+  otherwise they must skip their turn.
 
-* If a punk0() or punk1() card is
-  played, you must do what it says.
-  
-* The first player who finishes their
-  cards wins.
+* If a player has to draw cards due to a
+  punk() card they can play after
+  drawing.
+
+* The first player to finish their cards
+  wins the game.
 
 Don't make an angry face when you get to
 draw many cards (๑•̀д•́๑).
-
 Silently plan your revenge with the new
 cards you just got ꉂ (´∀｀)ʱª.
 """)
 
 
-card_str(f"""{'CARD TYPES'.center(40)}
-
-Special cards:
-
-* [color:cyan]reset()[/color]
-  The reset function does not have an
-  input, so you can play it regardless
-  of the previous card's language. You
-  can use this card to change the
-  language being played.
+card_str(f"""{'PUNK CARDS'.center(40)}
 
 * [color:cyan]punk0()[/color]
-  Depending on the first value of the
-  list the card prints what to do next:
+ 
+  The card will determine the next
+  action based on the first element
+  (index 0) of the list.
+    
+  + If the value of the first element is
+  zero, the next player will skip their
+  turn.
 
-  N = list[0]
-  if N == 0:
-    the NEXT player skips their turn
-  else if N < 0:
-    YOU have to play -N more cards, or
-    draw if you can't.
-  else:
-    the NEXT player has to draw N cards
-    from the deck unless they have a
-    punk0 card, in which case they can
-    forward the pendalty.
-* [color:cyan]punk1()[/color]
-  Same as punk0, but uses the second
-  element of the list. You can not play
-  punk0 card on punk1 card or vice
-  versa.
+  + If the value is negative, the
+  current player must play exactly N
+  cards in the same turn, where N is the
+  absolute value of the element. If they
+  are unable to play N cards, they must
+  draw from the deck and skip their
+  turn.
+  
+  + If the value is positive, the next
+  player must draw N cards from the
+  deck, where N is the value of the
+  element, unless they have a punk0
+  card, in which case they can forward
+  the penalty to the next player.
+
+* [color:cyan]punk1() punk2() punk3()[/color]
+
+  Same as punk0(), but using different
+  element of the list.
+
 """)
 
 
@@ -166,19 +169,19 @@ listed = [
  'punk0.go',
  'punk0.py',
  'punk0.js',
- 'punk0.c',
- 'punk0.go',
- 'punk0.py',
- 'punk0.js',
 
  'punk1.c',
  'punk1.go',
  'punk1.py',
  'punk1.js',
- 'punk1.c',
- 'punk1.go',
- 'punk1.py',
- 'punk1.js',
+ 'punk2.c',
+ 'punk2.go',
+ 'punk2.py',
+ 'punk2.js',
+ 'punk3.c',
+ 'punk3.go',
+ 'punk3.py',
+ 'punk3.js',
 
 
  'increment.c',
@@ -269,6 +272,10 @@ for fn in listed:
       typ = 'PK0'
     elif fn.startswith('punk1'):
       typ = 'PK1'
+    elif fn.startswith('punk2'):
+      typ = 'PK2'
+    elif fn.startswith('punk3'):
+      typ = 'PK3'
     elif fn.startswith('decrement'):
       typ = 'DEC'
     elif fn.startswith('rotate_left'):

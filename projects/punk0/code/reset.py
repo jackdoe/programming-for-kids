@@ -1,16 +1,14 @@
-# create a new list
-# with the value 0,0,0,1
+# Note: the reset() card can always be
+# played, on top of any language.
+
+# create a new list with the value
+# 0,0,0,0
 # returns:
-#   [0,0,0,1]
 def reset():
     r = []
-    # start from 1, upto but not
-    # including 5
-    for i in range(1, 5):
-        v = 0
-        if i == 3:
-            v = 1
-        r.append(v)
+
+    for i in range(4):
+        r.append(0)
 
     return r
 
