@@ -715,3 +715,5 @@
 [day-285 for](#day-285-for)
 
 [day-286 ast](#day-286-ast)
+
+[day-287 follow the line](#day-287-follow-the-line)

@@ -833,6 +833,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-286 ast](#day-286-ast)
 
+[day-287 follow the line](#day-287-follow-the-line)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21577,4 +21579,53 @@ pgzrun.go()
 ![game-286.jpg](./screenshots/game-286.jpg "game 286 screenshot")
 
 > just 5 minutes before going to bed
+
+
+
+## [DAY-287] follow the line
+
+Make a follow the line robot.
+
+> we had microbit and kitronik kit, and this is the code she wrote (i wrote the helper functions)
+
+![game-287.png](./screenshots/game-287.png "game 287 screenshot")
+
+```
+def forward(n):
+    Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.FORWARD,n)
+def back(n):
+    Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.REVERSE,n)
+
+def turn_left(n):
+    Kitronik_Move_Motor.motor_off(Kitronik_Move_Motor.Motors.MotorLeft)
+    Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorRight,Kitronik_Move_Motor.MotorDirection.Forward, n)
+    
+def turn_right(n):
+    Kitronik_Move_Motor.motor_off(Kitronik_Move_Motor.Motors.MotorRight)
+    Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft,Kitronik_Move_Motor.MotorDirection.Forward, n)
+
+def distance():
+    return Kitronik_Move_Motor.measure()
+
+def rand(n):
+    return int(Math.random() * n)
+
+def sensor_left():
+    return Kitronik_Move_Motor.read_sensor(Kitronik_Move_Motor.LfSensor.LEFT)
+
+def sensor_right():
+    return Kitronik_Move_Motor.read_sensor(Kitronik_Move_Motor.LfSensor.RIGHT)
+
+def on_forever():
+    left = sensor_left()
+    right = sensor_right()
+    if left>221:
+        turn_right(30)
+    elif right>221:
+        turn_left(30)
+    else:
+        forward(2)
+
+basic.forever(on_forever)
+```
 
