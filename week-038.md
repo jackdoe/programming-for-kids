@@ -1111,3 +1111,52 @@ pgzrun.go()
 ![game-286.jpg](./screenshots/game-286.jpg "game 286 screenshot")
 
 > just 5 minutes before going to bed
+
+
+
+## [DAY-287] follow the line
+
+Make a follow the line robot.
+
+> we had microbit and kitronik kit, and this is the code she wrote (i wrote the helper functions)
+
+![game-287.png](./screenshots/game-287.png "game 287 screenshot")
+
+```
+def forward(n):
+    Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.FORWARD,n)
+def back(n):
+    Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.REVERSE,n)
+
+def turn_left(n):
+    Kitronik_Move_Motor.motor_off(Kitronik_Move_Motor.Motors.MotorLeft)
+    Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorRight,Kitronik_Move_Motor.MotorDirection.Forward, n)
+    
+def turn_right(n):
+    Kitronik_Move_Motor.motor_off(Kitronik_Move_Motor.Motors.MotorRight)
+    Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft,Kitronik_Move_Motor.MotorDirection.Forward, n)
+
+def distance():
+    return Kitronik_Move_Motor.measure()
+
+def rand(n):
+    return int(Math.random() * n)
+
+def sensor_left():
+    return Kitronik_Move_Motor.read_sensor(Kitronik_Move_Motor.LfSensor.LEFT)
+
+def sensor_right():
+    return Kitronik_Move_Motor.read_sensor(Kitronik_Move_Motor.LfSensor.RIGHT)
+
+def on_forever():
+    left = sensor_left()
+    right = sensor_right()
+    if left>221:
+        turn_right(30)
+    elif right>221:
+        turn_left(30)
+    else:
+        forward(2)
+
+basic.forever(on_forever)
+```
