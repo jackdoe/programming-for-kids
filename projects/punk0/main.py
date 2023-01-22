@@ -100,7 +100,7 @@ card_str(f"""{'RULES'.center(40)}
 The starting list is:
 
 {'[0, 0, 0, 0]'.center(40)}
-
+{'(or [-1, -1, 1, 1] if two players)'.center(40)}
 * Each player starts with 8 cards, the
   youngest player goes first and they
   can play any card they choose.

@@ -6,27 +6,29 @@ typedef struct list {
   int32_t *data;
 } list;
 
+int N_PLAYERS = 3;
 // Note: the reset() card can always be
 // played, on top of any language.
 
-// create a new list with the value
-// 0,0,0,0
+// create a new list depending on
+// N_PLAYERS
 // returns:
-//   [0,0,0,0]
+//   [0,0,0,0], or [-1,-1,1,1]
 list reset() {
   // start with len=0 and allocate space
   // for 4 elements, 4 bytes each
   list r = {0, malloc(4 * 4)};
-
-  for (uint32_t i = 1; i <= 4; i++) {
-    r.data[r.len++] = 0;
-    // same as:
-    //   r.data[r.len] = 0
-    //   r.len = r.len + 1
-    // z++ means, use the value of z
-    // and then add 1 to it
+  for (uint32_t i = 0; i < 4; i++) {
+    int32_t v = 0;
+    if (N_PLAYERS == 2) {
+      if (i < 2) {
+        v = -1;
+      } else {
+        v = 1;
+      }
+    }
+    r.data[r.len++] = v;
   }
-
   return r;
 }
 

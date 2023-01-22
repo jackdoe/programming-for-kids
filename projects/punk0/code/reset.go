@@ -4,18 +4,27 @@ import (
 	"fmt"
 )
 
+const N_PLAYERS = 3
+
 // Note: the reset() card can always be
 // played, on top of any language.
 
-// create a new list with the value
-// 0,0,0,0
+// create a new list
 // returns:
 //   [0,0,0,0]
 func reset() []int {
 	r := []int{}
 
-	for i := 1; i <= 4; i++ {
-		r = append(r, 0)
+	for i := 0; i < 4; i++ {
+		v := 0
+		if N_PLAYERS == 2 {
+			if i < 2 {
+				v = -1
+			} else {
+				v = 1
+			}
+		}
+		r = append(r, v)
 	}
 
 	return r
