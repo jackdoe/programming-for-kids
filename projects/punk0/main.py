@@ -206,7 +206,15 @@ listed = [
  'rotate_left.go',
  'rotate_left.js',
  'rotate_left.py',
+ 'rotate_left.c',
+ 'rotate_left.go',
+ 'rotate_left.js',
+ 'rotate_left.py',
 
+ 'rotate_right.c',
+ 'rotate_right.go',
+ 'rotate_right.js',
+ 'rotate_right.py',
  'rotate_right.c',
  'rotate_right.go',
  'rotate_right.js',
@@ -222,15 +230,7 @@ listed = [
 # 'reverse.js',
 # 'reverse.py',
 
- 'rotate_left.c',
- 'rotate_left.go',
- 'rotate_right.js',
- 'rotate_right.py',
 
- 'decrement.c',
- 'decrement.go',
- 'decrement.js',
- 'decrement.py',
 
 # 'shift_left.js',
 # 'shift_left.py',
