@@ -9,8 +9,7 @@ typedef struct list {
 // Note: the reset() card can always be
 // played, on top of any language.
 
-// create a new list with the value
-// 0,0,0,0
+// create a new list
 // returns:
 //   [0,0,0,0]
 list reset() {
@@ -18,7 +17,7 @@ list reset() {
   // for 4 elements, 4 bytes each
   list r = {0, malloc(4 * 4)};
 
-  for (uint32_t i = 1; i <= 4; i++) {
+  for (uint32_t i = 0; i < 4; i++) {
     r.data[r.len++] = 0;
     // same as:
     //   r.data[r.len] = 0

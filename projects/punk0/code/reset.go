@@ -7,14 +7,13 @@ import (
 // Note: the reset() card can always be
 // played, on top of any language.
 
-// create a new list with the value
-// 0,0,0,0
+// create a new list
 // returns:
 //   [0,0,0,0]
 func reset() []int {
 	r := []int{}
 
-	for i := 1; i <= 4; i++ {
+	for i := 0; i < 4; i++ {
 		r = append(r, 0)
 	}
 
