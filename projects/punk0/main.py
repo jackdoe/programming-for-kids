@@ -222,17 +222,15 @@ listed = [
 # 'reverse.js',
 # 'reverse.py',
 
- 'increment.c',
- 'increment.go',
- 'increment.js',
- 'increment.py',
+ 'rotate_left.c',
+ 'rotate_left.go',
+ 'rotate_right.js',
+ 'rotate_right.py',
 
  'decrement.c',
  'decrement.go',
  'decrement.js',
  'decrement.py',
-
-
 
 # 'shift_left.js',
 # 'shift_left.py',

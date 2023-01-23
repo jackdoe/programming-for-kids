@@ -14,6 +14,7 @@ def punk2(x):
             print(f'draw {n} cards')
 
     r = []
+
     for v in x:
         r.append(v)
 

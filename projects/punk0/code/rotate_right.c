@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+
 typedef struct list {
-  int len;
-  int *data;
+  size_t len;
+  int32_t *data;
 } list;
 
 // rotate the input list to the right
@@ -14,7 +16,7 @@ list rotate_right(list x) {
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
 
-  for (int i = 0; i < x.len; i++) {
+  for (size_t i = 0; i < x.len; i++) {
     // go to the last element and
     // then wrap around
     // example if x.len is 4:
@@ -22,8 +24,8 @@ list rotate_right(list x) {
     // (1 + 4 - 1) % 4 = 0
     // (2 + 4 - 1) % 4 = 1
     // (3 + 4 - 1) % 4 = 2
-    int idx = (i + x.len - 1) % x.len;
-    int v = x.data[idx];
+    size_t idx = (i + x.len - 1) % x.len;
+    int32_t v = x.data[idx];
     r.data[r.len++] = v;
   }
   return r;
@@ -49,7 +51,7 @@ int main(void) {
 
   list r = rotate_right(x);
   printf("[");
-  for (int i = 0; i < r.len; i++) {
+  for (size_t i = 0; i < r.len; i++) {
     printf("%d", r.data[i]);
     if (i != r.len - 1) {
       printf(" ");

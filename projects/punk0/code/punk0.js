@@ -16,6 +16,7 @@ function punk0(x) {
   }
 
   let r = [];
+
   for (let v of x) {
     r.push(v);
   }

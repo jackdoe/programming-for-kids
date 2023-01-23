@@ -17,7 +17,7 @@ list reset() {
   // for 4 elements, 4 bytes each
   list r = {0, malloc(4 * 4)};
 
-  for (uint32_t i = 0; i < 4; i++) {
+  for (int i = 0; i < 4; i++) {
     r.data[r.len++] = 0;
     // same as:
     //   r.data[r.len] = 0

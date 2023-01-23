@@ -27,9 +27,11 @@ list punk0(list x) {
   // start with len=0 and allocate space
   // for x.len elements, 4 bytes each
   list r = {0, malloc(x.len * 4)};
+
   for (size_t i = 0; i < x.len; i++) {
     r.data[r.len++] = x.data[i];
   }
+
   return r;
 }
 

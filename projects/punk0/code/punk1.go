@@ -22,9 +22,11 @@ func punk1(x []int) []int {
 	}
 
 	r := []int{}
+
 	for i := range x {
 		r = append(r, x[i])
 	}
+
 	return r
 }
 
