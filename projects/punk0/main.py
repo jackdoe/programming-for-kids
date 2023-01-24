@@ -96,11 +96,8 @@ it down on every step, thats what I do.
 
 
 card_str(f"""{'RULES'.center(40)}
-
 The starting list is:
-
 {'[0, 0, 0, 0]'.center(40)}
-
 * Each player starts with 8 cards, the
   youngest player goes first and they
   can play any card they choose.
@@ -112,20 +109,23 @@ The starting list is:
 
 * Players must play a matching card if
   they have one, otherwise they must
-  draw a card and play it if possible,
-  otherwise they must skip their turn.
+  draw one card from the deck.
 
-* If a player has to draw cards due to a
-  punk() card they can play after
-  drawing.
+* If a player is required to draw one or
+  more cards as a result of a punk()
+  card or because they don't have a
+  matching card, they must play one of
+  the cards they drew if it is a
+  playable card.
 
 * The first player to finish their cards
   wins the game.
 
-Don't make an angry face when you get to
-draw many cards (๑•̀д•́๑).
-Silently plan your revenge with the new
-cards you just got ꉂ (´∀｀)ʱª.
+* EASY MODE you can play those cards as
+  if they are the same function:
+  + increment/decrement
+  + rotate_left/rotate_right
+  + punk0/punk1/punk2/punk3
 """)
 
 
@@ -146,8 +146,7 @@ card_str(f"""{'PUNK CARDS'.center(40)}
   cards in the same turn, where N is the
   absolute value of the element. If they
   are unable to play N cards, they must
-  draw from the deck and skip their
-  turn.
+  draw from the deck.
   
   + If the value is positive, the next
   player must draw N cards from the
@@ -158,8 +157,9 @@ card_str(f"""{'PUNK CARDS'.center(40)}
 
 * [color:cyan]punk1() punk2() punk3()[/color]
 
-  Same as punk0(), but using different
-  element of the list.
+  Same as punk0(), but using the
+  appropriate index of the list, punk1
+  uses index 1 and so on.
 
 """)
 
