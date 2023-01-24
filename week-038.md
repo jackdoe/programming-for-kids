@@ -1160,3 +1160,31 @@ def on_forever():
 
 basic.forever(on_forever)
 ```
+
+
+## [DAY-288] lines
+
+Make two lines going through the center of the screen, and two lines from the elf to the y axis and the x axis
+
+```
+WIDTH = 800
+HEIGHT = 800
+...
+def draw():
+    screen.fill('black')
+    elf.draw()
+    screen.draw.line([elf.x,elf.y],[400,400],[255,255,255])
+    screen.draw.line([elf.x,elf.y],[elf.x,400],[223,25,123])
+    screen.draw.line([elf.x,elf.y],[400,elf.y],[132,123,231])
+    screen.draw.line([0,400],[800,400],[255,255,255])
+    screen.draw.line([400,800],[400,0],[255,255,255])
+    ...
+```
+
+![game-288-a.jpg](./screenshots/game-288-a.jpg "game 288 a screenshot")
+![game-288-b.jpg](./screenshots/game-288-b.jpg "game 288 b screenshot")
+
+
+
+
+
