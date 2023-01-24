@@ -67,8 +67,8 @@ card_str(f"""{'PUNK0'.center(40)}
 {'PUNK ZERO or PUNK O'.center(40)}
 
 PUNK0 is a game of function composition,
-each card's output is another card's
-input.
+each card's input is another card's
+output.
 
 Each card has a function that takes a
 list of integers and returns a list of
@@ -121,8 +121,8 @@ The starting list is:
 * The first player to finish their cards
   wins the game.
 
-* EASY MODE you can play those cards as
-  if they are the same function:
+* EASY MODE: you can play some cards as
+  if they are the same function.
   + increment/decrement
   + rotate_left/rotate_right
   + punk0/punk1/punk2/punk3
