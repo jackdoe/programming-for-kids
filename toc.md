@@ -717,3 +717,5 @@
 [day-286 ast](#day-286-ast)
 
 [day-287 follow the line](#day-287-follow-the-line)
+
+[day-288 lines](#day-288-lines)

@@ -835,6 +835,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-287 follow the line](#day-287-follow-the-line)
 
+[day-288 lines](#day-288-lines)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21628,4 +21630,32 @@ def on_forever():
 
 basic.forever(on_forever)
 ```
+
+
+## [DAY-288] lines
+
+Make two lines going through the center of the screen, and two lines from the elf to the y axis and the x axis
+
+```
+WIDTH = 800
+HEIGHT = 800
+...
+def draw():
+    screen.fill('black')
+    elf.draw()
+    screen.draw.line([elf.x,elf.y],[400,400],[255,255,255])
+    screen.draw.line([elf.x,elf.y],[elf.x,400],[223,25,123])
+    screen.draw.line([elf.x,elf.y],[400,elf.y],[132,123,231])
+    screen.draw.line([0,400],[800,400],[255,255,255])
+    screen.draw.line([400,800],[400,0],[255,255,255])
+    ...
+```
+
+![game-288-a.jpg](./screenshots/game-288-a.jpg "game 288 a screenshot")
+![game-288-b.jpg](./screenshots/game-288-b.jpg "game 288 b screenshot")
+
+
+
+
+
 
