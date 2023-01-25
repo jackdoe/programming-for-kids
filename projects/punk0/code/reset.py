@@ -1,9 +1,9 @@
 # Note: the reset() card can be played
 # on top of any card.
 
-# create a new list with the value
-# 0,0,0,0
+# create a new list
 # returns:
+#   [0,0,0,0]
 def reset():
     r = []
 

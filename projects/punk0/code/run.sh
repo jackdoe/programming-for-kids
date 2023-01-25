@@ -3,7 +3,7 @@
 
 set -e
 
-for kind in increment decrement reset rotate_left punk0 punk1 punk2 punk3 _asc; do
+for kind in increment decrement reset rotate_left punk0 punk1 punk2 punk3; do
     echo
     echo $kind
     echo '> go'
