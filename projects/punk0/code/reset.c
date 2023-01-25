@@ -6,8 +6,8 @@ typedef struct list {
   int32_t *data;
 } list;
 
-// Note: the reset() card can always be
-// played, on top of any language.
+// Note: the reset() card can be played
+// on top of any card.
 
 // create a new list
 // returns:

@@ -284,15 +284,24 @@ for fn in listed:
       typ = 'RST'
 
     color=''
+#    if ext == 'js':
+#      color='#ff636f'
+#    if ext == 'c':
+#      color='white'
+#    if ext == 'py':
+#      color='#cf222e'
+#    if ext == 'go':
+#      color='#1054af'
     if ext == 'js':
-      color='#ff636f'
+      color='#ffffff'
     if ext == 'c':
-      color='white'
+      color='#ffffff'
     if ext == 'py':
-      color='#cf222e'
+      color='#000000'
     if ext == 'go':
-      color='#1054af'
-        
+      color='#202224'
+
+
     print(card_meta(CARD,lang,typ, f'fill="{color}"'))
     skip = True
     with open(f"./code/{fn}","r") as f:

@@ -1,5 +1,5 @@
-# Note: the reset() card can always be
-# played, on top of any language.
+# Note: the reset() card can be played
+# on top of any card.
 
 # create a new list with the value
 # 0,0,0,0
