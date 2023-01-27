@@ -308,7 +308,7 @@ for fn in listed:
         CARD+=1
         card = []
         for line in f.read().splitlines():
-            line = line.rstrip()
+            line = line#.rstrip()
             if fn.endswith('go'):
               line = line.replace("\t", "  ")
             if fn.endswith('py'):
@@ -331,7 +331,7 @@ for fn in listed:
             if line.startswith('import'):
                 continue
             
-            if 'print' in line and '[' in line:
+            if 'print' in line and ('[' in line or 'reset' in line):
                 break
 
             if 'import' not in line and not line.startswith('#include') and (not skip or len(line) > 0):

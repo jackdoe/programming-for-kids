@@ -28,6 +28,7 @@ list rotate_right(list x) {
     int32_t v = x.data[idx];
     r.data[r.len++] = v;
   }
+
   return r;
 }
 

@@ -4,6 +4,7 @@
 //   [2,3,4,1]
 function rotate_left(x) {
   let r = [];
+
   for (let i = 0; i < x.length; i++) {
     // go to the second element
     // then wrap around
