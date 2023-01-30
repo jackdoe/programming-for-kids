@@ -1,0 +1,91 @@
+#include <stdio.h>
+int main(void) {
+  int i;
+
+  // init; condition; increment
+  for (i = 0; i < 99; i++) {
+    if (i % 5 == 0 && i % 3 == 0) {
+      printf("fizzbuzz\n");
+    } else if (i % 3 == 0) {
+      printf("fizz\n");
+
+    } else if (i%5==0){
+      printf("buzz\n");
+    } else {
+      printf("the number is: %d\n", i);
+    }
+  }
+
+
+  // init
+  i = 0;
+  // condition
+  while(i < 99) {
+    if (i % 5 == 0 && i % 3 == 0) {
+      printf("fizzbuzz\n");
+    } else if (i % 3 == 0) {
+      printf("fizz\n");
+
+    } else if (i%5==0){
+      printf("buzz\n");
+    } else {
+      printf("the number is: %d\n", i);
+    }
+
+    // increment
+    i++;
+  }
+
+
+
+  // init
+  i = 0;
+  while(1) {
+    // condition
+    if (i >= 99) {
+      break;
+    }
+
+    if (i % 5 == 0 && i % 3 == 0) {
+      printf("fizzbuzz\n");
+    } else if (i % 3 == 0) {
+      printf("fizz\n");
+
+    } else if (i%5==0){
+      printf("buzz\n");
+    } else {
+      printf("the number is: %d\n", i);
+    }
+
+    // increment
+    i++;
+  }
+
+  // init
+  i = 0;
+ START:
+  // condition
+  if (i >= 99) {
+    goto END;
+  }
+
+  if (i % 5 == 0 && i % 3 == 0) {
+    printf("fizzbuzz\n");
+  } else if (i % 3 == 0) {
+    printf("fizz\n");
+
+  } else if (i%5==0){
+    printf("buzz\n");
+  } else {
+    printf("the number is: %d\n", i);
+  }
+
+  // increment
+  i++;
+  goto START;
+ END:
+
+  printf("fizzbuzz done\n");
+
+  return 0;
+}

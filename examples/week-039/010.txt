@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+struct counter {
+  int numbers;
+  int fizzbuzz;
+  int fizz;
+  int buzz;
+};
+
+struct counter fizzy(int n) {
+  struct counter ret = {0};
+
+  for (int a = 0; a < n; a++) {
+    if (a % 15 == 0) {
+      ret.fizzbuzz++;
+    } else if (a % 5 == 0) {
+      ret.fizz++;
+    } else if (a % 3 == 0) {
+      ret.buzz++;
+    } else {
+      ret.numbers++;
+    }
+  }
+
+  return ret;
+}
+
+int main(void) {
+  int how_many;
+
+  printf("how many do you want: ");
+  scanf("%d", &how_many);
+
+  struct counter f = fizzy(how_many);
+  printf("%d %d %d %d\n", f.numbers, f.fizzbuzz, f.buzz, f.fizz);
+
+  return 0;
+}
+

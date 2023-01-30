@@ -1,0 +1,42 @@
+import pgzrun
+import random
+
+elf = Actor("c1")
+king = Actor("c2")
+WIDTH = 800
+HEIGHT = 800
+
+
+def update():
+    if keyboard.W:
+        elf.y -= 5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.D:
+        elf.x += 5
+    if keyboard.A:
+        elf.x -= 5
+    if keyboard.UP:
+        king.y -= 5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.RIGHT:
+        king.x += 5
+    if keyboard.LEFT:
+        king.x -= 5
+
+    if elf.colliderect(king):
+        elf.x = random.randint(10, 780)
+        elf.y = random.randint(10, 780)
+        king.x = random.randint(10, 780)
+        king.y = random.randint(10, 780)
+
+
+def draw():
+    screen.clear()
+    elf.draw()
+    king.draw()
+
+
+pgzrun.go()
+

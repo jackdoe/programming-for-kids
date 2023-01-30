@@ -1,0 +1,9 @@
+struct point {
+    int x;
+    int y;
+};
+
+struct player {
+    unsigned short health; // health points left, 0 means game over
+    struct point pos; // player's position
+};

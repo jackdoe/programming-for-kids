@@ -790,6 +790,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-265 c; if](#day-265-c-if)
 
 [day-266 lists](#day-266-lists)
+## week - 039
+
+
 
 [day-267 lists](#day-267-lists)
 
@@ -804,6 +807,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-272 fizzbuzz; c](#day-272-fizzbuzz-c)
 
 [day-273 fizzbuzz; c; struct](#day-273-fizzbuzz-c-struct)
+## week - 040
+
+
 
 [day-274 c; struct](#day-274-c-struct)
 
@@ -818,6 +824,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-278 ast](#day-278-ast)
 
 [day-279 ast](#day-279-ast)
+## week - 041
+
+
 
 [day-280 ast](#day-280-ast)
 
@@ -832,6 +841,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-285 for](#day-285-for)
 
 [day-286 ast](#day-286-ast)
+## week - 042
+
+
 
 [day-287 follow the line](#day-287-follow-the-line)
 
@@ -21450,7 +21462,6 @@ Practice looking ad your old programs and try to make out how the tree looks, us
 
 > we spent today exercising more AST examples and talking about how evaulation actually happens
 
-
 ## [DAY-280] ast
 
 
@@ -21585,8 +21596,6 @@ pgzrun.go()
 ![game-286.jpg](./screenshots/game-286.jpg "game 286 screenshot")
 
 > just 5 minutes before going to bed
-
-
 
 ## [DAY-287] follow the line
 

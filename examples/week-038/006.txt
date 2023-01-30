@@ -1,0 +1,13 @@
+import random
+import time
+random.seed(time.time())
+a = ["Rumble","Fortnite","Call of Duty","Bedwars"]
+print(a)
+while True:
+    b= input('add anything you want: ')
+    if b == "quit":
+        break
+    a.append(b)
+
+print("this is what you got in here: ",a)
+print(random.choice(a))

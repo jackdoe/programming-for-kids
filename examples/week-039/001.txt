@@ -1,0 +1,6 @@
+def sum(list_of_lists):
+    s = 0
+    for l in list_of_lists:
+        for element in l:
+            s += element
+    return s

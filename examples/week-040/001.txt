@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+struct point {
+  int x;
+  int y;
+};
+
+struct player {
+  struct point position;
+  int hp;
+};
+
+int main(void) {
+  struct player p = {0};
+  p.hp = 100;
+
+  for (;;) {
+    if (p.position.x == 0 && p.position.y == 0) {
+      printf("You are back to where you started.\n");
+      printf("At the start of the world\n");
+      printf("You see a crossroad\n");
+      printf(" Looking north you see a house with smoke coming out of it.\n");
+      printf(" Looking soutn you see a dark forest.\n");
+      printf(" Looking west you see a village.\n");
+      printf(" Looking east you see a horse walking on the road.\n");
+    }
+
+    //
+    // Write the code for whe the player goes one position to the east
+    // and meets the horse, the horse should bite his leg and remove 50 health points
+    // if (p.position..
+    //
+    
+    if (p.hp <= 0) {
+      printf("GAME OVER\n");
+      break;
+    }
+
+    printf("where do you want to go?\n");
+    printf("  0: north\n");
+    printf("  1: south\n");
+    printf("  2: west\n");
+    printf("  3: east\n");
+    printf("[x:%d, y:%d, hp:%d]> ", p.position.x, p.position.y, p.hp);
+
+    int direction;
+    scanf("%d", &direction);
+    if (direction == 0) {
+      p.position.y++;
+    } else if (direction == 1) {
+      p.position.y--;
+    } else if (direction == 2) {
+      p.position.x--;
+    } else if (direction == 3) {
+      p.position.x++;
+    }
+  }
+
+  return 0;
+}
+
