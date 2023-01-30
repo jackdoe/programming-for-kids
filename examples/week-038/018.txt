@@ -1,5 +1,0 @@
-struct player {
-    unsigned short health;
-    int x;
-    int y;
-};
