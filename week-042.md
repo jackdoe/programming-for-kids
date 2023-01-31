@@ -152,3 +152,60 @@ def draw():
 
 pgzrun.go()
 ```
+
+
+## [DAY-291] lines
+
+Make the lines move towards the elf, think about how would you do that if the elf and the other actor are on the same X or Y coordinate.
+
+![game-291.png](./screenshots/game-291.png "game 290 screenshot")
+
+![game-291-b.jpg](./screenshots/game-291-b.jpg "game 290 b screenshot")
+
+
+```
+import pgzrun
+import random
+
+HEIGHT=800
+WIDTH=800
+elf=Actor("c1")
+
+kings=[]
+for i in range(10):
+    b=Actor("c2")
+    b.x=random.randint(10,790)
+    b.y=random.randint(10,790)
+    kings.append(b)
+
+def update():
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.S:
+        elf.y+=5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5
+
+    for i in kings:
+        if i.x > elf.x:
+            i.x -= random.randint(0,3)
+        if i.y > elf.y:
+            i.y -= random.randint(0,3)
+        if i.x < elf.x:
+            i.x += random.randint(0,3)
+        if i.y < elf.y:
+            i.y += random.randint(0,3)
+
+        screen.draw.line([elf.x,elf.y],[i.x,i.y],[123,132,19])
+
+        
+def draw():
+    screen.clear()
+    elf.draw()
+    for i in kings:
+        screen.draw.line([elf.x,elf.y],[i.x,i.y],[123,132,19])
+
+pgzrun.go()
+```
