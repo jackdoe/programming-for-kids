@@ -21809,3 +21809,6 @@ def draw():
 pgzrun.go()
 ```
 
+
+![game-291-c.gif](./screenshots/game-291-c.gif "game 290 c screenshot")
+
