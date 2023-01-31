@@ -198,8 +198,6 @@ def update():
         if i.y < elf.y:
             i.y += random.randint(0,3)
 
-        screen.draw.line([elf.x,elf.y],[i.x,i.y],[123,132,19])
-
         
 def draw():
     screen.clear()
