@@ -210,3 +210,65 @@ pgzrun.go()
 
 
 ![game-291-c.gif](./screenshots/game-291-c.gif "game 290 c screenshot")
+
+
+## [DAY-292] lines
+
+Make the game into jumpscare game where you play a scary sound and show scary image after the lines catch you
+
+
+![game-292.gif](./screenshots/game-292.mp4 "game 290 screenshot")
+
+
+```
+import pgzrun
+import random
+
+HEIGHT=800
+WIDTH=800
+elf=Actor("c1")
+scare=Actor("corgi")
+game_over = False
+kings=[]
+for i in range(10):
+    b=Actor("c2")
+    b.x=random.randint(500,790)
+    b.y=random.randint(500,790)
+    kings.append(b)
+
+def update():
+    global game_over
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.S:
+        elf.y+=5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5
+
+    for i in kings:
+        if i.x > elf.x:
+            i.x -= random.randint(0,3)
+        if i.y > elf.y:
+            i.y -= random.randint(0,3)
+        if i.x < elf.x:
+            i.x += random.randint(0,3)
+        if i.y < elf.y:
+            i.y += random.randint(0,3)
+        if elf.colliderect(i):
+            game_over = True
+            
+
+        
+def draw():
+    screen.clear()
+    elf.draw()
+    for i in kings:
+        screen.draw.line([elf.x,elf.y],[i.x,i.y],[123,132,19])
+    if game_over:
+        scare.draw()
+        sounds.retro.play()
+
+pgzrun.go()
+```
