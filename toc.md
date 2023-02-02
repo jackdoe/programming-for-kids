@@ -737,3 +737,5 @@
 [day-290 lines](#day-290-lines)
 
 [day-291 lines](#day-291-lines)
+
+[day-292 lines](#day-292-lines)

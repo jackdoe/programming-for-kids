@@ -855,6 +855,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-291 lines](#day-291-lines)
 
+[day-292 lines](#day-292-lines)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -21811,4 +21813,66 @@ pgzrun.go()
 
 
 ![game-291-c.gif](./screenshots/game-291-c.gif "game 290 c screenshot")
+
+
+## [DAY-292] lines
+
+Make the game into jumpscare game where you play a scary sound and show scary image after the lines catch you
+
+
+![game-292.gif](./screenshots/game-292.mp4 "game 290 screenshot")
+
+
+```
+import pgzrun
+import random
+
+HEIGHT=800
+WIDTH=800
+elf=Actor("c1")
+scare=Actor("corgi")
+game_over = False
+kings=[]
+for i in range(10):
+    b=Actor("c2")
+    b.x=random.randint(500,790)
+    b.y=random.randint(500,790)
+    kings.append(b)
+
+def update():
+    global game_over
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.S:
+        elf.y+=5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5
+
+    for i in kings:
+        if i.x > elf.x:
+            i.x -= random.randint(0,3)
+        if i.y > elf.y:
+            i.y -= random.randint(0,3)
+        if i.x < elf.x:
+            i.x += random.randint(0,3)
+        if i.y < elf.y:
+            i.y += random.randint(0,3)
+        if elf.colliderect(i):
+            game_over = True
+            
+
+        
+def draw():
+    screen.clear()
+    elf.draw()
+    for i in kings:
+        screen.draw.line([elf.x,elf.y],[i.x,i.y],[123,132,19])
+    if game_over:
+        scare.draw()
+        sounds.retro.play()
+
+pgzrun.go()
+```
 
