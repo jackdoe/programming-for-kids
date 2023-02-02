@@ -21812,7 +21812,7 @@ pgzrun.go()
 ```
 
 
-![game-291-c.gif](./screenshots/game-291-c.gif "game 290 c screenshot")
+![game-291-c.gif](./screenshots/game-291-c.gif "game 291 c screenshot")
 
 
 ## [DAY-292] lines
@@ -21820,7 +21820,7 @@ pgzrun.go()
 Make the game into jumpscare game where you play a scary sound and show scary image after the lines catch you
 
 
-![game-292.gif](./screenshots/game-292.mp4 "game 290 screenshot")
+![game-292.mp4](./screenshots/game-292.mp4 "game 292 screenshot")
 
 
 ```
