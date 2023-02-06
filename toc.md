@@ -739,3 +739,7 @@
 [day-291 lines](#day-291-lines)
 
 [day-292 lines](#day-292-lines)
+
+[day-293 youtube tutorials](#day-293-youtube-tutorials)
+
+[day-youtube 294 tutorials](#day-youtube-294-tutorials)
