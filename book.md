@@ -859,7 +859,9 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-293 youtube tutorials](#day-293-youtube-tutorials)
 
-[day-youtube 294 tutorials](#day-youtube-294-tutorials)
+[day-294 tutorials](#day-294-tutorials)
+
+[day-295 tutorials](#day-295-tutorials)
 
 ## [DAY-0] The Computer
 
@@ -21884,7 +21886,12 @@ pgzrun.go()
 
 Start watching BroCode's [C tutorial for beginners](https://www.youtube.com/watch?v=nrbBmoINqtk&list=PLZPZq0r_RZOOzY_vR4zJM32SqsSInGMwe)
 
-## [DAY-youtube] 294 tutorials
+## [DAY-294] tutorials
 
 Continue watching BroCode's [C tutorial for beginners](https://www.youtube.com/watch?v=nrbBmoINqtk&list=PLZPZq0r_RZOOzY_vR4zJM32SqsSInGMwe)
+
+
+## [DAY-295] tutorials
+
+Finish watching BroCode's [C tutorial for beginners](https://www.youtube.com/watch?v=nrbBmoINqtk&list=PLZPZq0r_RZOOzY_vR4zJM32SqsSInGMwe)
 

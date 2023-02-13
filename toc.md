@@ -742,4 +742,6 @@
 
 [day-293 youtube tutorials](#day-293-youtube-tutorials)
 
-[day-youtube 294 tutorials](#day-youtube-294-tutorials)
+[day-294 tutorials](#day-294-tutorials)
+
+[day-295 tutorials](#day-295-tutorials)
