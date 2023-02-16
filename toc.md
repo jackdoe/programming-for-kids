@@ -741,7 +741,14 @@
 [day-292 lines](#day-292-lines)
 
 [day-293 youtube tutorials](#day-293-youtube-tutorials)
+## week - 043
+
+
 
 [day-294 tutorials](#day-294-tutorials)
 
 [day-295 tutorials](#day-295-tutorials)
+
+[day-296 lists](#day-296-lists)
+
+[day-297 lists](#day-297-lists)
