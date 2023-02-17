@@ -870,6 +870,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-297 lists](#day-297-lists)
 
+[day-298 lists](#day-298-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22004,5 +22006,82 @@ def draw():
 
 pgzrun.go()
 
+```
+
+
+## [DAY-298] lists
+
+Make the lines go either to the elf or to the king.
+
+
+![game-298.png](./screenshots/game-298.png "game 298 screenshot")
+
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 500
+elf.y = 500
+
+king = Actor('c2')
+king.x = 500
+king.y = 500
+
+lines_x=[]
+lines_y=[]
+lines_red=[]
+lines_green=[]
+lines_blue=[]
+lines_to=[]
+
+for i in range(800):
+    lines_x.append(random.randint(10,790))
+    lines_y.append(random.randint(10,790))
+    lines_red.append(random.randint(0,255))
+    lines_green.append(random.randint(0,255))
+    lines_blue.append(random.randint(0,255))
+    lines_to.append(random.choice(['king','elf']))
+
+    
+def update():
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5 
+
+    if keyboard.UP:
+        king.y-=5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.LEFT:
+        king.x-=5
+    if keyboard.RIGHT:
+        king.x+=5 
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    king.draw()
+    for i in range(100):
+        if lines_to[i] == 'king':
+            screen.draw.line([lines_x[i],lines_y[i]],
+                             [king.x,king.y],
+                             [lines_red[i],lines_green[i],lines_blue[i]])
+        else:
+            screen.draw.line([lines_x[i],lines_y[i]],
+                             [elf.x,elf.y],
+                             [lines_red[i],lines_green[i],lines_blue[i]])
+                    
+
+pgzrun.go()
 ```
 
