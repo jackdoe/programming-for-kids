@@ -872,6 +872,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-298 lists](#day-298-lists)
 
+[day-299 lists](#day-299-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22084,4 +22086,91 @@ def draw():
 
 pgzrun.go()
 ```
+
+
+
+
+
+
+
+## [DAY-299] lists
+
+Make the lines be not to the center of the elf/king but a bit on the side.
+
+![game-299.png](./screenshots/game-299.png "game 299 screenshot")
+
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 500
+elf.y = 500
+
+king = Actor('c2')
+king.x = 200
+king.y = 200
+
+lines_start_x=[]
+lines_start_y=[]
+lines_red=[]
+lines_green=[]
+lines_blue=[]
+lines_to=[]
+lines_xdiffs=[]
+lines_ydiffs=[]
+
+for i in range(800):
+    lines_start_x.append(random.randint(10,790))
+    lines_start_y.append(random.randint(10,790))
+    lines_red.append(random.randint(0,255))
+    lines_green.append(random.randint(0,255))
+    lines_blue.append(random.randint(0,255))
+    lines_ydiffs.append(random.randint(0,50))
+    lines_xdiffs.append(random.randint(0,50))
+    lines_to.append(random.choice(["king","elf"]))
+
+def update():
+    if keyboard.W:s
+        elf.y-=5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5 
+
+    if keyboard.UP:
+        king.y-=5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.LEFT:
+        king.x-=5
+    if keyboard.RIGHT:
+        king.x+=5 
+
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    king.draw()
+    for i in range(800):
+        if lines_to[i] == "king":
+            screen.draw.line([lines_start_x[i],lines_start_y[i]],
+                             [king.x - lines_xdiffs[i] ,king.y - lines_ydiffs[i]],
+                             [lines_red[i],lines_green[i],lines_blue[i]])
+        else:
+            screen.draw.line([lines_start_x[i],lines_start_y[i]],
+                             [elf.x - lines_xdiffs[i],elf.y - lines_ydiffs[i]],
+                             [lines_red[i],lines_green[i],lines_blue[i]])
+
+pgzrun.go()
+```
+
+
+
 
