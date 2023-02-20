@@ -197,7 +197,7 @@ pgzrun.go()
 
 Make the lines be not to the center of the elf/king but a bit on the side.
 
-![game-299.png](./screenshots/game-299.png "game 299 screenshot")
+![game-299.jpg](./screenshots/game-299.jpg "game 299 screenshot")
 
 
 ```
