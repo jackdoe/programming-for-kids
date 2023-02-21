@@ -40,7 +40,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
 def draw():
     screen.fill('black')
@@ -96,7 +96,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
 def draw():
     screen.fill('black')
@@ -149,7 +149,7 @@ for i in range(800):
     lines_blue.append(random.randint(0,255))
     lines_to.append(random.choice(['king','elf']))
 
-    
+
 def update():
     if keyboard.W:
         elf.y-=5
@@ -158,7 +158,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
     if keyboard.UP:
         king.y-=5
@@ -167,7 +167,7 @@ def update():
     if keyboard.LEFT:
         king.x-=5
     if keyboard.RIGHT:
-        king.x+=5 
+        king.x+=5
 
 def draw():
     screen.fill('black')
@@ -182,7 +182,7 @@ def draw():
             screen.draw.line([lines_x[i],lines_y[i]],
                              [elf.x,elf.y],
                              [lines_red[i],lines_green[i],lines_blue[i]])
-                    
+
 
 pgzrun.go()
 ```
@@ -242,7 +242,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
     if keyboard.UP:
         king.y-=5
@@ -251,7 +251,7 @@ def update():
     if keyboard.LEFT:
         king.x-=5
     if keyboard.RIGHT:
-        king.x+=5 
+        king.x+=5
 
 
 def draw():
@@ -271,5 +271,90 @@ def draw():
 pgzrun.go()
 ```
 
+
+
+
+
+## [DAY-300] lists
+
+Now instead of using 8 lists to spread the information about each line, use 1 list with 8 elements
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 500
+elf.y = 500
+
+king = Actor('c2')
+king.x = 200
+king.y = 200
+
+lines = []
+
+for i in range(800):
+    a = [0] * 8
+    a[0] = random.randint(10,790) #x
+    a[1] = random.randint(10,790) #y
+    a[2] = random.randint(0,255)  #red
+    a[3] = random.randint(0,255)  #green
+    a[4] = random.randint(0,255)  #blue
+    a[5] = random.choice(["king","elf"]) #to
+    a[6] = random.randint(0,50)   #xdiff
+    a[7] = random.randint(0,50)   #ydiff
+
+    # add it to the list of lines
+    lines.append(a)
+
+
+
+def update():
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5
+
+    if keyboard.UP:
+        king.y-=5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.LEFT:
+        king.x-=5
+    if keyboard.RIGHT:
+        king.x+=5
+
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    king.draw()
+
+    for line in lines:
+
+        x = line[0]
+        y = line[1]
+        red = line[2]
+        green = line[3]
+        blue = line[4]
+        to = line[5]
+        xdiff = line[6]
+        ydiff = line[7]
+
+        if to == "king":
+            screen.draw.line([x,y],[king.x - xdiff ,king.y - ydiff],[red,green,blue])
+        else:
+            screen.draw.line([x,y],[elf.x - xdiff ,elf.y - ydiff],[red,green,blue])
+
+
+pgzrun.go()
+```
 
 
