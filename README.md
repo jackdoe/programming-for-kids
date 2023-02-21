@@ -17,6 +17,7 @@ While writing the book we also developed few other projects:
 * [c-pointer-game](https://punkx.org/c-pointer-game) - card game to teach about pointers and values
 * [programming-time](https://punkjazz.org/programming-time/) - card game to teach kids about reading code
 * [punk0](https://punkx.org/punk0/) - punk zero: card game, like uno but with strategy
+* [runlength-for-kids](https://punkx.org/runlength-for-kids/) - runlength encoding for kids puzzle card game
 * [punk](https://punkjazz.org/punk/) - online game turn based python to move pieces on the board
 
 
