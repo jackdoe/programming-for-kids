@@ -39,7 +39,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
     if keyboard.UP:
         king.y-=5
@@ -48,7 +48,7 @@ def update():
     if keyboard.LEFT:
         king.x-=5
     if keyboard.RIGHT:
-        king.x+=5 
+        king.x+=5
 
 
 def draw():

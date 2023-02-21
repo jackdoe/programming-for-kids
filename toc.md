@@ -756,3 +756,5 @@
 [day-298 lists](#day-298-lists)
 
 [day-299 lists](#day-299-lists)
+
+[day-300 lists](#day-300-lists)

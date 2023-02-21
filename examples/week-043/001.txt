@@ -23,7 +23,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
 def draw():
     screen.fill('black')

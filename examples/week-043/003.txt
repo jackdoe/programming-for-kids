@@ -27,7 +27,7 @@ for i in range(800):
     lines_blue.append(random.randint(0,255))
     lines_to.append(random.choice(['king','elf']))
 
-    
+
 def update():
     if keyboard.W:
         elf.y-=5
@@ -36,7 +36,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
     if keyboard.UP:
         king.y-=5
@@ -45,7 +45,7 @@ def update():
     if keyboard.LEFT:
         king.x-=5
     if keyboard.RIGHT:
-        king.x+=5 
+        king.x+=5
 
 def draw():
     screen.fill('black')
@@ -60,6 +60,6 @@ def draw():
             screen.draw.line([lines_x[i],lines_y[i]],
                              [elf.x,elf.y],
                              [lines_red[i],lines_green[i],lines_blue[i]])
-                    
+
 
 pgzrun.go()
