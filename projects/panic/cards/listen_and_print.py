@@ -24,7 +24,7 @@ def microphone(name, seconds):
 # record 5 seconds into panic.wav
 microphone("panic.wav", 5)
 model = whisper.load_model("base.en")
-r = model.transcribe(".\\panic.wav")
+r = model.transcribe("panic.wav")
 with Printer(linegap=1) as printer:
   printer.text(r["text"])
 os.remove("panic.wav")
