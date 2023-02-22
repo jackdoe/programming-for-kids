@@ -53,12 +53,6 @@ for fn in files:
     print(f.read())
 
 
-# card_str(f"""{'RANDOM PIXELS ON DISPLAY'.center(40)}
-# """)
-
-# card_str(f"""{'TURNS MONITOR UPSIDE DOWN'.center(40)}
-# """)
-
 # card_str(f"""{'LEFT MOUSE BUTTON SWAP'.center(40)}
 # """)
 
@@ -67,7 +61,6 @@ for fn in files:
 
 # card_str(f"""{'CONSUME THE INTERNET SPEEED'.center(40)}
 # """)
-
 
 # card_str(f"""{'FILTER HALF THE INTERNET'.center(40)}
 # """)
@@ -78,18 +71,14 @@ for fn in files:
 # card_str(f"""{'OPEN ALL THE PROGRAMS'.center(40)}
 # """)
 
-
 # card_str(f"""{'STOP THE INTERNET EVERY 10 SEC FOR 1 SEC'.center(40)}
 # """)
-
 
 # card_str(f"""{'CHANGE MOUSE DIRECTIONS'.center(40)}
 # """)
 
-
 # card_str(f"""{'HUGE FONT SIZE'.center(40)}
 # """)
-
 
 # card_str(f"""{'OPEN NOTEPAD WITH CREEPY NOTE'.center(40)}
 # """)
@@ -133,32 +122,17 @@ for fn in files:
 # card_str(f"""{'PLAY WEIRD SOUND ON MOUSE CLICK'.center(40)}
 # """)
 
-# card_str(f"""{'RANDOMLY CHANGE BRIGHTNESS'.center(40)}
-# and play ominous sound
-# """)
-
-# card_str(f"""{'RANDOMLY ROTATE THE SCREEN'.center(40)}
-# and play ominous sound
-# """)
-
-
 # card_str(f"""{'REMOTE CONTROL KEYBOARD'.center(40)}
 # """)
-
 
 # card_str(f"""{'THROTTLE THE INTERNET OF ONE PROGRAM'.center(40)}
 # New-NetQosPolicy -Name "FTP" -AppPathNameMatchCondition "ftp.exe" -ThrottleRateActionBitsPerSecond 1MB
 # """)
 
-
 # card_str(f"""{'TALK RANDOMLY'.center(40)}
 # """)
 
-
 # card_str(f"""{'SPEECH TO TEXT AND OPEN NOTEPAD AND WRITE IT DOWN'.center(40)}
-# """)
-
-# card_str(f"""{'MAKE IT SNOW'.center(40)}
 # """)
 
 # card_str(f"""{'MATRIX DISPLAY'.center(40)}
@@ -167,18 +141,14 @@ for fn in files:
 # card_str(f"""{'RANDOMLY PUT THINGS IN CLIPBOARD'.center(40)}
 # """)
 
-
 # card_str(f"""{'PRINT CREEPY MESSAGES ON PRINTER'.center(40)}
 # """)
-
 
 # card_str(f"""{'TALK AND TYPE IN NOTEPAD'.center(40)}
 # """)
 
-
 # card_str(f"""{'BROKEN SCREEN EFFECT'.center(40)}
 # """)
-
 
 # card_str(f"""{'PRINT MORSE CODE'.center(40)}
 # """)
