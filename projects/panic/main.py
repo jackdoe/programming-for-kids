@@ -8,6 +8,11 @@ def card_meta(id, lang, symbol, symbol_style):
   theme='gptredzz'
   font='BlockZone'
   fontSize='25px'
+  if lang == '':
+    color = 'yellow'
+    bgcolor = 'black'
+    
+
   return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol_style}"
   
   
@@ -25,12 +30,101 @@ card_str(f"""{'PANIC'.center(40)}
 card_str(f"""{'ETHICS'.center(40)}
 """)
 
-
 card_str(f"""{'INSTALL'.center(40)}
+
+First you will need to install Python.
+Start the Microsoft Store app and search
+for 'python', then look for the latest
+version (at the time of making this card
+it is 3.11) click on it and then click
+the Get button.
+
+Thats it. Now you have python.
+
+Some of the cards require python modules
+that you also need to install. A module
+is just a bunch of code that we will
+import into our program to help us do
+things.
+
+To install python modules start the
+Command Prompt app from the start menu,
+and then type:
+  pip install module_name
+
+where the module_name will be what you
+need, for example:n
+  pip install pyautogui
+will install the pyautogui module, which
+helps us to control the keyboard and the
+mouse.
+
+The cards have a comment on top if you
+need to install extra modules.
 """)
 
-card_str(f"""{'EXPERIMENTING'.center(40)}
+card_str(f"""{'START AFTER LOGIN'.center(40)}
 
+Any program you put in the directory:
+C:\\Users\\$USER\\AppData\\Roaming\\
+   Microsoft\\Windows\\Start Menu\\
+   Programs\\Startup\\
+Will start automatically after the $USER
+logs in. You can open the folder by
+pressing Win+R and then type: 
+  shell:startup
+
+If you want to start the program for all
+users you need to put it in the global
+Startup directory, to see where it is,
+press Win+R (the windows key and the R
+key) and then:
+  shell:common startup
+
+There is a helper start_after_login card
+which copies the current python script
+in the $USER's startup directory, and
+returns True if the file already exists
+there, so you can use it to exit.
+
+Example usage:
+  if not start_after_login():
+    sys.exit(0)
+This will install the script in the
+$USER's startup directory and exit, but
+if the file already exists it will run
+the code after.
+""")
+
+
+card_str(f"""{'SERVICE'.center(40)}
+
+You can install each program as a
+windows service, the easiest way to do
+that is by using the nssm program, you
+can download it from http://nssm.cc.
+just download it and put the win64
+nssm.ex file it in c:
+
+you can create a c:\\hello.bat file with
+the contents:
+
+   pythonw c:\\hello.py
+
+and then install it as a service:
+  c:\\nssm install hello c:\\hello.bat
+
+to remove the hello service:
+  c:\\nssm remove hello
+
+You will need administrator privileges
+in order to install/remove services, for
+that when you start the Command Prompt
+click on Run As Administrator.
+""")
+
+
+card_str(f"""{'EXPERIMENTING'.center(40)}
 """)
 
 
@@ -62,16 +156,10 @@ for fn in files:
 # card_str(f"""{'CONSUME THE INTERNET SPEEED'.center(40)}
 # """)
 
-# card_str(f"""{'FILTER HALF THE INTERNET'.center(40)}
-# """)
-
 # card_str(f"""{'MAKE RANDOM SOUND'.center(40)}
 # """)
 
 # card_str(f"""{'OPEN ALL THE PROGRAMS'.center(40)}
-# """)
-
-# card_str(f"""{'STOP THE INTERNET EVERY 10 SEC FOR 1 SEC'.center(40)}
 # """)
 
 # card_str(f"""{'CHANGE MOUSE DIRECTIONS'.center(40)}
@@ -83,9 +171,7 @@ for fn in files:
 # card_str(f"""{'OPEN NOTEPAD WITH CREEPY NOTE'.center(40)}
 # """)
 
-
 # card_str(f"""{'RANDOM TIME'.center(40)}
-
 # set the time to +3 or -3 minutes randomly
 # """)
 
@@ -95,14 +181,11 @@ for fn in files:
 # card_str(f"""{'FIREWALL A PROGRAM'.center(40)}
 # """)
 
-
 # card_str(f"""{'RANDOM DELAY WHEN KEY IS PRESSED'.center(40)}
 # """)
 
-
 # card_str(f"""{'RANDOMLY DROP KEYS'.center(40)}
 # """)
-
 
 # card_str(f"""{'CLICK MANY TIMES ON BUTTON PRESS'.center(40)}
 # """)
@@ -136,9 +219,6 @@ for fn in files:
 # """)
 
 # card_str(f"""{'MATRIX DISPLAY'.center(40)}
-# """)
-
-# card_str(f"""{'RANDOMLY PUT THINGS IN CLIPBOARD'.center(40)}
 # """)
 
 # card_str(f"""{'PRINT CREEPY MESSAGES ON PRINTER'.center(40)}

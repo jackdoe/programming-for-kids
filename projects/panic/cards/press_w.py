@@ -8,8 +8,8 @@ def is_foreground(name):
   if name in title:
     return True
   return False
-# use the start_at_login() card
-# def start_at_login():
+# use the start_after_login() card
+# def start_after_login():
 #  ...
 # if not start_after_login():
 #   sys.exit(0) # exit the first time
@@ -20,14 +20,10 @@ def is_foreground(name):
 # lava.. like Minecraft
 while True:
   # sleep between 5 and 10 minutes
-  # change those numbers to make the
-  # sleep shorter
   time.sleep(random.randint(300,600))
-
   # only press W if Minecraft is
   # the current active window
   if is_foreground("Minecraft"):
-    # press W for 1 second
     with pyautogui.hold('w'):
       pyautogui.sleep(1)
 

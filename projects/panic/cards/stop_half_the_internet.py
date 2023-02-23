@@ -1,10 +1,10 @@
 import os, random, time
-
 def route(act,ip,mask,gw):
   s = [
     "route", act, ip,
     "MASK", mask, gw
   ]
+  print(" ".join(s))
   os.system(" ".join(s))
 
 segments = [
@@ -14,6 +14,9 @@ segments = [
   ['128.0.0.0', '128.0.0.0'],
 ]
 
+# needs administrator privileges,
+# install it as service (check out the
+# service card)
 while True:
   # pick either all the IPs having 1 in
   # their first bit all networks above
@@ -23,10 +26,10 @@ while True:
   # e.g. amazon.com: 54.239.28.85
   ip,mask = random.choice(segments)
   # break the internet
-  route('add',ip,mask,'127.0.0.1')
+  route('add',ip,mask,'0.0.0.0')
   # sleep between 5 annd 15 seconds
   time.sleep(random.randint(5,15))
   # restore the internet
-  route('delete',ip,mask,'127.0.0.1')
+  route('delete',ip,mask,'0.0.0.0')
   # sleep up to a minute
   time.sleep(random.randint(10,60))

@@ -1,9 +1,5 @@
-# install the pyautogui package:
 # pip install pyautogui
-import pyautogui
-import random
-import time
-
+import pyautogui, random, time
 
 def click():
   # locate the top right corner
@@ -23,7 +19,6 @@ def click():
                    oldY,
                    duration=1)
 
-random.seed(time.time())
 while True:
   # click on the top right corner
   # closing the current open window
