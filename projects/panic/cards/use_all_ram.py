@@ -3,7 +3,7 @@ import psutil
 import time
 
 def make_1gb_string():
-  data = "Z" * 1024 * 1024 * 1024
+  data = "P" * 1024 * 1024 * 1024
   return data
 
 l = []
