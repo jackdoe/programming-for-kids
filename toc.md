@@ -758,3 +758,5 @@
 [day-299 lists](#day-299-lists)
 
 [day-300 lists](#day-300-lists)
+
+[day-301 dictionaries](#day-301-dictionaries)
