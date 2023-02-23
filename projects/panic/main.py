@@ -222,8 +222,6 @@ for fn in files:
 # card_str(f"""{'RANDOMLY INCREASE AND DECREASE VLUME'.center(40)}
 # """)
 
-# card_str(f"""{'RANDOMLY PLAY RICKROLL'.center(40)}
-# """)
 
 # card_str(f"""{'FILL DESKTOP WITH FILES'.center(40)}
 # """)
