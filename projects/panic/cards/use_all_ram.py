@@ -1,6 +1,4 @@
-# install psutil with running:
-#   pip install psutil
-# in the command prompt
+# pip install psutil
 import psutil
 import time
 

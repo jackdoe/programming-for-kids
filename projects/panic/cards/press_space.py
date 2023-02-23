@@ -1,4 +1,3 @@
-# install the pyautogui package:
 # pip install pyautogui
 import pyautogui
 import random

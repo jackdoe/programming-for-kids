@@ -1,5 +1,7 @@
 # pip install pyautogui win32gui
-import pyautogui, random, time
+import pyautogui
+import random
+import time
 import win32gui, sys
 
 def is_foreground(name):
@@ -8,11 +10,6 @@ def is_foreground(name):
   if name in title:
     return True
   return False
-# use the start_after_login() card
-# def start_after_login():
-#  ...
-# if not start_after_login():
-#   sys.exit(0) # exit the first time
 
 # this card is small, but particularly
 # evil, especially if someone is playing
@@ -21,6 +18,7 @@ def is_foreground(name):
 while True:
   # sleep between 5 and 10 minutes
   time.sleep(random.randint(300,600))
+
   # only press W if Minecraft is
   # the current active window
   if is_foreground("Minecraft"):

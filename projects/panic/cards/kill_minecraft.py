@@ -1,10 +1,16 @@
 # pip install psutil
-import psutil, random, os, time
+import psutil
+import random
+import os
+import time
 
 def kill(pid):
   os.system(f"taskkill /PID {pid} /T")
 
 while True:
+  # sleep between 5 and 10 minutes
+  time.sleep(random.randint(300,600))
+
   # A process is just a program that is
   # running at the moment, each process
   # has an ID assigned when it starts
@@ -16,16 +22,10 @@ while True:
   # taskkill /PID pid to kill specific
   # process
 
-  # psutil.pids() will give a list of
-  # the ids of all running processess.
-
-  # random.choice(list) picks random
-  # element from a list, so this line
-  # picks a random process id.
-  pid = random.choice(psutil.pids())
-  kill(pid)
-
-  # sleep between 5 and 10 minutes
-  time.sleep(random.randint(300,600))
+  # list all the processes and check if
+  # Minecraft is running
+  for p in psutil.process_iter():
+    if "Minecraft" in p.name():
+      kill(p.pid)
 
   
