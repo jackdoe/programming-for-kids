@@ -22,5 +22,6 @@ while True:
   # only press W if Minecraft is
   # the current active window
   if is_foreground("Minecraft"):
-      # press 'w' 30 times
-      pyautogui.press('w',presses=30)
+    # press W for 1 second
+    with pyautogui.hold('w'):
+      pyautogui.sleep(1)
