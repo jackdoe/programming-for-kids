@@ -1,3 +1,4 @@
+# pip install pynput
 import pynput.mouse as m
 import pynput.keyboard as k
 
