@@ -125,6 +125,35 @@ click on Run As Administrator.
 
 
 card_str(f"""{'EXPERIMENTING'.center(40)}
+
+If you want to experiment, never use
+your computer. There are some programs
+that emulate computers and you can
+install Windows inside the emulator.
+
+VirtualBox is one, it is free and you
+can get it from: https://virtualbox.org
+
+Microsoft provices a preinstalled
+Windows image you can download from
+https://developer.microsoft.com, search
+on google for 'developer windows virtual
+machines'
+
+Be carefull and only download things
+from developer.microsoft.com.
+
+The Windows Operating System in the
+VirtualBox virtual computer does not
+know its not running on actual computer.
+
+VirtualBox is basically a software
+computer.
+
+You can try all kinds of things, try to
+delete random files or fill the disk or
+erase the whole disk, and then you can
+just re-create it with the image.
 """)
 
 
