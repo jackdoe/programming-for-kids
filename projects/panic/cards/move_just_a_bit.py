@@ -10,10 +10,10 @@ def move():
   # random 5 pixels off from its
   # current position
   
-  x += random.randint(-5,5)
-  y += random.randint(-5,5)
-
-  pyautogui.moveTo(x,y)
+  x += random.randint(-10,10)
+  y += random.randint(-10,10)
+  
+  pyautogui.moveTo(x,y,duration=0.4)
 
 while True:
   move()

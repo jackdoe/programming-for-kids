@@ -5,6 +5,9 @@ import random
 import time
 
 def space_or_backspace():
+  # pick a choice between
+  # space or backspace
+  # :evil:
   what = random.choice([
     'space',
     'backspace'
@@ -12,7 +15,6 @@ def space_or_backspace():
 
   pyautogui.press(what)
 
-random.seed(time.time())
 
 while True:
   # sleep between 10 and 30 seconds
