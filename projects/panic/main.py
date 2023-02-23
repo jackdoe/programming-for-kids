@@ -98,13 +98,14 @@ the code after.
 
 
 card_str(f"""{'SERVICE'.center(40)}
+Automatically start a program can also
+be done if you make it a 'Windows
+Service'.
 
-You can install each program as a
-windows service, the easiest way to do
-that is by using the nssm program, you
-can download it from http://nssm.cc.
-just download it and put the win64
-nssm.ex file it in c:
+The easiest way to do that is by using
+the nssm program, you can download it
+from http://nssm.cc.  just download it
+and put the win64 nssm.ex file it in c:
 
 you can create a c:\\hello.bat file with
 the contents:
