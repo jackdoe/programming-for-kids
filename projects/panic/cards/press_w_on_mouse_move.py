@@ -6,7 +6,6 @@ import pynput.keyboard as k
 # is_foreground() to run only while some
 # game is active
 
-mouse = m.Controller()
 kbd = k.Controller()
 
 key = k.KeyCode.from_char('w')

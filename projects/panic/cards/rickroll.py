@@ -17,8 +17,8 @@ while True:
   time.sleep(0.5)
 
   p.typewrite('chrome ')
-  p.typewrite('https://www.youtube.com/')
-  p.typewrite('watch?v=dQw4w9WgXcQ')
+  p.typewrite('https://www.youtube.com')
+  p.typewrite('/watch?v=dQw4w9WgXcQ')
   p.hotkey('enter')
 
     
