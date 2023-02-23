@@ -7,9 +7,9 @@ import sys
 # def start_after_login():
 #   ...
 #   ...
-# exit if the script is being
-# installed for the first time so it
-# will only start after reboot
+# exit if the script is being installed
+# for the first time so it will only
+# start after the next reboot
 # if not start_after_login():
 #   sys.exit(0)
 
