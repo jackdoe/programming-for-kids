@@ -201,11 +201,10 @@ for fn in files:
 # card_str(f"""{'OPEN NOTEPAD WITH CREEPY NOTE'.center(40)}
 # """)
 
-# card_str(f"""{'RANDOM TIME'.center(40)}
-# set the time to +3 or -3 minutes randomly
+# card_str(f"""{'RANDOM PACKET DROP'.center(40)}
 # """)
 
-# card_str(f"""{'RANDOM PACKET DROP'.center(40)}
+# card_str(f"""{'SAY WHAT YOU TYPE'.center(40)}
 # """)
 
 # card_str(f"""{'FIREWALL A PROGRAM'.center(40)}
