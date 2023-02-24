@@ -15,7 +15,7 @@ segments = [
 # service card)
 while True:
   # pick either all the IPs having 1 in
-  # their first bit all networks above
+  # their first, so all networks above
   # 128.0.0.0, e.g. google.com:
   # 142.250.179.142, or the other half
   # of the internet below 128.0.0.0
