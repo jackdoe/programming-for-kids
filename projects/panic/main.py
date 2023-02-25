@@ -228,9 +228,6 @@ for fn in files:
 # card_str(f"""{'FILL DESKTOP WITH FILES'.center(40)}
 # """)
 
-# card_str(f"""{'FAKE DESKTOP'.center(40)}
-# """)
-
 # card_str(f"""{'PLAY WEIRD SOUND ON MOUSE CLICK'.center(40)}
 # """)
 
