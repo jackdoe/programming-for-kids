@@ -26,5 +26,5 @@ with m.Listener(
         on_move=on_move,
         on_click=on_click,
         on_scroll=on_scroll) as l:
-    l.join()
+  l.join()
 

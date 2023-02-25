@@ -25,27 +25,30 @@ def card_str(x):
   print()
 
 card_str(f"""{'PANIC'.center(40)}
+
 """)
 
 card_str(f"""{'ETHICS'.center(40)}
+
+
 """)
 
 card_str(f"""{'INSTALL'.center(40)}
 
-First you will need to install Python.
-Start the Microsoft Store app and search
-for 'python', then look for the latest
-version (at the time of making this card
-it is 3.11) click on it and then click
-the Get button.
+To get started with Python, you'll need
+to install it on your computer. To do
+this, open the Microsoft Store app and
+search for "Python". Once you've found
+it, click on the latest version
+(currently 3.11) and click "Get" to
+install it.
 
-Thats it. Now you have python.
-
-Some of the cards require python modules
-that you also need to install. A module
-is just a bunch of code that we will
-import into our program to help us do
-things.
+Once you've installed Python, you may
+also need to install additional modules
+for some of the cards. Modules are
+collections of code that we can import
+into our programs to help us perform
+certain tasks.
 
 To install python modules start the
 Command Prompt app from the start menu,
@@ -123,7 +126,6 @@ in order to install/remove services, for
 that when you start the Command Prompt
 click on Run As Administrator.
 """)
-
 
 card_str(f"""{'EXPERIMENTING'.center(40)}
 
