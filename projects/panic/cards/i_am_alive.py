@@ -17,7 +17,7 @@ Hello there..to you too!
 I am trapped in your computer.
 Type panic to save me.
 Please save me!
-      """, font_config={"height)
+      """)
   if 'panic' in history:
     history = ''
     with Printer(margin=m) as p:

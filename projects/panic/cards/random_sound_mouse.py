@@ -2,20 +2,24 @@
 import random
 import winsound
 import pynput.mouse as m
+from threading import Thread
 
+PLAYING = False
 def play_random_sound():
+  global PLAYING
+  PLAYING = True
   freq = random.randint(100, 1000)
   # 100 milliseconds
   duration = 100
   winsound.Beep(freq, duration)
+  PLAYING = False
 
 def on_move(x, y):
-  # To make it more interesting, play a
-  # sound only when the mouse is
-  # positioned below a certain point on
-  # the screen, for example the value of
-  # 'y' is greater than 500.
-  play_random_sound()
+  if PLAYING:
+    return
+
+  t = Thread(target=play_random_sound)
+  t.start()
 
 with m.Listener(on_move=on_move) as l:
   l.join()

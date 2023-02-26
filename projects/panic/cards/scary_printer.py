@@ -1,6 +1,8 @@
-# pip install pynput win32printing
+# pip install win32printing
 from win32printing import Printer
-import time
+
+# print each word in huge letters on its
+# own page
 
 def scary(message):
   m = (50,50,50,50)
@@ -16,6 +18,4 @@ def scary(message):
              align='center')
       p.new_page()
 
-while True:
-  scary("I am alive Who Am I")
-  time.sleep(300,600)
+scary("I am alive Who Am I")
