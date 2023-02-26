@@ -1,4 +1,4 @@
-# pip install pyautogui win32gui
+# pip install pyautogui pywin32
 import pyautogui
 import random
 import time

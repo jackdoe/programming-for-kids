@@ -1,4 +1,4 @@
-# pip install pynput win32gui
+# pip install pynput pywin32
 from pynput import keyboard
 import win32gui
 # while minecraft is focused, disable

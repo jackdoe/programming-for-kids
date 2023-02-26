@@ -1,5 +1,4 @@
 # pip install pynput winsound
-import random
 import winsound
 import pynput.keyboard as k
 from threading import Thread

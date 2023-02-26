@@ -11,26 +11,112 @@ def card_meta(id, lang, symbol, symbol_style):
   if lang == '':
     color = 'yellow'
     bgcolor = 'black'
-    
 
+  if lang == 'law':
+    color = 'red'
+    bgcolor = 'white'
+    lang=''
   return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol_style}"
   
   
-def card_str(x):
+def card_str(x,lang=''):
   global CARD
-  print(card_meta(CARD,"","",""))
+  print(card_meta(CARD,lang,"",""))
 
   CARD+=1
   print(x)
   print()
 
+card_str(f"""
+
+{'WARNING! WARING! WARNING!'.center(40)}
+
+USE THE CODE FROM THESE CARDS AT YOUR
+OWN RISK. THESE PRANKS ARE PURELY FOR
+EDUCATIONAL PURPOSES AND ARE NOT
+INTENDED TO CAUSE HARM. THE AUTHOR OF
+THIS DECK IS NOT RESPONSIBLE FOR ANY
+DAMAGE, LOSS OF DATA, OR OTHER
+CONSEQUENCES THAT MAY ARISE FROM THE USE
+OF THESE PRANKS.
+
+BY USING THESE PRANKS, YOU ACKNOWLEDGE
+THAT YOU ARE FULLY AWARE OF THE
+CONSEQUENCES OF YOUR ACTIONS AND THAT
+YOU UNDERSTAND THE CODE ON THESE
+CARDS. IF YOU ARE UNDER 18 YEARS OLD,
+YOU MUST OBTAIN THE CONSENT OF YOUR
+PARENT OR LEGAL GUARDIAN BEFORE USING
+THESE PRANKS.
+
+BY USING THESE PRANKS, YOU AGREE TO
+RELEASE AND HOLD HARMLESS THE AUTHOR OF
+THIS DECK FROM ANY CLAIMS, DEMANDS, OR
+DAMAGES, WHETHER KNOWN OR UNKNOWN,
+ARISING OUT OF OR IN ANY WAY CONNECTED
+WITH YOUR USE OF THESE PRANKS.
+""",'law')
+
 card_str(f"""{'PANIC'.center(40)}
 
+PANIC is a deck of small computer prank
+programs designed to give you a taste of
+your own power over your computer. Each
+card in the deck represents a prank, and
+includes the code necessary to execute
+it. The pranks range from simple screen
+rotations to more elaborate tricks like
+drawing random pixels on the screen or
+playing sounds for each keystroke.
+
+While the pranks provided in the deck
+are great examples of what can be done,
+the real fun comes from combining
+multiple cards into one and creating
+your own unique pranks. This allows you
+to unleash your creativity and explore
+the extent of your programming
+knowledge.
+
+However, it's important to remember that
+all the cards require some level of
+Python programming knowledge. If you're
+just starting out, be sure to ask your
+parent or legal guardian how to get
+started with Python. They can help guide
+you in the right direction and ensure
+that you're using your newfound powers
+safely and responsibly.
 """)
 
 card_str(f"""{'ETHICS'.center(40)}
 
+To be ethical when playing with the
+PANIC deck, consider these tips:
 
+- Respect others and their property by
+  avoiding pranks that could damage or
+  harm their computer or device.
+
+- Obtain consent before executing any
+  prank programs.
+
+- Steer clear of offensive or harassing
+  pranks that could discriminate or
+  bully others.
+
+- Avoid compromising security with
+  pranks that could install malware or
+  steal personal information.
+
+- Use your power wisely, without taking
+  advantage of someone's trust or using
+  your skills to harm others.
+
+By following these tips, you can enjoy
+the fun of computer pranks while
+remaining a responsible and ethical
+member of the technology community.
 """)
 
 card_str(f"""{'INSTALL'.center(40)}
@@ -56,7 +142,7 @@ and then type:
   pip install module_name
 
 where the module_name will be what you
-need, for example:n
+need, for example:
   pip install pyautogui
 will install the pyautogui module, which
 helps us to control the keyboard and the
@@ -100,7 +186,8 @@ the code after.
 """)
 
 
-card_str(f"""{'SERVICE'.center(40)}
+card_str(f"""{'WINDOWS SERVICES'.center(40)}
+
 Automatically start a program can also
 be done if you make it a 'Windows
 Service'.
@@ -224,9 +311,6 @@ for fn in files:
 # card_str(f"""{'RANDOMLY INCREASE AND DECREASE VLUME'.center(40)}
 # """)
 
-
-# card_str(f"""{'FILL DESKTOP WITH FILES'.center(40)}
-# """)
 
 # card_str(f"""{'PLAY WEIRD SOUND ON MOUSE CLICK'.center(40)}
 # """)

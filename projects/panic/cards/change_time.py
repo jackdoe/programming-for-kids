@@ -1,4 +1,4 @@
-# pip install win32api
+# pip install pywin32
 import win32api,datetime,time, random
 
 # set the time to be:

@@ -1,3 +1,4 @@
+# pip install pywin32
 import win32gui
 from PIL import Image, ImageWin
 import pynput.mouse as m
@@ -6,7 +7,7 @@ import pynput.mouse as m
 # will draw it always following the
 # mouse pointer
 
-img = Image.open("c:\image.png")
+img = Image.open("c:\\image.png")
 w,h = img.size
 dib = ImageWin.Dib(img)
 

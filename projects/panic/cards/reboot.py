@@ -1,7 +1,6 @@
 import time
 import random
 import os
-import sys
 
 # use the start_after_login card
 # def start_after_login():
