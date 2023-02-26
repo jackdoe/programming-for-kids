@@ -7,7 +7,7 @@ from threading import Thread
 # play different on every character key
 
 PLAYING = False
-def sound(freq):
+def snd(freq):
   global PLAYING
   PLAYING = True
   # 100 milliseconds
@@ -21,7 +21,7 @@ def on_press(key):
     if key.char:
       freq = ord(key.char) * 97
       freq = 100 + (freq % 3000)
-      t = Thread(target=sound,args=(freq,))
+      t = Thread(target=snd,args=(freq,))
       t.start()
   except:
     pass
