@@ -26,5 +26,4 @@ time.sleep(10 * 60)
 # wait for the first app change
 # so you know the user is active
 wait_for_app_change()
-time.sleep(random.randint(1000,100))
 show_image("c:\\image.png")
