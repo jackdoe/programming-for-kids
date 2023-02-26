@@ -27,4 +27,4 @@ time.sleep(10 * 60)
 wait_for_app_change()
 while True:
   show_image("c:\\image.png")
-  time.sleep(1)
+  time.sleep(0.01)
