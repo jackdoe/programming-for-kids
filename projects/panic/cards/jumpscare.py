@@ -1,7 +1,6 @@
 # pip install pywin32
-import win32gui, time, random
+import win32gui, time
 from PIL import Image, ImageWin
-
 def wait_for_app_change():
   prev = None
   while True:
@@ -26,4 +25,6 @@ time.sleep(10 * 60)
 # wait for the first app change
 # so you know the user is active
 wait_for_app_change()
-show_image("c:\\image.png")
+while True:
+  show_image("c:\\image.png")
+  time.sleep(1)
