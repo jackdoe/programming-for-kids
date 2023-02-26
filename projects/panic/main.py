@@ -308,13 +308,6 @@ for fn in files:
 # card_str(f"""{'CLICK MANY TIMES ON BUTTON PRESS'.center(40)}
 # """)
 
-# card_str(f"""{'RANDOMLY INCREASE AND DECREASE VLUME'.center(40)}
-# """)
-
-
-# card_str(f"""{'PLAY WEIRD SOUND ON MOUSE CLICK'.center(40)}
-# """)
-
 # card_str(f"""{'REMOTE CONTROL KEYBOARD'.center(40)}
 # """)
 
