@@ -1,0 +1,73 @@
+## [DAY-302] classes
+
+Watch Bro Code's Python Object Oriented Programming in 10 minutes video: https://www.youtube.com/watch?v=q2SGW2VgwAM , then make a class Line that has all the properties, and also has a method draw that draws the line to the screen, having a dynamic end point.
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 500
+elf.y = 500
+
+king = Actor('c2')
+king.x = 200
+king.y = 200
+
+class Line:
+    def __init__(self):
+        self.x = random.randint(10,790)
+        self.y = random.randint(10,790)
+        self.r = random.randint(0,255)
+        self.g = random.randint(0,255)
+        self.b = random.randint(0,255)
+        self.to = random.choice(["king","elf"])
+        self.xd = random.randint(0,50)
+        self.yd = random.randint(0,50)
+
+    def draw(self,to_x,to_y):
+        screen.draw.line([self.x,self.y],
+                         [to_x - self.xd ,to_y - self.yd],
+                         [self.r,self.g,self.b])
+
+lines = []
+for i in range(800):
+    l = Line()
+    lines.append(l)
+
+def update():
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.S:
+        elf.y += 5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.D:
+        elf.x+=5 
+
+    if keyboard.UP:
+        king.y-=5
+    if keyboard.DOWN:
+        king.y += 5
+    if keyboard.LEFT:
+        king.x+=5
+    if keyboard.RIGHT:
+        king.x-=5 
+
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    king.draw()
+
+    for line in lines:
+        if line.to == "king":
+            line.draw(king.x,king.y)
+        else:
+            line.draw(elf.x,elf.y)
+
+pgzrun.go()
+```
