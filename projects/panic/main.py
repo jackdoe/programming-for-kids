@@ -61,7 +61,7 @@ WITH YOUR USE OF THESE PRANKS.
 
 card_str(f"""{'EPILEPSY WARNING!'.center(40)}
 
-To ensure the safety of users who have
+To ensure the safety of readers who have
 photosensitive epilepsy, certain cards
 in this game have the potential to
 produce flashing lights, shaking, or
