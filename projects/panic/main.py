@@ -278,7 +278,6 @@ erase the whole disk, and then you can
 just re-create it with the image.
 """)
 
-
 files = os.listdir(os.path.join(".","cards"))
 files = [f for f in files if f.endswith('py')]
 files.sort()
