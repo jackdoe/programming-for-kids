@@ -5,6 +5,9 @@ import win32api as a
 from threading import Thread
 import random
 
+# create bazillion windows with
+# different sizes
+
 sw = a.GetSystemMetrics(0)
 sh = a.GetSystemMetrics(1)
 
