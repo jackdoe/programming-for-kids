@@ -1,3 +1,4 @@
+# EPILEPSY WARNING
 # pip install pywin32
 import win32gui, time
 from PIL import Image, ImageWin
@@ -9,7 +10,6 @@ def wait_for_app_change():
      return True
    prev = cur
    time.sleep(0.01)
-
 def show_image(name):
   # put a scary image in c:\image.png
   img = Image.open(name)

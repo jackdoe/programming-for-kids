@@ -1,3 +1,5 @@
+# EPILEPSY WARNING
+# pip install pywin32
 import random
 import win32gui as g
 

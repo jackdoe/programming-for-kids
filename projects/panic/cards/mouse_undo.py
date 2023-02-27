@@ -1,6 +1,7 @@
+# EPILEPSY WARNING
+# pip install pyautogui pynput
 import pyautogui, threading, time
 import pynput.mouse as m
-
 # slowly move the mouse back on tracing
 # the movement
 history = []
@@ -23,7 +24,6 @@ def undo():
         pyautogui.moveTo(x,y)
       moving = False
     time.sleep(1)
-
 t = threading.Thread(target=undo)
 t.start()
 with m.Listener(on_move=on_move) as l:

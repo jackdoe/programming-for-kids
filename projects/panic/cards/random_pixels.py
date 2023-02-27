@@ -1,3 +1,4 @@
+# EPILEPSY WARNING
 # fill the screen with random pixels
 import random
 from ctypes import windll

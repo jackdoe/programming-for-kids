@@ -1,6 +1,5 @@
+# EPILEPSY WARNING
 import os
-
-print("PANIC")
 
 # __file__ is the name of the current
 # python script, if you save this card
@@ -11,5 +10,5 @@ print("PANIC")
 # so this program will just start itself
 # and then start itself, and then start
 # itself...
-os.system(f"python {__file__}")
-
+c = f"python {__file__}"
+os.system(f"start /wait cmd /c {c}")

@@ -1,3 +1,4 @@
+# EPILEPSY WARNING
 # pip install pywin32
 import win32gui
 from PIL import Image, ImageWin

@@ -1,3 +1,4 @@
+# EPILEPSY WARNING
 # pip install rotate-screen
 import rotatescreen as r
 import time

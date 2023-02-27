@@ -1,3 +1,4 @@
+# EPILEPSY WARNING
 # draw random pixels around the mouse
 import random
 import time

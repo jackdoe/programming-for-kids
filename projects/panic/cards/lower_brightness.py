@@ -1,3 +1,4 @@
+# EPILEPSY WARNING
 # pip install screen_brightness_control
 from screen_brightness_control import *
 

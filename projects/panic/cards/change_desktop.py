@@ -4,7 +4,7 @@ from ctypes import windll as w
 # every second change the desktop
 
 images = []
-# put some scary images in c:\images
+# put some images in c:\images
 for f in os.listdir("c:\\images"):
   if f.endswitdh('.jpg'):
     images.append(f)

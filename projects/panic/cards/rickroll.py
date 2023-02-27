@@ -1,3 +1,4 @@
+# EPILEPSY WARNING
 # pip install pyautogui win32gui
 import pyautogui as p
 import random

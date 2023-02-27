@@ -2,7 +2,7 @@ import os
 from itertools import cycle
 CARD = 1
 
-def card_meta(id, lang, symbol, symbol_style):
+def card_meta(id, lang, symbol, symbol_style, force_color = ''):
   color = '#6e7781' 
   bgcolor = 'white'
   theme='gptredzz'
@@ -16,6 +16,8 @@ def card_meta(id, lang, symbol, symbol_style):
     color = 'red'
     bgcolor = 'white'
     lang=''
+  if force_color:
+    color = force_color
   return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol_style}"
   
   
@@ -56,6 +58,36 @@ DAMAGES, WHETHER KNOWN OR UNKNOWN,
 ARISING OUT OF OR IN ANY WAY CONNECTED
 WITH YOUR USE OF THESE PRANKS.
 """,'law')
+
+card_str(f"""{'EPILEPSY WARNING!'.center(40)}
+
+To ensure the safety of users who have
+photosensitive epilepsy, certain cards
+in this game have the potential to
+produce flashing lights, shaking, or
+screen rotation that could trigger
+seizures. If you or anyone in your
+household has a history of epilepsy or
+seizures, we strongly advise against
+using these cards. If you experience any
+discomfort while using these cards,
+please stop immediately and seek medical
+attention.
+
+To indicate the presence of this
+warning, the cards are identified with a
+red border and the text "EPILEPSY
+WARNING". These cards are particularly
+dangerous, but others might be as well,
+so it is crucial to understand what the
+card is doing before using it.
+
+By using this deck, you acknowledge that
+you have read and understood this
+warning, and you assume all risks
+associated with using the cards.
+""",'law')
+
 
 card_str(f"""{'PANIC'.center(40)}
 
@@ -253,7 +285,11 @@ files.sort()
 
 for fn in files:
   with open(os.path.join(".","cards",fn)) as f:
-    print(card_meta(CARD,"python","", ""))
+    force_color = ''
+    data = f.read()
+    if "EPILEPSY" in data:
+      force_color = 'red'
+    print(card_meta(CARD,"python","", "",force_color))
     CARD+=1
     title = f"filename: {fn}"
     if fn.endswith('py'):
@@ -263,7 +299,7 @@ for fn in files:
 
 
     print(title)
-    print(f.read())
+    print(data)
 
 
 # card_str(f"""{'LEFT MOUSE BUTTON SWAP'.center(40)}
@@ -313,9 +349,6 @@ for fn in files:
 
 # card_str(f"""{'THROTTLE THE INTERNET OF ONE PROGRAM'.center(40)}
 # New-NetQosPolicy -Name "FTP" -AppPathNameMatchCondition "ftp.exe" -ThrottleRateActionBitsPerSecond 1MB
-# """)
-
-# card_str(f"""{'TALK RANDOMLY'.center(40)}
 # """)
 
 # card_str(f"""{'SPEECH TO TEXT AND OPEN NOTEPAD AND WRITE IT DOWN'.center(40)}
