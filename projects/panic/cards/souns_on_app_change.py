@@ -2,6 +2,8 @@
 import winsound, win32gui, time
 import random
 
+# beep every time the window changes
+
 def wait_for_app_change():
   prev = None
   while True:
@@ -14,4 +16,4 @@ def wait_for_app_change():
 while True:
   wait_for_app_change()
   freq = random.randint(1000,3000)
-  winsound.Beep(freq, 1000)
+  winsound.Beep(freq, 100)
