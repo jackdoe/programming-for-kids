@@ -24,7 +24,7 @@ def click(x,y):
 
 app.run(host='0.0.0.0',port=8899)
 # connect to the computer's ip address
-# on port 8899 going and open /write/abc
-# to type abc on the computer, for
-# example: if the ip is 192.168.0.10
-# use http://192.168.0.10:8899/write/abc
+# on port 8899 and open /write/abc to
+# type abc on the computer, for example:
+# if the ip is 192.168.0.10 use
+# http://192.168.0.10:8899/write/abc
