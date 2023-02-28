@@ -322,12 +322,6 @@ for fn in files:
 # card_str(f"""{'HUGE FONT SIZE'.center(40)}
 # """)
 
-# card_str(f"""{'OPEN NOTEPAD WITH CREEPY NOTE'.center(40)}
-# """)
-
-# card_str(f"""{'RANDOM PACKET DROP'.center(40)}
-# """)
-
 # card_str(f"""{'SAY WHAT YOU TYPE'.center(40)}
 # """)
 
@@ -353,16 +347,7 @@ for fn in files:
 # card_str(f"""{'SPEECH TO TEXT AND OPEN NOTEPAD AND WRITE IT DOWN'.center(40)}
 # """)
 
-# card_str(f"""{'MATRIX DISPLAY'.center(40)}
-# """)
-
-# card_str(f"""{'PRINT CREEPY MESSAGES ON PRINTER'.center(40)}
-# """)
-
 # card_str(f"""{'TALK AND TYPE IN NOTEPAD'.center(40)}
-# """)
-
-# card_str(f"""{'BROKEN SCREEN EFFECT'.center(40)}
 # """)
 
 # card_str(f"""{'PRINT MORSE CODE'.center(40)}
