@@ -19,8 +19,8 @@ def text(x,y,text):
 
 app.run(host='0.0.0.0',port=8899)
 # connect to the computer's IP address
-# on port 8899 and open /say/hello to
-# say hello from the computer, for
-# example: if the IP is 192.168.0.10
-# use:
-# http://192.168.0.10:8899/say/hello
+# on port 8899 and open /text/10/10/hi
+# to write the text hi on coordinates
+# 10,10 at the computer, for example: if
+# the IP is 192.168.0.10 use:
+# http://192.168.0.10:8899/10/10/hi
