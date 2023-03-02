@@ -1,0 +1,25 @@
+import pgzrun
+
+WIDTH = 800
+HEIGHT = 800
+
+lines = []
+def on_key_down(key,mod):
+    if key == keys.W:
+        lines.append("W")
+    if key == keys.S:
+        lines.append("S")
+    if key == keys.A:
+        lines.append("A")
+    if key == keys.D:
+        lines.append("D")
+
+def update():
+    pass
+
+def draw():
+    screen.clear()
+    screen.draw.text(''.join(lines), (255,255),color=(23,233,123))
+
+
+pgzrun.go()

@@ -883,6 +883,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-302 classes](#day-302-classes)
 
+[day-303 lists](#day-303-lists)
+
+[day-304 lists](#day-304-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22391,7 +22395,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
     if keyboard.UP:
         king.y-=5
@@ -22400,7 +22404,7 @@ def update():
     if keyboard.LEFT:
         king.x+=5
     if keyboard.RIGHT:
-        king.x-=5 
+        king.x-=5
 
 
 def draw():
@@ -22415,5 +22419,144 @@ def draw():
             line.draw(elf.x,elf.y)
 
 pgzrun.go()
+```
+
+## [DAY-303] lists
+
+Record the wasd key pressess and show them on the screen:
+
+![game-303.png](./screenshots/game-303.png "game 303 screenshot")
+
+```
+import pgzrun
+
+WIDTH = 800
+HEIGHT = 800
+
+lines = []
+def on_key_down(key,mod):
+    if key == keys.W:
+        lines.append("W")
+    if key == keys.S:
+        lines.append("S")
+    if key == keys.A:
+        lines.append("A")
+    if key == keys.D:
+        lines.append("D")
+
+def update():
+    pass
+
+def draw():
+    screen.clear()
+    screen.draw.text(''.join(lines), (255,255),color=(23,233,123))
+
+
+pgzrun.go()
+```
+
+This is the first step towards making an editor.
+
+
+## [DAY-304] lists
+
+Add more keys to your editor.
+
+![game-304.png](./screenshots/game-304.png "game 303 screenshot")
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+lines = []
+def on_key_down(key,mod):
+    if key == keys.W:
+       lines.append("W")
+    if key == keys.S:
+        lines.append("S")
+    if key == keys.A:
+        lines.append("A")
+    if key == keys.D:
+        lines.append("D")
+    if key == keys.B:
+        lines.append("B")
+    if key == keys.C:
+        lines.append("C")
+    if key == keys.SPACE:
+        lines.append(" ")
+    if key == keys.RETURN:
+        lines.append("\n")
+    if key == keys.D:
+        lines.append("D")
+    if key == keys.E:
+        lines.append("E")
+    if key == keys.F:
+        lines.append("F")
+    if key == keys.G:
+        lines.append("G")
+    if key == keys.H:
+        lines.append("H")
+    if key == keys.I:
+        lines.append("I")
+    if key == keys.J:
+        lines.append("J")
+    if key == keys.K:
+        lines.append("K")
+    if key == keys.L:
+        lines.append("L")
+    if key == keys.M:
+        lines.append("M")
+    if key == keys.N:
+        lines.append("N")
+    if key == keys.O:
+        lines.append("O")
+    if key == keys.P:
+        lines.append("P")
+    if key == keys.Q:
+        lines.append("Q")
+    if key == keys.R:
+        lines.append("R")
+    if key == keys.T:
+        lines.append("T")
+    if key == keys.U:
+        lines.append("U")
+    if key == keys.V:
+        lines.append("V")
+    if key == keys.X:
+        lines.append("X")
+    if key == keys.Y:
+        lines.append("Y")
+    if key == keys.Z:
+        lines.append("Z")
+
+def update():
+    pass
+
+def draw():
+    screen.clear()
+    screen.draw.text(''.join(lines), (255,255),color=(23,233,123))
+
+pgzrun.go()
+```
+
+Given the `is_shift` function, add support for lower and upper characters:
+
+```
+def is_shift(mod):
+    return mod & keymods.LSHIFT > 0
+```
+
+example:
+
+
+```
+   if key == keys.W:
+        if is_shift(mod):
+            lines.append("W")
+        else:
+            lines.append("w")
 ```
 

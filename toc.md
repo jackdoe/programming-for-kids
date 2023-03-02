@@ -765,3 +765,7 @@
 
 
 [day-302 classes](#day-302-classes)
+
+[day-303 lists](#day-303-lists)
+
+[day-304 lists](#day-304-lists)
