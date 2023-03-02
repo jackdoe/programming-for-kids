@@ -1,4 +1,5 @@
 # EPILEPSY WARNING
+
 import os,random,time
 from ctypes import windll as w
 
