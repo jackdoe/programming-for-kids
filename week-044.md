@@ -210,3 +210,103 @@ example:
         else:
             lines.append("w")
 ```
+
+
+## [DAY-305] 
+
+![game-305.png](./screenshots/game-305.png "game 305 screenshot")
+
+Print and think about what each component of the following code does:
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+elf = Actor('c1')
+elf.x = 500
+elf.y = 500
+
+enemies = []
+game_over = False
+game_win = False
+
+def add_row(y):
+    has_gold = False
+    for x in range(10):
+        kind = 'c2'
+        # we want at most one golden king on a random position
+        if not has_gold and random.randint(0,10) < 3:
+            kind = 'c3'
+            has_gold = True
+            
+        e = Actor(kind)
+        e.x = 100 + (x * 30)
+        e.y = y
+        enemies.append(e)
+
+    enemies.append(e)
+    
+
+def increase_dificulty():
+    max_y = 0
+    for e in enemies:
+        if e.y > max_y:
+            max_y = e.y
+
+    add_row(max_y + 40)
+
+def on_mouse_down(pos):
+    global game_over, game_win
+    for e in list(enemies):
+        if elf.colliderect(e):
+            if e.image == 'c3':
+                game_over = True
+                break
+            enemies.remove(e)
+            break
+
+    # check how many kings we have not counting the golden kings
+    n_enemies = 0
+    for e in enemies:
+        if e.image == 'c2':
+            n_enemies += 1
+    # if there are no kings left, then we win the game
+    if n_enemies == 0:
+        game_win = True
+
+def on_mouse_move(pos):
+    elf.x = pos[0]
+    elf.y = pos[1]
+
+
+def update():
+    for e in enemies:
+        e.x += random.randint(-1,3)
+        if e.x > 700:
+            e.x = 100
+
+
+increase_dificulty()
+clock.schedule_interval(increase_dificulty, 10)
+
+def draw():
+    screen.fill('black')
+    elf.draw()
+    screen.draw.line([100,700], [elf.x,elf.y], [255,0,0])
+    screen.draw.line([700,700], [elf.x,elf.y], [255,0,0])
+    
+    for e in enemies:
+        e.draw()
+
+    if game_over:
+        screen.fill('red')
+    elif game_win:
+        screen.fill('blue')
+
+pgzrun.go()
+```
+
+    
