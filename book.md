@@ -889,6 +889,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-305 lists](#day-305-lists)
 
+[day-306 lists](#day-306-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22660,7 +22662,46 @@ def draw():
 pgzrun.go()
 ```
 
+
+## [DAY-306] lists
+
+![game-306.png](./screenshots/game-306.png "game 306 screenshot")
+
+Make a program with 50 enemies, and make a line from each enemy to each other enemy
+
+```
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+enemies = []
+# make 50 enemies
+for i in range(50):
+    e = Actor("c2")
+    e.x = random.randint(10, 790)
+    e.y = random.randint(10, 790)
+    enemies.append(e)
+
+def update():
+    # move them randomly left and right
+    for e in enemies:
+        e.x += random.randint(-5,5)
+        e.y += random.randint(-5,5)
+
+def draw():
+    screen.fill('black')
+
+    # make a line from each enemy to each other enemey
+    for from_enemy in enemies:
+        for to_enemy in enemies:
+            if from_enemy != to_enemy:
+                screen.draw.line([from_enemy.x,from_enemy.y], [to_enemy.x,to_enemy.y], [255,0,0])
     
+    for e in enemies:
+        e.draw()
 
-
+pgzrun.go()
+```
 

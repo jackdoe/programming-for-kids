@@ -1,0 +1,33 @@
+import pgzrun
+import random
+
+WIDTH = 800
+HEIGHT = 800
+
+enemies = []
+# make 50 enemies
+for i in range(50):
+    e = Actor("c2")
+    e.x = random.randint(10, 790)
+    e.y = random.randint(10, 790)
+    enemies.append(e)
+
+def update():
+    # move them randomly left and right
+    for e in enemies:
+        e.x += random.randint(-5,5)
+        e.y += random.randint(-5,5)
+
+def draw():
+    screen.fill('black')
+
+    # make a line from each enemy to each other enemey
+    for from_enemy in enemies:
+        for to_enemy in enemies:
+            if from_enemy != to_enemy:
+                screen.draw.line([from_enemy.x,from_enemy.y], [to_enemy.x,to_enemy.y], [255,0,0])
+    
+    for e in enemies:
+        e.draw()
+
+pgzrun.go()
