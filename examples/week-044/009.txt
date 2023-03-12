@@ -1,0 +1,4 @@
+l = ['a','b','c']
+for a in l:
+    for b in l:
+        print(a,b)

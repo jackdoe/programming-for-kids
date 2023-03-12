@@ -22705,3 +22705,21 @@ def draw():
 pgzrun.go()
 ```
 
+experiment with for in for, for example:
+
+```
+for i in range(10):
+    for j in range(10):
+        print(i,j)
+
+```
+
+```
+l = ['a','b','c']
+for a in l:
+    for b in l:
+        print(a,b)
+```
+
+![game-306-a.jpg](./screenshots/game-306-a.jpg "game 306 a screenshot")
+
