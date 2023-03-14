@@ -891,6 +891,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-306 lists](#day-306-lists)
 
+[day-307 for](#day-307-for)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22722,4 +22724,33 @@ for a in l:
 ```
 
 ![game-306-a.jpg](./screenshots/game-306-a.jpg "game 306 a screenshot")
+
+
+## [DAY-307] for
+
+
+make the following python program in c:
+
+```
+for i in range(10):
+  for j in range(12):
+    for k in range(14):
+      print(i,j,k)
+```
+
+becomes:
+
+```
+#include <stdio.h>
+int main(void){
+    for(int i=0; i < 10; i++){
+        for(int j=0; j < 12; j++){
+            for(int k=0; k < 14; k++){
+                printf("%d %d %d\n",i,j,k);
+            }
+        }
+    }
+    return 0;
+}
+```
 
