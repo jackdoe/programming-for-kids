@@ -369,3 +369,32 @@ for a in l:
 ```
 
 ![game-306-a.jpg](./screenshots/game-306-a.jpg "game 306 a screenshot")
+
+
+## [DAY-307] for
+
+
+make the following python program in c:
+
+```
+for i in range(10):
+  for j in range(12):
+    for k in range(14):
+      print(i,j,k)
+```
+
+becomes:
+
+```
+#include <stdio.h>
+int main(void){
+    for(int i=0; i < 10; i++){
+        for(int j=0; j < 12; j++){
+            for(int k=0; k < 14; k++){
+                printf("%d %d %d\n",i,j,k);
+            }
+        }
+    }
+    return 0;
+}
+```
