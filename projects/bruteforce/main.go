@@ -19,7 +19,7 @@ func main() {
 	win.Resize(fyne.NewSize(300, 150)) // Set window size
 	content := container.NewGridWithColumns(1)
 
-	attempts := 0
+	attempts := 1
 	pinInput := widget.NewEntry()
 	pinInput.SetPlaceHolder("0000")
 	pinInput.Resize(fyne.NewSize(200, 30)) // Set input size
