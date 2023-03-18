@@ -398,3 +398,38 @@ int main(void){
     return 0;
 }
 ```
+
+
+## [DAY-308] brute force
+
+Compile the program in [projects/bruteforce](projects/bruteforce), you need to install golang from https://go.dev and then do `go get && go build`.
+
+After you run the executable, it will show a window that asks for a PIN number.
+
+
+![game-308.png](./screenshots/game-308.png "game 308 png")
+
+
+Write a pyautogui script to bruteforce the pin number:
+
+
+![game-308.gif](./screenshots/game-308.gif "game 308 gif")
+
+First find the x,y coordinates you need to click by writing a small script that uses pyautogui.position(), then write the script to start typing all the numbers from 0000 to 9999
+
+```
+import pyautogui
+import time
+time.sleep(5)
+
+for i in range(10):
+  for j in range(10):
+    for k in range(10):
+      for m in range(10):
+        s = f"{i}{j}{k}{m}"
+
+        pyautogui.click(853,483)
+        pyautogui.write(s)
+        pyautogui.click(848,544)
+```
+
