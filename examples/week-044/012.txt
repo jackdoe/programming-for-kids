@@ -1,0 +1,13 @@
+import pyautogui
+import time
+time.sleep(5)
+
+for i in range(10):
+  for j in range(10):
+    for k in range(10):
+      for m in range(10):
+        s = f"{i}{j}{k}{m}"
+
+        pyautogui.click(853,483)
+        pyautogui.write(s)
+        pyautogui.click(848,544)

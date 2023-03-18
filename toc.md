@@ -775,3 +775,5 @@
 [day-306 lists](#day-306-lists)
 
 [day-307 for](#day-307-for)
+
+[day-308 brute force](#day-308-brute-force)
