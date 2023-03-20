@@ -433,3 +433,17 @@ for i in range(10):
         pyautogui.click(848,544)
 ```
 
+## [DAY-309] the windows registry
+
+In windows there is database (you can think of it as a file) that stores all kinds of settings for the windows operating system and also most of the programs you have installed (from roblox to minecraft).
+
+Once you login it will start the explorer shell, which is what you are used to, the task bar, the systems tray the start menu and etc.
+
+This is defined in a specific registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell`, the default value there is: `explorer.exe`.
+
+Change this to 'cmd.exe' and restart your computer. You will see when you log in that it will just start cmd and nothing else.
+
+Try to start chrome (usually at C:\Program Files\Google\Chrome\Application\chrome.exe), or start Visual Studio Code, or try to start some of your games directly from the command prompt.
+
+To switch back to the original shell, change the key's value to `explorer.exe` using the `regedit` command, and then restart the computer by typing `shutdown /r` into the command prompt.
+
