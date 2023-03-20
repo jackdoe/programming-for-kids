@@ -895,6 +895,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-308 brute force](#day-308-brute-force)
 
+[day-309 the windows registry](#day-309-the-windows-registry)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22789,5 +22791,19 @@ for i in range(10):
         pyautogui.write(s)
         pyautogui.click(848,544)
 ```
+
+## [DAY-309] the windows registry
+
+In windows there is database (you can think of it as a file) that stores all kinds of settings for the windows operating system and also most of the programs you have installed (from roblox to minecraft).
+
+Once you login it will start the explorer shell, which is what you are used to, the task bar, the systems tray the start menu and etc.
+
+This is defined in a specific registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell`, the default value there is: `explorer.exe`.
+
+Change this to 'cmd.exe' and restart your computer. You will see when you log in that it will just start cmd and nothing else.
+
+Try to start chrome (usually at C:\Program Files\Google\Chrome\Application\chrome.exe), or start Visual Studio Code, or try to start some of your games directly from the command prompt.
+
+To switch back to the original shell, change the key's value to `explorer.exe` using the `regedit` command, and then restart the computer by typing `shutdown /r` into the command prompt.
 
 
