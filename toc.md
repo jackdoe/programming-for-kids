@@ -779,3 +779,5 @@
 [day-308 brute force](#day-308-brute-force)
 
 [day-309 the windows registry](#day-309-the-windows-registry)
+
+[day-310 for](#day-310-for)

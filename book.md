@@ -897,6 +897,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-309 the windows registry](#day-309-the-windows-registry)
 
+[day-310 for](#day-310-for)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22806,4 +22808,30 @@ Try to start chrome (usually at C:\Program Files\Google\Chrome\Application\chrom
 
 To switch back to the original shell, change the key's value to `explorer.exe` using the `regedit` command, and then restart the computer by typing `shutdown /r` into the command prompt.
 
+
+
+## [DAY-310] for
+
+> today I actually set her `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell` to cmd.exe before she came back from school, and she had to turn it back to explorer.exe
+
+Write fizzbuzz in C:
+
+```
+#include <stdio.h>
+
+int main(void) {
+    for (int i = 0; i < 100; i++) {
+        if (i%15 == 0) {
+            printf("fizzbuzz\n");
+        } else if (i%5 == 0) {
+            printf("buzz\n");
+        } else if (i%3 == 0) {
+            printf("fizz\n");
+        } else {
+            printf("%d\n",i);
+        }
+    }
+    return 0;
+}
+```
 
