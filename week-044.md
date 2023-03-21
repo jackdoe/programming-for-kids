@@ -447,3 +447,29 @@ Try to start chrome (usually at C:\Program Files\Google\Chrome\Application\chrom
 
 To switch back to the original shell, change the key's value to `explorer.exe` using the `regedit` command, and then restart the computer by typing `shutdown /r` into the command prompt.
 
+
+
+## [DAY-310] for
+
+> today I actually set her `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell` to cmd.exe before she came back from school, and she had to turn it back to explorer.exe
+
+Write fizzbuzz in C:
+
+```
+#include <stdio.h>
+
+int main(void) {
+    for (int i = 0; i < 100; i++) {
+        if (i%15 == 0) {
+            printf("fizzbuzz\n");
+        } else if (i%5 == 0) {
+            printf("buzz\n");
+        } else if (i%3 == 0) {
+            printf("fizz\n");
+        } else {
+            printf("%d\n",i);
+        }
+    }
+    return 0;
+}
+```
