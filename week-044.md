@@ -473,3 +473,29 @@ int main(void) {
     return 0;
 }
 ```
+
+## [DAY-311] for
+
+Write a program that takes an array of integers and returns the sum of all positive even numbers and multiplied by all negative odd numbers in the list.
+
+```
+#include <stdio.h>
+
+int main(void) {
+  int data[10] = {-1,4,2,22,-3,-4,-6,-7,5,10};
+  int pos = 0;
+  int neg = 0;
+  for (int i = 0; i < 10; i++) {
+    int v = data[i];
+      if (v < 0 && v % 2 != 0) {
+        neg += v;
+      } else if (v > 0 && v % 2 == 0) {
+        pos += v;
+      }
+  }
+  int sum = neg * pos;
+  printf("%d\n",sum);
+  return 0;
+}
+
+```
