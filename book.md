@@ -899,6 +899,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-310 for](#day-310-for)
 
+[day-311 for](#day-311-for)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22833,5 +22835,31 @@ int main(void) {
     }
     return 0;
 }
+```
+
+## [DAY-311] for
+
+Write a program that takes an array of integers and returns the sum of all positive even numbers and multiplied by all negative odd numbers in the list.
+
+```
+#include <stdio.h>
+
+int main(void) {
+  int data[10] = {-1,4,2,22,-3,-4,-6,-7,5,10};
+  int pos = 0;
+  int neg = 0;
+  for (int i = 0; i < 10; i++) {
+    int v = data[i];
+      if (v < 0 && v % 2 != 0) {
+        neg += v;
+      } else if (v > 0 && v % 2 == 0) {
+        pos += v;
+      }
+  }
+  int sum = neg * pos;
+  printf("%d\n",sum);
+  return 0;
+}
+
 ```
 
