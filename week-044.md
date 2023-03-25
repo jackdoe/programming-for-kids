@@ -536,7 +536,7 @@ next_bus = None
 
 for b in buses:
     if b["arrive_in_minutes"] < min_arrival:
-        min_arrival = "arrive_in_minutes"
+        min_arrival = b["arrive_in_minutes"]
         next_bus = b
 
 print(next_bus)
