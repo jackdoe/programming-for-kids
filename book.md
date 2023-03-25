@@ -903,6 +903,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-312 lists](#day-312-lists)
 
+[day-313 if](#day-313-if)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22920,5 +22922,40 @@ for b in buses:
 
 print(next_bus)
 
+```
+
+
+## [DAY-313] if
+
+Make a robot playing the dinosaur game using arduino nano and a photoresistor.
+
+[![robot](https://img.youtube.com/vi/EVXavpNGYEc/0.jpg)](https://youtube.com/shorts/EVXavpNGYEc "robot")
+
+Google how to read the photoresistor and how to connect the servo motor, this is the code we used, the servo control was on d7 and the photoresistor was on a5.
+
+```
+#include <Servo.h>
+
+Servo arm;
+void setup()
+{
+  Serial.begin(9600);
+  arm.attach(7);
+  arm.write(30);
+}
+
+void loop()
+{
+  int  v = analogRead(A5);
+  Serial.println(v);
+
+  if (v < 420) {
+    arm.write(90);
+    delay(100);
+    arm.write(30);
+    delay(100);
+  }
+
+} 
 ```
 

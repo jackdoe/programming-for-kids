@@ -1,0 +1,23 @@
+#include <Servo.h>
+
+Servo arm;
+void setup()
+{
+  Serial.begin(9600);
+  arm.attach(7);
+  arm.write(30);
+}
+
+void loop()
+{
+  int  v = analogRead(A5);
+  Serial.println(v);
+
+  if (v < 420) {
+    arm.write(90);
+    delay(100);
+    arm.write(30);
+    delay(100);
+  }
+
+} 
