@@ -783,3 +783,5 @@
 [day-310 for](#day-310-for)
 
 [day-311 for](#day-311-for)
+
+[day-312 lists](#day-312-lists)

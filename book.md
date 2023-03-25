@@ -901,6 +901,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-311 for](#day-311-for)
 
+[day-312 lists](#day-312-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22860,6 +22862,63 @@ int main(void) {
   printf("%d\n",sum);
   return 0;
 }
+
+```
+
+
+
+## [DAY-312] lists
+
+Given the following list of buses, print the one that will come next:
+
+```
+buses = [
+  {
+    "number": 183,
+    "arrive_in_minutes": 5,
+  },
+  {
+    "number": 499,
+    "arrive_in_minutes": 3,
+  },
+  {
+    "number": 372,
+    "arrive_in_minutes": 1,
+  },
+  {
+    "number": 572,
+    "arrive_in_minutes": 5,
+  },
+]
+```
+
+One way to do it is with two variables:
+
+```
+
+min_arrival = 999
+next_bus = None
+
+for b in buses:
+    if b["arrive_in_minutes"] < min_arrival:
+        min_arrival = "arrive_in_minutes"
+        next_bus = b
+
+print(next_bus)
+
+```
+
+or we can just use one variable, here we check if we dont have a next bus, or its arrive time is smaller than the one we have in our current "next bus"
+
+```
+
+next_bus = None
+
+for b in buses:
+    if next_bus == None or b["arrive_in_minutes"] < next_bus["arrive_in_minutes"]:
+        next_bus = b
+
+print(next_bus)
 
 ```
 

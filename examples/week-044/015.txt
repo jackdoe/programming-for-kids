@@ -1,0 +1,18 @@
+buses = [
+  {
+    "number": 183,
+    "arrive_in_minutes": 5,
+  },
+  {
+    "number": 499,
+    "arrive_in_minutes": 3,
+  },
+  {
+    "number": 372,
+    "arrive_in_minutes": 1,
+  },
+  {
+    "number": 572,
+    "arrive_in_minutes": 5,
+  },
+]
