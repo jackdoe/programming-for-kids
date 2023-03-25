@@ -499,3 +499,60 @@ int main(void) {
 }
 
 ```
+
+
+
+## [DAY-312] lists
+
+Given the following list of buses, print the one that will come next:
+
+```
+buses = [
+  {
+    "number": 183,
+    "arrive_in_minutes": 5,
+  },
+  {
+    "number": 499,
+    "arrive_in_minutes": 3,
+  },
+  {
+    "number": 372,
+    "arrive_in_minutes": 1,
+  },
+  {
+    "number": 572,
+    "arrive_in_minutes": 5,
+  },
+]
+```
+
+One way to do it is with two variables:
+
+```
+
+min_arrival = 999
+next_bus = None
+
+for b in buses:
+    if b["arrive_in_minutes"] < min_arrival:
+        min_arrival = "arrive_in_minutes"
+        next_bus = b
+
+print(next_bus)
+
+```
+
+or we can just use one variable, here we check if we dont have a next bus, or its arrive time is smaller than the one we have in our current "next bus"
+
+```
+
+next_bus = None
+
+for b in buses:
+    if next_bus == None or b["arrive_in_minutes"] < next_bus["arrive_in_minutes"]:
+        next_bus = b
+
+print(next_bus)
+
+```
