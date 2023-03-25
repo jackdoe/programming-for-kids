@@ -556,3 +556,38 @@ for b in buses:
 print(next_bus)
 
 ```
+
+
+## [DAY-313] if
+
+Make a robot playing the dinosaur game using arduino nano and a photoresistor.
+
+[![robot](https://img.youtube.com/vi/EVXavpNGYEc/0.jpg)](https://youtube.com/shorts/EVXavpNGYEc "robot")
+
+Google how to read the photoresistor and how to connect the servo motor, this is the code we used, the servo control was on d7 and the photoresistor was on a5.
+
+```
+#include <Servo.h>
+
+Servo arm;
+void setup()
+{
+  Serial.begin(9600);
+  arm.attach(7);
+  arm.write(30);
+}
+
+void loop()
+{
+  int  v = analogRead(A5);
+  Serial.println(v);
+
+  if (v < 420) {
+    arm.write(90);
+    delay(100);
+    arm.write(30);
+    delay(100);
+  }
+
+} 
+```
