@@ -905,6 +905,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-313 if](#day-313-if)
 
+[day-314 lists](#day-314-lists)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -22957,5 +22959,70 @@ void loop()
   }
 
 } 
+```
+
+
+## [DAY-314] lists
+
+Given this list of items for an online store, print the total price of the whole basket:
+
+```
+items = [
+  {
+    "name": "T-shirt",
+    "quantity": 2,
+    "price": 30.0
+  },
+  {
+    "name": "Jeans",
+    "quantity": 1,
+    "price": 39.99
+  },
+  {
+    "name": "Socks",
+    "quantity": 1,
+    "price": 4.99
+  },
+  {
+    "name": "Coffee Maker",
+    "quantity": 1,
+    "price": 59.99
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "quantity": 2,
+    "price": 89.99
+  },
+  {
+    "name": "Kindle",
+    "quantity": 1,
+    "price": 119.99
+  },
+  {
+    "name": "Running Shoes",
+    "quantity": 1,
+    "price": 79.99
+  },
+  {
+    "name": "Hiking Backpack",
+    "quantity": 1,
+    "price": 129.99
+  },
+  {
+    "name": "Smart Watch",
+    "quantity": 1,
+    "price": 199.99
+  },
+  {
+    "name": "Air Fryer",
+    "quantity": 1,
+    "price": 69.99
+  },
+  {
+    "name": "Wireless Headphones",
+    "quantity": 1,
+    "price": 149.99
+  }
+]
 ```
 
