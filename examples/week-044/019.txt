@@ -55,3 +55,8 @@ items = [
     "price": 149.99
   }
 ]
+
+s = 0
+for item in items:
+    s += item["price"] * item["quantity"]
+print(s)
