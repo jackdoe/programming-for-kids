@@ -595,7 +595,7 @@ void loop()
 
 ## [DAY-314] lists
 
-Given this list of items for an online store, print the total price of the whole basket:
+Given this list of items for an online store, print the total price of the whole 
 
 ```
 items = [
@@ -655,4 +655,63 @@ items = [
     "price": 149.99
   }
 ]
+
+s = 0
+for item in items:
+    s += item["price"] * item["quantity"]
+print(s)
 ```
+
+
+## [DAY-315] lists
+
+> used chatgpt to come up with a question similar to the previous one but a bit more difficult
+
+You are given a list of products with their prices and the inventory available in two stores. The goal is to calculate the total value of each store's inventory and find the most valuable item in each store. Finally, print the total value of both stores' inventory and the most valuable item in each store.
+
+Here's the list of products and their inventory in each store:
+
+```
+products = [
+  {
+    "name": "Laptop",
+    "price": 1000,
+    "inventory_store1": 5,
+    "inventory_store2": 3
+  },
+  {
+    "name": "Smartphone",
+    "price": 800,
+    "inventory_store1": 10,
+    "inventory_store2": 15
+  },
+  {
+    "name": "Tablet",
+    "price": 600,
+    "inventory_store1": 8,
+    "inventory_store2": 6
+  },
+  {
+    "name": "Smart Watch",
+    "price": 300,
+    "inventory_store1": 20,
+    "inventory_store2": 10
+  },
+  {
+    "name": "Headphones",
+    "price": 150,
+    "inventory_store1": 50,
+    "inventory_store2": 35
+  }
+]
+```
+
+
+Follow these steps:
+
+* Calculate the total value of the inventory in each store.
+* Find the most valuable item (in terms of total value) in each store.
+* Print the total value of the inventory in both stores and the most valuable item in each store.
+
+Remember to use for loops, lists, and dictionaries to complete this task. Good luck!
+
