@@ -715,3 +715,36 @@ Follow these steps:
 
 Remember to use for loops, lists, and dictionaries to complete this task. Good luck!
 
+
+> the code she wrote
+
+```
+
+name1 = ""
+name2 = ""
+big1=0
+big2=0
+sum2=0
+sum1=0
+for i in products:
+    inv1 = i["inventory_store1"]
+    inv2  = i["inventory_store2"]
+    price = i["price"]
+
+    total_price1 = price * inv1
+    sum1 += total_price1
+    if total_price1 > big1:
+        name1 = i["name"]
+        big1 = total_price1
+
+    total_price2 = price * inv2
+    sum2 += total_price2
+    if total_price2 > big2:
+        name2 = i["name"]
+        big2 = total_price2
+
+    
+print(sum1,sum2)
+print(big1,name1)
+print(big2,name2)
+```
