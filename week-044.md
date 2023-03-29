@@ -748,3 +748,42 @@ print(sum1,sum2)
 print(big1,name1)
 print(big2,name2)
 ```
+
+
+## [DAY-316] lists; dictionaries
+
+```
+products = [
+  {
+    "name": "Laptop",
+    "price": 1000,
+    "inventory": {"store1": 5, "store2": 3, "store3": 7}
+  },
+  {
+    "name": "Smartphone",
+    "price": 800,
+    "inventory": {"store1": 10, "store2": 15, "store3": 20}
+  },
+  {
+    "name": "Tablet",
+    "price": 600,
+    "inventory": {"store1": 8, "store2": 6, "store3": 9}
+  },
+  {
+    "name": "Smart Watch",
+    "price": 300,
+    "inventory": {"store1": 20, "store2": 10, "store3": 15}
+  },
+  {
+    "name": "Headphones",
+    "price": 150,
+    "inventory": {"store1": 50, "store2": 35, "store3": 40}
+  }
+]
+```
+
+
+* Calculate the total value of the inventory in each store.
+* Print the total value of the inventory in both stores and the most valuable item in each store.
+
+
