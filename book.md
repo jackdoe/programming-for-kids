@@ -909,6 +909,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-315 lists](#day-315-lists)
 
+[day-316 lists; dictionaries](#day-316-lists-dictionaries)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -23119,4 +23121,43 @@ print(sum1,sum2)
 print(big1,name1)
 print(big2,name2)
 ```
+
+
+## [DAY-316] lists; dictionaries
+
+```
+products = [
+  {
+    "name": "Laptop",
+    "price": 1000,
+    "inventory": {"store1": 5, "store2": 3, "store3": 7}
+  },
+  {
+    "name": "Smartphone",
+    "price": 800,
+    "inventory": {"store1": 10, "store2": 15, "store3": 20}
+  },
+  {
+    "name": "Tablet",
+    "price": 600,
+    "inventory": {"store1": 8, "store2": 6, "store3": 9}
+  },
+  {
+    "name": "Smart Watch",
+    "price": 300,
+    "inventory": {"store1": 20, "store2": 10, "store3": 15}
+  },
+  {
+    "name": "Headphones",
+    "price": 150,
+    "inventory": {"store1": 50, "store2": 35, "store3": 40}
+  }
+]
+```
+
+
+* Calculate the total value of the inventory in each store.
+* Print the total value of the inventory in both stores and the most valuable item in each store.
+
+
 
