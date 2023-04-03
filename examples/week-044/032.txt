@@ -1,0 +1,5 @@
+['hi', 'nice']
+['hi', 'nice', 'to']
+['hi', 'nice', 'to', 'be']
+['hi', 'nice', 'to', 'be', 'good']
+['hi', 'nice', 'to', 'be', 'good', 'luck']

@@ -1,0 +1,4 @@
+['hi'] -> BLACKBOX -> ['hi','there']
+['hi','there'] -> BLACKBOX -> ['hi','there','is']
+['hi','there','is'] -> BLACKBOX -> ['hi','there','is','going']
+...

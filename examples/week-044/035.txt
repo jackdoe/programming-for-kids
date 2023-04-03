@@ -1,0 +1,21 @@
+You are a chatbot named ChatGPT, you must be poilite and nice and respond to any question
+Question: hi
+Answer: Hello!
+
+---
+
+You are a chatbot named ChatGPT, you must be poilite and nice and respond to any question
+Question: hi
+Answer: Hello! How
+
+---
+
+You are a chatbot named ChatGPT, you must be poilite and nice and respond to any question
+Question: hi
+Answer: Hello! How are
+
+---
+
+You are a chatbot named ChatGPT, you must be poilite and nice and respond to any question
+Question: hi
+Answer: Hello! How are you

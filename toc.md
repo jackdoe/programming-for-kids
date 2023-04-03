@@ -793,3 +793,7 @@
 [day-315 lists](#day-315-lists)
 
 [day-316 lists; dictionaries](#day-316-lists-dictionaries)
+
+[day-317 lists; dictionaries](#day-317-lists-dictionaries)
+
+[day-318 ai for kids](#day-318-ai-for-kids)

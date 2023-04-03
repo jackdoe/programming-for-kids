@@ -1,0 +1,194 @@
+model = {
+  "hi": {
+    "there": 40,
+    "how": 13.33,
+    "can": 6.67,
+    "nice": 6.67
+  },
+  "there": {
+    "are": 44.83,
+    "was": 20.69,
+    "is": 20.69,
+    "will": 13.79
+  },
+  "how": {
+    "are": 37.78,
+    "to": 26.67,
+    "can": 13.33,
+    "do": 11.11
+  },
+  "can": {
+    "you": 67.19,
+    "i": 15.63,
+    "we": 6.25,
+    "do": 4.69
+  },
+  "nice": {
+    "to": 70,
+    "meeting": 10,
+    "weather": 3,
+    "day": 3
+  },
+  "hello": {
+    "there": 30,
+    "world": 15,
+    "and": 15,
+    "everyone": 15
+  },
+  "everyone": {
+    "is": 26.32,
+    "in": 21.05,
+    "here": 15.79,
+    "at": 10.53
+  },
+  "what's": {
+    "your": 41.18,
+    "the": 22.06,
+    "going": 17.65,
+    "up": 7.35
+  },
+  "are": {
+    "you": 50,
+    "there": 26,
+    "we": 14,
+    "not": 12
+  },
+  "going": {
+    "to": 61.9,
+    "on": 16.67,
+    "be": 7.14,
+    "out": 7.14
+  },
+  "your": {
+    "name": 41.67,
+    "self": 20,
+    "day": 11.67,
+    "work": 10
+  },
+  "is": {
+    "there": 43.08,
+    "it": 33.85,
+    "this": 9.23,
+    "that": 9.23
+  },
+  "to": {
+    "be": 31.43,
+    "do": 22.86,
+    "the": 17.14,
+    "get": 8.57
+  },
+  "you": {
+    "are": 45,
+    "can": 33.33,
+    "want": 10,
+    "need": 8.33
+  },
+  "i": {
+    "am": 54.41,
+    "have": 17.65,
+    "can": 11.76,
+    "will": 8.82
+  },
+  "that": {
+    "is": 47.5,
+    "was": 20,
+    "the": 15,
+    "what": 12.5
+  },
+  "be": {
+    "there": 46.88,
+    "a": 21.88,
+    "the": 18.75,
+    "good": 12.5
+  },
+  "good": {
+    "luck": 52.5,
+    "job": 22.5,
+    "morning": 12.5,
+    "evening": 12.5
+  },
+  "together": {
+    "we": 40,
+    "with": 29.09,
+    "can": 23.64,
+    "make": 14.55
+  },
+  "like": {
+    "to": 52.17,
+    "it": 19.57,
+    "i": 18.48,
+    "you": 10.87
+  },
+  "the": {
+    "best": 28.26,
+    "worst": 13.04,
+    "most": 13.04,
+    "same": 8.7
+  },
+  "was": {},
+  "will": {},
+  "do": {},
+  "we": {},
+  "meeting": {},
+  "weather": {},
+  "day": {},
+  "world": {},
+  "and": {},
+  "in": {},
+  "here": {},
+  "at": {},
+  "up": {},
+  "not": {},
+  "on": {},
+  "out": {},
+  "name": {},
+  "self": {},
+  "work": {},
+  "it": {},
+  "this": {},
+  "get": {},
+  "want": {},
+  "need": {},
+  "am": {},
+  "have": {},
+  "what": {},
+  "a": {},
+  "luck": {},
+  "job": {},
+  "morning": {},
+  "evening": {},
+  "with": {},
+  "make": {},
+  "best": {},
+  "worst": {},
+  "most": {},
+  "same": {}
+}
+
+def choose_word(prob_dict):
+    # Generate a random number between 0 and 100
+    rand_num = random.randint(0, 100)
+    
+    # Iterate through the keys in the probability dictionary
+    for word, prob in prob_dict.items():
+        # Subtract the probability of the current word from the random number
+        rand_num -= prob
+        
+        # If the random number is now negative or zero, return the current word
+        if rand_num <= 0:
+            return word
+    return ""
+
+words = ['hi']
+for i in range(10):
+    # get the last word from, stargint with 'hi'
+    last_word = words[-1]
+    probabilities = model[last_word]
+    next_word = choose_word(probabilities)
+    if next_word == "":
+        break
+
+    words.append(next_word)
+    
+    print(words)
+    

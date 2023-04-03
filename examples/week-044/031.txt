@@ -1,0 +1,7 @@
+['hi', 'there']
+['hi', 'there', 'are']
+['hi', 'there', 'are', 'there']
+['hi', 'there', 'are', 'there', 'are']
+['hi', 'there', 'are', 'there', 'are', 'you']
+['hi', 'there', 'are', 'there', 'are', 'you', 'can']
+['hi', 'there', 'are', 'there', 'are', 'you', 'can', 'we']

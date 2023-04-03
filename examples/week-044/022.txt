@@ -1,3 +1,4 @@
+given this list of products, print the cheapest and most expensive product
 products = [
   {
     "name": "Laptop",
