@@ -23249,8 +23249,7 @@ ___
 
 ## [DAY-318] ai for kids
 
-> this is very simplistic explanation for my kid, you could use other methods or metaphors
-
+> this is very simplistic explanation for my kid, you could use other methods or metaphors, we spent 2 hours on this lesson with lots of examples and explanations, emphasizing on the 'next word prediction' and the non humane nature of it
 ChatGPT is just guessing the next word, thats it.
 
 Imagine a giant black box program (meaning you dont know how it works), you give it a list of words, and it appends one more word to it:
@@ -23633,7 +23632,4 @@ potentially lead to injury.
 
 Now you dont know if this is correct or not, you have to read it and think about it and do your research, because it is just guessing words, it has no concept of truth.
 
-
-
-> We spent 2 hours on this lesson with lots of examples and explanations, emphasizing on the 'next word prediction' and the non humane nature of it
 
