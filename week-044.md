@@ -1255,3 +1255,4 @@ potentially lead to injury.
 
 Now you dont know if this is correct or not, you have to read it and think about it and do your research, because it is just guessing words, it has no concept of truth.
 
+However it has to deeply understand how words are connected in order to guess the next word, and this is what makes it useful to us, but you always have to think about what it wrote and not just take it for granted.
