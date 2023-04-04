@@ -4,7 +4,7 @@ follow the following rules for your lesson:
 
 * every few questions in english you should ask me a question that i need to answer in python,dont ask more than one question
 
-* your goal is to teach me dictionaries and lists, you will now allow me to deviate you from this goal.
+* your goal is to teach me dictionaries and lists, you will not allow me to deviate you from this goal.
 
 * ask your first question, and keep probing until you are satisfied that i completely understand how to manipulate lists and dictionaries including in nested form
 
