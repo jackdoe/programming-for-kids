@@ -797,3 +797,8 @@
 [day-317 lists; dictionaries](#day-317-lists-dictionaries)
 
 [day-318 ai for kids](#day-318-ai-for-kids)
+## week - 045
+
+
+
+[day-319 lists](#day-319-lists)

@@ -914,6 +914,11 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-317 lists; dictionaries](#day-317-lists-dictionaries)
 
 [day-318 ai for kids](#day-318-ai-for-kids)
+## week - 045
+
+
+
+[day-319 lists](#day-319-lists)
 
 ## [DAY-0] The Computer
 
@@ -23633,4 +23638,39 @@ potentially lead to injury.
 Now you dont know if this is correct or not, you have to read it and think about it and do your research, because it is just guessing words, it has no concept of truth.
 
 However it has to deeply understand how words are connected in order to guess the next word, and this is what makes it useful to us, but you always have to think about what it wrote and not just take it for granted.
+
+## [DAY-319] lists
+
+Given that the update() function is called by pygame zero 60 times per second (so your game can have 60fps), make a "game" that adds a new actor every 1 second.
+
+
+> this is what she wrote
+
+```
+import pgzrun
+import random
+HEIGHT = 500
+WIDTH = 500
+
+actors=[]
+counter = 0
+
+def update():
+    global counter
+    counter += 1
+    if counter > 60:
+        act = Actor("c1")
+        act.y = random.randint(0,HEIGHT)
+        act.x = random.randint(0,WIDTH)
+        actors.append(act)
+        counter = 0
+    
+def draw():
+    screen.clear()
+    for actor in actors:
+        actor.draw()
+    
+pgzrun.go()
+
+```
 
