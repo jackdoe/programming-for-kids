@@ -920,6 +920,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-319 lists](#day-319-lists)
 
+[day-320 files](#day-320-files)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -23672,5 +23674,30 @@ def draw():
     
 pgzrun.go()
 
+```
+
+
+## [DAY-320] files
+
+Write the fizzbuzz output to a file instead of the standard output
+
+
+> this is what she wrote
+
+```
+f = open("zzz.txt","w")
+
+for i in range(100):
+    if i % 15 == 0:
+        f.write("fizzbuzz\n")
+    elif i % 3 == 0:
+        f.write("fizz\n")
+    elif i % 5 == 0:
+        f.write("buzz\n")
+    else:
+        a = str(i)
+        f.write(a + "\n")
+
+f.close()
 ```
 
