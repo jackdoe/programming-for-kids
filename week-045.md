@@ -32,3 +32,28 @@ def draw():
 pgzrun.go()
 
 ```
+
+
+## [DAY-320] files
+
+Write the fizzbuzz output to a file instead of the standard output
+
+
+> this is what she wrote
+
+```
+f = open("zzz.txt","w")
+
+for i in range(100):
+    if i % 15 == 0:
+        f.write("fizzbuzz\n")
+    elif i % 3 == 0:
+        f.write("fizz\n")
+    elif i % 5 == 0:
+        f.write("buzz\n")
+    else:
+        a = str(i)
+        f.write(a + "\n")
+
+f.close()
+```
