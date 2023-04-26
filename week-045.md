@@ -57,3 +57,42 @@ for i in range(100):
 
 f.close()
 ```
+
+## [DAY-321] files
+
+When you press P write the actor's position in a file, and when you press L, read the position from the file and move the actor to that position
+
+```
+import pgzrun
+HEIGHT = 800
+WIDTH = 800
+elf = Actor("c1")
+def update():
+
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.D:
+        elf.x+=5
+    if keyboard.S:
+        elf.y+=5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.L:
+        f = open("zzz.txt","r")
+        data = f.read()
+        xy = data.split(" ")
+        x = float(xy[0])
+        elf.x = x
+        y = float(xy[1])
+        elf.y = y
+        f.close()
+    if keyboard.P:
+        f = open("zzz.txt","w")
+        f.write(str(elf.x) + " " + str(elf.y))
+        f.close()
+
+def draw():
+    screen.clear()
+    elf.draw()
+pgzrun.go()
+```
