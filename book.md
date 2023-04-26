@@ -922,6 +922,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-320 files](#day-320-files)
 
+[day-321 files](#day-321-files)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -23699,5 +23701,44 @@ for i in range(100):
         f.write(a + "\n")
 
 f.close()
+```
+
+## [DAY-321] files
+
+When you press P write the actor's position in a file, and when you press L, read the position from the file and move the actor to that position
+
+```
+import pgzrun
+HEIGHT = 800
+WIDTH = 800
+elf = Actor("c1")
+def update():
+
+    if keyboard.W:
+        elf.y-=5
+    if keyboard.D:
+        elf.x+=5
+    if keyboard.S:
+        elf.y+=5
+    if keyboard.A:
+        elf.x-=5
+    if keyboard.L:
+        f = open("zzz.txt","r")
+        data = f.read()
+        xy = data.split(" ")
+        x = float(xy[0])
+        elf.x = x
+        y = float(xy[1])
+        elf.y = y
+        f.close()
+    if keyboard.P:
+        f = open("zzz.txt","w")
+        f.write(str(elf.x) + " " + str(elf.y))
+        f.close()
+
+def draw():
+    screen.clear()
+    elf.draw()
+pgzrun.go()
 ```
 
