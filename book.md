@@ -924,6 +924,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-321 files](#day-321-files)
 
+[day-322 files; functions](#day-322-files-functions)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -23740,5 +23742,34 @@ def draw():
     screen.clear()
     elf.draw()
 pgzrun.go()
+```
+
+
+
+
+
+
+## [DAY-322] files; functions
+
+Make a function writeFile which takes 2 parameters, the file name and a string to be written to the file, and a function readFile which takes one parameter, the name of the file, and returns the file's contents. Use those two functions in the program from day 321
+
+```
+def writeFile(name, s):
+    # write the string s to a file with the given name
+    pass
+
+# example usage of the functin
+# pos = str(elf.x) + " " + str(elf.y)
+# writeFile("zzz.txt", pos)
+
+
+# -------------------------
+
+def readFile(name):
+    # return the total contents of the file
+    pass
+
+# example usage of the functin
+# s = readFile("zzz.txt")
 ```
 

@@ -806,3 +806,5 @@
 [day-320 files](#day-320-files)
 
 [day-321 files](#day-321-files)
+
+[day-322 files; functions](#day-322-files-functions)
