@@ -1,0 +1,19 @@
+def add(a,b):
+    return a + b
+
+def calculate(n1, n2, op):
+    v = None
+    if op == "+":
+        v = add(n1,n2)
+
+    # make it work for multiplicaton, division and subtraction
+    
+    return v
+
+while True:
+    num1 = input("enter number num1: ")
+    num2 = input("enter number num2: ")
+    op = input("enter number op(+,-,/,mod): ")
+
+    r = calculate(float(num1), float(num2), op)
+    print("the result is:", r)

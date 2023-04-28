@@ -926,6 +926,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-322 files; functions](#day-322-files-functions)
 
+[day-323 functions](#day-323-functions)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -23771,5 +23773,74 @@ def readFile(name):
 
 # example usage of the functin
 # s = readFile("zzz.txt")
+```
+
+
+
+## [DAY-323] functions
+
+Make a calculator where every operation is in its own function, complete the following code to support division, multiplication and subtraction:
+
+
+```
+def add(a,b):
+    return a + b
+
+def calculate(n1, n2, op):
+    v = None
+    if op == "+":
+        v = add(n1,n2)
+
+    # make it work for multiplicaton, division and subtraction
+    
+    return v
+
+while True:
+    num1 = input("enter number num1: ")
+    num2 = input("enter number num2: ")
+    op = input("enter number op(+,-,/,mod): ")
+
+    r = calculate(float(num1), float(num2), op)
+    print("the result is:", r)
+```
+
+> this is the code she wrote, i asked her to sometimes use temporary variables sometimes not
+
+```
+def add(a,b):
+    return a + b
+
+def subs(a,b):
+    return a - b
+
+def divv(a,b):
+    c = a / b
+    return c
+
+def mult(a,b):
+    c = a * b
+    return c
+
+def calculate(n1, n2, op):
+    v = None
+    if op == "+":
+        v = add(n1,n2)
+    if op == "*":
+        v = mult(n1,n2)
+    if op == "/":
+        v = divv(n1,n2)
+    if op == "-":
+        v = subs(n1,n2)
+
+    return v
+
+while True:
+    num1 = input("enter number num1: ")
+    num2 = input("enter number num2: ")
+    op = input("enter number op(+,-,/,mod): ")
+
+    r = calculate(float(num1), float(num2), op)
+    print("the result is:", r)
+
 ```
 

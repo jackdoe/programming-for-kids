@@ -808,3 +808,5 @@
 [day-321 files](#day-321-files)
 
 [day-322 files; functions](#day-322-files-functions)
+
+[day-323 functions](#day-323-functions)
