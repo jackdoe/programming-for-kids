@@ -125,3 +125,72 @@ def readFile(name):
 # example usage of the functin
 # s = readFile("zzz.txt")
 ```
+
+
+
+## [DAY-323] functions
+
+Make a calculator where every operation is in its own function, complete the following code to support division, multiplication and subtraction:
+
+
+```
+def add(a,b):
+    return a + b
+
+def calculate(n1, n2, op):
+    v = None
+    if op == "+":
+        v = add(n1,n2)
+
+    # make it work for multiplicaton, division and subtraction
+    
+    return v
+
+while True:
+    num1 = input("enter number num1: ")
+    num2 = input("enter number num2: ")
+    op = input("enter number op(+,-,/,mod): ")
+
+    r = calculate(float(num1), float(num2), op)
+    print("the result is:", r)
+```
+
+> this is the code she wrote, i asked her to sometimes use temporary variables sometimes not
+
+```
+def add(a,b):
+    return a + b
+
+def subs(a,b):
+    return a - b
+
+def divv(a,b):
+    c = a / b
+    return c
+
+def mult(a,b):
+    c = a * b
+    return c
+
+def calculate(n1, n2, op):
+    v = None
+    if op == "+":
+        v = add(n1,n2)
+    if op == "*":
+        v = mult(n1,n2)
+    if op == "/":
+        v = divv(n1,n2)
+    if op == "-":
+        v = subs(n1,n2)
+
+    return v
+
+while True:
+    num1 = input("enter number num1: ")
+    num2 = input("enter number num2: ")
+    op = input("enter number op(+,-,/,mod): ")
+
+    r = calculate(float(num1), float(num2), op)
+    print("the result is:", r)
+
+```
