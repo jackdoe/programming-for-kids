@@ -24088,3 +24088,17 @@ while True:
     check_win_or_lose(b1)
 ```
 
+another example of recursion to print the numbers from 100 to 0:
+
+```
+def dec(x):
+    print(x)
+    if x == 0:
+        return
+    else:
+        dec(x - 1)
+
+
+dec(100)
+```
+

@@ -1,0 +1,9 @@
+def dec(x):
+    print(x)
+    if x == 0:
+        return
+    else:
+        dec(x - 1)
+
+
+dec(100)
