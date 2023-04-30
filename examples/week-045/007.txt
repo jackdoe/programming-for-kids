@@ -1,0 +1,52 @@
+import random
+
+def empty_board():
+    board =["-","-","-",
+            "-","-","-",
+            "-","-","-",]
+    return board
+
+def print_board(board):
+    print(" ","1","2","3")
+    print('a',board[0],board[1],board[2])
+    print('b',board[3],board[4],board[5])
+    print('c',board[6],board[7],board[8])
+
+def person(board, personSymbol):
+    pos = input("enter one of a1,a2,a3,b1,b2,b3,c1,c2,c3: ")
+    # BUG: you can play over previously occpied place
+    if pos == 'a1':
+        board[0] = personSymbol
+    if pos == 'a2':
+        board[1] = personSymbol
+    if pos == 'a3':
+        board[2] = personSymbol
+    if pos == 'b1':
+        board[3] = personSymbol
+    if pos == 'b2':
+        board[4] = personSymbol
+    if pos == 'b3':
+        board[5] = personSymbol
+    if pos == 'c1':
+        board[6] = personSymbol
+    if pos == 'c2':
+        board[7] = personSymbol
+    if pos == 'c3':
+        board[8] = personSymbol
+
+
+def computer(board,computerSymbol):
+    # BUG: places computerSymbol on all empty spaces
+    for i in range(0,9):
+        if board[i] == '-':
+            board[i] = computerSymbol
+            
+def check_win_or_lose(board):
+    pass
+
+b1 = empty_board()
+while True:
+    print_board(b1)
+    person(b1,'X')
+    print_board(b1)
+    computer(b1,'O') 

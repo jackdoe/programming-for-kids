@@ -810,3 +810,7 @@
 [day-322 files; functions](#day-322-files-functions)
 
 [day-323 functions](#day-323-functions)
+
+[day-324 functions](#day-324-functions)
+
+[day-325 functions](#day-325-functions)
