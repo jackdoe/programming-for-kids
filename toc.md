@@ -814,3 +814,5 @@
 [day-324 functions](#day-324-functions)
 
 [day-325 functions](#day-325-functions)
+
+[day-326 functions](#day-326-functions)
