@@ -598,3 +598,40 @@ numbers = [1,5,2,4,5]
 a = avg(numbers)
 print(a)
 ```
+
+
+## [DAY-327] ip
+
+The IP address is just a number, 4 byte number for IP version 4 (which is the current version, but adoption for IP version 6 is coming, and it has 16 bytes), for convenience we write each byte separated by dot, for example 127.0.0.1 instead of the integer 2130706433 (you can see why we do that :)
+
+Use two computers connected to the same Wi-Fi, make a html file somewhere on your disk:
+
+```
+$ mkdir website
+$ cd website
+$ nano index.html
+```
+
+Write whatever you want in it.
+
+Now open it with chrome by going to the directory and double click on index.html, you will see how chrome can load any html file from your disk, and in fact it can open any file locally (pdf, etc). Start a python web server in the 'website' directory:
+
+```
+$ python -m http.server
+```
+
+Now open `http://127.0.0.1:8000/index.html` and you will see the same contents, in order to programs on the same computer (in this case chrome and the python web server) to talk over IP you can use the loopback ip address `127.0.0.1`. All the packets to 127.0.0.1 will never leave your computer.
+
+Check your ip address with `ifconfig` on mac/linux/bsd or `ipconfig` on windows (in this example we will use 192.168.0.55), and form the second computer (or phone) open http://192.168.0.55:8000/index.html and you will see the file. (usually you have one ip address per network card (interface), but there are also virtual interfaces so it might take you a while to find the right one)
+
+When you connect to your Wi-Fi network, your router assigns you a private IP address that is not visible to others outside your network. Private IP addresses typically range from 10.0.0.0 to 10.255.255.255, 192.168.0.0 to 192.168.255.255, and 172.16.x.x to 172.31.x.x. These addresses cannot be used directly on the internet.
+
+Your Wi-Fi router has a single, routable IP address, which it uses to translate your private IP address to a public one and vice versa. This process is known as Network Address Translation (NAT).
+
+Connections are initiated from the inside out, meaning that people outside your network cannot send data packets directly to your computer unless the Wi-Fi router knows which internal device to forward them to. This is determined when your computer sends traffic out, allowing the Wi-Fi router to create an entry in the translation table.
+
+In order to make your website public on the internet, you can purchase hosting service from digitalocean.com or something similar, which will give you a computer with an public ip address. Once you place your file there then anyone can access it. The next step is to buy a domain name, becuase nobody would want to remember `64.227.76.11`, so you can buy a domain name 'like punkx.org' and make it point to 64.227.76.11 then when someone opens punkx.org it will actually connect to 64.227.76.11 on port 80, you dont have to type punkx.org:80, 80 is the default port, if you are listening on a different port (like python -m http.server by default listens on 8000) then you have to specify it, like punkx.org:8000.
+
+For now you can think of 3 kind of IP addresses, **Local** (127.0.0.1), **Private**: 10.x.x.x, 192.168.x.x and 172.16.x.x to 172.31.x.x., and **Public** which is basically everything else (e.g. 1.1.1.1 is a popular dns service, or 8.8.8.8, or 172.217.169.206 is google.com at the moment).
+
+
