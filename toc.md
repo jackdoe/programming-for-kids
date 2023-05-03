@@ -816,3 +816,5 @@
 [day-325 functions](#day-325-functions)
 
 [day-326 functions](#day-326-functions)
+
+[day-327 ip](#day-327-ip)
