@@ -569,3 +569,32 @@ while True:
     computer(b1,'O')
     check_win_or_lose(b1)
 ```
+
+
+## [DAY-326] functions
+
+Implement the avg() function:
+
+```
+def avg(list_of_numbers):
+    pass
+
+
+numbers = [1,5,2,4,5]
+a = avg(numbers)
+print(a)
+```
+
+> this is what she wrote
+
+```
+def avg(list_of_numbers):
+    n = len(list_of_numbers)
+    s = sum(list_of_numbers)
+    s = s/n
+    return s
+
+numbers = [1,5,2,4,5]
+a = avg(numbers)
+print(a)
+```
