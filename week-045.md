@@ -634,4 +634,15 @@ In order to make your website public on the internet, you can purchase hosting s
 
 For now you can think of 3 kind of IP addresses, **Local** (127.0.0.1), **Private**: 10.x.x.x, 192.168.x.x and 172.16.x.x to 172.31.x.x., and **Public** which is basically everything else (e.g. 1.1.1.1 is a popular dns service, or 8.8.8.8, or 172.217.169.206 is google.com at the moment).
 
+## [DAY-328] hosting
+
+Watch Bro Code's [HTML Full Course](https://www.youtube.com/watch?v=HD13eq_Pmp8), and make some html file. Ask your parents to buy and setup a linux hosting server somewhere (I bought a vps from digital ocean), install nginx on it and add your user, make sure you use a long password (like: iloveniceramenfood) and make sure your user can write to /var/www/html.
+
+Copy your htmkl file `scp zzz.html user@x.x.x.x:` where x.x.x.x will be the ip address of the hositng the `:` is important for `scp` (which means secure copy), after `:` goes the directory you want to copy the file to, if you dont specify it will go to the home directory of the user.
+
+After that ssh into the machine `ssh user@x.x.x.x` and then move the file to /var/www/html with the `mv` command: `mv zzz.html /var/www/html` 
+
+Now open http://x.x.x.x.x/zzz.html with your browser and you are good to go!
+
+> it is important to practice separately the scp and ssh, of course you can just `scp zzz.html user@x.x.x.x:/var/www/html`, but being able to ssh into machine has to become intuitive
 
