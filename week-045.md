@@ -646,3 +646,12 @@ Now open http://x.x.x.x.x/zzz.html with your browser and you are good to go!
 
 > it is important to practice separately the scp and ssh, of course you can just `scp zzz.html user@x.x.x.x:/var/www/html`, but being able to ssh into machine has to become intuitive
 
+
+
+## [DAY-329] html
+
+Continue watching Bro Code's [HTML Full Course](https://www.youtube.com/watch?v=HD13eq_Pmp8)
+
+And make more files, keep uploading them via scp and then moving them in the right directory with mv.
+
+
