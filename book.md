@@ -938,6 +938,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-328 hosting](#day-328-hosting)
 
+[day-329 html](#day-329-html)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24304,5 +24306,14 @@ After that ssh into the machine `ssh user@x.x.x.x` and then move the file to /va
 Now open http://x.x.x.x.x/zzz.html with your browser and you are good to go!
 
 > it is important to practice separately the scp and ssh, of course you can just `scp zzz.html user@x.x.x.x:/var/www/html`, but being able to ssh into machine has to become intuitive
+
+
+
+## [DAY-329] html
+
+Continue watching Bro Code's [HTML Full Course](https://www.youtube.com/watch?v=HD13eq_Pmp8)
+
+And make more files, keep uploading them via scp and then moving them in the right directory with mv.
+
 
 
