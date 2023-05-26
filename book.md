@@ -939,6 +939,13 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-328 hosting](#day-328-hosting)
 
 [day-329 html](#day-329-html)
+## week - 046
+
+
+
+[day-330 html](#day-330-html)
+
+[day-331 for; input](#day-331-for-input)
 
 ## [DAY-0] The Computer
 
@@ -24316,4 +24323,92 @@ Continue watching Bro Code's [HTML Full Course](https://www.youtube.com/watch?v=
 And make more files, keep uploading them via scp and then moving them in the right directory with mv.
 
 
+
+## [DAY-330] html
+
+Make 5 webpages with image, link to a website some title, description and a list of items
+
+> this is an example page she made, this exercise actually took 5-6 days, she made one page every few days
+
+![game-330.png](./screenshots/game-330.png "game 330 screenshot")
+
+Upload them to the server your parents bought with scp then ssh into it and move the files to the right directory so they are visible from http://x.x.x.x/page.html
+
+
+
+
+## [DAY-331] for; input
+
+Rewrite this card from our [https://punkjazz.org/programming-time](programming-time) game from python to c:
+
+```
+# Welcome to the haunted house!
+# ⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂
+# 
+#     ___
+#   _/ @@\   +--0--+ +--1--+ +--2--+
+#  ( \  O/__ |     | |     | |     |
+#   \    \__)|*    | |*    | |*    |
+#   /     \  |     | |     | |     |
+#  /      _\ |     | |     | |     |
+# `"""""``   +-----+ +-----+ +-----+
+# (ghost art
+#  by jgs)
+#
+#
+# There are 3 doors.
+# Behind one of the doors there is a
+# ghost.
+#
+# Roll the dice until your door is
+# different from the ghost's door.
+while True:
+  ghost_door = ⚂ % 3
+  your_door = ⚂ % 3
+
+  if your_door == ghost_door:
+    print("RUUUNNN!!")
+  else:
+    print("phew! no ghost!")
+    break
+```
+
+
+those are two example C programs that you can read to draw inspiration from:
+
+```
+// printf, scanf come from here:
+#include <stdio.h>
+
+// random() comes from here:
+#include <stdlib.h>
+
+int main(void) {
+    int a = random();
+
+    printf("the random number is: %d\n",a);
+
+    return 0;
+}
+
+```
+
+and
+
+```
+// printf, scanf come from here:
+#include <stdio.h>
+
+int main(void) {
+  int b = 0;
+
+  printf("enter number: ");
+  scanf("%d",&b);
+
+  printf("the number you entered is is: %d\n",b);
+
+  return 0;
+}
+
+```
 
