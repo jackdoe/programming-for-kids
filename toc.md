@@ -829,3 +829,5 @@
 [day-330 html](#day-330-html)
 
 [day-331 for; input](#day-331-for-input)
+
+[day-332 unix](#day-332-unix)

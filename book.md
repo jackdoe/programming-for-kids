@@ -947,6 +947,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-331 for; input](#day-331-for-input)
 
+[day-332 unix](#day-332-unix)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24411,4 +24413,21 @@ int main(void) {
 }
 
 ```
+
+
+## [DAY-332] unix
+
+
+Play the [bandit war game](https://overthewire.org/wargames/bandit/) level 0 to 7:
+
+* https://overthewire.org/wargames/bandit/bandit0.html
+* https://overthewire.org/wargames/bandit/bandit1.html
+* https://overthewire.org/wargames/bandit/bandit2.html
+* https://overthewire.org/wargames/bandit/bandit3.html
+* https://overthewire.org/wargames/bandit/bandit4.html
+* https://overthewire.org/wargames/bandit/bandit5.html
+* https://overthewire.org/wargames/bandit/bandit6.html
+* https://overthewire.org/wargames/bandit/bandit7.html
+
+Read the instructions carefully, try to not use chatgpt, but if you get stuck its better to use it to unblock yourself.
 
