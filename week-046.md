@@ -85,3 +85,20 @@ int main(void) {
 }
 
 ```
+
+
+## [DAY-332] unix
+
+
+Play the [bandit war game](https://overthewire.org/wargames/bandit/) level 0 to 7:
+
+* https://overthewire.org/wargames/bandit/bandit0.html
+* https://overthewire.org/wargames/bandit/bandit1.html
+* https://overthewire.org/wargames/bandit/bandit2.html
+* https://overthewire.org/wargames/bandit/bandit3.html
+* https://overthewire.org/wargames/bandit/bandit4.html
+* https://overthewire.org/wargames/bandit/bandit5.html
+* https://overthewire.org/wargames/bandit/bandit6.html
+* https://overthewire.org/wargames/bandit/bandit7.html
+
+Read the instructions carefully, try to not use chatgpt, but if you get stuck its better to use it to unblock yourself.
