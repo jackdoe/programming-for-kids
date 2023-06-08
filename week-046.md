@@ -102,3 +102,7 @@ Play the [bandit war game](https://overthewire.org/wargames/bandit/) level 0 to 
 * https://overthewire.org/wargames/bandit/bandit7.html
 
 Read the instructions carefully, try to not use chatgpt, but if you get stuck its better to use it to unblock yourself.
+
+## [DAY-333] unix
+
+In order to understand how arguments are passed to your program, read chapter [18.1 from Beej's C guide](https://beej.us/guide/bgc/html/split/the-outside-environment.html#command-line-arguments) and implement the program to print the sum of the command line arguments.
