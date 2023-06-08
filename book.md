@@ -949,6 +949,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-332 unix](#day-332-unix)
 
+[day-333 unix](#day-333-unix)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24430,4 +24432,8 @@ Play the [bandit war game](https://overthewire.org/wargames/bandit/) level 0 to 
 * https://overthewire.org/wargames/bandit/bandit7.html
 
 Read the instructions carefully, try to not use chatgpt, but if you get stuck its better to use it to unblock yourself.
+
+## [DAY-333] unix
+
+In order to understand how arguments are passed to your program, read chapter [18.1 from Beej's C guide](https://beej.us/guide/bgc/html/split/the-outside-environment.html#command-line-arguments) and implement the program to print the sum of the command line arguments.
 

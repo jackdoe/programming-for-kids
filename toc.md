@@ -831,3 +831,5 @@
 [day-331 for; input](#day-331-for-input)
 
 [day-332 unix](#day-332-unix)
+
+[day-333 unix](#day-333-unix)
