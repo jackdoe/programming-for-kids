@@ -136,6 +136,20 @@ for i in range(CARD+len(listed), 56):
     listed.append(next(starting))
 listed.sort()
 
+    
+themes = {
+    "gpt1": {"Background": "#F7FAFF", "Keyword": "#123456", "Unknown": "#4F4F4F", "Number": "#467C98", "String": "#215973", "Comment": "#B20000"},
+    "gpt2": {"Background": "#FFF5E6", "Keyword": "#854331", "Unknown": "#494949", "Number": "#714F4A", "String": "#5E4C40", "Comment": "#B20000"},
+    "gpt3": {"Background": "#E8F5E6", "Keyword": "#2D6F38", "Unknown": "#545454", "Number": "#6B9C36", "String": "#4DA759", "Comment": "#B20000"},
+    "gpt4": {"Background": "#FFFFFF", "Keyword": "#000000", "Unknown": "#5A5A5A", "Number": "#000000", "String": "#000000", "Comment": "#B20000"},
+    "gpt5": {"Background": "#FEE6CE", "Keyword": "#933201", "Unknown": "#4C4C4C", "Number": "#CC5C00", "String": "#933201", "Comment": "#B20000"},
+    "gpt6": {"Background": "#FAF9FC", "Keyword": "#A167A9", "Unknown": "#747474", "Number": "#C275A2", "String": "#C682C2", "Comment": "#B20000"},
+    "gpt7": {"Background": "#E0F7FA", "Keyword": "#006770", "Unknown": "#3D646D", "Number": "#1FA4B8", "String": "#008FA3", "Comment": "#B20000"},
+    "gpt8": {"Background": "#FFF9F0", "Keyword": "#5C2D0F", "Unknown": "#4A433A", "Number": "#684B47", "String": "#6F563F", "Comment": "#B20000"},
+    "gpt9": {"Background": "#E8F5E9", "Keyword": "#195922", "Unknown": "#2E2E2E", "Number": "#2D8038", "String": "#4AA859", "Comment": "#B20000"},
+    "gpt10": {"Background": "#F9F9F5", "Keyword": "#487256", "Unknown": "#565656", "Number": "#82988F", "String": "#677F6A", "Comment": "#B20000"}
+}
+
 for fn in listed:
     if '#' in fn:
         continue
@@ -164,18 +178,6 @@ for fn in listed:
     bgcolor = 'white'
     theme = ''
 
-    themes = {
-        "gpt1": {"Background": "#F7FAFF", "Keyword": "#123456", "Unknown": "#4F4F4F", "Number": "#467C98", "String": "#215973", "Comment": "#B20000"},
-        "gpt2": {"Background": "#FFF5E6", "Keyword": "#854331", "Unknown": "#494949", "Number": "#714F4A", "String": "#5E4C40", "Comment": "#B20000"},
-        "gpt3": {"Background": "#E8F5E6", "Keyword": "#2D6F38", "Unknown": "#545454", "Number": "#6B9C36", "String": "#4DA759", "Comment": "#B20000"},
-        "gpt4": {"Background": "#FFFFFF", "Keyword": "#000000", "Unknown": "#5A5A5A", "Number": "#000000", "String": "#000000", "Comment": "#B20000"},
-        "gpt5": {"Background": "#FEE6CE", "Keyword": "#933201", "Unknown": "#4C4C4C", "Number": "#CC5C00", "String": "#933201", "Comment": "#B20000"},
-        "gpt6": {"Background": "#FAF9FC", "Keyword": "#A167A9", "Unknown": "#747474", "Number": "#C275A2", "String": "#C682C2", "Comment": "#B20000"},
-        "gpt7": {"Background": "#E0F7FA", "Keyword": "#006770", "Unknown": "#3D646D", "Number": "#1FA4B8", "String": "#008FA3", "Comment": "#B20000"},
-        "gpt8": {"Background": "#FFF9F0", "Keyword": "#5C2D0F", "Unknown": "#4A433A", "Number": "#684B47", "String": "#6F563F", "Comment": "#B20000"},
-        "gpt9": {"Background": "#E8F5E9", "Keyword": "#195922", "Unknown": "#2E2E2E", "Number": "#2D8038", "String": "#4AA859", "Comment": "#B20000"},
-        "gpt10": {"Background": "#F9F9F5", "Keyword": "#487256", "Unknown": "#565656", "Number": "#82988F", "String": "#677F6A", "Comment": "#B20000"}
-    }
     if fn.startswith('and'):
       typL = 'AND'
       typR = 'AND'
