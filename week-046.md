@@ -126,7 +126,7 @@ Make a small python program on your computer that reads the file /etc/hidden/dat
 f = open("/etc/hidden/data.txt","r")
 lines = f.readlines()
 for l in lines:
-    if l.startwith("hello"):
+    if l.startswith("hello"):
         print(l)
 f.close()
 
