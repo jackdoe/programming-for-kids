@@ -15,9 +15,16 @@ color = 'black'
 bgcolor = 'white'
 theme = 'vim'
 
+#color = '#39FF14' 
+#bgcolor = '#000000'
+#theme='punk0'
+#font='BlockZone'
+#fontSize='25px'
+#
+
 def card_str(x):
   global CARD
-  print(f"CARD:{CARD}::{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}")
+  print(f"CARD:{CARD}::{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:::")
   CARD+=1
   print(x)
   print()
@@ -25,7 +32,7 @@ def card_str(x):
 def card_middle(title, card):
     n = int((32/2)) - int((len(card)) / 2)
     global CARD
-    print(f"CARD:{CARD}::{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}")
+    print(f"CARD:{CARD}::{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:::")
     print(title.center(40))
     CARD+=1
     print('\n' * (n-1), end='')
@@ -43,9 +50,9 @@ def binary(f):
     card_middle(f"from: {f} to: {f + 60 - 1}",s)
 
 
-card_str(f"""{'BINX'.center(40)}
+card_str(f"""{'BIN7'.center(40)}
 
-Welcome to BINX game.
+Welcome to BIN7 game.
 
 A game of using and abusing integers in
 programming.
@@ -59,8 +66,10 @@ functions:
   SHIFT
   ZERO
 
-Starting from the number 1 the players
-have to produce the number 7.
+Starting from the number 1 the goal 
+is to get to the number 7.
+
++ start with 5 cards each
 
 + each player decides to draw or play
 
@@ -68,7 +77,7 @@ have to produce the number 7.
   previous card's output and compuite
   the new value with your card
 
-+ whoever gets first to the value 7 wins
++ whoever gets first to the number 7 wins
 
 """)
 
@@ -76,7 +85,7 @@ card_str(f"""{'BINARY'.center(40)}
 
 All the cards in the game take and
 return the type uint8_t, which means:
-unsigned integer 8 bits (1 byte).
+unsigned integer with 8 bits (1 byte).
 
 So we have 8 bits to work with
 binary   decimal number
@@ -136,7 +145,44 @@ for fn in listed:
     if lang ==  '':
       continue
 
-    print(f"CARD:{CARD}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}")
+    typL = 'INC'
+    typR = 'INC'
+    color = ''
+    if fn.startswith('and'):
+      typL = 'AND'
+      typR = 'AND'
+    elif fn.startswith('or'):
+      typL = ' OR'
+      typR = 'OR '
+    elif fn.startswith('not'):
+      typL = 'NOT'
+      typR = 'NOT'
+    elif fn.startswith('increment'):
+      typL = 'INC'
+      typR = 'INC'
+    elif fn.startswith('decrement'):
+      typL = 'DEC'
+      typR = 'DEC'
+    elif fn.startswith('popcount'):
+      typL = 'CNT'
+      typR = 'CNT'
+    elif fn.startswith('shiftLeft'):
+      typL = 'SHL'
+      typR = 'SHL'
+    elif fn.startswith('shiftRight'):
+      typL = 'SHR'
+      typR = 'SHR'
+    elif fn.startswith('zero'):
+      typL = 'ZER'
+      typR = 'ZER'
+
+
+
+    color = '#A9A2D7' # amber apple2
+    bgcolor = '#0000AF'
+    theme='gptamber'
+
+    print(f"CARD:{CARD}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{typL}:{typR}:fill=#ffffff")
     skip = True
     with open(f"./code/{fn}","r") as f:
         CARD+=1
