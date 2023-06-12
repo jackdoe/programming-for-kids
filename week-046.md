@@ -106,3 +106,30 @@ Read the instructions carefully, try to not use chatgpt, but if you get stuck it
 ## [DAY-333] unix
 
 In order to understand how arguments are passed to your program, read chapter [18.1 from Beej's C guide](https://beej.us/guide/bgc/html/split/the-outside-environment.html#command-line-arguments) and implement the program to print the sum of the command line arguments.
+
+
+## [DAY-334] unix
+
+> make a file somewhere on another computer (e.g. /etc/hidden/data.txt) with specific size, and fill it with random data, and mid-way put some word like 'helloworld', in my case the file was 18348672 bytes long
+
+On the computer a.b.c.d (your parent will yell you the ip address) there is a file somewhere in the filesystem which is exactly 18348672, login to the computer with ssh (your parent will give you username and password) and use the `find` command to find it, then use the programs `cat` and `grep` to print only the lines the contain the word hello
+
+> find / -size 18348672c # finds the file
+> cat /etc/hidden/data.txt | grep hello
+
+## [DAY-335] unix
+
+Make a small python program on your computer that reads the file /etc/hidden/data.txt and prints only the lines that start with the word hello, then use `scp` to copy it to the other computer and then use `ssh` to log into it and execute your program.
+
+
+```
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+for l in lines:
+    if l.startwith("hello"):
+        print(l)
+f.close()
+
+```
+
+> I specifically encouraged using list of all lines instead of a stream at this stage because streams of bytes are actualy quire strange concept, while lists are more natural
