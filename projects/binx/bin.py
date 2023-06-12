@@ -29,30 +29,10 @@ def card_str(x):
   print(x)
   print()
 
-def card_middle(title, card):
-    n = int((32/2)) - int((len(card)) / 2)
-    global CARD
-    print(f"CARD:{CARD}::{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:::")
-    print(title.center(40))
-    CARD+=1
-    print('\n' * (n-1), end='')
-    for line in card:
-        print(line)
-
     
-def binary(f):
-    s = []
-    for i in range(f, f+30):
-        a = i
-        b = i + 30
-        s.append((f"{a:03} {a:08b}     |     {b:03} {b:08b}").center(40))
+card_str(f"""{'BIN111'.center(40)}
 
-    card_middle(f"from: {f} to: {f + 60 - 1}",s)
-
-
-card_str(f"""{'BIN7'.center(40)}
-
-Welcome to BIN7 game.
+Welcome to BIN111 game.
 
 A game of using and abusing integers in
 programming.
@@ -60,14 +40,14 @@ programming.
 Each card has one of the following
 functions:
 
-  AND OR XOR NOT
-  INC DEC 
+  AND, OR, XOR, NOT
+  INC, DEC 
   POPCOUNT 
   SHIFT
   ZERO
 
 Starting from the number 1 the goal 
-is to get to the number 7.
+is to get to 7.
 
 + start with 5 cards each
 
@@ -83,21 +63,54 @@ is to get to the number 7.
 
 card_str(f"""{'BINARY'.center(40)}
 
+In the binary system, each digit
+represents a power of 2, starting from
+the rightmost bit (also known as the
+least significant bit) which represents
+2^0, and going to the left each bit
+represents the next power of 2.
+
+Converting binary number to decimal:
+
+The number: 01001011
+
+  0   1   0   0  1  0  1  1
+128  64  32  16  8  4  2  1 
+
+you just sum the bits that are ON (with
+value 1) and ignore the ones that are
+OFF (with value 0):
+64 + 8 + 2 + 1 = 75
+
+To convert from decimal to binary use
+the same approach, you have to represent
+the number as a sum of 128, 64, 32, 16,
+8, 4, 2 and 1. For example the number 72
+is 64 + 8, or 01001000.
+
+Leading zeroes are ignored, same as 099
+in decimal is just 99, 00000111 is just
+111.
+
+""")
+
+card_str(f"""{'BINARY'.center(40)}
+
 All the cards in the game take and
 return the type uint8_t, which means:
 unsigned integer with 8 bits (1 byte).
 
 So we have 8 bits to work with
 binary   decimal number
-0000000  0
-0000001  1
-0000010  2
-0000011  3
-0000100  4
-0000101  5
+00000000  0
+00000001  1
+00000010  2
+00000011  3
+00000100  4
+00000101  5
 
 The smallest number we can represent is
-0, when all the bits are 0, and the
+0, where all the bits are 0, and the
 largest one is 255(all 8 bits set to 1).
 
 If we were using uint64_t then we would
@@ -113,9 +126,6 @@ used for the sign, if its - or not, so
 the smallest number you can have is -128
 and the largest is 127.
 """)
-
-
-binary(0)
 
 listed = listdir('./code')
 listed = [x for x in listed if x.endswith('.c') and '#' not in x]
