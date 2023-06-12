@@ -951,6 +951,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-333 unix](#day-333-unix)
 
+[day-334 unix](#day-334-unix)
+
+[day-335 unix](#day-335-unix)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24436,4 +24440,31 @@ Read the instructions carefully, try to not use chatgpt, but if you get stuck it
 ## [DAY-333] unix
 
 In order to understand how arguments are passed to your program, read chapter [18.1 from Beej's C guide](https://beej.us/guide/bgc/html/split/the-outside-environment.html#command-line-arguments) and implement the program to print the sum of the command line arguments.
+
+
+## [DAY-334] unix
+
+> make a file somewhere on another computer (e.g. /etc/hidden/data.txt) with specific size, and fill it with random data, and mid-way put some word like 'helloworld', in my case the file was 18348672 bytes long
+
+On the computer a.b.c.d (your parent will yell you the ip address) there is a file somewhere in the filesystem which is exactly 18348672, login to the computer with ssh (your parent will give you username and password) and use the `find` command to find it, then use the programs `cat` and `grep` to print only the lines the contain the word hello
+
+> find / -size 18348672c # finds the file
+> cat /etc/hidden/data.txt | grep hello
+
+## [DAY-335] unix
+
+Make a small python program on your computer that reads the file /etc/hidden/data.txt and prints only the lines that start with the word hello, then use `scp` to copy it to the other computer and then use `ssh` to log into it and execute your program.
+
+
+```
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+for l in lines:
+    if l.startswith("hello"):
+        print(l)
+f.close()
+
+```
+
+> I specifically encouraged using list of all lines instead of a stream at this stage because streams of bytes are actualy quire strange concept, while lists are more natural
 
