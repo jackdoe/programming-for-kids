@@ -24448,8 +24448,7 @@ In order to understand how arguments are passed to your program, read chapter [1
 
 On the computer a.b.c.d (your parent will yell you the ip address) there is a file somewhere in the filesystem which is exactly 18348672, login to the computer with ssh (your parent will give you username and password) and use the `find` command to find it, then use the programs `cat` and `grep` to print only the lines the contain the word hello
 
-> find / -size 18348672c # finds the file
-> cat /etc/hidden/data.txt | grep hello
+> find / -size 18348672c # finds the file, then `cat /etc/hidden/data.txt | grep hello`, explain about how one program's output becomes another program's input
 
 ## [DAY-335] unix
 
