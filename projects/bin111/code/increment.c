@@ -1,6 +1,6 @@
 // increment x: return x + 1
 // WARNING: integer overflow
-//          255 + 1 = 0
+//          15 + 1 = 0
 
 // binary addition:
 //   0 + 0 = 0
@@ -10,12 +10,12 @@
 //
 // for example:
 //
-//    00000011 
-//  + 00000001 
-//    ---------
-//    00000100
+//    0011 
+//  + 0001 
+//    -----
+//    0100
 // 
-uint8_t increment(uint8_t x) {
+uint4_t increment(uint4_t x) {
 
   x = x + 1;
 

@@ -1,3 +1,3 @@
-uint8_t zero(uint8_t x) {
+uint4_t zero(uint4_t x) {
   return 0;
 }

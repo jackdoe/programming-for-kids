@@ -29,7 +29,27 @@ def card_str(x):
   print(x)
   print()
 
-    
+
+def card_middle(card):
+    for line in card:
+        print(line)
+
+     
+def binary(f,t):
+    global CARD
+    print(f"CARD:{CARD}::{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:::")
+    CARD+=1
+
+    for i in range(f, min(256,f+31)):
+        a = i
+        b = i + 31
+        if b > t:
+          print(f"{a:3} {a:08b}".center(40))
+        else:
+          print(f"{a:3} {a:08b}     |     {b:3} {b:8b}".center(40))
+
+
+
 card_str(f"""{'BIN111'.center(40)}
 
 Welcome to BIN111 game.
@@ -40,30 +60,30 @@ programming.
 Each card has one of the following
 functions:
 
-  AND, OR, XOR, NOT
-  INC, DEC 
-  POPCOUNT 
-  SHIFT
+  BINARY NOT OPERATION
+  INCREMENT, DECREMENT
+  POPCOUNT
+  SHIFT LEFT, SHIFT RIGHT
   ZERO
 
-Starting from the number 1 the goal 
-is to get to 7.
++ The starting number is 1
 
-+ start with 5 cards each
++ Players start with 3 cards each
 
-+ each player decides to draw or play
++ Each turn a player decides to play or
+  to draw from the deck, if you have 4
+  cards you must play.
 
-+ if you play, you apply function to the
-  previous card's output and compuite
-  the new value with your card
++ If you play, you must play ALL your
+  cards and compute the value of the
+  number after applying your card's to
+  the previous value
 
-+ whoever gets first to the number 7
-  wins the game
-
++ A player wins if the output of their
+  play is 0111 (decimal 7)
 """)
 
 card_str(f"""{'BINARY'.center(40)}
-
 In the binary system, each digit
 represents a power of 2, starting from
 the rightmost bit (also known as the
@@ -72,60 +92,61 @@ least significant bit) which represents
 represents the next power of 2.
 
 Converting binary number to decimal:
+The number: 1010
 
-The number: 01001011
-
-  0   1   0   0  1  0  1  1
-128  64  32  16  8  4  2  1 
-
+1      0       1       0
+2^3    2^2     2^1     2^0
+8      4       2       1 
 you just sum the bits that are ON (with
 value 1) and ignore the ones that are
-OFF (with value 0):
-64 + 8 + 2 + 1 = 75
+OFF (with value 0): 8 + 0 + 2 + 0 = 10,
+so the number 10 in binary is 1010
+
+1111 is 8 + 4 + 2 + 1, which is 15
+0000 is 0 + 0 + 0 + 0, which is 0
 
 To convert from decimal to binary use
 the same approach, you have to represent
-the number as a sum of 128, 64, 32, 16,
-8, 4, 2 and 1. For example the number 72
-is 64 + 8, or 01001000.
+the number as a sums of power of 2, 
+... 1024 512 256 128 64 32 8 4 2 1
+For example the number 362 is 101101010
 
 Leading zeroes are ignored, same as 099
 in decimal is just 99, 00000111 is just
 111.
-
 """)
 
 card_str(f"""{'BINARY'.center(40)}
-
 All the cards in the game take and
-return the type uint8_t, which means:
-unsigned integer with 8 bits (1 byte).
+return the type uint4_t, which means:
+unsigned integer with 4 bits (1 nibble).
 
-So we have 8 bits to work with
-binary   decimal number
-00000000  0
-00000001  1
-00000010  2
-00000011  3
-00000100  4
-00000101  5
+So we have 4 bits to work with:
+    00   0000             08   1000
+    01   0001             09   1001
+    02   0010             10   1010
+    03   0011             11   1011
+    04   0100             12   1100
+    05   0101             13   1101
+    06   0110             14   1110
+    07   0111             15   1111
 
 The smallest number we can represent is
 0, where all the bits are 0, and the
-largest one is 255(all 8 bits set to 1).
+largest one is 15 (all 4 bits set to 1).
 
 If we were using uint64_t then we would
-have 64 bits(8 bytes) to work with,
+have 64 bits (8 bytes) to work with,
 smallest number is 0 and the largest is
 9223372036854775807 (all 64 bits set to
 1).
 
-If you need to work with negative
-numbers then you need a signed integer,
-int8_t is again 8 bits, but one bit is
-used for the sign, if its - or not, so
-the smallest number you can have is -128
-and the largest is 127.
+In C there is no easy way to use 4 bit
+numbers (you can struct x{{uint8_t
+v:4;}} or mask with &11), the smallest
+standard integer type you can use is 8
+bits: uint8_t, but for the purpose of
+the game, 4 bits are more fun.
 """)
 
 listed = listdir('./code')
@@ -138,16 +159,13 @@ listed.sort()
 
     
 themes = {
-    "gpt1": {"Background": "#F7FAFF", "Keyword": "#123456", "Unknown": "#4F4F4F", "Number": "#467C98", "String": "#215973", "Comment": "#B20000"},
-    "gpt2": {"Background": "#FFF5E6", "Keyword": "#854331", "Unknown": "#494949", "Number": "#714F4A", "String": "#5E4C40", "Comment": "#B20000"},
-    "gpt3": {"Background": "#E8F5E6", "Keyword": "#2D6F38", "Unknown": "#545454", "Number": "#6B9C36", "String": "#4DA759", "Comment": "#B20000"},
-    "gpt4": {"Background": "#FFFFFF", "Keyword": "#000000", "Unknown": "#5A5A5A", "Number": "#000000", "String": "#000000", "Comment": "#B20000"},
-    "gpt5": {"Background": "#FEE6CE", "Keyword": "#933201", "Unknown": "#4C4C4C", "Number": "#CC5C00", "String": "#933201", "Comment": "#B20000"},
-    "gpt6": {"Background": "#FAF9FC", "Keyword": "#A167A9", "Unknown": "#747474", "Number": "#C275A2", "String": "#C682C2", "Comment": "#B20000"},
-    "gpt7": {"Background": "#E0F7FA", "Keyword": "#006770", "Unknown": "#3D646D", "Number": "#1FA4B8", "String": "#008FA3", "Comment": "#B20000"},
-    "gpt8": {"Background": "#FFF9F0", "Keyword": "#5C2D0F", "Unknown": "#4A433A", "Number": "#684B47", "String": "#6F563F", "Comment": "#B20000"},
-    "gpt9": {"Background": "#E8F5E9", "Keyword": "#195922", "Unknown": "#2E2E2E", "Number": "#2D8038", "String": "#4AA859", "Comment": "#B20000"},
-    "gpt10": {"Background": "#F9F9F5", "Keyword": "#487256", "Unknown": "#565656", "Number": "#82988F", "String": "#677F6A", "Comment": "#B20000"}
+    "gpt1": {"Background": "#D7FAFF", "Keyword": "#003456", "Unknown": "#1F1F1F", "Number": "#005798", "String": "#004573", "Comment": "#B20000"},
+    "gpt2": {"Background": "#FFD5B6", "Keyword": "#4C0000", "Unknown": "#1F1F1F", "Number": "#4C1A0A", "String": "#3B0A00", "Comment": "#B20000"},
+    "gpt3": {"Background": "#C8E8C6", "Keyword": "#003806", "Unknown": "#1F1F1F", "Number": "#005E00", "String": "#004D0A", "Comment": "#B20000"},
+    "gpt4": {"Background": "#FFFFFF", "Keyword": "#000000", "Unknown": "#1F1F1F", "Number": "#000000", "String": "#000000", "Comment": "#B20000"},
+    "gpt5": {"Background": "#FEBB6E", "Keyword": "#5B0000", "Unknown": "#1F1F1F", "Number": "#7D3300", "String": "#5B0000", "Comment": "#B20000"},
+    "gpt6": {"Background": "#E6D9FC", "Keyword": "#550086", "Unknown": "#1F1F1F", "Number": "#7D009E", "String": "#8000BF", "Comment": "#B20000"},
+    "gpt7": {"Background": "#A2E8FA", "Keyword": "#004054", "Unknown": "#1F1F1F", "Number": "#007090", "String": "#006074", "Comment": "#B20000"},
 }
 
 for fn in listed:
@@ -178,53 +196,41 @@ for fn in listed:
     bgcolor = 'white'
     theme = ''
 
-    if fn.startswith('and'):
-      typL = 'AND'
-      typR = 'AND'
-      theme = 'gpt1'
-    elif fn.startswith('or'):
-      typL = ' OR'
-      typR = 'OR '
-      theme = 'gpt2'
-    elif fn.startswith('not'):
+    if fn.startswith('not'):
       typL = 'NOT'
       typR = 'NOT'
-      theme = 'gpt3'
-    elif fn.startswith('xor'):
-      typL = 'XOR'
-      typR = 'XOR'
-      theme = 'gpt4'
+      theme = 'gpt1'
     elif fn.startswith('increment'):
       typL = 'INC'
       typR = 'INC'
-      theme = 'gpt5'
+      theme = 'gpt2'
     elif fn.startswith('decrement'):
       typL = 'DEC'
       typR = 'DEC'
-      theme = 'gpt6'
+      theme = 'gpt3'
     elif fn.startswith('popcount'):
       typL = 'CNT'
       typR = 'CNT'
-      theme = 'gpt7'
+      theme = 'gpt4'
     elif fn.startswith('shiftLeft'):
       typL = 'SHL'
       typR = 'SHL'
-      theme = 'gpt8'
+      theme = 'gpt5'
     elif fn.startswith('shiftRight'):
       typL = 'SHR'
       typR = 'SHR'
-      theme = 'gpt9'
+      theme = 'gpt6'
     elif fn.startswith('zero'):
       typL = 'ZER'
       typR = 'ZER'
-      theme = 'gpt10'
+      theme = 'gpt7'
 
     color = themes[theme]["Unknown"]
     bgcolor = themes[theme]["Background"]
 
 
 
-    print(f"CARD:{CARD}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{typL}:{typR}:fill=magenta")
+    print(f"CARD:{CARD}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{typL}:{typR}:fill=black")
     skip = True
     with open(f"./code/{fn}","r") as f:
         CARD+=1

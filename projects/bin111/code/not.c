@@ -7,11 +7,11 @@
 //
 // for example:
 //
-// NOT 11000011  
-//     --------
-//     00111100
+// NOT 1011  
+//     ----
+//     0100
 //
-uint8_t not(uint8_t x) {
+uint4_t not(uint4_t x) {
   
   x = ~x;
 

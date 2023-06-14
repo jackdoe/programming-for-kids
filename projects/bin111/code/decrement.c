@@ -1,21 +1,22 @@
 // decrement x: return x - 1
 // WARNING: integer underflow
-//          0 - 1 = 255
+//          0 - 1 = 15
 //
 // Two's Compliment:
 // a - b = a + ~b + 1
+// a - b = a + NOT b + 1
 //
 // for example:
 //
-//    a = 00000011, b = 00000001
-//   ~b = 11111110, ~b + 1 = 11111111
+//    a = 0011, b = 0001
+//   ~b = 1110, ~b + 1 = 1111
 //   
-//   00000011
-// + 11111111
-//   --------
-//  100000010  is truncated to 00000010
-//             as we have only 8 bits
-uint8_t decrement(uint8_t x) {
+//   0011
+// + 1111
+//   ----
+//  10010  is truncated to 0010
+//         as we have only 4 bits
+uint4_t decrement(uint4_t x) {
 
   x = x - 1;
 
