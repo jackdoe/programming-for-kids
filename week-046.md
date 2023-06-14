@@ -132,3 +132,18 @@ f.close()
 ```
 
 > I specifically encouraged using list of all lines instead of a stream at this stage because streams of bytes are actualy quire strange concept, while lists are more natural
+
+
+## [DAY-336] unix
+
+Make a program that prints only the lines that are exactly 5 characters, use `nano` on the remote computer to edit the program from the previous day.
+
+```
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+for l in lines:
+    if len(l) == 5:
+        print(l)
+f.close()
+```
+
