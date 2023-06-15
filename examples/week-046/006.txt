@@ -1,0 +1,6 @@
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+for l in lines:
+    if len(l) == 5 and l.startswith("h"):
+        print(l)
+f.close()

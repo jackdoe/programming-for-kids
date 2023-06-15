@@ -957,6 +957,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-336 unix](#day-336-unix)
 
+[day-337 unix](#day-337-unix)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24482,5 +24484,20 @@ for l in lines:
         print(l)
 f.close()
 ```
+
+
+## [DAY-337] unix
+
+Make a program that prints only the lines that are exactly 5 characters and start with 'h', use `nano` on the remote computer to edit the program from the previous day.
+
+```
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+for l in lines:
+    if len(l) == 5 and l.startswith("h"):
+        print(l)
+f.close()
+```
+
 
 
