@@ -1,0 +1,8 @@
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+n = 0
+for l in lines:
+    if l.startswith("h"):
+        n += 1
+f.close()
+print(n)
