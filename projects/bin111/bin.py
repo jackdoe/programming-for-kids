@@ -52,36 +52,36 @@ def binary(f,t):
 
 card_str(f"""{'BIN111'.center(40)}
 
-Welcome to BIN111 game.
+[color:red]Game Setup:[/color] Each player begins the game
+with 3 face-up cards, visible to
+all. The game starts with a base number
+of 1.
 
-A game of using and abusing integers in
-programming.
+[color:red]Turn Mechanics:[/color] On their turn, each
+player must play all 3 of their cards in
+any order they wish. These cards modify
+the base number through their
+operations. The resulting number from
+their operations is then passed on to
+the next player as their new starting
+number.
 
-Each card has one of the following
-functions:
+[color:red]Victory Condition:[/color] The goal is to reach
+a certain binary number through the use
+of cards. If a player's score equals the
+target number (default is 7, binary
+0111), they win the game! If they do not
+reach the target, they draw 3 new cards
+for their next turn.
 
-  BINARY NOT OPERATION
-  INCREMENT, DECREMENT
-  POPCOUNT
-  SHIFT LEFT, SHIFT RIGHT
-  ZERO
+[color:red]Adjusting Difficulty:[/color] To change the
+difficulty, simply alter the target
+number. For a harder game, aim for 1010
+(decimal 10). For an easier game, aim
+for 0011 (decimal 3).
 
-+ The starting number is 1
-
-+ Players start with 3 cards each
-
-+ Each turn a player decides to play or
-  to draw from the deck, if you have 4
-  cards you must play.
-
-+ If you play, you must play ALL your
-  cards and compute the value of the
-  number after applying your card's to
-  the previous value
-
-+ A player wins if the output of their
-  play is 0111 (decimal 7)
-""")
+[color:red]Strategy Tip:[/color] Can't win? Sabotage!
+ """)
 
 card_str(f"""{'BINARY'.center(40)}
 In the binary system, each digit
@@ -149,13 +149,60 @@ bits: uint8_t, but for the purpose of
 the game, 4 bits are more fun.
 """)
 
-listed = listdir('./code')
-listed = [x for x in listed if x.endswith('.c') and '#' not in x]
-starting = cycle(list(listed))
-
-for i in range(CARD+len(listed), 56):
-    listed.append(next(starting))
-listed.sort()
+listed = [
+  'decrement.c',
+  'decrement.c',
+  'decrement.c',
+  'decrement.c',
+  'decrement.c',
+  'decrement.c',
+  'decrement.c',
+  'decrement.c',
+  'decrement.c',
+  'increment.c',
+  'increment.c',
+  'increment.c',
+  'increment.c',
+  'increment.c',
+  'increment.c',
+  'increment.c',
+  'increment.c',
+  'increment.c',
+  'not.c',
+  'not.c',
+  'not.c',
+  'not.c',
+  'not.c',
+  'not.c',
+  'not.c',
+  'popcount.c',
+  'popcount.c',
+  'popcount.c',
+  'popcount.c',
+  'popcount.c',
+  'popcount.c',
+  'popcount.c',
+  'shiftLeft.c',
+  'shiftLeft.c',
+  'shiftLeft.c',
+  'shiftLeft.c',
+  'shiftLeft.c',
+  'shiftLeft.c',
+  'shiftLeft.c',
+  'shiftLeft.c',
+  'shiftRight.c',
+  'shiftRight.c',
+  'shiftRight.c',
+  'shiftRight.c',
+  'shiftRight.c',
+  'shiftRight.c',
+  'shiftRight.c',
+  'shiftRight.c',
+  'zero.c',
+  'zero.c',
+  'zero.c',
+  'zero.c'
+]
 
     
 themes = {
@@ -167,6 +214,8 @@ themes = {
     "gpt6": {"Background": "#E6D9FC", "Keyword": "#550086", "Unknown": "#1F1F1F", "Number": "#7D009E", "String": "#8000BF", "Comment": "#B20000"},
     "gpt7": {"Background": "#A2E8FA", "Keyword": "#004054", "Unknown": "#1F1F1F", "Number": "#007090", "String": "#006074", "Comment": "#B20000"},
 }
+
+
 
 for fn in listed:
     if '#' in fn:
@@ -247,3 +296,8 @@ for fn in listed:
 
         for line in card:
                 print(line)
+
+
+if CARD != 56:
+  raise Exception("AAAAAAAAAAAAAAAAA" + str(CARD))
+                

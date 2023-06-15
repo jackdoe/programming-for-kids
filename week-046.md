@@ -162,3 +162,21 @@ f.close()
 ```
 
 
+## [DAY-338] unix
+
+Make a program that counts the lines that are exactly 5 characters and start with 'h', use `nano` on the remote computer to edit the program from the previous day.
+
+```
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+n = 0
+for l in lines:
+    if l.startswith("h"):
+        n += 1
+f.close()
+print(n)
+```
+
+Now do the same with unix pipes, `cat /etc/hidden/data.txt | grep ^h | wc -l`
+
+
