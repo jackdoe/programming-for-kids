@@ -147,3 +147,18 @@ for l in lines:
 f.close()
 ```
 
+
+## [DAY-337] unix
+
+Make a program that prints only the lines that are exactly 5 characters and start with 'h', use `nano` on the remote computer to edit the program from the previous day.
+
+```
+f = open("/etc/hidden/data.txt","r")
+lines = f.readlines()
+for l in lines:
+    if len(l) == 5 and l.startswith("h"):
+        print(l)
+f.close()
+```
+
+
