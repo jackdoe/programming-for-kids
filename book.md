@@ -24562,6 +24562,6 @@ for l in lines:
 f.close()
 ```
 
-> now use `cat names.csv | cut -f 2 -d ,` to show an example of using the `cut` command.
+> now use `cat names.csv | cut -f 1 -d ,` to show an example of using the `cut` command.
 
 
