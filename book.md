@@ -961,6 +961,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-338 unix](#day-338-unix)
 
+[day-339 unix](#day-339-unix)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24519,5 +24521,47 @@ print(n)
 
 Now do the same with unix pipes, `cat /etc/hidden/data.txt | grep ^h | wc -l`
 
+
+## [DAY-339] unix
+
+> generate a file with few thousand name,age,country entries, I used chatgpt to generate it, you can get it from: [names.csv](names.csv), and upload it to the server.
+
+```
+Ava,51,UK
+William,49,USA
+Michael,24,Australia
+Ava,20,USA
+Emma,48,USA
+James,64,Brazil
+David,34,Japan
+Olivia,46,India
+Michael,62,Canada
+Ava,41,India
+Ava,63,Brazil
+Emma,65,Australia
+James,18,Japan
+Olivia,26,UK
+Michael,34,Canada
+John,53,Brazil
+Michael,35,Germany
+Emma,52,Brazil
+William,46,Brazil
+James,61,USA
+...
+```
+
+Write a program that prints only the names column, use the python cheatsheet to see how to use the 'split' method of the string object.
+
+```
+f = open("names.csv","r")
+lines = f.readlines()
+n = 0
+for l in lines:
+    s = l.split(",")
+    print(s[0])
+f.close()
+```
+
+> now use `cat names.csv | cut -f 2 -d ,` to show an example of using the `cut` command.
 
 
