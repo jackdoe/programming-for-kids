@@ -4,7 +4,6 @@
 // for example:
 //
 // 1111 -> 4
-// 1110 -> 3
 // 0111 -> 3
 // 1010 -> 2
 // 0010 -> 2
@@ -23,6 +22,7 @@ uint4_t popcount(uint4_t x) {
       for (c = 0; x != 0; x = x >> 1)
           if (x & 1)
               c++;
+    or using __builtin_popcount(x) 
     */
 
     return c;
