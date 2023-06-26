@@ -963,6 +963,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-339 unix](#day-339-unix)
 
+[day-340 split](#day-340-split)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24564,4 +24566,78 @@ f.close()
 
 > now use `cat names.csv | cut -f 1 -d ,` to show an example of using the `cut` command.
 
+
+## [DAY-340] split
+
+Download the file [covid-test-cases.csv](covid-test-cases.csv) which is from https://www.ecdc.europa.eu/en/publications-data/covid-19-testing and has the following format:
+
+```
+country,country_code,year_week,level,region,region_name,new_cases,tests_done,population,testing_rate,positivity_rate,testing_data_source
+Austria,AT,2020-W01,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W02,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W03,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W04,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W05,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W06,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W07,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W08,national,AT,Austria,NA,NA,8978929,NA,NA,NA
+Austria,AT,2020-W09,national,AT,Austria,12,NA,8978929,NA,NA,NA
+Austria,AT,2020-W10,national,AT,Austria,115,NA,8978929,NA,NA,NA
+Austria,AT,2020-W11,national,AT,Austria,874,NA,8978929,NA,NA,NA
+Austria,AT,2020-W12,national,AT,Austria,3046,NA,8978929,NA,NA,NA
+Austria,AT,2020-W13,national,AT,Austria,5098,NA,8978929,NA,NA,NA
+Austria,AT,2020-W14,national,AT,Austria,3114,NA,8978929,NA,NA,NA
+Austria,AT,2020-W15,national,AT,Austria,1838,NA,8978929,NA,NA,NA
+Austria,AT,2020-W16,national,AT,Austria,686,NA,8978929,NA,NA,NA
+Austria,AT,2020-W17,national,AT,Austria,450,NA,8978929,NA,NA,NA
+Austria,AT,2020-W18,national,AT,Austria,309,NA,8978929,NA,NA,NA
+Austria,AT,2020-W19,national,AT,Austria,260,NA,8978929,NA,NA,NA
+Austria,AT,2020-W20,national,AT,Austria,324,NA,8978929,NA,NA,NA
+Austria,AT,2020-W21,national,AT,Austria,264,NA,8978929,NA,NA,NA
+Austria,AT,2020-W22,national,AT,Austria,195,NA,8978929,NA,NA,NA
+Austria,AT,2020-W23,national,AT,Austria,228,NA,8978929,NA,NA,NA
+Austria,AT,2020-W24,national,AT,Austria,172,NA,8978929,NA,NA,NA
+Austria,AT,2020-W25,national,AT,Austria,248,NA,8978929,NA,NA,NA
+Austria,AT,2020-W26,national,AT,Austria,334,NA,8978929,NA,NA,NA
+Austria,AT,2020-W27,national,AT,Austria,640,NA,8978929,NA,NA,NA
+Austria,AT,2020-W28,national,AT,Austria,597,NA,8978929,NA,NA,NA
+Austria,AT,2020-W29,national,AT,Austria,784,NA,8978929,NA,NA,NA
+Austria,AT,2020-W30,national,AT,Austria,872,NA,8978929,NA,NA,NA
+Austria,AT,2020-W31,national,AT,Austria,792,NA,8978929,NA,NA,NA
+Austria,AT,2020-W32,national,AT,Austria,721,NA,8978929,NA,NA,NA
+Austria,AT,2020-W33,national,AT,Austria,1461,NA,8978929,NA,NA,NA
+Austria,AT,2020-W34,national,AT,Austria,1908,NA,8978929,NA,NA,NA
+Austria,AT,2020-W35,national,AT,Austria,1943,NA,8978929,NA,NA,NA
+Austria,AT,2020-W36,national,AT,Austria,2263,NA,8978929,NA,NA,NA
+Austria,AT,2020-W37,national,AT,Austria,3995,NA,8978929,NA,NA,NA
+Austria,AT,2020-W38,national,AT,Austria,5215,NA,8978929,NA,NA,NA
+Austria,AT,2020-W39,national,AT,Austria,4661,NA,8978929,NA,NA,NA
+Austria,AT,2020-W40,national,AT,Austria,5602,NA,8978929,NA,NA,NA
+Austria,AT,2020-W41,national,AT,Austria,7487,124663,8978929,1388.394985638042,6.005791614191861,TESSy COVID-19
+Austria,AT,2020-W42,national,AT,Austria,9898,129647,8978929,1443.9027193555044,7.634576966686464,TESSy COVID-19
+Austria,AT,2020-W43,national,AT,Austria,18262,158997,8978929,1770.7791207615073,11.485751303483713,TESSy COVID-19
+Austria,AT,2020-W44,national,AT,Austria,31613,167926,8978929,1870.223052214802,18.825554113121257,TESSy COVID-19
+Austria,AT,2020-W45,national,AT,Austria,44772,199567,8978929,2222.6147461462274,22.434570845881332,TESSy COVID-19
+Austria,AT,2020-W46,national,AT,Austria,47837,215044,8978929,2394.9849698109874,22.245214932757946,TESSy COVID-19
+...
+```
+
+Print the sum of all covid cases:
+
+```
+total = 0
+
+f = open("covid-test-cases.csv","r")
+lines = f.readlines()
+f.close()
+
+lines = lines[1:] # ignore the first line
+
+for l in lines:
+    s = l.split(",")
+    if s[6] != "NA":
+        total += int(s[6])
+
+print(total)
+```
 
