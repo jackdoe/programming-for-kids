@@ -1,0 +1,7 @@
+you are a great web designer and anima fan, make a website with RED and BLACK and YELLOW to explain the story of NARUTO.
+write the complete html including the styles, and fill the sections with valuable and detailed text
+* add an image NARUTO.jpg below the title, centered
+* show the age rating and category
+* the main characters information and the story outline.
+* include a table comparing it with other top animes that are similar
+
