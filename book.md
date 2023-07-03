@@ -967,6 +967,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-341 html](#day-341-html)
 
+[day-342 structs](#day-342-structs)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24665,5 +24667,12 @@ Download one image per anime and upload it as well and properly fix the <img> ta
 > those are some of the websites:
 
 ![game-341.png](./screenshots/game-341.jpg "game 341 screenshot")
+
+
+
+## [DAY-342] structs
+
+Read and implement chapter 8 from Beej's C guide: [Structs](https://beej.us/guide/bgc/html/split/structs.html#structs)
+
 
 

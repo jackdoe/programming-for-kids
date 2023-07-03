@@ -849,3 +849,5 @@
 [day-340 split](#day-340-split)
 
 [day-341 html](#day-341-html)
+
+[day-342 structs](#day-342-structs)
