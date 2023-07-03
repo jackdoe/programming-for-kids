@@ -320,3 +320,10 @@ Download one image per anime and upload it as well and properly fix the <img> ta
 
 ![game-341.png](./screenshots/game-341.jpg "game 341 screenshot")
 
+
+
+## [DAY-342] structs
+
+Read and implement chapter 8 from Beej's C guide: [Structs](https://beej.us/guide/bgc/html/split/structs.html#structs)
+
+
