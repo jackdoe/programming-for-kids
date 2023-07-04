@@ -326,4 +326,7 @@ Download one image per anime and upload it as well and properly fix the <img> ta
 
 Read and implement chapter 8 from Beej's C guide: [Structs](https://beej.us/guide/bgc/html/split/structs.html#structs)
 
+## [DAY-343] functions; pointers
+
+Read and implement chapter 4 and 5 from Beej's C guide: [Functions](https://beej.us/guide/bgc/html/split/functions.html#functions) and [Pointers](https://beej.us/guide/bgc/html/split/pointers.html#pointers)
 
