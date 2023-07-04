@@ -851,3 +851,5 @@
 [day-341 html](#day-341-html)
 
 [day-342 structs](#day-342-structs)
+
+[day-343 functions; pointers](#day-343-functions-pointers)
