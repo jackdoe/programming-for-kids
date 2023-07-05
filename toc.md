@@ -853,3 +853,8 @@
 [day-342 structs](#day-342-structs)
 
 [day-343 functions; pointers](#day-343-functions-pointers)
+## week - 047
+
+
+
+[day-344 pointers](#day-344-pointers)
