@@ -24800,6 +24800,5 @@ int main(void){
 
 > We spent 1 hour or so discussing pointers and disecting the code
 
-![game-344](./screenshots/game-344.svg)
-<img src="./screenshots/game-344.svg">
+![game-344.png](./screenshots/game-344.jpg "game 344 screenshot")
 
