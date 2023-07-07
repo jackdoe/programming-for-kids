@@ -113,3 +113,63 @@ int main(void){
 > We spent 1 hour or so discussing pointers and disecting the code
 
 ![game-344.png](./screenshots/game-344.png "game 344 screenshot")
+
+
+## [DAY-345] pointers
+
+Write the hit() function in the following example:
+
+```
+#include <stdio.h>
+#include <unistd.h>
+
+
+struct alive {
+    int life;
+    int speed;
+    int attack_power;
+    int shield;
+};
+
+// FIXME: write the function
+void hit(struct alive *a, struct alive *b){
+...
+}
+
+int main(void) {
+    struct alive npc = {0};
+
+    npc.life = 1000;
+    npc.speed = 17;
+    npc.attack_power = 10;
+    npc.shield = 50;
+
+    struct alive player = {0};
+    player.life = 100;
+    player.speed = 10;
+    player.attack_power = 117;
+    player.shield = 30;
+
+    while(1) {
+        hit(&npc, &player);
+        hit(&player, &npc);
+
+        printf("player: %d, npc: %d\n", player.life,npc.life);
+        sleep(1);
+    }
+
+    return 0;
+}
+```
+
+Example:
+
+```
+void hit(struct alive *a, struct alive *b){
+    if (b->shield > 0) {
+        b->shield -= a->attack_power;
+    } else{
+        b->life -= a->attack_power;
+    }
+}
+```
