@@ -24821,7 +24821,7 @@ struct alive {
     int shield;
 };
 
-// FIXME: write the function
+// FIXME: write the function body
 void hit(struct alive *a, struct alive *b){
 ...
 }
