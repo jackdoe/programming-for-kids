@@ -976,6 +976,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-344 pointers](#day-344-pointers)
 
+[day-345 pointers](#day-345-pointers)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24801,4 +24803,64 @@ int main(void){
 > We spent 1 hour or so discussing pointers and disecting the code
 
 ![game-344.png](./screenshots/game-344.png "game 344 screenshot")
+
+
+## [DAY-345] pointers
+
+Write the hit() function in the following example:
+
+```
+#include <stdio.h>
+#include <unistd.h>
+
+
+struct alive {
+    int life;
+    int speed;
+    int attack_power;
+    int shield;
+};
+
+// FIXME: write the function
+void hit(struct alive *a, struct alive *b){
+...
+}
+
+int main(void) {
+    struct alive npc = {0};
+
+    npc.life = 1000;
+    npc.speed = 17;
+    npc.attack_power = 10;
+    npc.shield = 50;
+
+    struct alive player = {0};
+    player.life = 100;
+    player.speed = 10;
+    player.attack_power = 117;
+    player.shield = 30;
+
+    while(1) {
+        hit(&npc, &player);
+        hit(&player, &npc);
+
+        printf("player: %d, npc: %d\n", player.life,npc.life);
+        sleep(1);
+    }
+
+    return 0;
+}
+```
+
+Example:
+
+```
+void hit(struct alive *a, struct alive *b){
+    if (b->shield > 0) {
+        b->shield -= a->attack_power;
+    } else{
+        b->life -= a->attack_power;
+    }
+}
+```
 
