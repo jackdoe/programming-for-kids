@@ -860,3 +860,5 @@
 [day-344 pointers](#day-344-pointers)
 
 [day-345 pointers](#day-345-pointers)
+
+[day-346 machine code](#day-346-machine-code)
