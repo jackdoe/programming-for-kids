@@ -173,3 +173,8 @@ void hit(struct alive *a, struct alive *b){
     }
 }
 ```
+
+
+## [DAY-346] machine code
+
+> for few days we were playing the 4719 game https://punkx.org/4917/ every day we did a couple of cards, disassembling them and then assembling them and running them on paper
