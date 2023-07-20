@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main(void) {
+  int x = 7;
+  int* p = &x;
+  *p++;
+
+  printf("%d\n",x)
+  
+  return 0;
+}
+
+#include <stdio.h>
+int main(void) {
+  int x = 7;
+  int* p = &x;
+  *p = 3;
+
+  printf("%d\n",x)
+  
+  return 0;
+}
+
+#include <stdio.h>
+int main(void) {
+  int x = 7;
+  
+  scanf("%d",&x);
+
+  printf("%d\n",x);
+  
+  return 0;
+}

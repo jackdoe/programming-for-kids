@@ -980,6 +980,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-346 machine code](#day-346-machine-code)
 
+[day-347 machine code; pointers](#day-347-machine-code-pointers)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24870,4 +24872,81 @@ void hit(struct alive *a, struct alive *b){
 ## [DAY-346] machine code
 
 > for few days we were playing the 4719 game https://punkx.org/4917/ every day we did a couple of cards, disassembling them and then assembling them and running them on paper
+
+
+## [DAY-347] machine code; pointers
+
+
+I made a lot of examples using the 27th card, and then also showed examples in C, and made some other cards on paper about dereferencing pointers
+
+```
+#    0 halt
+#    1 add R0 = R0 + R1, 2 subtract R0 = R0 - R1
+#    3 inc R0, 4 inc R1
+#    5 dec R0, 6 dec R1
+#    7 ring bell
+#  8 X print X
+#  9 X R0 = mem[X]
+# 10 X R1 = mem[X]
+# 11 X mem[X] = R0
+# 12 X mem[X] = R1
+# 13 X jump to address X
+# 14 X jump to address X if R0 == 0
+# 15 X jump to address X if R0 != 0
+#
+# *p++
+┌────────┐ ┌────────┐
+│ IP:  0 │ │ IS:  0 │
+└────────┘ └────────┘
+┌────────┐ ┌────────┐
+│ R0:  0 │ │ R1:  0 │
+└────────┘ └────────┘
+
+┌────┬────┬────┬────┐
+│  9 │ 12 │ 11 │  7 │
+├────┼────┼────┼────┤
+│ 11 │ 10 │  9 │  0 │
+├────┼────┼────┼────┤
+│  3 │ 11 │  0 │  0 │
+├────┼────┼────┼────┤
+│ 15 │  0 │  0 │  6 │
+└────┴────┴────┴────┘
+```
+
+examples:
+
+```
+#include <stdio.h>
+int main(void) {
+  int x = 7;
+  int* p = &x;
+  *p++;
+
+  printf("%d\n",x)
+  
+  return 0;
+}
+
+#include <stdio.h>
+int main(void) {
+  int x = 7;
+  int* p = &x;
+  *p = 3;
+
+  printf("%d\n",x)
+  
+  return 0;
+}
+
+#include <stdio.h>
+int main(void) {
+  int x = 7;
+  
+  scanf("%d",&x);
+
+  printf("%d\n",x);
+  
+  return 0;
+}
+```
 
