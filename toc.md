@@ -864,3 +864,5 @@
 [day-346 machine code](#day-346-machine-code)
 
 [day-347 machine code; pointers](#day-347-machine-code-pointers)
+
+[day-348 machine code; variables](#day-348-machine-code-variables)

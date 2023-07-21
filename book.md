@@ -982,6 +982,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-347 machine code; pointers](#day-347-machine-code-pointers)
 
+[day-348 machine code; variables](#day-348-machine-code-variables)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -24948,5 +24950,79 @@ int main(void) {
   
   return 0;
 }
+```
+
+
+## [DAY-348] machine code; variables
+
+Write the machine code for the following pseudo code:
+
+Given this instruction set:
+```
+   0 halt
+   1 add R0 = R0 + R1, 2 subtract R0 = R0 - R1
+   3 inc R0, 4 inc R1
+   5 dec R0, 6 dec R1
+   7 ring bell
+ 8 X print X
+ 9 X R0 = mem[X]
+10 X R1 = mem[X]
+11 X mem[X] = R0
+12 X mem[X] = R1
+13 X jump to address X
+14 X jump to address X if R0 == 0
+15 X jump to address X if R0 != 0
+```
+
+```
+x = 7
+x += 1
+
+
+assume x is on address 15:
+┌────┬────┬────┬────┐
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  7 │
+└────┴────┴────┴────┘
+
+```
+
+```
+x = 7
+y = 8
+x = x + y
+
+assume x is on address 15, and y is on addr 14:
+┌────┬────┬────┬────┐
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  8 │  7 │
+└────┴────┴────┴────┘
+
+```
+
+```
+x = 7
+print(x)
+
+assume x is on address 15:
+┌────┬────┬────┬────┐
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  0 │
+├────┼────┼────┼────┤
+│  0 │  0 │  0 │  7 │
+└────┴────┴────┴────┘
 ```
 
