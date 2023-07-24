@@ -329,3 +329,16 @@ assume x is on address 15:
 │  0 │  0 │  0 │  7 │
 └────┴────┴────┴────┘
 ```
+
+
+## [DAY-349] machine code; variables
+
+> we did more examples
+
+![day-349-a.jpg](./screenshots/day-349-a.jpg "game 349 screenshot")
+![day-349-b.jpg](./screenshots/day-349-b.jpg "game 349 screenshot")
+![day-349-c.jpg](./screenshots/day-349-c.jpg "game 349 screenshot")
+![day-349-d.jpg](./screenshots/day-349-d.jpg "game 349 screenshot")
+![day-349-e.jpg](./screenshots/day-349-e.jpg "game 349 screenshot")
+![day-349-f.jpg](./screenshots/day-349-f.jpg "game 349 screenshot")
+![day-349-g.jpg](./screenshots/day-349-g.jpg "game 349 screenshot")
