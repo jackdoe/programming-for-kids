@@ -984,6 +984,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-348 machine code; variables](#day-348-machine-code-variables)
 
+[day-349 machine code; variables](#day-349-machine-code-variables)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -25025,4 +25027,17 @@ assume x is on address 15:
 │  0 │  0 │  0 │  7 │
 └────┴────┴────┴────┘
 ```
+
+
+## [DAY-349] machine code; variables
+
+> we did more examples
+
+![day-349-a.jpg](./screenshots/day-349-a.jpg "game 349 screenshot")
+![day-349-b.jpg](./screenshots/day-349-b.jpg "game 349 screenshot")
+![day-349-c.jpg](./screenshots/day-349-c.jpg "game 349 screenshot")
+![day-349-d.jpg](./screenshots/day-349-d.jpg "game 349 screenshot")
+![day-349-e.jpg](./screenshots/day-349-e.jpg "game 349 screenshot")
+![day-349-f.jpg](./screenshots/day-349-f.jpg "game 349 screenshot")
+![day-349-g.jpg](./screenshots/day-349-g.jpg "game 349 screenshot")
 
