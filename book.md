@@ -25040,4 +25040,5 @@ assume x is on address 15:
 ![day-349-e.jpg](./screenshots/day-349-e.jpg "game 349 screenshot")
 ![day-349-f.jpg](./screenshots/day-349-f.jpg "game 349 screenshot")
 ![day-349-g.jpg](./screenshots/day-349-g.jpg "game 349 screenshot")
+![day-349-h.jpg](./screenshots/day-349-h.jpg "game 349 screenshot")
 
