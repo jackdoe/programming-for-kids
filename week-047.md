@@ -445,5 +445,6 @@ now you can see we can call the function, but we cant go back in order to beep, 
     └────┴────┴────┴────┘
 ```
 
-so you can see we store 
+so you can see we store the return address in r1 and then go back to where it points to
+
 
