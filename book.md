@@ -986,6 +986,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-349 machine code; variables](#day-349-machine-code-variables)
 
+[day-350 machine code; functions](#day-350-machine-code-functions)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -25041,4 +25043,110 @@ assume x is on address 15:
 ![day-349-f.jpg](./screenshots/day-349-f.jpg "game 349 screenshot")
 ![day-349-g.jpg](./screenshots/day-349-g.jpg "game 349 screenshot")
 ![day-349-h.jpg](./screenshots/day-349-h.jpg "game 349 screenshot")
+
+
+## [DAY-350] machine code; functions
+
+imagine we want to write something like:
+
+```
+def printme(x)
+    print(x)
+    print(x)
+
+x = 4
+printme(x)
+beep
+```
+
+how would we call a function, for this we will pretend our computer has more memory and can work with addressess that are 1 whole byte (from 0 to 255).
+
+first lets write our function, assuming the parameter will come from the R0 register: `11 X 8 _ 11 X 8 _`, we will write the value of R0 into the print instruction, lets write it at address 40:
+and the rest of the program we will write at address 0, which is loading the value of X in the R0 register and then jumping to addr 40 to execute the function.
+
+```
+    ┌────┬────┬────┬────┐
+0   │  9 │ 15 │ 13 │ 40 │
+    ├────┼────┼────┼────┤
+4   │  7 │  0 │  0 │  0 │ (attempt to beep after the jump)
+    ├────┼────┼────┼────┤
+8   │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+12  │  0 │  0 │  0 │  4 │ <- x is at addr 15
+    ├────┼────┼────┼────┤
+16  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+20  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+24  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+28  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+32  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+36  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+40  │ 11 │ 43 │  8 │  0 │
+    ├────┼────┼────┼────┤
+44  │ 11 │ 47 │  8 │  0 │
+    ├────┼────┼────┼────┤
+48  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+52  │  0 │  0 │  0 │  0 │
+
+           ....
+
+    ├────┼────┼────┼────┤
+    │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+    │  0 │  0 │  0 │  0 │
+    └────┴────┴────┴────┘
+```
+
+
+now you can see we can call the function, but we cant go back in order to beep, so what we will do is in R1 we will store which address we want to go back after the function is done.
+
+```
+    ┌────┬────┬────┬────┐
+0   │  9 │ 15 │ 10 │  6 │ <- load the value of addr 8 into R1, 
+    ├────┼────┼────┼────┤    so we can go back to wherever it points
+4   │ 13 │  40│  8 │  7 │ <- we want to go back to addr 8
+    ├────┼────┼────┼────┤    where we have the beep instruction
+8   │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+12  │  0 │  0 │  0 │  4 │ <- x is at addr 15
+    ├────┼────┼────┼────┤
+16  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+20  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+24  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+28  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+32  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+36  │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+40  │ 11 │ 43 │  8 │  0 │
+    ├────┼────┼────┼────┤
+44  │ 11 │ 47 │  8 │  0 │
+    ├────┼────┼────┼────┤
+48  │ 12 │ 51 │ 13 │  0 │ <- use R1 to jump back
+    ├────┼────┼────┼────┤
+52  │  0 │  0 │  0 │  0 │
+
+           ....
+
+    ├────┼────┼────┼────┤
+    │  0 │  0 │  0 │  0 │
+    ├────┼────┼────┼────┤
+    │  0 │  0 │  0 │  0 │
+    └────┴────┴────┴────┘
+```
+
+so you can see we store 
+
+
+![day-350.jpg](./screenshots/day-350.jpg "game 350 screenshot")
 

@@ -1,0 +1,7 @@
+def printme(x)
+    print(x)
+    print(x)
+
+x = 4
+printme(x)
+beep
