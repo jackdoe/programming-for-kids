@@ -25148,5 +25148,5 @@ now you can see we can call the function, but we cant go back in order to beep, 
 so you can see we store 
 
 
-![day-350.jpg](./screenshots/day-350.jpg "game 350 screenshot")
+![game-350.jpg](./screenshots/game-350.jpg "game 350 screenshot")
 
