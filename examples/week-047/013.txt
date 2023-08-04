@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+void print_board(char *b) {
+    printf("%c %c %c\n",b[0], *(b + 1), b[2]);
+    printf("%c %c %c\n",b[3], b[4], b[5]);
+    printf("%c %c %c\n",b[6], b[7], b[8]);
+}
+int check_win(char *b){
+    if (b[0] != '-' && b[0] == b[1] && b[1] == b[2]) {
+        return 1; 
+    }
+    if (b[3] != '-'  && b[3] == b[4] && b[4] == b[5]) {
+        return 1;
+    }
+    if (b[0] != '-'  && b[0] == b[3] && b[3] == b[6]) {
+        return 1;
+    }
+    if (b[1] != '-'  && b[1] == b[4] && b[4] == b[7]) {
+        return 1;
+    }
+    if (b[2] != '-'  && b[2] == b[5] && b[5] == b[8]) {
+        return 1;
+    }
+    if (b[6] != '-'  && b[6] == b[7] && b[7] == b[8]) {
+        return 1;
+    }
+    if (b[0] != '-'  && b[0] == b[4] && b[4] == b[8]) {
+        return 1;
+    }
+    if (b[2] != '-'  && b[2] == b[4] && b[4] == b[6]) {
+        return 1;
+    }
+    return 0;
+}
+
+int main(void) {
+    char board[9] = {'-','-','-','-','-','-','-','-','-'};
+    char symbol = '0';
+
+
+    while(1) {
+        print_board(board);
+        char str[3];
+        printf("%c>",symbol);
+        scanf("%2s",str);
+        if (str[0] == 'a' && str[1] == '1') {   
+            board[0] = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '1') {   
+            board[3] = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '1') {   
+            board[6] = symbol;
+        }
+        if (str[0] == 'a' && str[1] == '2') {   
+            board[1] = symbol;
+        }
+        if (str[0] == 'a' && str[1] == '3') {   
+            board[2] = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '2') {   
+            board[4] = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '3') {   
+            board[5] = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '2') {   
+            board[7] = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '3') {   
+            board[8] = symbol;
+        }
+
+        if (check_win(board)) {
+            print_board(board);
+            printf("%c WINS\n", symbol);
+            break;
+        }
+
+        if (symbol == '0') {
+            symbol = 'X';
+        } else {
+            symbol = '0';
+        }
+    }
+}

@@ -870,3 +870,5 @@
 [day-349 machine code; variables](#day-349-machine-code-variables)
 
 [day-350 machine code; functions](#day-350-machine-code-functions)
+
+[day-351 tic tac toe](#day-351-tic-tac-toe)
