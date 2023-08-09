@@ -85,7 +85,7 @@ int main(void){
         .c0 = '-',
         .c1 = '-',
         .c2 = '-',
-    }; 
+    };
 
     while(1) {
         board_print(game_board);
@@ -229,7 +229,7 @@ int main(void) {
   *p++;
 
   printf("%d\n",x)
-  
+
   return 0;
 }
 
@@ -240,18 +240,18 @@ int main(void) {
   *p = 3;
 
   printf("%d\n",x)
-  
+
   return 0;
 }
 
 #include <stdio.h>
 int main(void) {
   int x = 7;
-  
+
   scanf("%d",&x);
 
   printf("%d\n",x);
-  
+
   return 0;
 }
 ```
@@ -408,7 +408,7 @@ now you can see we can call the function, but we cant go back in order to beep, 
 
 ```
     ┌────┬────┬────┬────┐
-0   │  9 │ 15 │ 10 │  6 │ <- load the value of addr 8 into R1, 
+0   │  9 │ 15 │ 10 │  6 │ <- load the value of addr 8 into R1,
     ├────┼────┼────┼────┤    so we can go back to wherever it points
 4   │ 13 │  40│  8 │  7 │ <- we want to go back to addr 8
     ├────┼────┼────┼────┤    where we have the beep instruction
@@ -463,7 +463,7 @@ void print_board(char *b) {
 }
 int check_win(char *b){
     if (b[0] != '-' && b[0] == b[1] && b[1] == b[2]) {
-        return 1; 
+        return 1;
     }
     if (b[3] != '-'  && b[3] == b[4] && b[4] == b[5]) {
         return 1;
@@ -499,31 +499,31 @@ int main(void) {
         char str[3];
         printf("%c>",symbol);
         scanf("%2s",str);
-        if (str[0] == 'a' && str[1] == '1') {   
+        if (str[0] == 'a' && str[1] == '1') {
             board[0] = symbol;
         }
-        if (str[0] == 'b' && str[1] == '1') {   
+        if (str[0] == 'b' && str[1] == '1') {
             board[3] = symbol;
         }
-        if (str[0] == 'c' && str[1] == '1') {   
+        if (str[0] == 'c' && str[1] == '1') {
             board[6] = symbol;
         }
-        if (str[0] == 'a' && str[1] == '2') {   
+        if (str[0] == 'a' && str[1] == '2') {
             board[1] = symbol;
         }
-        if (str[0] == 'a' && str[1] == '3') {   
+        if (str[0] == 'a' && str[1] == '3') {
             board[2] = symbol;
         }
-        if (str[0] == 'b' && str[1] == '2') {   
+        if (str[0] == 'b' && str[1] == '2') {
             board[4] = symbol;
         }
-        if (str[0] == 'b' && str[1] == '3') {   
+        if (str[0] == 'b' && str[1] == '3') {
             board[5] = symbol;
         }
-        if (str[0] == 'c' && str[1] == '2') {   
+        if (str[0] == 'c' && str[1] == '2') {
             board[7] = symbol;
         }
-        if (str[0] == 'c' && str[1] == '3') {   
+        if (str[0] == 'c' && str[1] == '3') {
             board[8] = symbol;
         }
 
@@ -539,5 +539,36 @@ int main(void) {
             symbol = '0';
         }
     }
+}
+```
+
+
+## [DAY-352] files
+
+Watch Bro Code's reading and writing files: https://www.youtube.com/watch?v=UqB4EgUxapM and https://www.youtube.com/watch?v=Hzg3kCHJcxI
+
+> the code she wrote
+
+```
+
+#include <stdio.h>
+
+int main() {
+    FILE *pF = fopen("test.txt","w");
+
+    fprintf(pF, "spongebob sqquerpants KIRA AND RYUK");
+    fclose(pF);
+    return 0;
+}
+
+
+#include <stdio.h>
+int main() {
+    FILE *pF = fopen("/Users/jack/book/poem.txt","r");
+    char buffer[255];
+    while(fgets(buffer,255,pF) != NULL) {
+        printf("%s", buffer);
+    }
+    fclose(pF);
 }
 ```
