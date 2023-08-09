@@ -80,7 +80,7 @@ int main(void){
         .c0 = '-',
         .c1 = '-',
         .c2 = '-',
-    }; 
+    };
 
     while(1) {
         board_print(game_board);

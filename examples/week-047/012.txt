@@ -1,5 +1,5 @@
     ┌────┬────┬────┬────┐
-0   │  9 │ 15 │ 10 │  6 │ <- load the value of addr 8 into R1, 
+0   │  9 │ 15 │ 10 │  6 │ <- load the value of addr 8 into R1,
     ├────┼────┼────┼────┤    so we can go back to wherever it points
 4   │ 13 │  40│  8 │  7 │ <- we want to go back to addr 8
     ├────┼────┼────┼────┤    where we have the beep instruction

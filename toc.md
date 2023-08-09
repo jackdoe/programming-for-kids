@@ -872,3 +872,5 @@
 [day-350 machine code; functions](#day-350-machine-code-functions)
 
 [day-351 tic tac toe](#day-351-tic-tac-toe)
+
+[day-352 files](#day-352-files)

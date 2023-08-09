@@ -5,7 +5,7 @@ int main(void) {
   *p++;
 
   printf("%d\n",x)
-  
+
   return 0;
 }
 
@@ -16,17 +16,17 @@ int main(void) {
   *p = 3;
 
   printf("%d\n",x)
-  
+
   return 0;
 }
 
 #include <stdio.h>
 int main(void) {
   int x = 7;
-  
+
   scanf("%d",&x);
 
   printf("%d\n",x);
-  
+
   return 0;
 }
