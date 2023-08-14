@@ -992,6 +992,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-352 files](#day-352-files)
 
+[day-353 tic tac toe](#day-353-tic-tac-toe)
+
+[day-354 aircrack ng](#day-354-aircrack-ng)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -25276,4 +25280,362 @@ int main() {
     fclose(pF);
 }
 ```
+
+## [DAY-353] tic tac toe
+
+another day another tictactoe
+
+fix the following implementation to have 4x4 grid
+
+> she wrote
+```
+
+#include <stdio.h>
+struct board {
+    char a0;
+    char a1;
+    char a2;
+    char a3;
+    char b0;
+    char b1;
+    char b2;
+    char b3;
+    char c0;
+    char c1;
+    char c2;
+    char c3;
+    char d0;
+    char d1;
+    char d2;
+    char d3;
+};
+
+struct user_input {
+    char row;
+    char col;
+};
+
+void board_print(struct board game) {
+    printf("  a b c d\n");
+    printf("0 %c %c %c %c\n", game.a0, game.b0, game.c0, game.d0);
+    printf("1 %c %c %c %c\n", game.a1, game.b1, game.c1, game.d1);
+    printf("2 %c %c %c %c\n", game.a2, game.b2, game.c2, game.d2);
+    printf("3 %c %c %c %c\n", game.a3, game.b3, game.c3, game.d3);
+    printf("\n");
+}
+
+int board_set(struct board *game, char symbol, struct user_input ui) {
+    int valid_move = 1;
+    if (ui.col == 'a' && ui.row == '0') {
+        game->a0 = symbol;
+    } else if (ui.col == 'a' && ui.row == '1') {
+        game->a1 = symbol;
+    } else if (ui.col == 'a' && ui.row == '2') {
+        game->a2 = symbol;
+    } else if (ui.col == 'a' && ui.row == '3') {
+        game->a3 = symbol;
+    } else if (ui.col == 'b' && ui.row == '0') {
+        game->b0 = symbol;
+    } else if (ui.col == 'b' && ui.row == '1') {
+        game->b1 = symbol;
+    } else if (ui.col == 'b' && ui.row == '2') {
+        game->b2 = symbol;
+    } else if (ui.col == 'b' && ui.row == '3') {
+        game->b3 = symbol;
+    } else if (ui.col == 'c' && ui.row == '0') {
+        game->c0 = symbol;
+    } else if (ui.col == 'c' && ui.row == '1') {
+        game->c1 = symbol;
+    } else if (ui.col == 'c' && ui.row == '2') {
+        game->c2 = symbol;
+    } else if (ui.col == 'c' && ui.row == '3') {
+        game->c3 = symbol;
+    } else if (ui.col == 'd' && ui.row == '0') {
+        game->d0 = symbol;
+    } else if (ui.col == 'd' && ui.row == '1') {
+        game->d1 = symbol;
+    } else if (ui.col == 'd' && ui.row == '2') {
+        game->d2 = symbol;
+    } else if (ui.col == 'd' && ui.row == '3') {
+        game->d3 = symbol;
+    }else {
+        valid_move = 0;
+    }
+    return valid_move;
+}
+
+struct user_input get_user_input(char symbol) {
+    struct user_input ui = {0};
+    printf("%c> ", symbol);
+    ui.col = getchar();
+    ui.row = getchar();
+    getchar(); // ignore the new line
+    return ui;
+}
+
+void toggle_symbol(char *symbol) {
+    // if the symbol is X, set it to 0, if its 0, set it to X
+    if (*symbol == 'X') {
+        *symbol = '0';
+    } else {
+        *symbol = 'X';
+    }
+}
+int check_win(struct board game, char symbol){
+    // Check rows
+    if ((game.a0 == symbol && game.a1 == symbol && game.a2 == symbol && game.a3 == symbol) ||
+        (game.b0 == symbol && game.b1 == symbol && game.b2 == symbol && game.b3 == symbol) ||
+        (game.d0 == symbol && game.d1 == symbol && game.d2 == symbol && game.d3 == symbol) ||
+        (game.c0 == symbol && game.c1 == symbol && game.c2 == symbol && game.c3 == symbol)) {
+        return 1; // Winning condition met
+    }
+
+    // Check columns
+    if ((game.a0 == symbol && game.b0 == symbol && game.c0 == symbol && game.d0 == symbol) ||
+        (game.a1 == symbol && game.b1 == symbol && game.c1 == symbol && game.d1 == symbol) ||
+        (game.a3 == symbol && game.b3 == symbol && game.c3 == symbol && game.d3 == symbol) ||
+        (game.a2 == symbol && game.b2 == symbol && game.c2 == symbol && game.d2 == symbol)) {
+        return 1; // Winning condition met
+    }
+
+    // Check diagonals
+    if ((game.a0 == symbol && game.b1 == symbol && game.c2 == symbol && game.d3 == symbol) ||
+        (game.a3 == symbol && game.b2 == symbol && game.c1 == symbol && game.d0 == symbol)) {
+        return 1; // Winning condition met
+    }
+
+    return 0; // Winning condition not met
+}
+
+int main(void){
+    char current_symbol = 'X';
+    struct board game_board = {
+        .a0 = '-',
+        .a1 = '-',
+        .a2 = '-',
+        .a3 = '-',
+        .b0 = '-',
+        .b1 = '-',
+        .b2 = '-',
+        .b3 = '-',
+        .c0 = '-',
+        .c1 = '-',
+        .c2 = '-',
+        .c3 = '-',
+        .d0 = '-',
+        .d1 = '-',
+        .d2 = '-',
+        .d3 = '-'
+    }; 
+
+    while(1) {
+        board_print(game_board);
+        struct user_input input = get_user_input(current_symbol);
+        if (board_set(&game_board, current_symbol, input)) {
+            // only change the symbol if the move is valid
+            toggle_symbol(&current_symbol);
+        }
+        if(check_win(game_board,current_symbol)){
+            printf("YOU WIN\n");
+            break;
+        }
+    }
+}
+```
+
+
+change the following implementation to have 9 variables instead of an array
+
+```
+#include <stdio.h>
+
+void print_board(char *b) {
+    printf("%c %c %c\n",b[0], *(b + 1), b[2]);
+    printf("%c %c %c\n",b[3], b[4], b[5]);
+    printf("%c %c %c\n",b[6], b[7], b[8]);
+}
+int check_win(char *b){
+    if (b[0] != '-' && b[0] == b[1] && b[1] == b[2]) {
+        return 1;
+    }
+    if (b[3] != '-'  && b[3] == b[4] && b[4] == b[5]) {
+        return 1;
+    }
+    if (b[0] != '-'  && b[0] == b[3] && b[3] == b[6]) {
+        return 1;
+    }
+    if (b[1] != '-'  && b[1] == b[4] && b[4] == b[7]) {
+        return 1;
+    }
+    if (b[2] != '-'  && b[2] == b[5] && b[5] == b[8]) {
+        return 1;
+    }
+    if (b[6] != '-'  && b[6] == b[7] && b[7] == b[8]) {
+        return 1;
+    }
+    if (b[0] != '-'  && b[0] == b[4] && b[4] == b[8]) {
+        return 1;
+    }
+    if (b[2] != '-'  && b[2] == b[4] && b[4] == b[6]) {
+        return 1;
+    }
+    return 0;
+}
+
+int main(void) {
+    char board[9] = {'-','-','-','-','-','-','-','-','-'};
+    char symbol = '0';
+
+
+    while(1) {
+        print_board(board);
+        char str[3];
+        printf("%c>",symbol);
+        scanf("%2s",str);
+        if (str[0] == 'a' && str[1] == '1') {
+            board[0] = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '1') {
+            board[3] = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '1') {
+            board[6] = symbol;
+        }
+        if (str[0] == 'a' && str[1] == '2') {
+            board[1] = symbol;
+        }
+        if (str[0] == 'a' && str[1] == '3') {
+            board[2] = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '2') {
+            board[4] = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '3') {
+            board[5] = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '2') {
+            board[7] = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '3') {
+            board[8] = symbol;
+        }
+
+        if (check_win(board)) {
+            print_board(board);
+            printf("%c WINS\n", symbol);
+            break;
+        }
+
+        if (symbol == '0') {
+            symbol = 'X';
+        } else {
+            symbol = '0';
+        }
+    }
+}
+```
+
+
+> she wrote:
+
+
+```
+#include <stdio.h>
+
+void print_board(char a1, char a2, char a3, char b1, char b2, char b3, char c1, char c2, char c3) {
+    printf("%c %c %c\n",a1, a2, a3);
+    printf("%c %c %c\n",b1, b2, b3);
+    printf("%c %c %c\n",c1, c2, c3);
+}
+
+int check_win(char a1, char a2, char a3, char b1, char b2, char b3, char c1, char c2, char c3){
+    if (a1 != '-' && a1 == a2 && a2 == a3) {
+        return 1;
+    }
+    if (b1 != '-'  && b1 == b2 && b2 == b3) {
+        return 1;
+    }
+    if (a1 != '-'  && a1 == b1 && b1 == c1) {
+        return 1;
+    }
+    if (a2 != '-'  && a2 == b2 && b2 == c2) {
+        return 1;
+    }
+    if (a3 != '-'  && a3 == b3 && b3 == c3) {
+        return 1;
+    }
+    if (c1 != '-'  && c1 == c2 && c2 == c3) {
+        return 1;
+    }
+    if (a1 != '-'  && a1 == b2 && b2 == c3) {
+        return 1;
+    }
+    if (a3 != '-'  && a3 == b2 && b2 == c1) {
+        return 1;
+    }
+    return 0;
+}
+
+int main(void) {
+    char a1 = '-', a2 ='-', a3 = '-' ;
+    char b1 = '-', b2 ='-', b3 = '-' ;
+    char c1 = '-', c2 ='-', c3 = '-' ;
+    char symbol = '0';
+
+
+    while(1) {
+        print_board(a1,a2,a3,b1,b2,b3,c1,c2,c3);
+        char str[3];
+        printf("%c>",symbol);
+        scanf("%2s",str);
+        if (str[0] == 'a' && str[1] == '1') {
+            a1 = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '1') {
+            b1 = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '1') {
+           c1 = symbol;
+        }
+        if (str[0] == 'a' && str[1] == '2') {
+            a2 = symbol;
+        }
+        if (str[0] == 'a' && str[1] == '3') {
+            a3 = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '2') {
+           b2 = symbol;
+        }
+        if (str[0] == 'b' && str[1] == '3') {
+            b3 = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '2') {
+           c2 = symbol;
+        }
+        if (str[0] == 'c' && str[1] == '3') {
+           c3 = symbol;
+        }
+
+        if (check_win(a1,a2,a3,b1,b2,b3,c1,c2,c3)) {
+            print_board(a1,a2,a3,b1,b2,b3,c1,c2,c3);
+            printf("%c WINS\n", symbol);
+            break;
+        }
+
+        if (symbol == '0') {
+            symbol = 'X';
+        } else {
+            symbol = '0';
+        }
+    }
+}
+
+```
+
+
+## [DAY-354] aircrack ng
+
+Watch youtube how to do deauthentication attacks using aircrack-ng and try it on any linux laptop
+
+
 

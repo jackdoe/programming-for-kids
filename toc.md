@@ -874,3 +874,7 @@
 [day-351 tic tac toe](#day-351-tic-tac-toe)
 
 [day-352 files](#day-352-files)
+
+[day-353 tic tac toe](#day-353-tic-tac-toe)
+
+[day-354 aircrack ng](#day-354-aircrack-ng)
