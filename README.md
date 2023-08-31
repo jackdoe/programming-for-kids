@@ -7,6 +7,11 @@ If you have any ideas or feedback, make a pull request, or send me an email to p
 
 Link to the book: [book.md](book.md)
 
+Example page:
+
+![example.png](./example.png "example")
+
+
 ## Other projects
 
 While writing the book we also developed few other projects:
