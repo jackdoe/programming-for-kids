@@ -995,6 +995,13 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-353 tic tac toe](#day-353-tic-tac-toe)
 
 [day-354 aircrack ng](#day-354-aircrack-ng)
+## week - 048
+
+
+
+[day-355 riscv assembler](#day-355-riscv-assembler)
+
+[day-356 pointers](#day-356-pointers)
 
 ## [DAY-0] The Computer
 
@@ -25638,4 +25645,19 @@ int main(void) {
 Watch youtube how to do deauthentication attacks using aircrack-ng and try it on any linux laptop
 
 
+
+## [DAY-355] riscv assembler
+
+Tle last month or so we spent learning RISCV assembler while making a board game: [PROJEKT:OVERFLOW](https://punkx.org/overflow/)
+
+Each day I made an exercise and then we wrote (either together or her own) the execution of the program, you can see most of the examples at https://punkx.org/overflow/#assembly
+
+I am attaching the photos of some of the work just for the record:
+
+![game-355.jpg](./screenshots/game-355.jpg "game 355 screenshot")
+
+
+## [DAY-356] pointers
+
+![game-356.jpg](./screenshots/game-356.jpg "game 356 screenshot")
 

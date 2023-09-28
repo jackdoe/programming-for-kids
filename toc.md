@@ -878,3 +878,10 @@
 [day-353 tic tac toe](#day-353-tic-tac-toe)
 
 [day-354 aircrack ng](#day-354-aircrack-ng)
+## week - 048
+
+
+
+[day-355 riscv assembler](#day-355-riscv-assembler)
+
+[day-356 pointers](#day-356-pointers)
