@@ -12,3 +12,9 @@ I am attaching the photos of some of the work just for the record:
 ## [DAY-356] pointers
 
 ![game-356.jpg](./screenshots/game-356.jpg "game 356 screenshot")
+
+## [DAY-357] buffer overflow
+
+Play a round of easy mode projekt:overflow https://punkx.org/overflow
+
+![game-357.jpg](./screenshots/game-357.jpg "game 357 screenshot")
