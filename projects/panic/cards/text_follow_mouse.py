@@ -18,10 +18,7 @@ def get_cursor_pos():
   r = byref(cursor)
   windll.user32.GetCursorPos(r)
   return (cursor.x, cursor.y)
-
-dc = g.GetDC(0)
 text = "Hello?"
-
 while True:
   (x,y) = get_cursor_pos()
   g.DrawText(dc, 
