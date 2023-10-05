@@ -1,16 +1,19 @@
 # pip install pywin32
 import win32api
-import win32con
+import win32gui
 import time
 import random
 
+WM_APPCOMMAND = 0x319
+APPCOMMAND_VOLUME_DOWN = 0x90000
+
 def decrease_sound():
   win32api.SendMessage(
-      -1,
-      win32con.WM_APPCOMMAND, 
-      0, 
-      win32con.APPCOMMAND_VOLUME_DOWN
-    )
+    win32gui.GetForegroundWindow(),
+    WM_APPCOMMAND, 
+    0, 
+    APPCOMMAND_VOLUME_DOWN
+  )
 
 
 # slowly decrease the volume every 1 to 30
