@@ -18,7 +18,7 @@ def card_meta(id, lang, symbol, symbol_style, force_color = ''):
     lang=''
   if force_color:
     color = force_color
-  return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol_style}"
+  return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol}:{symbol_style}"
   
   
 def card_str(x,lang=''):
@@ -33,30 +33,23 @@ card_str(f"""
 
 {'WARNING! WARING! WARNING!'.center(40)}
 
-USE THE CODE FROM THESE CARDS AT YOUR
-OWN RISK. THESE PRANKS ARE PURELY FOR
-EDUCATIONAL PURPOSES AND ARE NOT
-INTENDED TO CAUSE HARM. THE AUTHOR OF
-THIS DECK IS NOT RESPONSIBLE FOR ANY
-DAMAGE, LOSS OF DATA, OR OTHER
-CONSEQUENCES THAT MAY ARISE FROM THE USE
-OF THESE PRANKS.
 
-BY USING THESE PRANKS, YOU ACKNOWLEDGE
-THAT YOU ARE FULLY AWARE OF THE
-CONSEQUENCES OF YOUR ACTIONS AND THAT
-YOU UNDERSTAND THE CODE ON THESE
-CARDS. IF YOU ARE UNDER 18 YEARS OLD,
-YOU MUST OBTAIN THE CONSENT OF YOUR
-PARENT OR LEGAL GUARDIAN BEFORE USING
-THESE PRANKS.
 
-BY USING THESE PRANKS, YOU AGREE TO
-RELEASE AND HOLD HARMLESS THE AUTHOR OF
-THIS DECK FROM ANY CLAIMS, DEMANDS, OR
-DAMAGES, WHETHER KNOWN OR UNKNOWN,
-ARISING OUT OF OR IN ANY WAY CONNECTED
-WITH YOUR USE OF THESE PRANKS.
+
+THE SOFTWARE IS PROVIDED “AS IS”,
+WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO
+THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
 """,'law')
 
 card_str(f"""{'EPILEPSY WARNING!'.center(40)}
@@ -88,68 +81,6 @@ warning, and you assume all risks
 associated with using the cards.
 """,'law')
 
-
-card_str(f"""{'PANIC'.center(40)}
-
-PANIC is a deck of small computer prank
-programs designed to give you a taste of
-your own power over your computer. Each
-card in the deck represents a prank, and
-includes the code necessary to execute
-it. The pranks range from simple screen
-rotations to more elaborate tricks like
-drawing random pixels on the screen or
-playing sounds for each keystroke.
-
-While the pranks provided in the deck
-are great examples of what can be done,
-the real fun comes from combining
-multiple cards into one and creating
-your own unique pranks. This allows you
-to unleash your creativity and explore
-the extent of your programming
-knowledge.
-
-However, it's important to remember that
-all the cards require some level of
-Python programming knowledge. If you're
-just starting out, be sure to ask your
-parent or legal guardian how to get
-started with Python. They can help guide
-you in the right direction and ensure
-that you're using your newfound powers
-safely and responsibly.
-""")
-
-card_str(f"""{'ETHICS'.center(40)}
-
-To be ethical when playing with the
-PANIC deck, consider these tips:
-
-- Respect others and their property by
-  avoiding pranks that could damage or
-  harm their computer or device.
-
-- Obtain consent before executing any
-  prank programs.
-
-- Steer clear of offensive or harassing
-  pranks that could discriminate or
-  bully others.
-
-- Avoid compromising security with
-  pranks that could install malware or
-  steal personal information.
-
-- Use your power wisely, without taking
-  advantage of someone's trust or using
-  your skills to harm others.
-
-By following these tips, you can enjoy
-the fun of computer pranks while
-remaining a responsible and ethical
-member of the technology community.
-""")
 
 card_str(f"""{'INSTALL'.center(40)}
 
@@ -218,66 +149,6 @@ the code after.
 """)
 
 
-card_str(f"""{'WINDOWS SERVICES'.center(40)}
-
-Automatically start a program can also
-be done if you make it a 'Windows
-Service'.
-
-The easiest way to do that is by using
-the nssm program, you can download it
-from http://nssm.cc.  just download it
-and put the win64 nssm.ex file it in c:
-
-you can create a c:\\hello.bat file with
-the contents:
-
-   pythonw c:\\hello.py
-
-and then install it as a service:
-  c:\\nssm install hello c:\\hello.bat
-
-to remove the hello service:
-  c:\\nssm remove hello
-
-You will need administrator privileges
-in order to install/remove services, for
-that when you start the Command Prompt
-click on Run As Administrator.
-""")
-
-card_str(f"""{'EXPERIMENTING'.center(40)}
-
-If you want to experiment, never use
-your computer. There are some programs
-that emulate computers and you can
-install Windows inside the emulator.
-
-VirtualBox is one, it is free and you
-can get it from: https://virtualbox.org
-
-Microsoft provices a preinstalled
-Windows image you can download from
-https://developer.microsoft.com, search
-on google for 'developer windows virtual
-machines'
-
-Be carefull and only download things
-from developer.microsoft.com.
-
-The Windows Operating System in the
-VirtualBox virtual computer does not
-know its not running on actual computer.
-
-VirtualBox is basically a software
-computer.
-
-You can try all kinds of things, try to
-delete random files or fill the disk or
-erase the whole disk, and then you can
-just re-create it with the image.
-""")
-
 files = os.listdir(os.path.join(".","cards"))
 files = [f for f in files if f.endswith('py')]
 files.sort()
@@ -299,60 +170,3 @@ for fn in files:
 
     print(title)
     print(data)
-
-
-# card_str(f"""{'LEFT MOUSE BUTTON SWAP'.center(40)}
-# """)
-
-# card_str(f"""{'SWAP KEYS'.center(40)}
-# """)
-
-# card_str(f"""{'CONSUME THE INTERNET SPEEED'.center(40)}
-# """)
-
-# card_str(f"""{'MAKE RANDOM SOUND'.center(40)}
-# """)
-
-# card_str(f"""{'OPEN ALL THE PROGRAMS'.center(40)}
-# """)
-
-# card_str(f"""{'CHANGE MOUSE DIRECTIONS'.center(40)}
-# """)
-
-# card_str(f"""{'HUGE FONT SIZE'.center(40)}
-# """)
-
-# card_str(f"""{'SAY WHAT YOU TYPE'.center(40)}
-# """)
-
-# card_str(f"""{'FIREWALL A PROGRAM'.center(40)}
-# """)
-
-# card_str(f"""{'RANDOM DELAY WHEN KEY IS PRESSED'.center(40)}
-# """)
-
-# card_str(f"""{'RANDOMLY DROP KEYS'.center(40)}
-# """)
-
-# card_str(f"""{'CLICK MANY TIMES ON BUTTON PRESS'.center(40)}
-# """)
-
-# card_str(f"""{'REMOTE CONTROL KEYBOARD'.center(40)}
-# """)
-
-# card_str(f"""{'THROTTLE THE INTERNET OF ONE PROGRAM'.center(40)}
-# New-NetQosPolicy -Name "FTP" -AppPathNameMatchCondition "ftp.exe" -ThrottleRateActionBitsPerSecond 1MB
-# """)
-
-# card_str(f"""{'SPEECH TO TEXT AND OPEN NOTEPAD AND WRITE IT DOWN'.center(40)}
-# """)
-
-# card_str(f"""{'TALK AND TYPE IN NOTEPAD'.center(40)}
-# """)
-
-# card_str(f"""{'PRINT MORSE CODE'.center(40)}
-# """)
-
-
-
-# print(CARD)
