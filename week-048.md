@@ -18,3 +18,25 @@ I am attaching the photos of some of the work just for the record:
 Play a round of easy mode projekt:overflow https://punkx.org/overflow
 
 ![game-357.jpg](./screenshots/game-357.jpg "game 357 screenshot")
+
+## [DAY-358] buffer overflow
+
+Play a round of easy mode projekt:overflow https://punkx.org/overflow
+
+![game-358.png](./screenshots/game-358.png "game 358 screenshot")
+
+## [DAY-359] scanf; printf
+
+Get 4 numbers from the user and print them.
+
+```
+#include <stdio.h>
+int main(void){
+    int number1, number2, number3, number4;
+    printf("Choose 4 numbers: ");
+    scanf("%d %d %d %d",&number1,&number2,&number3,&number4);
+    printf("You chose: %d %d %d %d\n",number1,number2,number3,number4);
+    return 0;
+}
+
+```
