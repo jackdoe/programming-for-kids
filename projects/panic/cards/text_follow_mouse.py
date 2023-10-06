@@ -1,5 +1,5 @@
 # pip install pywin32
-import random,time
+import time
 import win32gui as g
 import win32api as a
 from ctypes import windll
