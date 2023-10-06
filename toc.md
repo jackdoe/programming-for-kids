@@ -887,3 +887,7 @@
 [day-356 pointers](#day-356-pointers)
 
 [day-357 buffer overflow](#day-357-buffer-overflow)
+
+[day-358 buffer overflow](#day-358-buffer-overflow)
+
+[day-359 scanf; printf](#day-359-scanf-printf)

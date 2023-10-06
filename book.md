@@ -1005,6 +1005,10 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-357 buffer overflow](#day-357-buffer-overflow)
 
+[day-358 buffer overflow](#day-358-buffer-overflow)
+
+[day-359 scanf; printf](#day-359-scanf-printf)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -25668,4 +25672,26 @@ I am attaching the photos of some of the work just for the record:
 Play a round of easy mode projekt:overflow https://punkx.org/overflow
 
 ![game-357.jpg](./screenshots/game-357.jpg "game 357 screenshot")
+
+## [DAY-358] buffer overflow
+
+Play a round of easy mode projekt:overflow https://punkx.org/overflow
+
+![game-358.png](./screenshots/game-358.png "game 358 screenshot")
+
+## [DAY-359] scanf; printf
+
+Get 4 numbers from the user and print them.
+
+```
+#include <stdio.h>
+int main(void){
+    int number1, number2, number3, number4;
+    printf("Choose 4 numbers: ");
+    scanf("%d %d %d %d",&number1,&number2,&number3,&number4);
+    printf("You chose: %d %d %d %d\n",number1,number2,number3,number4);
+    return 0;
+}
+
+```
 

@@ -1,0 +1,9 @@
+#include <stdio.h>
+int main(void){
+    int number1, number2, number3, number4;
+    printf("Choose 4 numbers: ");
+    scanf("%d %d %d %d",&number1,&number2,&number3,&number4);
+    printf("You chose: %d %d %d %d\n",number1,number2,number3,number4);
+    return 0;
+}
+
