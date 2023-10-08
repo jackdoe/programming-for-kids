@@ -40,3 +40,25 @@ int main(void){
 }
 
 ```
+
+## [DAY-360] fscanf
+
+Read all lines from a file, each containing 4 numbers, and print the numbers
+
+```
+#include <stdio.h>
+int main(void){
+    int number1, number2, number3, number4;
+    FILE *fp;
+    fp = open("numbers.txt","r");
+    while(1)
+        int r = fscanf(fp,"%d %d %d %d",&number1,&number2,&number3,&number4);
+        if (r == EOF) {
+            break;
+        }
+        printf("numbers: %d %d %d %d\n",number1,number2,number3,number4);
+    }
+    return 0;
+}
+
+```
