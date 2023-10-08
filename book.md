@@ -25701,6 +25701,14 @@ int main(void){
 
 Read all lines from a file, each containing 4 numbers, and print the numbers
 
+file numbers.txt:
+```
+1 2 3 54
+1.2 3 4 6
+0 1 2 3
+```
+
+
 ```
 #include <stdio.h>
 int main(void){
