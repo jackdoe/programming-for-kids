@@ -891,3 +891,5 @@
 [day-358 buffer overflow](#day-358-buffer-overflow)
 
 [day-359 scanf; printf](#day-359-scanf-printf)
+
+[day-360 fscanf](#day-360-fscanf)

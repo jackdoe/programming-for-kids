@@ -1009,6 +1009,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-359 scanf; printf](#day-359-scanf-printf)
 
+[day-360 fscanf](#day-360-fscanf)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -25690,6 +25692,28 @@ int main(void){
     printf("Choose 4 numbers: ");
     scanf("%d %d %d %d",&number1,&number2,&number3,&number4);
     printf("You chose: %d %d %d %d\n",number1,number2,number3,number4);
+    return 0;
+}
+
+```
+
+## [DAY-360] fscanf
+
+Read all lines from a file, each containing 4 numbers, and print the numbers
+
+```
+#include <stdio.h>
+int main(void){
+    int number1, number2, number3, number4;
+    FILE *fp;
+    fp = open("numbers.txt","r");
+    while(1)
+        int r = fscanf(fp,"%d %d %d %d",&number1,&number2,&number3,&number4);
+        if (r == EOF) {
+            break;
+        }
+        printf("numbers: %d %d %d %d\n",number1,number2,number3,number4);
+    }
     return 0;
 }
 
