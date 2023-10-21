@@ -1011,6 +1011,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-360 fscanf](#day-360-fscanf)
 
+[day-361 files](#day-361-files)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -25726,4 +25728,21 @@ int main(void){
 }
 
 ```
+
+
+## [DAY-361] files
+
+
+write multipe lines in a file using python
+
+```
+fout = open('output.txt', 'w')
+line1 = "This here\'s the wattle,\n"
+fout.write(line1)
+line2 = "the emblem of our land.\n"
+fout.write(line2)
+fout.close()
+```
+
+then use `ls` and `cat` to see the files and to print the contents of the file.
 

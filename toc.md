@@ -893,3 +893,5 @@
 [day-359 scanf; printf](#day-359-scanf-printf)
 
 [day-360 fscanf](#day-360-fscanf)
+
+[day-361 files](#day-361-files)
