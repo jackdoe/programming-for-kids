@@ -85,3 +85,5 @@ line2 = "the emblem of our land.\n"
 fout.write(line2)
 fout.close()
 ```
+
+then use `ls` and `cat` to see the files and to print the contents of the file.
