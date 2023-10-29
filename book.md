@@ -25837,7 +25837,7 @@ while True:
 
 ## [DAY-363] files
 
-play with files
+play with files, and experimenting with seek()
 
 ```
 while True:
