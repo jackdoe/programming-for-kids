@@ -1,0 +1,74 @@
+symbol = 'X'
+bord = ["-", "-", "-","-", "-", "-","-", "-", "-"]
+ask = ''
+while True:
+    print(bord[0], bord[1], bord[2])
+    print(bord[3], bord[4], bord[5])
+    print(bord[6], bord[7], bord[8])
+    ask = input(f"{symbol} where do u want to play: ")
+    if ask == 'save':
+        f = open('board.txt',"w")
+
+        for i in range(9):
+            f.write(bord[i])
+        f.write(symbol)
+        f.close()
+        quit()
+    
+    elif ask== 'load':
+        f=open('board.txt','r')
+        data = f.read()
+        for i in range(9):
+            bord[i] = data[i]
+        symbol = data[9]
+        f.close()
+        continue
+    else:
+        if ask== 'a1':
+            bord[0] = symbol
+        if ask== 'a2':
+            bord[1] = symbol
+        if ask== 'a3':
+            bord[2] = symbol
+        if ask== 'b1':
+            bord[3] = symbol
+        if ask== 'b2':
+            bord[4] = symbol
+        if ask== 'b3':
+            bord[5] = symbol
+        if ask== 'c1':
+            bord[6] = symbol
+        if ask== 'c2':
+            bord[7] = symbol
+        if ask== 'c3':
+            bord[8] = symbol
+    win = False
+    if bord[0] != '-' and (bord[0]==bord[1] and bord[1] == bord[2]):
+        win = True
+
+    if bord[3] != '-' and (bord[3]==bord[4] and bord[4] == bord[5]):
+        win = True
+    if bord[6] != '-' and (bord[6]==bord[7] and bord[7] == bord[8]):
+        win = True
+    if bord[0] != '-' and (bord[0]==bord[3] and bord[3] == bord[6]):
+        win = True
+    if bord[1] != '-' and (bord[1]==bord[4] and bord[4] == bord[7]):
+        win = True
+    if bord[2] != '-' and (bord[2]==bord[5] and bord[5] == bord[8]):
+        win = True
+    if bord[0] != '-' and (bord[0]==bord[4] and bord[4] == bord[8]):
+        win = True
+    if bord[2] != '-' and (bord[2]==bord[4] and bord[4] == bord[6]):
+        win = True
+    
+    if win == True:
+        print(symbol, "WINS")
+        quit()
+    
+    if symbol =='X':
+        symbol = '0'
+    else:
+        symbol = 'X'
+
+
+

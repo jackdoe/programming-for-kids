@@ -1,0 +1,8 @@
+H = float(input("what is the height: "))
+W = float(input("what is the width: "))
+D = float(input("what is the depth: "))
+
+V = H*W*D
+A = H*W*2 + H*D*2 + W*D*2
+print("The Volume is: "+str(V))
+print("The Area is: "+str(A))

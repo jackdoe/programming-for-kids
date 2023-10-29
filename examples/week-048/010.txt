@@ -1,0 +1,19 @@
+import openai
+openai.api_key = 'sk-..'
+messages = [{"role": "system", "content": "You are a japanesec techer, and your student is asking you the following quesiton, answer with the right response."}]
+while True:
+    question = input("what is your question: ")
+    messages.append({"role": "user", "content": question})
+
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages
+    )
+    content = response["choices"][0]["message"]["content"]
+
+    print('-' * 20)
+    print(content)
+
+    messages.append({"role":"assistant", "content": content})
+    print('-' * 20)
+    #print(messages)

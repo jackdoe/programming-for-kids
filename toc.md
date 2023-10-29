@@ -895,3 +895,9 @@
 [day-360 fscanf](#day-360-fscanf)
 
 [day-361 files](#day-361-files)
+
+[day-362 files](#day-362-files)
+
+[day-363 files](#day-363-files)
+
+[day-364 misc](#day-364-misc)

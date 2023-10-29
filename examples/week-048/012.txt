@@ -1,0 +1,7 @@
+ask = input("How big is the radius: ")
+r=float(ask)
+pi = 3.1415926
+C =2*pi*r
+A =pi*r*r
+print("the Area of your circle is: "+str(A))
+print("the Circumference is: "+str(C))
