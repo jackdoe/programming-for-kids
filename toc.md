@@ -901,3 +901,5 @@
 [day-363 files](#day-363-files)
 
 [day-364 misc](#day-364-misc)
+
+[day-365 area](#day-365-area)

@@ -1,0 +1,16 @@
+print("1 = circle, 2=rectangle, 3 = triangle:")
+ask = input("what do u want to do? ")
+if ask == '1':
+    r = input('what is the radius: ')
+    result = float(r) * float(r) * 3.14
+    print(result)
+elif ask == '2':
+    Lenght=input('what is the length: ')
+    Height=input('what is the height')
+    result = int(Lenght) * int(Height)
+    print(result)
+elif ask == '3':
+    h=input("what is the height: ")
+    l=input("what is the length: ")
+    result = int(l) * int(h) /2
+    print(result)
