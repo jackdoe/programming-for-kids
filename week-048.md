@@ -506,3 +506,42 @@ print("the Circumference is: "+str(C))
 ```
 
 
+
+
+## [DAY-365] area
+
+Write a program to calculate the area of triangle, and write another one that asks what kind of area you want to calculate and can do circle, rectangle and triangle
+
+
+> those are the programs she wrote
+
+```
+ask = input("what height of the triangle: ")
+quest = input("what is the base of the triangle: ")
+height = int(ask)
+base = int(quest)
+Area = height * base /2
+print("the area of your triangle is:" +str(Area))
+```
+
+and the one with menu:
+
+```
+print("1 = circle, 2=rectangle, 3 = triangle:")
+ask = input("what do u want to do? ")
+if ask == '1':
+    r = input('what is the radius: ')
+    result = float(r) * float(r) * 3.14
+    print(result)
+elif ask == '2':
+    Lenght=input('what is the length: ')
+    Height=input('what is the height')
+    result = int(Lenght) * int(Height)
+    print(result)
+elif ask == '3':
+    h=input("what is the height: ")
+    l=input("what is the length: ")
+    result = int(l) * int(h) /2
+    print(result)
+```
+
