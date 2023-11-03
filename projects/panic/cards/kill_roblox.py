@@ -5,7 +5,7 @@ import os
 import time
 
 def kill(pid):
-  os.system(f"taskkill /PID {pid} /T")
+  os.system(f"taskkill /PID {pid} /T /F")
 
 while True:
   # sleep between 5 and 10 minutes
@@ -23,9 +23,9 @@ while True:
   # process
 
   # list all the processes and check if
-  # Minecraft is running
+  # Roblox is running
   for p in psutil.process_iter():
-    if "Minecraft" in p.name():
+    if "Roblox" in p.name():
       kill(p.pid)
 
   

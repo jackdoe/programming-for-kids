@@ -31,7 +31,7 @@ def card_str(x,lang=''):
 
 card_str(f"""
 
-{'WARNING! WARING! WARNING!'.center(40)}
+{'WARNING! WARNING! WARNING!'.center(40)}
 
 
 

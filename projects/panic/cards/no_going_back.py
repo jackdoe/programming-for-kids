@@ -1,7 +1,7 @@
 # pip install pynput pywin32
 from pynput import keyboard
 import win32gui
-# while minecraft is focused, disable
+# while Roblox is focused, disable
 # the S key, so you cant go back
 
 def is_foreground(name):
@@ -14,7 +14,7 @@ def is_foreground(name):
 listener = None
 def filter(msg,data):
   # 0x53 is S's virtual code on windows
-  if is_foreground("Minecraft"):
+  if is_foreground("Roblox"):
     if data.vkCode == 0x53:
       listener.suppress_event()
 def on_press(key):

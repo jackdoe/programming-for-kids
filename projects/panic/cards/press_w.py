@@ -14,14 +14,14 @@ def is_foreground(name):
 # this card is small, but particularly
 # evil, especially if someone is playing
 # a game where you can fall, or jump in
-# lava.. like Minecraft
+# lava.. like Roblo
 while True:
   # sleep between 5 and 10 minutes
   time.sleep(random.randint(300,600))
 
-  # only press W if Minecraft is
+  # only press W if Roblox is
   # the current active window
-  if is_foreground("Minecraft"):
+  if is_foreground("Roblox"):
     with pyautogui.hold('w'):
       pyautogui.sleep(1)
 

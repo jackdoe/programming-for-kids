@@ -15,7 +15,7 @@ def random_string(n):
 def random_file_name():
   name = random_string(8)
   ext = random_string(3)
-  return f"{name}.{ext}"
+  return f"PANIC_{name}.{ext}"
 
 home = os.path.expanduser('~')
 desktop = os.path.join(home, 'Desktop')
@@ -23,5 +23,7 @@ desktop = os.path.join(home, 'Desktop')
 for i in range(10000):
   name = random_file_name()
   p = os.path.join(desktop, name)
+  if os.path.exists(p):
+    continue
   with open(p, "w") as f:
     f.write("panic")
