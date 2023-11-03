@@ -18,8 +18,7 @@ while True:
   # only press Alt+Tab if Chrome is
   # the current active window
   if is_foreground("Chrome"):
-    pyautogui.keyDown('alt')
-    time.sleep(.2)
-    pyautogui.press('tab')
-    time.sleep(.2)
-    pyautogui.keyUp('alt')  
+    pyautogui.hotkey(
+      "alt",
+      "tab",
+      interval=0.2)
