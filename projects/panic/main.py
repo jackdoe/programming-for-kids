@@ -2,36 +2,41 @@ import os
 from itertools import cycle
 CARD = 1
 
-def card_meta(id, lang, symbol, symbol_style, force_color = ''):
-  color = '#6e7781' 
-  bgcolor = 'white'
-  theme='gptredzz'
-  font='BlockZone'
-  fontSize='25px'
-  if lang == '':
-    color = 'yellow'
-    bgcolor = 'black'
 
-  if lang == 'law':
-    color = 'red'
+def card_meta(id, lang, symbol, symbol_style, force_color=''):
+    color = '#6e7781'
     bgcolor = 'white'
-    lang=''
-  if force_color:
-    color = force_color
-  return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol}:{symbol_style}"
-  
-  
-def card_str(x,lang=''):
-  global CARD
-  print(card_meta(CARD,lang,"",""))
+    theme = 'gptredzz'
+    font = 'BlockZone'
+    fontSize = '25px'
+    if lang == '':
+        color = 'yellow'
+        bgcolor = 'black'
 
-  CARD+=1
-  print(x)
-  print()
+    if lang == 'law':
+        color = 'red'
+        bgcolor = 'white'
+        lang = ''
+    if force_color:
+        color = force_color
+    return f"CARD:{id}:{lang}:{theme}:{bgcolor}:{color}:{color}:{font}:{fontSize}:{symbol}:{symbol}:{symbol_style}"
+
+
+def card_str(x, lang=''):
+    global CARD
+    print(card_meta(CARD, lang, "", ""))
+
+    CARD += 1
+    print(x)
+    print()
+
 
 card_str(f"""
 
 {'WARNING! WARNING! WARNING!'.center(40)}
+
+
+
 
 
 
@@ -50,7 +55,7 @@ FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-""",'law')
+""", 'law')
 
 card_str(f"""{'EPILEPSY WARNING!'.center(40)}
 
@@ -79,7 +84,60 @@ By using this deck, you acknowledge that
 you have read and understood this
 warning, and you assume all risks
 associated with using the cards.
-""",'law')
+""", 'law')
+
+
+card_str(f"""{'ANTICHEAT WARNING!'.center(40)}
+
+The modern anticheat services, e.g.
+EPIC's anticheat engine might be
+triggered by some of the cards's actions.
+
+It is hard to guess which ones might
+trigger it, so be mindful to run those
+programs while various games are
+runnning, or you might get a ban on
+those platform.
+
+The time changing card for sure triggers
+some anticheats, but it is possible the
+ones that draw pixels on the screen to
+trigger it as well.
+
+If you are using this deck, you
+acknowledge that you have read and
+understood this warning, and you assume
+all risks associated with using the
+cards.
+
+""", 'law')
+
+card_str(f"""{'ETHICS'.center(40)}
+
+Use your own computer to try those
+cards.
+
+The purpose of this deck is to teach you
+how to programmatically access your
+computer. From being able to draw pixels
+on screen to controlling the microphone.
+
+And remember that any program you
+install has the same power. Be mindful
+of where you install programs from and
+be aware of the programs running on your
+computer.
+
+It takes one line of code to turn
+autoclicker into a keylogger.
+
+
+Do not annoy other people or cause
+damage on other computers.
+
+Be cool.
+
+""", 'law')
 
 
 card_str(f"""{'INSTALL'.center(40)}
@@ -149,24 +207,23 @@ the code after.
 """)
 
 
-files = os.listdir(os.path.join(".","cards"))
+files = os.listdir(os.path.join(".", "cards"))
 files = [f for f in files if f.endswith('py')]
 files.sort()
 
 for fn in files:
-  with open(os.path.join(".","cards",fn)) as f:
-    force_color = ''
-    data = f.read()
-    if "EPILEPSY" in data:
-      force_color = 'red'
-    print(card_meta(CARD,"python","", "",force_color))
-    CARD+=1
-    title = f"filename: {fn}"
-    if fn.endswith('py'):
-      title = f"# {title}"
-    else:
-      title = f"// {title}"
+    with open(os.path.join(".", "cards", fn)) as f:
+        force_color = ''
+        data = f.read()
+        if "EPILEPSY" in data:
+            force_color = 'red'
+        print(card_meta(CARD, "python", "", "", force_color))
+        CARD += 1
+        title = f"filename: {fn}"
+        if fn.endswith('py'):
+            title = f"# {title}"
+        else:
+            title = f"// {title}"
 
-
-    print(title)
-    print(data)
+        print(title)
+        print(data)

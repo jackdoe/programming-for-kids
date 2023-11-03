@@ -1,6 +1,6 @@
 # pip install pywin32
 import win32api,time,random
-
+# POSSIBLE ANTICHEAT TRIGGER
 # set the time to be:
 # current time + n minutes
 def bump(n):

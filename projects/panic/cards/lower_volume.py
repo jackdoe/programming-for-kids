@@ -16,8 +16,8 @@ def decrease_sound():
   )
 
 
-# slowly decrease the volume every 1 to 30
-# seconds
+# slowly decrease the volume every
+# 1 to 30 seconds
 while True:
   decrease_sound()
   time.sleep(random.randint(1,30))
