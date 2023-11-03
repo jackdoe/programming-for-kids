@@ -2,7 +2,7 @@
 import pyautogui
 import random
 import time
-import win32gui, sys
+import win32gui
 
 def is_foreground(name):
   w = win32gui.GetForegroundWindow()
