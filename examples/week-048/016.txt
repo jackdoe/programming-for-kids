@@ -1,0 +1,9 @@
+import json
+f=open("user.json","r")
+r = f.read()
+#print(r)
+f.close()
+
+data = json.loads(r)
+
+print(data["objects"][1]["idol"])

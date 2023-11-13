@@ -1,0 +1,14 @@
+import json
+
+game = {
+    "board": ['-','-','-','-','-'],
+    "symbol": 'X'
+}
+#serialization serial
+f = open('tic.json','w')
+f.write(json.dumps(game))
+f.close()
+
+f = open('tic.json','r')
+game = json.loads(f.read())
+f.close()
