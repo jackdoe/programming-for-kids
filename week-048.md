@@ -545,3 +545,111 @@ elif ask == '3':
     print(result)
 ```
 
+## [DAY-366] json
+
+
+> the last 1-2 weeks we were doing ad-hoc small json programs, just serializing and deserializing some state, those are just some of the programs she made
+
+
+
+make user.json file
+
+```
+{
+    "name": "Jackie",
+    "favoriteNumber": 14,
+    "IsProgrammer": true,
+    "hobbies": ["learning","volleybal"],
+    "objects": [{"name": "Defalco"},{"idol": "Defalco"}]
+
+}
+```
+
+load it and get some data from the inside objects
+
+```
+import json
+f=open("user.json","r")
+r = f.read()
+#print(r)
+f.close()
+
+data = json.loads(r)
+
+print(data["objects"][1]["idol"])
+```
+
+save some input state:
+```
+import json
+# questions = []
+
+# for i in range(3):
+#     q = input("q> ")
+#     a = input("a> ")
+
+#     questions.append({"question":q, "answer":a })
+
+
+# f = open("questions.txt","w")
+# f.write(json.dumps(questions)) # serialize
+# f.close()
+
+f = open("questions.txt",'r')
+data = json.loads(f.read()) # deserialize
+f.close()
+print(data)
+```
+
+some other examples
+
+```
+import json
+
+game = {
+    "board": ['-','-','-','-','-'],
+    "symbol": 'X'
+}
+#serialization serial
+f = open('tic.json','w')
+f.write(json.dumps(game))
+f.close()
+
+f = open('tic.json','r')
+game = json.loads(f.read())
+f.close()
+```
+
+another user.json
+```
+[
+    {
+    "BuisnesName": "BigCorperation",
+    "NumberOfEmbloyes": 2000,
+    "Ceo": "Jim",
+    "rating": 4.6
+    },
+    {
+    "BuisnesName": "SmalBUisness",
+    "numberOfEmployes": 3,
+    "ceo": null,
+    "rating": 5
+    }
+]
+```
+
+and read it and print something form it
+
+```
+
+import json
+f=open("user.json","r")
+d = f.read()
+print(d)
+l = json.loads(d)
+f.close()
+
+print(l[0]['rating'])
+```
+
+> we made few other small programs on the way, but I didnt write them down. Also we spent fair amount of time going through the network tab in the chrome inspector and looking at various json payloads
