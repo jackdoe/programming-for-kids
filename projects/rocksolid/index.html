@@ -18,6 +18,15 @@
 	  font-size: 18px;
 	  margin: auto;
       }
+      .blink_me {
+	      animation: blinker 1s linear infinite;
+      }
+
+      @keyframes blinker {
+	      50% {
+		      opacity: 0;
+	      }
+      }
       ul {
           list-style-type: square;
       }
@@ -39,7 +48,7 @@
             <li><strong>Time Measurement:</strong> The time taken for the egg to reach the ground will be recorded with slow motion iPhone 8+ camera, it records at 240 fps, so an accurate measurement can be made.</li>
             <li><strong>Inspection:</strong> Devices will be inspected for rule adherence before the drop.</li>
             <li><strong>Budget Limit:</strong> Participants must construct their device within a $5 budget.</li>
-            <li><strong>Prize:</strong> The winner receives a $20 prize.</li>
+	    <li><strong>Prize:</strong> The winner receives a <mark class="blink_me">$20</mark></blink> prize.</li>
             <li><strong>Scoring:</strong> The winner is determined by the shortest time for the egg to reach the ground without breaking.</li>
         </ul>
 	<p>
