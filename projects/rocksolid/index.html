@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Solid Challenge</title>
+    <title>Rock Solid Challenge: Egg Drop</title>
     <style>
       @font-face {
           font-family: "Terminus (TTF)";
@@ -12,26 +12,38 @@
           font-display: fallback;
       }
       body {
-          font-family: 'Terminus (TTF)', monospace;
-	  max-width: 50rem;
-	  padding: 1rem;
-	  font-size: 18px;
-	  margin: auto;
+	      font-family: 'Terminus (TTF)', monospace;
+	      max-width: 50rem;
+	      padding: 1rem;
+	      font-size: 18px;
+	      margin: auto;
       }
       .blink_me {
 	      animation: blinker 1s linear infinite;
       }
-
+      @media print {
+	      body {
+		      width: 210mm;
+		      height: 297mm;
+		      margin-top: 0;
+	      }
+	      .printme {
+		      display: none;
+	      }
+	      img {
+		width: 30%;
+	      }
+      }
       @keyframes blinker {
 	      50% {
 		      opacity: 0;
 	      }
       }
       ul {
-          list-style-type: square;
+	      list-style-type: square;
       }
       li {
-          padding-top: 5px;
+	      padding-top: 5px;
       }
     </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,10 +73,12 @@
             <li><strong>Scoring:</strong> Fastest intact egg drop wins.</li>
 	    <li><strong>Prize:</strong> Winner gets a <mark class="blink_me">$20</mark> prize.</li>
         </ul>
-	Location: __________________, Date: __/__/____
+	Location: __________________, Date: ___/___/_____, WWW: <a href="https://punkx.org/rocksolid">https://punkx.org/rocksolid</a>
 	<p>
 	<em>Note:</em> Organizing parent funds the prize. Participants fund their designs from their lunch money.
 	</p>
+	<a class="printme" href="javascript:if(window.print)window.print()">Print</a>
+
     </div>
 </body>
 </html>
