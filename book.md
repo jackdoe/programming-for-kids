@@ -1022,6 +1022,11 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 [day-365 area](#day-365-area)
 
 [day-366 json](#day-366-json)
+## week - 049
+
+
+
+[day-367 functions](#day-367-functions)
 
 ## [DAY-0] The Computer
 
@@ -26321,4 +26326,34 @@ print(l[0]['rating'])
 ```
 
 > we made few other small programs on the way, but I didnt write them down. Also we spent fair amount of time going through the network tab in the chrome inspector and looking at various json payloads
+
+## [DAY-367] functions
+
+make a fizzbuzz function that takes a parameter the final number to fizzbuzz to, also make another function to check if a number is prime, and print the prime numbers in the fizzbuzz function
+
+
+```
+def is_prime(n):
+    if n== 0 or n == 1:
+        return False
+    for x in range(2,n):
+        if n %x==0:
+             return False
+    return True
+def fizzz(x):    
+    for i in range(x):
+        if i%15==0:
+            print("fizzbuzz")
+        elif i%5==0:
+            print("buzz")
+        elif i%3==0:
+            print("fizzz")
+        else:
+            if is_prime(i):
+                print("prime " + str(i))
+            else:
+                print(i)
+fizzz(100000000000000)
+
+```
 
