@@ -1028,6 +1028,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-367 functions](#day-367-functions)
 
+[day-368 functions](#day-368-functions)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -26355,5 +26357,39 @@ def fizzz(x):
                 print(i)
 fizzz(100000000000000)
 
+```
+
+## [DAY-368] functions
+
+make a program that prints fizzbuzz or the area of the circle
+
+> we are doing one small program per week, because high school in the netherlands starts at age 12, and its quite intense, so now we are taking it slow, this is the kind of program she can write by herself without help:
+
+```
+def fizzbuzz(n):
+    for i in range(n):
+        if i % 15 == 0:
+            print("FIZZBUZZZ")
+        elif i % 5 == 0:
+            print("BUZZZZZ")
+        elif i % 3 == 0:
+            print("FIZZZZ")
+        else:
+            print(i)
+
+def circumference(r):
+    result = float(r)*2 * 3.14
+    return result
+
+
+ask = input("do u want fizzbuzz or area? ")
+if ask == "fizzbuzz":
+    a = input("what is the number")
+    fizzbuzz(int(a))
+elif ask == "area":
+    re = input("what is the readius")
+    v = circumference(re)
+    print(v)
+    
 ```
 
