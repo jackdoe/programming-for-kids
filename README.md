@@ -25,6 +25,7 @@ While writing the book we also developed few other projects:
 * [runlength-for-kids](https://punkx.org/runlength-for-kids/) - runlength encoding for kids puzzle card game
 * [punk](https://punkjazz.org/punk/) - online game turn based python to move pieces on the board
 * [overflow](https://punkx.org/overflow/) - RISCV assembly board game, win by executing buffer overflow
+* [rocksolid](https://punkx.org/rocksolid/) - December 2023 egg drop challenge
 
 
 ## license
