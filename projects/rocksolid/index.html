@@ -1,85 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Solid: Egg Drop Challenge</title>
-    <style>
-      @font-face {
-          font-family: "Terminus (TTF)";
-          src: url("Terminus.woff") format('woff'), url("Terminus.ttf") format('ttf');
-          font-display: fallback;
-      }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Solid: Egg Drop Challenge</title>
+  <style>
+    @font-face {
+      font-family: "Terminus (TTF)";
+      src: url("Terminus.woff") format('woff'), url("Terminus.ttf") format('ttf');
+      font-display: fallback;
+    }
+
+    body {
+      font-family: 'Terminus (TTF)', monospace;
+      max-width: 50rem;
+      padding: 1rem;
+      font-size: 18px;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    .blink_me {
+      animation: blinker 1s linear infinite;
+    }
+
+    @media print {
       body {
-	      font-family: 'Terminus (TTF)', monospace;
-	      max-width: 50rem;
-	      padding: 1rem;
-	      font-size: 18px;
-	      margin: auto;
-	      margin-top: 50px;
+        width: 210mm;
+        height: 297mm;
+        margin-top: 0;
       }
-      .blink_me {
-	      animation: blinker 1s linear infinite;
+
+      .printme {
+        display: none;
       }
-      @media print {
-	      body {
-		      width: 210mm;
-		      height: 297mm;
-		      margin-top: 0;
-	      }
-	      .printme {
-		      display: none;
-	      }
-	      img {
-		width: 30%;
-	      }
+
+      img {
+        width: 30%;
       }
-      @keyframes blinker {
-	      50% {
-		      opacity: 0;
-	      }
+    }
+
+    @keyframes blinker {
+      50% {
+        opacity: 0;
       }
-      ul {
-	      list-style-type: square;
-      }
-      li {
-	      padding-top: 5px;
-      }
-    </style>
+    }
+
+    ul {
+      list-style-type: square;
+    }
+
+    li {
+      padding-top: 5px;
+    }
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:image" content="https://punkx.org/rocksolid/rocksolid.png" />
 </head>
-<body>
-    <div>
-	<center><img src="rocksolid.png" alt="Rock Solid Logo" width="35%"></center>
-        <h3>Welcome to the December 2023 Rock Solid Challenge!</h3>
-	<p>
-	The objective is to construct a device that not only protects the egg during a fall but also ensures its rapid descent. The winner will be determined by whose egg descends the quickest without breaking.
-	</p>
-	<img src="egg.png" width="50%">
-	<br>
-	<p>Rules for December 2023:</p>
-	
-        <ul>
-            <li><strong>Objective:</strong> Create a device to safely drop an egg from a set height quickly. Egg must remain intact.</li>
-            <li><strong>Materials:</strong> Limited to $5 budget. Keep receipts for verification.</li>
-            <li><strong>Drop Height:</strong> From the top window of the organizing parent's house. The contraption can be thrown with force.</li>
-            <li><strong>Timing:</strong> Measured with a 240 fps iPhone 8+ camera for accuracy. The time is taken from the moment it leaves the thrower's hand, until the contraption touches the ground.</li>
-            <li><strong>Inspection:</strong> All devices inspected for compliance before the drop.</li>
-            <li><strong>Eggs:</strong> Provided on-site. Random selection from a fresh carton.</li>
-	    <li><strong>Reusable Design:</strong> Must work for two drops without part replacement. Longer drop time counts.</li>
-            <li><strong>Size and Weight:</strong> The contraption must encase the egg and must not exceed a weight of 1 kilogram.</li>
-	    <li><strong>Safety:</strong> Ensuring safety is paramount, both for those launching the contraption and for bystanders observing or passing by. The organizing parent holds responsibility for maintaining a safe environment.</li>
-            <li><strong>Scoring:</strong> Fastest intact egg drop wins.</li>
-	    <li><strong>Prize:</strong> Winner gets a <mark class="blink_me">$20</mark> prize.</li>
-        </ul>
-	Location: __________________, Date: ___/___/_____, WWW: <a href="https://punkx.org/rocksolid">https://punkx.org/rocksolid</a>
-	<p>
-	<em>Note:</em> Organizing parent funds the prize. Participants fund their designs from their lunch money.
-	</p>
-	<a class="printme" href="javascript:if(window.print)window.print()">Print</a>
 
+<body>
+  <div>
+    <center><img src="rocksolid.png" alt="Rock Solid Logo" width="35%"></center>
+    <h3>Welcome to the December 2023 Rock Solid Challenge!</h3>
+    <p>
+      The objective is to construct a device that not only protects the egg during a fall but also ensures its rapid
+      descent. The winner will be determined by whose egg descends the quickest without breaking.
+    </p>
+    <img src="egg.png" width="50%">
+    <br>
+    <p>Rules for December 2023:</p>
+
+    <ul>
+      <li><strong>Objective:</strong> Create a device to safely drop an egg from a set height quickly. Egg must remain
+        intact.</li>
+      <li><strong>Materials:</strong> Limited to $5 budget. Keep receipts for verification.</li>
+      <li><strong>Drop Height:</strong> From the top window of the organizing parent's house. The contraption can be
+        thrown with force.</li>
+      <li><strong>Timing:</strong> Measured with a 240 fps iPhone 8+ camera for accuracy. The time is taken from the
+        moment it leaves the thrower's hand, until the contraption touches the ground.</li>
+      <li><strong>Inspection:</strong> All devices inspected for compliance before the drop.</li>
+      <li><strong>Eggs:</strong> Provided on-site. Random selection from a fresh carton.</li>
+      <li><strong>Reusable Design:</strong> Must work for two drops without part replacement. Longer drop time counts.
+      </li>
+      <li><strong>Size and Weight:</strong> The contraption must encase the egg and must not exceed a weight of 1
+        kilogram.</li>
+      <li><strong>Safety:</strong> Ensuring safety is paramount, both for those launching the contraption and for
+        bystanders observing or passing by. The organizing parent holds responsibility for maintaining a safe
+        environment.</li>
+      <li><strong>Scoring:</strong> Fastest intact egg drop wins.</li>
+      <li><strong>Prize:</strong> Winner gets a <mark class="blink_me">$20</mark> prize.</li>
+    </ul>
+    Location: __________________, Date: ___/___/_____, WWW: <a
+      href="https://punkx.org/rocksolid">https://punkx.org/rocksolid</a>
+    <p>
+      <em>Note:</em> Organizing parent funds the prize. Participants fund their designs from their lunch money.
+    </p>
+    <a class="printme" href="javascript:if(window.print)window.print()">Print</a>
+    <div class="printme">
+      <hr>
+      The 2023 winner design is metal ball filled with popcorn and wood glue:
+      <img src="2023/winning-design.jpg">
+      <br>
+      I threw it with force from the roof:
+      <br>
+      <img src="2023/in-flight.jpg">
     </div>
+  </div>
 </body>
+
 </html>
