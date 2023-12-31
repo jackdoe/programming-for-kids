@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALC - SINGLE BUTTON CALCULATOR</title>
+    <style>
+        @font-face {
+            font-family: "Terminus (TTF)";
+            src: url("/overflow/Terminus.woff") format('woff'), url("/overflow/Terminus.ttf") format('ttf');
+            font-display: fallback;
+        }
+
+        body {
+            font-family: 'Terminus (TTF)', monospace;
+            max-width: 50rem;
+            padding: 1rem;
+            font-size: 18px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        iframe {
+            aspect-ratio: 16 / 9;
+            height: auto;
+            width: 100%;
+        }
+
+        .blink_me {
+            animation: blinker 1s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        li {
+            padding-top: 5px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://punkx.org/calc/calc.png" />
+</head>
+
+<body>
+    <h1>CALC - SINGLE BUTTON (MORSE) CALCULATOR</h1>
+    <img width="100%" src="images/calc.jpg" alt="CALC - SINGLE BUTTON CALCULATOR" />
+    <br />
+    In December everyone is doing 'advent of code', but I thought I will make 'advent of things'. Make something
+    every
+    week, and I thought I will learn a lot by
+    making everyday things, that I am taking for granted, my plan was to make a calculator, a wrist watch and a
+    remote
+    controlled car (433mhz).
+    <br><br>
+    I only managed to make a calculator.
+    <br><br>
+
+    I wanted to make something so cool that my daughter would use it at school, and since she knows python, I wanted
+    the
+    calculator to be just a python repl that would evaluate the current line. So I needed full functioning keyboard,
+    and
+    I thought I will make one with 8 buttons and chords. I bought a bunch of esp32s from <a
+        href='https://nl.aliexpress.com/w/wholesale-esp32.html'></a>aliexpress</a> (s2, c3, wroom32 etc), and I
+    bought
+    all kinds of voltage regulators, since I wasnt sure if I would manage to power it with cr2032 batteries or I
+    would
+    fit cr123 in the case, or I would use a normal 9v battery. I am complete novice in electronics, so I thought I
+    would
+    just try things out. This is how the first version looked:
+    <br><br>
+    <img src="images/v0.jpg" width="80%">
+    <br><br>
+    It had 8 buttons, most left one is shift, most right is control, the rest are 6 bits used to make 64 characters.
+    The
+    editor is controlled with basic bindings ctrl+n, ctrl+p, ctrl+j etc. Later I decided to use aviator connectors
+    for
+    the cables (for the cool factor) and two epaper displays. On the left display you have the code, and press ctrl
+    + r
+    (which is 00100101) which then is rendered on the second display:
+    <br><br>
+    <img src="images/v1.jpg" width="80%">
+    <details>
+        <summary>keycodes</summary>
+        <pre>
+ctrl + 
+r: run
+l: refresh
+p: prev line
+n: next line
+m: new line
+a: home
+e: end
+b: left
+f: right
+0-9: help
+
+keycodes:
+s shift, c ctrl
+s000001c: ' '
+s110100c: a # A
+s000010c: b # B
+s000011c: c # C
+s011011c: d # D
+s000101c: e # E
+s000110c: f # F
+s000111c: g # G
+s001000c: h # H
+s001001c: i # I
+s001010c: j # J
+s001011c: k # K
+s001100c: l # L
+s001101c: m # M
+s001110c: n # N
+s001111c: o # O
+s010000c: p # P
+s010001c: q # Q
+s010010c: r # R
+s010011c: s # S
+s010100c: t # T
+s010101c: u # U
+s010110c: v # V
+s010111c: w # W
+s011000c: x # X
+s011001c: y # Y
+s011010c: z # Z
+s000100c: 0 # )
+s011100c: 1 # !
+s011101c: 2 # @
+s011110c: 3 # #
+s011111c: 4 # $
+s100100c: 5 # %
+s100001c: 6 # ^
+s100010c: 7 # &
+s100011c: 8 # *
+s100000c: 9 # (
+s100101c: - # _
+s100110c: = # +
+s100111c: [ # {
+s101000c: ] # }
+s101001c: ; # :
+s101010c: \' # "
+s101011c: , # &lt;
+s101100c: . # >
+s101101c: / # ?
+s101110c: ` # ~
+s101111c: \ # |
+    </pre>
+    </details>
+
+    The aviator connectors and the eink display were contributing a lot to the cool factor, but I was upset that my
+    daughter would have to learn a madeup sequences, so then I decided I would use just ASCII, but as I was talking to
+    her she said why dont you just use morse code, at least its not useless to know it.
+    <br><br>
+    Yesterday I managed to make it just in time for the new year:<br>
+    <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/wXRlZyoipvE?si=4-Ez-90vgtiYuZOe"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+    <ul>
+        Parts (unaffiliated links):
+        <li>
+            <a href="https://nl.aliexpress.com/item/1005006165377284.html">esp32c3 mini</a> (2.88€ for 1)
+        </li>
+        <li>
+            <a href="https://www.amazon.de/-/en/gp/product/B0BWJFVYZR">0.96" OLED display</a> (15€ for 5)
+        </li>
+        <li>
+            <a href="https://www.amazon.de/-/en/gp/product/B0B92YYMP8">boost converter (0.8-3.3v to 3.3v)</a> (8€ for
+            10)
+        </li>
+        <li>
+            <a href="https://www.amazon.de/-/en/dp/B07ZDQHN9W/">cr123 battery</a> (approx 4€ for 1)
+        </li>
+        <li>
+            <a href="https://nl.aliexpress.com/item/1005004923655202.html">cr123 holder</a> (0.93€ for 2)
+        </li>
+        <li>
+            <a href="https://www.amazon.de/-/en/gp/product/B0B5DC67BC">blank pcb (breadboard style)</a> (12€ for 5)
+        </li>
+        <li>
+            <a href="https://www.amazon.de/-/en/dp/B0BNKNDTBC">1n5819 diode</a> (8.33€ for 100)
+        </li>
+        <li>
+            <a href="https://www.amazon.de/-/en/gp/product/B07XWYHPZH">Mini DIP switches</a> (5€ for 100)
+        </li>
+    </ul>
+
+    A single calculator costs about 12€, but if you buy all the parts from aliexpress I think you can make it for
+    about 5€.
+
+    Schematic:<br>
+    <img src="images/schematic.png" width="100%">
+
+
+
+    Software:<br><br>
+
+    By default ESP32's boot is somewhat slow, it has verbose logging enabled and validates the image, so I had to
+    compile micropython myself in order to disable those. This was somewhat annoying as esp-idf is at version 5.5 or
+    something and micropython supports 5.1, but in the end I managed, nothing super suprising, just a bunch of random
+    quirks that I wont even bother to remember and will just scratch my head again the next time I have to do it. I wont
+    even bother to write about it. How is it possible that every build system is so cursed.
+    <br><br>
+    Code: <a href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/main.py">main.py</a>
+    <a href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/ssd1306.py">ssd1306.py</a>
+
+    <a href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/morse.py">morse.py</a>
+    <br><br>
+    You can copy them to your esp32 (after flashing with micropython) by doing:<br>
+    <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp main.py :main.py</small><br>
+    <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp ssd1306.py :ssd1306.py</small><br>
+
+    <br><br>
+
+    Each of the version had its own UX issues, the first version had only 5 rows, I thought it made sense to evaluate
+    each row instead of the whole buffer, but then you couldnt make 'programs', the second version had a lot of UX
+    issues due to the eink partial refreshing and deep sleep, but in the end it was working pretty ok, it just was kind
+    of clunky, and of course the final version has most of the issues, but it is the coolest one. Also my 3d printer
+    broke so I couldnt make a case for it, which also contributes to the cool factor.
+    <br><br>
+
+    <details>
+        <summary>Morse code table</summary>
+        <table border="0">
+            <tr>
+                <td>-----</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>.----</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>..---</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>...--</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>....-</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>.....</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>-....</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>--...</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>---..</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>----.</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>.-</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>-...</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>-.-.</td>
+                <td>c</td>
+            </tr>
+            <tr>
+                <td>-..</td>
+                <td>d</td>
+            </tr>
+            <tr>
+                <td>.</td>
+                <td>e</td>
+            </tr>
+            <tr>
+                <td>..-.</td>
+                <td>f</td>
+            </tr>
+            <tr>
+                <td>--.</td>
+                <td>g</td>
+            </tr>
+            <tr>
+                <td>....</td>
+                <td>h</td>
+            </tr>
+            <tr>
+                <td>..</td>
+                <td>i</td>
+            </tr>
+            <tr>
+                <td>.---</td>
+                <td>j</td>
+            </tr>
+            <tr>
+                <td>-.-</td>
+                <td>k</td>
+            </tr>
+            <tr>
+                <td>.-..</td>
+                <td>l</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>m</td>
+            </tr>
+            <tr>
+                <td>-.</td>
+                <td>n</td>
+            </tr>
+            <tr>
+                <td>---</td>
+                <td>o</td>
+            </tr>
+            <tr>
+                <td>.--.</td>
+                <td>p</td>
+            </tr>
+            <tr>
+                <td>--.-</td>
+                <td>q</td>
+            </tr>
+            <tr>
+                <td>.-.</td>
+                <td>r</td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>s</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>t</td>
+            </tr>
+            <tr>
+                <td>..-</td>
+                <td>u</td>
+            </tr>
+            <tr>
+                <td>...-</td>
+                <td>v</td>
+            </tr>
+            <tr>
+                <td>.--</td>
+                <td>w</td>
+            </tr>
+            <tr>
+                <td>-..-</td>
+                <td>x (multiply)</td>
+            </tr>
+            <tr>
+                <td>-.--</td>
+                <td>y</td>
+            </tr>
+            <tr>
+                <td>--..</td>
+                <td>z</td>
+            </tr>
+            <tr>
+                <td>.-.-.-</td>
+                <td>.</td>
+            </tr>
+            <tr>
+                <td>--..--</td>
+                <td>,</td>
+            </tr>
+            <tr>
+                <td>..--..</td>
+                <td>?</td>
+            </tr>
+            <tr>
+                <td>-.-.--</td>
+                <td>!</td>
+            </tr>
+            <tr>
+                <td>-....-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>-..-.</td>
+                <td>/</td>
+            </tr>
+            <tr>
+                <td>.--.-.</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>-.--.</td>
+                <td>(</td>
+            </tr>
+            <tr>
+                <td>-.--.-</td>
+                <td>)</td>
+            </tr>
+            <tr>
+                <td>-...-</td>
+                <td>=</td>
+            </tr>
+            <tr>
+                <td>.-.-.</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <td>.----.</td>
+                <td>'</td>
+            </tr>
+            <tr>
+                <td>-.-.-.</td>
+                <td>;</td>
+            </tr>
+            <tr>
+                <td>..--.-</td>
+                <td>_</td>
+            </tr>
+            <tr>
+                <td>.-..-.</td>
+                <td>"</td>
+            </tr>
+            <tr>
+                <td>---...</td>
+                <td>:</td>
+            </tr>
+            <tr>
+                <td>.-...</td>
+                <td>&</td>
+            </tr>
+            <tr>
+                <td>........</td>
+                <td>ERROR</td>
+            </tr>
+        </table>
+    </details>
+    <br>
+
+    Next month I will make a wrist watch.<br>
+
+    <hr>
+    PS: I am working on those projects to teach myself and my daughter about basic electronics and programming. I made
+    few games and projects that can print yourself:><br>
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkjazz.org/programming-time/">
+            <img style="display:inline; width: 80%; padding-right: 5px;"
+                src="https://punkjazz.org/programming-time/photos/b-800.jpg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkjazz.org/programming-time/">Programming Time</a>, which is a game to
+            teach
+            python and some more fundamental algorithms, from hash tables to RSA
+        </span>
+    </p>
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkx.org/c-pointer-game/">
+            <img style="display:inline; width: 80%; padding-right: 5px;"
+                src="https://punkx.org/c-pointer-game/photos/deck.jpg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkx.org/c-pointer-game/">The C Pointer Game - Pointers, Arrays and
+                Strings</a>,
+            a game to teach kids to look at the computer memory and understand references and values
+        </span>
+    </p>
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkx.org/4917/">
+            <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/4917/photos/a.jpg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkx.org/4917/">4917</a>, a game to teach kids machine code and how the
+            CPU
+            works with memory and registers
+        </span>
+    </p>
+
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkx.org/unix-pipe-game/">
+            <img style="display:inline; width: 80%; padding-right: 5px;"
+                src="https://punkx.org/unix-pipe-game/photos/deck.jpg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkx.org/unix-pipe-game/">The Unix Pipes Game</a>, a game to teach kids to
+            use
+            basic UNIX commands: <code>cat, sort, grep, head, tail, wc, uniq</code>
+        </span>
+    </p>
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkx.org/unix-pipe-game/ext-0.1">
+            <img style="display:inline; width: 80%; padding-right: 5px;"
+                src="https://punkx.org/unix-pipe-game/ext-0.1/photos/deck.jpg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkx.org/unix-pipe-game/ext-0.1">The Unix Pipes Game - Process
+                Substitution</a>,
+            an expansion of the Unix Pipes Game to teach process substitution and also: <code>paste, tr, cut, bc</code>
+        </span>
+    </p>
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkx.org/runlength-for-kids/">
+            <img style="display:inline; width: 80%; padding-right: 5px;"
+                src="https://punkx.org/runlength-for-kids/photos/deck.jpg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkx.org/runlength-for-kids/">RunLength Encoding for Kids</a>, small cards
+            "game" to explain runlength encoding
+        </span>
+    </p>
+
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkx.org/punk0/">
+            <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/punk0/photos/deck.jpg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkx.org/punk0/">PUNK0 - The Function Composition Card Game</a>, use cards
+            to manipulate a list and use its values to win the game
+        </span>
+    </p>
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://punkx.org/overflow/">
+            <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/overflow/logo.svg">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://punkx.org/overflow/">PROJEKT: OVERFLOW</a>, RISCV assembler boardgame
+        </span>
+    </p>
+
+
+    <p style='display: flex; align-items: center'>
+        <a style='flex: 1' target="_blank" href="https://github.com/jackdoe/programming-for-kids/blob/master/book.md">
+            <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/github.png">
+        </a>
+        <span style='flex: 9'>
+            <a target="_blank" href="https://github.com/jackdoe/programming-for-kids/blob/master/book.md">Programming
+                for
+                kids</a>, a log of my journey of teaching my daughter how to code
+        </span>
+    </p>
+
+</body>
+
+</html>

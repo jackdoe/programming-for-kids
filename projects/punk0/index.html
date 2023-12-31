@@ -1,190 +1,244 @@
-
 <html>
-  <head><title>PUNK0 - A FUNCTION COMPOSITION CARD GAME</title>
-    <style>
-      body {
-	  font-family: monospace;
-	  max-width: 50rem;
-	  padding: 1rem;
-	  font-size: 14px;
-	  margin: auto;
-      }
-      img {
-          padding-top: 10px;
-          padding-bottom: 10px;
-      }
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://punkx.org/punk0/photos/deck-large.jpg" />
 
-  </head>
-  <body>
-    <h2>PUNK0 - A FUNCTION COMPOSITION CARD GAME</h2>
-    Kind of like UNO for deveopers, but also with strategy.<br>
+<head>
+  <title>PUNK0 - A FUNCTION COMPOSITION CARD GAME</title>
+  <style>
+    body {
+      font-family: monospace;
+      max-width: 50rem;
+      padding: 1rem;
+      font-size: 14px;
+      margin: auto;
+    }
 
-    Each card's <font color="red">output</font> is another card's <font color="red">input</font>. <br>
+    img {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://punkx.org/punk0/photos/deck-large.jpg" />
 
-    <br>
-    <a target="_blank" href="photos/deck-large.jpg"><img src="photos/deck.jpg" height="400px"></a>
-    <a target="_blank" href="photos/deck1-large.jpg"><img src="photos/deck1.jpg" height="400px"></a>
-    <a target="_blank" href="photos/deck2-large.jpg"><img src="photos/deck2.jpg" height="400px"></a>
-    <a target="_blank" href="photos/deck3-large.jpg"><img src="photos/deck3.jpg" height="400px"></a>
+</head>
 
-<br>
-    <a style="background-color: #000; padding: 12px 36px; color: #fff; line-height: 1; display: inline-block; border-radius: 2px; text-decoration: none; font-weight: bold; font-size: 130%;" href="https://shop.punkx.org/products/punk0-a-function-composition-card-game">Buy now: €5,00 EUR</a>
-    <br>
-    <ul>
-      <li>print it yourself: <a href="punk0-cards.pdf">punk0-cards.pdf</a>, <a href="punk0-box.pdf">punk0-box.pdf</a>, <a href="punk0-box-cc.pdf">punk0-box-cc.pdf (CC BY 4.0 license)</a></li>
-      <li>code: <a href="https://github.com/jackdoe/programming-for-kids/tree/master/projects/punk0">punk0</a></li>
-      <li>author: <a href="https://github.com/jackdoe">github.com/jackdoe</a></li>
-      <li>co author: <a href="https://punkjazz.org/jackie">Jackie</a> (helped with testing, and ideas)</li>
-      <li>contact: <a href="mailto:punkx@fastmail.com">punkx@fastmail.com</a></li>
-      <li>license: CC BY 4.0, but the cover image is licensed with shutterstock's license up to 500000 prints, so if you are printing that many please use the CC BY 4.0 version</li>
-    </ul>
+<body>
+  <h2>PUNK0 - A FUNCTION COMPOSITION CARD GAME</h2>
+  Kind of like UNO for deveopers, but also with strategy.<br>
 
-    Each card has a function on it, each function is written in 4 languages: c, go, python, js. The game starts with the list [0, 0, 0, 0]. You must play either the same function in a different language, or any function in the same language as the previous card. Each card takes a list and return a list, and there are <b>punk0, punk1, punk2, punk3</b> cards that print what you should do depending on the appropriate index of the list. For example if the list gets to [0, <b>-2</b>, 1, 3] and you play <b>punk1(x)</b>, which operates on index 1 of the list, in this case having value -2, you must play 2 more valid cards, or draw from the deck.<br><br>
+  Each card's <font color="red">output</font> is another card's <font color="red">input</font>. <br>
 
-    <mark>RULES</mark><br>
-    <ul>
-      <li>The starting list is: <b>[0, 0, 0, 0]</b></li>
-      <li>Each player starts with 8 cards, the youngest player goes first and they can play any card they choose.</li>
-      <li>Players can either play the same function in a different language or any function in the same language as the previous card.</li>
-      <li>Players must play a matching card if they have one, otherwise they must draw one card from the deck.</li>
-      <li>If a player is required to draw one or more cards as a result of a punk() card or because they don't have a matching card, they must play one of the cards they drew if it is a playable card.</li>
-      <li>The first player to finish their cards wins the game.</li>
-    </ul>
+  <br>
+  <a target="_blank" href="photos/deck-large.jpg"><img src="photos/deck.jpg" height="400px"></a>
+  <a target="_blank" href="photos/deck1-large.jpg"><img src="photos/deck1.jpg" height="400px"></a>
+  <a target="_blank" href="photos/deck2-large.jpg"><img src="photos/deck2.jpg" height="400px"></a>
+  <a target="_blank" href="photos/deck3-large.jpg"><img src="photos/deck3.jpg" height="400px"></a>
 
-    There is also an easy mode: play as if increment/decrement, rotate_left/rotate_right punk0/punk1/punk2/punk3 are the same function.<br><br>
+  <br>
+  <a style="background-color: #000; padding: 12px 36px; color: #fff; line-height: 1; display: inline-block; border-radius: 2px; text-decoration: none; font-weight: bold; font-size: 130%;"
+    href="https://shop.punkx.org/products/punk0-a-function-composition-card-game">Buy now: €5,00 EUR</a>
+  <br>
+  <ul>
+    <li>print it yourself: <a href="punk0-cards.pdf">punk0-cards.pdf</a>, <a href="punk0-box.pdf">punk0-box.pdf</a>, <a
+        href="punk0-box-cc.pdf">punk0-box-cc.pdf (CC BY 4.0 license)</a></li>
+    <li>code: <a href="https://github.com/jackdoe/programming-for-kids/tree/master/projects/punk0">punk0</a></li>
+    <li>author: <a href="https://github.com/jackdoe">github.com/jackdoe</a></li>
+    <li>co author: <a href="https://punkjazz.org/jackie">Jackie</a> (helped with testing, and ideas)</li>
+    <li>contact: <a href="mailto:punkx@fastmail.com">punkx@fastmail.com</a></li>
+    <li>license: CC BY 4.0, but the cover image is licensed with shutterstock's license up to 500000 prints, so if you
+      are printing that many please use the CC BY 4.0 version</li>
+  </ul>
 
-    <mark>PUNK CARDS</mark><br>
-    <ul>
-      <li><font color="navy">punk0():</font><br>
-        The card will determine the next
-        action based on the first element
-        (index 0) of the list.
-        
-        <ul>
-          <li><b>If</b> the value of the <b>first</b> element is <font color="red">zero</font>, the next player will skip their turn.</li>
-          <li><b>If</b> the value is <font color="red">negative</font>, the current player must play exactly N cards in the same turn, where N is the absolute value of the element. If they are unable to play N cards, they must draw from the deck.</li>
-          <li><b>If</b> the value is <font color="red">positive</font>, the next player must draw N cards from the deck, where N is the value of the element, unless they have a punk0 card, in which case they can forward
-            the penalty to the next player.</li>
-        </ul>
-      </li>
-      
-      <li><font color="navy">punk1() punk2() punk3():</font><br>
+  Each card has a function on it, each function is written in 4 languages: c, go, python, js. The game starts with the
+  list [0, 0, 0, 0]. You must play either the same function in a different language, or any function in the same
+  language as the previous card. Each card takes a list and return a list, and there are <b>punk0, punk1, punk2,
+    punk3</b> cards that print what you should do depending on the appropriate index of the list. For example if the
+  list gets to [0, <b>-2</b>, 1, 3] and you play <b>punk1(x)</b>, which operates on index 1 of the list, in this case
+  having value -2, you must play 2 more valid cards, or draw from the deck.<br><br>
 
-        Same as punk0(), but using the
-        appropriate index of the list, punk1
-        uses index 1 and so on.
-      </li>
-    </ul>
+  <mark>RULES</mark><br>
+  <ul>
+    <li>The starting list is: <b>[0, 0, 0, 0]</b></li>
+    <li>Each player starts with 8 cards, the youngest player goes first and they can play any card they choose.</li>
+    <li>Players can either play the same function in a different language or any function in the same language as the
+      previous card.</li>
+    <li>Players must play a matching card if they have one, otherwise they must draw one card from the deck.</li>
+    <li>If a player is required to draw one or more cards as a result of a punk() card or because they don't have a
+      matching card, they must play one of the cards they drew if it is a playable card.</li>
+    <li>The first player to finish their cards wins the game.</li>
+  </ul>
 
-    This is how example round looks:<br>
+  There is also an easy mode: play as if increment/decrement, rotate_left/rotate_right punk0/punk1/punk2/punk3 are the
+  same function.<br><br>
 
-    <a target="_blank" href="photos/example1-large.jpg"><img src="photos/example1.jpg" height="40%"></a><br>
+  <mark>PUNK CARDS</mark><br>
+  <ul>
+    <li>
+      <font color="navy">punk0():</font><br>
+      The card will determine the next
+      action based on the first element
+      (index 0) of the list.
 
-    Brief explanation of the game:<br>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DV_VD1Dis78" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+      <ul>
+        <li><b>If</b> the value of the <b>first</b> element is <font color="red">zero</font>, the next player will skip
+          their turn.</li>
+        <li><b>If</b> the value is <font color="red">negative</font>, the current player must play exactly N cards in
+          the same turn, where N is the absolute value of the element. If they are unable to play N cards, they must
+          draw from the deck.</li>
+        <li><b>If</b> the value is <font color="red">positive</font>, the next player must draw N cards from the deck,
+          where N is the value of the element, unless they have a punk0 card, in which case they can forward
+          the penalty to the next player.</li>
+      </ul>
+    </li>
 
-    Example round:<br>                                                                                                                                                                                                                                  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/XMJkH_A-KCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
-    <br>
-    <br>
-    
-    I worked on this game mainly to teach my daughter that knowing many languages is not very important, what you need to know is how things work, also what they represent, and especially, how the computer sees them. Also to start building intuition about rotating and manipulating pieces of memory. If you are a parent teaching your kid, and is exploring more tools to help you, I made few other card games:<br>
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1' target="_blank" href="https://punkjazz.org/programming-time/">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkjazz.org/programming-time/photos/b-800.jpg">
-      </a>
-      <span style='flex: 9' >
-        <a target="_blank" href="https://punkjazz.org/programming-time/">Programming Time</a>, which is a game to teach python and some more fundamental algorithms, from hash tables to RSA
-      </span>
-    </p>
+    <li>
+      <font color="navy">punk1() punk2() punk3():</font><br>
 
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1'target="_blank" href="https://punkx.org/c-pointer-game/">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/c-pointer-game/photos/deck.jpg">
-      </a>
-      <span style='flex: 9'>
-        <a target="_blank" href="https://punkx.org/c-pointer-game/">The C Pointer Game - Pointers, Arrays and Strings</a>, a game to teach kids to look at the computer memory and understand references and values
-      </span>
-    </p>
+      Same as punk0(), but using the
+      appropriate index of the list, punk1
+      uses index 1 and so on.
+    </li>
+  </ul>
 
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1' target="_blank" href="https://punkx.org/4917/">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/4917/photos/a.jpg">
-      </a>
-      <span style='flex: 9'>
-        <a target="_blank" href="https://punkx.org/4917/">4917</a>, a game to teach kids machine code and how the CPU works with memory and registers
-      </span>
-    </p>
+  This is how example round looks:<br>
 
+  <a target="_blank" href="photos/example1-large.jpg"><img src="photos/example1.jpg" height="40%"></a><br>
 
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1' target="_blank" href="https://punkx.org/unix-pipe-game/">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/unix-pipe-game/photos/deck.jpg">
-      </a>
-      <span style='flex: 9'>
-        <a target="_blank" href="https://punkx.org/unix-pipe-game/">The Unix Pipes Game</a>, a game to teach kids to use basic UNIX commands: <code>cat, sort, grep, head, tail, wc, uniq</code>
-      </span>
-    </p>
+  Brief explanation of the game:<br>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DV_VD1Dis78" title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe><br>
 
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1' target="_blank" href="https://punkx.org/unix-pipe-game/ext-0.1">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/unix-pipe-game/ext-0.1/photos/deck.jpg">
-      </a>
-      <span style='flex: 9'>
-        <a target="_blank" href="https://punkx.org/unix-pipe-game/ext-0.1">The Unix Pipes Game - Process Substitution</a>, an expansion of the Unix Pipes Game to teach process substitution and also: <code>paste, tr, cut, bc</code>
-      </span>
-    </p>
+  Example round:<br> <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/XMJkH_A-KCY"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+  <br>
+  <br>
 
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1' target="_blank" href="https://punkx.org/runlength-for-kids/">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/runlength-for-kids/photos/deck.jpg">
-      </a>
-      <span style='flex: 9'>
-        <a target="_blank" href="https://punkx.org/runlength-for-kids/">RunLength Encoding for Kids</a>, small cards "game" to explain runlength encoding
-      </span>
-    </p>
+  I worked on this game mainly to teach my daughter that knowing many languages is not very important, what you need to
+  know is how things work, also what they represent, and especially, how the computer sees them. Also to start building
+  intuition about rotating and manipulating pieces of memory. If you are a parent teaching your kid, and is exploring
+  more tools to help you, I made few other card games:<br>
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://punkjazz.org/programming-time/">
+      <img style="display:inline; width: 80%; padding-right: 5px;"
+        src="https://punkjazz.org/programming-time/photos/b-800.jpg">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://punkjazz.org/programming-time/">Programming Time</a>, which is a game to teach
+      python and some more fundamental algorithms, from hash tables to RSA
+    </span>
+  </p>
 
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1' target="_blank" href="https://punkx.org/overflow/">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/overflow/logo.svg">
-      </a>
-      <span style='flex: 9'>
-        <a target="_blank" href="https://punkx.org/overflow/">PROJEKT: OVERFLOW</a>, RISCV assembler boardgame
-      </span>
-    </p>
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://punkx.org/c-pointer-game/">
+      <img style="display:inline; width: 80%; padding-right: 5px;"
+        src="https://punkx.org/c-pointer-game/photos/deck.jpg">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://punkx.org/c-pointer-game/">The C Pointer Game - Pointers, Arrays and Strings</a>,
+      a game to teach kids to look at the computer memory and understand references and values
+    </span>
+  </p>
+
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://punkx.org/4917/">
+      <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/4917/photos/a.jpg">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://punkx.org/4917/">4917</a>, a game to teach kids machine code and how the CPU
+      works with memory and registers
+    </span>
+  </p>
 
 
-    <p style='display: flex; align-items: center'>
-      <a style='flex: 1' target="_blank" href="https://github.com/jackdoe/programming-for-kids/blob/master/book.md">
-        <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/github.png">
-      </a>
-      <span style='flex: 9'>
-        <a target="_blank" href="https://github.com/jackdoe/programming-for-kids/blob/master/book.md">Programming for kids</a>, a log of my journey of teaching my daughter how to code
-      </span>
-    </p>
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://punkx.org/unix-pipe-game/">
+      <img style="display:inline; width: 80%; padding-right: 5px;"
+        src="https://punkx.org/unix-pipe-game/photos/deck.jpg">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://punkx.org/unix-pipe-game/">The Unix Pipes Game</a>, a game to teach kids to use
+      basic UNIX commands: <code>cat, sort, grep, head, tail, wc, uniq</code>
+    </span>
+  </p>
 
-    <mark>Symbols and Colors:</mark><br>
-    <ul>
-      <li>The demons on the cover represent the 4 languages, C being the skull, go is the mask, and the two fishes are js and python. I think its funny how everything we do circles around C, the further you move away (pytorch for example) the harder it pulls you in. Some day maybe we will get enough escape velocity and build new paradigms that are not just C with some suggar.</li>
-      <li>the celtic patter on the back of the box represents how everything in CS is connected, and knowledge and understanding can be built in many ways (<a href="https://www.youtube.com/watch?v=zesyeIvbjLQ">Richard Feynman - The Relation of Mathematics to Physics</a>)</li>
-      <li>the colors of the cards:<ul>
-          <li><b>c</b>: I tried to go for old school <a href='https://winworldpc.com/product/borland-c/30'>Borland C++ 3.1 for DOS</a> look, which is very close to my heart, I think it was possibly the best IDE I have ever used.</li>
-          <li><b>go</b>: I used <a href='https://en.wikipedia.org/wiki/Acme_(text_editor)'>ACME</a>'s colors, but added a bit of color for the keywords. Even though I dont use syntax highlighting, I think people will find it weird to have zero colors in code.</li>
-          <li><b>js</b>: inspired by hackerrank's dark theme.</li>
-          <li><b>py</b>: inspired by github's light theme.</li>
-        </ul>
-      </li>
-      <li>Immutable: all the functions return a new list, it felt weird for the cards to mutate the input list.</li>
-    </ul>
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://punkx.org/unix-pipe-game/ext-0.1">
+      <img style="display:inline; width: 80%; padding-right: 5px;"
+        src="https://punkx.org/unix-pipe-game/ext-0.1/photos/deck.jpg">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://punkx.org/unix-pipe-game/ext-0.1">The Unix Pipes Game - Process Substitution</a>,
+      an expansion of the Unix Pipes Game to teach process substitution and also: <code>paste, tr, cut, bc</code>
+    </span>
+  </p>
 
-    <mark>Thanks</mark>:<br>
-    This is possibly the 30th version of the game, and its really fun (I think), we printed and tried many versions and I want to thank my friends who helped me test it: ronen, peter, maarten, angel, mattias, tarek, deo, evanji, melore, aymeric and many others who I annoyed with playing the boring versions :D .. here are some of the failed attempts:<br>
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://punkx.org/runlength-for-kids/">
+      <img style="display:inline; width: 80%; padding-right: 5px;"
+        src="https://punkx.org/runlength-for-kids/photos/deck.jpg">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://punkx.org/runlength-for-kids/">RunLength Encoding for Kids</a>, small cards
+      "game" to explain runlength encoding
+    </span>
+  </p>
 
-    <a href="photos/attempts.jpg"><img src="photos/attempts.jpg" height="20%"></a>
-    
-    <br><br>
-    PS: No LLM was used for the cards, but I did use some ChatGPT to help me rephrase the rules, since english is not my native language and I do struggle with expressing my ideas especially when the space is so limited.<br><br>
-  </body>
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://punkx.org/overflow/">
+      <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/overflow/logo.svg">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://punkx.org/overflow/">PROJEKT: OVERFLOW</a>, RISCV assembler boardgame
+    </span>
+  </p>
+
+
+  <p style='display: flex; align-items: center'>
+    <a style='flex: 1' target="_blank" href="https://github.com/jackdoe/programming-for-kids/blob/master/book.md">
+      <img style="display:inline; width: 80%; padding-right: 5px;" src="https://punkx.org/github.png">
+    </a>
+    <span style='flex: 9'>
+      <a target="_blank" href="https://github.com/jackdoe/programming-for-kids/blob/master/book.md">Programming for
+        kids</a>, a log of my journey of teaching my daughter how to code
+    </span>
+  </p>
+
+  <mark>Symbols and Colors:</mark><br>
+  <ul>
+    <li>The demons on the cover represent the 4 languages, C being the skull, go is the mask, and the two fishes are js
+      and python. I think its funny how everything we do circles around C, the further you move away (pytorch for
+      example) the harder it pulls you in. Some day maybe we will get enough escape velocity and build new paradigms
+      that are not just C with some suggar.</li>
+    <li>the celtic patter on the back of the box represents how everything in CS is connected, and knowledge and
+      understanding can be built in many ways (<a href="https://www.youtube.com/watch?v=zesyeIvbjLQ">Richard Feynman -
+        The Relation of Mathematics to Physics</a>)</li>
+    <li>the colors of the cards:<ul>
+        <li><b>c</b>: I tried to go for old school <a href='https://winworldpc.com/product/borland-c/30'>Borland C++ 3.1
+            for DOS</a> look, which is very close to my heart, I think it was possibly the best IDE I have ever used.
+        </li>
+        <li><b>go</b>: I used <a href='https://en.wikipedia.org/wiki/Acme_(text_editor)'>ACME</a>'s colors, but added a
+          bit of color for the keywords. Even though I dont use syntax highlighting, I think people will find it weird
+          to have zero colors in code.</li>
+        <li><b>js</b>: inspired by hackerrank's dark theme.</li>
+        <li><b>py</b>: inspired by github's light theme.</li>
+      </ul>
+    </li>
+    <li>Immutable: all the functions return a new list, it felt weird for the cards to mutate the input list.</li>
+  </ul>
+
+  <mark>Thanks</mark>:<br>
+  This is possibly the 30th version of the game, and its really fun (I think), we printed and tried many versions and I
+  want to thank my friends who helped me test it: ronen, peter, maarten, angel, mattias, tarek, deo, evanji, melore,
+  aymeric and many others who I annoyed with playing the boring versions :D .. here are some of the failed attempts:<br>
+
+  <a href="photos/attempts.jpg"><img src="photos/attempts.jpg" height="20%"></a>
+
+  <br><br>
+  PS: No LLM was used for the cards, but I did use some ChatGPT to help me rephrase the rules, since english is not my
+  native language and I do struggle with expressing my ideas especially when the space is so limited.<br><br>
+</body>
+
 </html>
