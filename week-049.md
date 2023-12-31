@@ -61,3 +61,21 @@ elif ask == "area":
     print(v)
     
 ```
+
+## [DAY-369] functions
+
+Make a fizbuzz function that takes the start and end as parameters
+
+```
+def fb(a,n):
+    for i in range(a,n):
+        if i%15==0:
+            print('fizzbuzz')
+        if i%3==0:
+            print('fizz')
+        if i%5==0:
+            print(buzz)
+        else:
+            print(i)
+fb(1,100)
+```
