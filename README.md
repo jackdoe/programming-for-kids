@@ -26,7 +26,7 @@ While writing the book we also developed few other projects:
 * [punk](https://punkjazz.org/punk/) - online game turn based python to move pieces on the board
 * [overflow](https://punkx.org/overflow/) - RISCV assembly board game, win by executing buffer overflow
 * [rocksolid](https://punkx.org/rocksolid/) - December 2023 egg drop challenge
-
+* [calc](https://punkx.org/calc/) - single button (morse code) calculator
 
 ## license
 
