@@ -27,14 +27,9 @@
             width: 100%;
         }
 
-        .blink_me {
-            animation: blinker 1s linear infinite;
-        }
-
-        @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
+        img {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
         }
 
         ul {
@@ -51,41 +46,68 @@
 
 <body>
     <h1>CALC - SINGLE BUTTON (MORSE) CALCULATOR</h1>
-    <img width="100%" src="images/calc.jpg" alt="CALC - SINGLE BUTTON CALCULATOR" />
+    <a href="images/calc.jpg"></a><img width="60%" src="images/calc.jpg" alt="CALC - SINGLE BUTTON CALCULATOR" /></a>
     <br />
-    In December everyone is doing 'advent of code', but I thought I will make 'advent of things'. Make something
-    every
-    week, and I thought I will learn a lot by
-    making everyday things that I am taking for granted, my plan was to make a calculator, a wrist watch and a
-    remote
-    controlled car (433mhz).
-    <br><br>
-    I only managed to make a calculator.
-    <br><br>
+    <p>
+        In December everyone is doing 'advent of code', but I thought I will make 'advent of things'. Make something
+        every
+        week, and I thought I will learn a lot by
+        making everyday things that I am taking for granted, my plan was to make a calculator, a wrist watch and a
+        remote
+        controlled car (433mhz). To think a bit deeper about the challenges of making things that have the same design
+        for decades: why are they the way they are?
+    </p>
 
-    I wanted to make something so cool that my daughter would use it at school, and since she knows python, I wanted
-    the
-    calculator to be just a python repl that would evaluate the current line. So I needed full functioning keyboard,
-    and
-    I thought I will make one with 8 buttons and chords. I bought a bunch of esp32s from <a
-        href='https://nl.aliexpress.com/w/wholesale-esp32.html'></a>aliexpress</a> (s2, c3, wroom32 etc), and I
-    bought
-    all kinds of voltage regulators, since I wasnt sure if I would manage to power it with cr2032 batteries or I
-    would
-    fit cr123 in the case, or I would use a normal 9v battery. I am complete novice in electronics, so I thought I
-    would
-    just try things out. This is how the first version looked:
-    <br><br>
+    <p>
+        I only managed to make a calculator.
+
+    </p>
+    <p>While making it I thought I would teach my kid some basic electronics, but
+        in the end, I hope I showed her how to be <i>patient</i>. Nothing worked the way I thought it would, I broke
+        like 10 things, burned my hands like 20 times and every proptotype was worse than the previous one.
+    </p>
+    <p>
+        I thought I would have a good experience to write about, and some learnings to share, but I only accumulated
+        scars, so I will just present the versions I made and hope that the next time I will manage to build on top of
+        the scars.
+    </p>
+    <hr>
+    <p>
+        I really wanted to make something so cool that my daughter would use it at school, and since she knows python, I
+        wanted
+        the
+        calculator to be just a python repl. So I needed full functioning keyboard,
+        and
+        I thought I will make one with 8 buttons and chords. I bought a bunch of esp32s from <a
+            href='https://nl.aliexpress.com/w/wholesale-esp32.html'></a>aliexpress</a> (s2, c3, wroom32 etc), and I
+        bought
+        all kinds of voltage regulators, since I wasnt sure if I would manage to power it with cr2032 batteries or I
+        would
+        fit cr123 in the case, or I would use a normal 9v battery. I am complete novice in electronics, so I thought I
+        would
+        just try things out. This is how the first version looked:
+    </p>
+
+    <mark>V0.0.0</mark> (8 BUTTONS):<br>
+
     <img src="images/v0.jpg" width="80%">
-    <br><br>
-    It had 8 buttons, most left one is shift, most right is control, the rest are 6 bits used to make 64 characters.
-    The
-    editor is controlled with basic bindings ctrl+n, ctrl+p, ctrl+j etc. Later I decided to use aviator connectors
-    for
-    the cables (for the cool factor) and two epaper displays. On the left display you have the code, and press ctrl
-    + r
-    (which is 00100101) which then is rendered on the second display:
-    <br><br>
+    <p>
+        It had 8 buttons, most left one is shift, most right is control, the rest are 6 bits used to make 64 characters.
+        The
+        editor is controlled with basic bindings ctrl+n, ctrl+p, ctrl+j etc. Each line was executed with ctrl+r, and its
+        output was printed below. and you could graph things, e.g. if you have x=5; x*9; and then g(1) (which means
+        graph line 1), it will evaluate x*9 from x = -100 to x = 100 and draw its y value<br>
+
+        <a href="images/v0-a.png"><img src="images/v0-a.png" width="49%"></a>&nbsp;<a href="images/v0-b.png"><img
+                src="images/v0-b.png" width="49%"></a>
+    </p>
+    <mark>V0.0.1</mark> (8 BUTTONS):<br>
+
+    <p>Later I decided to use aviator connectors
+        for
+        the cables (for the cool factor) and two epaper displays. On the left display you have the code, and press ctrl
+        + r
+        (which is 00100101) which then is rendered on the second display:</p>
     <img src="images/v1.jpg" width="80%">
     <details>
         <summary>keycodes</summary>
@@ -154,19 +176,27 @@ s101110c: ` # ~
 s101111c: \ # |
     </pre>
     </details>
+    <p>
+        The aviator connectors and the eink display were contributing a lot to the cool factor, but I was upset that my
+        daughter would have to learn a madeup sequences, so then I decided I would use just ASCII as she also knows most
+        of the alphabet's codes, but as I was talking
+        to
+        her she said "why don't you just use morse code", and it got me thinking, what is the minimum amount of buttons
+        you can have on a calculator?
+    </p>
+    <mark>V0.0.2</mark> (ONE BUTTON):<br>
 
-    The aviator connectors and the eink display were contributing a lot to the cool factor, but I was upset that my
-    daughter would have to learn a madeup sequences, so then I decided I would use just ASCII, but as I was talking to
-    her she said "why don't you just use morse code, at least its not useless to know it".
-    <br><br>
-    So, yesterday I managed to make it just in time for the new year:<br><br>
+    <p>
+        So, yesterday I managed to make it just in time for the new year:
+    </p>
     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/wXRlZyoipvE?si=4-Ez-90vgtiYuZOe"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
+        allowfullscreen></iframe><br><br>
 
+    <mark>Parts</mark> (unaffiliated links):<br>
     <ul>
-        Parts (unaffiliated links):
+
         <li>
             <a href="https://nl.aliexpress.com/item/1005006165377284.html">esp32c3 mini</a> (2.88€ for 1)
         </li>
@@ -193,41 +223,53 @@ s101111c: \ # |
             <a href="https://www.amazon.de/-/en/gp/product/B07XWYHPZH">Mini DIP switches</a> (5€ for 100)
         </li>
     </ul>
+    <p>
+        A single calculator costs about 12€, but if you buy all the parts from aliexpress I think you can make it for
+        about 5€.</p>
 
-    A single calculator costs about 12€, but if you buy all the parts from aliexpress I think you can make it for
-    about 5€.<br><br>
-
-    Schematic:<br><br>
-    <img src="images/schematic.png" width="100%"><br><br>
+    <mark>Schematic</mark>:<br>
+    <img src="images/schematic.png" width="100%">
 
 
 
-    Software:<br><br>
+    <mark>Software</mark>:<br>
+    <p>
+        By default ESP32's boot is somewhat slow, it has verbose logging enabled and validates the image at boot, so I
+        had to
+        compile micropython myself in order to disable those. This was somewhat annoying as esp-idf is at version 5.5 or
+        something and micropython supports 5.1, but in the end I managed, nothing super suprising, just a bunch of
+        random
+        quirks that I wont even bother to remember and will just scratch my head again the next time I have to do it. I
+        wont
+        even bother to write about it.
+    </p>
 
-    By default ESP32's boot is somewhat slow, it has verbose logging enabled and validates the image, so I had to
-    compile micropython myself in order to disable those. This was somewhat annoying as esp-idf is at version 5.5 or
-    something and micropython supports 5.1, but in the end I managed, nothing super suprising, just a bunch of random
-    quirks that I wont even bother to remember and will just scratch my head again the next time I have to do it. I wont
-    even bother to write about it. How is it possible that every build system is so cursed.
-    <br><br>
-    Code: <a href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/main.py">main.py</a>
-    <a href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/ssd1306.py">ssd1306.py</a>
+    <p>
+        How is it possible that every build system is so cursed.
+    </p>
+    <p>
+        Code: <a
+            href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/main.py">main.py</a>
+        <a
+            href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/ssd1306.py">ssd1306.py</a>
 
-    <a href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/morse.py">morse.py</a>
-    <br><br>
-    You can copy them to your esp32 (after flashing with micropython) by doing:<br>
-    <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp main.py :main.py</small><br>
-    <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp ssd1306.py :ssd1306.py</small><br>
-    <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp morse.py :morse.py</small><br>
+        <a href="https://github.com/jackdoe/programming-for-kids/blob/master/projects/calc/code/morse.py">morse.py</a>
+        <br>
+        You can copy them to your esp32 (after flashing with micropython) by doing:<br>
+        <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp main.py :main.py</small><br>
+        <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp ssd1306.py :ssd1306.py</small><br>
+        <small>micropython/tools/pyboard.py -b 115200 -d /dev/tty.usbmodem101 -f cp morse.py :morse.py</small><br>
 
-    <br><br>
-
-    Each of the version had its own UX issues, the first version had only 5 rows, I thought it made sense to evaluate
-    each row instead of the whole buffer, but then you couldnt make 'programs', the second version had a lot of UX
-    issues due to the eink partial refreshing and deep sleep, but in the end it was working pretty ok, it just was kind
-    of clunky, and of course the final version has most of the issues, but it is the coolest one. Also my 3d printer
-    broke so I couldnt make a case for it, which also contributes to the cool factor.
-    <br><br>
+    </p>
+    <p>
+        Each of the version had its own UX issues, the first version had only 5 rows, I thought it made sense to
+        evaluate
+        each row instead of the whole buffer, but then you couldnt make 'programs', the second version had a lot of UX
+        issues due to the eink partial refreshing and deep sleep, but in the end it was working pretty ok, it just was
+        kind
+        of clunky, and of course the final version has most of the issues, but it is the coolest one. Also my 3d printer
+        broke so I couldnt make a case for it, which also contributes to the cool factor.
+    </p>
 
     <details>
         <summary>Morse code table</summary>
@@ -450,9 +492,15 @@ s101111c: \ # |
             </tr>
         </table>
     </details>
-    <br>
 
-    Next month I will make a wrist watch.<br>
+    <p>
+        Its funny that this calculator is more powerul than the first computer I had, which was 133mhz AMD K5, and this
+        esp32 runs at 160mhz :)
+    </p>
+    <p>
+
+        My new year resolution is to learn KiCad and FreeCAD and next year, and make many more things!
+    </p>
 
     <hr>
     PS: I am working on those projects to teach myself and my daughter about basic electronics and programming. I made
