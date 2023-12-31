@@ -912,3 +912,5 @@
 [day-367 functions](#day-367-functions)
 
 [day-368 functions](#day-368-functions)
+
+[day-369 functions](#day-369-functions)

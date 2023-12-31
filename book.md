@@ -1030,6 +1030,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-368 functions](#day-368-functions)
 
+[day-369 functions](#day-369-functions)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -26393,3 +26395,20 @@ elif ask == "area":
     
 ```
 
+## [DAY-369] functions
+
+Make a fizbuzz function that takes the start and end as parameters
+
+```
+def fb(a,n):
+    for i in range(a,n):
+        if i%15==0:
+            print('fizzbuzz')
+        if i%3==0:
+            print('fizz')
+        if i%5==0:
+            print(buzz)
+        else:
+            print(i)
+fb(1,100)
+```
