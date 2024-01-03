@@ -79,3 +79,20 @@ def fb(a,n):
             print(i)
 fb(1,100)
 ```
+
+
+## [DAY-370] circuits
+
+implement the following circuit on a breadboard:
+
+```
+.- battery + --- button -> led --.
+|                                |
+`--------------------------------'
+```
+
+so that when you press the button it closes the circuit and the led lights up
+
+![game-370-a.png](./screenshots/game-370-a.png "game 370 screenshot")
+
+![game-370-b.png](./screenshots/game-370-b.png "game 370 screenshot")
