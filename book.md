@@ -1032,6 +1032,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-369 functions](#day-369-functions)
 
+[day-370 circuits](#day-370-circuits)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -26412,3 +26414,21 @@ def fb(a,n):
             print(i)
 fb(1,100)
 ```
+
+
+## [DAY-370] circuits
+
+implement the following circuit on a breadboard:
+
+```
+.- battery + --- button -> led --.
+|                                |
+`--------------------------------'
+```
+
+so that when you press the button it closes the circuit and the led lights up
+
+![game-370-a.png](./screenshots/game-370-a.png "game 370 screenshot")
+
+![game-370-b.png](./screenshots/game-370-b.png "game 370 screenshot")
+

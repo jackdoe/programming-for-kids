@@ -914,3 +914,5 @@
 [day-368 functions](#day-368-functions)
 
 [day-369 functions](#day-369-functions)
+
+[day-370 circuits](#day-370-circuits)
