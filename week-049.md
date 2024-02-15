@@ -96,3 +96,67 @@ so that when you press the button it closes the circuit and the led lights up
 ![game-370-a.png](./screenshots/game-370-a.png "game 370 screenshot")
 
 ![game-370-b.png](./screenshots/game-370-b.png "game 370 screenshot")
+
+
+## [DAY-371] blink
+
+We will do some experiments withg esp32, microphone and few LEDs. Flash the esp32 with micropython (in ourcase its esp32c3: https://micropython.org/download/ESP32_GENERIC_C3/)
+
+first connect the LED to pin 4 and the ground pin like this:
+
+![game-371-a.png](./screenshots/game-371-a.png "game 371 screenshot")
+
+
+Then make the LED blink:
+
+```
+from machine import Pin
+from time import sleep_ms
+
+p4 = Pin(4, Pin.OUT)
+
+while True:
+    p4.value(1)
+    sleep_ms(1000)
+    p4.value(0)
+    sleep_ms(1000)
+
+```
+
+
+Now add another LED to pin 3, and make them alternate, when one is ON the other should be OFF:
+
+
+```
+from machine import Pin
+from time import sleep_ms
+
+p4 = Pin(4, Pin.OUT)
+p3 = Pin(4, Pin.OUT)
+while True:
+    p4.value(1)
+    p3.value(0)
+    sleep_ms(1000)
+    p4.value(0)
+    p3.value(1)
+    sleep_ms(1000)
+```
+
+Now get a microphone, and hook it to Pin 2, then read pin2 and only make one of the LEDs light when the microphone detects loud noise (like a clap):
+
+
+
+
+```
+from machine import Pin, ADC
+from time import sleep_ms
+p4 = Pin(4, Pin.OUT)
+p2 = ADC(Pin(2))
+p2.atten(ADC.ATTN_11DB)
+
+while True:
+    if p2.read() > 2000:
+        p4.value(1)
+    else:
+        p4.value(0)
+```
