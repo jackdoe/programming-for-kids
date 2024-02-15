@@ -916,3 +916,5 @@
 [day-369 functions](#day-369-functions)
 
 [day-370 circuits](#day-370-circuits)
+
+[day-371 blink](#day-371-blink)

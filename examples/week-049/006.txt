@@ -1,0 +1,12 @@
+from machine import Pin
+from time import sleep_ms
+
+p4 = Pin(4, Pin.OUT)
+p3 = Pin(4, Pin.OUT)
+while True:
+    p4.value(1)
+    p3.value(0)
+    sleep_ms(1000)
+    p4.value(0)
+    p3.value(1)
+    sleep_ms(1000)

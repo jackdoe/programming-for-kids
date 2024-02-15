@@ -1,0 +1,11 @@
+from machine import Pin, ADC
+from time import sleep_ms
+p4 = Pin(4, Pin.OUT)
+p2 = ADC(Pin(2))
+p2.atten(ADC.ATTN_11DB)
+
+while True:
+    if p2.read() > 2000:
+        p4.value(1)
+    else:
+        p4.value(0)
