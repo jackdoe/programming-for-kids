@@ -104,7 +104,7 @@ We will do some experiments withg esp32, microphone and few LEDs. Flash the esp3
 
 first connect the LED to pin 4 and the ground pin like this:
 
-![game-371-a.png](./screenshots/game-371-a.png "game 371 screenshot")
+![game-371-a.jpg](./screenshots/game-371-a.jpg "game 371 screenshot")
 
 
 Then make the LED blink:
@@ -125,6 +125,8 @@ while True:
 
 
 Now add another LED to pin 3, and make them alternate, when one is ON the other should be OFF:
+
+![game-371-b.jpg](./screenshots/game-371-b.jpg "game 371 screenshot")
 
 
 ```
