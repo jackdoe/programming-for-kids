@@ -918,3 +918,5 @@
 [day-370 circuits](#day-370-circuits)
 
 [day-371 blink](#day-371-blink)
+
+[day-372 communication](#day-372-communication)

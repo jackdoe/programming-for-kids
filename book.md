@@ -1036,6 +1036,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-371 blink](#day-371-blink)
 
+[day-372 communication](#day-372-communication)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -26499,4 +26501,17 @@ while True:
     else:
         p4.value(0)
 ```
+
+
+## [DAY-372] communication
+
+
+Watch: https://www.youtube.com/watch?v=eq5YpKHXJDM&
+
+> We didnt actually watch it but I tried to explain it myself and also built a similar lab setup with 2 esp32s, including how we test for valid bits and also how we send bit by bit and how we build the character on the other side, first with nz encoding then with data + clock, the lesson was about 45 minutes. 
+
+
+![game-372-a.jpg](./screenshots/game-372-a.jpg "game 372 screenshot")
+![game-372-b.jpg](./screenshots/game-372-b.jpg "game 372 screenshot")
+![game-372-c.jpg](./screenshots/game-372-c.jpg "game 372 screenshot")
 
