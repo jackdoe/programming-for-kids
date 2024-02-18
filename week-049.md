@@ -167,10 +167,9 @@ while True:
 ## [DAY-372] communication
 
 
-Watch: https://www.youtube.com/watch?v=eq5YpKHXJDM&
+Watch Ben Eater's Reliable data transmission: https://www.youtube.com/watch?v=eq5YpKHXJDM&
 
 > We didnt actually watch it but I tried to explain it myself and also built a similar lab setup with 2 esp32s, including how we test for valid bits and also how we send bit by bit and how we build the character on the other side, first with nz encoding then with data + clock, the lesson was about 45 minutes. 
-
 
 ![game-372-a.jpg](./screenshots/game-372-a.jpg "game 372 screenshot")
 ![game-372-b.jpg](./screenshots/game-372-b.jpg "game 372 screenshot")
