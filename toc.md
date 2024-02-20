@@ -920,3 +920,5 @@
 [day-371 blink](#day-371-blink)
 
 [day-372 communication](#day-372-communication)
+
+[day-373 communication](#day-373-communication)

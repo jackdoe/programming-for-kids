@@ -1038,6 +1038,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-372 communication](#day-372-communication)
 
+[day-373 communication](#day-373-communication)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -26513,4 +26515,83 @@ Watch Ben Eater's Reliable data transmission: https://www.youtube.com/watch?v=eq
 ![game-372-a.jpg](./screenshots/game-372-a.jpg "game 372 screenshot")
 ![game-372-b.jpg](./screenshots/game-372-b.jpg "game 372 screenshot")
 ![game-372-c.jpg](./screenshots/game-372-c.jpg "game 372 screenshot")
+
+
+## [DAY-373] communication
+
+
+Make a simple interface to draw characters/shapes on ssd1306 oled display
+
+![game-373.jpg](./screenshots/game-373.jpg "game 373 screenshot")
+
+
+> I made the code and the device, but left the part that handles the keypresses to her, I printed the gfx pdf: https://cdn-learn.adafruit.com/downloads/pdf/adafruit-gfx-graphics-library.pdf of course she decided to write a$$ :)
+
+```
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+Adafruit_SSD1306 screen(128, 64, &Wire, -1);
+int pins[6] = { 12, 11, 10, 7, 6, 4 };
+int pressed[6] = { 0, 0, 0, 0, 0, 0 };
+
+void setup() {
+  Serial.begin(9600);
+
+  screen.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  screen.clearDisplay();
+  screen.display();
+
+  // setup pins to INPUT mode
+  for (int i = 0; i < 6; i++) {
+    pinMode(pins[i], INPUT_PULLUP);
+  }
+}
+
+void loop() {
+  for (int i = 0; i < 6; i++) {
+    int v = digitalRead(pins[i]);
+    if (v == 0) {
+      // press
+      if (!pressed[i]) {
+        pressed[i] = 1;
+        press(i);
+      }
+    } else {
+      pressed[i] = 0;
+    }
+  }
+}
+int x = 0;
+
+void press(int button) {
+  if (button == 0) {
+    screen.clearDisplay();
+  }
+  if (button == 1) {
+    screen.drawChar(x, 30, 65, WHITE, BLACK, 5);
+    x += 25;
+  }
+  if (button == 2) {
+    screen.fillRect(x, 32, 40, 20, WHITE);
+  }
+  if (button == 3) {
+    screen.drawChar(x, 30, 36, WHITE, BLACK, 5);
+    x += 25;
+  }
+  if (button == 4) {
+    screen.fillRoundRect(x, 40, 20, 20, 10, WHITE);
+  }
+  if (button == 5) {
+    screen.fillTriangle(x, 20, 45, 40, 60, 63, WHITE);
+  }
+
+
+
+  screen.display();
+}
+
+```
 
