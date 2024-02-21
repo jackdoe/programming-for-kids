@@ -922,3 +922,5 @@
 [day-372 communication](#day-372-communication)
 
 [day-373 communication](#day-373-communication)
+
+[day-374 the stack](#day-374-the-stack)

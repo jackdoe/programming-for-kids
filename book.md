@@ -1040,6 +1040,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-373 communication](#day-373-communication)
 
+[day-374 the stack](#day-374-the-stack)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -26593,5 +26595,126 @@ void press(int button) {
   screen.display();
 }
 
+```
+
+## [DAY-374] the stack
+
+> Making a reverse polish notation calculator, I most of the lesson (which lasted about 25 mins) I was explaining the stack data structure, and showed some code about a possible implementation, and I modified the arduino+buttons thing from yesterday to be a simple calculator. I used stacks of paper to illustrate how it works, and why the stack is so powerful.
+
+![game-374-a.jpg](./screenshots/game-374-a.jpg "game 374 screenshot")
+![game-374-b.jpg](./screenshots/game-374-b.jpg "game 374 screenshot")
+
+> This was the first actual programming lesson since we started few years ago. The impementation uses global variables on purpose to be as simple as possible to explain and focus on simply keeping an index into an array.
+
+
+```
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+Adafruit_SSD1306 screen(128, 64, &Wire, -1);
+int pins[6] = { 12, 11, 10, 7, 6, 4 };
+int pressed[6] = { 0, 0, 0, 0, 0, 0 };
+
+
+
+void setup() {
+  Serial.begin(9600);
+
+  screen.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  screen.clearDisplay();
+  screen.display();
+
+  // setup pins to INPUT mode
+  for (int i = 0; i < 6; i++) {
+    pinMode(pins[i], INPUT_PULLUP);
+  }
+}
+
+void loop() {
+  for (int i = 0; i < 6; i++) {
+    int v = digitalRead(pins[i]);
+    if (v == 0) {
+      // press
+      if (!pressed[i]) {
+        pressed[i] = 1;
+        press(i);
+      }
+    } else {
+      pressed[i] = 0;
+    }
+  }
+  delay(10);
+}
+
+
+int stack[100] = { 0 };
+volatile int stack_top = 0;
+
+void stack_push(int v) {
+  stack[stack_top] = v;
+  stack_top++;
+}
+
+int stack_pop() {
+  int v = stack[stack_top - 1];
+  stack_top--;
+  return v;
+}
+int stack_peek() {
+  return stack[stack_top-1];
+}
+void displayStack() {
+  screen.clearDisplay();
+  int x = 0;
+
+  for (int i = 0; i < stack_top; i++) {
+    int v = stack[i];
+    char buf[10] = { 0 };
+    char *p = buf;
+    sprintf(buf, "%d", v);
+    screen.drawChar(x, 50, 48 + i, WHITE, BLACK, 1);
+    while (*p) {
+      screen.drawChar(x, 20, *p, WHITE, BLACK, 2);
+      x += 12;
+      p++;
+    }
+    x += 25;
+  }
+  screen.display();
+}
+
+void press(int button) {
+  if (button == 0) {
+    stack_push(1);
+  }
+  if (button == 1) {
+    stack_push(2);
+  }
+  if (button == 2) {
+    stack_push(3);
+  }
+
+  if (button == 3) {
+    // multiply
+    int a = stack_pop();
+    int b = stack_pop();
+    int r = a * b;
+    stack_push(r);
+  }
+  if (button == 4) {
+    // add
+    int a = stack_pop();
+    int b = stack_pop();
+    int r = a + b;
+    stack_push(r);
+  }
+
+  if (button == 5) {
+    stack_top = 0;
+  }
+  displayStack();
+}
 ```
 
