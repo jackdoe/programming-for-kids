@@ -1042,6 +1042,8 @@ Sometimes material incentives are also very helpful, e.g. a promise 5$ gift card
 
 [day-374 the stack](#day-374-the-stack)
 
+[day-375 the stack](#day-375-the-stack)
+
 ## [DAY-0] The Computer
 
 All modern computers(laptops, phones, pc master race rgb monsters, etc) have somewhat similar components: Processor, Memory, Video Card, Disk and USB controller, WiFi card etc. Some of them are in one single chip and you cant even see them anymore, but they are there. For example there are chips that have Processor and Video Card together. The term for processor is actually CPU - Central processing unit, but we called it processors when we were kids and it kind of make sense, since it processes stuff.
@@ -26717,4 +26719,15 @@ void press(int button) {
   displayStack();
 }
 ```
+
+
+
+
+## [DAY-375] the stack
+
+> Again we spent the whole lesson on stacks, and arrays and primitive data types.
+
+![game-375-a.jpg](./screenshots/game-375-a.jpg "game 374 screenshot")
+![game-375-b.jpg](./screenshots/game-375-b.jpg "game 374 screenshot")
+![game-375-c.jpg](./screenshots/game-375-c.jpg "game 374 screenshot")
 
