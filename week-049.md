@@ -374,3 +374,14 @@ void press(int button) {
   displayStack();
 }
 ```
+
+
+
+
+## [DAY-375] the stack
+
+> Again we spent the whole lesson on stacks, and arrays and primitive data types.
+
+![game-375-a.jpg](./screenshots/game-375-a.jpg "game 374 screenshot")
+![game-375-b.jpg](./screenshots/game-375-b.jpg "game 374 screenshot")
+![game-375-c.jpg](./screenshots/game-375-c.jpg "game 374 screenshot")
