@@ -385,3 +385,128 @@ void press(int button) {
 ![game-375-a.jpg](./screenshots/game-375-a.jpg "game 374 screenshot")
 ![game-375-b.jpg](./screenshots/game-375-b.jpg "game 374 screenshot")
 ![game-375-c.jpg](./screenshots/game-375-c.jpg "game 374 screenshot")
+
+
+## [DAY-376] sql
+
+Watch BroCode's MySQL Full Course:  https://www.youtube.com/watch?v=5OdVJbNCSso
+
+
+## [DAY-376] sql
+
+Write the SQL statement that does similar thing to the following code:
+
+```
+employees = [
+    {"id": 1, "first_name": "John", "last_name": "Doe"},
+    {"id": 2, "first_name": "Mike", "last_name": "Johnson"},
+    {"id": 3, "first_name": "Jane", "last_name": "Smith"},
+    {"id": 4, "first_name": "Tom", "last_name": "Brown"}
+]
+
+transactions = [
+    {"id": 1, "employee_id": 1, "amount": 100},
+    {"id": 2, "employee_id": 2, "amount": 150},
+    {"id": 3, "employee_id": 3, "amount": 20},
+    {"id": 4, "employee_id": 4, "amount": 400},
+    {"id": 5, "employee_id": 3, "amount": 4}
+]
+
+# SQL: _____________________________________________
+for employee in employees:
+    print(employee["first_name"])
+
+
+# SQL: _____________________________________________
+for employee in employees:
+    print(employee["first_name"], employee["last_name"])
+
+
+# SQL: _____________________________________________
+for employee in employees:
+    if (employee["id"] == 3):
+        print(employee["first_name"], employee["last_name"])
+
+
+# SQL: _____________________________________________
+for employee in employees:
+    if (employee["id"] > 3):
+        print(employee["first_name"], employee["last_name"])
+
+# SQL: _____________________________________________
+for employee in employees:
+    if (employee["first_name"] == "Tom"):
+        print(employee["first_name"], employee["last_name"])
+
+# SQL: _____________________________________________
+for employee in employees:
+    if employee["last_name"].endswith("son"):
+        print(employee["first_name"], employee["last_name"])
+
+
+# SQL: _____________________________________________
+employees.append({"id": 5, "first_name": "Sam", "last_name": "Pink"})
+employees.append({"id": 6, "first_name": "Sue", "last_name": "Blue"})
+
+# SQL: _____________________________________________
+for employee in employees:
+    if (employee["id"] == 3):
+        employee["first_name"] = "Mary"
+
+# SQL: _____________________________________________
+sum = 0
+for transaction in transactions:
+    sum += transaction["amount"]
+print(sum)
+
+
+# SQL: _____________________________________________
+max = 0
+for transaction in transactions:
+    if transaction["amount"] > max:
+        max = transaction["amount"]
+print(max)
+
+
+# SQL: _____________________________________________
+for employee in employees:
+    sum = 0
+    for transaction in transactions:
+        if transaction["employee_id"] == employee["id"]:
+            sum += transaction["amount"]
+    print(employee["first_name"], sum)
+
+
+# SQL: _____________________________________________
+for transaction in transactions:
+    for employee in employees:
+        if transaction["employee_id"] == employee["id"]:
+            print(employee["first_name"], transaction["amount"])
+
+# SQL: _____________________________________________
+for transaction in transactions:
+    for employee in employees:
+        if transaction["employee_id"] == employee["id"]:
+            if employee["first_name"].startswith("A"):
+                print(employee["first_name"], transaction["amount"])
+
+```
+
+
+Think about the code that would do this sql
+
+```
+INSERT INTO transactions(id, employee_id, amount) (1,1,10);
+INSERT INTO employees(id, first_name, last_name) (1,"jack", "doe");
+SELECT first_name FROM employees;
+SELECT first_name, last_name FROM employees;
+SELECT first_name, last_name FROM employees WHERE id = 3;
+SELECT first_name, last_name FROM employees WHERE id > 3;
+SELECT MAX(id) FROM empoloyees;
+SELECT MAX(id) FROM empoloyees WHERE first_name LIKE "%a%";
+SELECT COUNT(*) FROM empoloyees WHERE first_name LIKE "%b%";
+SELECT e.first_name, t.amount FROM transactions t INNER JOIN empoloyees e ON e.id = t.employee_id WHERE e.first_name like "a%"
+```
+
+
+> This is a good over simplification of how to think about full table scans, which I think is good way to build intuition about how queries work
