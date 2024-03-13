@@ -392,7 +392,7 @@ void press(int button) {
 Watch BroCode's MySQL Full Course:  https://www.youtube.com/watch?v=5OdVJbNCSso
 
 
-## [DAY-376] sql
+## [DAY-377] sql
 
 Write the SQL statement that does similar thing to the following code:
 
