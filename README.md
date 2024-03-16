@@ -27,7 +27,7 @@ While writing the book we also developed few other projects:
 * [overflow](https://punkx.org/overflow/) - RISCV assembly board game, win by executing buffer overflow
 * [rocksolid](https://punkx.org/rocksolid/) - December 2023 egg drop challenge
 * [calc](https://punkx.org/calc/) - single button (morse code) calculator
-
+* [panic](https://punkx.org/panic/) - one mischief per card
 ## license
 
 Creative Commons Attribution 4.0
