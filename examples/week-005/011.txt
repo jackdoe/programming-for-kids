@@ -1,8 +1,0 @@
-import time
-
-s = int(input("how many seconds: "))
-for i in range(s):
-  print(i)
-  time.sleep(1)
-
-print(s, "SECONDS ARE OVER")

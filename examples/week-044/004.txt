@@ -1,2 +1,0 @@
-def is_shift(mod):
-    return mod & keymods.LSHIFT > 0

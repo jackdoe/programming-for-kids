@@ -1,5 +1,0 @@
-if (pick_y - square.y == 100 and pick_x - square.x == 100) or (pick_y - square.y == 100 and pick_x - square.x == -100):
-    if enpassant != None and enpassant.image == 'chess/pawn-black':
-        if enpassant.x == square.x and enpassant.y == square.y + 100:
-            black.remove(enpassant)
-            ok = True

@@ -1,9 +1,0 @@
-a = [6,3,2]
-b = [78,21,1]
-c = [123,5,1]
-
-sum = 0
-for i in range(len(a)):
-    sum += a[i] + b[i] + c[i]
-
-print(sum)

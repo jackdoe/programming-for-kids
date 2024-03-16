@@ -1,5 +1,0 @@
-f = open("words.txt")
-for line in f:
-    word = line.strip()
-    if len(word) > 10:
-        print(word)

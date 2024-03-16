@@ -1,9 +1,0 @@
-    def countSpaces(string):
-        n = 0
-        for character in string:
-            if character == ' ':
-                n += 1
-            else:
-                break
-        return n
-

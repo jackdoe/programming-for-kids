@@ -1,8 +1,0 @@
-colors = ["red","green","blue"]
-score = 0
-while True:
-  guess = input("guess a color: ")
-  if guess in colors:
-    print("good guess! I like " + guess)
-  else:
-    print("nop, I dont like " + guess)

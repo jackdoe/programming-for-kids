@@ -1,1 +1,0 @@
-<button onclick="this.parentNode.removeChild(this)">👻</button>

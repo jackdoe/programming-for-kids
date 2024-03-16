@@ -1,8 +1,0 @@
-bad = ["broccoli","chocolate","pineapple"]
-
-while True:
-  food = input("what is your favorite food: ")
-  if food in bad:
-    print("ewwwww I hate " + food)
-  else:
-    print("yumm, I love " + food)

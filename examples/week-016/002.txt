@@ -1,8 +1,0 @@
-from turtle import *
-color('green')
-speed(11)
-i = 0
-while True:
-    circle(i*1.5)
-    right(4)
-    i+=1

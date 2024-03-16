@@ -1,7 +1,0 @@
-def avg(list_of_numbers):
-    pass
-
-
-numbers = [1,5,2,4,5]
-a = avg(numbers)
-print(a)

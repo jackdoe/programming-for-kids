@@ -1,8 +1,0 @@
-<html>
-  <body>
-    <marquee>
-      <h1>check this out!</h1>
-    </marquee>
-    <mark>Why would somebody use this?</mark>
-  </body>
-</html>

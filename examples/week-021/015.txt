@@ -1,5 +1,0 @@
-a = 'hello'
-print(len(a))
-a += 'b'
-print(len(a))
-print(a[2])

@@ -1,6 +1,0 @@
-file = open("images/joshi-100.bmp","rb")
-data = file.read()
-file.close()
-
-for b in data:
-    print("%3d" % b,end='')

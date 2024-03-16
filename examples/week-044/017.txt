@@ -1,9 +1,0 @@
-
-next_bus = None
-
-for b in buses:
-    if next_bus == None or b["arrive_in_minutes"] < next_bus["arrive_in_minutes"]:
-        next_bus = b
-
-print(next_bus)
-

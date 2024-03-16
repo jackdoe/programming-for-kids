@@ -1,8 +1,0 @@
-#include <iostream>
-using namespace std;
-int main(void) {
-	for(int x = 0; x < 10; x += 1){
-		cout << x << endl;
-	}
-	return 0;
-}

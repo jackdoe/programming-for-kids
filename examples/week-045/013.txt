@@ -1,9 +1,0 @@
-def avg(list_of_numbers):
-    n = len(list_of_numbers)
-    s = sum(list_of_numbers)
-    s = s/n
-    return s
-
-numbers = [1,5,2,4,5]
-a = avg(numbers)
-print(a)

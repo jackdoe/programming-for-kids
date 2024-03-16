@@ -1,9 +1,0 @@
-def update():
-    ...
-    i = 1
-    for d in dots:
-         d.y += 1
-         i += 1
-         if i > 4:
-             i = 1
-         ...

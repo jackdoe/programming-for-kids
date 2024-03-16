@@ -1,5 +1,0 @@
-x = "abc"
-y = x[1]
-
-x = "def"
-print(y)

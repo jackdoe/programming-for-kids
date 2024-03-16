@@ -1,7 +1,0 @@
-f = open("names.csv","r")
-lines = f.readlines()
-n = 0
-for l in lines:
-    s = l.split(",")
-    print(s[0])
-f.close()

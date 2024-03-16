@@ -1,6 +1,0 @@
-ask = input("what height of the triangle: ")
-quest = input("what is the base of the triangle: ")
-height = int(ask)
-base = int(quest)
-Area = height * base /2
-print("the area of your triangle is:" +str(Area))

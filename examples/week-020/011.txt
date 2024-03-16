@@ -1,5 +1,0 @@
-f = open("words.txt")
-for line in f:
-    word = line.strip()
-    if word[0] == 'a' and word[1] == 'b':
-        print(word)

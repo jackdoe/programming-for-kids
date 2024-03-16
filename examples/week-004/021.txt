@@ -1,5 +1,0 @@
-def sum(a,b):
-  return a + b
-
-r = sum(1737,1231231)
-print(r)

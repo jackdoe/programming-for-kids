@@ -1,8 +1,0 @@
-{
-    "name": "Jackie",
-    "favoriteNumber": 14,
-    "IsProgrammer": true,
-    "hobbies": ["learning","volleybal"],
-    "objects": [{"name": "Defalco"},{"idol": "Defalco"}]
-
-}

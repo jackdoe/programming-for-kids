@@ -1,3 +1,0 @@
-$ mkdir website
-$ cd website
-$ nano index.html

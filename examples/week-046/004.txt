@@ -1,7 +1,0 @@
-f = open("/etc/hidden/data.txt","r")
-lines = f.readlines()
-for l in lines:
-    if l.startswith("hello"):
-        print(l)
-f.close()
-

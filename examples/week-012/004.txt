@@ -1,9 +1,0 @@
-list = []
-while True:
-    integer = int(input('enter a number: '))
-    list.append(integer)
-    sum = 0
-    for i in list:
-        sum += i
-        
-    print(list, sum)

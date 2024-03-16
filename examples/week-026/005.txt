@@ -1,7 +1,0 @@
-def is_on_square(x, y, pieces):
-    for p in pieces:
-        if p.x == x and p.y == y:
-            return True
-
-    return False
-

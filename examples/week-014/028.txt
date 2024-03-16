@@ -1,6 +1,0 @@
-while True:
-    n = input("which string you want to check: )
-    if is_palindrome(n):
-        print(n + " is a palindrome")
-    else:
-        print(n + " is not a palindrome")

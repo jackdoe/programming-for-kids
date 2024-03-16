@@ -1,4 +1,0 @@
-try:
-    try to do something
-except some error:
-    handle error

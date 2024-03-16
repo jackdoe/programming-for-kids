@@ -1,2 +1,0 @@
-the username for amazon.com is 'jane'
-the token is bbd0bff806a177f082f3ba2cff33030d335c296e

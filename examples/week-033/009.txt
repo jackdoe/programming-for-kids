@@ -1,8 +1,0 @@
-l = []
-def abc():
-    x = {"a":1}
-    l.append(x)
-    
-abc()
-abc()
-print(l)

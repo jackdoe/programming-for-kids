@@ -1,2 +1,0 @@
-try_me = 'x' * (8 * 1024 * 1024 * 1024)
-print(len(try_me))

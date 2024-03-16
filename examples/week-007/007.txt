@@ -1,4 +1,0 @@
-x = ['a','b','c','d']
-for index ,element in enumerate(x):
-  print(index)
-  print('  ' + element)

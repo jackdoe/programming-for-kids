@@ -1,2 +1,0 @@
-person = {"name": "John", "age": 30}
-person["email"] = "john@example.com"

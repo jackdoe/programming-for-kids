@@ -1,5 +1,0 @@
-<html>
-    <body>
-        hi, <a href="https://wikipedia.com">click here</a> to go to wikipedia
-    </body>
-</html>

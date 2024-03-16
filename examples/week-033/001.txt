@@ -1,8 +1,0 @@
-hello this is random
-> hello this is randon
-INCORRECT
-hello this is random
-> hello this is random
-CORRECT
-apple orange is amazing
-> ...

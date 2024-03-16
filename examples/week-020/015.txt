@@ -1,7 +1,0 @@
-import turtle as t
-size = 10
-t.speed(10000)
-while True:
-    t.right(150)
-    t.forward(size)
-    size += 1

@@ -1,5 +1,0 @@
-import random
-
-while True:
-    x = random.randint(ord('a'), ord('z'))
-    print(chr(x))

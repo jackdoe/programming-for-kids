@@ -1,2 +1,0 @@
-if (a > b or c > a) and b > c:
-    print('zz')

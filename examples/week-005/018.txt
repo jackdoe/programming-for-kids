@@ -1,3 +1,0 @@
-name = input("what is your name: ")
-print("first letter: " + name[0])
-print("last letter: " + name[len(name)-1])

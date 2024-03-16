@@ -1,8 +1,0 @@
-<div id='sheep' style='position:absolute'>🐑</div>
-<script>
-    var sheep = document.getElementById('sheep')
-    document.body.onmousemove = (e) => {
-        sheep.style.left = (e.clientX - 5 + 'px');
-        sheep.style.top = (e.clientY - 5 + 'px');
-    }
-</script>

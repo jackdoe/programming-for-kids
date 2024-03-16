@@ -1,4 +1,0 @@
-forever(1)
-  forever(1+1)
-    forever(1+1+1)
-      forever(....)

@@ -1,5 +1,0 @@
-   if key == keys.W:
-        if is_shift(mod):
-            lines.append("W")
-        else:
-            lines.append("w")

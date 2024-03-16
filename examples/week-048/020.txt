@@ -1,9 +1,0 @@
-
-import json
-f=open("user.json","r")
-d = f.read()
-print(d)
-l = json.loads(d)
-f.close()
-
-print(l[0]['rating'])

@@ -1,7 +1,0 @@
-void hit(struct alive *a, struct alive *b){
-    if (b->shield > 0) {
-        b->shield -= a->attack_power;
-    } else{
-        b->life -= a->attack_power;
-    }
-}
