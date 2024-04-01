@@ -25943,5 +25943,5 @@ int main(void) {
 }
 ```
 
-Compile and run it, use `ps -ax | grep PROGRAM_NAME` to find its PID and then use `kill ABC` to kill it, experiment with other programs that are running, e.g. the Notes app or any other application.
+Compile and run it, use `ps -ax | grep PROGRAM_NAME` to find its PID and then use `kill ABC` to kill it, experiment with other programs that are running, e.g. the Notes app or any other application. On windows use `tasklist` and `taskkill`.
 
