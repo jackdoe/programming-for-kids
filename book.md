@@ -25924,3 +25924,24 @@ SELECT e.first_name, t.amount FROM transactions t INNER JOIN empoloyees e ON e.i
 
 > This is a good over simplification of how to think about full table scans, which I think is good way to build intuition about how queries work
 
+
+## [DAY-378] running programs
+
+A running program is called 'process', each process has their identifier, or Process Identifier, or PID, experiment with few programs like:
+
+```
+while True:
+    pass
+```
+
+or
+
+```
+int main(void) {
+    while(1);
+    return 0;
+}
+```
+
+Compile and run it, use `ps -ax | grep PROGRAM_NAME` to find its PID and then use `kill ABC` to kill it, experiment with other programs that are running, e.g. the Notes app or any other application.
+
