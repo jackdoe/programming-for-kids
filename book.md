@@ -25945,3 +25945,37 @@ int main(void) {
 
 Compile and run it, use `ps -ax | grep PROGRAM_NAME` to find its PID and then use `kill ABC` to kill it, experiment with other programs that are running, e.g. the Notes app or any other application. On windows use `tasklist` and `taskkill`.
 
+
+## [DAY-379] arguments
+
+When you start a program with arguments, e.g. `cat filename`, the shell passes those arguments to the program and inside they are accessible from argv (the argument vector) which is just a list of strings with the given arguments. In python you can access the list from sys.argv like so:
+
+```
+import sys
+i = 0
+
+for a in sys.argv:
+    print(i, a)
+    if a == '--help':
+        print("this program has no help, save yourself")
+
+```
+
+Experiment with the options of the following programs: `cat, ps, ls, grep`
+
+## [DAY-380] path
+
+make a tiny program `forever.c`
+
+```
+int main(void) {
+    while(1);
+    return 0;
+}
+```
+
+The shell has a $PATH variable which you can see with `echo $PATH`, it is a list of directories separated by ':', when you try to execute `pytnon3` or `ls` for example it will iterate over each of those directories in the path and try to find the file /bin/ls, /sbin/ls, /usr/sbin/ls etc (if the path is /bin:/sbin:/usr/bin:/usr/sbin:...) and the first one it finds it will be executed.
+
+Compile it in your current directory, e.g. put the file in `/Users/jackie/code/forever.c` and then compile it with `gcc -o forever forever.c`, put in some directory in the path (using cp to copy it), and now you can run it from any place. Explore /bin /sbin /usr/bin and /usr/sbin, and see if there are any programs you are familiar with (cat grep, python3, gcc etc).
+
+> The last lesssons are quite short, we are doing 10 minutes per lesson, so I am focusing on fundamentals: program, process, file, environment.
