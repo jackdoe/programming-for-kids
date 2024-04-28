@@ -25989,4 +25989,4 @@ Compile it in your current directory, e.g. put the file in `/Users/jackie/code/f
 
 > First she was just "executing" cards, and then today she wrote two programs, one to print and one to decrement numbers.
 
-![game-381.jpg](./screenshots/game-371.jpg "game 381 screenshot")
+![game-381.jpg](./screenshots/game-381.jpg "game 381 screenshot")
