@@ -11137,12 +11137,12 @@ You will see some garbage from element 20 to 39, because it will actually go and
 
 ## [DAY-137] For; File; If
 
-Play with [words.txt](words.txt)
+Play with [projects/data/words.txt](projects/data/words.txt)
 
 Open the file and print all the lines:
 
 ```
-f = open("words.txt")
+f = open("projects/data/words.txt")
 for line in f:
     print(line)
 ```
@@ -11150,7 +11150,7 @@ for line in f:
 Remove the newline:
 
 ```
-f = open("words.txt")
+f = open("projects/data/words.txt")
 for line in f:
     word = line.strip()
     print(word)
@@ -11159,7 +11159,7 @@ for line in f:
 Print only words with more than 10 characters:
 
 ```
-f = open("words.txt")
+f = open("projects/data/words.txt")
 for line in f:
     word = line.strip()
     if len(word) > 10:
@@ -11169,7 +11169,7 @@ for line in f:
 Print only words starting with 'ab':
 
 ```
-f = open("words.txt")
+f = open("projects/data/words.txt")
 for line in f:
     word = line.strip()
     if word[0] == 'a' and word[1] == 'b':
@@ -11179,7 +11179,7 @@ for line in f:
 Print words not containing a character
 
 ```
-f = open("words.txt")
+f = open("projects/data/words.txt")
 for line in f:
     word = line.strip()
     if 'e' not in word:
@@ -11189,7 +11189,7 @@ for line in f:
 Avoid words containing multiple characters
 
 ```
-f = open("words.txt")
+f = open("projects/data/words.txt")
 def avoid(word, characters):
     for c in characters:
         for w in word:
@@ -11206,7 +11206,7 @@ for line in f:
 Another implementation using 'char' in 'string':
 
 ```
-f = open("words.txt")
+f = open("projects/data/words.txt")
 
 def avoid(word, characters):
     for c in characters:
@@ -11312,7 +11312,7 @@ Take it easy.
 Count how many lines have exactly 5 characters
 
 ```
-fi = open('words.txt')
+fi = open('projects/data/words.txt')
 n = 0
 for line in fi:
     w = line.strip()
@@ -11324,7 +11324,7 @@ print(n)
 How many words have 7 and how many 5 characters?
 
 ```
-fi = open('words.txt')
+fi = open('projects/data/words.txt')
 n = 0
 x = 0
 for line in fi:
@@ -17822,13 +17822,13 @@ while True:
 
 ## [DAY-228] files
 
-Google for the top 10000 most common words in the english language, and paste them into a file 'words.txt'. Then google: `how to read file in python`, and go to some of the `stackoverflow` links.
+Google for the top 10000 most common words in the english language, and paste them into a file 'projects/data/words.txt'. Then google: `how to read file in python`, and go to some of the `stackoverflow` links.
 
 > This is what she wrote after pasting from stackoverflow:
 
 ```
 import random
-f = open('words.txt') # Open file on read mode
+f = open('projects/data/words.txt') # Open file on read mode
 words = f.read().splitlines() # List with stripped line-breaks
 f.close() # Close file
 
@@ -17863,7 +17863,7 @@ Improve the game to print which character is different from the user input.
 
 ```
 import random
-f = open('words.txt') # Open file on read mode
+f = open('projects/data/words.txt') # Open file on read mode
 words = f.read().splitlines() # List with stripped line-breaks
 f.close() # Close file
 
@@ -23675,7 +23675,7 @@ Now do the same with unix pipes, `cat /etc/hidden/data.txt | grep ^h | wc -l`
 
 ## [DAY-339] unix
 
-> generate a file with few thousand name,age,country entries, I used chatgpt to generate it, you can get it from: [names.csv](names.csv), and upload it to the server.
+> generate a file with few thousand name,age,country entries, I used chatgpt to generate it, you can get it from: [projects/data/names.csv](projects/data/names.csv), and upload it to the server.
 
 ```
 Ava,51,UK
@@ -23704,7 +23704,7 @@ James,61,USA
 Write a program that prints only the names column, use the python cheatsheet to see how to use the 'split' method of the string object.
 
 ```
-f = open("names.csv","r")
+f = open("projects/data/names.csv","r")
 lines = f.readlines()
 n = 0
 for l in lines:
@@ -23713,12 +23713,12 @@ for l in lines:
 f.close()
 ```
 
-> now use `cat names.csv | cut -f 1 -d ,` to show an example of using the `cut` command.
+> now use `cat projects/data/names.csv | cut -f 1 -d ,` to show an example of using the `cut` command.
 
 
 ## [DAY-340] split
 
-Download the file [covid-test-cases.csv](covid-test-cases.csv) which is from https://www.ecdc.europa.eu/en/publications-data/covid-19-testing and has the following format:
+Download the file [projects/data/covid-test-cases.csv](projects/data/covid-test-cases.csv) which is from https://www.ecdc.europa.eu/en/publications-data/covid-19-testing and has the following format:
 
 ```
 country,country_code,year_week,level,region,region_name,new_cases,tests_done,population,testing_rate,positivity_rate,testing_data_source
@@ -23776,7 +23776,7 @@ Print the sum of all covid cases:
 ```
 total = 0
 
-f = open("covid-test-cases.csv","r")
+f = open("projects/data/covid-test-cases.csv","r")
 lines = f.readlines()
 f.close()
 
@@ -25981,3 +25981,12 @@ The shell has a $PATH variable which you can see with `echo $PATH`, it is a list
 Compile it in your current directory, e.g. put the file in `/Users/jackie/code/forever.c` and then compile it with `gcc -o forever forever.c`, put in some directory in the path (using cp to copy it), and now you can run it from any place. Explore /bin /sbin /usr/bin and /usr/sbin, and see if there are any programs you are familiar with (cat grep, python3, gcc etc).
 
 > The last lesssons are quite short, we are doing 10 minutes per lesson, so I am focusing on fundamentals: program, process, file, environment.
+
+
+## [DAY-381] machine code
+
+> For the last few days she have been playing with the machine code for kids kards https://punkx.org/4917
+
+> First she was just "executing" cards, and then today she wrote two programs, one to print and one to decrement numbers.
+
+![game-381.jpg](./screenshots/game-371.jpg "game 381 screenshot")
