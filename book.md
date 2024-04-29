@@ -25985,8 +25985,53 @@ Compile it in your current directory, e.g. put the file in `/Users/jackie/code/f
 
 ## [DAY-381] machine code
 
-> For the last few days she have been playing with the machine code for kids kards https://punkx.org/4917
+> For the last few days she have been playing with the machine code for kids cards https://punkx.org/4917
 
 > First she was just "executing" cards, and then today she wrote two programs, one to print and one to decrement numbers.
 
 ![game-381.jpg](./screenshots/game-381.jpg "game 381 screenshot")
+
+
+## [DAY-382] machine code
+
+Write the machine code (https://punkx.org/4917) for the following programs:
+
+```
+program 1:
+    a = 7
+    print(a)
+
+program 2:
+    a = 7
+    a += 1
+    print(a)
+
+program 3:
+    a = 7
+    b = 3
+    a = a + b
+    print(a)
+
+program 4:
+    a = 3
+    if a != 0:
+        beep
+
+program 5:
+    a = 14
+    if a != 0:
+        beep
+    else
+        beep
+        beep
+
+```
+
+Using https://punkx.org/4917/play.html write and test the programs
+
+> this is what she wrote (I forgot to make screenshots of one)
+
+![game-382-a.png](./screenshots/game-382-a.png "game 382 screenshot")
+![game-382-b.png](./screenshots/game-382-b.png "game 382 screenshot")
+![game-382-c.png](./screenshots/game-382-c.png "game 382 screenshot")
+![game-382-d.png](./screenshots/game-382-d.png "game 382 screenshot")
