@@ -26035,3 +26035,32 @@ Using https://punkx.org/4917/play.html write and test the programs
 ![game-382-b.png](./screenshots/game-382-b.png "game 382 screenshot")
 ![game-382-c.png](./screenshots/game-382-c.png "game 382 screenshot")
 ![game-382-d.png](./screenshots/game-382-d.png "game 382 screenshot")
+
+
+## [DAY-383] machine code
+
+> we spent few more days working with machine code cards, particularly doing pointers
+
+
+![game-383.png](./screenshots/game-383.png "game 383 screenshot")
+
+> and then playing with tiny C programs with pointers like:
+
+```
+#include <stdio.h>
+int main(void){
+    int a = 9;
+    int *p = &a;
+    *p = 444;
+    int b;
+    b = *p;
+    printf("%d, %d",a,b);
+}
+```
+
+
+## [DAY-384] arrays
+
+Watch The Cherno's Arrays in C++ video: https://www.youtube.com/watch?v=ENDaJi08jCU 
+
+![game-384.png](./screenshots/game-384.png "game 384 screenshot")
