@@ -26064,3 +26064,70 @@ int main(void){
 Watch The Cherno's Arrays in C++ video: https://www.youtube.com/watch?v=ENDaJi08jCU 
 
 ![game-384.png](./screenshots/game-384.png "game 384 screenshot")
+
+
+## [DAY-385] arrays
+
+More arrays.
+
+> made this simple program, while I explained again how arrays work
+
+![game-385-a.png](./screenshots/game-385-a.png "game 385 screenshot")
+
+```
+#include <stdio.h>
+int main(void){
+    int answer[5];
+    printf("How old are you: ");
+    scanf("%d", &answer[0] );
+    printf("How old were you 5 years ago: ");
+    scanf("%d", &answer[1] );
+    printf("How old is your dog: ");
+    scanf("%d", &answer[2] );
+    printf("How many books are there in the series Percy Jackson: ");
+    scanf("%d", &answer[3] );
+    printf("How old can a turtle get: ");
+    scanf("%d", &answer[4] );
+    for(int i=0; i<5; i++){
+        printf("%d %lld \n", answer[i], &answer[i]);
+    }
+}
+```
+
+Play the first 15 levels of Human Resource Machine: https://tomorrowcorporation.com/humanresourcemachine
+
+> use notes to think about the code
+
+![game-385-b.png](./screenshots/game-385-b.png "game 385 screenshot")
+
+
+## [DAY-386] structs
+
+Watch:
+
+@PortfolioCourses's struct Basics: https://www.youtube.com/watch?v=dqa0KMSMx2w
+
+and The Cherno's Classess vs Structs: https://www.youtube.com/watch?v=fLgTtaqqJp0
+
+
+> she made this simple program from one of the videos
+```
+#include <stdio.h>
+
+struct Student
+{
+    char name[50];
+    char id[10];
+    int age;
+    int grades[5];
+};
+
+
+int main(void){
+    struct Student kevin;
+
+    kevin.age = 23;
+
+    printf("Age: %d\n", kevin.age);
+}
+```
