@@ -26131,3 +26131,57 @@ int main(void){
     printf("Age: %d\n", kevin.age);
 }
 ```
+
+
+## [DAY-387] arrays
+
+Make tic tac toe:
+
+> thats what she made, i helped a bit showing again the array indexing vs pointer arithmetic
+
+```
+#include <stdio.h>
+
+
+void print_board(char *b) {
+    printf(" %c %c %c\n", b[0], *(b + 1), b[2]);
+    printf(" %c %c %c\n", b[3], b[4], b[5]);
+    printf(" %c %c %c\n", b[6], b[7], b[8]);
+}
+int check_win(char *b){
+    if(b[0]==b[1] && b[1]==b[2] && b[2] != 45){
+        return 1;
+    }
+    return 0;
+}
+int main(void){
+    char board[9];
+    for(int i=0; i<9; i++){
+        board[i]='-';
+    }
+    char player = 'X';
+    while (1)
+    {
+        print_board(board);
+        if(player=='X'){
+            player='0';
+        }else{
+            player='X';
+        }
+        printf("Where do u wanna play (0 to 8): ");
+        int position;
+        scanf("%d", &position);
+        board[position] =player;
+        if(check_win(board) == 1){
+            print_board(board);
+            printf("Game Over! \n");
+            break;
+        }
+        //board[?]=player
+    }
+}
+```
+
+![game-387.png](./screenshots/game-387.png "game 387 screenshot")
+
+> she also watched and The Cherno's Classess vs Structs: https://www.youtube.com/watch?v=fLgTtaqqJp0 and Functions in C++L https://www.youtube.com/watch?v=V9zuox47zr0&t=201s
