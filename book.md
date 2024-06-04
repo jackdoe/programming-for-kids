@@ -26185,3 +26185,122 @@ int main(void){
 ![game-387.png](./screenshots/game-387.png "game 387 screenshot")
 
 > she also watched and The Cherno's Classess vs Structs: https://www.youtube.com/watch?v=fLgTtaqqJp0 and Functions in C++L https://www.youtube.com/watch?v=V9zuox47zr0&t=201s
+
+
+## [DAY-388] arrays
+
+another day another tictactoe
+
+```
+#include <stdio.h>
+char bord[9];
+void set_element(char *b)
+{
+    for (int i = 0; i < 9; i++)
+    {
+        b[i] = 45;
+    }
+}
+void print_board(char *b)
+{
+    printf("%c %c %c\n", b[0], b[1], b[2]);
+    printf("%c %c %c\n", b[3], b[4], b[5]);
+    printf("%c %c %c\n", b[6], b[7], b[8]);
+}
+int playerPos(void)
+{
+    printf("Where do you want to play: ");
+    int position;
+    scanf("%d", &position);
+    return position;
+}
+int check_win(char *b)
+{
+    if (b[0] == b[1] && b[1] == b[2] && b[0] != 45)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+int main(void)
+{
+    int player = 88;
+    set_element(bord);
+    while (1)
+    {
+        print_board(bord);
+        int pos = playerPos();
+        bord[pos] = player;
+        int result = check_win(bord);
+        if (result == 1)
+        {
+            printf("You win!");
+            print_board(bord);
+            break;
+        }
+        if (player == 88)
+        {
+            player = 79;
+        }
+        else
+        {
+            player = 88;
+        }
+    }
+}
+```
+
+
+## [DAY-389] functions
+
+calculator
+
+```
+#include <stdio.h>
+float sum(float a,float b){
+    a = a+b;
+    return a;
+}
+float divide(float a, float b){
+    a = a/b;
+    return a;
+}
+float minus(float a, float b){
+    a = a-b;
+    return a;
+}
+float multiply(float a, float b){
+    a = a*b;
+    return a;
+}
+
+int main(){
+    float a,b;
+    char opperator;
+    printf("What opperation: ");
+    scanf("%c",&opperator);
+    printf("What numbers do u want to apply to this: ");
+    scanf("%f %f", &a, &b);
+    if(opperator == '+'){
+       float result = sum(a,b);
+       printf("%f",result);
+    }
+    else if(opperator == '-'){
+       float result = minus(a,b);
+       printf("%f",result);
+    }
+    else if(opperator == '*'){
+       float result = multiply(a,b);
+       printf("%f",result);
+    }
+    else if(opperator == '/'){
+       float result = divide(a,b);
+       printf("%f",result);
+    }
+}
+```
+
+
