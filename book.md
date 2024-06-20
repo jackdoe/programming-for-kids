@@ -2,12 +2,12 @@
 ┌─┐┬─┐┌─┐┌─┐┬─┐┌─┐┌┬┐┌┬┐┬┌┐┌┌─┐
 ├─┘├┬┘│ ││ ┬├┬┘├─┤│││││││││││ ┬
 ┴  ┴└─└─┘└─┘┴└─┴ ┴┴ ┴┴ ┴┴┘└┘└─┘
-┌─┐┌─┐┬─┐                      
-├┤ │ │├┬┘                      
-└  └─┘┴└─                      
-┬┌─┬┌┬┐┌─┐                     
-├┴┐│ ││└─┐                     
-┴ ┴┴─┴┘└─┘                                       
+┌─┐┌─┐┬─┐
+├┤ │ │├┬┘
+└  └─┘┴└─
+┬┌─┬┌┬┐┌─┐
+├┴┐│ ││└─┐
+┴ ┴┴─┴┘└─┘
 
 
 > by: Borislav Nikolov
@@ -141,7 +141,7 @@ All modern computers(laptops, phones, pc master race rgb monsters, etc) have som
 
 ```
 
-Memory (also called RAM), is the place where programs exist to be run by the CPU, it loads its instructions from there, and the instructions tells it what to do, it can write back to memory, or read from a different place or write something to the disk controller or to the video card, etc. Basically the most important stuff happens between the processor and the RAM (which stands for Random Access Memory). It is Random Access because the processor can just go and read or write to specific place, which is pretty cool. 
+Memory (also called RAM), is the place where programs exist to be run by the CPU, it loads its instructions from there, and the instructions tells it what to do, it can write back to memory, or read from a different place or write something to the disk controller or to the video card, etc. Basically the most important stuff happens between the processor and the RAM (which stands for Random Access Memory). It is Random Access because the processor can just go and read or write to specific place, which is pretty cool.
 
 Everything in the RAM disappears when you turn off the computer, so usually the programs and all kinds of information is persistently stored on the Disk. Which is called disk because it used to be spinning, but now most computers have SSD disks which are not *disks* at all, google 'SSD versus spinning disk' if you want to find more. So when the computer starts it will load some information from the disk into memory and start the operating system, which is just a program, not very different than the one you wrote for the touch typing, it takes input, does something with it and then has some output.
 
@@ -178,7 +178,7 @@ The word File is used because people that made those things up were thinking of 
  || .___."||  /
  ||_______|| /
  |_________|/ Felix Lee
- 
+
 ```
 
 > See how those pictures have sometimes names attached to them. Those are their creators, some pictures are from the 80s, so it is amazing we can still find out who made them. You should always attribute the work of an artist.
@@ -339,7 +339,7 @@ akg: akg
 jjgh: jjgh
 ```
 
-If you type it correctly, it will ask for a bigger sequence of characters, and if you make mistake it will ask for smaller. 
+If you type it correctly, it will ask for a bigger sequence of characters, and if you make mistake it will ask for smaller.
 
 Don't rush it.
 
@@ -372,7 +372,7 @@ Open notepad and make a file on your desktop named "first.html", then write in i
 </html>
 ```
 
-Open Windows Explorer and find the file on your desktop and double click on it. 
+Open Windows Explorer and find the file on your desktop and double click on it.
 
 Congrats! You have made your first web page!
 
@@ -581,7 +581,7 @@ Making a presentation with HTML
 
 ## [DAY-12] Touch Typing
 
-Use your program to touch type or go to keybr.com. 
+Use your program to touch type or go to keybr.com.
 
 Don't rush.
 
@@ -654,7 +654,7 @@ Make new file (or open the some old html page) and type this:
             Daisy Duck
         </td>
         <td>
-            1940 
+            1940
         </td>
       </tr>
       <tr>
@@ -851,7 +851,7 @@ lets say our page is:
 </html>
 ```
 
-It actually is a tree, every tag has children, and siblings 
+It actually is a tree, every tag has children, and siblings
 ```
                  <html>
                    |
@@ -874,7 +874,7 @@ It actually is a tree, every tag has children, and siblings
                 hello world move   <i>
                                     |
                                   italic
-       
+
 ```
 
 Well trees in the world are actually the other way around haha. Leave it to programmers to not know how to make a tree :)
@@ -1055,7 +1055,7 @@ There is one more very important attribute of the `img` tag, and this is the `al
 If a blind person visits this page, they use a screen reader that reads most of the text on the page, and if we have `alt` attribute on images it will say `Image ...` and whatever the value of `alt` is, in our case "puppy". So the reader will say:
 
 ```
-Hello, and welcome to my page. I hope you will like this image. 
+Hello, and welcome to my page. I hope you will like this image.
 
 Image puppy.
 ```
@@ -1400,7 +1400,7 @@ not      ->   not name == "pikachu" is the same as name != "pikachu"
 
 for      -> used if you know how many times you want to do something
 while    -> do something until condition is True
-break    -> break out of the for or while loop 
+break    -> break out of the for or while loop
 continue -> go to the start of the while/for loop and continue from there
 
 if       -> if something is true
@@ -1592,7 +1592,7 @@ import time
 def fight(playerHP, enemyHP, enemy_name):
   # fight to the death!
 
-  while playerHP >= 0 and enemyHP >= 0:  
+  while playerHP >= 0 and enemyHP >= 0:
     punch = random.randint(0, 20)
     if random.choice(["player","enemy"]) == "player":
       playerHP = playerHP - punch
@@ -1839,7 +1839,7 @@ while True:
     result = a * b
   elif op == "/":
     result = a/b
-  elif op == "+":    
+  elif op == "+":
     result = a+b
   else:
     print("I dont understand " + op)
@@ -1923,7 +1923,7 @@ print(s, "SECONDS ARE OVER")
 
 ## [DAY-37] While; Functions
 
-Clock 
+Clock
 
 ```
 import datetime
@@ -2288,7 +2288,7 @@ for i in range(0, 100, 10):
   print(i)
 ```
 
-it will print 
+it will print
 ```
 0
 10
@@ -2336,7 +2336,7 @@ while True:
   guessed = []
   life = 10
   while True:
-    
+
     print('*' * 10, ' HANGMAN ', '*' * 10)
 
     matching = 0
@@ -2348,7 +2348,7 @@ while True:
         print('-',end='')
     print('')
     print('*' * 31)
-    
+
 
     if matching == len(word):
       print('congratz you won!')
@@ -2358,7 +2358,7 @@ while True:
     if character in word:
       guessed.append(character)
     else:
-      print(character + " is not in the word, " + str(life) + ' lives left') 
+      print(character + " is not in the word, " + str(life) + ' lives left')
       life = life - 1
       if life == 0:
         print('you lost!')
@@ -2428,7 +2428,7 @@ world[player_row][player_col] = 'x'
 render(world)
 while True:
   direction = input("which direction: ")
-  
+
   world[player_row][player_col] = '*'
   if direction == "up":
     player_row = player_row - 1
@@ -2788,7 +2788,7 @@ game = [
         "question": "What is the capital of Japan?",
         "answer": "Tokyo",
         "possible": ['London','Paris','Berlin','Tokyo'],
-    },  
+    },
 ]
 
 
@@ -2805,7 +2805,7 @@ while True:
         print("INCORRECT")
 ```
 
-This is just another way to do it, see in the list we can store those strange things. We will talk about them in a couple of weeks, I just wanted to show you how clean it is when 
+This is just another way to do it, see in the list we can store those strange things. We will talk about them in a couple of weeks, I just wanted to show you how clean it is when
 
 ## [DAY-50] Lists; If
 
@@ -2835,7 +2835,7 @@ for i in range(rounds):
     print("ROUND: " + str(i + 1))
     print("playerA : " + playerA)
     print("playerB : " + playerB)
-    
+
     if playerA == playerB:
         print("  > DRAW")
     elif playerA == "rock" and playerB == "paper":
@@ -2885,7 +2885,7 @@ Go to google and search for `Speed up your internet connection`, go over the web
 
 Open youtube.com, search for 'free energy hack' watch some of the videos, then search for 'electroboom free energy' and watch Mehdi explain why it is a scam. Search for 'be carefull what you order from facebook ads' Pleasant Green and watch how he explains a scam with ads to buy a cool looking helmet.
 
-See the internet is a place, where you can find great things, like electroboom and pleasant green or veritasium or vsauce, but also where there are horrible things, like people selling garbage for 30$. Or people claiming 
+See the internet is a place, where you can find great things, like electroboom and pleasant green or veritasium or vsauce, but also where there are horrible things, like people selling garbage for 30$. Or people claiming
 
 Now with your parent, search on youtube for 'how to hack in roblox' and look at the scame, how people want to install something so they can steal your password.
 
@@ -2957,7 +2957,7 @@ for (cookie of newCookies) {
 
 Paste the whole list there, and refresh the page.
 
-And voila! You are logged in now without typing a password. 
+And voila! You are logged in now without typing a password.
 
 So if you give access to somebody to your computer, they can trivially copy your cookies and send them somewhere, and then they can login as you without even knowing your password. In fact this is a very common way to steal someone's account on social media. Ask them to paste a strange code in the console, which is usually `base64 encoded` that looks like this:
 
@@ -3075,11 +3075,11 @@ while True:
         g[2][3]=x_or_zero
     if p == 'c3':
         g[3][3]=x_or_zero
-    if p == 'c4':               
+    if p == 'c4':
         g[4][3]=x_or_zero
 
     if p == 'd1':
-        g[1][4]=x_or_zero    
+        g[1][4]=x_or_zero
     if p == 'd2':
         g[2][4]=x_or_zero
     if p == 'd3':
@@ -3091,7 +3091,7 @@ while True:
     if p == 'clear':
         g = empty_game()
 
-        
+
     if x_or_zero =='x':
         x_or_zero = '0'
     else:
@@ -3196,7 +3196,7 @@ def place_apple(world):
         (col,row) = random.choice(possible)
         world[row][col] = APPLE_SYMBOL
         return True
-    
+
 world = empty()
 player_row = 0
 player_col = 0
@@ -3212,7 +3212,7 @@ render(world)
 
 while True:
   direction = input("which direction: ")
-  
+
   world[player_row][player_col] = '='
   if direction == "u":
     player_row = player_row - 1
@@ -3319,7 +3319,7 @@ then make a circle
 import pgzrun
 WIDTH = 400
 HEIGHT = 400
- 
+
 def draw():
     screen.clear()
     x = WIDTH/2
@@ -3327,7 +3327,7 @@ def draw():
     pos = (x,y)
     radius = 30
     screen.draw.circle(pos, radius, 'white')
- 
+
 pgzrun.go()
 ```
 
@@ -3356,7 +3356,7 @@ def draw():
     pos = (x,y)
     radius = 30
     screen.draw.circle(pos, radius, 'white')
- 
+
 pgzrun.go()
 ```
 
@@ -3390,7 +3390,7 @@ def draw():
     pos = (x,y)
     radius = 30
     screen.draw.circle(pos, radius, 'white')
- 
+
 pgzrun.go()
 ```
 
@@ -3443,7 +3443,7 @@ def draw():
     pos = (x,y)
     radius = 30
     screen.draw.circle(pos, radius, 'white')
- 
+
 pgzrun.go()
 ```
 
@@ -3494,7 +3494,7 @@ def draw():
 
     if game_over:
         screen.draw.text("GAME OVER", (50, 30), color="blue")
- 
+
 pgzrun.go()
 
 ```
@@ -3550,7 +3550,7 @@ def draw():
     elf.draw()
     snake.draw()
 
-    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))
 pgzrun.go()
 
 ```
@@ -3613,7 +3613,7 @@ def draw():
     for s in snakes:
         s.draw()
 
-    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))
 pgzrun.go()
 ```
 ## [DAY-65] Functions; Collisions
@@ -3662,7 +3662,7 @@ def draw():
     elf.draw()
     snake.draw()
 
-    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))                         
+    screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))
 pgzrun.go()
 
 ```
@@ -3778,7 +3778,7 @@ for a in cars:
 def move_coins():
     for (index,a) in enumerate(cars):
         for (coin_index, f) in enumerate(a):
-           
+
             f.y = (index * int(HEIGHT/len(cars))) + int(HEIGHT/len(cars))/2
             f.x += coin_speed
             if f.x > WIDTH:
@@ -3837,8 +3837,8 @@ def draw():
     screen.draw.text("Score: "+ str(score), color="white", topleft=(10,10))
     if game_over:
         screen.fill("blue")
-        screen.draw.text("Final Score: "+ str(score), color="white", topleft=(10,10),fontsize=60)    
-                         
+        screen.draw.text("Final Score: "+ str(score), color="white", topleft=(10,10),fontsize=60)
+
 pgzrun.go()
 ```
 
@@ -4250,7 +4250,7 @@ def make_enemies():
         duration = 1
 
     for i in range(level):
-        snake = Actor("snake")    
+        snake = Actor("snake")
         snake.x = WIDTH-20
         snake.y = random.randint(10,HEIGHT-10)
         animate(snake, pos=(-100, snake.y), tween='accelerate', duration=duration)
@@ -4333,11 +4333,11 @@ tic tac toe but with one character variable names
 ```
 x = [
         #  0    1    2     3
-        ['〰️','🅰️','🅱️','🅾️'], # 0 
+        ['〰️','🅰️','🅱️','🅾️'], # 0
         ['🥇','〰️','〰️','〰️'], # 1
         ['🥈','〰️','〰️','〰️'], # 2
         ['🥉','〰️','〰️','〰️'], # 3
-        
+
     ]
 
 k = '🛹'
@@ -4373,7 +4373,7 @@ while True:
         x[3][3]=k
     else:
         continue
-    
+
     if k == '🛹':
         k = '⚽'
     else:
@@ -4462,7 +4462,7 @@ def update():
     global game_over
     if playerA.colliderect(playerB):
         game_over = True
-    
+
 def draw():
     if game_over:
         screen.fill('black')
@@ -4608,7 +4608,7 @@ def update():
          elf.y = HEIGHT - 40
          king.x = 10
          king.y = 40
-         
+
     if elf.x < 0:
         elf.x = 0
     if elf.x > WIDTH:
@@ -4619,7 +4619,7 @@ def update():
         elf.y = HEIGHT
 
 
-    if king.x < 0: 
+    if king.x < 0:
         king.x = 0
     if king.x > WIDTH:
         king.x = WIDTH
@@ -4637,7 +4637,7 @@ def update():
 
     if elf.colliderect(king):
         game_over = True
-    
+
 def draw():
     if game_over:
         screen.fill('black')
@@ -4949,7 +4949,7 @@ history = []
 
 def on_key_down(key):
     speed = 3
-    
+
     if key == keys.UP:
         player.y -= speed
     if key == keys.DOWN:
@@ -4965,7 +4965,7 @@ def on_key_down(key):
 
         print('append', history)
 
-    if key == keys.B and len(history) > 0:        
+    if key == keys.B and len(history) > 0:
         last = history.pop()
         player.x = last[0]
         player.y = last[1]
@@ -5013,7 +5013,7 @@ def on_key_down(key):
     if key == keys.RIGHT:
         player2.x += speed
 
-        
+
     if key == keys.F:
         positions = [player1.x,player1.y,player2.x,player2.y]
         history.append(positions)
@@ -5026,7 +5026,7 @@ def on_key_down(key):
             player2.x = positions[2]
             player2.y = positions[3]
             print('pop', history)
-        
+
 def draw():
     screen.fill('black')
     player1.draw()
@@ -5071,7 +5071,7 @@ while True:
     sum = 0
     for i in list:
         sum += i
-        
+
     print(list, sum)
 ```
 
@@ -5152,7 +5152,7 @@ def place_thing(kind):
 
 def on_key_down(key):
     speed = 15
-    
+
     if key == keys.UP:
         player.y -= speed
     if key == keys.DOWN:
@@ -5193,7 +5193,7 @@ def place_thing(kind):
     things.append(thing)
     game_map.append([kind, thing.x, thing.y])
     print(game_map)
-...    
+...
 ```
 
 use the map:
@@ -5220,7 +5220,7 @@ def place_thing(kind,x,y):
 
 def on_key_down(key):
     speed = 15
-    
+
     if key == keys.UP:
         player.y -= speed
     if key == keys.DOWN:
@@ -5277,7 +5277,7 @@ def on_key_down(key):
         player.x -= speed
     if key == keys.RIGHT:
         player.x += speed
-        
+
     if key == keys.F:
         f = Actor("flower")
         f.x = player.x
@@ -5300,7 +5300,7 @@ def on_key_down(key):
 
         for t in collide:
             things.remove(t)
-    
+
     if key == keys.S:
         positions = []
         for t in things:
@@ -5373,7 +5373,7 @@ def draw():
     screen.fill('black')
     player.draw()
 
-    
+
     for i in range(len(things)):
         t = things[i]
         t.draw()
@@ -5428,7 +5428,7 @@ def add_one_row():
     if len(flowers) > 0:
         f = flowers[len(flowers)-1]
         lastY = f.y
-    
+
     for i in range(20, WIDTH-10, 20):
         f = Actor("flower")
         f.x = i
@@ -5445,7 +5445,7 @@ def on_key_down(key):
         elf.x -= speed
     if key == keys.RIGHT:
         elf.x += speed
-        
+
     if key == keys.SPACE:
         rock = Actor("rock")
         rock.x = elf.x
@@ -5520,39 +5520,39 @@ def deg(h,m,s):
 	hDeg=(h*3600+m*60+s)/(3600*12)*360
 	mDeg=(m*60+s)/3600*360
 	sDeg=360/60*s
-	
+
 	return (90+hDeg,90+mDeg,90+sDeg)
-	
-	
+
+
 def show(h, size):
 	(hDeg,m,s) = deg(h,0,0)
-	
+
 	t.penup()
 	t.goto(0, size)
 	t.pencolor('white')
 	t.setheading(hDeg)
 	t.forward(size)
 	t.write(str(h))
-	
+
 def klok(size, h, m, s):
 	t.reset()
 	(hDeg,mDeg,sDeg) = deg(h,m,s)
-	
+
 	t.pendown()
 	t.pensize(7)
 	t.bgcolor('black')
 	t.pencolor('lime')
-	
+
 	t.circle(size)
-	
+
 	t.penup()
 	t.goto(0, size)
 	t.setheading(hDeg)
 	t.pendown()
 	t.pencolor('springgreen')
 	t.forward(size/3)
-	
-	
+
+
 	t.penup()
 	t.goto(0, size)
 	t.setheading(mDeg)
@@ -5566,7 +5566,7 @@ def klok(size, h, m, s):
 	t.pendown()
 	t.forward(size-25)
 	t.penup()
-	
+
 size = 150
 while True:
 	now = datetime.datetime.now()
@@ -5604,7 +5604,7 @@ def add_one_row():
     if len(flowers) > 0:
         f = flowers[len(flowers)-1]
         lastY = f.y
-    
+
     for i in range(20, WIDTH-10, 20):
         f = Actor("flower")
         f.x = i
@@ -5621,7 +5621,7 @@ def on_key_down(key):
         elf.y -= speed
     if key == keys.DOWN:
         elf.y += speed
-        
+
 
 def update():
     global game_over
@@ -5715,7 +5715,7 @@ def update():
         snake.y -= step_size
     if direction == "down":
         snake.y += step_size
-    
+
     if snake.colliderect(apple):
         apple.x = random.randint(0,WIDTH)
         apple.y = random.randint(0,HEIGHT)
@@ -5826,7 +5826,7 @@ try:
     x = open("day-87-x.txt", "r")
     elf.x = float(x.read())
     x.close()
-    
+
     y = open("day-87-y.txt", "r")
     elf.y = float(y.read())
     y.close()
@@ -5899,7 +5899,7 @@ def index():
         """)
         return response
 
-    
+
     response = make_response("""
         <html>
         <form action="/login" method="post">
@@ -5936,7 +5936,7 @@ def login():
         return response
     else:
         return "access denied"
-    
+
 if __name__ == "__main__":
     app.run(host="127.0.0.1",port=8000,debug=True)
 ```
@@ -7402,7 +7402,7 @@ example if we want to store `5, h e l l o`, the computer memory might look like 
 
 If we use 1 byte per character, ASCII actuaklly fitst in 7 bits (its called 7 bit ascii) as the maximum value is 127, but we store things aligned to 1 byte, the way processors are made, they have certain restrictions,m they cant just go and read/write at a specific bit position in the memory, so many times when we want to store 7 bits of data we need to use 8 bits, Unless we come with something to store in the extra bit, it will be just waste.
 
-## [DAY-97] Lists; 
+## [DAY-97] Lists;
 
 ![game-97.png](./screenshots/game-97.png "game 97 screenshot")
 
@@ -8692,7 +8692,7 @@ import pgzrun
 import sys # for sys.exit()
 
 
-HEIGHT = 300 
+HEIGHT = 300
 WIDTH = 300
 
 elf = Actor("c1")
@@ -8785,7 +8785,7 @@ def update():
             size = 1
     if keyboard.EQUALS:
         size += 1
-        
+
     if keyboard.Q:
         sys.exit(0)
 
@@ -8845,7 +8845,7 @@ def update():
         color = colors[4][0]
     if keyboard.k_6:
         color = colors[5][0]
-               
+
     if keyboard.D:
         drop = make_rect_around_actor(elf)
         for p in list(pixels):
@@ -9866,9 +9866,9 @@ Images
 
 The way we store image is very similar to the way we store text. It is just a bunch of bytes, but when we read them we decide to interpret them differently.
 
-Open images/joshi-100.bmp and you will see: 
+Open images/joshi-100.bmp and you will see:
 
-![joshi-100.bmp](./images/joshi-100.bmp "joshi") 
+![joshi-100.bmp](./images/joshi-100.bmp "joshi")
 
 Now lets just read the bytes, and just show the numbers, starting at position 54, when we print new line every 106, and also we are gonna print every 4th byte.
 
@@ -10034,9 +10034,9 @@ def on_key_down(key, mod, unicode):
     elif key == keys.SPACE:
         text += ' '
     elif key == keys.TAB:
-        text += '  '        
+        text += '  '
     elif key == keys.RETURN:
-        text += '\n'        
+        text += '\n'
     elif len(unicode) > 0 and ord(unicode) >= 34 and ord(unicode) <= 126:
         text += unicode
 
@@ -10047,7 +10047,7 @@ def run_code():
             enemy_positions.append((e.x, e.y))
         hero_positions = []
         for h in heroes:
-            hero_positions.append((e.x, e.y))            
+            hero_positions.append((e.x, e.y))
         exec(text, {"heroes": heroes,"random":random, "enemies": enemy_positions})
         exec(enemy_code, {"enemies": enemies, "random":random, "heroes": hero_positions})
 
@@ -10057,7 +10057,7 @@ def run_code():
                 if e.colliderect(h):
                     enemies.remove(e)
             if collided:
-                heroes.remove(h)                    
+                heroes.remove(h)
         if len(enemies) < 50:
             enemies.append(Rect(random.randint(0,WIDTH),random.randint(0,HEIGHT), 10, 10))
 
@@ -10132,7 +10132,7 @@ def update():
             elf.y = float(lines[2])
         f.close()
 
-       
+
 def draw():
     elf.draw()
 pgzrun.go()
@@ -10255,8 +10255,8 @@ many turtles
 ```
 import turtle
 import random
-colors = ['violet', 'turquoise', 'black', 
-          'deepskyblue','lawngreen', 'seagreen ', 
+colors = ['violet', 'turquoise', 'black',
+          'deepskyblue','lawngreen', 'seagreen ',
           'royalblue', 'purple', 'red','orange']
 
 turtles = []
@@ -10506,7 +10506,7 @@ def draw():
         screen.fill('blue')
     else:
         background.draw()
-        screen.draw.text("current_wave: " + str(current_wave) + ", cash: " + str(cash) + ", lives: " + str(lives), (5,0),fontname="437-win")   
+        screen.draw.text("current_wave: " + str(current_wave) + ", cash: " + str(cash) + ", lives: " + str(lives), (5,0),fontname="437-win")
 
         for b in bullets:
             if not b.hit:
@@ -10814,7 +10814,7 @@ def on_key_down(key):
             if t.colliderect(player):
                 t.resize(5)
                 cash -= 10
-        
+
     if key == keys.D:
         for t in list(towers):
             if t.colliderect(player):
@@ -11007,9 +11007,9 @@ When you execute `gcc -o foo foo.c` (if you save the program in foo.c), it will 
 `cat foo`:
 ```
 ????X? H__PAGEZERO?__TEXT@@__text__TEXT0?X0??__stubs__TEXT????__stub_helper__TEXT?????__cstring__TEXT????__unwind_info__TEXT??H???__DATA_CONST@@@@__got__DATA_CONST@?__DATA?@?@__la_symbol_ptr__DATA?__data__DA?H__LINKEDIT?@?"?? ?0?0h???H
-                               P?? 
+                               P??
                                    /usr/lib/dyld9??
-                                                   f:^?[c?υ02 
+                                                   f:^?[c?υ02
 
                                                               ?*(?0?
                                                                     8d
@@ -11332,7 +11332,7 @@ for line in fi:
     if len(w) == 5:
         n += 1
     if len(w) == 7:
-        x += 1 
+        x += 1
 print(n)
 print(x)
 ```
@@ -11700,10 +11700,10 @@ There is also the step value, which can be used with any of the above:
 
 a[start:stop:step] # start through not past stop, by step
 The key point to remember is that the :stop value represents the first value that
- is not in the selected slice. So, the difference between stop and start is the 
+ is not in the selected slice. So, the difference between stop and start is the
  number of elements selected (if step is 1, the default).
 
-The other feature is that start or stop may be a negative number, which means it 
+The other feature is that start or stop may be a negative number, which means it
 counts from the end of the array instead of the beginning. So:
 
 a[-1]    # last item in the array
@@ -11716,12 +11716,12 @@ a[1::-1]   # the first two items, reversed
 a[:-3:-1]  # the last two items, reversed
 a[-3::-1]  # everything except the last two items, reversed
 
-Python is kind to the programmer if there are fewer items than you ask for. For example, 
-if you ask for a[:-2] and a only contains one element, you get an empty list instead of 
+Python is kind to the programmer if there are fewer items than you ask for. For example,
+if you ask for a[:-2] and a only contains one element, you get an empty list instead of
 an error. Sometimes you would prefer the error, so you have to be aware that this may happen.
 
 Relation to slice() object
-The slicing operator [] is actually being used in the above code with a slice() object 
+The slicing operator [] is actually being used in the above code with a slice() object
 using the : notation (which is only valid within []), i.e.:
 
 a[start:stop:step]
@@ -11729,13 +11729,13 @@ is equivalent to:
 
 a[slice(start, stop, step)]
 
-Slice objects also behave slightly differently depending on the number of arguments, 
-similarly to range(), i.e. both slice(stop) and slice(start, stop[, step]) are 
-supported. To skip specifying a given argument, one might use None, so that e.g. 
-a[start:] is equivalent to a[slice(start, None)] or a[::-1] is equivalent to 
+Slice objects also behave slightly differently depending on the number of arguments,
+similarly to range(), i.e. both slice(stop) and slice(start, stop[, step]) are
+supported. To skip specifying a given argument, one might use None, so that e.g.
+a[start:] is equivalent to a[slice(start, None)] or a[::-1] is equivalent to
 a[slice(None, None, -1)].
 
-While the :-based notation is very helpful for simple slicing, the explicit use of 
+While the :-based notation is very helpful for simple slicing, the explicit use of
 slice() objects simplifies the programmatic generation of slicing.
 ```
 
@@ -11855,7 +11855,7 @@ while True:
 ![game-145-3.png](./screenshots/game-145-3.png "game 145-3 screenshot")
 
 ```
-import turtle as t 
+import turtle as t
 
 size = 0
 t.speed(0)
@@ -11878,7 +11878,7 @@ print(len(a))
 print(a[2])
 ```
 
-First lets imagine a simplified representation of the string 'hello' in memory. 
+First lets imagine a simplified representation of the string 'hello' in memory.
 
 Lets imagine the computer memory as a long line of numbered boxes, so we can go directly to specific box
 
@@ -11905,7 +11905,7 @@ What happens now when we do `a += 'b'`, this is the same as `a = a + 'b'`, which
 ```
 [--------------5 104 101 108 108 111------6 104 101 108 108 111 98----------------]
  0             ^                          ^                                      1024
-             555                         763  
+             555                         763
 ```
 
 
@@ -11928,7 +11928,7 @@ One way python could represent a list is very similar to a string, you have leng
 ```
 [---3 555 763 847-----------2 104 101 ----------------2 108 111 ------6-----------]
  0  ^                       ^                         ^               ^          1024
-    125                    555                       763             847 
+    125                    555                       763             847
 ```
 
 
@@ -11939,10 +11939,10 @@ See there is a small problem because now python does not know if certain address
 ```
 [---3 2 555 763 847-------2 2 104 101 --------------2 2 108 111 -----1 6----------]
  0  ^                     ^                         ^                ^           1024
-    125                  555                       763               847 
+    125                  555                       763               847
 ```
 
-ok now its eaier :) we know when we go to certain address of some data what to expect, so we know if we should print ascii or the number itself, or follow the reference to wherever it goes.   
+ok now its eaier :) we know when we go to certain address of some data what to expect, so we know if we should print ascii or the number itself, or follow the reference to wherever it goes.
 
 ## [DAY-146] While; Classes
 
@@ -12112,7 +12112,7 @@ The 'race to the bottom' is very interesting, because it seems its making things
 
 Another thing that H&M can do, is simply talk with C&A and agree that they wont sell jackets below 20€, regardless how much it costs them to make, so if someone finds a way to make them for 15€ they will just make 5€ more profit, because the consumers can only chose between 20€ jackets. Or they can buy all other manufacturers of jackets and start selling jackets for 60€ instead of 20, purely because they can. The government has rules about how companies can merge together, and is trying to protect its citizens from situations like that, but it is very very difficult thing to regulate.
 
-A lot of people in the world work as much as it is required so they do not get fired, and their employers pay them the minimum so they dont quit. The relationship between worker and employer is very complicated. You will see when you grow up, you will have jobs that you hate, and jobs that you love. Be especially carefull with the jobs that you love. 
+A lot of people in the world work as much as it is required so they do not get fired, and their employers pay them the minimum so they dont quit. The relationship between worker and employer is very complicated. You will see when you grow up, you will have jobs that you hate, and jobs that you love. Be especially carefull with the jobs that you love.
 
 They say 'do what you love and never work a day in your life', but what they dont say, is that you are consuming that love, little by little, like an artist who is paid to draw something she thinks is ugly, she will need the money, and the real price the artist will pay is love. The love for your craft is not infinite. It is ok to hate your job, it is also ok to love your job.
 
@@ -12299,7 +12299,7 @@ class Pixel:
     def __init__(self, color, x, y, size):
         self.color = color
         self.rect = Rect(x,y,size,size)
-    
+
     def draw(self):
         screen.draw.rect(self.rect, self.color)
 
@@ -12357,7 +12357,7 @@ Try out some ideas with a class, just to understand better what `self` is, for e
 ```
 class Point:
     def __init__(self, x, y):
-        self.x = x 
+        self.x = x
         self.y = y
 
     def move(self,x,y):
@@ -12692,7 +12692,7 @@ class Mover:
             self.actor.x -= 1
         if self.direction == 'right':
             self.actor.x += 1
-        
+
         if self.actor.x > WIDTH:
             self.actor.x = 0
         if self.actor.x < 0:
@@ -12700,7 +12700,7 @@ class Mover:
         if self.actor.y > HEIGHT:
             self.actor.y = 0
         if self.actor.y < 0:
-            self.actor.y = HEIGHT 
+            self.actor.y = HEIGHT
         hit_wall = False
         for o in obsticles:
             if self.actor.colliderect(o):
@@ -12713,7 +12713,7 @@ class Mover:
 
 
 pacman = Mover("c1", 10, 10, 'up')
-movers = [pacman, 
+movers = [pacman,
   Mover("c2", 100, 40, 'up'),
   Mover("c2", 100, 50, 'up'),
   Mover("c2", 100, 60, 'up'),
@@ -12738,7 +12738,7 @@ def update():
             lives -= 1
             pacman.actor.x = 0
             pacman.actor.y = 0
-            
+
             if lives < 0:
                 game_over = True
 
@@ -13064,7 +13064,7 @@ int main(void) {
 
     char s1[10] = {'h','e','l','l','o','w','o','r','d','\0'};
     char s2[] = "helloword";
-    
+
     cout << s1 << endl;
     cout << s2 << endl;
 }
@@ -13210,16 +13210,16 @@ bool wins(char symbol, char g0, char g1, char g2, char g3, char g4, char g5, cha
     }
     if (g1 == symbol && g4 == symbol && g7 == symbol) {
         return true;
-    }    
+    }
     if (g2 == symbol && g5 == symbol && g8 == symbol) {
         return true;
     }
     if (g3 == symbol && g4 == symbol && g5 == symbol) {
         return true;
-    }    
+    }
     if (g6 == symbol && g7 == symbol && g8 == symbol) {
         return true;
-    }     
+    }
     if (g6 == symbol && g4 == symbol && g2 == symbol) {
         return true;
     }
@@ -13244,10 +13244,10 @@ int main(void) {
             }
             if (col == 'b') {
                 g1 = symbol;
-            } 
+            }
             if (col == 'c') {
                 g2 = symbol;
-            }                            
+            }
         }
 
 
@@ -13257,10 +13257,10 @@ int main(void) {
             }
             if (col == 'b') {
                 g4 = symbol;
-            } 
+            }
             if (col == 'c') {
                 g5 = symbol;
-            }                            
+            }
         }
 
         if (row == '2') {
@@ -13269,11 +13269,11 @@ int main(void) {
             }
             if (col == 'b') {
                 g7 = symbol;
-            } 
+            }
             if (col == 'c') {
                 g8 = symbol;
-            }                            
-        }        
+            }
+        }
         if (wins(symbol,g0,g1,g2,g3,g4,g5,g6,g7,g8)) {
             render(g0,g1,g2,g3,g4,g5,g6,g7,g8);
             cout << symbol << " wins!" << endl;
@@ -13284,7 +13284,7 @@ int main(void) {
             symbol = '0';
         } else {
             symbol = 'x';
-        }        
+        }
     }
     return 0;
 }
@@ -13421,7 +13421,7 @@ def get_input(xz, a1,a2,a3,b1,b2,b3,c1,c2,c3):
     if ask == 'c2':
         c2 = xz
     if ask == 'c3':
-        c3 = xz    
+        c3 = xz
     return  a1,a2,a3,b1,b2,b3,c1,c2,c3
 
 def game():
@@ -13723,7 +13723,7 @@ while True:
         idk = '0'
     else:
         idk = 'x'
-    
+
 board(g)
 ```
 
@@ -13766,7 +13766,7 @@ while True:
         idk = '0'
     else:
         idk = 'x'
-    
+
 board(g)
 ```
 
@@ -13782,7 +13782,7 @@ int main(void) {
 
     printf("How old are you: ");
     scanf("%d",&age);
-    
+
     if (age > 10) {
         printf("you are a grownup\n");
     } else {
@@ -13860,7 +13860,7 @@ int main(void) {
 }
 ```
 
-`#define ROCK 0` just makes the c compiler to replace ROCK with 0 wherever it sees it in the source code. 
+`#define ROCK 0` just makes the c compiler to replace ROCK with 0 wherever it sees it in the source code.
 
 
 `#include <stdlib.h>` is needed for the `rand` function, it returns an integer, but since we need a number from 0, 1, 2 we just do `rand() % 3`, which will take the reminder from the random number and 3.
@@ -13975,7 +13975,7 @@ int main(void) {
         printf("row column> ");
         scanf("%d %d", &row, &column);
 
-        // modify the display board depending if ship is 
+        // modify the display board depending if ship is
         // found in the hidden board or not.
         if (hidden[row][column] == 1) {
             display[row][column] = 1;
@@ -14078,7 +14078,7 @@ def on_key_down(key):
         # pick up the piece below
         for w in white:
             if elf.colliderect(w):
-                pick_white = w 
+                pick_white = w
     elif key == keys.R and pick_white != None:
         for b in board:
             # shouldnt be able to drop if there is already white piece there
@@ -14102,7 +14102,7 @@ def on_key_down(key):
         # pick up the piece below
         for b in black:
             if king.colliderect(b):
-                pick_black = b 
+                pick_black = b
     elif key == keys.P and pick_black != None:
         for b in board:
             if king.colliderect(b):
@@ -14126,15 +14126,15 @@ def on_key_down(key):
 def update():
     global pick_white,pick_black
     speed = 2
-   
+
     if keyboard.W:
         elf.y -= 5
     if keyboard.S:
-        elf.y += 5  
+        elf.y += 5
     if keyboard.A:
-        elf.x -= 5  
+        elf.x -= 5
     if keyboard.D:
-        elf.x += 5      
+        elf.x += 5
     if keyboard.UP:
         king.y -= 5
     if keyboard.DOWN:
@@ -14143,7 +14143,7 @@ def update():
         king.x -= 5
     if keyboard.RIGHT:
         king.x += 5
-    
+
     # move the white piece with the elf
     if pick_white != None:
         pick_white.x = elf.x - 30
@@ -14200,11 +14200,11 @@ if elf.colliderect(b):
     # set the pick_white.image to chess/queen-white if it reaches the black end of the board
     if pick_white.image == 'chess/pawn-white' and pick_white.y == 0:
         pick_white.image = 'chess/queen-white'
-    
+
     # drop it
     pick_white = None
     break
-# ...    
+# ...
 ```
 
 and respective for the black pawn:
@@ -14214,11 +14214,11 @@ and respective for the black pawn:
 
     if pick_black.image == 'chess/pawn-black' and pick_black.y == 700:
         pick_black.image = 'chess/queen-black'
-    
-    # drop it
-    pick_black = None    
 
-# ...        
+    # drop it
+    pick_black = None
+
+# ...
 ```
 
 ## [DAY-173] if; variables
@@ -14314,7 +14314,7 @@ def on_key_down(key):
                 # store the original position
                 x = w.x
                 y = w.y
-                
+
     elif key == keys.SPACE and pick_white != None:
         for square in board:
             # shouldnt be able to drop if there is already white piece there
@@ -14326,7 +14326,7 @@ def on_key_down(key):
                 # pawns cant move backwards
                 if pick_white.image == 'chess/pawn-white' and square.y > y:
                     return
-                
+
                 # snap the white piece to the board
                 pick_white.x = square.x
                 pick_white.y = square.y
@@ -14341,7 +14341,7 @@ def on_key_down(key):
                 # set the pick_white.image to chess/queen-white if it reaches the black end of the board
                 if pick_white.image == 'chess/pawn-white' and pick_white.y == 0:
                     pick_white.image = 'chess/queen-white'
-                
+
                 # drop it
                 pick_white = None
                 break
@@ -14349,9 +14349,9 @@ def on_key_down(key):
         # pick up the piece below
         for b in black:
             if king.colliderect(b):
-                pick_black = b 
+                pick_black = b
 
-                # store the original position                
+                # store the original position
                 y = b.y
                 x = b.x
     elif key == keys.P and pick_black != None:
@@ -14374,7 +14374,7 @@ def on_key_down(key):
                 for w in list(white):
                     if w.colliderect(pick_black):
                         white.remove(w)
-    
+
                 # Queen the Pawn
                 if pick_black.image == 'chess/pawn-black' and pick_black.y == 700:
                     pick_black.image = 'chess/queen-black'
@@ -14385,15 +14385,15 @@ def on_key_down(key):
 
 def update():
     global pick_white,pick_black
-   
+
     if keyboard.W:
         elf.y -= 5
     if keyboard.S:
-        elf.y += 5  
+        elf.y += 5
     if keyboard.A:
-        elf.x -= 5  
+        elf.x -= 5
     if keyboard.D:
-        elf.x += 5      
+        elf.x += 5
     if keyboard.UP:
         king.y -= 5
     if keyboard.DOWN:
@@ -14402,7 +14402,7 @@ def update():
         king.x -= 5
     if keyboard.RIGHT:
         king.x += 5
-    
+
     # move the white piece with the elf
     if pick_white != None:
         pick_white.x = elf.x - 30
@@ -14436,7 +14436,7 @@ pgzrun.go()
 
 The knight moves in shape L, so we have to make all other moves illegal.
 
-First draw on a sheet of paper all possible moves, and 
+First draw on a sheet of paper all possible moves, and
 
 ![game-174.png](./screenshots/game-174.png "game 174 screenshot")
 
@@ -14458,9 +14458,9 @@ With if conditions, what we do is we set the move as bad (`good = False`), and t
                     elif square.x == x + 100 and square.y == y + 200:
                         good = True
                     elif square.x == x - 200 and square.y == y - 100:
-                        good = True      
+                        good = True
                     elif square.x == x - 200 and square.y == y + 100:
-                        good = True                   
+                        good = True
                     elif square.x == x - 100 and square.y == y + 200:
                         good = True
                     elif square.x == x + 200 and square.y == y + 100:
@@ -14474,7 +14474,7 @@ With if conditions, what we do is we set the move as bad (`good = False`), and t
 
                     if not good:
                         return
-...                        
+...
 ```
 
 For the white pieces we will try the other approach, which checks if a the move is in a list of allowed moves. You can check if a list is in a list, e.g. `a = [[1,2],[3,4]]` you can just try `if [1,2] in a`, so we can simply build a list of possible moves, and check if the square we are dropping the piece on is one of those moves.
@@ -14549,7 +14549,7 @@ First rename x and y to pick_x and pick_y so things are clearer when you compare
                         return
                     if square.x - pick_x > 100 or square.x - pick_x < -100:
                         return
-...                        
+...
 ```
 
 ## [DAY-177] if
@@ -14565,11 +14565,11 @@ Remember, always try the simple thing first.
                 if pick_black.image == 'chess/rook-black':
                     if square.x != pick_x and square.y != pick_y:
                         return
-...                        
+...
 ```
 ## [DAY-178] if; absolute
 
-Today we will do the rule for the bishop, since the bishop moves in diagonal. You see in the image that the diagonal means that both x and y change with the same absolute amount, lets say we want to move only one square, the possible values are: -1 -1, -1 1, 1 1, 1 -1, meaning move up and left (decrease y and decrease x), up and right (decrease y, increase x), down and right (increase y, indcrease x), down and left (increase y, decrease x). 
+Today we will do the rule for the bishop, since the bishop moves in diagonal. You see in the image that the diagonal means that both x and y change with the same absolute amount, lets say we want to move only one square, the possible values are: -1 -1, -1 1, 1 1, 1 -1, meaning move up and left (decrease y and decrease x), up and right (decrease y, increase x), down and right (increase y, indcrease x), down and left (increase y, decrease x).
 
 ![game-178.png](./screenshots/game-178.png "game 178 screenshot")
 
@@ -14632,7 +14632,7 @@ Lets start with the queen, as we already have the rook and bishop rules, it is q
                     d_x = pick_x - square.x
                     if abs(d_y) != abs(d_x) and square.x != pick_x and square.y != pick_y:
                         return
-...                        
+...
 
 ```
 
@@ -14822,7 +14822,7 @@ def on_key_down(key):
             actor.x = x
             actor.y = y
             actor.image = image
-...            
+...
 ```
 
 We are using the list like a stack, we add stuff to it and when we need we pop the top most items. You can see that we append image, y, x, actor but when we pop we get them in reverse order, because pop() removes the top most item from the ist, so we get back actor, x, y, image.
@@ -14993,38 +14993,38 @@ game_over = False
 board = Actor("snake-500")
 def on_key_down(key):
     if key == keys.SPACE:
-        elf.x += random.choice([50,100,150,200,250,300]) 
+        elf.x += random.choice([50,100,150,200,250,300])
         if elf.x > 475 and elf.y == 25:
-            elf.x = 25 
+            elf.x = 25
             elf.y = 25
         if elf.x > 475:
-            elf.x -= 500 
+            elf.x -= 500
             elf.y -= 50
         if elf.y == 375 and elf.x == 225:
-            elf.y = 475 
+            elf.y = 475
             elf.x = 225
         if elf.y == 25 and elf.x == 25:
-            elf.y = 175 
+            elf.y = 175
         if elf.y == 475 and elf.x == 125:
-            elf.y = 225 
+            elf.y = 225
             elf.x = 25
         if elf.y == 325 and elf.x == 175:
-            elf.y = 475 
+            elf.y = 475
             elf.x = 25
         if elf.y == 475 and elf.x == 275:
-            elf.y = 375 
+            elf.y = 375
             elf.x = 325
         if elf.y == 175 and elf.x == 125:
-            elf.y = 25 
+            elf.y = 25
             elf.x = 225
         if elf.y == 75 and elf.x == 325:
-            elf.y = 225 
+            elf.y = 225
             elf.x = 325
         if elf.y == 25 and elf.x == 425:
-            elf.y = 175 
+            elf.y = 175
             elf.x = 425
         if elf.y == 475 and elf.x == 425:
-            elf.y = 175 
+            elf.y = 175
             elf.x = 425
 
 def update():
@@ -15035,11 +15035,11 @@ def update():
         elf.y -= speed
     if keyboard.DOWN:
         elf.y += speed
-    if keyboard.LEFT:  
+    if keyboard.LEFT:
         elf.x -= speed
     if keyboard.RIGHT:
         elf.x += speed
-    
+
     if elf.x == 475 and elf.y == 25:
         game_over = True
 
@@ -15154,7 +15154,7 @@ while True:
     time.sleep(1)
     pyautogui.click(185, 395)
     time.sleep(1)
-    
+
     for i in range(3000):
         s = 'yo' * random.randint(1, 4)
         pyautogui.write(s + ' ')
@@ -15340,7 +15340,7 @@ Example programs (also some are from the video lecture):
 │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 0 │
-└───┴───┴───┴───┘ 
+└───┴───┴───┴───┘
 ```
 
 
@@ -15355,7 +15355,7 @@ Example programs (also some are from the video lecture):
 │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 0 │
-└───┴───┴───┴───┘ 
+└───┴───┴───┴───┘
 ```
 
 
@@ -15370,7 +15370,7 @@ Example programs (also some are from the video lecture):
 │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 0 │
-└───┴───┴───┴───┘ 
+└───┴───┴───┴───┘
 ```
 
 
@@ -15386,7 +15386,7 @@ Example programs (also some are from the video lecture):
 │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 0 │
-└───┴───┴───┴───┘ 
+└───┴───┴───┴───┘
 ```
 
 
@@ -15401,7 +15401,7 @@ Example programs (also some are from the video lecture):
 │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 3 │
-└───┴───┴───┴───┘ 
+└───┴───┴───┴───┘
 ```
 
 * beep forever
@@ -15415,18 +15415,18 @@ Example programs (also some are from the video lecture):
 │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 3 │
-└───┴───┴───┴───┘ 
+└───┴───┴───┴───┘
 ```
 
 * put the value 4 in R0, increment it and put it back in memory and print it
 
 ```
-┌──────┐ ┌──────┐ 
+┌──────┐ ┌──────┐
 │IP: 0 │ │IS: 0 │
-└──────┘ └──────┘  
+└──────┘ └──────┘
 ┌──────┐ ┌──────┐
 │R0: 0 │ │R1: 0 │
-└──────┘ └──────┘ 
+└──────┘ └──────┘
 ┌───┬───┬───┬───┐
 │  9│ 14│ 3 │ 11│
 ├───┼───┼───┼───┤
@@ -15444,7 +15444,7 @@ Lets walk through each step of the program, you can see the IP(instruction point
 START               load addr 14 in R0  increment R0
 ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
 │IP: 0 │ │IS: 0 │   │IP: 0 │ │IS: 10│   │IP: 2 │ │IS: 3 │
-└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘  
+└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
 ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
 │R0: 0 │ │R1: 0 │   │R0: 4 │ │R1: 0 │   │R0: 5 │ │R1: 0 │
 └──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
@@ -15464,7 +15464,7 @@ START               load addr 14 in R0  increment R0
 put R0 in addr 14   jump to addr 13      print 5
 ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
 │IP: 3 │ │IS: 11│   │IP: 5 │ │IS: 13│   │IP: 13│ │IS: 8 │
-└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘ 
+└──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
 ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐   ┌──────┐ ┌──────┐
 │R0: 5 │ │R1: 0 │   │R0: 5 │ │R1: 0 │   │R0: 5 │ │R1: 0 │
 └──────┘ └──────┘   └──────┘ └──────┘   └──────┘ └──────┘
@@ -15472,7 +15472,7 @@ put R0 in addr 14   jump to addr 13      print 5
 ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐   ┌───┬───┬───┬───┐
 │  9│ 14│ 3 │ 11│   │  9│ 14│ 3 │ 11│   │  9│ 14│ 3 │ 11│
 ├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
-│ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │ 
+│ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │   │ 14│ 13│ 13│ 0 │
 ├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
 │ 0 │ 0 │ 0 │ 0 │   │ 0 │ 0 │ 0 │ 0 │   │ 0 │ 0 │ 0 │ 0 │
 ├───┼───┼───┼───┤   ├───┼───┼───┼───┤   ├───┼───┼───┼───┤
@@ -15481,12 +15481,12 @@ put R0 in addr 14   jump to addr 13      print 5
 
 
 halt
-┌──────┐ ┌──────┐ 
+┌──────┐ ┌──────┐
 │IP: 15│ │IS: 0 │
-└──────┘ └──────┘  
+└──────┘ └──────┘
 ┌──────┐ ┌──────┐
 │R0: 4 │ │R1: 0 │
-└──────┘ └──────┘ 
+└──────┘ └──────┘
 ┌───┬───┬───┬───┐
 │  9│ 14│ 3 │ 11│
 ├───┼───┼───┼───┤
@@ -15510,7 +15510,7 @@ code  keyword   what it does
    4 │ inc r1    increment R1 R1 = R1 + 1
    5 │ dec r0    decrement R0 R0 = R0 - 1
    6 │ dec r1    decrement R1 R1 = R1 - 1
-     │ 
+     │
    7 │ ring      ring bell
      │
  8 X │ print     print X (whatever the next byte is)
@@ -15529,12 +15529,12 @@ code  keyword   what it does
 now lets rewrite this program
 
 ```
-┌──────┐ ┌──────┐ 
+┌──────┐ ┌──────┐
 │IP: 0 │ │IS: 0 │
-└──────┘ └──────┘  
+└──────┘ └──────┘
 ┌──────┐ ┌──────┐
 │R0: 0 │ │R1: 0 │
-└──────┘ └──────┘ 
+└──────┘ └──────┘
 ┌───┬───┬───┬───┐
 │  9│ 14│ 3 │ 11│
 ├───┼───┼───┼───┤
@@ -15580,9 +15580,9 @@ The instructions we will use are:
 And this is the program:
 
 ```
-┌──────┐ ┌──────┐ 
+┌──────┐ ┌──────┐
 │IP: 0 │ │IS: 0 │
-└──────┘ └──────┘  
+└──────┘ └──────┘
 ┌──────┐ ┌──────┐
 │R0: 0 │ │R1: 0 │
 └──────┘ └──────┘
@@ -15661,8 +15661,8 @@ place the value of R0 in address 7 (mem[7] = 12)
 print 12
 
 > this is the most important step of the program
-> you see in the previous instruction (11 7), we modified the value 
-> of the print instruction which is about to print the content of 
+> you see in the previous instruction (11 7), we modified the value
+> of the print instruction which is about to print the content of
 > the next byte, which was zero when our program started,
 > but now it is filled with the current value of R0
 
@@ -15722,10 +15722,10 @@ jump to address 2
 
 ---
 
-> back from scratch, check if R0 is zero, if not it will put its value 
-> as the second byte of the print instruction and then decrement it 
-> until it reaches zero, at which point it will jump to address 12 and halt, 
-> 
+> back from scratch, check if R0 is zero, if not it will put its value
+> as the second byte of the print instruction and then decrement it
+> until it reaches zero, at which point it will jump to address 12 and halt,
+>
 
 ┌──────┐ ┌──────┐
 │IP: 12│ │IS: 0 │
@@ -15985,7 +15985,7 @@ Try to run the above program and when it asks for input type `3 11 4 8 0 13 0`, 
   8 │ 0  │ 0  │ 0  │ 0  │ 11
     ├────┼────┼────┼────┤
  12 │ 0  │ 0  │ 0  │ 0  │ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 ```
 
 
@@ -16017,7 +16017,7 @@ def ascii(state, highlight):
   8 │{12}│{13}│{14}│{15}│ 11
     ├────┼────┼────┼────┤
  12 │{16}│{17}│{18}│{19}│ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 
 """.format(*center))
 
@@ -16157,7 +16157,7 @@ For example:
   8 │ 9  │ 15 │ 10 │ 14 │ 11
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 ```
 
 Will output of `python3 interpreter.py example.prg`:
@@ -16178,7 +16178,7 @@ Will output of `python3 interpreter.py example.prg`:
   8 │ 9  │ 15 │ 10 │ 14 │ 11
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 
 
 
@@ -16198,7 +16198,7 @@ Will output of `python3 interpreter.py example.prg`:
   8 │ 9  │ 15 │ 10 │ 14 │ 11
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 
 
 ***  1 ***
@@ -16219,7 +16219,7 @@ Will output of `python3 interpreter.py example.prg`:
   8 │ 9  │ 15 │ 10 │ 14 │ 11
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 
 
 
@@ -16239,7 +16239,7 @@ Will output of `python3 interpreter.py example.prg`:
   8 │ 9  │ 15 │ 10 │ 14 │ 11
     ├────┼────┼────┼────┤
  12 │ 13 │ 0  │ 1  │ 3  │ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 
 
 ...
@@ -16284,7 +16284,7 @@ Will output of `python3 interpreter.py example.prg`:
   8 │ 9  │ 0  │ 0  │ 0  │ 11
     ├────┼────┼────┼────┤
  12 │ 0  │ 0  │ 4  │ 3  │ 15
-    └────┴────┴────┴────┘  
+    └────┴────┴────┴────┘
 ```
 
 
@@ -16322,23 +16322,23 @@ data = [
 ]
 def update():
     if keyboard.W:
-        elf.y -= 2 
+        elf.y -= 2
         elf.x += random.randint(-1,1)
     if keyboard.S:
         elf.y += 2
         elf.x += random.randint(-1,1)
     if keyboard.D:
-        elf.x += 2 
+        elf.x += 2
     if keyboard.A:
         elf.x -= 2
-    
+
     isInside = False
     for d in data:
         if elf.colliderect(d):
             isInside = True
 
     if not isInside:
-        elf.x = 520 
+        elf.x = 520
         elf.y = 420
 
 mouse_x = 0
@@ -16347,7 +16347,7 @@ def on_mouse_move(pos):
     global mouse_x, mouse_y
     mouse_x = pos[0]
     mouse_y = pos[1]
-    
+
 def draw():
     screen.clear()
     for r in data:
@@ -16385,9 +16385,9 @@ fog = Actor("fog", anchor=("center","center"))
 def update():
     ...
     if not isInside:
-        elf.x = 520 
+        elf.x = 520
         elf.y = 420
-    # move the fog's center to where the elf is 
+    # move the fog's center to where the elf is
     # so the elf is always in the center of the fog
     fog.x = elf.x
     fog.y = elf.y
@@ -16441,7 +16441,7 @@ Watch "The Computer Science Iceberg Explained (Part 1)" by Quabl - https://www.y
 
 ## [DAY-202] pointers
 
-Watch "What Are Pointers? (C++)" by javidx9 again - https://www.youtube.com/watch?v=iChalAKXffs 
+Watch "What Are Pointers? (C++)" by javidx9 again - https://www.youtube.com/watch?v=iChalAKXffs
 
 
 ## [DAY-203] Strategy
@@ -16491,10 +16491,10 @@ current_level = level1
 
 def update():
     global current_level
-    
+
     if current_level == level1 and elf.x > 700 and elf.y > 700:
         current_level = level3
-    
+
 def draw():
     ....
     for d in current_level:
@@ -17113,8 +17113,8 @@ Lets say we have directory named Games, and inside we have two games, Fortnite a
             /    |               /  |   \
            /     |              /    \    \
          sound  minecraft.exe  sound      fortnite.exe
-          /                     |       
-      zombie.mp3             falling.mp3 
+          /                     |
+      zombie.mp3             falling.mp3
       rain.mp3               song.mp3
 
 ```
@@ -18301,7 +18301,7 @@ l = []
 def abc():
     x = {"a":1}
     l.append(x)
-    
+
 abc()
 abc()
 print(l)
@@ -18365,7 +18365,7 @@ def draw():
     screen.fill('black')
     if game_over==True:
         screen.fill('pink')
-        
+
     king.draw()
 
     for e in lon:
@@ -18401,7 +18401,7 @@ Make one file `util.py`
 import random
 def sum(a,b,c):
     return a + b + c
-    
+
 def choice(a,b):
     if random.randint(0,1) == 1:
         return a:
@@ -18523,7 +18523,7 @@ The third part `i++` or `i+=1` is the `increment` part, it will be executed just
 ```
 for (i = 1; i < 10; ) {
     printf("%d\n",i)
-    
+
     i++
 }
 
@@ -19662,7 +19662,7 @@ print(y)
 ```
 
 
-Assuming very very simplfied memory model, but discussing the difference about value and pointer, and how pointers are just numbers of the address of the thing they point to. We used pen and paper, and I will attach the notes as we were talking through it, but you will have come up with your own way to explain it and use whatever you think is needed, e.g. you can use an array of cards to represent memory, or use minecraft to build a long line of blocks, or whatever works for you. We also spent fair bit of time on talking how the code is also in memory and it is not different than any value you store in memory. 
+Assuming very very simplfied memory model, but discussing the difference about value and pointer, and how pointers are just numbers of the address of the thing they point to. We used pen and paper, and I will attach the notes as we were talking through it, but you will have come up with your own way to explain it and use whatever you think is needed, e.g. you can use an array of cards to represent memory, or use minecraft to build a long line of blocks, or whatever works for you. We also spent fair bit of time on talking how the code is also in memory and it is not different than any value you store in memory.
 
 ![game-254-a.jpg](./screenshots/game-254-a.jpg "game 254-a screenshot")
 ![game-254-b.jpg](./screenshots/game-254-b.jpg "game 254-b screenshot")
@@ -19722,7 +19722,7 @@ def numbers(a,b):
 	for i in range(a,b):
 		x.append(i)
 	return x
- 	
+
 a = numbers(300,1000)
 print(a)
 ```
@@ -20393,7 +20393,7 @@ int main(void) {
     // and meets the horse, the horse should bite his leg and remove 50 health points
     // if (p.position..
     //
-    
+
     if (p.hp <= 0) {
       printf("GAME OVER\n");
       break;
@@ -20675,7 +20675,7 @@ def update():
     if king.colliderect(fox):
         king.x = c
         king.y = d
-        
+
     if elf.colliderect(king):
         elf.x = random.randint(10, 780)
         elf.y = random.randint(10, 780)
@@ -20875,7 +20875,7 @@ def back(n):
 def turn_left(n):
     Kitronik_Move_Motor.motor_off(Kitronik_Move_Motor.Motors.MotorLeft)
     Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorRight,Kitronik_Move_Motor.MotorDirection.Forward, n)
-    
+
 def turn_right(n):
     Kitronik_Move_Motor.motor_off(Kitronik_Move_Motor.Motors.MotorRight)
     Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft,Kitronik_Move_Motor.MotorDirection.Forward, n)
@@ -21058,7 +21058,7 @@ def update():
         if i.y < elf.y:
             i.y += random.randint(0,3)
 
-        
+
 def draw():
     screen.clear()
     elf.draw()
@@ -21118,9 +21118,9 @@ def update():
             i.y += random.randint(0,3)
         if elf.colliderect(i):
             game_over = True
-            
 
-        
+
+
 def draw():
     screen.clear()
     elf.draw()
@@ -21547,7 +21547,7 @@ def update():
     if keyboard.A:
         elf.x-=5
     if keyboard.D:
-        elf.x+=5 
+        elf.x+=5
 
     if keyboard.UP:
         king.y-=5
@@ -21556,7 +21556,7 @@ def update():
     if keyboard.LEFT:
         king.x-=5
     if keyboard.RIGHT:
-        king.x+=5 
+        king.x+=5
 
 
 def draw():
@@ -21817,14 +21817,14 @@ def add_row(y):
         if not has_gold and random.randint(0,10) < 3:
             kind = 'c3'
             has_gold = True
-            
+
         e = Actor(kind)
         e.x = 100 + (x * 30)
         e.y = y
         enemies.append(e)
 
     enemies.append(e)
-    
+
 
 def increase_dificulty():
     max_y = 0
@@ -21873,7 +21873,7 @@ def draw():
     elf.draw()
     screen.draw.line([100,700], [elf.x,elf.y], [255,0,0])
     screen.draw.line([700,700], [elf.x,elf.y], [255,0,0])
-    
+
     for e in enemies:
         e.draw()
 
@@ -21921,7 +21921,7 @@ def draw():
         for to_enemy in enemies:
             if from_enemy != to_enemy:
                 screen.draw.line([from_enemy.x,from_enemy.y], [to_enemy.x,to_enemy.y], [255,0,0])
-    
+
     for e in enemies:
         e.draw()
 
@@ -22165,13 +22165,13 @@ void loop()
     delay(100);
   }
 
-} 
+}
 ```
 
 
 ## [DAY-314] lists
 
-Given this list of items for an online store, print the total price of the whole 
+Given this list of items for an online store, print the total price of the whole
 
 ```
 items = [
@@ -22319,7 +22319,7 @@ for i in products:
         name2 = i["name"]
         big2 = total_price2
 
-    
+
 print(sum1,sum2)
 print(big1,name1)
 print(big2,name2)
@@ -22385,7 +22385,7 @@ follow the following rules for your lesson:
 ask your first question, and keep probing until you are satisfied that i completely understand how to manipulate lists and dictionaries including in nested form
 ```
 
-> to see an example of how the prompt works, you can add `now run a simulation where you are both the teacher and the student to show me how this interaction works, show me 5 questions and answer example interactions where you pretend you are a 12 yars old kid learning dictionaries` to the end 
+> to see an example of how the prompt works, you can add `now run a simulation where you are both the teacher and the student to show me how this interaction works, show me 5 questions and answer example interactions where you pretend you are a 12 yars old kid learning dictionaries` to the end
 
 > Those are the samples I got
 
@@ -22666,12 +22666,12 @@ model = {
 def choose_word(prob_dict):
     # Generate a random number between 0 and 100
     rand_num = random.randint(0, 100)
-    
+
     # Iterate through the keys in the probability dictionary
     for word, prob in prob_dict.items():
         # Subtract the probability of the current word from the random number
         rand_num -= prob
-        
+
         # If the random number is now negative or zero, return the current word
         if rand_num <= 0:
             return word
@@ -22687,9 +22687,9 @@ for i in range(10):
         break
 
     words.append(next_word)
-    
+
     print(words)
-    
+
 ```
 
 The function `choose_word` generates a random number between 0 and 100 and iterates through the probability dictionary to determine the next word. Here's a sample program using the generated dictionary:
@@ -22734,7 +22734,7 @@ Now given that when you type `hi`, ChatGPT gets:
 ```
 You are a chatbot named ChatGPT, you must be poilite and nice and respond to any question
 Question: hi
-Answer: 
+Answer:
 ```
 
 and it will reply:
@@ -22768,7 +22768,7 @@ It has a special word for 'STOP' so when it reaches it it just stops guessing.
 The responses generated by ChatGPT are entirely dependent on the prompts you provide. Using effective prompts can lead to valuable and engaging output. For example:
 
 ```
-As a storyteller, create entertaining stories that are engaging, imaginative, and captivating for the audience. 
+As a storyteller, create entertaining stories that are engaging, imaginative, and captivating for the audience.
 These stories can be fairy tales, educational narratives, or any other type that captures people's attention and
 imagination. Tailor your storytelling session to your target audience, like discussing animals for children or
 history-based tales for adults. First, please share a happy and interesting story about friendship.
@@ -22858,12 +22858,12 @@ def update():
         act.x = random.randint(0,WIDTH)
         actors.append(act)
         counter = 0
-    
+
 def draw():
     screen.clear()
     for actor in actors:
         actor.draw()
-    
+
 pgzrun.go()
 
 ```
@@ -22978,7 +22978,7 @@ def calculate(n1, n2, op):
         v = add(n1,n2)
 
     # make it work for multiplicaton, division and subtraction
-    
+
     return v
 
 while True:
@@ -23080,7 +23080,7 @@ def computer(board,computerSymbol):
     for i in range(0,9):
         if board[i] == '-':
             board[i] = computerSymbol
-            
+
 def check_win_or_lose(board):
     pass
 
@@ -23089,7 +23089,7 @@ while True:
     print_board(b1)
     person(b1,'X')
     print_board(b1)
-    computer(b1,'O') 
+    computer(b1,'O')
 ```
 
 ## [DAY-325] functions
@@ -23174,7 +23174,7 @@ def computer(board,computerSymbol):
         if board[i] == '-':
             board[i] = computerSymbol
             break
-            
+
 def check_win_or_lose(board):
     if board[0] == board[1]  and board[1] == board[2]:
         print(board[0], "YOU WIN SIR PERFECT")
@@ -23224,7 +23224,7 @@ def person(board, personSymbol):
     if pos == 'a3':
         if board[2] != '-':
             return False
-        board[2] = personSymbol        
+        board[2] = personSymbol
     if pos == 'b1':
         if board[3] != '-':
             return False
@@ -23256,7 +23256,7 @@ def computer(board,computerSymbol):
         if board[i] == '-':
             board[i] = computerSymbol
             break
-            
+
 def check_win_or_lose(board):
     pass
 b1 = empty_board()
@@ -23379,7 +23379,7 @@ def check_win_or_lose(board):
         return True
     if board[0] != '-' and board[0] == board[3]  and board[3] == board[6]:
         print(board[0], "YOU WIN SIR PERFECT")
-        return True    
+        return True
     if board[1] != '-' and board[1] == board[4]  and board[4] == board[7]:
         print(board[1], "YOU WIN SIR PERFECT")
         return True
@@ -23475,7 +23475,7 @@ Watch Bro Code's [HTML Full Course](https://www.youtube.com/watch?v=HD13eq_Pmp8)
 
 Copy your htmkl file `scp zzz.html user@x.x.x.x:` where x.x.x.x will be the ip address of the hositng the `:` is important for `scp` (which means secure copy), after `:` goes the directory you want to copy the file to, if you dont specify it will go to the home directory of the user.
 
-After that ssh into the machine `ssh user@x.x.x.x` and then move the file to /var/www/html with the `mv` command: `mv zzz.html /var/www/html` 
+After that ssh into the machine `ssh user@x.x.x.x` and then move the file to /var/www/html with the `mv` command: `mv zzz.html /var/www/html`
 
 Now open http://x.x.x.x.x/zzz.html with your browser and you are good to go!
 
@@ -23511,7 +23511,7 @@ Rewrite this card from our [https://punkjazz.org/programming-time](programming-t
 ```
 # Welcome to the haunted house!
 # ⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂⌂
-# 
+#
 #     ___
 #   _/ @@\   +--0--+ +--1--+ +--2--+
 #  ( \  O/__ |     | |     | |     |
@@ -24544,7 +24544,7 @@ int main(void){
         .d1 = '-',
         .d2 = '-',
         .d3 = '-'
-    }; 
+    };
 
     while(1) {
         board_print(game_board);
@@ -24869,7 +24869,7 @@ while True:
         f.write(symbol)
         f.close()
         quit()
-    
+
     elif ask== 'load':
         f=open('board.txt','r')
         data = f.read()
@@ -24915,11 +24915,11 @@ while True:
         win = True
     if bord[2] != '-' and (bord[2]==bord[4] and bord[4] == bord[6]):
         win = True
-    
+
     if win == True:
         print(symbol, "WINS")
         quit()
-    
+
     if symbol =='X':
         symbol = '0'
     else:
@@ -24955,7 +24955,7 @@ while True:
         print(d.read())
     if ask == 'quit':
         break
-        
+
 ```
 
 
@@ -25025,7 +25025,7 @@ while True:
 katakana:
 
 ```
-japanese={    
+japanese={
     "a": "ア",
     "i": "イ",
     "u": "ウ",
@@ -25426,7 +25426,7 @@ def is_prime(n):
         if n %x==0:
              return False
     return True
-def fizzz(x):    
+def fizzz(x):
     for i in range(x):
         if i%15==0:
             print("fizzbuzz")
@@ -25474,7 +25474,7 @@ elif ask == "area":
     re = input("what is the readius")
     v = circumference(re)
     print(v)
-    
+
 ```
 
 ## [DAY-369] functions
@@ -25584,7 +25584,7 @@ while True:
 
 Watch Ben Eater's Reliable data transmission: https://www.youtube.com/watch?v=eq5YpKHXJDM&
 
-> We didnt actually watch it but I tried to explain it myself and also built a similar lab setup with 2 esp32s, including how we test for valid bits and also how we send bit by bit and how we build the character on the other side, first with nz encoding then with data + clock, the lesson was about 45 minutes. 
+> We didnt actually watch it but I tried to explain it myself and also built a similar lab setup with 2 esp32s, including how we test for valid bits and also how we send bit by bit and how we build the character on the other side, first with nz encoding then with data + clock, the lesson was about 45 minutes.
 
 ![game-372-a.jpg](./screenshots/game-372-a.jpg "game 372 screenshot")
 ![game-372-b.jpg](./screenshots/game-372-b.jpg "game 372 screenshot")
@@ -26061,7 +26061,7 @@ int main(void){
 
 ## [DAY-384] arrays
 
-Watch The Cherno's Arrays in C++ video: https://www.youtube.com/watch?v=ENDaJi08jCU 
+Watch The Cherno's Arrays in C++ video: https://www.youtube.com/watch?v=ENDaJi08jCU
 
 ![game-384.png](./screenshots/game-384.png "game 384 screenshot")
 
@@ -26302,5 +26302,3 @@ int main(){
     }
 }
 ```
-
-
