@@ -26302,3 +26302,60 @@ int main(){
     }
 }
 ```
+
+## [DAY-390] 2d arrays
+
+Read the Beej's C guide chapters on Arrays. Play with the example from the book, after that make `board[3][3]` tic tac toe.
+
+
+```
+int main(void){
+    int row, col;
+    int a[2][5] = {
+        {0,1,2,3,4},
+        {5,6,7,8,9}
+    };
+    for(row = 0; row< 2; row++){
+        for (col = 0; col<5; col++){
+            printf("(%d %d) = %d\n", row, col, a[row][col]);
+        }
+    }
+}
+```
+
+## [DAY-391] strings
+
+Read the Beej's C guide chapters on Strings and Pointers. Make a calculator that expects operation names in strings, e.g. "add", "subtract" usint strcmp().
+
+
+## [DAY-392] assembler
+
+> We had a discussion again about how the computer executes a program, how the program gets from disk to RAM, and how it is executed in RAM, and most importantly: what is a register.
+
+Play https://punkx.org/overflow/build/snakes-and-ladders.pdf again and think about the role of the registers in the CPU.
+
+Write the RISC-V assembler for the following C program:
+
+```
+int main(void) {
+	int a = 7;
+	int b = 8;
+	int c = a + b;
+}
+```
+
+As you are writing the program, you decide where a,b and c are in memory relative to the stack pointer.
+
+> when we did the exercise she decided that a is 12+sp, b is 8+sp and c is 4+sp
+
+
+```
+add sp, sp, -16
+li a5, 7
+sw a5, 12(sp)
+li a6, 8
+sw a5, 8(sp)
+add a5, a5, a6
+sw a5, 4(sp)
+```
+
