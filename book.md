@@ -26359,3 +26359,54 @@ add a5, a5, a6
 sw a5, 4(sp)
 ```
 
+## [DAY-393] heap
+
+
+We spent the day talking about the heap and the stack, and using a super basic example to illustrate how to think about heap memory. We also spent half the time discussing how exactly one processor can run multiple programs in the same time. Spoke about storing and loading the registers.
+
+* What happens with the old memory if realloc gives you new pointer?
+* How does realloc() know how much memory 'a' has? 
+* What is sizeof
+
+Again discussed how compilation happens and what does it mean to 'run' a program.
+
+```
+/*
+
+a = []
+
+while True:
+    b = int(input("enter a number: "))
+    if b == 0:
+        break
+    a.append(b)
+
+for i in range(len(a)):
+    print(a[i])
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    char *a = NULL;
+    int i = 0;
+    int b;
+    while (1) {
+        printf("enter a number: ");
+        scanf("%d", &b);
+        if (b == 0) {
+            break;
+        }
+        a = realloc(a, (i + 1) * sizeof(int));
+        a[i] = b;
+        i++;
+    }
+
+    for (int j = 0; j < i; j++) {
+        printf("%d\n", a[j]);
+    }
+}
+```
+
