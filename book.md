@@ -26410,3 +26410,16 @@ int main(void) {
 }
 ```
 
+
+
+## [DAY-394] using chatgpt
+
+Use ChatGPT to make few games for example a snake game and a flappy bird game.
+
+If there is an error, give it the error and ask it to fix it, if there is a bug, ask it to fix the bug.
+
+Be very clear and concise in your instructions. Try also Claude Sonnet 3.5.
+
+Try to think of some useful problem that you can ask it to write a program for for example roblox bot with pyautogui, or download youtube songs.
+
+Keep in mind it can completely hallucinate and make things up, the programs can have a lot of bugs or are written in a way that is not very useful to you, but that does not mean you should not use it, it just means you have to know how to use it.
