@@ -26423,3 +26423,65 @@ Be very clear and concise in your instructions. Try also Claude Sonnet 3.5.
 Try to think of some useful problem that you can ask it to write a program for for example roblox bot with pyautogui, or download youtube songs.
 
 Keep in mind it can completely make things up, the programs can have a lot of bugs or are written in a way that is not very useful to you, but that does not mean you should not use it, it just means you have to know how to use it.
+
+
+## [DAY-395] tictactoe
+Another tictactoe, but put the board on the heap.
+
+> We spent time discussing how many variables each function stack has and how they are multiple copies poiting to the same heap address for the board. Also spent some time picking a VSCode theme which was more important than I though.
+
+> Also we spend time discussing how you actually write a program, where do you start and in what order do you do it. I thought her how to start from main, make the game loop and then as she is writing it think about what functions she would need and just invoke them as if they exists. 
+
+> Discussed various ways to return values, e.g. the check_win can take a pointer to res, versus returning a value.
+
+> Spent time on pointer arithmetic, e.g. passing b+4 to print_board() or b-10, and also dereferencing *(b+1) and b[1] vs b+1
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+void print_board(char *b){
+    printf("%c %c %c \n",b[0],b[1],b[2]);
+    printf("%c %c %c \n",b[3],b[4],b[5]);
+    printf("%c %c %c \n",b[6],b[7],b[8]);
+}
+int check_win(char *b){
+    if(b[0] == b[1] && b[1] == b[2] && b[0] != '-'){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int main(void)
+{
+    char *b = malloc(9);
+    for (int i = 0; i < 9; i++)
+    {
+        b[i] = '-';
+    }
+    print_board(b);
+    int player = 'X';
+    while (1)
+    {
+        int position;
+        printf("Where do you want to play? ");
+        scanf("%d", &position);
+        b[position] = player;
+        print_board(b);
+        int res = check_win(b);
+        if(res == 1){
+            printf("Congratulations %c wins", player);
+            break;
+        }
+        if (player == 'X')
+        {
+            player = '0';
+        }
+        else
+        {
+            player = 'X';
+        }
+    }
+    free(b);
+}
+```
