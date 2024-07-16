@@ -26426,6 +26426,7 @@ Keep in mind it can completely make things up, the programs can have a lot of bu
 
 
 ## [DAY-395] tictactoe
+
 Another tictactoe, but put the board on the heap.
 
 > We spent time discussing how many variables each function stack has and how they are multiple copies poiting to the same heap address for the board. Also spent some time picking a VSCode theme which was more important than I though.
