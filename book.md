@@ -26486,3 +26486,94 @@ int main(void)
     free(b);
 }
 ```
+
+
+## [DAY-395] stack and heap
+
+Make another tictactoe, and super simple hangman game; while doing it think about each variable, and discuss where it is in memory, and how you access it.
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+void print_board(char *b){
+    printf("%c %c %c \n",b[0],b[1],b[2]);
+    printf("%c %c %c \n",b[3],b[4],b[5]);
+    printf("%c %c %c \n",b[6],b[7],b[8]);
+}
+int check_win(char *b){
+    if(b[0]==b[1]&&b[1]==b[2]&&b[0]!='-'){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int main(void){
+    int player = 'X';
+    char *board = malloc(9);
+    for( int i=0; i<9; i++){
+        board[i] ='-';
+    }
+    while(1){
+        print_board(board);
+
+        if(player == 'X'){
+            player = 'O';
+        }
+        else{
+            player = 'X';
+        }
+        int pos;
+        printf("Where do you want to play: ");
+        scanf("%d", &pos);
+        board[pos]=player;
+        if(check_win(board) == 1){
+            printf("Congrats you won!");
+            break;
+        }
+    }      
+    free(board);
+}
+```
+
+> I helped with the hangman version, but the point was to discuss the print_guess() function and how powerful it is.
+
+```
+#include <stdio.h>
+
+void print_guess(char *g, int n) {
+    for (int i = 0; i < n;i++) {
+        printf("%c", g[i]);
+    }
+    printf("\n");
+}
+
+int main(void) {
+    char word[4] = {'b','o','o','k'};
+    char guess[4] = {'-','-','-','-'};
+    int lives = 11;
+    while(1) {
+        print_guess(guess,4);
+        printf("%d> ", lives);
+        char guess_char;
+        scanf(" %c", &guess_char);
+        int found = 0;
+
+        for (int i = 0; i < 4; i++) {
+            if (word[i] == guess_char) {
+                guess[i] = guess_char;
+                found = 1;
+            }
+        }
+
+        if (found == 0) {
+            lives--;
+            if (lives == 0) {
+                printf("game over\n");
+                break;
+            }
+        }
+    }
+}
+```
