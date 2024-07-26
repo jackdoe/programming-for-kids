@@ -26488,7 +26488,7 @@ int main(void)
 ```
 
 
-## [DAY-395] stack and heap
+## [DAY-396] stack and heap
 
 Make another tictactoe, and super simple hangman game; while doing it think about each variable, and discuss where it is in memory, and how you access it.
 
@@ -26575,5 +26575,76 @@ int main(void) {
             }
         }
     }
+}
+```
+
+## [DAY-397] stack and heap
+
+Make another tictactoe, draw the memory layout of where each variable is, including when you call print_board or check_win.
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+void print_board(char *b){
+    printf("%c %c %c\n",b[0],b[1],b[2]);
+    printf("%c %c %c\n",b[3],b[4],b[5]);
+    printf("%c %c %c\n",b[6],b[7],b[8]);
+}
+int check_win(char *b){
+    if(b[0]==b[1]&&b[1]==b[2]&&b[0]!='-'){
+        return 7;
+    }
+    if(b[3]==b[4]&&b[4]==b[5]&&b[3]!='-'){
+        return 7;
+    }
+    if(b[6]==b[7]&&b[7]==b[8]&&b[6]!='-'){
+        return 7;
+    }
+    if(b[0]==b[3]&&b[3]==b[6]&&b[0]!='-'){
+        return 7;
+    }
+    if(b[1]==b[4]&&b[4]==b[7]&&b[1]!='-'){
+        return 7;
+    }
+    if(b[2]==b[5]&&b[5]==b[8]&&b[2]!='-'){
+        return 7;
+    }
+    if(b[0]==b[4]&&b[4]==b[8]&&b[0]!='-'){
+        return 7;
+    }
+    if(b[2]==b[4]&&b[4]==b[6]&&b[2]!='-'){
+        return 7;
+    }
+
+    return 0;
+}
+int main(void){
+    char *board=malloc(9);
+    // char board[9];
+    for(int i=0;i<9;i++){
+        board[i] = '-';
+    }
+    int player = 'X';
+    int pos;
+    while(1){
+         (board);
+        if(player =='X'){
+            player = 'O';
+        }
+        else{
+            player = 'X';
+        }
+
+        printf("Where do you want to play: ");
+        scanf("%d",&pos);
+        board[pos] = player;
+        
+        if(check_win(board)==7){
+            printf("player %c wins the game.",player);
+            break;
+        }
+    
+    }
+    free(board);
 }
 ```
