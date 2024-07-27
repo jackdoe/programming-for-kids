@@ -26648,3 +26648,60 @@ int main(void){
     free(board);
 }
 ```
+
+
+## [DAY-397] if
+
+Make simple hangman game
+
+> using individual arrays of chars instead of c strings to get more familiar with accessing and working with multiple arrays.
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main(void) {
+    char *word=malloc(6);
+    char *guess=malloc(6);
+    word[0] = 's';
+    word[1] = 'c';
+    word[2] = 'h';
+    word[3] = 'o';
+    word[4] = 'o';
+    word[5] = 'l';
+    for(int i=0;i<6;i++){
+        guess[i] = '-';
+    }
+    int lives = 11;
+    while(1){
+        printf("%c %c %c %c %c %c\n", guess[0],guess[1],guess[2],guess[3],guess[4],guess[5]);
+        printf("what is your guess: ");
+        char try;
+        scanf(" %c",&try);
+        int match = 0;
+        for(int i=0; i<6;i++){
+            if(word[i] == try){
+                guess[i] = try;
+                match = 1;
+            } 
+        }
+        if (match == 0) {
+            lives--;
+            if (lives == 0) {
+                break;
+            }
+        }
+        match = 0;
+        for (int i=0; i<6; i++) {
+            if (word[i] == guess[i]) {
+                match++;
+            }
+        }
+        if (match == 6) {
+            break;
+        }
+    }
+    free(word);
+    free(guess);
+}
+
+```
