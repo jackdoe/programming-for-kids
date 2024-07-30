@@ -26710,7 +26710,7 @@ int main(void) {
 ## [DAY-398] for
 make another tictactoe and hangman, this time use a function to check win in hangman
 
-> we discussed memcmp and difference between arrays of characters and strings
+> we discussed memcmp,strcmp and difference between arrays of characters and strings
 
 ```
 #include <stdio.h>
