@@ -26705,3 +26705,103 @@ int main(void) {
 }
 
 ```
+
+
+## [DAY-398] for
+make another tictactoe and hangman, this time use a function to check win in hangman
+
+> we discussed memcmp and difference between arrays of characters and strings
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+void print_board(char *b){
+    printf("%c %c %c\n",b[0],b[1],b[2]);
+    printf("%c %c %c\n",b[3],b[4],b[5]);
+    printf("%c %c %c\n",b[6],b[7],b[8]);
+}
+int player='X';
+int pos;
+int check_win(char  *b){
+    if(b[0]==b[1]&&b[1]==b[2]&&b[0]!='-'){
+        return 1;
+    }
+    return 0;
+}
+int main(void){
+    char *board=malloc(9);
+        for(int i=0; i<9;i++){
+            board[i] = '-';
+        }
+    while(1){ 
+        print_board(board);
+        if(player =='X'){
+            player = 'O';
+        }
+        else{
+            player = 'X';
+        }
+        printf("Where do you want to play: ");
+        scanf("%d",&pos);
+        board[pos] = player;
+        int win = check_win(board);
+        if(win == 1){
+            printf("Player %c wins! ",player);
+            break;
+        }
+    }
+free(board);
+}
+```
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+int check_win(char *w, char *g){
+    for(int i=0;i<10;i++){
+        if(w[i] != g[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+int main(){
+    char try;
+    char *word=malloc(10);
+    char *guess=malloc(10);
+    for(int i=0;i<10;i++){
+        guess[i] ='-';
+    }
+    word[0] = 'l';
+    word[1] = 'e';
+    word[2] = 'o';
+    word[3] = 'n';
+    word[4] = 'y';
+    word[5] = 's';
+    word[6] = 'p';
+    word[7] = 'i';
+    word[8] = 'k';
+    word[9] = 'e'; 
+    while(1){
+        for(int i=0; i<10;i++){
+            printf("%c",guess[i]);
+        }
+        printf("\n");
+        printf("What letter do you guess: ");
+        scanf(" %c",&try);
+        for(int i=0;i<10;i++){
+            if(try==word[i]){
+                guess[i] = word[i];
+            }
+        }
+        int win =check_win(word,guess);
+        if(win==1){
+            printf("you guessed the word congrats");
+            break;
+        }
+    }
+    free(word);
+    free(guess);
+
+}
+```
