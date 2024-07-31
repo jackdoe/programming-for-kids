@@ -26805,3 +26805,37 @@ int main(){
 
 }
 ```
+
+## [DAY-399] memory
+
+Draw on piece of paper all the variables, the main stack and then the check_win stack, discuss how `word[i] == guess[i]` works.
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int check_win(char *guess, char *word){
+    for(int i=0;i<5;i++){
+        if(word[i]!=guess[i]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+int main(void){
+    char a[5] = {'a','b','c','d','e'};
+    char *b = malloc(5);
+    b[0] = 'a';
+    b[1] = 'o';
+    b[2] = 'c';
+    b[3] = 'd';
+    b[4] = 'e';
+
+    int result=check_win(a,b);
+    if(result==1){
+        printf("you guessed the word congratulations! ");
+    }
+}
+```
