@@ -26839,3 +26839,35 @@ int main(void){
     }
 }
 ```
+
+## [DAY-400] for
+
+make a program to check if a number is prime
+
+```
+#include <stdio.h>
+
+int is_prime(int number) {
+    for(int i=2; i < number - 1; i++) {
+        if (number % i == 0) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+int main(void) {
+    while (1) {
+        int n = 0;
+        printf("> ");
+        scanf("%d", &n);
+
+        int r = is_prime(n);
+        if (r == 0) {
+            printf("is prime\n");
+        } else {
+            printf("is not prime, divisible by %d\n", r);
+        }
+    }
+}
+```
