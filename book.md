@@ -26871,3 +26871,34 @@ int main(void) {
     }
 }
 ```
+
+## [DAY-401] strlen
+
+Make another hangman, this time use strcmp and strlen in the for loops, use strings so you can just use %s.
+
+> we discussed how strlen and strcmp work in detail
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+    char word[] = "hello";
+    char guess[] = "-----";
+    char try;
+    while(1){
+        printf("%s\n",guess);
+        printf("what is your guess: ");
+        scanf(" %c",&try);
+        for(int i=0; i<strlen(word);i++){
+            if(try==word[i]){
+                guess[i] = try;
+            }
+        }
+        if (strcmp(word, guess) == 0) {
+            printf("You win congratulations! \n");
+            break;
+        }
+    }
+}
+```
