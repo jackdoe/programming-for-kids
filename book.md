@@ -26902,3 +26902,35 @@ int main(void){
     }
 }
 ```
+
+## [DAY-402] compare
+
+write a function that compares two pointers for SIZE bytes
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(char *w,char *g, int size) {
+    //    v
+    // hello
+    // helzo
+    //    ^
+    for(int i=0;i<size;i++){
+        if(w[i] != g[i]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+int main(void) {
+    char a[] = {'a','b'};
+    char b[] = {'a','b'};
+    int r = compare(a,b,2);
+    printf("%d\n",r);
+
+    return 0;
+}
+```
