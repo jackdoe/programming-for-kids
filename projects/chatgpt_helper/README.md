@@ -1,4 +1,4 @@
-Sonnet3.5 wrote this, it must be with quite some bugs and leaks, dont use it besises to just play with it
+Sonnet3.5 wrote this, it must be with quite some bugs and leaks, dont use it besises to just to play with it
 
 Example usage:
 
