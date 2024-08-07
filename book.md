@@ -26934,3 +26934,7 @@ int main(void) {
     return 0;
 }
 ```
+
+## [DAY-403] shared libraries
+
+We spent the day discussing shared libraries, particularly `-lcurl`, using [chatgpt.h](projects/chatgpt_helper/chatgpt.h) as an example.
