@@ -2,11 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <curl/curl.h>
-
+#ifdef _WIN32
+  #include <windows.h>
+  #include <winhttp.h>
+#else
+  #include <curl/curl.h>
+#endif
 #define MAX_RESPONSE_SIZE 100000
 void* allocx(size_t size) {
-    void* ptr = malloc(size);
+    void* ptr = allocx(size);
     if (!ptr) {
         fprintf(stderr, "Memory allocation failed\n");
         exit(EXIT_FAILURE);
@@ -51,30 +55,6 @@ typedef struct JsonValue {
     } value;
 } JsonValue;
 
-struct MemoryStruct {
-    char* memory;
-    size_t size;
-};
-
-static size_t WriteMemoryCallback(void* contents, size_t size, size_t nmemb, void* userp) {
-    size_t realsize = size * nmemb;
-    struct MemoryStruct* mem = (struct MemoryStruct*)userp;
-
-    // Use reallocarray to prevent potential integer overflow
-    char* ptr = reallocarray(mem->memory, mem->size + realsize + 1, sizeof(char));
-    if (!ptr) {
-        fprintf(stderr, "Not enough memory (reallocarray returned NULL)\n");
-        exit(EXIT_FAILURE); // Exit on memory allocation failure
-    }
-
-    mem->memory = ptr;
-    memcpy(&(mem->memory[mem->size]), contents, realsize);
-    mem->size += realsize;
-    mem->memory[mem->size] = 0;
-
-    return realsize;
-}
-
 void skip_whitespace(const char** json) {
     while (isspace(**json)) (*json)++;
 }
@@ -94,7 +74,7 @@ char* parse_string(const char** json) {
     if (**json != '"') return NULL;
     
     size_t length = *json - start;
-    char* result = malloc(length + 1);
+    char* result = allocx(length + 1);
     strncpy(result, start, length);
     result[length] = '\0';
     
@@ -106,7 +86,7 @@ JsonValue* parse_object(const char** json) {
     if (**json != '{') return NULL;
     (*json)++;
     
-    JsonValue* object = malloc(sizeof(JsonValue));
+    JsonValue* object = allocx(sizeof(JsonValue));
     object->type = JSON_OBJECT;
     object->value.object.keys = NULL;
     object->value.object.values = NULL;
@@ -165,7 +145,7 @@ JsonValue* parse_array(const char** json) {
     if (**json != '[') return NULL;
     (*json)++;
     
-    JsonValue* array = malloc(sizeof(JsonValue));
+    JsonValue* array = allocx(sizeof(JsonValue));
     array->type = JSON_ARRAY;
     array->value.array.values = NULL;
     array->value.array.count = 0;
@@ -201,7 +181,7 @@ JsonValue* parse_array(const char** json) {
 JsonValue* parse_value(const char** json) {
     skip_whitespace(json);
     
-    JsonValue* value = malloc(sizeof(JsonValue));
+    JsonValue* value = allocx(sizeof(JsonValue));
     
     if (**json == '{') {
         free(value);
@@ -298,14 +278,14 @@ void free_json(JsonValue* json) {
 }
 
 JsonValue* create_string(const char* str) {
-    JsonValue* value = malloc(sizeof(JsonValue));
+    JsonValue* value = allocx(sizeof(JsonValue));
     value->type = JSON_STRING;
     value->value.string = strdup(str);
     return value;
 }
 
 JsonValue* create_object() {
-    JsonValue* value = malloc(sizeof(JsonValue));
+    JsonValue* value = allocx(sizeof(JsonValue));
     value->type = JSON_OBJECT;
     value->value.object.keys = NULL;
     value->value.object.values = NULL;
@@ -314,7 +294,7 @@ JsonValue* create_object() {
 }
 
 JsonValue* create_array() {
-    JsonValue* value = malloc(sizeof(JsonValue));
+    JsonValue* value = allocx(sizeof(JsonValue));
     value->type = JSON_ARRAY;
     value->value.array.values = NULL;
     value->value.array.count = 0;
@@ -386,7 +366,170 @@ char* serialize_json(JsonValue* json) {
 }
 
 
-char* chatgpt(const char* prompt, char *api_key) {
+#ifdef _WIN32
+// Windows implementation
+char* chatgpt_windows(const char* prompt, char* api_key) {
+    HINTERNET hSession = NULL, hConnect = NULL, hRequest = NULL;
+    BOOL bResults = FALSE;
+    DWORD dwSize = 0;
+    DWORD dwDownloaded = 0;
+    LPSTR pszOutBuffer = NULL;
+    DWORD dwBufferSize = 0;
+    char* result = NULL;
+    char* post_fields = NULL;
+    JsonValue* request = NULL;
+    JsonValue* json_response = NULL;
+
+    // Create JSON object for the request
+    request = create_object();
+    if (!request) {
+        fprintf(stderr, "Memory allocation failed\n");
+        goto cleanup;
+    }
+
+    add_to_object(request, "model", create_string("gpt-4o-mini"));
+    
+    JsonValue* messages = create_array();
+    if (!messages) {
+        fprintf(stderr, "Memory allocation failed\n");
+        goto cleanup;
+    }
+
+    JsonValue* message = create_object();
+    if (!message) {
+        fprintf(stderr, "Memory allocation failed\n");
+        goto cleanup;
+    }
+
+    add_to_object(message, "role", create_string("user"));
+    add_to_object(message, "content", create_string(prompt));
+    add_to_array(messages, message);
+    add_to_object(request, "messages", messages);
+
+    post_fields = serialize_json(request);
+    if (!post_fields) {
+        fprintf(stderr, "JSON serialization failed\n");
+        goto cleanup;
+    }
+
+    // Initialize WinHTTP
+    hSession = WinHttpOpen(L"ChatGPT API Client", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
+    if (!hSession) {
+        fprintf(stderr, "WinHttpOpen failed\n");
+        goto cleanup;
+    }
+
+    // Connect to the server
+    hConnect = WinHttpConnect(hSession, L"api.openai.com", INTERNET_DEFAULT_HTTPS_PORT, 0);
+    if (!hConnect) {
+        fprintf(stderr, "WinHttpConnect failed\n");
+        goto cleanup;
+    }
+
+    // Create an HTTP request
+    hRequest = WinHttpOpenRequest(hConnect, L"POST", L"/v1/chat/completions", NULL, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
+    if (!hRequest) {
+        fprintf(stderr, "WinHttpOpenRequest failed\n");
+        goto cleanup;
+    }
+
+    // Add headers
+    WCHAR headers[256];
+    swprintf(headers, 256, L"Authorization: Bearer %hs\r\nContent-Type: application/json", api_key);
+    bResults = WinHttpAddRequestHeaders(hRequest, headers, -1L, WINHTTP_ADDREQ_FLAG_ADD);
+    if (!bResults) {
+        fprintf(stderr, "WinHttpAddRequestHeaders failed\n");
+        goto cleanup;
+    }
+
+    // Send the request
+    bResults = WinHttpSendRequest(hRequest, WINHTTP_NO_ADDITIONAL_HEADERS, 0, post_fields, strlen(post_fields), strlen(post_fields), 0);
+    if (!bResults) {
+        fprintf(stderr, "WinHttpSendRequest failed\n");
+        goto cleanup;
+    }
+
+    // Receive the response
+    bResults = WinHttpReceiveResponse(hRequest, NULL);
+    if (!bResults) {
+        fprintf(stderr, "WinHttpReceiveResponse failed\n");
+        goto cleanup;
+    }
+
+    // Read the response data
+    do {
+        dwSize = 0;
+        if (!WinHttpQueryDataAvailable(hRequest, &dwSize)) {
+            fprintf(stderr, "WinHttpQueryDataAvailable failed\n");
+            goto cleanup;
+        }
+
+        if (dwSize == 0) {
+            break;
+        }
+
+        pszOutBuffer = (LPSTR)realloc(pszOutBuffer, dwBufferSize + dwSize + 1);
+        if (!pszOutBuffer) {
+            fprintf(stderr, "Memory allocation failed\n");
+            goto cleanup;
+        }
+
+        ZeroMemory(pszOutBuffer + dwBufferSize, dwSize + 1);
+
+        if (!WinHttpReadData(hRequest, (LPVOID)(pszOutBuffer + dwBufferSize), dwSize, &dwDownloaded)) {
+            fprintf(stderr, "WinHttpReadData failed\n");
+            goto cleanup;
+        }
+
+        dwBufferSize += dwDownloaded;
+
+    } while (dwSize > 0);
+
+    // Parse the JSON response
+    json_response = parse_json(pszOutBuffer);
+    if (json_response) {
+        result = find_content(json_response);
+    }
+
+cleanup:
+    // Clean up resources
+    if (hRequest) WinHttpCloseHandle(hRequest);
+    if (hConnect) WinHttpCloseHandle(hConnect);
+    if (hSession) WinHttpCloseHandle(hSession);
+    if (pszOutBuffer) free(pszOutBuffer);
+    if (post_fields) free(post_fields);
+    if (request) free_json(request);
+    if (json_response) free_json(json_response);
+
+    return result;
+}
+
+#else
+struct MemoryStruct {
+    char *memory;
+    size_t size;
+};
+
+static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp) {
+    size_t realsize = size * nmemb;
+    struct MemoryStruct *mem = (struct MemoryStruct *)userp;
+
+    // Check for potential overflow
+    if (SIZE_MAX - mem->size < realsize) {
+        fprintf(stderr, "Cannot allocate memory, size_t overflow detected\n");
+        return 0;
+    }
+
+    char *ptr = reallocx(mem->memory, mem->size + realsize + 1);
+
+    mem->memory = ptr;
+    memcpy(&(mem->memory[mem->size]), contents, realsize);
+    mem->size += realsize;
+    mem->memory[mem->size] = 0;
+
+    return realsize;
+}
+char* chatgpt_unix(const char* prompt, char *api_key) {
     CURL* curl = NULL;
     CURLcode res;
     struct MemoryStruct chunk = { .memory = NULL, .size = 0 };
@@ -396,11 +539,7 @@ char* chatgpt(const char* prompt, char *api_key) {
     JsonValue* request = NULL;
 
     // Initialize memory for chunk
-    chunk.memory = malloc(1);
-    if (!chunk.memory) {
-        fprintf(stderr, "Memory allocation failed\n");
-        exit(EXIT_FAILURE);
-    }
+    chunk.memory = allocx(1);
     chunk.size = 0;
 
     curl_global_init(CURL_GLOBAL_ALL);
@@ -487,6 +626,17 @@ cleanup:
     curl_global_cleanup();
 
     return result;
+}
+
+#endif
+
+// Wrapper function to call the appropriate implementation
+char* chatgpt(const char* prompt, char* api_key) {
+#ifdef _WIN32
+    return chatgpt_windows(prompt, api_key);
+#else
+    return chatgpt_unix(prompt, api_key);
+#endif
 }
 
 char* chatgpt_env_key(const char* prompt) {
