@@ -26938,3 +26938,108 @@ int main(void) {
 ## [DAY-403] shared libraries
 
 We spent the day discussing shared libraries, particularly `-lcurl`, using [chatgpt.h](projects/chatgpt_helper/chatgpt.h) as an example.
+
+
+## [DAY-404] pointers
+
+Discussed malloc returning `void *` and its up to us to interpret it when asigning it to `char *` or `int *`, particularly this code:
+
+```
+int *b = malloc(12);
+char *a = b;
+b[0] = 259;
+a[1] = 2;
+```
+
+![game-404.jpg](./screenshots/game-404.jpg "game 404 screenshot")
+![game-404-b.jpg](./screenshots/game-404-b.jpg "game 404 b screenshot")
+
+Made 4 in a row with copilot and discussed it and also discussed how to influence it with comments:
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// this is a four in a row game
+void print_board(char *b){
+    printf("%c %c %c %c %c %c %c\n",b[0],b[1],b[2],b[3],b[4],b[5],b[6]);
+    printf("%c %c %c %c %c %c %c\n",b[7],b[8],b[9],b[10],b[11],b[12],b[13]);
+    printf("%c %c %c %c %c %c %c\n",b[14],b[15],b[16],b[17],b[18],b[19],b[20]);
+    printf("%c %c %c %c %c %c %c\n",b[21],b[22],b[23],b[24],b[25],b[26],b[27]);
+    printf("%c %c %c %c %c %c %c\n",b[28],b[29],b[30],b[31],b[32],b[33],b[34]);
+    printf("%c %c %c %c %c %c %c\n",b[35],b[36],b[37],b[38],b[39],b[40],b[41]);
+}
+
+int check_win(char *b){
+    //check horizontal
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 4; j++){
+            if(b[i*7+j] == b[i*7+j+1] && b[i*7+j] == b[i*7+j+2] && b[i*7+j] == b[i*7+j+3] && b[i*7+j] != '-'){
+                return 1;
+            }
+        }
+    }
+    //check vertical
+    for(int i = 0; i < 7; i++){
+        for(int j = 0; j < 3; j++){
+            if(b[j*7+i] == b[(j+1)*7+i] && b[j*7+i] == b[(j+2)*7+i] && b[j*7+i] == b[(j+3)*7+i] && b[j*7+i] != '-'){
+                return 1;
+            }
+        }
+    }
+    //check diagonal
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 4; j++){
+            if(b[i*7+j] == b[(i+1)*7+j+1] && b[i*7+j] == b[(i+2)*7+j+2] && b[i*7+j] == b[(i+3)*7+j+3] && b[i*7+j] != '-'){
+                return 1;
+            }
+        }
+    }
+    for(int i = 0; i < 3; i++){
+        for(int j = 3; j < 7; j++){
+            if(b[i*7+j] == b[(i+1)*7+j-1] && b[i*7+j] == b[(i+2)*7+j-2] && b[i*7+j] == b[(i+3)*7+j-3] && b[i*7+j] != '-'){
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+int main(void){
+    int player = 'X';
+    char *board = malloc(42);
+    for( int i=0; i<42; i++){
+        board[i] ='-';
+    }
+    while(1){
+        print_board(board);
+
+        if(player == 'X'){
+            player = 'O';
+        }
+        else{
+            player = 'X';
+        }
+        int pos;
+        printf("Where do you want to play: ");
+        scanf("%d", &pos);
+        while(board[pos] != '-'){
+            printf("Invalid move, try again: ");
+            scanf("%d", &pos);
+        }
+        // elements must fall to the bottom, to the closest non empty cell
+        while(board[pos+7] == '-' && pos < 35){
+            pos += 7;
+        }
+
+        board[pos]=player;
+        if(check_win(board) == 1){
+            print_board(board);
+            printf("Congrats you won!");
+            break;
+        }
+    }      
+    free(board);
+}
+```
