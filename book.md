@@ -27043,3 +27043,65 @@ int main(void){
     free(board);
 }
 ```
+
+
+## [DAY-405] rock paper scissors
+
+make rock paper scissors
+
+```
+#include <stdio.h>
+#include <stdio.h>
+#define ROCK 1
+#define PAPER 2
+#define SCISSORS 3
+
+int main(void){
+    int player1;
+    int player2;
+
+    printf("This is a game of rock paper and scissors you will use the number 1 for rock, the number 2 for paper and the number 3 for scissors\n");
+    printf("Player1 what will you choose: ");
+    scanf("%d",&player1);
+    for(int i=0;i<100;i++){
+        printf("\n");
+    }
+    printf("Player2 what will you choose: ");
+    scanf("%d",&player2);
+
+    if(player1 == ROCK && player2 == PAPER){
+        printf("Player 2 has won");
+        return 0;
+    }
+
+    if(player1 == ROCK && player2 == SCISSORS){
+        printf("Player 1 has won");
+        return 0;
+    }
+
+    if(player1 == PAPER && player2 == ROCK){
+        printf("Player 1 has won");
+        return 0;
+    }
+
+    if(player1 == PAPER && player2 == SCISSORS){
+        printf("Player 2 has won");
+        return 0;
+    }
+
+    if(player1 == SCISSORS && player2 == ROCK){
+        printf("Player 2 has won");
+        return 0;
+    }
+
+    if(player1 == SCISSORS && player2 == PAPER){
+        printf("Player 1 has won");
+        return 0;
+    }
+
+    if(player1 == player2){
+        printf("It's a tie");
+        return 0;
+    }
+}
+```
