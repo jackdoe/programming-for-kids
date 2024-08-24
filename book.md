@@ -27105,3 +27105,21 @@ int main(void){
     }
 }
 ```
+
+## [DAY-406] scanf
+
+Make a program that asks what is your name, and then prints it.
+
+> we discussed scanf what happens if you type more than the array can hold, or if you use the same array again and type less characters than before
+
+```
+#include <stdio.h>
+
+int main(void) {
+    char name[20];
+    printf("What is your name: ");
+    scanf("%s", name);
+    printf("Hello %s\n", name);
+    return 0;
+}
+```
