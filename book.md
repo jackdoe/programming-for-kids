@@ -27123,3 +27123,52 @@ int main(void) {
     return 0;
 }
 ```
+
+## [DAY-407] arrays
+
+make a calculator that remembers the numbers you used
+
+```
+#include <stdio.h>
+
+int main(){
+    double number1;
+    double history[200];
+    int index = 0;
+    double number2;
+    char symbol;
+    while(1){
+        printf("What is number 1: ");
+        scanf("%lf",&number1);
+        history[index] = number1;
+        index += 1;
+        printf("What is number 2: ");
+        scanf("%lf",&number2);
+        history[index] = number2;
+        index += 1;
+        printf("What sort of symbol will you use: ");
+        scanf(" %c",&symbol);
+        if(symbol == '+'){
+            number1 += number2;
+            printf("%lf",number1);
+        }
+        else if(symbol == '-'){
+            number1 -= number2;
+            printf("%lf",number1);
+        }
+        else if(symbol == '/'){
+            number1 /= number2;
+            printf("%lf",number1);
+        }
+        else if(symbol == '*'){
+            number1 *= number2;
+            printf("%lf",number1);
+        }
+        else if(symbol == 'q'){
+            for(int i = 0; i<index; i++){
+                printf("%lf\n",history[i]);
+            }
+        }
+    }
+}
+```
