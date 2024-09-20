@@ -27172,3 +27172,48 @@ int main(){
     }
 }
 ```
+
+## [DAY-408] RPN
+
+make a reverse polish notation calculator, for simplicity use 0 for + 1 for - and 2 for *
+
+```
+#include <stdio.h>
+
+int main() {
+    int stack[1000] = {0};
+    int index = 0;
+    while(1) {
+        int v = 0;
+        printf("> ");
+        scanf("%d", &v);
+        if (v == 0) {
+            // +
+            int a = stack[index-1];
+            int b = stack[index-2];
+            stack[index-2] = a + b;
+            index --;
+        } else if (v == 1) {
+            int a = stack[index-1];
+            int b = stack[index-2];
+            stack[index-2] = a - b;
+            index--;
+        } else if (v == 2) {
+            int a = stack[index-1];
+            int b = stack[index-2];
+            stack[index-2] = a * b;
+            index--;
+        } else {
+            // add v on top of the stack
+            stack[index] = v;           
+            index++;
+        }
+
+        for (int i = 0; i < index; i++) {
+            printf("%d: %d\n", i, stack[i]);
+        }
+
+    }
+}
+
+```
