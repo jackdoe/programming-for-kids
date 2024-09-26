@@ -27217,3 +27217,43 @@ int main() {
 }
 
 ```
+
+## [DAY-408] arrays
+
+make a program that asks for numbers and remembers them, but if you enter 0 it prints the history, -1 resets the history and 1 duplicates the top of the history
+
+> this is her code
+
+
+```
+#include <stdio.h>
+
+int main(){
+    int number;
+    int memory[50];
+    int index = 0;
+    while(1){
+        printf("Chose a number: ");
+        scanf("%d", &number);
+        if(number == 0){
+            for(int i=0; i<index; i++){
+                printf("%d \n",memory[i]);
+            }
+        }
+        else if(number == -1){
+            index = 0;
+        }
+        else if(number == 1){
+            index--;
+            int top = memory[index];
+            index++;
+            memory[index] = top;
+            index++;
+        }
+        else{
+            memory[index]= number;
+            index +=1;
+        }
+    }
+}
+```
