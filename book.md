@@ -27218,7 +27218,7 @@ int main() {
 
 ```
 
-## [DAY-408] arrays
+## [DAY-409] arrays
 
 make a program that asks for numbers and remembers them, but if you enter 0 it prints the history, -1 resets the history and 1 duplicates the top of the history
 
@@ -27249,6 +27249,59 @@ int main(){
             index++;
             memory[index] = top;
             index++;
+        }
+        else{
+            memory[index]= number;
+            index +=1;
+        }
+    }
+}
+```
+
+
+
+## [DAY-410] arrays
+
+remember a history of numbers, then when you pres -1 erase it, when you press 1 duplicate the last number, when you press 0 print them all, and with -2 sum the last 2 numbers and add them to the history
+
+```
+#include <stdio.h>
+
+int main(){
+    int number;
+    int memory[50];
+    int index = 0;
+    int sum = 0;
+    int a = 0;
+    int b =0;
+    while(1){
+        printf("Chose a number: ");
+        scanf("%d", &number);
+        if(number == 0){
+            for(int i=0; i<index; i++){
+                printf("%d \n",memory[i]);
+            }
+        }
+        else if(number == -1){
+            index = 0;
+        }
+        else if(number == -2){
+            index --;
+            b = memory[index];
+            index --;
+            a = memory[index];
+            index ++;
+            index ++;
+            sum = a + b;
+            memory[index] = sum;
+            index ++;
+        }
+        else if(number == 1){
+            index --;
+            int top = memory[index];
+            index ++;
+            memory[index] = top;
+            index ++;
         }
         else{
             memory[index]= number;
