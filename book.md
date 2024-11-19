@@ -27310,3 +27310,97 @@ int main(){
     }
 }
 ```
+
+## [DAY-411] scanf
+
+> in the last week we didn't have much time, so those are just some random programs she did every few days
+
+```
+#include <stdio.h>
+
+int main(){
+    printf("What function do you want to use? Choose between +, -, /, *  , and what numbers will you use");
+    char symbol;
+    int a;
+    int b;
+    scanf("%d %c %d",&a,&symbol,&b);
+    if(symbol == '+'){
+        int c = a + b;
+        printf("%d \n",c);
+    }
+    if(symbol == '-'){
+        int c = a - b;
+        printf("%d \n",c);
+    }
+    if(symbol == '/'){
+        int c = a / b;
+        printf("%d \n",c);
+    }
+    if(symbol == '*'){
+        int c = a * b;
+        printf("%d \n",c);
+    }
+}
+```
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+    printf("Choose between rock, paper or scissor: ");
+    char choice1[50];
+    scanf("%s",&choice1);
+    for(int i = 0; i<100; i++){
+        printf("/////////////////////////////////////////////////\n");
+    }
+    printf("Choose between rock, paper or scissor: ");
+    char choice2[50];
+    scanf("%s",&choice2);
+    int result = strcmp(choice1,choice2);
+    if(result == 0){
+        printf("Its a tie you're both losers :)");
+        return 0;
+    }
+   if(strcmp(choice1,"rock") == 0 && strcmp(choice2,"paper")==0){
+       printf("player 2 wins the game player 1 is a loser.");
+       return 0;
+   }
+   if(strcmp(choice1,"rock") == 0 && strcmp(choice2, "scissor")==0){
+       printf("Player 1 wins, player 2 is a loser.");
+       return 0;
+   }
+   if(strcmp(choice2,"rock") == 0 && strcmp(choice1,"paper")==0){
+       printf("player 1 wins the game player 2 is a loser.");
+       return 0;
+   }
+   if(strcmp(choice2,"rock") == 0 && strcmp(choice1, "scissor")==0){
+       printf("Player 2 wins, player 1 is a loser.");
+       return 0;
+   }
+}
+```
+
+
+```
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main(void){
+    while(1){
+        char name[50];
+        printf("What is your name: ");
+        scanf("%s",&name);
+        printf("Wow %s is a beautiful name\n",name);
+        char sage[50];
+        
+        printf("How old are you: ");
+        scanf("%s",sage);
+        int iage = atoi(sage);
+        printf("%d\n",iage);
+        if(strcmp(name, "quit")==0){
+            break;
+        }
+    }
+}
+```
